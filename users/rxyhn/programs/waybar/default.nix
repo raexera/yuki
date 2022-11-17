@@ -19,6 +19,7 @@
   };
 in {
   xdg.configFile."waybar/style.css".text = import ./style.nix;
+  home.packages = [waybar-wttr];
   programs.waybar = {
     enable = true;
     # This version just works for my configuration
@@ -76,7 +77,7 @@ in {
         "custom/launcher" = {
           format = " ";
           tooltip = false;
-          on-click = "killall rofi || ${pkgs.rofi}/bin/rofi -show drun";
+          on-click = "killall rofi || rofi -show drun";
         };
         "custom/todo" = {
           format = "{}";
@@ -89,7 +90,7 @@ in {
           format = "{}";
           tooltip = true;
           interval = 3600;
-          exec = "${waybar-wttr}";
+          exec = "waybar-wttr";
           return-type = "json";
         };
         "custom/lock" = {
