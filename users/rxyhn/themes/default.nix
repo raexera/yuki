@@ -8,7 +8,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Frappe-Pink";
+      name = "Catppuccin-Mocha-Lavender";
       package = self.packages.${pkgs.system}.catppuccin-gtk;
     };
     iconTheme = {
