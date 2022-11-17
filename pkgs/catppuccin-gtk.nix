@@ -10,8 +10,8 @@ stdenv.mkDerivation rec {
   version = "0.2.7";
 
   src = fetchzip {
-    url = "https://github.com/catppuccin/gtk/releases/download/v-0.2.7/Catppuccin-Mocha-Lavender.zip";
-    sha256 = "pPTtqzeUSBGdbtdgWVef4tKLafe2b5NQcjd48C0wpR8=";
+    url = "https://github.com/catppuccin/gtk/releases/download/v-0.2.7/Catppuccin-Frappe-Pink.zip";
+    sha256 = "w7yv9e9MuZgmCdr/RdDxg2hAeIhb1f82idUj4diI8v8=";
     stripRoot = false;
   };
 
@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/themes/
-    cp -r Catppuccin-Mocha-Lavender $out/share/themes
+    cp -r Catppuccin-Frappe-Pink $out/share/themes
   '';
 
   meta = {
@@ -30,5 +30,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/catppuccin/gtk";
     license = lib.licenses.gpl3;
     platforms = lib.platforms.unix;
+    maintainers = [lib.maintainers.sioodmy];
   };
 }

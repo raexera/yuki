@@ -8,7 +8,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Lavender";
+      name = "Catppuccin-Frappe-Pink";
       package = self.packages.${pkgs.system}.catppuccin-gtk;
     };
     iconTheme = {
@@ -36,7 +36,7 @@
   # cursor theme
   home.pointerCursor = {
     package = self.packages.${pkgs.system}.catppuccin-cursors;
-    name = "Catppuccin-Mocha-Dark";
+    name = "Catppuccin-Frappe-Dark";
     size = 24;
   };
   home.pointerCursor.gtk.enable = true;
