@@ -12,13 +12,16 @@
   environment = {
     variables = {
       NIXOS_OZONE_WL = "1";
+      XCURSOR_SIZE = "24";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       DISABLE_QT5_COMPAT = "0";
       ANKI_WAYLAND = "1";
       DIRENV_LOG_FORMAT = "";
       WLR_DRM_NO_ATOMIC = "1";
-      QT_QPA_PLATFORM = "wayland";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      GDK_BACKEND = "wayland";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_STYLE_OVERRIDE = "kvantum";

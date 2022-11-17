@@ -103,6 +103,15 @@
     fstrim.enable = true;
   };
 
+  powerManagement.cpuFreqGovernor = "powersave";
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+    enableRedistributableFirmware = true;
+    bluetooth = {
+      enable = true;
+    };
+  };
+
   virtualisation = {
     libvirtd = {
       enable = true;
