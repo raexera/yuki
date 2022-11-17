@@ -36,7 +36,7 @@
   # cursor theme
   home.pointerCursor = {
     package = self.packages.${pkgs.system}.catppuccin-cursors;
-    name = "Catppuccin-Frappe-Dark";
+    name = "Catppuccin-Mocha-Dark";
     size = 24;
   };
   home.pointerCursor.gtk.enable = true;
