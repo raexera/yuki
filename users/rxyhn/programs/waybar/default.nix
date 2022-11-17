@@ -89,7 +89,7 @@ in {
         "custom/weather" = {
           format = "{}";
           tooltip = true;
-          interval = 3600;
+          interval = 20;
           exec = "waybar-wttr";
           return-type = "json";
         };
