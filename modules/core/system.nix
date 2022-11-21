@@ -219,6 +219,7 @@ in {
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
+    pulseaudio.support32Bit = true;
 
     bluetooth = {
       enable = true;
