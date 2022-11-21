@@ -7,15 +7,12 @@
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "gitea"
-      "docker"
-      "systemd-journal"
-      "audio"
-      "wireshark"
-      "video"
-      "input"
-      "lp"
       "networkmanager"
+      "systemd-journal"
+      "libvirtd"
+      "docker"
+      "audio"
+      "video"
     ];
     uid = 1000;
     shell = pkgs.zsh;

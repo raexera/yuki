@@ -28,7 +28,6 @@ in {
       todo
       hyperfine
       fzf
-      gum
       glxinfo
       ghq
       gh
@@ -52,14 +51,14 @@ in {
       alsa-plugins
       alsa-utils
       nixopsUnstable
+      xdg-user-dirs
+      xdg-utils
 
       # Language servers
       go
       gcc
       rustc
       cargo
-      xdg-user-dirs
-      xdg-utils
       ccls
       rnix-lsp
       rust-analyzer

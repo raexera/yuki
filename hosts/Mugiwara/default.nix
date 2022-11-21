@@ -4,8 +4,24 @@
   inputs,
   ...
 }: {
-  imports = [./fonts.nix ./services.nix];
-  nixpkgs.overlays = with inputs; [nixpkgs-wayland.overlay];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/nvidia.nix
+  ];
+
+  services = {
+    greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "Hyprland";
+          user = "rxyhn";
+        };
+        default_session = initial_session;
+      };
+    };
+  };
+
   environment.etc."greetd/environments".text = ''
     Hyprland
   '';
@@ -44,6 +60,9 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
+        intel-compute-runtime
+        intel-media-driver
+        vaapiIntel
         vaapiVdpau
         libvdpau-va-gl
       ];
@@ -55,10 +74,5 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  };
-
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
   };
 }

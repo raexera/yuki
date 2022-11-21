@@ -10,8 +10,9 @@
   nixpkgs.config.allowBroken = true;
 
   nixpkgs.overlays = with inputs; [
-    rust-overlay.overlays.default
     nixpkgs-f2k.overlays.default
+    nixpkgs-wayland.overlay
+    rust-overlay.overlays.default
   ];
 
   # faster rebuilding
