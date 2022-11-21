@@ -18,12 +18,14 @@
     '';
   };
 
+  nixpkgs.overlays = [inputs.nixpkgs-f2k.overlays.window-managers];
+
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     windowManager.awesome = {
       enable = true;
-      package = pkgs.awesome;
+      package = pkgs.awesome-git;
       luaModules = [];
     };
   };
