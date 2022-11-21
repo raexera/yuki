@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     ragenix.url = "github:yaxitech/ragenix";
     hyprland.url = "github:hyprwm/Hyprland/";
     nur.url = "github:nix-community/NUR";
@@ -17,6 +18,22 @@
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Non flakes
+    fzf-tab = {
+      url = "github:Aloxaf/fzf-tab";
+      flake = false;
+    };
+
+    zsh-completions = {
+      url = "github:zsh-users/zsh-completions";
+      flake = false;
+    };
+
+    zsh-syntax-highlighting = {
+      url = "github:zsh-users/zsh-syntax-highlighting";
+      flake = false;
     };
   };
   outputs = {self, ...} @ inputs: let

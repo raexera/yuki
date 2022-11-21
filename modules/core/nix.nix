@@ -11,6 +11,7 @@
 
   nixpkgs.overlays = with inputs; [
     rust-overlay.overlays.default
+    nixpkgs-f2k.overlays.default
   ];
 
   # faster rebuilding

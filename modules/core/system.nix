@@ -22,6 +22,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
+    fzf
   ];
 
   time.timeZone = "Asia/Jakarta";
