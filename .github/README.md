@@ -16,7 +16,7 @@ NixOS / Home-Manager / Flake
 ## 👥 People
   These are the people who build and maintain this repository
 
-  [rxyhn](https://github.com/rxyhn) - [sioodmy](https://github.com/sioodmy)
+  [rxyhn](https://github.com/rxyhn) - [sioodmy](https://github.com/sioodmy) - [fufexan](https://github.com/fufexan)
 
 <br>
 <br>
