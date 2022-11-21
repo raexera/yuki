@@ -26,5 +26,6 @@
     ./programs/vscode.nix
     ./programs/firefox.nix
     inputs.hyprland.homeManagerModules.default
+    inputs.webcord.homeManagerModules.default
   ];
 }
