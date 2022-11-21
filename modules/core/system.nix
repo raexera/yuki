@@ -130,6 +130,9 @@ in {
   };
 
   environment.variables = {
+    GTK_THEME = "Catppuccin-Frappe-Pink";
+    XCURSOR_THEME = "Catppuccin-Frappe-Dark";
+    XCURSOR_SIZE = "24";
     EDITOR = "nvim";
     BROWSER = "firefox";
     FLAKE = "~/dotfiles";

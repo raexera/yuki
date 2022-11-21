@@ -49,6 +49,8 @@
     # dev shell (for direnv)
     devShells.x86_64-linux.default = pkgs.mkShell {
       packages = with pkgs; [
+        rnix-lsp
+        yaml-language-server
         alejandra
         git
       ];
