@@ -21,7 +21,11 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    windowManager.awesomewm.enable = true;
+    windowManager.awesome = {
+      enable = true;
+      package = pkgs.awesome;
+      luaModules = [];
+    };
   };
 
   security = {
