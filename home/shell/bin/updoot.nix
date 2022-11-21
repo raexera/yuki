@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-''
+{pkgs, ...}: ''
   #> Syntax: bash
 
   # Send to host
