@@ -10,8 +10,9 @@ in {
   programs.zsh = {
     enable = true;
     autocd = true;
-    enableAutosuggestions = true;
     enableCompletion = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
     dotDir = ".config/zsh";
 
     completionInit = ''
@@ -51,7 +52,7 @@ in {
     initExtra = ''
         set -k
         setopt auto_cd
-        export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.emacs.d/bin:''${HOME}/.npm/bin:''${HOME}/.cargo/bin:''${PATH}"
+        export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${HOME}/.cargo/bin:''${PATH}"
         setopt NO_NOMATCH   # disable some globbing
 
         function run() {
@@ -70,7 +71,7 @@ in {
       export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
 
         export FZF_DEFAULT_OPTS='
-        --color fg:#${theme.colors.fg},bg:#${theme.colors.bg},hl:#${theme.colors.c4},fg+:#${theme.colors.c15},bg+:#${theme.colors.bg},hl+:#${theme.colors.c4},border:#${theme.colors.c8}
+        --color fg:#${theme.colors.fg},bg:#${theme.colors.dbg},hl:#${theme.colors.c4},fg+:#${theme.colors.c15},bg+:#${theme.colors.dbg},hl+:#${theme.colors.c4},border:#${theme.colors.c8}
       --color pointer:#${theme.colors.c9},info:#${theme.colors.lbg},spinner:#${theme.colors.lbg},header:#${theme.colors.lbg},prompt:#${theme.colors.c2},marker:#${theme.colors.c10}
       '
 
