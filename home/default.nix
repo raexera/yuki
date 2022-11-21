@@ -1,31 +1,18 @@
 {
-  inputs,
-  pkgs,
-  config,
-  lib,
-  self,
-  ...
-}:
-# glue all configs together
-{
-  config.home.stateVersion = "22.05";
-  imports = [
-    ./packages.nix
-    ./shell
+  home = {
+    username = "rxyhn";
+    homeDirectory = "/home/rxyhn";
+    stateVersion = "22.05";
+    extraOutputsToInstall = ["doc" "devdoc"];
+  };
 
-    ./gtk
+  # disable manuals as nmd fails to build often
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = false;
+  };
 
-    ./wayland/hyprland
-    ./wayland/waybar
-    ./wayland/mako.nix
-    ./wayland/rofi.nix
-    ./wayland/swaylock.nix
-
-    ./programs/kitty.nix
-    ./programs/vscode.nix
-    ./programs/firefox.nix
-    ./programs/mpd.nix
-    inputs.hyprland.homeManagerModules.default
-    inputs.webcord.homeManagerModules.default
-  ];
+  # let HM manage itself when in standalone mode
+  programs.home-manager.enable = true;
 }

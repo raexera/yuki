@@ -2,13 +2,13 @@
   config,
   lib,
   pkgs,
-  self,
+  inputs,
   ...
 }: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = with self.packages.${pkgs.system}; [
+    plugins = with inputs.self.packages.${pkgs.system}; [
       rofi-emoji-wayland
     ];
     font = "Iosevka Nerd Font 13";

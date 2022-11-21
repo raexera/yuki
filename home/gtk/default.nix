@@ -1,5 +1,4 @@
 {
-  self,
   pkgs,
   config,
   inputs,
@@ -9,10 +8,10 @@
     enable = true;
     theme = {
       name = "Catppuccin-Frappe-Pink";
-      package = self.packages.${pkgs.system}.catppuccin-gtk;
+      package = inputs.self.packages.${pkgs.system}.catppuccin-gtk;
     };
     iconTheme = {
-      package = self.packages.${pkgs.system}.catppuccin-folders;
+      package = inputs.self.packages.${pkgs.system}.catppuccin-folders;
       name = "Papirus";
     };
     font = {
@@ -35,7 +34,7 @@
 
   # cursor theme
   home.pointerCursor = {
-    package = self.packages.${pkgs.system}.catppuccin-cursors;
+    package = inputs.self.packages.${pkgs.system}.catppuccin-cursors;
     name = "Catppuccin-Frappe-Dark";
     size = 16;
   };

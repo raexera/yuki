@@ -1,36 +1,35 @@
-{
-  nixpkgs,
-  self,
-  ...
-}: let
-  inputs = self.inputs;
-  bootloader = ../modules/core/bootloader;
+inputs: let
+  inherit (inputs) self;
+  inherit (inputs.nixpkgs.lib) nixosSystem;
+  inherit (import "${self}/home/profiles" inputs) homeImports;
 
   sharedModules = [
+    {
+      _module.args = {
+        inherit inputs;
+        inherit (self.lib) default;
+      };
+    }
     ../modules/core
+    ../modules/core/bootloader
     inputs.home-manager.nixosModules.home-manager
     inputs.ragenix.nixosModules.age
     {
       home-manager = {
         useUserPackages = true;
         useGlobalPkgs = true;
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit self;
-        };
-        users.rxyhn = ../home;
+        extraSpecialArgs = {inherit inputs;};
       };
     }
   ];
 in {
   # Wayland
-  Mugiwara = nixpkgs.lib.nixosSystem {
-    specialArgs = {inherit inputs;};
+  Mugiwara = nixosSystem {
     modules =
       [
         {networking.hostName = "Mugiwara";}
         ./Mugiwara
-        bootloader
+        {home-manager.users.rxyhn.imports = homeImports."rxyhn@Mugiwara";}
       ]
       ++ sharedModules;
 

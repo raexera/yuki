@@ -37,10 +37,14 @@
       flake = false;
     };
   };
-  outputs = {self, ...} @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
   in {
+    # standalone home-manager config
+    inherit (import ./home/profiles inputs) homeConfigurations;
+
+    # nixos-configs with home-manager
     nixosConfigurations = import ./hosts inputs;
 
     packages.${system} = {

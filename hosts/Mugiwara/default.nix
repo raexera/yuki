@@ -62,4 +62,9 @@
     wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
+
+  security = {
+    pam.services.swaylock.text = "auth include login";
+    rtkit.enable = true;
+  };
 }
