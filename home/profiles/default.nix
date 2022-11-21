@@ -5,6 +5,7 @@ inputs: let
   sharedModules = [
     ../.
     ../shell
+    ./shared
   ];
 
   homeImports = {
