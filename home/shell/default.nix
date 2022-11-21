@@ -39,6 +39,23 @@ in {
     ./zsh.nix
   ];
 
+  home = {
+    file = {
+      # Bin Scripts
+      ".local/bin/updoot" = {
+        # Upload and get link
+        executable = true;
+        text = import ./bin/updoot.nix {inherit pkgs;};
+      };
+
+      ".local/bin/preview.sh" = {
+        # Preview script for fzf tab
+        executable = true;
+        text = import ./bin/preview.nix {inherit pkgs;};
+      };
+    };
+  };
+
   services.gpg-agent = {
     enable = true;
     pinentryFlavor = "gnome3";
