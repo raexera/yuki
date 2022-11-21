@@ -1,32 +1,32 @@
 _: rec {
-  dbg = "13171b"; # Darker BG
-  lbg = "21262e"; # Lighter BG
+  dbg = "292c3c"; # Darker BG
+  lbg = "414559"; # Lighter BG
 
-  fg = "b6beca";
-  bg = "171b20";
+  fg = "c6d0f5";
+  bg = "303446";
 
-  c0 = "242931";
-  c1 = "e05f65";
-  c2 = "78dba9";
-  c3 = "f1cf8a";
-  c4 = "70a5eb";
-  c5 = "c68aee";
-  c6 = "74bee9";
-  c7 = "dee1e6";
+  c0 = "51576D";
+  c1 = "E78284";
+  c2 = "A6D189";
+  c3 = "E5C890";
+  c4 = "8CAAEE";
+  c5 = "F4B8E4";
+  c6 = "81C8BE";
+  c7 = "B5BFE2";
 
-  c8 = "485263";
-  c9 = "e05f65";
-  c10 = "78dba9";
-  c11 = "f1cf8a";
-  c12 = "70a5eb";
-  c13 = "c68aee";
-  c14 = "74bee9";
-  c15 = "dee1e6";
+  c8 = "626880";
+  c9 = "E78284";
+  c10 = "A6D189";
+  c11 = "E5C890";
+  c12 = "8CAAEE";
+  c13 = "F4B8E4";
+  c14 = "81C8BE";
+  c15 = "A5ADCE";
 
   primary = c4;
   secondary = c6;
   primaryBright = c12;
-  muted = "505050";
+  muted = "737994";
   transparent = "00000000";
   textColor = bg;
   activeBorderColor = primary;

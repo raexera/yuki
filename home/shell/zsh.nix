@@ -14,7 +14,6 @@ in {
     enableCompletion = true;
     dotDir = ".config/zsh";
 
-    sessionVariables = {LC_ALL = "en_US.UTF-8";};
     completionInit = ''
       autoload -U compinit
       zstyle ':completion:*' menu select

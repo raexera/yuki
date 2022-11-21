@@ -1,4 +1,4 @@
 _: rec {
   colors =
-    import ./decay.nix {};
+    import ./catppuccin.nix {};
 }
