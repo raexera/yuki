@@ -38,7 +38,6 @@
     };
   };
   outputs = {nixpkgs, ...} @ inputs: let
-    system = "x86_64-linux";
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
   in {
     # standalone home-manager config
@@ -47,11 +46,17 @@
     # nixos-configs with home-manager
     nixosConfigurations = import ./hosts inputs;
 
-    packages.${system} = {
-      catppuccin-folders = pkgs.callPackage ./pkgs/catppuccin-folders.nix {};
-      catppuccin-gtk = pkgs.callPackage ./pkgs/catppuccin-gtk.nix {};
-      catppuccin-cursors = pkgs.callPackage ./pkgs/catppuccin-cursors.nix {};
-      rofi-emoji-wayland = pkgs.callPackage ./pkgs/rofi-emoji-wayland.nix {};
+    # dev shell (for direnv)
+    devShells.x86_64-linux.default = pkgs.mkShell {
+      packages = with pkgs; [
+        alejandra
+        git
+      ];
+      name = "dotfiles";
     };
+
+    overlays.default = import ./pkgs;
+
+    packages.x86_64-linux = import ./pkgs null pkgs;
   };
 }
