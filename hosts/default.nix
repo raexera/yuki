@@ -23,6 +23,19 @@ inputs: let
     }
   ];
 in {
+  # Xorg
+  Akagami = nixosSystem {
+    modules =
+      [
+        {networking.hostName = "Akagami";}
+        ./Akagami
+        {home-manager.users.rxyhn.imports = homeImports."rxyhn@Akagami";}
+      ]
+      ++ sharedModules;
+
+    system = "x86_64-linux";
+  };
+
   # Wayland
   Mugiwara = nixosSystem {
     modules =
