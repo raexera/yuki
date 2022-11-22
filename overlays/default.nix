@@ -1,6 +1,6 @@
 final: prev: {
-  catppuccin-folders = prev.callPackage ./catppuccin-folders.nix {};
-  catppuccin-gtk = prev.callPackage ./catppuccin-gtk.nix {};
-  catppuccin-cursors = prev.callPackage ./catppuccin-cursors.nix {};
-  rofi-emoji-wayland = prev.callPackage ./rofi-emoji-wayland.nix {};
+  catppuccin-folders = prev.callPackage ../derivations/catppuccin-folders.nix {};
+  catppuccin-gtk = prev.callPackage ../derivations/catppuccin-gtk.nix {};
+  catppuccin-cursors = prev.callPackage ../derivations/catppuccin-cursors.nix {};
+  rofi-emoji-wayland = prev.callPackage ../derivations/rofi-emoji-wayland.nix {};
 }

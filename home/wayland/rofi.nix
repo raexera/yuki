@@ -8,7 +8,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = with inputs.self.packages.${pkgs.system}; [
+    plugins = with pkgs; [
       rofi-emoji-wayland
     ];
     font = "Iosevka Nerd Font 13";

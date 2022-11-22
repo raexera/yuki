@@ -78,7 +78,5 @@
       ];
       name = "dotfiles";
     };
-
-    packages.x86_64-linux = import ./pkgs null pkgs;
   };
 }
