@@ -9,12 +9,6 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
 
-  nixpkgs.overlays = with inputs; [
-    nixpkgs-f2k.overlays.default
-    nixpkgs-wayland.overlay
-    rust-overlay.overlays.default
-  ];
-
   # faster rebuilding
   documentation = {
     enable = false;

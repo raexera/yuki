@@ -52,7 +52,6 @@
       windowManager = {
         awesome = {
           enable = true;
-          package = pkgs.awesome-git;
           luaModules = with pkgs.lua52Packages; [
             lgi
             ldbus
