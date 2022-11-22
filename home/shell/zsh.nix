@@ -36,11 +36,32 @@ in {
       nixpkgs = "$HOME/Documents/code/git/nixpkgs";
     };
 
+    completionInit = ''
+      autoload -U compinit
+      zstyle ':completion:*' menu select
+      zmodload zsh/complist
+      compinit
+      _comp_options+=(globdots)
+      bindkey -M menuselect 'h' vi-backward-char
+      bindkey -M menuselect 'k' vi-up-line-or-history
+      bindkey -M menuselect 'l' vi-forward-char
+      bindkey -M menuselect 'j' vi-down-line-or-history
+      bindkey -v '^?' backward-delete-char
+    '';
+
     initExtra = ''
+      export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
+
+      bindkey -v
+
       set -k
       setopt auto_cd
-      export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
-      etopt NO_NOMATCH   # disable some globbing
+      setopt NO_NOMATCH
+      setopt ALWAYS_TO_END
+      setopt NO_CASE_GLOB
+      setopt NO_LIST_BEEP
+      setopt CORRECT
+      SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
       # search history based on what's typed in the prompt
       autoload -U history-search-end
@@ -51,11 +72,11 @@ in {
 
       # case insensitive tab completion
       zstyle ':completion:*' completer _complete _ignored _approximate
-      zstyle ':completion:*' list-colors '\'
-      zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
       zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
       zstyle ':completion:*' menu select
-      zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+      zstyle ':completion:*: matches' group yes
+      zstyle ':completion:*: options' description yes
+      zstyle ':completion:*: options' auto-description '%d'
       zstyle ':completion:*' verbose true
       _comp_options+=(globdots)
 
