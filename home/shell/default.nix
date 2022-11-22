@@ -28,7 +28,6 @@ with lib; let
     "application/pdf" = ["org.pwmt.zathura.desktop.desktop"];
     "x-scheme-handler/tg" = ["telegramdesktop.desktop"];
     "x-scheme-handler/spotify" = ["spotify.desktop"];
-    "x-scheme-handler/discord" = ["WebCord.desktop"];
   };
 in {
   imports = [

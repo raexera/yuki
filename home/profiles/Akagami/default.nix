@@ -8,6 +8,5 @@
     ../../programs/vscode.nix
     ../../programs/firefox.nix
     ../../programs/mpd.nix
-    inputs.webcord.homeManagerModules.default
   ];
 }

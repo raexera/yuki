@@ -15,6 +15,5 @@
     ../../programs/firefox.nix
     ../../programs/mpd.nix
     inputs.hyprland.homeManagerModules.default
-    inputs.webcord.homeManagerModules.default
   ];
 }

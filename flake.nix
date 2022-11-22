@@ -9,7 +9,6 @@
     ragenix.url = "github:yaxitech/ragenix";
     hyprland.url = "github:hyprwm/Hyprland/";
     nur.url = "github:nix-community/NUR";
-    webcord.url = "github:fufexan/webcord-flake";
 
     home-manager = {
       url = "github:nix-community/home-manager";
