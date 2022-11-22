@@ -45,6 +45,7 @@ in {
       xorg.xhost
       cachix
       glib
+      gcc
       docker-compose
       alsa-lib
       alsa-plugins
@@ -54,23 +55,35 @@ in {
       xdg-utils
 
       # Language servers
+      nil
+      sumneko-lua-language-server
       go
-      gcc
-      rustc
-      cargo
+      gopls
       ccls
-      rnix-lsp
+      uncrustify
+      (rust-bin.selectLatestNightlyWith
+        (toolchain: toolchain.default))
       rust-analyzer
       shellcheck
-      sumneko-lua-language-server
+      nodejs
+      nodePackages.pyright
+      nodePackages.prettier
+      nodePackages.stylelint
+      nodePackages.jsonlint
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      nodePackages.yarn
+      nodePackages.bash-language-server
+      nodePackages.node2nix
 
       # Formatters
       black
       ktlint
+      stylua
+      shfmt
+      asmfmt
       nixfmt
       nixpkgs-fmt
-      rustfmt
-      shfmt
     ];
 
     sessionPath = [
