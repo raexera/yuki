@@ -1,16 +1,7 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  nur = import inputs.nur {
-    nurpkgs = pkgs;
-    inherit pkgs;
-  };
-in {
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
-    extensions = with nur.repos.rycee.firefox-addons; [
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
       adnauseam
       enhanced-github
       enhancer-for-youtube

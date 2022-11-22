@@ -5,7 +5,17 @@
   inputs,
   ...
 }: {
-  environment.defaultPackages = [];
+  environment = {
+    # set channels (backwards compatibility)
+    etc = {
+      "nix/flake-channels/system".source = inputs.self;
+      "nix/flake-channels/nixpkgs".source = inputs.nixpkgs;
+      "nix/flake-channels/home-manager".source = inputs.home-manager;
+    };
+
+    # we need git for flakes
+    systemPackages = [pkgs.git];
+  };
 
   # faster rebuilding
   documentation = {

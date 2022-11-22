@@ -15,17 +15,86 @@ in {
     enableSyntaxHighlighting = true;
     dotDir = ".config/zsh";
 
-    completionInit = ''
-      autoload -U compinit
+    history = {
+      save = 10000;
+      size = 10000;
+      expireDuplicatesFirst = true;
+      extended = true;
+      ignoreDups = true;
+      ignoreSpace = true;
+    };
+
+    dirHashes = {
+      dl = "$HOME/Downloads";
+      docs = "$HOME/Documents";
+      code = "$HOME/Documents/code";
+      dots = "$HOME/Documents/code/dotfiles";
+      pics = "$HOME/Pictures";
+      vids = "$HOME/Videos";
+      music = "$HOME/Music";
+      media = "/run/media/$USER";
+      nixpkgs = "$HOME/Documents/code/git/nixpkgs";
+    };
+
+    initExtra = ''
+      set -k
+      setopt auto_cd
+      export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
+      etopt NO_NOMATCH   # disable some globbing
+
+      # search history based on what's typed in the prompt
+      autoload -U history-search-end
+      zle -N history-beginning-search-backward-end history-search-end
+      zle -N history-beginning-search-forward-end history-search-end
+      bindkey "^[OA" history-beginning-search-backward-end
+      bindkey "^[OB" history-beginning-search-forward-end
+
+      # case insensitive tab completion
+      zstyle ':completion:*' completer _complete _ignored _approximate
+      zstyle ':completion:*' list-colors '\'
+      zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
       zstyle ':completion:*' menu select
-      zmodload zsh/complist
-      compinit
+      zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+      zstyle ':completion:*' verbose true
       _comp_options+=(globdots)
-      bindkey -M menuselect 'h' vi-backward-char
-      bindkey -M menuselect 'k' vi-up-line-or-history
-      bindkey -M menuselect 'l' vi-forward-char
-      bindkey -M menuselect 'j' vi-down-line-or-history
-      bindkey -v '^?' backward-delete-char
+
+      function run() {
+        nix run nixpkgs#$@
+      }
+
+      precmd() {
+        printf '\033]0;%s\007' "$(dirs)"
+      }
+
+      command_not_found_handler() {
+        printf 'Command not found ->\033[32;05;16m %s\033[0m \n' "$0" >&2
+          return 127
+      }
+
+      export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
+
+      export FZF_DEFAULT_OPTS='
+      --color fg:#${theme.colors.fg},bg:#${theme.colors.dbg},hl:#${theme.colors.c4},fg+:#${theme.colors.c15},bg+:#${theme.colors.dbg},hl+:#${theme.colors.c4},border:#${theme.colors.c8}
+      --color pointer:#${theme.colors.c9},info:#${theme.colors.lbg},spinner:#${theme.colors.lbg},header:#${theme.colors.lbg},prompt:#${theme.colors.c2},marker:#${theme.colors.c10}
+      '
+
+      FZF_TAB_COMMAND=(
+          ${pkgs.fzf}/bin/fzf
+          --ansi
+          --expect='$continuous_trigger' # For continuous completion
+          --nth=2,3 --delimiter='\x00'  # Don't search prefix
+          --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
+          --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+          '--query=$query'   # $query will be expanded to query string at runtime.
+          '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+          )
+      zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+
+      zstyle ':completion:complete:*:options' sort false
+      zstyle ':fzf-tab:complete:_zlua:*' query-string input
+
+      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview.sh $realpath'
     '';
 
     shellAliases = {
@@ -47,59 +116,6 @@ in {
       http = "${pkgs.python3}/bin/python3 -m http.server";
       v = "nvim";
       ssh = "kitty +kitten ssh";
-    };
-
-    initExtra = ''
-        set -k
-        setopt auto_cd
-        export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
-        setopt NO_NOMATCH   # disable some globbing
-
-        function run() {
-          nix run nixpkgs#$@
-        }
-
-      precmd() {
-        printf '\033]0;%s\007' "$(dirs)"
-      }
-
-      command_not_found_handler() {
-        printf 'Command not found ->\033[32;05;16m %s\033[0m \n' "$0" >&2
-          return 127
-      }
-
-      export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
-
-        export FZF_DEFAULT_OPTS='
-        --color fg:#${theme.colors.fg},bg:#${theme.colors.dbg},hl:#${theme.colors.c4},fg+:#${theme.colors.c15},bg+:#${theme.colors.dbg},hl+:#${theme.colors.c4},border:#${theme.colors.c8}
-      --color pointer:#${theme.colors.c9},info:#${theme.colors.lbg},spinner:#${theme.colors.lbg},header:#${theme.colors.lbg},prompt:#${theme.colors.c2},marker:#${theme.colors.c10}
-      '
-
-        FZF_TAB_COMMAND=(
-            ${pkgs.fzf}/bin/fzf
-            --ansi
-            --expect='$continuous_trigger' # For continuous completion
-            --nth=2,3 --delimiter='\x00'  # Don't search prefix
-            --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-            --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-            '--query=$query'   # $query will be expanded to query string at runtime.
-            '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-            )
-        zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
-
-        zstyle ':completion:complete:*:options' sort false
-        zstyle ':fzf-tab:complete:_zlua:*' query-string input
-
-        zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview.sh $realpath'
-    '';
-
-    history = {
-      save = 10000;
-      size = 10000;
-      expireDuplicatesFirst = true;
-      extended = true;
-      ignoreDups = true;
-      ignoreSpace = true;
     };
 
     plugins = with pkgs inputs; [

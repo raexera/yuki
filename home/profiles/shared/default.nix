@@ -82,8 +82,6 @@ in {
       stylua
       shfmt
       asmfmt
-      nixfmt
-      nixpkgs-fmt
     ];
 
     sessionPath = [
