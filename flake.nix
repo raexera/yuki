@@ -40,6 +40,13 @@
   outputs = {nixpkgs, ...} @ inputs: let
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 
+    filterNixFiles = k: v: v == "regular" && hasSuffix ".nix" k;
+
+    importNixFiles = path:
+      (lists.forEach (mapAttrsToList (name: _: path + ("/" + name))
+          (filterAttrs filterNixFiles (builtins.readDir path))))
+      import;
+
     overlays = with inputs;
       [
         (
