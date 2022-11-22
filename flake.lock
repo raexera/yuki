@@ -370,11 +370,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1669044918,
-        "narHash": "sha256-Lg5gOmmVlaYKhN2QM6qeZL3HOjbshms2+CJyc+ALt64=",
+        "lastModified": 1669071065,
+        "narHash": "sha256-KBpgj3JkvlPsJ3duOZqFJe6tgr+wc75t8sFmgRbBSbw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "433e8de330fd9c157b636f9ccea45e3eeaf69ad2",
+        "rev": "f7641a3ff398ccce952e19a199d775934e518c1d",
         "type": "github"
       },
       "original": {
@@ -389,11 +389,11 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1669054465,
-        "narHash": "sha256-4xBCexof83T4eFR2EP6HGfpHGLPJf3x6hsWt8LlhIHU=",
+        "lastModified": 1669073633,
+        "narHash": "sha256-eMUTXk5WZLm2Afc7MicBgN9rLdhKa1bf3i3ZcJWNhjI=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "d504c1e5ab84bcbf7648350e867ccdda9b38b9c4",
+        "rev": "95047fb08327c5a9c38e5daa46cc3241a1b69cbe",
         "type": "github"
       },
       "original": {
@@ -498,11 +498,11 @@
         "wezterm-src": "wezterm-src"
       },
       "locked": {
-        "lastModified": 1669001060,
-        "narHash": "sha256-zqFIJhfyDoLojVgu+iyIoN9boteMM8ZhCy7G8dg1+eY=",
+        "lastModified": 1669087005,
+        "narHash": "sha256-ySlzuv6FRrsLyN/jiyTii80j2X2ipikH8shIZZvEi70=",
         "owner": "fortuneteller2k",
         "repo": "nixpkgs-f2k",
-        "rev": "abc353dab3efc222bbaaed63f63121ac986d125d",
+        "rev": "7904cecd48fc9be929b138a2c27df29e57e0d831",
         "type": "github"
       },
       "original": {
@@ -588,11 +588,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1668999435,
-        "narHash": "sha256-9KG6MvDwQZAfZC53Oj84uqgPC+J+CyIk5lq5P1flwKY=",
+        "lastModified": 1669080982,
+        "narHash": "sha256-8H/2UrcvEdSjQ4K+mk2mnmu2DF9zqC7Zw/ylN9eJZ2o=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "782bf687caaa67e6e043322218c946f955b26ea3",
+        "rev": "de6f2b0a0701954a35bd7de525f7baadeda1812e",
         "type": "github"
       },
       "original": {
@@ -651,11 +651,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1669039188,
-        "narHash": "sha256-FKfem8nUMBovPxrw3IWfOtEV0VIrFjmdwqKx3ohv+Kc=",
+        "lastModified": 1669114236,
+        "narHash": "sha256-3fm5naAfT+EoQfm47szXTZIk9wkkIIqMTsJqFSecnoQ=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "078f6ecc5d8c70b1a97c88afe7eceb08976706f8",
+        "rev": "0dc5d381f71beb8a3bf58e302f1d51d4f00c4177",
         "type": "github"
       },
       "original": {
@@ -858,11 +858,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1668998422,
-        "narHash": "sha256-G/BklIplCHZEeDIabaaxqgITdIXtMolRGlwxn9jG2/Q=",
+        "lastModified": 1669084742,
+        "narHash": "sha256-aLYwYVnrmEE1LVqd17v99CuqVmAZQrlgi2DVTAs4wFg=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "68ab029c93f8f8eed4cf3ce9a89a9fd4504b2d6e",
+        "rev": "9652ef34c7439eca9f86cee11e94dbef5c9adb09",
         "type": "github"
       },
       "original": {
@@ -925,11 +925,11 @@
     "wezterm-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1668965950,
-        "narHash": "sha256-zTNSUDUa4xogpAUg8iboOmfDIohaE5+FE6DVSZS7sHM=",
+        "lastModified": 1669079564,
+        "narHash": "sha256-cNuuAXCrBVSVUfRNqbBYKAk8oXAXKgVsAUhuTjpju/w=",
         "ref": "main",
-        "rev": "0bf36e5adab16a3ed4a67ee346790963396b99ca",
-        "revCount": 6492,
+        "rev": "877d364bff8f0d98095c165a5c5d1958ec307915",
+        "revCount": 6494,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/wez/wezterm.git"
@@ -978,11 +978,11 @@
     "zsh-syntax-highlighting": {
       "flake": false,
       "locked": {
-        "lastModified": 1663979624,
-        "narHash": "sha256-ffD0iHf9WVuE6QzZCkuDgIWj+BY/BRxtYNMi8osJohI=",
+        "lastModified": 1668889847,
+        "narHash": "sha256-lxwkVq9Ysvl2ZosD+riQ8dsCQIB5X4kqP+ix7XTDkKw=",
         "owner": "zsh-users",
         "repo": "zsh-syntax-highlighting",
-        "rev": "122dc464392302114556b53ec01a1390c54f739f",
+        "rev": "b2c910a85ed84cb7e5108e7cb3406a2e825a858f",
         "type": "github"
       },
       "original": {

@@ -45,6 +45,12 @@
         inherit system;
       };
 
+      config = {
+        allowBroken = true;
+        allowUnfree = true;
+        tarball-ttl = 0;
+      };
+
       filterNixFiles = k: v: v == "regular" && hasSuffix ".nix" k;
 
       importNixFiles = path:
@@ -72,7 +78,7 @@
         # Overlays from ./overlays directory
         ++ (importNixFiles ./overlays);
     in {
-      inherit overlays;
+      nixpkgs = {inherit config overlays;};
 
       # standalone home-manager config
       inherit (import ./home/profiles inputs) homeConfigurations;

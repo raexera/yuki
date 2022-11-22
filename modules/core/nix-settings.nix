@@ -6,8 +6,6 @@
   ...
 }: {
   environment.defaultPackages = [];
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
 
   # faster rebuilding
   documentation = {
