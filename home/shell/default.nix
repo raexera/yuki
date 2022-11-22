@@ -60,8 +60,12 @@ in {
     pinentryFlavor = "gnome3";
     enableZshIntegration = true;
   };
+
   programs = {
-    gpg.enable = true;
+    gpg = {
+      enable = true;
+      homedir = "${config.xdg.dataHome}/gnupg";
+    };
   };
 
   xdg = {

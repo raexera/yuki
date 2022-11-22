@@ -6,17 +6,20 @@
 }: {
   programs.git = {
     enable = true;
-    userName = "rxyhn";
-    userEmail = "rxyhn.dev@gmail.com";
+    lfs.enable = true;
+    delta = {
+      enable = true;
+      options.map-styles = "bold purple => syntax #8839ef, bold cyan => syntax #1e66f5";
+    };
     extraConfig = {
       init = {defaultBranch = "main";};
+      diff.colorMoved = "default";
+      merge.conflictstyle = "diff3";
       delta = {
         syntax-theme = "Nord";
         line-numbers = true;
       };
     };
-    lfs.enable = true;
-    delta.enable = true;
     aliases = {
       co = "checkout";
       fuck = "commit --amend -m";
@@ -34,5 +37,12 @@
         log --graph --name-status --pretty=format:"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset" --date=relative'';
       edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`";
     };
+    ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
+    signing = {
+      key = "F01BC62D2BAE2122";
+      signByDefault = true;
+    };
+    userName = "rxyhn";
+    userEmail = "rxyhn.dev@gmail.com";
   };
 }
