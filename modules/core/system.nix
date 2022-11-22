@@ -30,7 +30,7 @@ in {
   };
 
   # pickup pkgs from flake export
-  nixpkgs.pkgs = inputs.self.pkgs.${config.nixpkgs.system};
+  nixpkgs.pkgs = inputs.self.pkgs;
 
   sound = {
     enable = true;

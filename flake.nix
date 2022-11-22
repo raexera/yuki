@@ -41,25 +41,16 @@
     with nixpkgs.lib; let
       system = "x86_64-linux";
 
+      overlays.default = import ./overlays/derivations.nix;
+
       pkgs = import inputs.nixpkgs {
         inherit system;
-      };
-
-      config = {
-        allowBroken = true;
-        allowUnfree = true;
-        tarball-ttl = 0;
-      };
-
-      filterNixFiles = k: v: v == "regular" && hasSuffix ".nix" k;
-
-      importNixFiles = path:
-        (lists.forEach (mapAttrsToList (name: _: path + ("/" + name))
-            (filterAttrs filterNixFiles (builtins.readDir path))))
-        import;
-
-      overlays = with inputs;
-        [
+        config = {
+          allowBroken = true;
+          allowUnfree = true;
+          tarball-ttl = 0;
+        };
+        overlays = with inputs; [
           (
             final: _: let
               inherit (final) system;
@@ -74,11 +65,16 @@
           nixpkgs-wayland.overlay
           nixpkgs-f2k.overlays.default
           rust-overlay.overlays.default
-        ]
-        # Overlays from ./overlays directory
-        ++ (importNixFiles ./overlays);
+          overlays.default
+        ];
+      };
+      # filterNixFiles = k: v: v == "regular" && hasSuffix ".nix" k;
+      # importNixFiles = path:
+      #   (lists.forEach (mapAttrsToList (name: _: path + ("/" + name))
+      #       (filterAttrs filterNixFiles (builtins.readDir path))))
+      #   import;
     in {
-      nixpkgs = {inherit config overlays;};
+      inherit pkgs overlays;
 
       # standalone home-manager config
       inherit (import ./home/profiles inputs) homeConfigurations;
