@@ -40,23 +40,28 @@
   outputs = {nixpkgs, ...} @ inputs: let
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 
-    overlays = with inputs; [
-      (
-        final: _: let
-          inherit (final) system;
-        in (with nixpkgs-f2k.packages.${system}; {
-          # Overlays with f2k's repo
-          awesome = awesome-git;
-          picom = picom-git;
-          wezterm = wezterm-git;
-        })
-      )
-      nur.overlay
-      nixpkgs-wayland.overlay
-      nixpkgs-f2k.overlays.default
-      rust-overlay.overlays.default
-    ];
+    overlays = with inputs;
+      [
+        (
+          final: _: let
+            inherit (final) system;
+          in (with nixpkgs-f2k.packages.${system}; {
+            # Overlays with f2k's repo
+            awesome = awesome-git;
+            picom = picom-git;
+            wezterm = wezterm-git;
+          })
+        )
+        nur.overlay
+        nixpkgs-wayland.overlay
+        nixpkgs-f2k.overlays.default
+        rust-overlay.overlays.default
+      ]
+      # Overlays from ./overlays directory
+      ++ (importNixFiles ./overlays);
   in {
+    inherit overlays;
+
     # standalone home-manager config
     inherit (import ./home/profiles inputs) homeConfigurations;
 
@@ -74,8 +79,6 @@
       name = "dotfiles";
     };
 
-    nixpkgs.overlays = overlays;
-    overlays.default = import ./pkgs;
     packages.x86_64-linux = import ./pkgs null pkgs;
   };
 }

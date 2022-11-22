@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
 
   patches = [
     # Look for plugin-related files in $out/lib/rofi
-    ./0001-Patch-plugindir-to-output.patch
+    ../pkgs/0001-Patch-plugindir-to-output.patch
   ];
 
   postPatch = ''
