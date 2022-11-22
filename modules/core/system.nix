@@ -32,11 +32,6 @@ in {
   # pickup pkgs from flake export
   nixpkgs.pkgs = inputs.self.pkgs;
 
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
-
   programs = {
     bash.promptInit = ''eval "$(${pkgs.starship}/bin/starship init bash)"'';
 
@@ -230,7 +225,7 @@ in {
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
-    pulseaudio.support32Bit = true;
+    pulseaudio.enable = false;
 
     bluetooth = {
       enable = true;
