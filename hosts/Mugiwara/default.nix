@@ -68,4 +68,6 @@
     pam.services.swaylock.text = "auth include login";
     rtkit.enable = true;
   };
+
+  system.stateVersion = "22.05"; # DONT TOUCH THIS
 }

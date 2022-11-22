@@ -16,13 +16,21 @@
   };
 
   nix = {
+    # auto garbage collect
     gc = {
       automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 4d";
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
 
-    package = pkgs.nixUnstable;
+    # pin the registry to avoid downloading and evaling a new nixpkgs version every time
+    registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
+
+    # set the path for channels compat
+    nixPath = [
+      "nixpkgs=/etc/nix/flake-channels/nixpkgs"
+      "home-manager=/etc/nix/flake-channels/home-manager"
+    ];
 
     # Free up to 1GiB whenever there is less than 100MiB left.
     extraOptions = ''
@@ -32,9 +40,17 @@
       min-free = ${toString (100 * 1024 * 1024)}
       max-free = ${toString (1024 * 1024 * 1024)}
     '';
+
     settings = {
-      allowed-users = ["rxyhn"];
       auto-optimise-store = true;
+      builders-use-substitutes = true;
+      experimental-features = ["nix-command" "flakes"];
+      flake-registry = "/etc/nix/registry.json";
+
+      # for direnv GC roots
+      keep-derivations = true;
+      keep-outputs = true;
+
       max-jobs = "auto";
       sandbox = false;
 
@@ -56,8 +72,8 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "webcord.cachix.org-1:l555jqOZGHd2C9+vS8ccdh8FhqnGe8L78QrHNn+EFEs="
       ];
+
+      trusted-users = ["root" "@wheel"];
     };
   };
-  system.autoUpgrade.enable = false;
-  system.stateVersion = "22.05"; # DONT TOUCH THIS
 }

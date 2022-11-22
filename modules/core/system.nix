@@ -1,10 +1,15 @@
 {
-  config,
   pkgs,
+  config,
+  lib,
+  inputs,
   ...
 }: let
   theme = import ../../theme/theme.nix {};
 in {
+  # enable zsh autocompletion for system packages (systemd, etc)
+  environment.pathsToLink = ["/share/zsh"];
+
   time = {
     hardwareClockInLocalTime = true;
     timeZone = "Asia/Jakarta";
@@ -12,7 +17,7 @@ in {
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    supportedLocales = ["en_US.UTF-8/UTF-8"];
+    supportedLocales = ["en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8"];
   };
 
   console = let
@@ -23,6 +28,9 @@ in {
     font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
     keyMap = "us";
   };
+
+  # pickup pkgs from flake export
+  nixpkgs.pkgs = inputs.self.pkgs.${config.nixpkgs.system};
 
   sound = {
     enable = true;
@@ -229,4 +237,9 @@ in {
       package = pkgs.bluezFull;
     };
   };
+
+  # compresses half the ram for use as swap
+  zramSwap.enable = true;
+
+  system.stateVersion = "22.05"; # DONT TOUCH THIS
 }
