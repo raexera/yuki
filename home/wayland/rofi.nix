@@ -8,17 +8,13 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = with pkgs; [
-      rofi-emoji-wayland
-    ];
     font = "Iosevka Nerd Font 13";
     extraConfig = {
-      modi = "drun,run,filebrowser,emoji";
+      modi = "drun,run,filebrowser";
       show-icons = true;
       display-drun = "";
       display-run = "";
       display-filebrowser = "";
-      display-emoji = "ﲃ";
       drun-display-format = "{name}";
       window-format = "{w} · {c} · {t}";
     };
