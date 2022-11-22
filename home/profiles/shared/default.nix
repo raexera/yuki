@@ -85,4 +85,14 @@ in {
       XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
     };
   };
+
+  imports = [
+    ../../gtk
+
+    ../../programs/kitty.nix
+    ../../programs/vscode.nix
+    ../../programs/firefox.nix
+    ../../programs/mpd.nix
+    ../../programs/zathura.nix
+  ];
 }
