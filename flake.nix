@@ -1,41 +1,6 @@
 {
   description = "Rxyhn's NixOS Configuration with Home-Manager & Flake";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
-    ragenix.url = "github:yaxitech/ragenix";
-    hyprland.url = "github:hyprwm/Hyprland/";
-    nur.url = "github:nix-community/NUR";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Non flakes
-    fzf-tab = {
-      url = "github:Aloxaf/fzf-tab";
-      flake = false;
-    };
-
-    zsh-completions = {
-      url = "github:zsh-users/zsh-completions";
-      flake = false;
-    };
-
-    zsh-syntax-highlighting = {
-      url = "github:zsh-users/zsh-syntax-highlighting";
-      flake = false;
-    };
-  };
   outputs = {nixpkgs, ...} @ inputs:
     with nixpkgs.lib; let
       system = "x86_64-linux";
@@ -67,11 +32,6 @@
           overlays.default
         ];
       };
-      # filterNixFiles = k: v: v == "regular" && hasSuffix ".nix" k;
-      # importNixFiles = path:
-      #   (lists.forEach (mapAttrsToList (name: _: path + ("/" + name))
-      #       (filterAttrs filterNixFiles (builtins.readDir path))))
-      #   import;
     in {
       inherit pkgs overlays;
 
@@ -92,4 +52,67 @@
         name = "dotfiles";
       };
     };
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.05";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nix = {
+      url = "github:NixOS/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # flakes
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    ragenix.url = "github:yaxitech/ragenix";
+    nur.url = "github:nix-community/NUR";
+    devshell.url = "github:numtide/devshell";
+
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nil = {
+      url = "github:oxalica/nil";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Non flakes
+    fzf-tab = {
+      url = "github:Aloxaf/fzf-tab";
+      flake = false;
+    };
+
+    zsh-completions = {
+      url = "github:zsh-users/zsh-completions";
+      flake = false;
+    };
+
+    zsh-syntax-highlighting = {
+      url = "github:zsh-users/zsh-syntax-highlighting";
+      flake = false;
+    };
+  };
 }
