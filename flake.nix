@@ -37,53 +37,54 @@
       flake = false;
     };
   };
-  outputs = {nixpkgs, ...} @ inputs: let
-    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+  outputs = {nixpkgs, ...} @ inputs:
+    with nixpkgs.lib; let
+      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 
-    filterNixFiles = k: v: v == "regular" && hasSuffix ".nix" k;
+      filterNixFiles = k: v: v == "regular" && hasSuffix ".nix" k;
 
-    importNixFiles = path:
-      (lists.forEach (mapAttrsToList (name: _: path + ("/" + name))
-          (filterAttrs filterNixFiles (builtins.readDir path))))
-      import;
+      importNixFiles = path:
+        (lists.forEach (mapAttrsToList (name: _: path + ("/" + name))
+            (filterAttrs filterNixFiles (builtins.readDir path))))
+        import;
 
-    overlays = with inputs;
-      [
-        (
-          final: _: let
-            inherit (final) system;
-          in (with nixpkgs-f2k.packages.${system}; {
-            # Overlays with f2k's repo
-            awesome = awesome-git;
-            picom = picom-git;
-            wezterm = wezterm-git;
-          })
-        )
-        nur.overlay
-        nixpkgs-wayland.overlay
-        nixpkgs-f2k.overlays.default
-        rust-overlay.overlays.default
-      ]
-      # Overlays from ./overlays directory
-      ++ (importNixFiles ./overlays);
-  in {
-    inherit overlays;
+      overlays = with inputs;
+        [
+          (
+            final: _: let
+              inherit (final) system;
+            in (with nixpkgs-f2k.packages.${system}; {
+              # Overlays with f2k's repo
+              awesome = awesome-git;
+              picom = picom-git;
+              wezterm = wezterm-git;
+            })
+          )
+          nur.overlay
+          nixpkgs-wayland.overlay
+          nixpkgs-f2k.overlays.default
+          rust-overlay.overlays.default
+        ]
+        # Overlays from ./overlays directory
+        ++ (importNixFiles ./overlays);
+    in {
+      inherit overlays;
 
-    # standalone home-manager config
-    inherit (import ./home/profiles inputs) homeConfigurations;
+      # standalone home-manager config
+      inherit (import ./home/profiles inputs) homeConfigurations;
 
-    # nixos-configs with home-manager
-    nixosConfigurations = import ./hosts inputs;
+      # nixos-configs with home-manager
+      nixosConfigurations = import ./hosts inputs;
 
-    # dev shell (for direnv)
-    devShells.x86_64-linux.default = pkgs.mkShell {
-      packages = with pkgs; [
-        rnix-lsp
-        yaml-language-server
-        alejandra
-        git
-      ];
-      name = "dotfiles";
+      # dev shell (for direnv)
+      devShells.x86_64-linux.default = pkgs.mkShell {
+        packages = with pkgs; [
+          rnix-lsp
+          yaml-language-server
+          alejandra
+          git
+        ];
+        name = "dotfiles";
+      };
     };
-  };
 }
