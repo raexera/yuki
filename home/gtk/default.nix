@@ -7,11 +7,11 @@
     enable = true;
     theme = {
       name = "Catppuccin-Frappe-Pink";
-      package = pkgs.catppuccin-gtk;
+      package = catppuccin-gtk;
     };
     iconTheme = {
       name = "Papirus";
-      package = pkgs.catppuccin-folders;
+      package = catppuccin-folders;
     };
     font = {
       name = "Lato";
@@ -34,7 +34,7 @@
   # cursor theme
   home.pointerCursor = {
     name = "Catppuccin-Frappe-Dark";
-    package = pkgs.catppuccin-cursors;
+    package = catppuccin-cursors;
     size = 24;
   };
 

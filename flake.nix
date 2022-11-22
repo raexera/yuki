@@ -39,7 +39,11 @@
   };
   outputs = {nixpkgs, ...} @ inputs:
     with nixpkgs.lib; let
-      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+      system = "x86_64-linux";
+
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+      };
 
       filterNixFiles = k: v: v == "regular" && hasSuffix ".nix" k;
 
