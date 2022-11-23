@@ -27,8 +27,8 @@ in {
   Akagami = nixosSystem {
     modules =
       [
-        {networking.hostName = "Akagami";}
         ./Akagami
+        {networking.hostName = "Akagami";}
         {home-manager.users.rxyhn.imports = homeImports."rxyhn@Akagami";}
       ]
       ++ sharedModules;
@@ -40,8 +40,8 @@ in {
   Mugiwara = nixosSystem {
     modules =
       [
-        {networking.hostName = "Mugiwara";}
         ./Mugiwara
+        {networking.hostName = "Mugiwara";}
         {home-manager.users.rxyhn.imports = homeImports."rxyhn@Mugiwara";}
       ]
       ++ sharedModules;
