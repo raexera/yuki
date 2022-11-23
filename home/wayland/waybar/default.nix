@@ -15,7 +15,7 @@
     unpackPhase = "true";
     installPhase = ''
       mkdir -p $out/bin
-      cp ${./waybar-wttr.py} $out/bin/waybar-wttr
+      cp ${./scripts/waybar-wttr.py} $out/bin/waybar-wttr
       chmod +x $out/bin/waybar-wttr
     '';
   };
@@ -85,7 +85,7 @@ in {
           format = "{}";
           tooltip = true;
           interval = 7;
-          exec = "${./todo.sh}";
+          exec = "${./scripts/todo.sh}";
           return-type = "json";
         };
         "custom/weather" = {
@@ -102,12 +102,12 @@ in {
         };
         "custom/swallow" = {
           tooltip = false;
-          on-click = "${./waybar-swallow.sh}";
+          on-click = "${./scripts/waybar-swallow.sh}";
           format = "󰊰";
         };
         "custom/power" = {
           tooltip = false;
-          on-click = "${./shutdown.sh} &";
+          on-click = "${./scripts/shutdown.sh} &";
           format = "󰤆";
         };
         clock = {

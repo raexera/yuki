@@ -61,7 +61,7 @@ with theme.colors; ''
   }
 
   #custom-launcher {
-    background-image: url("${./nix-logo.png}");
+    background-image: url("${./assets/nix-snowflake.png}");
     background-size: 60%;
     background-position: center;
     background-repeat: no-repeat;
