@@ -15,10 +15,6 @@ with lib; let
     #!/bin/bash
     grim -g "$(slurp -w 0 -b eebebed2)" /tmp/ocr.png && tesseract /tmp/ocr.png /tmp/ocr-output && wl-copy < /tmp/ocr-output.txt && notify-send "OCR" "Text copied!" && rm /tmp/ocr-output.txt -f
   '';
-  screenshot = pkgs.writeShellScriptBin "screenshot" ''
-    #!/bin/bash
-    hyprctl keyword animation "fadeOut,0,8,slow" && ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -w 0 -b 5e81acd2)" - | swappy -f -; hyprctl keyword animation "fadeOut,1,8,slow"
-  '';
 in {
   home.packages = with pkgs; [
     xdg-desktop-portal
@@ -34,9 +30,10 @@ in {
     swappy
     ocr
     grim
-    screenshot
     wl-clipboard
     pngquant
+    xorg.xprop
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
 
   wayland.windowManager.hyprland = {
@@ -57,7 +54,7 @@ in {
         });
     };
     systemdIntegration = true;
-    extraConfig = builtins.readFile ./hyprland.conf;
+    extraConfig = import ./config.nix;
   };
 
   services.gammastep = {
