@@ -27,7 +27,8 @@
     ];
     userSettings = {
       "workbench.iconTheme" = "material-icon-theme";
-      "workbench.colorTheme" = "Catppuccin Frappé";
+      "workbench.colorTheme" = "Catppuccin Macchiato";
+      "catppuccin.accentColor" = "mauve";
       "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons";
       "editor.fontSize" = 16;
       "editor.fontLigatures" = true;

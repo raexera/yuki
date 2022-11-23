@@ -4,6 +4,8 @@
   config,
   ...
 }: let
+  theme = import ../../../theme/theme.nix {};
+
   waybar-wttr = pkgs.stdenv.mkDerivation {
     name = "waybar-wttr";
     buildInputs = [
@@ -18,7 +20,7 @@
     '';
   };
 in {
-  xdg.configFile."waybar/style.css".text = import ./style.nix;
+  xdg.configFile."waybar/style.css".text = import ./style.nix {inherit theme;};
   home.packages = [waybar-wttr];
   programs.waybar = {
     enable = true;

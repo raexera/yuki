@@ -3,53 +3,55 @@
   lib,
   config,
   ...
-}: {
+}: let
+  theme = import ../../theme/theme.nix {};
+in {
   programs.zathura = {
     enable = true;
     options = {
       font = "Iosevka 15";
 
-      default-fg = "#C6D0F5";
-      default-bg = "#303446";
+      default-fg = "#${theme.colors.text}";
+      default-bg = "#${theme.colors.base}";
 
-      completion-bg = "#414559";
-      completion-fg = "#C6D0F5";
-      completion-highlight-bg = "#575268";
-      completion-highlight-fg = "#C6D0F5";
-      completion-group-bg = "#414559";
-      completion-group-fg = "#8CAAEE";
+      completion-bg = "#${theme.colors.surface0}";
+      completion-fg = "#${theme.colors.text}";
+      completion-highlight-bg = "#${theme.colors.surface1}";
+      completion-highlight-fg = "#${theme.colors.text}";
+      completion-group-bg = "#${theme.colors.surface0}";
+      completion-group-fg = "#${theme.colors.blue}";
 
-      statusbar-fg = "#C6D0F5";
-      statusbar-bg = "#414559";
+      statusbar-fg = "#${theme.colors.text}";
+      statusbar-bg = "#${theme.colors.surface0}";
       statusbar-h-padding = 10;
       statusbar-v-padding = 10;
 
-      notification-bg = "#414559";
-      notification-fg = "#C6D0F5";
-      notification-error-bg = "#414559";
-      notification-error-fg = "#E78284";
-      notification-warning-bg = "#414559";
-      notification-warning-fg = "#FAE3B0";
+      notification-bg = "#${theme.colors.surface0}";
+      notification-fg = "#${theme.colors.text}";
+      notification-error-bg = "#${theme.colors.surface0}";
+      notification-error-fg = "#${theme.colors.red}";
+      notification-warning-bg = "#${theme.colors.surface0}";
+      notification-warning-fg = "#${theme.colors.yellow}";
       selection-notification = true;
 
-      inputbar-fg = "#C6D0F5";
-      inputbar-bg = "#414559";
+      inputbar-fg = "#${theme.colors.text}";
+      inputbar-bg = "#${theme.colors.surface0}";
 
       recolor = true;
-      recolor-lightcolor = "#303446";
-      recolor-darkcolor = "#C6D0F5";
+      recolor-lightcolor = "#${theme.colors.base}";
+      recolor-darkcolor = "#${theme.colors.text}";
 
-      index-fg = "#C6D0F5";
-      index-bg = "#303446";
-      index-active-fg = "#C6D0F5";
-      index-active-bg = "#414559";
+      index-fg = "#${theme.colors.text}";
+      index-bg = "#${theme.colors.base}";
+      index-active-fg = "#${theme.colors.text}";
+      index-active-bg = "#${theme.colors.surface0}";
 
-      render-loading-bg = "#303446";
-      render-loading-fg = "#C6D0F5";
+      render-loading-bg = "#${theme.colors.base}";
+      render-loading-fg = "#${theme.colors.text}";
 
-      highlight-color = "#575268";
-      highlight-active-color = "#F4B8E4";
-      highlight-fg = "#F4B8E4";
+      highlight-color = "#${theme.colors.surface1}";
+      highlight-active-color = "#${theme.colors.mauve}";
+      highlight-fg = "#${theme.colors.mauve}";
 
       selection-clipboard = "clipboard";
       adjust-open = "best-fit";

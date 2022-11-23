@@ -68,7 +68,7 @@ in {
   systemd.user.services = {
     swaybg = mkService {
       Unit.Description = "Wallpaper chooser";
-      Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --mode fill --image ${./assets/wallpaper/serenity.png}";
+      Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --mode fill --image ${./assets/wallpaper/nix-gradient.png}";
     };
   };
 }

@@ -1,4 +1,5 @@
-''
+{theme}:
+with theme.colors; ''
   * {
     all: unset;
     border: none;
@@ -9,8 +10,8 @@
   }
 
   window#waybar {
-    background-color: #303446;
-    color: #c6d0f5;
+    background-color: #${mantle};
+    color: #${text};
     transition-property: background-color;
     transition-duration: 0.5s;
   }
@@ -23,21 +24,21 @@
     margin: 0px 8px;
     padding: 10px 0px 5px 0px;
     border-radius: 8px 8px 0px 0px;
-    background-color: #414559;
+    background-color: #${base};
   }
 
   #pulseaudio,
   #backlight {
     margin: 0px 8px;
     padding: 5px 0px;
-    background-color: #414559;
+    background-color: #${base};
   }
 
   #battery {
     margin: 0px 8px 6px 8px;
     padding: 5px 0px 10px 0px;
     border-radius: 0px 0px 8px 8px;
-    background-color: #414559;
+    background-color: #${base};
   }
 
   #custom-launcher,
@@ -51,7 +52,7 @@
   #workspaces {
     border-radius: 8px;
     margin: 6px 8px;
-    background-color: #414559;
+    background-color: #${base};
     padding: 10px 0px;
   }
 
@@ -60,7 +61,7 @@
   }
 
   #custom-launcher {
-    background-image: url("${./sakura.png}");
+    background-image: url("${./nix-logo.png}");
     background-size: 60%;
     background-position: center;
     background-repeat: no-repeat;
@@ -69,19 +70,19 @@
 
   #workspaces {
     font-size: 15px;
-    background-color: #414559;
+    background-color: #${base};
   }
 
   #custom-launcher,
   #clock {
-    color: #c6d0f5;
-    background-color: #414559;
+    color: #${text};
+    background-color: #${base};
   }
 
   #workspaces button {
     all: initial; /* Remove GTK theme values (waybar #1351) */
     background-color: transparent;
-    color: #8caaee;
+    color: #${blue};
     font-size: 21px;
     padding: 0px 0px;
     margin: 5px 0px;
@@ -90,17 +91,17 @@
   }
 
   #workspaces button:hover {
-    color: #8caaee;
+    color: #${blue};
     box-shadow: inherit;
     text-shadow: inherit;
   }
 
   #workspaces button.active {
-    color: #e5c890;
+    color: #${yellow};
   }
 
   #workspaces button.urgent {
-    background-color: #e78284;
+    background-color: #${red};
   }
 
   #clock {
@@ -111,39 +112,39 @@
   }
 
   #custom-swallow {
-    color: #f4b8e4;
+    color: #${mauve};
   }
 
   #custom-todo {
-    color: #c6d0f5;
+    color: #${text};
   }
 
   #network {
-    color: #99d1db;
+    color: #${sky};
   }
 
   #network.disconnected {
-    color: #e78284;
+    color: #${red};
   }
 
   #pulseaudio {
-    color: #ca9ee6;
+    color: #${pink};
   }
 
   #pulseaudio.muted {
-    color: #51576d;
+    color: #${overlay0};
   }
 
   #backlight {
-    color: #8caaee;
+    color: #${blue};
   }
 
   #battery {
-    color: #a6d189;
+    color: #${green};
   }
 
   #battery.warning {
-    color: #ef9f76;
+    color: #${peach};
   }
 
   @keyframes blink {
@@ -154,7 +155,7 @@
   }
 
   #battery.critical:not(.charging) {
-    color: #e78284;
+    color: #${red};
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -163,11 +164,11 @@
   }
 
   #custom-lock {
-    color: #e5c890;
+    color: #${yellow};
   }
 
   #custom-power {
-    color: #e78284;
+    color: #${red};
   }
 
   tooltip {
@@ -184,8 +185,8 @@
 
   @keyframes blink_red {
     to {
-      background-color: #e78284;
-      color: #414559;
+      background-color: #${red};
+      color: #${base};
     }
   }
 

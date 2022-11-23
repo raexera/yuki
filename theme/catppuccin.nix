@@ -1,35 +1,29 @@
 _: rec {
-  dbg = "292c3c"; # Darker BG
-  lbg = "414559"; # Lighter BG
-
-  fg = "c6d0f5";
-  bg = "303446";
-
-  c0 = "51576D";
-  c1 = "E78284";
-  c2 = "A6D189";
-  c3 = "E5C890";
-  c4 = "8CAAEE";
-  c5 = "F4B8E4";
-  c6 = "81C8BE";
-  c7 = "B5BFE2";
-
-  c8 = "626880";
-  c9 = "E78284";
-  c10 = "A6D189";
-  c11 = "E5C890";
-  c12 = "8CAAEE";
-  c13 = "F4B8E4";
-  c14 = "81C8BE";
-  c15 = "A5ADCE";
-
-  primary = c4;
-  secondary = c6;
-  primaryBright = c12;
-  muted = "737994";
+  rosewater = "f4dbd6";
+  flamingo = "f0c6c6";
+  pink = "f5bde6";
+  mauve = "c6a0f6";
+  red = "ed8796";
+  maroon = "ee99a0";
+  peach = "f5a97f";
+  yellow = "eed49f";
+  green = "a6da95";
+  teal = "8bd5ca";
+  sky = "91d7e3";
+  sapphire = "7dc4e4";
+  blue = "8aadf4";
+  lavender = "b7bdf8";
+  text = "cad3f5";
+  subtext1 = "b8c0e0";
+  subtext0 = "a5adcb";
+  overlay2 = "939ab7";
+  overlay1 = "8087a2";
+  overlay0 = "6e738d";
+  surface2 = "5b6078";
+  surface1 = "494d64";
+  surface0 = "363a4f";
+  base = "24273a";
+  mantle = "1e2030";
+  crust = "181926";
   transparent = "00000000";
-  textColor = bg;
-  activeBorderColor = primary;
-  inactiveBorderColor = muted;
-  highlightColor = primary;
 }

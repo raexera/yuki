@@ -21,8 +21,8 @@ in {
   };
 
   console = let
-    normal = with theme.colors; [bg c1 c2 c3 c4 c5 c6 c7];
-    bright = with theme.colors; [lbg c9 c10 c11 c12 c13 c14 c15];
+    normal = with theme.colors; [base red green yellow blue mauve teal subtext1];
+    bright = with theme.colors; [surface0 red green yellow blue mauve teal subtext0];
   in {
     colors = normal ++ bright;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
@@ -133,8 +133,8 @@ in {
   };
 
   environment.variables = {
-    GTK_THEME = "Catppuccin-Frappe-Pink";
-    XCURSOR_THEME = "Catppuccin-Frappe-Dark";
+    GTK_THEME = "Catppuccin-Macchiato-Mauve";
+    XCURSOR_THEME = "Catppuccin-Macchiato-Dark";
     XCURSOR_SIZE = "24";
     EDITOR = "nvim";
     BROWSER = "firefox";

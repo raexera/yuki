@@ -96,8 +96,8 @@ in {
       export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
 
       export FZF_DEFAULT_OPTS='
-      --color fg:#${theme.colors.fg},bg:#${theme.colors.dbg},hl:#${theme.colors.c4},fg+:#${theme.colors.c15},bg+:#${theme.colors.dbg},hl+:#${theme.colors.c4},border:#${theme.colors.c8}
-      --color pointer:#${theme.colors.c9},info:#${theme.colors.lbg},spinner:#${theme.colors.lbg},header:#${theme.colors.lbg},prompt:#${theme.colors.c2},marker:#${theme.colors.c10}
+      --color fg:#${theme.colors.text},bg:#${theme.colors.mantle},hl:#${theme.colors.blue},fg+:#${theme.colors.subtext0},bg+:#${theme.colors.mantle},hl+:#${theme.colors.blue},border:#${theme.colors.surface2}
+      --color pointer:#${theme.colors.mauve},info:#${theme.colors.surface0},spinner:#${theme.colors.surface0},header:#${theme.colors.surface0},prompt:#${theme.colors.green},marker:#${theme.colors.green}
       '
 
       FZF_TAB_COMMAND=(

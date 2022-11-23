@@ -6,7 +6,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Frappe-Pink";
+      name = "Catppuccin-Macchiato-Mauve";
       package = pkgs.catppuccin-gtk;
     };
     iconTheme = {
@@ -33,7 +33,7 @@
 
   # cursor theme
   home.pointerCursor = {
-    name = "Catppuccin-Frappe-Dark";
+    name = "Catppuccin-Macchiato-Dark";
     package = pkgs.catppuccin-cursors;
     size = 24;
   };
@@ -45,12 +45,12 @@
   home.packages = with pkgs; [libsForQt5.qtstyleplugin-kvantum];
 
   xdg.configFile."Kvantum/catppuccin/catppuccin.kvconfig".source = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Frappe-Pink/Catppuccin-Frappe-Pink.kvconfig";
-    sha256 = "0pl936nchif2zsgzy4asrlc3gvv4fv2ln2myrqx13r6xra1vkcqs";
+    url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Macchiato-Mauve/Catppuccin-Macchiato-Mauve.kvconfig";
+    sha256 = "0k2icaybydqp65cic2saxvgrn039bk7kq7rqm75ffxgpmv04jakp";
   };
   xdg.configFile."Kvantum/catppuccin/catppuccin.svg".source = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Frappe-Pink/Catppuccin-Frappe-Pink.svg";
-    sha256 = "1b92j0gb65l2pvrf90inskr507a1kwin1zy0grwcsdyjmrm5yjrv";
+    url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Macchiato-Mauve/Catppuccin-Macchiato-Mauve.svg";
+    sha256 = "1qcca56f1452qriclxwlkw5p17k9n99fw34hwp4s8v24r0azcwv5";
   };
   xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
     [General]

@@ -4,38 +4,40 @@
   config,
   inputs,
   ...
-}: {
+}: let
+  theme = import ../../theme/theme.nix {};
+in {
   home.packages = with pkgs; [swaylock-effects];
 
   programs.swaylock = {
     settings = {
       clock = true;
-      color = "303446";
+      color = "${theme.colors.base}";
       font = "Work Sans";
       show-failed-attempts = false;
       indicator = true;
       indicator-radius = 200;
       indicator-thickness = 20;
-      line-color = "303446";
+      line-color = "${theme.colors.base}";
       ring-color = "626880";
-      inside-color = "303446";
-      key-hl-color = "eebebe";
+      inside-color = "${theme.colors.base}";
+      key-hl-color = "${theme.colors.mauve}";
       separator-color = "00000000";
-      text-color = "c6d0f5";
+      text-color = "${theme.colors.text}";
       text-caps-lock-color = "";
-      line-ver-color = "eebebe";
-      ring-ver-color = "eebebe";
-      inside-ver-color = "303446";
-      text-ver-color = "c6d0f5";
-      ring-wrong-color = "e78284";
-      text-wrong-color = "e78284";
-      inside-wrong-color = "303446";
-      inside-clear-color = "303446";
-      text-clear-color = "c6d0f5";
-      ring-clear-color = "a6d189";
-      line-clear-color = "303446";
-      line-wrong-color = "303446";
-      bs-hl-color = "e78284";
+      line-ver-color = "${theme.colors.mauve}";
+      ring-ver-color = "${theme.colors.mauve}";
+      inside-ver-color = "${theme.colors.base}";
+      text-ver-color = "${theme.colors.text}";
+      ring-wrong-color = "${theme.colors.red}";
+      text-wrong-color = "${theme.colors.red}";
+      inside-wrong-color = "${theme.colors.base}";
+      inside-clear-color = "${theme.colors.base}";
+      text-clear-color = "${theme.colors.text}";
+      ring-clear-color = "${theme.colors.green}";
+      line-clear-color = "${theme.colors.base}";
+      line-wrong-color = "${theme.colors.base}";
+      bs-hl-color = "${theme.colors.red}";
       line-uses-ring = false;
       grace = 2;
       grace-no-mouse = true;
@@ -70,4 +72,6 @@
       }
     ];
   };
+
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
 }
