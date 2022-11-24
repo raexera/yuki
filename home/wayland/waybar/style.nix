@@ -6,7 +6,7 @@ with theme.colors; ''
     border-radius: 0;
     min-height: 0;
     font-family: Material Design Icons, Iosevka Nerd Font;
-    font-size: 21px;
+    font-size: 20px;
   }
 
   window#waybar {
@@ -106,7 +106,7 @@ with theme.colors; ''
 
   #clock {
     font-weight: 700;
-    font-size: 21px;
+    font-size: 20px;
     padding: 5px 0px;
     font-family: "Iosevka Term";
   }

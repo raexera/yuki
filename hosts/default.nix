@@ -10,8 +10,8 @@ inputs: let
         inherit (self.lib) default;
       };
     }
-    ../modules/core
-    ../modules/core/bootloader
+    ../modules/system
+    ../modules/bootloader
     inputs.home-manager.nixosModules.home-manager
     inputs.ragenix.nixosModules.age
     {

@@ -5,7 +5,7 @@
     with nixpkgs.lib; let
       system = "x86_64-linux";
 
-      overlays.default = import ./overlays/derivations.nix;
+      overlays.default = import ./overlays;
 
       pkgs = import inputs.nixpkgs {
         inherit system;
