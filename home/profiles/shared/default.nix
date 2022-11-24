@@ -16,55 +16,49 @@ in {
   home = {
     packages = with pkgs; [
       # Apps
+      cinnamon.nemo
+      gtk3
+      gtk4
+      libsForQt5.qtstyleplugin-kvantum
       mpv-unwrapped
       pavucontrol
-      cinnamon.nemo
-      libsForQt5.qtstyleplugin-kvantum
-      neovim
       zoom-us
 
       # CLI Tools
-      todo
-      hyperfine
-      fzf
-      glxinfo
-      ghq
-      gh
-      unzip
-      ripgrep
-      rsync
-      imagemagick
-      killall
-      bandwhich
-      grex
-      fd
-      xh
-      jq
-      lm_sensors
-      dconf
-      xorg.xhost
-      cachix
-      glib
-      gcc
-      docker-compose
       alsa-lib
       alsa-plugins
       alsa-utils
-      nixopsUnstable
+      bandwhich
+      cachix
+      dconf
+      dbus
+      docker-compose
+      fd
+      fzf
+      gcc
+      gh
+      ghq
+      glib
+      glxinfo
+      grex
+      hyperfine
+      imagemagick
+      jq
+      killall
+      lm_sensors
+      ripgrep
+      rsync
+      todo
       xdg-user-dirs
       xdg-utils
+      xh
+      xorg.xhost
 
       # Language servers
-      nil
-      sumneko-lua-language-server
+      ccls
       go
       gopls
-      ccls
-      uncrustify
-      (rust-bin.selectLatestNightlyWith
-        (toolchain: toolchain.default))
-      rust-analyzer
-      shellcheck
+      nil
       nodejs
       nodePackages.pyright
       nodePackages.prettier
@@ -75,13 +69,19 @@ in {
       nodePackages.yarn
       nodePackages.bash-language-server
       nodePackages.node2nix
+      rust-analyzer
+      (rust-bin.selectLatestNightlyWith
+        (toolchain: toolchain.default))
+      shellcheck
+      sumneko-lua-language-server
+      uncrustify
 
       # Formatters
+      asmfmt
       black
       ktlint
-      stylua
       shfmt
-      asmfmt
+      stylua
     ];
 
     sessionPath = [

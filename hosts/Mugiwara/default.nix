@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   ...
@@ -69,5 +70,5 @@
     rtkit.enable = true;
   };
 
-  system.stateVersion = "22.05"; # DONT TOUCH THIS
+  system.stateVersion = lib.mkForce "21.11"; # DONT TOUCH THIS
 }

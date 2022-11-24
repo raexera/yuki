@@ -10,14 +10,14 @@ in {
   # enable zsh autocompletion for system packages (systemd, etc)
   environment.pathsToLink = ["/share/zsh"];
 
-  time = {
-    hardwareClockInLocalTime = true;
-    timeZone = "Asia/Jakarta";
-  };
-
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = ["en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8"];
+  };
+
+  time = {
+    hardwareClockInLocalTime = true;
+    timeZone = lib.mkDefault "Asia/Jakarta";
   };
 
   console = let
@@ -28,6 +28,17 @@ in {
     font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
     keyMap = "us";
   };
+
+  networking = {
+    # dns
+    nameservers = ["1.1.1.1" "1.0.0.1"];
+    networkmanager = {
+      enable = true;
+    };
+  };
+
+  # slows down boot time
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # pickup pkgs from flake export
   nixpkgs.pkgs = inputs.self.pkgs;
@@ -53,6 +64,7 @@ in {
       package = pkgs.jdk;
     };
 
+    less.enable = true;
     adb.enable = true;
     dconf.enable = true;
     nm-applet.enable = true;
@@ -181,30 +193,29 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
-    fzf
     acpi
-    cmake
     clang
     clang-tools
+    cmake
     coreutils
     curl
+    docker-client
     ffmpeg
     gnumake
     gnutls
     gnuplot
     man-pages
     man-pages-posix
+    mesa
+    neovim
     polkit_gnome
     unrar
     unzip
+    vim
+    virt-manager
+    wget
     xarchiver
     zip
-    wget
-    vim
-    gnome.adwaita-icon-theme
-    virt-manager
-    docker-client
   ];
 
   virtualisation = {
@@ -236,5 +247,5 @@ in {
   # compresses half the ram for use as swap
   zramSwap.enable = true;
 
-  system.stateVersion = "22.05"; # DONT TOUCH THIS
+  system.stateVersion = lib.mkDefault "22.05"; # DONT TOUCH THIS
 }
