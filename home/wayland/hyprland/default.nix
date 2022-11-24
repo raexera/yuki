@@ -6,32 +6,24 @@
   ...
 }:
 with lib; let
-  mkService = lib.recursiveUpdate {
-    Unit.PartOf = ["graphical-session.target"];
-    Unit.After = ["graphical-session.target"];
-    Install.WantedBy = ["graphical-session.target"];
-  };
   ocr = pkgs.writeShellScriptBin "ocr" ''
     #!/bin/bash
     grim -g "$(slurp -w 0 -b eebebed2)" /tmp/ocr.png && tesseract /tmp/ocr.png /tmp/ocr-output && wl-copy < /tmp/ocr-output.txt && notify-send "OCR" "Text copied!" && rm /tmp/ocr-output.txt -f
   '';
 in {
   home.packages = with pkgs; [
+    ocr
+    grim
+    pngquant
+    python39Packages.requests
+    slurp
+    swayidle
+    tesseract5
+    wf-recorder
+    wl-clipboard
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
-    libnotify
-    wf-recorder
-    brightnessctl
-    pamixer
-    python39Packages.requests
-    slurp
-    tesseract5
-    swappy
-    ocr
-    grim
-    wl-clipboard
-    pngquant
     xorg.xprop
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
@@ -62,10 +54,16 @@ in {
     provider = "geoclue2";
   };
 
-  systemd.user.services = {
-    swaybg = mkService {
-      Unit.Description = "Wallpaper chooser";
-      Service.ExecStart = "${pkgs.swaybg}/bin/swaybg --mode fill --image ${./assets/wallpaper/nix-gradient.png}";
+  systemd.user.services.swaybg = {
+    Unit = {
+      Description = "Wayland wallpaper daemon";
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session.target"];
     };
+    Service = {
+      ExecStart = "${pkgs.swaybg}/bin/swaybg --mode fill --image ${./assets/wallpaper/nix-gradient.png}";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = ["graphical-session.target"];
   };
 }

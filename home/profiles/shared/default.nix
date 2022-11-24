@@ -25,9 +25,6 @@ in {
       zoom-us
 
       # CLI Tools
-      alsa-lib
-      alsa-plugins
-      alsa-utils
       bandwhich
       cachix
       dconf
@@ -49,10 +46,18 @@ in {
       ripgrep
       rsync
       todo
-      xdg-user-dirs
-      xdg-utils
       xh
       xorg.xhost
+
+      # Utilities
+      alsa-lib
+      alsa-plugins
+      alsa-utils
+      brightnessctl
+      libnotify
+      pamixer
+      xdg-user-dirs
+      xdg-utils
 
       # Language servers
       ccls
