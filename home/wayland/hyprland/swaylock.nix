@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  theme = import ../../theme/theme.nix {};
+  theme = import ../../../theme/theme.nix {};
 in {
   home.packages = with pkgs; [swaylock-effects];
 

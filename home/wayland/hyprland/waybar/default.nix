@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  theme = import ../../../theme/theme.nix {};
+  theme = import ../../../../theme/theme.nix {};
 
   waybar-wttr = pkgs.stdenv.mkDerivation {
     name = "waybar-wttr";

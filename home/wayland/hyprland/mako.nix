@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  theme = import ../../theme/theme.nix {};
+  theme = import ../../../theme/theme.nix {};
 in {
   programs.mako = {
     enable = true;

@@ -66,4 +66,11 @@ in {
     };
     Install.WantedBy = ["graphical-session.target"];
   };
+
+  imports = [
+    ./waybar
+    ./mako.nix
+    ./rofi.nix
+    ./swaylock.nix
+  ];
 }
