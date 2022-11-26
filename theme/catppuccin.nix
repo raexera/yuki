@@ -26,4 +26,9 @@ _: rec {
   mantle = "1e2030";
   crust = "181926";
   transparent = "00000000";
+
+  gradient0 = "BAA3F6";
+  gradient1 = "AEA5F5";
+  gradient2 = "A2A8F5";
+  gradient3 = "96AAF4";
 }

@@ -1,44 +1,21 @@
 {theme}:
 with theme.colors; ''
   * {
-    all: unset;
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: Material Design Icons, JetBrainsMono Nerd Font;
-    font-size: 20px;
+    font-family: Material Design Icons, Iosevka Nerd Font;
+    font-size: 18px;
   }
 
   window#waybar {
     background-color: #${mantle};
-    color: #${text};
-    transition-property: background-color;
+    /* transition-property: background-color; */
     transition-duration: 0.5s;
   }
 
   window#waybar.hidden {
-    opacity: 0.2;
-  }
-
-  #network {
-    margin: 0px 8px;
-    padding: 10px 0px 5px 0px;
-    border-radius: 8px 8px 0px 0px;
-    background-color: #${base};
-  }
-
-  #pulseaudio,
-  #backlight {
-    margin: 0px 8px;
-    padding: 5px 0px;
-    background-color: #${base};
-  }
-
-  #battery {
-    margin: 0px 8px 6px 8px;
-    padding: 5px 0px 10px 0px;
-    border-radius: 0px 0px 8px 8px;
-    background-color: #${base};
+    opacity: 0.5;
   }
 
   #custom-launcher,
@@ -46,36 +23,34 @@ with theme.colors; ''
   #custom-swallow,
   #custom-power,
   #custom-todo,
-  #custom-lock,
   #custom-weather,
+  #battery,
+  #backlight,
+  #pulseaudio,
+  #network,
   #clock,
   #workspaces {
-    border-radius: 8px;
-    margin: 6px 8px;
+    border-radius: 4px;
+    margin: 6px 0px;
+    padding: 6px 12px;
     background-color: #${base};
-    padding: 10px 0px;
+    color: #${mantle};
   }
 
   #custom-power {
-    margin-bottom: 8px;
+    margin-right: 6px;
   }
 
   #custom-launcher {
+    margin-left: 6px;
+    padding: 6px 18px;
     background-image: url("${./assets/nix-snowflake.png}");
-    background-size: 60%;
+    background-size: 70%;
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: 8px;
   }
 
   #workspaces {
-    font-size: 15px;
-    background-color: #${base};
-  }
-
-  #custom-launcher,
-  #clock {
-    color: #${text};
     background-color: #${base};
   }
 
@@ -83,9 +58,7 @@ with theme.colors; ''
     all: initial; /* Remove GTK theme values (waybar #1351) */
     background-color: transparent;
     color: #${blue};
-    font-size: 21px;
-    padding: 0px 0px;
-    margin: 5px 0px;
+    margin: 0px 6px;
     box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
     min-width: 0; /* Fix weird spacing in materia (waybar #450) */
   }
@@ -104,42 +77,21 @@ with theme.colors; ''
     background-color: #${red};
   }
 
-  #clock {
-    font-weight: 700;
-    font-size: 20px;
-    padding: 5px 0px;
+  #custom-launcher,
+  #custom-weather,
+  #custom-todo
+  {
+    color: #${mauve};
+    background-color: #${base};
   }
 
   #custom-swallow {
     color: #${mauve};
   }
 
-  #custom-todo {
-    color: #${text};
-  }
-
-  #network {
-    color: #${sky};
-  }
-
-  #network.disconnected {
-    color: #${red};
-  }
-
-  #pulseaudio {
-    color: #${pink};
-  }
-
-  #pulseaudio.muted {
-    color: #${overlay0};
-  }
-
-  #backlight {
-    color: #${blue};
-  }
 
   #battery {
-    color: #${green};
+    background-color: #${mauve};
   }
 
   #battery.warning {
@@ -162,12 +114,32 @@ with theme.colors; ''
     animation-direction: alternate;
   }
 
-  #custom-lock {
-    color: #${yellow};
+  #pulseaudio {
+    background-color: #${gradient0};
+  }
+
+  #pulseaudio.muted {
+    color: #${overlay0};
+  }
+
+  #backlight {
+    background-color: #${gradient1};
+  }
+
+  #network {
+    background-color: #${gradient2};
+  }
+
+  #network.disconnected {
+    color: #${red};
+  }
+
+  #clock {
+    background-color: #${gradient3};
   }
 
   #custom-power {
-    color: #${red};
+    background-color: #${blue};
   }
 
   tooltip {

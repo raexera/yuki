@@ -48,7 +48,7 @@ NixOS / Home-Manager / Flake
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/93292023/203532460-9d490bc5-5870-49f6-abaa-c4d1f3073793.png" width="90%" />
+  <img src="https://user-images.githubusercontent.com/93292023/204088241-f9bc25fa-64b4-424e-b22d-6e73a165dad6.png" width="90%" />
 </p>
 
 <br>

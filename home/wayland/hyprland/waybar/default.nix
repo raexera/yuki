@@ -41,15 +41,15 @@ in {
     settings = {
       mainBar = {
         layer = "top";
-        position = "left";
+        position = "top";
         mode = "dock";
         exclusive = true;
         passthrough = false;
         fixed-center = true;
         gtk-layer-shell = true;
         ipc = true;
-        spacing = 0;
-        width = 64;
+        height = 34;
+        spacing = 6;
         modules-left = [
           "custom/launcher"
           "wlr/workspaces"
@@ -59,11 +59,11 @@ in {
         ];
         modules-center = [];
         modules-right = [
-          "network"
+          "battery"
           "pulseaudio"
           "backlight"
-          "battery"
-          "custom/lock"
+          "network"
+          "clock#date"
           "clock"
           "custom/power"
         ];
@@ -95,11 +95,6 @@ in {
           exec = "waybar-wttr";
           return-type = "json";
         };
-        "custom/lock" = {
-          tooltip = false;
-          on-click = "sh -c '(sleep 0.5s; ${pkgs.swaylock}/bin/swaylock --grace 0)' & disown";
-          format = "󰌾";
-        };
         "custom/swallow" = {
           tooltip = false;
           on-click = "${./scripts/waybar-swallow.sh}";
@@ -111,15 +106,19 @@ in {
           format = "󰤆";
         };
         clock = {
-          format = ''
-            {:%H
-            %M}'';
+          format = "󱑎 {:%H:%M}";
+          tooltip-format = ''
+            <big>{:%Y %B}</big>
+            <tt><small>{calendar}</small></tt>'';
+        };
+        "clock#date" = {
+          format = "󰃶 {:%a %d %b}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
         };
         backlight = {
-          format = "{icon}";
+          format = "{icon} {percent}%";
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
         };
         battery = {
@@ -127,15 +126,16 @@ in {
             warning = 30;
             critical = 15;
           };
-          format = "{icon}";
-          format-charging = "󰂄";
+          format = "{icon} {capacity}%";
+          tooltip-format = "{timeTo}, {capacity}%";
+          format-charging = "󰂄 {capacity}%";
           format-plugged = "󰚥";
-          format-alt = "{icon}";
+          format-alt = "{time} {icon}";
           format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         network = {
-          format-wifi = "󰖩";
-          format-ethernet = "󰈀";
+          format-wifi = "󰖩 {essid}";
+          format-ethernet = "󰈀 {ipaddr}/{cidr}";
           format-alt = "󱛇";
           format-disconnected = "󰖪";
           tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
@@ -143,9 +143,12 @@ in {
         pulseaudio = {
           scroll-step = 5;
           tooltip = false;
-          format-muted = "󰖁";
-          format = "{icon}";
+          format = "{icon} {volume}% {format_source}";
+          format-muted = "󰖁 {format_source}";
+          format-source = "󰍬 {volume}%";
+          format-source-muted = "󰍭";
           format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
+          tooltip-format = "{desc}, {volume}%";
           on-click = "${pkgs.killall}/bin/killall pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol";
         };
       };
