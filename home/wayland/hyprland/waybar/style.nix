@@ -4,18 +4,50 @@ with theme.colors; ''
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: Material Design Icons, Iosevka Nerd Font;
-    font-size: 18px;
+    font-family: Material Design Icons, JetBrainsMono Nerd Font;
+    font-size: 17px;
   }
 
   window#waybar {
     background-color: #${mantle};
-    /* transition-property: background-color; */
+    transition-property: background-color;
     transition-duration: 0.5s;
   }
 
   window#waybar.hidden {
     opacity: 0.5;
+  }
+
+  #workspaces {
+   background-color: #${base};
+   margin: 6px 0px;
+   border-radius: 4px;
+  }
+
+  #workspaces button {
+    all: initial; /* Remove GTK theme values (waybar #1351) */
+    min-width: 0; /* Fix weird spacing in materia (waybar #450) */
+    box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
+    padding: 5px 10px;
+    color: #${blue};
+  }
+
+  #workspaces button.active {
+    color: #${mantle};
+    background-color: #${mauve};
+    border-radius: 4px;
+  }
+
+  #workspaces button:hover {
+   box-shadow: inherit;
+   text-shadow: inherit;
+   color: #${mantle};
+   background-color: #${mauve};
+   border-radius: 4px;
+  }
+
+  #workspaces button.urgent {
+    background-color: #${red};
   }
 
   #custom-launcher,
@@ -28,8 +60,8 @@ with theme.colors; ''
   #backlight,
   #pulseaudio,
   #network,
-  #clock,
-  #workspaces {
+  #clock
+  {
     border-radius: 4px;
     margin: 6px 0px;
     padding: 6px 12px;
@@ -50,33 +82,6 @@ with theme.colors; ''
     background-repeat: no-repeat;
   }
 
-  #workspaces {
-    background-color: #${base};
-  }
-
-  #workspaces button {
-    all: initial; /* Remove GTK theme values (waybar #1351) */
-    background-color: transparent;
-    color: #${blue};
-    margin: 0px 6px;
-    box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
-    min-width: 0; /* Fix weird spacing in materia (waybar #450) */
-  }
-
-  #workspaces button:hover {
-    color: #${blue};
-    box-shadow: inherit;
-    text-shadow: inherit;
-  }
-
-  #workspaces button.active {
-    color: #${yellow};
-  }
-
-  #workspaces button.urgent {
-    background-color: #${red};
-  }
-
   #custom-launcher,
   #custom-weather,
   #custom-todo
@@ -89,7 +94,6 @@ with theme.colors; ''
     color: #${mauve};
   }
 
-
   #battery {
     background-color: #${mauve};
   }
@@ -100,13 +104,17 @@ with theme.colors; ''
 
   @keyframes blink {
     to {
-      background-color: #ffffff;
-      color: #000000;
+      background-color: #${red};
+      color: #${base};
     }
   }
 
+  .warning,
+  .critical,
+  .urgent,
   #battery.critical:not(.charging) {
-    color: #${red};
+    background-color: #${red};
+    color: #${base};
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -152,22 +160,5 @@ with theme.colors; ''
   tooltip label {
     font-family: "Lato", sans-serif;
     padding: 20px;
-  }
-
-  @keyframes blink_red {
-    to {
-      background-color: #${red};
-      color: #${base};
-    }
-  }
-
-  .warning,
-  .critical,
-  .urgent {
-    animation-name: blink_red;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
   }
 ''
