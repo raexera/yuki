@@ -48,7 +48,7 @@ NixOS / Home-Manager / Flake
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/93292023/204088241-f9bc25fa-64b4-424e-b22d-6e73a165dad6.png" width="90%" />
+  <img src="https://user-images.githubusercontent.com/93292023/204102856-5e929621-d80e-47f6-add1-52fbf762c402.png" width="90%" />
 </p>
 
 <br>
@@ -57,7 +57,10 @@ NixOS / Home-Manager / Flake
 <br>
 
 ## 👥 People
-  These are the people who build and maintain this repository
+
+  These are the people who build and maintain this repository.
+
+  If you stole something from here at least give us credits!
 
   [rxyhn](https://github.com/rxyhn) - [sioodmy](https://github.com/sioodmy) - [fufexan](https://github.com/fufexan)
 
