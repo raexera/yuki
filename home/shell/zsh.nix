@@ -39,29 +39,7 @@ in {
     completionInit = ''
       autoload -U compinit
       zstyle ':completion:*' menu select
-      zmodload zsh/complist
-      compinit
-      _comp_options+=(globdots)
-      bindkey -M menuselect 'h' vi-backward-char
-      bindkey -M menuselect 'k' vi-up-line-or-history
-      bindkey -M menuselect 'l' vi-forward-char
-      bindkey -M menuselect 'j' vi-down-line-or-history
-      bindkey -v '^?' backward-delete-char
-    '';
-
-    initExtra = ''
-      export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
-
-      bindkey -v
-
-      set -k
-      setopt auto_cd
-      setopt NO_NOMATCH
-      setopt ALWAYS_TO_END
-      setopt NO_CASE_GLOB
-      setopt NO_LIST_BEEP
-      setopt CORRECT
-      SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+      zstyle ':completion:complete:*:options' sort false
 
       # search history based on what's typed in the prompt
       autoload -U history-search-end
@@ -74,11 +52,95 @@ in {
       zstyle ':completion:*' completer _complete _ignored _approximate
       zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
       zstyle ':completion:*' menu select
-      zstyle ':completion:*: matches' group yes
-      zstyle ':completion:*: options' description yes
-      zstyle ':completion:*: options' auto-description '%d'
       zstyle ':completion:*' verbose true
       _comp_options+=(globdots)
+
+      zmodload zsh/complist
+      compinit
+      bindkey -M menuselect 'h' vi-backward-char
+      bindkey -M menuselect 'k' vi-up-line-or-history
+      bindkey -M menuselect 'l' vi-forward-char
+      bindkey -M menuselect 'j' vi-down-line-or-history
+      bindkey -v '^?' backward-delete-char
+    '';
+
+    initExtra = ''
+      export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
+      export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
+
+      # Correct spelling for commands
+      setopt correct
+
+      # turn off the infernal correctall for filenames
+      unsetopt correctall
+
+      # Set some history options
+      setopt append_history
+      setopt extended_history
+      setopt hist_expire_dups_first
+      setopt hist_ignore_all_dups
+      setopt hist_ignore_dups
+      setopt hist_ignore_space
+      setopt hist_reduce_blanks
+      setopt hist_save_no_dups
+      setopt hist_verify
+      setopt INC_APPEND_HISTORY
+      unsetopt HIST_BEEP
+
+      # Share your history across all your terminal windows
+      setopt share_history
+
+      # Set some options about directories
+      setopt pushd_ignore_dups
+      setopt AUTO_CD
+
+      # Add some completions settings
+      setopt ALWAYS_TO_END     # Move cursor to the end of a completed word.
+      setopt AUTO_LIST         # Automatically list choices on ambiguous completion.
+      setopt AUTO_MENU         # Show completion menu on a successive tab press.
+      setopt AUTO_PARAM_SLASH  # If completed parameter is a directory, add a trailing slash.
+      setopt COMPLETE_IN_WORD  # Complete from both ends of a word.
+      unsetopt MENU_COMPLETE   # Do not autoselect the first completion entry.
+
+      # Miscellaneous settings
+      setopt INTERACTIVE_COMMENTS  # Enable comments in interactive shell.
+      setopt extended_glob # Enable more powerful glob features
+
+      export FZF_DEFAULT_OPTS="
+      --color fg:#${theme.colors.text}
+      --color fg+:#${theme.colors.surface1}
+      --color bg:#${theme.colors.mantle}
+      --color bg+:#${theme.colors.mantle}
+      --color hl:#${theme.colors.blue}
+      --color hl+:#${theme.colors.blue}
+      --color info:#${theme.colors.surface2}
+      --color prompt:#${theme.colors.green}
+      --color spinner:#${theme.colors.blue}
+      --color pointer:#${theme.colors.blue}
+      --color marker:#${theme.colors.blue}
+      --color border:#${theme.colors.surface2}
+      --color header:#${theme.colors.blue}
+      --prompt ' | '
+      --pointer ''
+      --layout=reverse
+      --border horizontal
+      --height 40
+      "
+
+      FZF_TAB_COMMAND=(
+        ${pkgs.fzf}/bin/fzf
+        --ansi
+        --expect='$continuous_trigger' # For continuous completion
+        --nth=2,3 --delimiter='\x00'  # Don't search prefix
+        --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
+        --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+        '--query=$query'   # $query will be expanded to query string at runtime.
+        '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+      )
+
+      zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+      zstyle ':fzf-tab:complete:_zlua:*' query-string input
+      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview.sh $realpath'
 
       function run() {
         nix run nixpkgs#$@
@@ -92,30 +154,6 @@ in {
         printf 'Command not found ->\033[32;05;16m %s\033[0m \n' "$0" >&2
           return 127
       }
-
-      export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
-
-      export FZF_DEFAULT_OPTS='
-      --color fg:#${theme.colors.text},bg:#${theme.colors.mantle},hl:#${theme.colors.blue},fg+:#${theme.colors.subtext0},bg+:#${theme.colors.mantle},hl+:#${theme.colors.blue},border:#${theme.colors.surface2}
-      --color pointer:#${theme.colors.mauve},info:#${theme.colors.surface0},spinner:#${theme.colors.surface0},header:#${theme.colors.surface0},prompt:#${theme.colors.green},marker:#${theme.colors.green}
-      '
-
-      FZF_TAB_COMMAND=(
-          ${pkgs.fzf}/bin/fzf
-          --ansi
-          --expect='$continuous_trigger' # For continuous completion
-          --nth=2,3 --delimiter='\x00'  # Don't search prefix
-          --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-          --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-          '--query=$query'   # $query will be expanded to query string at runtime.
-          '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-          )
-      zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
-
-      zstyle ':completion:complete:*:options' sort false
-      zstyle ':fzf-tab:complete:_zlua:*' query-string input
-
-      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview.sh $realpath'
     '';
 
     shellAliases = {
@@ -123,8 +161,6 @@ in {
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
       nixtest = "sudo nixos-rebuild test --flake .#graphene --fast";
       bloat = "nix path-info -Sh /run/current-system";
-      ytmp3 = ''
-        ${pkgs.yt-dlp}/bin/yt-dlp -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
       cat = "${pkgs.bat}/bin/bat --style=plain";
       grep = "${pkgs.ripgrep}/bin/rg";
       du = "${pkgs.du-dust}/bin/dust";
