@@ -10,7 +10,7 @@ in {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    font = "Iosevka Nerd Font 13";
+    font = "JetBrainsMono Nerd Font 13";
     extraConfig = {
       modi = "drun,run,filebrowser";
       show-icons = true;

@@ -9,7 +9,7 @@ in {
   programs.zathura = {
     enable = true;
     options = {
-      font = "Iosevka 15";
+      font = "JetBrainsMono Nerd Font 15";
 
       default-fg = "#${theme.colors.text}";
       default-bg = "#${theme.colors.base}";

@@ -5,7 +5,7 @@ with theme.colors; ''
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: Material Design Icons, Iosevka Nerd Font;
+    font-family: Material Design Icons, JetBrainsMono Nerd Font;
     font-size: 20px;
   }
 
@@ -108,7 +108,6 @@ with theme.colors; ''
     font-weight: 700;
     font-size: 20px;
     padding: 5px 0px;
-    font-family: "Iosevka Term";
   }
 
   #custom-swallow {
