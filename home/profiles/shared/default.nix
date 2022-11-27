@@ -56,6 +56,7 @@ in {
       brightnessctl
       libnotify
       pamixer
+      playerctl
       xdg-user-dirs
       xdg-utils
 

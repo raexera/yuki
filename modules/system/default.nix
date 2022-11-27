@@ -104,8 +104,10 @@ in {
     cmake
     coreutils
     curl
+    dbus
     docker-client
     ffmpeg
+    findutils
     gnumake
     gnutls
     gnuplot
@@ -116,6 +118,7 @@ in {
     polkit_gnome
     unrar
     unzip
+    util-linux
     vim
     virt-manager
     wget
