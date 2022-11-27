@@ -46,6 +46,7 @@ in {
       ripgrep
       rsync
       todo
+      trash-cli
       xh
       xorg.xhost
 
@@ -99,6 +100,8 @@ in {
       XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
     };
   };
+
+  services.playerctld.enable = true;
 
   # catppuccin theme for gtk-apps
   gtk = {

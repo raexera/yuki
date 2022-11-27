@@ -97,34 +97,39 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    acpi
-    clang
-    clang-tools
-    cmake
-    coreutils
-    curl
-    dbus
-    docker-client
-    ffmpeg
-    findutils
-    gnumake
-    gnutls
-    gnuplot
-    man-pages
-    man-pages-posix
-    mesa
-    neovim
-    polkit_gnome
-    unrar
-    unzip
-    util-linux
-    vim
-    virt-manager
-    wget
-    xarchiver
-    zip
-  ];
+  environment = {
+    binsh = "${pkgs.bash}/bin/bash";
+    shells = with pkgs; [zsh];
+
+    systemPackages = with pkgs; [
+      acpi
+      clang
+      clang-tools
+      cmake
+      coreutils
+      curl
+      dbus
+      docker-client
+      ffmpeg
+      findutils
+      gnumake
+      gnutls
+      gnuplot
+      man-pages
+      man-pages-posix
+      mesa
+      neovim
+      polkit_gnome
+      unrar
+      unzip
+      util-linux
+      vim
+      virt-manager
+      wget
+      xarchiver
+      zip
+    ];
+  };
 
   virtualisation = {
     libvirtd = {
@@ -148,7 +153,7 @@ in {
 
     bluetooth = {
       enable = true;
-      package = pkgs.bluezFull;
+      package = pkgs.bluez;
     };
   };
 
