@@ -29,8 +29,6 @@
               // {
                 # Non Flakes
                 fzf-tab-src = fzf-tab;
-                zsh-completions-src = zsh-completions;
-                zsh-syntax-highlighting-src = zsh-syntax-highlighting;
               }
           )
           nur.overlay
@@ -113,16 +111,6 @@
     # Non flakes
     fzf-tab = {
       url = "github:Aloxaf/fzf-tab";
-      flake = false;
-    };
-
-    zsh-completions = {
-      url = "github:zsh-users/zsh-completions";
-      flake = false;
-    };
-
-    zsh-syntax-highlighting = {
-      url = "github:zsh-users/zsh-syntax-highlighting";
       flake = false;
     };
   };
