@@ -18,7 +18,10 @@ inputs: let
       home-manager = {
         useUserPackages = true;
         useGlobalPkgs = true;
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {
+          inherit inputs;
+          colors = import ../home/colors.nix inputs.nixpkgs.lib;
+        };
       };
     }
   ];

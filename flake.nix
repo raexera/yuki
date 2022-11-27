@@ -114,6 +114,8 @@
       flake = false;
     };
 
+    nix-colors.url = "github:Misterio77/nix-colors";
+
     zsh-completions = {
       url = "github:zsh-users/zsh-completions";
       flake = false;
