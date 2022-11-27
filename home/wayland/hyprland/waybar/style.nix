@@ -76,7 +76,7 @@ with theme.colors; ''
   #custom-launcher {
     margin-left: 6px;
     padding: 6px 18px;
-    background-image: url("${./assets/nix-snowflake.png}");
+    background-image: url("${../assets/waybar/nix-snowflake.png}");
     background-size: 70%;
     background-position: center;
     background-repeat: no-repeat;

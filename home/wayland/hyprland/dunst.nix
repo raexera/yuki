@@ -13,38 +13,50 @@ in {
     };
     settings = {
       global = {
+        follow = "mouse";
         width = 220;
         height = 220;
         padding = 10;
+        horizontal_padding = 10;
+        text_icon_padding = 0;
         frame_width = 3;
         progress_bar_frame_width = 2;
         corner_radius = 12;
-        transparency = 10;
+        transparency = 0;
+        gap_size = 0;
+        line_height = 0;
+        separator_height = 2;
         notification_limit = 3;
         idle_threshold = 120;
         history_length = 20;
         show_age_threshold = 60;
         max_icon_size = 64;
-        separator_height = 1;
+        format = "<b>%a</b>\n%s";
         alignment = "center";
+        vertical_alignment = "top";
         ellipsize = "middle";
         origin = "top-center";
-        offset = "0x15";
+        offset = "15x15";
         icon_position = "left";
-        font = "JetBrainsMono Nerd Font 13";
+        font = "JetBrainsMono Nerd Font 11";
         highlight = "#${theme.colors.mauve}";
-        separator_color = "auto";
-        ignore_newline = "no";
+        frame_color = "#${theme.colors.mauve}";
+        separator_color = "frame";
         mouse_left_click = "do_action";
         mouse_middle_click = "close_all";
         mouse_right_click = "close_current";
-        markup = "yes";
+        markup = "full";
+        sort = "yes";
         sticky_history = "yes";
+        word_wrap = "yes";
+        indicate_hidden = "yes";
+        ignore_newline = "no";
+        show_indicators = "no";
+        shrink = "no";
+        stack_duplicates = true;
         always_run_script = true;
         progress_bar = true;
-        format = "<b>%a</b>\n%s";
-        shrink = "no";
-        word_wrap = "yes";
+        hide_duplicate_count = false;
       };
 
       fullscreen_delay_everything = {fullscreen = "delay";};
@@ -52,18 +64,16 @@ in {
       urgency_low = {
         background = "#${theme.colors.base}";
         foreground = "#${theme.colors.text}";
-        frame_color = "#${theme.colors.mauve}";
         timeout = 5;
       };
       urgency_normal = {
         background = "#${theme.colors.base}";
         foreground = "#${theme.colors.text}";
-        frame_color = "#${theme.colors.mauve}";
         timeout = 6;
       };
       urgency_critical = {
         background = "#${theme.colors.base}";
-        foreground = "#${theme.colors.text}";
+        foreground = "#${theme.colors.red}";
         frame_color = "#${theme.colors.red}";
         timeout = 0;
       };
