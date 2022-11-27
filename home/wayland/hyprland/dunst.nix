@@ -1,10 +1,9 @@
 {
   config,
   pkgs,
+  theme,
   ...
-}: let
-  theme = import ../../../theme/theme.nix {};
-in {
+}: {
   services.dunst = {
     enable = true;
     iconTheme = {
@@ -39,8 +38,8 @@ in {
         offset = "15x15";
         icon_position = "left";
         font = "JetBrainsMono Nerd Font 11";
-        highlight = "#${theme.colors.mauve}";
-        frame_color = "#${theme.colors.mauve}";
+        highlight = theme.xcolors.mauve;
+        frame_color = theme.xcolors.mauve;
         separator_color = "frame";
         mouse_left_click = "do_action";
         mouse_middle_click = "close_all";
@@ -62,19 +61,19 @@ in {
       fullscreen_delay_everything = {fullscreen = "delay";};
 
       urgency_low = {
-        background = "#${theme.colors.base}";
-        foreground = "#${theme.colors.text}";
+        background = theme.xcolors.base;
+        foreground = theme.xcolors.text;
         timeout = 5;
       };
       urgency_normal = {
-        background = "#${theme.colors.base}";
-        foreground = "#${theme.colors.text}";
+        background = theme.xcolors.base;
+        foreground = theme.xcolors.text;
         timeout = 6;
       };
       urgency_critical = {
-        background = "#${theme.colors.base}";
-        foreground = "#${theme.colors.red}";
-        frame_color = "#${theme.colors.red}";
+        background = theme.xcolors.base;
+        foreground = theme.xcolors.red;
+        frame_color = theme.xcolors.red;
         timeout = 0;
       };
     };

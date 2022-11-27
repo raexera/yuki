@@ -1,5 +1,5 @@
 {theme}:
-with theme.colors; ''
+with theme.xcolors; ''
   * {
     border: none;
     border-radius: 0;
@@ -9,7 +9,7 @@ with theme.colors; ''
   }
 
   window#waybar {
-    background-color: #${mantle};
+    background-color: ${mantle};
     transition-property: background-color;
     transition-duration: 0.5s;
   }
@@ -20,7 +20,7 @@ with theme.colors; ''
 
   #workspaces,
   #taskbar {
-   background-color: #${base};
+   background-color: ${base};
    margin: 6px 0px;
    border-radius: 4px;
   }
@@ -34,26 +34,26 @@ with theme.colors; ''
   }
 
   #workspaces button {
-    color: #${blue};
+    color: ${blue};
   }
 
   #workspaces button.active,
   #taskbar button.active {
-    color: #${mantle};
-    background-color: #${mauve};
+    color: ${mantle};
+    background-color: ${mauve};
     border-radius: 4px;
   }
 
   #workspaces button:hover {
    box-shadow: inherit;
    text-shadow: inherit;
-   color: #${mantle};
-   background-color: #${mauve};
+   color: ${mantle};
+   background-color: ${mauve};
    border-radius: 4px;
   }
 
   #workspaces button.urgent {
-    background-color: #${red};
+    background-color: ${red};
   }
 
   #custom-launcher,
@@ -71,8 +71,8 @@ with theme.colors; ''
     border-radius: 4px;
     margin: 6px 0px;
     padding: 6px 12px;
-    background-color: #${base};
-    color: #${mantle};
+    background-color: ${base};
+    color: ${mantle};
   }
 
   #custom-power {
@@ -91,22 +91,22 @@ with theme.colors; ''
   #custom-launcher,
   #custom-weather,
   #custom-todo {
-    color: #${mauve};
-    background-color: #${base};
+    color: ${mauve};
+    background-color: ${base};
   }
 
   #custom-swallow {
-    color: #${mauve};
+    color: ${mauve};
   }
 
   #battery {
-    background-color: #${mauve};
+    background-color: ${mauve};
   }
 
   @keyframes blink {
     to {
-      background-color: #${red};
-      color: #${base};
+      background-color: ${red};
+      color: ${base};
     }
   }
 
@@ -114,8 +114,8 @@ with theme.colors; ''
   .critical,
   .urgent,
   #battery.critical:not(.charging) {
-    background-color: #${red};
-    color: #${base};
+    background-color: ${red};
+    color: ${base};
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -124,23 +124,23 @@ with theme.colors; ''
   }
 
   #pulseaudio {
-    background-color: #${gradient0};
+    background-color: ${gradient0};
   }
 
   #backlight {
-    background-color: #${gradient1};
+    background-color: ${gradient1};
   }
 
   #network {
-    background-color: #${gradient2};
+    background-color: ${gradient2};
   }
 
   #clock {
-    background-color: #${gradient3};
+    background-color: ${gradient3};
   }
 
   #custom-power {
-    background-color: #${blue};
+    background-color: ${blue};
   }
 
   tooltip {

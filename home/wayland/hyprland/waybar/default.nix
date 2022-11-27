@@ -2,10 +2,9 @@
   pkgs,
   lib,
   config,
+  theme,
   ...
 }: let
-  theme = import ../../../../theme/theme.nix {};
-
   waybar-wttr = pkgs.stdenv.mkDerivation {
     name = "waybar-wttr";
     buildInputs = [

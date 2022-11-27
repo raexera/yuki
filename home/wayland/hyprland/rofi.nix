@@ -3,10 +3,9 @@
   lib,
   pkgs,
   inputs,
+  theme,
   ...
-}: let
-  theme = import ../../../theme/theme.nix {};
-in {
+}: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -24,12 +23,12 @@ in {
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
-        background = mkLiteral "#${theme.colors.mantle}";
-        background-alt = mkLiteral "#${theme.colors.base}";
-        foreground = mkLiteral "#${theme.colors.text}";
-        selected = mkLiteral "#${theme.colors.mauve}";
-        active = mkLiteral "#${theme.colors.overlay1}";
-        urgent = mkLiteral "#${theme.colors.red}";
+        background = mkLiteral theme.colors.mantle;
+        background-alt = mkLiteral theme.colors.base;
+        foreground = mkLiteral theme.colors.text;
+        selected = mkLiteral theme.colors.mauve;
+        active = mkLiteral theme.colors.overlay1;
+        urgent = mkLiteral theme.colors.red;
       };
 
       "window" = {

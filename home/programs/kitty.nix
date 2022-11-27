@@ -2,10 +2,9 @@
   config,
   lib,
   pkgs,
+  theme,
   ...
-}: let
-  theme = import ../../theme/theme.nix {};
-in {
+}: {
   programs.kitty = {
     enable = true;
     settings = {
@@ -34,71 +33,71 @@ in {
       window_margin_width = 10;
 
       # The basic colors
-      foreground = "#${theme.colors.text}";
-      background = "#${theme.colors.base}";
-      selection_foreground = "#${theme.colors.base}";
-      selection_background = "#${theme.colors.rosewater}";
+      foreground = theme.xcolors.text;
+      background = theme.xcolors.base;
+      selection_foreground = theme.xcolors.base;
+      selection_background = theme.xcolors.rosewater;
 
       # Cursor colors
-      cursor = "#${theme.colors.rosewater}";
-      cursor_text_color = "#${theme.colors.base}";
+      cursor = theme.xcolors.rosewater;
+      cursor_text_color = theme.xcolors.base;
 
       # URL underline color when hovering with mouse
-      url_color = "#${theme.colors.rosewater}";
+      url_color = theme.xcolors.rosewater;
 
       # Kitty window border colors
-      active_border_color = "#${theme.colors.lavender}";
-      inactive_border_color = "#${theme.colors.overlay0}";
-      bell_border_color = "#${theme.colors.yellow}";
+      active_border_color = theme.xcolors.lavender;
+      inactive_border_color = theme.xcolors.overlay0;
+      bell_border_color = theme.xcolors.yellow;
 
       # Tab bar colors
-      active_tab_foreground = "#${theme.colors.crust}";
-      active_tab_background = "#${theme.colors.pink}";
-      inactive_tab_foreground = "#${theme.colors.text}";
-      inactive_tab_background = "#${theme.colors.mantle}";
-      tab_bar_background = "#${theme.colors.crust}";
+      active_tab_foreground = theme.xcolors.crust;
+      active_tab_background = theme.xcolors.pink;
+      inactive_tab_foreground = theme.xcolors.text;
+      inactive_tab_background = theme.xcolors.mantle;
+      tab_bar_background = theme.xcolors.crust;
 
       # Colors for marks (marked text in the terminal)
-      mark1_foreground = "#${theme.colors.base}";
-      mark1_background = "#${theme.colors.lavender}";
-      mark2_foreground = "#${theme.colors.base}";
-      mark2_background = "#${theme.colors.pink}";
-      mark3_foreground = "#${theme.colors.base}";
-      mark3_background = "#${theme.colors.sapphire}";
+      mark1_foreground = theme.xcolors.base;
+      mark1_background = theme.xcolors.lavender;
+      mark2_foreground = theme.xcolors.base;
+      mark2_background = theme.xcolors.pink;
+      mark3_foreground = theme.xcolors.base;
+      mark3_background = theme.xcolors.sapphire;
 
       # The 16 terminal colors
 
       # black
-      color0 = "#${theme.colors.surface1}";
-      color8 = "#${theme.colors.surface2}";
+      color0 = theme.xcolors.surface1;
+      color8 = theme.xcolors.surface2;
 
       # red
-      color1 = "#${theme.colors.red}";
-      color9 = "#${theme.colors.red}";
+      color1 = theme.xcolors.red;
+      color9 = theme.xcolors.red;
 
       # green
-      color2 = "#${theme.colors.green}";
-      color10 = "#${theme.colors.green}";
+      color2 = theme.xcolors.green;
+      color10 = theme.xcolors.green;
 
       # yellow
-      color3 = "#${theme.colors.yellow}";
-      color11 = "#${theme.colors.yellow}";
+      color3 = theme.xcolors.yellow;
+      color11 = theme.xcolors.yellow;
 
       # blue
-      color4 = "#${theme.colors.blue}";
-      color12 = "#${theme.colors.blue}";
+      color4 = theme.xcolors.blue;
+      color12 = theme.xcolors.blue;
 
       # magenta
-      color5 = "#${theme.colors.mauve}";
-      color13 = "#${theme.colors.mauve}";
+      color5 = theme.xcolors.mauve;
+      color13 = theme.xcolors.mauve;
 
       # cyan
-      color6 = "#${theme.colors.teal}";
-      color14 = "#${theme.colors.teal}";
+      color6 = theme.xcolors.teal;
+      color14 = theme.xcolors.teal;
 
       # white
-      color7 = "#${theme.colors.subtext1}";
-      color15 = "#${theme.colors.subtext0}";
+      color7 = theme.xcolors.subtext1;
+      color15 = theme.xcolors.subtext0;
     };
 
     keybindings = {

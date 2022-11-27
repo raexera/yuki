@@ -3,10 +3,9 @@
   config,
   lib,
   pkgs,
+  theme,
   ...
-}: let
-  theme = import ../../theme/theme.nix {};
-in {
+}: {
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -108,19 +107,19 @@ in {
       _comp_options+=(globdots)
 
       export FZF_DEFAULT_OPTS="
-      --color fg:#${theme.colors.text}
-      --color fg+:#${theme.colors.surface1}
-      --color bg:#${theme.colors.mantle}
-      --color bg+:#${theme.colors.mantle}
-      --color hl:#${theme.colors.blue}
-      --color hl+:#${theme.colors.blue}
-      --color info:#${theme.colors.surface2}
-      --color prompt:#${theme.colors.green}
-      --color spinner:#${theme.colors.blue}
-      --color pointer:#${theme.colors.blue}
-      --color marker:#${theme.colors.blue}
-      --color border:#${theme.colors.surface2}
-      --color header:#${theme.colors.blue}
+      --color fg:${theme.xcolors.text}
+      --color fg+:${theme.xcolors.surface1}
+      --color bg:${theme.xcolors.mantle}
+      --color bg+:${theme.xcolors.mantle}
+      --color hl:${theme.xcolors.blue}
+      --color hl+:${theme.xcolors.blue}
+      --color info:${theme.xcolors.surface2}
+      --color prompt:${theme.xcolors.green}
+      --color spinner:${theme.xcolors.blue}
+      --color pointer:${theme.xcolors.blue}
+      --color marker:${theme.xcolors.blue}
+      --color border:${theme.xcolors.surface2}
+      --color header:${theme.xcolors.blue}
       --prompt ' | '
       --pointer ''
       --layout=reverse
@@ -185,7 +184,7 @@ in {
       ssh = "kitty +kitten ssh";
     };
 
-    plugins = with pkgs inputs; [
+    plugins = [
       {
         name = "fzf-tab";
         src = pkgs.fzf-tab-src;

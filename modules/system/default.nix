@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  theme = import ../../theme/theme.nix {};
+  theme = import ../../theme/theme.nix inputs;
 in {
   # enable zsh autocompletion for system packages (systemd, etc)
   environment.pathsToLink = ["/share/zsh"];
@@ -20,8 +20,8 @@ in {
   };
 
   console = let
-    normal = with theme.colors; [base red green yellow blue mauve teal subtext1];
-    bright = with theme.colors; [surface0 red green yellow blue mauve teal subtext0];
+    normal = with theme.xcolors; [base red green yellow blue mauve teal subtext1];
+    bright = with theme.xcolors; [surface0 red green yellow blue mauve teal subtext0];
   in {
     colors = normal ++ bright;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";

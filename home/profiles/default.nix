@@ -6,6 +6,7 @@ inputs: let
     ../.
     ../shell
     ./shared
+    ../../theme/home.nix
   ];
 
   homeImports = {

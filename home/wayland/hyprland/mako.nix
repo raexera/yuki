@@ -2,10 +2,9 @@
   config,
   lib,
   pkgs,
+  theme,
   ...
-}: let
-  theme = import ../../../theme/theme.nix {};
-in {
+}: {
   programs.mako = {
     enable = true;
     anchor = "top-right";
@@ -22,27 +21,27 @@ in {
     layer = "top";
     maxVisible = 5;
 
-    backgroundColor = "#${theme.colors.base}";
-    textColor = "#${theme.colors.text}";
-    borderColor = "#${theme.colors.mauve}";
-    progressColor = "over  #${theme.colors.mauve}";
+    backgroundColor = theme.xcolors.base;
+    textColor = theme.xcolors.text;
+    borderColor = theme.xcolors.mauve;
+    progressColor = "over ${theme.xcolors.mauve}";
 
     extraConfig = ''
       [urgency=low]
-      border-color=#${theme.colors.mauve}
+      border-color=${theme.xcolors.mauve}
       default-timeout=2000
 
       [urgency=normal]
-      border-color=#${theme.colors.mauve}
+      border-color=${theme.xcolors.mauve}
       default-timeout=5000
 
       [urgency=high]
-      border-color=#${theme.colors.red}
-      text-color=#${theme.colors.red}
+      border-color=${theme.xcolors.red}
+      text-color=${theme.xcolors.red}
       default-timeout=0
 
       [category=mpd]
-      border-color=#${theme.colors.yellow}
+      border-color=${theme.xcolors.yellow}
       default-timeout=2000
       group-by=category
     '';

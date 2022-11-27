@@ -2,56 +2,55 @@
   pkgs,
   lib,
   config,
+  theme,
   ...
-}: let
-  theme = import ../../theme/theme.nix {};
-in {
+}: {
   programs.zathura = {
     enable = true;
     options = {
       font = "JetBrainsMono Nerd Font 15";
 
-      default-fg = "#${theme.colors.text}";
-      default-bg = "#${theme.colors.base}";
+      default-fg = theme.xcolors.text;
+      default-bg = theme.xcolors.base;
 
-      completion-bg = "#${theme.colors.surface0}";
-      completion-fg = "#${theme.colors.text}";
-      completion-highlight-bg = "#${theme.colors.surface1}";
-      completion-highlight-fg = "#${theme.colors.text}";
-      completion-group-bg = "#${theme.colors.surface0}";
-      completion-group-fg = "#${theme.colors.blue}";
+      completion-bg = theme.xcolors.surface0;
+      completion-fg = theme.xcolors.text;
+      completion-highlight-bg = theme.xcolors.surface1;
+      completion-highlight-fg = theme.xcolors.text;
+      completion-group-bg = theme.xcolors.surface0;
+      completion-group-fg = theme.xcolors.blue;
 
-      statusbar-fg = "#${theme.colors.text}";
-      statusbar-bg = "#${theme.colors.surface0}";
+      statusbar-fg = theme.xcolors.text;
+      statusbar-bg = theme.xcolors.surface0;
       statusbar-h-padding = 10;
       statusbar-v-padding = 10;
 
-      notification-bg = "#${theme.colors.surface0}";
-      notification-fg = "#${theme.colors.text}";
-      notification-error-bg = "#${theme.colors.surface0}";
-      notification-error-fg = "#${theme.colors.red}";
-      notification-warning-bg = "#${theme.colors.surface0}";
-      notification-warning-fg = "#${theme.colors.yellow}";
+      notification-bg = theme.xcolors.surface0;
+      notification-fg = theme.xcolors.text;
+      notification-error-bg = theme.xcolors.surface0;
+      notification-error-fg = theme.xcolors.red;
+      notification-warning-bg = theme.xcolors.surface0;
+      notification-warning-fg = theme.xcolors.yellow;
       selection-notification = true;
 
-      inputbar-fg = "#${theme.colors.text}";
-      inputbar-bg = "#${theme.colors.surface0}";
+      inputbar-fg = theme.xcolors.text;
+      inputbar-bg = theme.xcolors.surface0;
 
       recolor = true;
-      recolor-lightcolor = "#${theme.colors.base}";
-      recolor-darkcolor = "#${theme.colors.text}";
+      recolor-lightcolor = theme.xcolors.base;
+      recolor-darkcolor = theme.xcolors.text;
 
-      index-fg = "#${theme.colors.text}";
-      index-bg = "#${theme.colors.base}";
-      index-active-fg = "#${theme.colors.text}";
-      index-active-bg = "#${theme.colors.surface0}";
+      index-fg = theme.xcolors.text;
+      index-bg = theme.xcolors.base;
+      index-active-fg = theme.xcolors.text;
+      index-active-bg = theme.xcolors.surface0;
 
-      render-loading-bg = "#${theme.colors.base}";
-      render-loading-fg = "#${theme.colors.text}";
+      render-loading-bg = theme.xcolors.base;
+      render-loading-fg = theme.xcolors.text;
 
-      highlight-color = "#${theme.colors.surface1}";
-      highlight-active-color = "#${theme.colors.mauve}";
-      highlight-fg = "#${theme.colors.mauve}";
+      highlight-color = theme.xcolors.surface1;
+      highlight-active-color = theme.xcolors.mauve;
+      highlight-fg = theme.xcolors.mauve;
 
       selection-clipboard = "clipboard";
       adjust-open = "best-fit";

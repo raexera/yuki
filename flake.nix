@@ -75,7 +75,6 @@
     ragenix.url = "github:yaxitech/ragenix";
     nur.url = "github:nix-community/NUR";
     devshell.url = "github:numtide/devshell";
-    nix-colors.url = "github:Misterio77/nix-colors";
 
     flake-utils = {
       url = "github:numtide/flake-utils";

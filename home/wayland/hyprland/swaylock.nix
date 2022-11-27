@@ -3,41 +3,40 @@
   lib,
   config,
   inputs,
+  theme,
   ...
-}: let
-  theme = import ../../../theme/theme.nix {};
-in {
+}: {
   home.packages = with pkgs; [swaylock-effects];
 
   programs.swaylock = {
     settings = {
       clock = true;
-      color = "${theme.colors.base}";
+      color = "${theme.xcolors.base}";
       font = "Work Sans";
       show-failed-attempts = false;
       indicator = true;
       indicator-radius = 200;
       indicator-thickness = 20;
-      line-color = "${theme.colors.base}";
+      line-color = "${theme.xcolors.base}";
       ring-color = "626880";
-      inside-color = "${theme.colors.base}";
-      key-hl-color = "${theme.colors.mauve}";
+      inside-color = "${theme.xcolors.base}";
+      key-hl-color = "${theme.xcolors.mauve}";
       separator-color = "00000000";
-      text-color = "${theme.colors.text}";
+      text-color = "${theme.xcolors.text}";
       text-caps-lock-color = "";
-      line-ver-color = "${theme.colors.mauve}";
-      ring-ver-color = "${theme.colors.mauve}";
-      inside-ver-color = "${theme.colors.base}";
-      text-ver-color = "${theme.colors.text}";
-      ring-wrong-color = "${theme.colors.red}";
-      text-wrong-color = "${theme.colors.red}";
-      inside-wrong-color = "${theme.colors.base}";
-      inside-clear-color = "${theme.colors.base}";
-      text-clear-color = "${theme.colors.text}";
-      ring-clear-color = "${theme.colors.green}";
-      line-clear-color = "${theme.colors.base}";
-      line-wrong-color = "${theme.colors.base}";
-      bs-hl-color = "${theme.colors.red}";
+      line-ver-color = "${theme.xcolors.mauve}";
+      ring-ver-color = "${theme.xcolors.mauve}";
+      inside-ver-color = "${theme.xcolors.base}";
+      text-ver-color = "${theme.xcolors.text}";
+      ring-wrong-color = "${theme.xcolors.red}";
+      text-wrong-color = "${theme.xcolors.red}";
+      inside-wrong-color = "${theme.xcolors.base}";
+      inside-clear-color = "${theme.xcolors.base}";
+      text-clear-color = "${theme.xcolors.text}";
+      ring-clear-color = "${theme.xcolors.green}";
+      line-clear-color = "${theme.xcolors.base}";
+      line-wrong-color = "${theme.xcolors.base}";
+      bs-hl-color = "${theme.xcolors.red}";
       line-uses-ring = false;
       grace = 2;
       grace-no-mouse = true;
