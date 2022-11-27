@@ -60,7 +60,7 @@
   #
   decoration {
       # Rounded corners
-      rounding = 8
+      rounding = 12
       multisample_edges = true
 
       # Opacity
@@ -77,8 +77,9 @@
       drop_shadow = true
       shadow_ignore_window = true
       shadow_range = 4
-      shadow_render_power = 3
-      col.shadow = rgba(292c3cee)
+      shadow_render_power = 1
+      shadow_offset = 2 2
+      col.shadow = 0x55000000
   }
 
   # Blurring layerSurfaces
@@ -86,7 +87,6 @@
   blurls = gtk-layer-shell
   blurls = waybar
   blurls = lockscreen
-  blurls = rofi
 
   # Animations
   #

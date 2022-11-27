@@ -60,7 +60,8 @@ with theme.colors; ''
   #backlight,
   #pulseaudio,
   #network,
-  #clock
+  #clock,
+  #tray
   {
     border-radius: 4px;
     margin: 6px 0px;

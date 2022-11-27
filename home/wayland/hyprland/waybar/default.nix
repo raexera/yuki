@@ -56,6 +56,7 @@ in {
           "custom/swallow"
           "custom/weather"
           "custom/todo"
+          "tray"
         ];
         modules-center = [];
         modules-right = [
@@ -104,6 +105,9 @@ in {
           tooltip = false;
           on-click = "${./scripts/shutdown.sh} &";
           format = "󰤆";
+        };
+        tray = {
+          spacing = 10;
         };
         clock = {
           format = "󱑎 {:%H:%M}";
