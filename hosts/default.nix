@@ -20,7 +20,6 @@ inputs: let
         useGlobalPkgs = true;
         extraSpecialArgs = {
           inherit inputs;
-          colors = import ../home/colors.nix inputs.nixpkgs.lib;
         };
       };
     }
