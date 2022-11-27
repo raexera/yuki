@@ -69,7 +69,8 @@ in {
 
   imports = [
     ./waybar
-    ./mako.nix
+    ./dunst.nix
+    # ./mako.nix
     ./rofi.nix
     ./swaylock.nix
   ];

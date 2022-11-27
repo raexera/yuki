@@ -75,9 +75,6 @@ in {
       nodePackages.bash-language-server
       nodePackages.node2nix
       rust-analyzer
-      (rust-bin.selectLatestNightlyWith
-        (toolchain: toolchain.default))
-      shellcheck
       sumneko-lua-language-server
       uncrustify
 

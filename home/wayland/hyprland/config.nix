@@ -35,8 +35,8 @@
   # General
   #
   general {
-      gaps_in = 6
-      gaps_out = 12
+      gaps_in = 4
+      gaps_out = 8
       border_size = 4
       no_border_on_floating = true
       col.active_border = 0xffc6a0f6
@@ -76,10 +76,9 @@
       # Shadow
       drop_shadow = true
       shadow_ignore_window = true
-      shadow_range = 20
-      shadow_render_power = 2
-      shadow_offset = 2 4
-      col.shadow = 0x44000000
+      shadow_range = 4
+      shadow_render_power = 3
+      col.shadow = rgba(292c3cee)
   }
 
   # Blurring layerSurfaces
@@ -97,12 +96,16 @@
       # bezier curve
       bezier = overshot, 0.05, 0.9, 0.1, 1.05
       # bezier = overshot, 0.13, 0.99, 0.29, 1.1
+      bezier = smoothOut, 0.36, 0, 0.66, -0.56
+      bezier = smoothIn, 0.25, 1, 0.5, 1
 
       # animation list
       animation = windows, 1, 5, overshot, slide
+      animation = windowsOut, 1, 4, smoothOut, slide
       animation = windowsMove, 1, 4, default
       animation = border, 1, 10, default
-      animation = fade, 1, 10, default
+      animation = fade, 1, 10, smoothIn
+      animation = fadeDim, 1, 10, smoothIn
       animation = workspaces, 1, 6, overshot, slidevert
   }
 
@@ -151,32 +154,23 @@
   windowrule = float, obs
   windowrule = float, wdisplays
   windowrule = float, zathura
-  windowrule=tile,title:Spotify
-  windowrule=float,*.exe
-  windowrule=fullscreen,wlogout
-  windowrule=float,title:wlogout
-  windowrule=fullscreen,title:wlogout
-  windowrule=animation slidedown,rofi
-  windowrule=float,pavucontrol-qt
-  windowrule=float,keepassxc
-  windowrule=float,title:^(Media viewer)$
-  windowrule=float,title:^(Transmission)$
-  windowrule=float,title:^(Volume Control)$
-  windowrule=float,title:^(Picture-in-Picture)$
-  windowrule=float,title:^(Firefox — Sharing Indicator)$
-  windowrule=move 0 0,title:^(Firefox — Sharing Indicator)$
-  windowrule=size 800 600,title:^(Volume Control)$
-  windowrule=move 75 44%,title:^(Volume Control)$
-
-  windowrule = float, org.gnome.Settings
-  windowrule = float, file-roller
-  windowrule = float, nautilus
-  windowrule = float, nemo
-  windowrule = float, thunar
-  windowrule = float, Pcmanfm
-  windowrule = float, obs
-  windowrule = float, wdisplays
-  windowrule = float, zathura
+  windowrule = float, *.exe
+  windowrule = fullscreen, wlogout
+  windowrule = float, title:wlogout
+  windowrule = fullscreen, title:wlogout
+  windowrule = animation slidedown, rofi
+  windowrule = float, pavucontrol-qt
+  windowrule = float, keepassxc
+  windowrule = idleinhibit focus, mpv
+  windowrule = idleinhibit fullscreen, firefox
+  windowrule = float, title:^(Media viewer)$
+  windowrule = float, title:^(Transmission)$
+  windowrule = float, title:^(Volume Control)$
+  windowrule = float, title:^(Picture-in-Picture)$
+  windowrule = float, title:^(Firefox — Sharing Indicator)$
+  windowrule = move 0 0, title:^(Firefox — Sharing Indicator)$
+  windowrule = size 800 600, title:^(Volume Control)$
+  windowrule = move 75 44%, title:^(Volume Control)$
 
   # Keybinds
   #
@@ -205,17 +199,15 @@
   # Screenshots
   $screenshotarea = hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"
   bind = , Print, exec, $screenshotarea
-
   bind = CTRL, Print, exec, grimblast --notify --cursor copysave output
   bind = SUPER SHIFT CTRL, R, exec, grimblast --notify --cursor copysave output
-
   bind = ALT, Print, exec, grimblast --notify --cursor copysave screen
   bind = SUPER SHIFT ALT, R, exec, grimblast --notify --cursor copysave screen
 
   # Misc
   # bind = SUPER, C, exec, $colorpicker
   # bind = SUPER, X, exec, $powermenu
-  # bind = CTRL ALT, L, exec, $lockscreen
+  bind = CTRL ALT, L, exec, swaylock
   bind = SUPER SHIFT, O, exec, ocr
 
   # Window management
@@ -245,8 +237,8 @@
   bind = SUPER CTRL, down, resizeactive, 0 20
 
   # Tabbed
-  bind=SUPER,g,togglegroup
-  bind=SUPER,tab,changegroupactive
+  bind= SUPER, g, togglegroup
+  bind= SUPER, tab, changegroupactive
 
   # Special workspace
   bind = SUPER, grave, togglespecialworkspace
