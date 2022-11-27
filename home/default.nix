@@ -1,6 +1,4 @@
 {
-  imports = [./colors.nix];
-
   home = {
     username = "rxyhn";
     homeDirectory = "/home/rxyhn";

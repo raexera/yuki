@@ -5,6 +5,7 @@
     with nixpkgs.lib; let
       system = "x86_64-linux";
 
+      lib = import ./lib inputs;
       overlays.default = import ./overlays;
 
       pkgs = import inputs.nixpkgs {
@@ -40,7 +41,7 @@
         ];
       };
     in {
-      inherit pkgs overlays;
+      inherit lib pkgs overlays;
 
       # standalone home-manager config
       inherit (import ./home/profiles inputs) homeConfigurations;
@@ -76,6 +77,7 @@
     ragenix.url = "github:yaxitech/ragenix";
     nur.url = "github:nix-community/NUR";
     devshell.url = "github:numtide/devshell";
+    nix-colors.url = "github:Misterio77/nix-colors";
 
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -113,8 +115,6 @@
       url = "github:Aloxaf/fzf-tab";
       flake = false;
     };
-
-    nix-colors.url = "github:Misterio77/nix-colors";
 
     zsh-completions = {
       url = "github:zsh-users/zsh-completions";
