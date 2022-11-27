@@ -53,6 +53,7 @@ in {
         modules-left = [
           "custom/launcher"
           "wlr/workspaces"
+          "wlr/taskbar"
           "custom/swallow"
           "custom/weather"
           "custom/todo"
@@ -71,11 +72,20 @@ in {
         "wlr/workspaces" = {
           on-click = "activate";
           format = "{icon}";
+          disable-scroll = true;
           active-only = false;
           format-icons = {
             default = "󰊠";
             active = "󰮯";
           };
+        };
+        "wlr/taskbar" = {
+          format = "{icon}";
+          icon-size = 17;
+          icon-theme = "Papirus";
+          tooltip-format = "{title}";
+          on-click = "activate";
+          on-click-middle = "close";
         };
         "custom/launcher" = {
           format = " ";
@@ -124,6 +134,8 @@ in {
         backlight = {
           format = "{icon} {percent}%";
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
+          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl s 1%-";
+          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl s +1%";
         };
         battery = {
           states = {
@@ -133,7 +145,7 @@ in {
           format = "{icon} {capacity}%";
           tooltip-format = "{timeTo}, {capacity}%";
           format-charging = "󰂄 {capacity}%";
-          format-plugged = "󰚥";
+          format-plugged = "󰚥 {capacity}%";
           format-alt = "{time} {icon}";
           format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
@@ -142,7 +154,9 @@ in {
           format-ethernet = "󰈀 {ipaddr}/{cidr}";
           format-alt = "󱛇";
           format-disconnected = "󰖪";
-          tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
+          tooltip-format = ''
+            󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
+            {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
         };
         pulseaudio = {
           scroll-step = 5;

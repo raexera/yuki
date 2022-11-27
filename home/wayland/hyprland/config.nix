@@ -193,8 +193,8 @@
   bind = ,XF86MonBrightnessDown, exec, brightnessctl set 5%-
   bind = ,XF86AudioRaiseVolume, exec, pamixer -i 5
   bind = ,XF86AudioLowerVolume, exec, pamixer -d 5
-  # bind = ,XF86AudioMute, exec, toggleMute
-  # bind = ,XF86AudioMicMute, exec, toggleMic
+  bind = ,XF86AudioMute, exec, pamixer -t
+  bind = ,XF86AudioMicMute, exec, pamixer --default-source -t
 
   # Screenshots
   $screenshotarea = hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"
@@ -205,8 +205,7 @@
   bind = SUPER SHIFT ALT, R, exec, grimblast --notify --cursor copysave screen
 
   # Misc
-  # bind = SUPER, C, exec, $colorpicker
-  # bind = SUPER, X, exec, $powermenu
+  bind = SUPER, C, exec, hyprpicker -a -n
   bind = CTRL ALT, L, exec, swaylock
   bind = SUPER SHIFT, O, exec, ocr
 

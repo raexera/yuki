@@ -26,6 +26,7 @@ in {
     xdg-desktop-portal-wlr
     xorg.xprop
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
   ];
 
   wayland.windowManager.hyprland = {

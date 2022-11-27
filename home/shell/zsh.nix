@@ -188,15 +188,15 @@ in {
     plugins = with pkgs inputs; [
       {
         name = "zsh-completions";
-        src = inputs.zsh-completions;
+        src = pkgs.zsh-completions-src;
       }
       {
         name = "fzf-tab";
-        src = inputs.fzf-tab;
+        src = pkgs.fzf-tab-src;
       }
       {
         name = "zsh-syntax-highlighting";
-        src = inputs.zsh-syntax-highlighting;
+        src = pkgs.zsh-syntax-highlighting-src;
         file = "zsh-syntax-highlighting.zsh";
       }
       {

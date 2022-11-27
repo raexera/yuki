@@ -18,21 +18,27 @@ with theme.colors; ''
     opacity: 0.5;
   }
 
-  #workspaces {
+  #workspaces,
+  #taskbar {
    background-color: #${base};
    margin: 6px 0px;
    border-radius: 4px;
   }
 
-  #workspaces button {
+  #workspaces button,
+  #taskbar button {
     all: initial; /* Remove GTK theme values (waybar #1351) */
     min-width: 0; /* Fix weird spacing in materia (waybar #450) */
     box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
     padding: 5px 10px;
+  }
+
+  #workspaces button {
     color: #${blue};
   }
 
-  #workspaces button.active {
+  #workspaces button.active,
+  #taskbar button.active {
     color: #${mantle};
     background-color: #${mauve};
     border-radius: 4px;
@@ -61,8 +67,7 @@ with theme.colors; ''
   #pulseaudio,
   #network,
   #clock,
-  #tray
-  {
+  #tray {
     border-radius: 4px;
     margin: 6px 0px;
     padding: 6px 12px;
@@ -85,8 +90,7 @@ with theme.colors; ''
 
   #custom-launcher,
   #custom-weather,
-  #custom-todo
-  {
+  #custom-todo {
     color: #${mauve};
     background-color: #${base};
   }
@@ -97,10 +101,6 @@ with theme.colors; ''
 
   #battery {
     background-color: #${mauve};
-  }
-
-  #battery.warning {
-    color: #${peach};
   }
 
   @keyframes blink {
@@ -127,20 +127,12 @@ with theme.colors; ''
     background-color: #${gradient0};
   }
 
-  #pulseaudio.muted {
-    color: #${overlay0};
-  }
-
   #backlight {
     background-color: #${gradient1};
   }
 
   #network {
     background-color: #${gradient2};
-  }
-
-  #network.disconnected {
-    color: #${red};
   }
 
   #clock {

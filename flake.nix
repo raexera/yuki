@@ -18,12 +18,19 @@
           (
             final: _: let
               inherit (final) system;
-            in (with nixpkgs-f2k.packages.${system}; {
-              # Overlays with f2k's repo
-              awesome = awesome-git;
-              picom = picom-git;
-              wezterm = wezterm-git;
-            })
+            in
+              (with nixpkgs-f2k.packages.${system}; {
+                # Overlays with f2k's repo
+                awesome = awesome-git;
+                picom = picom-git;
+                wezterm = wezterm-git;
+              })
+              // {
+                # Non Flakes
+                fzf-tab-src = fzf-tab;
+                zsh-completions-src = zsh-completions;
+                zsh-syntax-highlighting-src = zsh-syntax-highlighting;
+              }
           )
           nur.overlay
           nixpkgs-wayland.overlay
@@ -99,6 +106,7 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprpicker.url = "github:hyprwm/hyprpicker";
 
     # Non flakes
     fzf-tab = {
