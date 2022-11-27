@@ -39,24 +39,9 @@ in {
     completionInit = ''
       autoload -U compinit
       zstyle ':completion:*' menu select
-      zstyle ':completion:complete:*:options' sort false
-
-      # search history based on what's typed in the prompt
-      autoload -U history-search-end
-      zle -N history-beginning-search-backward-end history-search-end
-      zle -N history-beginning-search-forward-end history-search-end
-      bindkey "^[OA" history-beginning-search-backward-end
-      bindkey "^[OB" history-beginning-search-forward-end
-
-      # case insensitive tab completion
-      zstyle ':completion:*' completer _complete _ignored _approximate
-      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-      zstyle ':completion:*' menu select
-      zstyle ':completion:*' verbose true
-      _comp_options+=(globdots)
-
       zmodload zsh/complist
       compinit
+      _comp_options+=(globdots)
       bindkey -M menuselect 'h' vi-backward-char
       bindkey -M menuselect 'k' vi-up-line-or-history
       bindkey -M menuselect 'l' vi-forward-char
@@ -106,6 +91,22 @@ in {
       setopt INTERACTIVE_COMMENTS  # Enable comments in interactive shell.
       setopt extended_glob # Enable more powerful glob features
 
+      # Search history based on what's typed in the prompt
+      autoload -U history-search-end
+      zle -N history-beginning-search-backward-end history-search-end
+      zle -N history-beginning-search-forward-end history-search-end
+      bindkey "^[OA" history-beginning-search-backward-end
+      bindkey "^[OB" history-beginning-search-forward-end
+
+      # Completion
+      zstyle ':completion:*' menu select
+      zstyle ':completion:*' completer _complete _ignored _approximate
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+      zstyle ':completion:*' rehash true
+      zstyle ':completion:*' verbose true
+      zstyle ':completion:complete:*:options' sort false
+      _comp_options+=(globdots)
+
       export FZF_DEFAULT_OPTS="
       --color fg:#${theme.colors.text}
       --color fg+:#${theme.colors.surface1}
@@ -141,6 +142,15 @@ in {
       zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview.sh $realpath'
+
+      # If this is an xterm set the title to user@host:dir
+      case "$TERM" in
+      xterm*|rxvt*|Eterm|aterm|kterm|gnome*|alacritty)
+        TERM_TITLE=$'\e]0;%n@%m: %1~\a'
+          ;;
+      *)
+          ;;
+      esac
 
       function run() {
         nix run nixpkgs#$@
