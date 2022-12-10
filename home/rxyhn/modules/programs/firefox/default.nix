@@ -10,11 +10,10 @@
       adnauseam
       enhanced-github
       enhancer-for-youtube
+      octotree
       refined-github
-      return-youtube-dislikes
-      sidebery
       stylus
-      terms-of-service-didnt-read
+      ublock-origin
     ];
 
     inherit package;

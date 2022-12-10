@@ -8,8 +8,6 @@
     gitAndTools.git-machete
     gitAndTools.gh
     git-filter-repo
-    tcpdump
-    wrangler
   ];
 
   programs.git = {
