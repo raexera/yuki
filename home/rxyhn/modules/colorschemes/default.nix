@@ -7,9 +7,8 @@
 
   # Custom colorscheme list
   carbon-dark = (import ./carbon-dark.nix).colorscheme;
+  default-dark = (import ./default-dark.nix).colorscheme;
   oxocarbon-dark = (import ./oxocarbon-dark.nix).colorscheme;
-  yoru = (import ./yoru.nix).colorscheme;
-  radium = (import ./radium.nix).colorscheme;
 in {
   imports = [
     inputs.nix-colors.homeManagerModule
