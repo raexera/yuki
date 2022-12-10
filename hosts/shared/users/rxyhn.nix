@@ -18,6 +18,8 @@ in {
         "networkmanager"
         "video"
         "audio"
+        "nix"
+        "systemd-journal"
       ]
       ++ ifTheyExist [
         "mysql"

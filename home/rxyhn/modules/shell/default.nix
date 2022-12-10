@@ -47,11 +47,8 @@ in {
     ];
 
     sessionVariables = {
-      BROWSER = "${pkgs.firefox-wayland}/bin/firefox";
-      EDITOR = "${pkgs.neovim}/bin/nvim";
       GOPATH = "${config.home.homeDirectory}/Extras/go";
       RUSTUP_HOME = "${config.home.homeDirectory}/.local/share/rustup";
-      XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
     };
 
     file = {

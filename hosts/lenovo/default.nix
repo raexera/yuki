@@ -48,45 +48,10 @@
     useDHCP = false;
   };
 
-  programs = {
-    adb.enable = true;
-    dconf.enable = true;
-
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
-    nm-applet.enable = true;
-    seahorse.enable = true;
-  };
+  # slows down boot time
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   services = {
-    acpid.enable = true;
-    blueman.enable = true;
-
-    dbus = {
-      enable = true;
-      packages = with pkgs; [dconf];
-    };
-
-    fwupd.enable = true;
-    gnome.gnome-keyring.enable = true;
-    gvfs.enable = true;
-
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      wireplumber.enable = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
-    thermald.enable = true;
-
     xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
@@ -106,17 +71,9 @@
       };
     };
 
+    acpid.enable = true;
+    thermald.enable = true;
     upower.enable = true;
-
-    logind = {
-      lidSwitch = "suspend";
-      lidSwitchExternalPower = "lock";
-    };
-  };
-
-  systemd.user.services = {
-    pipewire.wantedBy = ["default.target"];
-    pipewire-pulse.wantedBy = ["default.target"];
   };
 
   hardware = {
@@ -161,8 +118,12 @@
   };
 
   security = {
-    pam.services.swaylock.text = "auth include login";
     rtkit.enable = true;
+    pam.services.swaylock = {
+      text = ''
+        auth include login
+      '';
+    };
   };
 
   environment.systemPackages = with pkgs; [
