@@ -1,10 +1,16 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-  home.packages = [pkgs.gh];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    bfg-repo-cleaner
+    colordiff
+    gist
+    gitAndTools.git-absorb
+    gitAndTools.gitui
+    gitAndTools.git-machete
+    gitAndTools.gh
+    git-filter-repo
+    tcpdump
+    wrangler
+  ];
 
   programs.git = {
     enable = true;
@@ -21,6 +27,7 @@
         syntax-theme = "Nord";
         line-numbers = true;
       };
+      credential.helper = "${pkgs.gitAndTools.gitFull}/bin/git-credential-libsecret";
     };
     aliases = {
       co = "checkout";
