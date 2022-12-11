@@ -63,6 +63,6 @@ NixOS / Home-Manager / Flake
 <br>
 <br>
 
-<p align="center"><a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=GPL-3.0&logoColor=ffffff&colorA=161616&colorB=ff7eb6"/></a></p>
+<p align="center"><a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=ffffff&colorA=161616&colorB=ff7eb6"/></a></p>
 
 </div>
