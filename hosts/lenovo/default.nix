@@ -48,8 +48,11 @@
     useDHCP = false;
   };
 
-  # slows down boot time
+  # Slows down boot time
   systemd.services.NetworkManager-wait-online.enable = false;
+
+  # Windows wants hardware clock in local time instead of UTC
+  time.hardwareClockInLocalTime = true;
 
   services = {
     xserver = {
@@ -134,10 +137,27 @@
     docker-client
     mesa
     polkit_gnome
+    spice-gtk
+    swtpm
     virt-manager
   ];
 
-  time.hardwareClockInLocalTime = true;
+  virtualisation = {
+    docker.enable = true;
+
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        ovmf = {
+          enable = true;
+          packages = with pkgs; [OVMFFull.fd];
+        };
+        swtpm.enable = true;
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
 
   system.stateVersion = lib.mkForce "22.11"; # DONT TOUCH THIS
 }

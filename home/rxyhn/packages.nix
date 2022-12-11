@@ -27,6 +27,7 @@ in {
     cachix
     dconf
     docker-compose
+    docker-credential-helpers
     glxinfo
     grex
     hyperfine
