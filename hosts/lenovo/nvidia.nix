@@ -15,8 +15,8 @@ in {
   environment = {
     systemPackages = [nvidia-offload];
     variables = {
-      LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
+      LIBVA_DRIVER_NAME = "nvidia";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
   };
@@ -27,15 +27,19 @@ in {
   hardware = {
     nvidia = {
       modesetting.enable = true;
-      nvidiaPersistenced = true;
-      powerManagement.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+
       prime = {
         offload.enable = true;
-        nvidiaBusId = "PCI:1:0:0";
         intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
       };
     };
+
     opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
   };
 }

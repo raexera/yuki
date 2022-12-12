@@ -80,6 +80,8 @@
   };
 
   hardware = {
+    enableRedistributableFirmware = true;
+
     opengl = {
       enable = true;
       driSupport = true;
@@ -92,13 +94,13 @@
         libvdpau-va-gl
       ];
     };
-    cpu.intel.updateMicrocode = true;
-    enableRedistributableFirmware = true;
-    pulseaudio.enable = false;
+
     bluetooth = {
       enable = true;
       package = pkgs.bluez;
     };
+
+    pulseaudio.enable = false;
   };
 
   nixpkgs.config.packageOverrides = pkgs: {
