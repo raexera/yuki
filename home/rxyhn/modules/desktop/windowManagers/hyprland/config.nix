@@ -1,128 +1,114 @@
 {colorscheme}: ''
-  ## ░█░█░█░█░█▀█░█▀▄░█░░░█▀█░█▀█░█▀▄
-  ## ░█▀█░░█░░█▀▀░█▀▄░█░░░█▀█░█░█░█░█
-  ## ░▀░▀░░▀░░▀░░░▀░▀░▀▀▀░▀░▀░▀░▀░▀▀░
-  ##
-  ## Rxyhn's hyprland configuration file
-
   # Monitors
-  #
   monitor = ,3072x1920@120,0x0,1.5
 
   # Autostart programs
-  #
   exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
   # Input
-  #
   input {
-      kb_layout = us
-      kb_variant =
-      kb_model =
-      kb_options =
-      kb_rules =
-      follow_mouse = 1
-      touchpad {
-          disable_while_typing = true
-          natural_scroll = true
-          tap-to-click = true
-      }
-      sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options =
+    kb_rules =
+    follow_mouse = 1
+    touchpad {
+        disable_while_typing = true
+        natural_scroll = true
+        tap-to-click = true
+    }
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
   }
 
   # General
-  #
   general {
-      gaps_in = 3
-      gaps_out = 6
-      border_size = 3
+    gaps_in = 6
+    gaps_out = 12
+    border_size = 3
     col.active_border=0xff${colorscheme.colors.base0C}
     col.inactive_border=0xff${colorscheme.colors.base02}
-      no_border_on_floating = true
-      layout = dwindle
-      main_mod = SUPER
+    no_border_on_floating = true
+    layout = dwindle
+    main_mod = SUPER
   }
 
   # Misc
-  #
   misc {
-      disable_hyprland_logo = true
-      disable_splash_rendering = true
-      mouse_move_enables_dpms = true
-      no_vfr = false
-      enable_swallow = true
-      swallow_regex = ^(kitty)$
+    disable_hyprland_logo = true
+    disable_splash_rendering = true
+    mouse_move_enables_dpms = true
+    no_vfr = false
+    enable_swallow = true
+    swallow_regex = ^(kitty)$
   }
 
   # Decorations
-  #
   decoration {
-      # Rounded corners
-      rounding = 8
-      multisample_edges = true
+    # Rounded corners
+    rounding = 8
+    multisample_edges = true
 
-      # Opacity
-      active_opacity = 1.0
-      inactive_opacity = 1.0
+    # Opacity
+    active_opacity = 1.0
+    inactive_opacity = 1.0
 
-      # Blur
-      blur = true
-      blur_size = 10
-      blur_passes = 4
-      blur_new_optimizations = true
+    # Blur
+    blur = true
+    blur_size = 10
+    blur_passes = 4
+    blur_new_optimizations = true
 
-      # Shadow
-      drop_shadow = true
-      shadow_ignore_window = true
-      shadow_offset = 2 2
-      shadow_range = 4
-      shadow_render_power = 2
-      col.shadow = 0x66000000
+    # Shadow
+    drop_shadow = true
+    shadow_ignore_window = true
+    shadow_offset = 2 2
+    shadow_range = 4
+    shadow_render_power = 2
+    col.shadow = 0x66000000
   }
 
   # Blurring layerSurfaces
-  #
   blurls = gtk-layer-shell
   blurls = waybar
   blurls = lockscreen
 
   # Animations
-  #
   animations {
-      enabled = true
+    enabled = true
 
-      # bezier curve
-      bezier = overshot, 0.05, 0.9, 0.1, 1.05
-      # bezier = overshot, 0.13, 0.99, 0.29, 1.1
-      bezier = smoothOut, 0.36, 0, 0.66, -0.56
-      bezier = smoothIn, 0.25, 1, 0.5, 1
+    # bezier curve
+    bezier = overshot, 0.05, 0.9, 0.1, 1.05
+    # bezier = overshot, 0.13, 0.99, 0.29, 1.1
+    bezier = smoothOut, 0.36, 0, 0.66, -0.56
+    bezier = smoothIn, 0.25, 1, 0.5, 1
 
-      # animation list
-      animation = windows, 1, 5, overshot, slide
-      animation = windowsOut, 1, 4, smoothOut, slide
-      animation = windowsMove, 1, 4, default
-      animation = border, 1, 10, default
-      animation = fade, 1, 10, smoothIn
-      animation = fadeDim, 1, 10, smoothIn
-      animation = workspaces, 1, 6, overshot, slidevert
+    # animation list
+    animation = windows, 1, 5, overshot, slide
+    animation = windowsOut, 1, 4, smoothOut, slide
+    animation = windowsMove, 1, 4, default
+    animation = border, 1, 10, default
+    animation = fade, 1, 10, smoothIn
+    animation = fadeDim, 1, 10, smoothIn
+    animation = workspaces, 1, 6, overshot, slidevert
   }
 
   # Gestures
-  #
   gestures {
-      workspace_swipe = true
-      workspace_swipe_fingers = 3
+    workspace_swipe = true
+    workspace_swipe_fingers = 3
   }
 
   # Layouts
-  #
   dwindle {
-      pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-      preserve_split = true # you probably want this
+    col.group_border_active=0xff${colorscheme.colors.base0B}
+    col.group_border=0xff${colorscheme.colors.base04}
+    no_gaps_when_only = true
+    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = true # you probably want this
   }
 
   # Window rules
-  #
   windowrule = float, file_progress
   windowrule = float, confirm
   windowrule = float, dialog
@@ -169,8 +155,6 @@
   windowrule = size 800 600, title:^(Volume Control)$
   windowrule = move 75 44%, title:^(Volume Control)$
 
-  # Keybinds
-  #
   # Variables
   $term = kitty
   $browser = firefox
@@ -270,7 +254,6 @@
   bind = SUPER SHIFT, 0, movetoworkspace, 10
 
   # Mouse bindings
-  #
   bindm = SUPER, mouse:272, movewindow
   bindm = SUPER, mouse:273, resizewindow
   bind = SUPER, mouse_down, workspace, e+1
