@@ -10,8 +10,8 @@ in {
       right_format = "$status";
 
       character = {
-        success_symbol = "[](#${colors.base0C})";
-        error_symbol = "[](#${colors.base0C})";
+        success_symbol = "[](#${colors.base0C})";
+        error_symbol = "[](#${colors.base0C})";
         vicmd_symbol = "[](bold green)";
       };
 
@@ -39,8 +39,8 @@ in {
 
       status = {
         format = "[](fg:#${colors.base0C} bg:none)[ $symbol ]($style)[](fg:#${colors.base0C} bg:none)";
-        symbol = "[]($style)";
-        success_symbol = "[]($style)";
+        symbol = "[]($style)";
+        success_symbol = "[]($style)";
         style = "fg:#${colors.base00} bg:#${colors.base0C}";
         disabled = false;
       };

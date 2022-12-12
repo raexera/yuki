@@ -49,7 +49,9 @@ in {
       --color pointer:#${colors.base0C}
       --color prompt:#${colors.base0A}
       --color spinner:#${colors.base0C}
-      --prompt ' | '
+      --color preview-bg:#${colors.base01}
+      --color preview-fg:#${colors.base0D}
+      --prompt ' '
       --pointer ''
       --layout=reverse
       -m --bind ctrl-space:toggle,pgup:preview-up,pgdn:preview-down
