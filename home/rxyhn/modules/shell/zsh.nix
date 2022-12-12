@@ -24,7 +24,10 @@ in {
       music = "$HOME/Music";
       videos = "$HOME/Videos";
     };
-    sessionVariables = {LC_ALL = "en_US.UTF-8";};
+    sessionVariables = {
+      LC_ALL = "en_US.UTF-8";
+      SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+    };
     completionInit = ''
       autoload -U compinit && compinit -i
       _comp_options+=(globdots)

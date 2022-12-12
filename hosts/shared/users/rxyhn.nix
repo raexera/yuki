@@ -12,6 +12,7 @@ in {
     description = "Rayhan Pratama";
     isNormalUser = true;
     shell = pkgs.zsh;
+    initialPassword = "nixos";
     extraGroups =
       [
         "wheel"
@@ -22,12 +23,12 @@ in {
         "systemd-journal"
       ]
       ++ ifTheyExist [
-        "mysql"
         "docker"
         "git"
         "libvirtd"
+        "mysql"
       ];
 
-    packages = [pkgs.home-manager];
+    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAIaeDlsQNZuf95V5QNjfV8eZncS3J0kV4EWvOlcavjh rxyhn@lenovo"];
   };
 }

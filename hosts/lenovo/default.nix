@@ -43,17 +43,6 @@
     };
   };
 
-  networking = {
-    networkmanager.enable = true;
-    useDHCP = false;
-  };
-
-  # Slows down boot time
-  systemd.services.NetworkManager-wait-online.enable = false;
-
-  # Windows wants hardware clock in local time instead of UTC
-  time.hardwareClockInLocalTime = true;
-
   services = {
     xserver = {
       enable = true;

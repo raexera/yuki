@@ -66,13 +66,20 @@ in {
     };
   };
 
-  services.gpg-agent = {
-    enable = true;
-    pinentryFlavor = "gnome3";
-    enableZshIntegration = true;
+  services = {
+    gpg-agent = {
+      enable = true;
+      pinentryFlavor = "gnome3";
+      enableZshIntegration = true;
+      enableSshSupport = true;
+    };
+
+    syncthing.enable = true;
   };
 
   programs = {
+    ssh.enable = true;
+
     gpg = {
       enable = true;
       homedir = "${config.xdg.dataHome}/gnupg";

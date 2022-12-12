@@ -9,7 +9,9 @@
   imports = [
     ./fonts.nix
     ./locale.nix
+    ./network.nix
     ./nix.nix
+    ./ssh.nix
   ];
   console = {
     font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
@@ -90,11 +92,6 @@
     dconf.enable = true;
     nm-applet.enable = true;
     seahorse.enable = true;
-
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
 
     npm = {
       enable = true;
