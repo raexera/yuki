@@ -26,6 +26,14 @@ Rxyhn's Dotfiles
 NixOS / Home-Manager / Flake
 ```
 
+<br>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/93292023/207265113-2040bb83-a2bd-4080-b7e9-16f5314219bb.png" width="900px" alt="NixOS Desktop"/>
+</p>
+
+<br>
+
 </div>
 
 <br>
@@ -63,6 +71,6 @@ NixOS / Home-Manager / Flake
 <br>
 <br>
 
-<p align="center"><a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=ffffff&colorA=161616&colorB=ff7eb6"/></a></p>
+<p align="center"><a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=ffffff&colorA=161616&colorB=95AEC7"/></a></p>
 
 </div>
