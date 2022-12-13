@@ -9,12 +9,10 @@
       [
         arrterian.nix-env-selector
         bbenoist.nix
-        catppuccin.catppuccin-vsc
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         eamodio.gitlens
         esbenp.prettier-vscode
-        formulahendry.code-runner
         golang.go
         ibm.output-colorizer
         kamadorueda.alejandra
@@ -28,12 +26,12 @@
         pkief.material-icon-theme
         rust-lang.rust-analyzer
         shardulm94.trailing-spaces
-        sumneko.lua
         timonwong.shellcheck
         usernamehw.errorlens
         vadimcn.vscode-lldb
         xaver.clang-format
         yzhang.markdown-all-in-one
+        zhuangtongfa.material-theme
         _2gua.rainbow-brackets
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -45,11 +43,10 @@
         }
       ];
     userSettings = {
+      "workbench.colorTheme" = "One Dark Pro";
       "workbench.iconTheme" = "material-icon-theme";
-      "workbench.colorTheme" = "Catppuccin Macchiato";
-      "catppuccin.accentColor" = "mauve";
-      "editor.fontFamily" = "Liga SFMono Nerd Font, Material Design Icons, 'monospace', monospace";
-      "editor.fontSize" = 16;
+      "editor.fontFamily" = "Liga SFMono Nerd Font, 'monospace', monospace";
+      "editor.fontSize" = 15;
       "editor.fontLigatures" = true;
       "workbench.fontAliasing" = "antialiased";
       "files.trimTrailingWhitespace" = true;
