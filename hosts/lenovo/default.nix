@@ -32,6 +32,7 @@
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot/efi";
       };
+
       grub = {
         enable = true;
         version = 2;
@@ -46,8 +47,6 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
-
       displayManager = {
         defaultSession = "hyprland";
         gdm.enable = true;
@@ -69,8 +68,6 @@
   };
 
   hardware = {
-    enableRedistributableFirmware = true;
-
     opengl = {
       enable = true;
       driSupport = true;
@@ -89,6 +86,7 @@
       package = pkgs.bluez;
     };
 
+    enableRedistributableFirmware = true;
     pulseaudio.enable = false;
   };
 
@@ -135,6 +133,7 @@
 
   virtualisation = {
     docker.enable = true;
+    spiceUSBRedirection.enable = true;
 
     libvirtd = {
       enable = true;
@@ -147,7 +146,6 @@
         swtpm.enable = true;
       };
     };
-    spiceUSBRedirection.enable = true;
   };
 
   system.stateVersion = lib.mkForce "22.11"; # DONT TOUCH THIS

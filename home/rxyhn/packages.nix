@@ -20,7 +20,6 @@ in {
     mpv-unwrapped
     yt-dlp
     zoom-us
-    jetbrains.goland
 
     # CLI Tools
     bandwhich
