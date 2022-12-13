@@ -15,8 +15,8 @@ in {
   ];
 
   # Use the custom color scheme
-  colorscheme = default-dark;
+  # colorscheme = default-dark;
 
   # Use the colorscheme available at github:tinted-theming/base16-schemes
-  # colorscheme = colorSchemes.catppuccin;
+  colorscheme = colorSchemes.ashes;
 }
