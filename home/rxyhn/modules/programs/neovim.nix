@@ -6,6 +6,7 @@
 }:
 with pkgs; {
   home.packages = [
+    cargo
     clang # C/C++
     clang-tools
     lldb
@@ -15,10 +16,7 @@ with pkgs; {
     selene
     uncrustify
     shellcheck
-    # Rust nightly
-    (rust-bin.selectLatestNightlyWith
-      (toolchain: toolchain.minimal))
-    # rust-analyzer
+    rust-analyzer # Rust
     alejandra # Nix
     delve
     gopls # go
@@ -32,6 +30,8 @@ with pkgs; {
     gopls
     golangci-lint
     impl
+    java-language-server
+    kotlin-language-server
     ktlint
     asmfmt
     ccls # cpp
