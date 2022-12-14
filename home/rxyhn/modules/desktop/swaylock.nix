@@ -59,6 +59,7 @@ in {
         command = "${pkgs.swaylock-effects}/bin/swaylock -fF";
       }
     ];
+
     timeouts = [
       {
         timeout = 300;

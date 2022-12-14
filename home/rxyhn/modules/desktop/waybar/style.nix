@@ -10,7 +10,7 @@ in ''
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: Material Design Icons, Liga SFMono Nerd Font;
+    font-family: Material Design Icons, monospace;
     font-size: 17px;
   }
 

@@ -50,6 +50,7 @@ with pkgs; {
     nodePackages.node2nix # Bash
     rnix-lsp
     texlab
+    yaml-language-server
   ];
 
   programs.neovim = {

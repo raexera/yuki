@@ -24,12 +24,15 @@
         settings = {
           "general.smoothScroll" = true;
         };
+
         userChrome = import ./userChrome-css.nix {
           inherit (config) colorscheme;
         };
+
         userContent = import ./userContent-css.nix {
           inherit (config) colorscheme;
         };
+
         extraConfig = ''
           user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
           user_pref("full-screen-api.ignore-widgets", true);

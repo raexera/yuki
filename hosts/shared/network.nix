@@ -5,7 +5,6 @@
   ...
 }: {
   networking = {
-    # dns
     networkmanager = {
       enable = true;
       unmanaged = ["docker0" "rndis0"];

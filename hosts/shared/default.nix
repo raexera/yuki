@@ -13,6 +13,7 @@
     ./nix.nix
     ./ssh.nix
   ];
+
   console = {
     font = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
     keyMap = "us";
@@ -80,7 +81,7 @@
 
     loginShellInit = ''
       dbus-update-activation-environment --systemd DISPLAY
-      eval $(gnome-keyring-daemon --start --components=ssh)
+      eval $(gnome-keyring-daemon --start --daemonize --components=ssh)
       eval $(ssh-agent)
     '';
   };

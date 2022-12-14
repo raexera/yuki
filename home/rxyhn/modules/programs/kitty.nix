@@ -10,7 +10,7 @@ in {
     settings = {
       # General
       background_opacity = "1.0";
-      font_family = "Liga SFMono Nerd Font";
+      font_family = "monospace";
       font_size = 13;
       disable_ligatures = "never";
       cursor_shape = "underline";

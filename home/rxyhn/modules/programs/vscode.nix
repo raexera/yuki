@@ -42,15 +42,16 @@
           sha256 = "QBGxt+uMbk6E86HFzgPl1iFC7VVFTkQV6VNqpChFI0A=";
         }
       ];
+
     userSettings = {
       "workbench.colorTheme" = "One Dark Pro";
       "workbench.iconTheme" = "material-icon-theme";
-      "editor.fontFamily" = "Liga SFMono Nerd Font, 'monospace', monospace";
+      "editor.fontFamily" = "'monospace', monospace";
       "editor.fontSize" = 15;
       "editor.fontLigatures" = true;
       "workbench.fontAliasing" = "antialiased";
       "files.trimTrailingWhitespace" = true;
-      "terminal.integrated.fontFamily" = "Liga SFMono Nerd Font";
+      "terminal.integrated.fontFamily" = "monospace";
       "window.titleBarStyle" = "custom";
       "terminal.integrated.automationShell.linux" = "nix-shell";
       "terminal.integrated.defaultProfile.linux" = "zsh";

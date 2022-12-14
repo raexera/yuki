@@ -9,6 +9,7 @@
       listenAddress = "any";
       port = 6600;
     };
+
     extraConfig = ''
       audio_output {
         type    "pipewire"
@@ -17,6 +18,7 @@
       auto_update "yes"
     '';
   };
+
   services.mpdris2 = {
     enable = true;
     notifications = true;
@@ -85,6 +87,7 @@
       visualizer_look = "●▮";
       visualizer_color = "33,39,63,75,81,99,117,153,189";
     };
+
     bindings = [
       {
         key = "j";

@@ -6,7 +6,6 @@
 }:
 with lib; let
   browser = ["firefox.desktop"];
-
   associations = {
     "application/x-extension-htm" = browser;
     "application/x-extension-html" = browser;
@@ -67,14 +66,14 @@ in {
   };
 
   services = {
+    syncthing.enable = true;
+
     gpg-agent = {
       enable = true;
       pinentryFlavor = "gnome3";
       enableZshIntegration = true;
       enableSshSupport = true;
     };
-
-    syncthing.enable = true;
   };
 
   programs = {
@@ -88,7 +87,6 @@ in {
 
   xdg = {
     enable = true;
-
     userDirs = {
       enable = true;
       createDirectories = true;

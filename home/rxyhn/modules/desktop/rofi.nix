@@ -140,7 +140,7 @@ in {
       cursor: inherit;
       vertical-align: 0.5;
       horizontal-align: 0.0;
-      font: "Liga SFMono Nerd Font Medium 16px";
+      font: "monospace Medium 16px";
     }
   '';
 
@@ -208,7 +208,7 @@ in {
     }
 
     element-text {
-      font: "Liga SFMono Nerd Font Bold 24px";
+      font: "monospace Bold 24px";
       vertical-align: 0.5;
       horizontal-align: 0.5;
     }

@@ -74,6 +74,7 @@ in {
     microphone
     brightness
   ];
+
   services.dunst = {
     enable = true;
     package = pkgs.dunst.overrideAttrs (oldAttrs: {
@@ -84,10 +85,12 @@ in {
         sha256 = "ttaaomjb3CclZG9JPdzDBj5XXlqRaKGPBY3ahFofqVM=";
       };
     });
+
     iconTheme = {
       package = pkgs.papirus-icon-theme;
       name = "Papirus-Dark";
     };
+
     settings = let
       inherit (config.colorscheme) colors;
     in {
@@ -123,8 +126,8 @@ in {
         history_length = 20;
         show_age_threshold = 60;
         markup = "full";
-        font = "Liga SFMono Nerd Font 10";
-        format = "<span size='x-large' font_desc='Cantarell,Liga SFMono Nerd Font 9' weight='bold' foreground='#${colors.base05}'>%a</span>\\n%s\\n%b";
+        font = "monospace 10";
+        format = "<span size='x-large' font_desc='Cantarell,monospace 9' weight='bold' foreground='#${colors.base05}'>%a</span>\\n%s\\n%b";
         word_wrap = "yes";
         sort = "yes";
         shrink = "no";

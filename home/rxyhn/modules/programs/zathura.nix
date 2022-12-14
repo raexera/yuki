@@ -4,7 +4,7 @@ in {
   programs.zathura = {
     enable = true;
     options = {
-      font = "Liga SFMono Nerd Font 13";
+      font = "monospace 13";
       selection-clipboard = "clipboard";
       adjust-open = "best-fit";
       pages-per-row = "1";

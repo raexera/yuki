@@ -15,6 +15,7 @@ in {
       save = 10000;
       size = 10000;
     };
+
     dirHashes = {
       documents = "$HOME/Documents";
       dotfiles = "$HOME/dotfiles";
@@ -24,17 +25,18 @@ in {
       music = "$HOME/Music";
       videos = "$HOME/Videos";
     };
+
     sessionVariables = {
       LC_ALL = "en_US.UTF-8";
       SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
     };
+
     completionInit = ''
       autoload -U compinit && compinit -i
       _comp_options+=(globdots)
     '';
-    initExtra = ''
-      set -k
 
+    initExtra = ''
       # Environment
       export PATH="''${HOME}/.local/bin:''${HOME}/go/bin:''${HOME}/.npm/bin:''${PATH}"
       export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
@@ -231,6 +233,7 @@ in {
           return 127
       }
     '';
+
     shellAliases = {
       rebuild = "sudo nix-store --verify; pushd ~dotfiles && sudo nixos-rebuild switch --flake .# && notify-send \"Done\" && bat cache --build; popd";
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
@@ -250,6 +253,7 @@ in {
       v = "nvim";
       ssh = "kitty +kitten ssh";
     };
+
     plugins = with pkgs; [
       {
         name = "zsh-nix-shell";

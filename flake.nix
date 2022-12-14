@@ -111,12 +111,13 @@
     # dev shell (for direnv)
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
-        rnix-lsp
-        yaml-language-server
         alejandra
         git
       ];
       name = "dotfiles";
     };
+
+    # Default formatter for the entire repo
+    formatter.${system} = pkgs.${system}.alejandra;
   };
 }

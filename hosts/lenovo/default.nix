@@ -36,35 +36,13 @@
       grub = {
         enable = true;
         version = 2;
-        device = "nodev";
+        configurationLimit = 3;
         efiSupport = true;
         useOSProber = true;
+        device = "nodev";
         gfxmodeEfi = "1920x1080";
       };
     };
-  };
-
-  services = {
-    xserver = {
-      enable = true;
-      displayManager = {
-        defaultSession = "hyprland";
-        gdm.enable = true;
-        sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
-      };
-    };
-
-    tlp = {
-      enable = true;
-      settings = {
-        START_CHARGE_THRESH_BAT0 = 0;
-        STOP_CHARGE_THRESH_BAT0 = 85;
-      };
-    };
-
-    acpid.enable = true;
-    thermald.enable = true;
-    upower.enable = true;
   };
 
   hardware = {
@@ -100,6 +78,29 @@
     memoryPercent = 50;
   };
 
+  services = {
+    acpid.enable = true;
+    thermald.enable = true;
+    upower.enable = true;
+
+    tlp = {
+      enable = true;
+      settings = {
+        START_CHARGE_THRESH_BAT0 = 0;
+        STOP_CHARGE_THRESH_BAT0 = 80;
+      };
+    };
+
+    xserver = {
+      enable = true;
+      displayManager = {
+        defaultSession = "hyprland";
+        gdm.enable = true;
+        sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
+      };
+    };
+  };
+
   xdg.portal = {
     enable = true;
     wlr.enable = false;
@@ -110,7 +111,6 @@
   };
 
   security = {
-    rtkit.enable = true;
     pam.services.swaylock = {
       text = ''
         auth include login

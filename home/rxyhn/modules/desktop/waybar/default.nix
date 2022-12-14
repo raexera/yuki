@@ -23,6 +23,7 @@ in {
   xdg.configFile."waybar/style.css".text = import ./style.nix {
     inherit (config) colorscheme;
   };
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -32,6 +33,7 @@ in {
         substituteInPlace src/modules/wlr/workspace_manager.cpp --replace "zext_workspace_handle_v1_activate(workspace_handle_);" "const std::string command = \"${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch workspace \" + name_; system(command.c_str());"
       '';
     });
+
     settings = {
       mainBar = {
         layer = "top";
@@ -50,7 +52,9 @@ in {
           "custom/todo"
           "tray"
         ];
+
         modules-center = [];
+
         modules-right = [
           "battery"
           "backlight"
@@ -61,6 +65,7 @@ in {
           "clock"
           "custom/power"
         ];
+
         "wlr/workspaces" = {
           on-click = "activate";
           format = "{name}";
@@ -68,11 +73,13 @@ in {
           disable-scroll = true;
           active-only = false;
         };
+
         "custom/launcher" = {
           tooltip = false;
           format = " ";
           on-click = "killall rofi || rofi -no-lazy-grab -show drun -theme index";
         };
+
         "custom/todo" = {
           tooltip = true;
           format = "{}";
@@ -113,6 +120,7 @@ in {
             '';
           return-type = "json";
         };
+
         "custom/weather" = {
           tooltip = true;
           format = "{}";
@@ -120,6 +128,7 @@ in {
           exec = "${waybar-wttr}/bin/waybar-wttr";
           return-type = "json";
         };
+
         "custom/swallow" = {
           tooltip = false;
           on-click = let
@@ -139,24 +148,29 @@ in {
             '';
           format = "󰊰";
         };
+
         "custom/power" = {
           tooltip = false;
           on-click = "power-menu";
           format = "󰤆";
         };
+
         tray = {
           spacing = 10;
         };
+
         clock = {
           tooltip = false;
           format = "󱑎 {:%H:%M}";
         };
+
         "clock#date" = {
           format = "󰃶 {:%a %d %b}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
         };
+
         backlight = {
           tooltip = false;
           format = "{icon} {percent}%";
@@ -164,6 +178,7 @@ in {
           on-scroll-up = "${brightnessctl} s 1%-";
           on-scroll-down = "${brightnessctl} s +1%";
         };
+
         battery = {
           states = {
             warning = 30;
@@ -176,6 +191,7 @@ in {
           format-alt = "{time} {icon}";
           format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
+
         network = {
           format-wifi = "󰖩 {essid}";
           format-ethernet = "󰈀 {ipaddr}/{cidr}";
@@ -185,6 +201,7 @@ in {
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
         };
+
         pulseaudio = {
           tooltip = false;
           format = "{icon} {volume}%";
@@ -195,6 +212,7 @@ in {
           on-scroll-up = "${pamixer} -d 1";
           on-scroll-down = "${pamixer} -i 1";
         };
+
         "pulseaudio#microphone" = {
           tooltip = false;
           format = "{format_source}";
