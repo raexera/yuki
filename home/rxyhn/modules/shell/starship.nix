@@ -38,10 +38,10 @@ in {
       };
 
       status = {
-        format = "[](fg:#${colors.base0C} bg:none)[ $symbol ]($style)[](fg:#${colors.base0C} bg:none)";
-        symbol = "[]($style)";
-        success_symbol = "[]($style)";
-        style = "fg:#${colors.base00} bg:#${colors.base0C}";
+        format = "[$symbol]($style)";
+        symbol = "";
+        success_symbol = "";
+        style = "#${colors.base0C}";
         disabled = false;
       };
 
