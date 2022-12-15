@@ -11,7 +11,7 @@ in {
       # General
       background_opacity = "1.0";
       font_family = "monospace";
-      font_size = 13;
+      font_size = 11;
       disable_ligatures = "never";
       cursor_shape = "underline";
       cursor_blink_interval = "0.5";
@@ -31,7 +31,7 @@ in {
       confirm_os_window_close = 0;
       enable_audio_bell = false;
       window_padding_width = 15;
-      window_margin_width = 10;
+      window_margin_width = 15;
 
       # Colorschemes
       foreground = "#${colors.base05}";

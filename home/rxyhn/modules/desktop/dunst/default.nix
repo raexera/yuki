@@ -127,7 +127,7 @@ in {
         show_age_threshold = 60;
         markup = "full";
         font = "monospace 10";
-        format = "<span size='x-large' font_desc='Cantarell,monospace 9' weight='bold' foreground='#${colors.base05}'>%a</span>\\n%s\\n%b";
+        format = "<span size='x-large' font_desc='monospace 9' weight='bold' foreground='#${colors.base05}'>%a</span>\\n%s\\n%b";
         word_wrap = "yes";
         sort = "yes";
         shrink = "no";

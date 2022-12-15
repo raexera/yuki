@@ -1,6 +1,6 @@
 {colorscheme}: ''
   # Monitors
-  monitor = ,3072x1920@120,0x0,1.5
+  monitor = eDP-1, preferred, auto, auto
 
   # Autostart programs
   exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2

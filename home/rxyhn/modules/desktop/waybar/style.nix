@@ -11,7 +11,7 @@ in ''
     border-radius: 0;
     min-height: 0;
     font-family: Material Design Icons, monospace;
-    font-size: 17px;
+    font-size: 13px;
   }
 
   window#waybar {
@@ -33,7 +33,7 @@ in ''
     min-width: 0; /* Fix weird spacing in materia (waybar #450) */
     box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
     padding: 6px 18px;
-    margin: 6px 4px;
+    margin: 6px 3px;
     border-radius: 4px;
     background-color: #${base01};
     color: #${base05};
@@ -68,7 +68,7 @@ in ''
   #clock,
   #tray {
     border-radius: 4px;
-    margin: 6px 4px;
+    margin: 6px 3px;
     padding: 6px 12px;
     background-color: #${base01};
     color: #${base00};

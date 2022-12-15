@@ -54,7 +54,7 @@ in {
       modi: "drun,emoji";
       display-drun: "Applications";
       drun-display-format: "{name}";
-      font: "Inter 16px";
+      font: "Inter 13px";
     }
 
     @import "./colors.rasi"
@@ -140,7 +140,7 @@ in {
       cursor: inherit;
       vertical-align: 0.5;
       horizontal-align: 0.0;
-      font: "monospace Medium 16px";
+      font: "monospace Medium 13px";
     }
   '';
 
@@ -192,7 +192,7 @@ in {
 
     prompt {
       padding: 0.5em 0.75em;
-      font: "Inter 16px";
+      font: "Inter 13px";
     }
 
     listview {
@@ -208,7 +208,7 @@ in {
     }
 
     element-text {
-      font: "monospace Bold 24px";
+      font: "monospace Bold 21px";
       vertical-align: 0.5;
       horizontal-align: 0.5;
     }
