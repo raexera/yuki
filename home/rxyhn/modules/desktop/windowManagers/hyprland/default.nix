@@ -103,7 +103,7 @@ in {
       scheme = config.colorscheme;
       width = 3072;
       height = 1920;
-      logoScale = 6.0;
+      logoScale = 5.0;
     };
   in {
     Unit = {

@@ -25,7 +25,7 @@
   general {
     gaps_in = 6
     gaps_out = 12
-    border_size = 3
+    border_size = 2
     col.active_border=0xff${colorscheme.colors.base0C}
     col.inactive_border=0xff${colorscheme.colors.base02}
     no_border_on_floating = true

@@ -76,7 +76,7 @@ in {
       y-offset: 0px;
 
       enabled: true;
-      border: 1px solid;
+      border: 2px solid;
       border-color: @border;
       border-radius: 8px;
       background-color: @background;
@@ -129,7 +129,7 @@ in {
     }
 
     element selected.normal {
-      border: 1px solid;
+      border: 2px solid;
       border-color: @border;
       border-radius: 8px;
       background-color: @select;

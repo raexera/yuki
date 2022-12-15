@@ -115,7 +115,7 @@ in {
         progress_bar_max_width = 300;
         separator_height = 2;
         frame_width = 2;
-        frame_color = "#${colors.base01}";
+        frame_color = "#${colors.base02}";
         separator_color = "frame";
         corner_radius = 8;
         transparency = 0;
