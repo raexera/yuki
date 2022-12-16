@@ -21,11 +21,20 @@
 
     fontconfig = {
       enable = true;
+      antialias = true;
+      hinting = {
+        enable = true;
+        autohint = true;
+        style = "hintfull";
+      };
+
+      subpixel.lcdfilter = "default";
+
       defaultFonts = {
-        serif = ["Noto Serif" "Noto Color Emoji"];
-        sansSerif = ["Noto Sans" "Noto Color Emoji"];
-        monospace = ["Liga SFMono Nerd Font"];
         emoji = ["Noto Color Emoji"];
+        monospace = ["Liga SFMono Nerd Font"];
+        sansSerif = ["Noto Sans" "Noto Color Emoji"];
+        serif = ["Noto Serif" "Noto Color Emoji"];
       };
     };
   };
