@@ -25,13 +25,8 @@
           "general.smoothScroll" = true;
         };
 
-        userChrome = import ./userChrome-css.nix {
-          inherit (config) colorscheme;
-        };
-
-        userContent = import ./userContent-css.nix {
-          inherit (config) colorscheme;
-        };
+        userChrome = import ./userChrome-css.nix;
+        userContent = import ./userContent-css.nix;
 
         extraConfig = ''
           user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);

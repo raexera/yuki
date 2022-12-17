@@ -1,7 +1,6 @@
-{colorscheme}:
-with colorscheme.colors; let
-  OSLogo = builtins.fetchurl rec {
-    name = "OSLogo-${sha256}.png";
+let
+  Logo = builtins.fetchurl rec {
+    name = "Logo-${sha256}.svg";
     url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
     sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
   };
@@ -15,7 +14,7 @@ in ''
   }
 
   window#waybar {
-    background-color: #${base00};
+    background-color: #181825;
     transition-property: background-color;
     transition-duration: 0.5s;
   }
@@ -35,27 +34,26 @@ in ''
     padding: 6px 18px;
     margin: 6px 3px;
     border-radius: 4px;
-    background-color: #${base01};
-    color: #${base05};
+    background-color: #1e1e2e;
+    color: #cdd6f4;
   }
 
   #workspaces button.active {
-    color: #${base01};
-    background-color: #${base05};
+    color: #1e1e2e;
+    background-color: #cdd6f4;
   }
 
   #workspaces button:hover {
    box-shadow: inherit;
    text-shadow: inherit;
-   color: #${base01};
-   background-color: #${base05};
+   color: #1e1e2e;
+   background-color: #cdd6f4;
   }
 
   #workspaces button.urgent {
-    background-color: #${base0C};
+    background-color: #f38ba8;
   }
 
-  #custom-launcher,
   #custom-weather,
   #custom-swallow,
   #custom-power,
@@ -70,8 +68,8 @@ in ''
     border-radius: 4px;
     margin: 6px 3px;
     padding: 6px 12px;
-    background-color: #${base01};
-    color: #${base00};
+    background-color: #1e1e2e;
+    color: #181825;
   }
 
   #custom-power {
@@ -79,33 +77,32 @@ in ''
   }
 
   #custom-launcher {
-    margin-left: 6px;
+    margin: 6px 3px 6px 9px;
     padding: 6px 18px;
-    background-image: url("${OSLogo}");
+    background-image: url("${Logo}");
     background-size: 70%;
     background-position: center;
     background-repeat: no-repeat;
   }
 
-  #custom-launcher,
   #custom-weather,
   #custom-todo {
-    color: #${base05};
-    background-color: #${base01};
+    color: #cdd6f4;
+    background-color: #1e1e2e;
   }
 
   #custom-swallow {
-    color: #${base05};
+    color: #cdd6f4;
   }
 
   #battery {
-    background-color: #${base08};
+    background-color: #f38ba8;
   }
 
   @keyframes blink {
     to {
-      background-color: #${base0C};
-      color: #${base00};
+      background-color: #f38ba8;
+      color: #181825;
     }
   }
 
@@ -113,8 +110,8 @@ in ''
   .critical,
   .urgent,
   #battery.critical:not(.charging) {
-    background-color: #${base0C};
-    color: #${base00};
+    background-color: #f38ba8;
+    color: #181825;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -123,31 +120,31 @@ in ''
   }
 
   #backlight {
-    background-color: #${base09};
+    background-color: #fab387;
   }
 
   #pulseaudio.microphone {
-    background-color: #${base0A};
+    background-color: #f9e2af;
   }
 
   #pulseaudio {
-    background-color: #${base0B};
+    background-color: #a6e3a1;
   }
 
   #network {
-    background-color: #${base0C};
+    background-color: #94e2d5;
   }
 
   #clock.date {
-    background-color: #${base0D};
+    background-color: #89b4fa;
   }
 
   #clock {
-    background-color: #${base0E};
+    background-color: #cba6f7;
   }
 
   #custom-power {
-    background-color: #${base0F};
+    background-color: #f2cdcd;
   }
 
   tooltip {

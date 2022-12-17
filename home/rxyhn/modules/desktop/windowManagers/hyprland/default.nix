@@ -5,8 +5,6 @@
   pkgs,
   ...
 }: let
-  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) nixWallpaperFromScheme;
-
   # use OCR and copy to clipboard
   ocrScript = let
     inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;
@@ -88,9 +86,7 @@ in {
         });
     };
     systemdIntegration = true;
-    extraConfig = import ./config.nix {
-      inherit (config) colorscheme;
-    };
+    extraConfig = import ./config.nix;
   };
 
   services.gammastep = {
@@ -99,11 +95,10 @@ in {
   };
 
   systemd.user.services.swaybg = let
-    wallpaper = nixWallpaperFromScheme {
-      scheme = config.colorscheme;
-      width = 3072;
-      height = 1920;
-      logoScale = 5.0;
+    wallpaper = builtins.fetchurl rec {
+      name = "wallpaper-${sha256}.png";
+      url = "https://raw.githubusercontent.com/rxyhn/wallpapers/main/catppuccin/cat_leaves.png";
+      sha256 = "1894y61nx3p970qzxmqjvslaalbl2skj5sgzvk38xd4qmlmi9s4i";
     };
   in {
     Unit = {

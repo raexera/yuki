@@ -1,5 +1,4 @@
-{colorscheme}:
-with colorscheme.colors; ''
+''
   :root {
     scrollbar-width: none !important;
   }
@@ -12,7 +11,7 @@ with colorscheme.colors; ''
 
    @-moz-document url("about:newtab"), url("about:home") {
     body {
-      background-color: #${base00} !important;
+      background-color: #181825 !important;
     }
 
     .search-wrapper .logo-and-wordmark .logo {

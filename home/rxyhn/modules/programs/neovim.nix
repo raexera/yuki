@@ -100,12 +100,4 @@ with pkgs; {
         ]))
     ];
   };
-
-  home.file = {
-    "nyoom.nvim" = {
-      source = nyoomNvim-src;
-      target = ".config/nvim";
-      recursive = true;
-    };
-  };
 }

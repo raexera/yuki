@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (config.colorscheme) colors;
-in {
+}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -42,20 +40,18 @@ in {
       export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
 
       export FZF_DEFAULT_OPTS="
-      --color bg:#${colors.base00}
-      --color bg+:#${colors.base01}
-      --color fg:#${colors.base04}
-      --color fg+:#${colors.base06}
-      --color hl:#${colors.base0D}
-      --color hl+:#${colors.base0D}
-      --color header:#${colors.base0D}
-      --color info:#${colors.base0A}
-      --color marker:#${colors.base0C}
-      --color pointer:#${colors.base0C}
-      --color prompt:#${colors.base0A}
-      --color spinner:#${colors.base0C}
-      --color preview-bg:#${colors.base01}
-      --color preview-fg:#${colors.base0D}
+      --color bg+:#313244
+      --color bg:#1e1e2e
+      --color fg:#cdd6f4
+      --color fg+:#cdd6f4
+      --color hl:#f38ba8
+      --color hl+:#f38ba8
+      --color header:#f38ba8
+      --color spinner:#f5e0dc
+      --color info:#cba6f7
+      --color pointer:#f5e0dc
+      --color marker:#f5e0dc
+      --color prompt:#cba6f7
       --prompt ' '
       --pointer ''
       --layout=reverse

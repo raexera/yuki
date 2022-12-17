@@ -2,84 +2,129 @@
   config,
   pkgs,
   ...
-}: let
-  inherit (config.colorscheme) colors;
-in {
+}: {
   programs.kitty = {
     enable = true;
     settings = {
-      # General
-      background_opacity = "1.0";
-      font_family = "monospace";
-      font_size = 11;
-      disable_ligatures = "never";
-      cursor_shape = "underline";
-      cursor_blink_interval = "0.5";
-      cursor_stop_blinking_after = "15.0";
-      scrollback_lines = 10000;
-      click_interval = "0.5";
-      select_by_word_characters = ":@-./_~?&=%+#";
-      remember_window_size = false;
-      allow_remote_control = true;
-      initial_window_width = 640;
-      initial_window_height = 400;
-      repaint_delay = 15;
-      input_delay = 3;
-      visual_bell_duration = "0.0";
+      # Window
+      background_opacity = "0.1";
+      inactive_text_alpha = "1.0";
+      window_padding_width = "12 24 0 24";
+      placement_strategy = "center";
+      resize_in_steps = "yes";
+      enabled_layouts = "*";
+      remember_window_size = "no";
+      initial_window_width = "640";
+      initial_window_height = "400";
+      confirm_os_window_close = "0";
+      allow_remote_control = "yes";
+
+      # URLs
       url_style = "double";
-      open_url_with = "default";
-      confirm_os_window_close = 0;
-      enable_audio_bell = false;
-      window_padding_width = 15;
-      window_margin_width = 15;
+      copy_on_select = "yes";
+
+      # Selection
+      select_by_word_characters = ":@-./_~?&=%+#";
+
+      # Mouse
+      click_interval = "0.5";
+      mouse_hide_wait = "0";
+      focus_follows_mouse = "no";
+
+      # Bell
+      visual_bell_duration = "0.0";
+      enable_audio_bell = "no";
+
+      # Scroolback
+      scrollback_lines = "10000";
+      wheel_scroll_multiplier = "5.0";
+      touch_scroll_multiplier = "1.0";
+
+      # Tab bar
+      tab_bar_min_tabs = 1;
+      tab_bar_edge = "bottom";
+      tab_bar_style = "powerline";
+      tab_powerline_style = "slanted";
+      tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
+      active_tab_font_style = "bold";
+      inactive_tab_font_style = "normal";
+
+      # Cursor
+      cursor_shape = "underline";
+      cursor_beam_thickness = "1.2";
+      cursor_underline_thickness = "2.0";
+      cursor_blink_interval = "-1.0";
+      cursor_stop_blinking_after = "5.0";
+
+      # Font
+      font_family = "monospace";
+      italic_font = "auto";
+      bold_font = "auto";
+      bold_italic_font = "auto";
+      font_size = "10.0";
+      disable_ligatures = "never";
+      adjust_line_height = "0";
+      adjust_column_width = "0";
+      box_drawing_scale = "0.001, 1, 1.5, 2";
 
       # Colorschemes
-      foreground = "#${colors.base05}";
-      background = "#${colors.base00}";
-      selection_background = "#${colors.base05}";
-      selection_foreground = "#${colors.base00}";
-      url_color = "#${colors.base04}";
-      cursor = "#${colors.base05}";
-      active_border_color = "#${colors.base03}";
-      inactive_border_color = "#${colors.base01}";
-      active_tab_background = "#${colors.base00}";
-      active_tab_foreground = "#${colors.base05}";
-      inactive_tab_background = "#${colors.base01}";
-      inactive_tab_foreground = "#${colors.base04}";
-      tab_bar_background = "#${colors.base01}";
-      color0 = "#${colors.base00}";
-      color1 = "#${colors.base08}";
-      color2 = "#${colors.base0B}";
-      color3 = "#${colors.base0A}";
-      color4 = "#${colors.base0D}";
-      color5 = "#${colors.base0E}";
-      color6 = "#${colors.base0C}";
-      color7 = "#${colors.base05}";
-      color8 = "#${colors.base03}";
-      color9 = "#${colors.base08}";
-      color10 = "#${colors.base0B}";
-      color11 = "#${colors.base0A}";
-      color12 = "#${colors.base0D}";
-      color13 = "#${colors.base0E}";
-      color14 = "#${colors.base0C}";
-      color15 = "#${colors.base07}";
-      color16 = "#${colors.base09}";
-      color17 = "#${colors.base0F}";
-      color18 = "#${colors.base01}";
-      color19 = "#${colors.base02}";
-      color20 = "#${colors.base04}";
-      color21 = "#${colors.base06}";
+      foreground = "#CDD6F4";
+      background = "#1E1E2E";
+      selection_foreground = "#1E1E2E";
+      selection_background = "#F5E0DC";
+      cursor = "#F5E0DC";
+      cursor_text_color = "#1E1E2E";
+      url_color = "#F5E0DC";
+      active_border_color = "#B4BEFE";
+      inactive_border_color = "#6C7086";
+      bell_border_color = "#F9E2AF";
+      active_tab_foreground = "#11111B";
+      active_tab_background = "#CBA6F7";
+      inactive_tab_foreground = "#CDD6F4";
+      inactive_tab_background = "#181825";
+      tab_bar_background = "#11111B";
+      mark1_foreground = "#1E1E2E";
+      mark1_background = "#B4BEFE";
+      mark2_foreground = "#1E1E2E";
+      mark2_background = "#CBA6F7";
+      mark3_foreground = "#1E1E2E";
+      mark3_background = "#74C7EC";
+
+      # The 16 terminal colors
+      color0 = "#45475A";
+      color1 = "#F38BA8";
+      color2 = "#A6E3A1";
+      color3 = "#F9E2AF";
+      color4 = "#89B4FA";
+      color5 = "#F5C2E7";
+      color6 = "#94E2D5";
+      color7 = "#BAC2DE";
+      color8 = "#585B70";
+      color9 = "#F38BA8";
+      color10 = "#A6E3A1";
+      color11 = "#F9E2AF";
+      color12 = "#89B4FA";
+      color13 = "#F5C2E7";
+      color14 = "#94E2D5";
+      color15 = "#A6ADC8";
     };
 
+    # Keys
     keybindings = {
-      "ctrl+c" = "copy_or_interrupt";
-      "ctrl+alt+c" = "copy_to_clipboard";
-      "ctrl+alt+v" = "paste_from_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
+      "ctrl+shift+s" = "paste_from_selection";
+      "ctrl+shift+c" = "copy_to_clipboard";
+      "shift+insert" = "paste_from_selection";
 
-      "ctrl+shift+up" = "increase_font_size";
-      "ctrl+shift+down" = "decrease_font_size";
-      "ctrl+shift+backspace" = "restore_font_size";
+      "ctrl+shift+up" = "scroll_line_up";
+      "ctrl+shift+down" = "scroll_line_down";
+      "ctrl+shift+k" = "scroll_line_up";
+      "ctrl+shift+j" = "scroll_line_down";
+      "ctrl+shift+page_up" = "scroll_page_up";
+      "ctrl+shift+page_down" = "scroll_page_down";
+      "ctrl+shift+home" = "scroll_home";
+      "ctrl+shift+end" = "scroll_end";
+      "ctrl+shift+h" = "show_scrollback";
 
       "ctrl+shift+enter" = "new_window";
       "ctrl+shift+n" = "new_os_window";
@@ -108,6 +153,10 @@ in {
       "ctrl+shift+." = "move_tab_forward";
       "ctrl+shift+," = "move_tab_backward";
       "ctrl+shift+alt+t" = "set_tab_title";
+
+      "ctrl+shift+equal" = "increase_font_size";
+      "ctrl+shift+minus" = "decrease_font_size";
+      "ctrl+shift+backspace" = "restore_font_size";
     };
   };
 }

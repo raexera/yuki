@@ -9,6 +9,7 @@
       [
         arrterian.nix-env-selector
         bbenoist.nix
+        catppuccin.catppuccin-vsc
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         eamodio.gitlens
@@ -31,7 +32,6 @@
         vadimcn.vscode-lldb
         xaver.clang-format
         yzhang.markdown-all-in-one
-        zhuangtongfa.material-theme
         _2gua.rainbow-brackets
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -44,7 +44,8 @@
       ];
 
     userSettings = {
-      "workbench.colorTheme" = "One Dark Pro";
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "catppuccin.accentColor" = "mauve";
       "workbench.iconTheme" = "material-icon-theme";
       "editor.fontFamily" = "'monospace', monospace";
       "editor.fontSize" = 13;

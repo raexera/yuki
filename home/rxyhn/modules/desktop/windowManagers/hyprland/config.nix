@@ -1,4 +1,4 @@
-{colorscheme}: ''
+''
   # Monitors
   monitor = eDP-1, preferred, auto, auto
 
@@ -26,8 +26,8 @@
     gaps_in = 6
     gaps_out = 12
     border_size = 2
-    col.active_border=0xff${colorscheme.colors.base0C}
-    col.inactive_border=0xff${colorscheme.colors.base02}
+    col.active_border=0xffcba6f7
+    col.inactive_border=0xff313244
     no_border_on_floating = true
     layout = dwindle
     main_mod = SUPER
@@ -101,8 +101,8 @@
 
   # Layouts
   dwindle {
-    col.group_border_active=0xff${colorscheme.colors.base0B}
-    col.group_border=0xff${colorscheme.colors.base04}
+    col.group_border_active=0xff89b4fa
+    col.group_border=0xff585b70
     no_gaps_when_only = true
     pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true # you probably want this

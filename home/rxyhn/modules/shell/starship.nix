@@ -1,54 +1,32 @@
-{config, ...}: let
-  inherit (config.colorscheme) colors;
-in {
+{config, ...}: {
   programs.starship = {
     enable = true;
     settings = {
       add_newline = true;
 
-      format = "$username$hostname$directory$git_branch$git_status$all";
+      format = let
+        git = "$git_branch$git_commit$git_state$git_status";
+      in ''
+        $directory(${git})$all
+      '';
+
       right_format = "$status";
 
       character = {
-        success_symbol = "[](#${colors.base0C})";
-        error_symbol = "[](#${colors.base0C})";
+        success_symbol = "[](bold green)";
+        error_symbol = "[](bold red)";
         vicmd_symbol = "[](bold green)";
       };
 
-      username = {
-        format = "[](fg:#${colors.base0C} bg:none)[ $user]($style)";
-        style_user = "fg:#${colors.base00} bg:#${colors.base0C}";
-        style_root = "fg:#${colors.base00} bg:#${colors.base0C}";
-        show_always = true;
-        disabled = false;
-      };
-
-      hostname = {
-        format = "[@$hostname ]($style)[](fg:#${colors.base0C} bg:none) ";
-        style = "fg:#${colors.base00} bg:#${colors.base0C}";
-        ssh_only = false;
-        disabled = false;
-      };
-
       directory = {
-        format = "[](fg:#${colors.base0C} bg:none)[ $path ]($style)[](fg:#${colors.base0C} bg:none) ";
-        style = "fg:#${colors.base00} bg:#${colors.base0C}";
-        truncation_length = 3;
+        format = "[$path]($style)( [$read_only]($read_only_style)) ";
         disabled = false;
       };
 
       status = {
         format = "[$symbol]($style)";
-        symbol = "";
-        success_symbol = "";
-        style = "#${colors.base0C}";
-        disabled = false;
-      };
-
-      git_branch = {
-        format = "[$symbol$branch]($style) ";
-        style = "bold red";
-        symbol = " ";
+        symbol = "[](bold red)";
+        success_symbol = "[](bold green)";
         disabled = false;
       };
 
@@ -70,11 +48,33 @@ in {
 
       cmd_duration.disabled = true;
 
-      nix_shell.symbol = "[](blue) ";
-      python.symbol = "[](blue) ";
-      rust.symbol = "[](red) ";
-      lua.symbol = "[](blue) ";
-      package.symbol = "📦  ";
+      aws.symbol = "  ";
+      conda.symbol = " ";
+      dart.symbol = " ";
+      directory.read_only = " ";
+      docker_context.symbol = " ";
+      elixir.symbol = " ";
+      elm.symbol = " ";
+      gcloud.symbol = " ";
+      git_branch.symbol = " ";
+      golang.symbol = " ";
+      hg_branch.symbol = " ";
+      java.symbol = " ";
+      julia.symbol = " ";
+      lua.symbol = " ";
+      memory_usage.symbol = " ";
+      nim.symbol = " ";
+      nix_shell.symbol = " ";
+      nodejs.symbol = " ";
+      package.symbol = " ";
+      perl.symbol = " ";
+      php.symbol = " ";
+      python.symbol = " ";
+      ruby.symbol = " ";
+      rust.symbol = " ";
+      scala.symbol = " ";
+      swift.symbol = "ﯣ ";
+      terraform.symbol = "行 ";
     };
   };
 }

@@ -3,40 +3,38 @@
   lib,
   config,
   ...
-}: let
-  inherit (config.colorscheme) colors;
-in {
+}: {
   home.packages = with pkgs; [swaylock-effects];
 
   programs.swaylock = {
-    settings = with colors; {
+    settings = {
       clock = true;
-      color = "#${base01}";
+      color = "00000000";
       font = "Inter";
       show-failed-attempts = false;
       indicator = true;
       indicator-radius = 200;
       indicator-thickness = 20;
-      line-color = "#${base01}";
-      ring-color = "#${base00}";
-      inside-color = "#${base01}";
-      key-hl-color = "#${base0C}";
+      line-color = "#181825";
+      ring-color = "#1e1e2e";
+      inside-color = "#181825";
+      key-hl-color = "#cba6f7";
       separator-color = "00000000";
-      text-color = "#${base06}";
+      text-color = "#cdd6f4";
       text-caps-lock-color = "";
-      line-ver-color = "#${base0C}";
-      ring-ver-color = "#${base0C}";
-      inside-ver-color = "#${base01}";
-      text-ver-color = "#${base06}";
-      ring-wrong-color = "#${base0B}";
-      text-wrong-color = "#${base0B}";
-      inside-wrong-color = "#${base01}";
-      inside-clear-color = "#${base01}";
-      text-clear-color = "#${base06}";
-      ring-clear-color = "#${base0D}";
-      line-clear-color = "#${base01}";
-      line-wrong-color = "#${base01}";
-      bs-hl-color = "#${base0B}";
+      line-ver-color = "#cba6f7";
+      ring-ver-color = "#cba6f7";
+      inside-ver-color = "#181825";
+      text-ver-color = "#cdd6f4";
+      ring-wrong-color = "#f38ba8";
+      text-wrong-color = "#f38ba8";
+      inside-wrong-color = "#181825";
+      inside-clear-color = "#181825";
+      text-clear-color = "#cdd6f4";
+      ring-clear-color = "#cba6f7";
+      line-clear-color = "#181825";
+      line-wrong-color = "#181825";
+      bs-hl-color = "#f38ba8";
       line-uses-ring = false;
       grace = 2;
       grace-no-mouse = true;

@@ -37,15 +37,13 @@ in {
     wtype
   ];
 
-  xdg.configFile."rofi/colors.rasi".text = let
-    inherit (config.colorscheme) colors;
-  in ''
+  xdg.configFile."rofi/colors.rasi".text = ''
     * {
-      background: #${colors.base01};
-      prompt: #${colors.base00};
-      border: #${colors.base00};
-      text: #${colors.base05};
-      select: #${colors.base00};
+      background: #181825;
+      prompt: #1e1e2e;
+      border: #1e1e2e;
+      text: #cdd6f4;
+      select: #1e1e2e;
     }
   '';
 

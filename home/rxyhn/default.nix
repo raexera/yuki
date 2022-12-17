@@ -9,7 +9,6 @@
     ./home.nix
     ./packages.nix
 
-    ./modules/colorschemes
     ./modules/shell
     ./modules/desktop/windowManagers/hyprland
 

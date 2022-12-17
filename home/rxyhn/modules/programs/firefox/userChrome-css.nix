@@ -1,5 +1,4 @@
-{colorscheme}:
-with colorscheme.colors; ''
+''
   /*
   ┌─┐┬┌┬┐┌─┐┬  ┌─┐
   └─┐││││├─┘│  ├┤
@@ -10,10 +9,10 @@ with colorscheme.colors; ''
   */
 
   :root {
-    --srf-primary: #${base00};
-    --srf-secondary: #${base01};
-    --srf-text: #${base06};
-    --srf-accent: #${base0C};
+    --srf-primary: #1e1e2e;
+    --srf-secondary: #181825;
+    --srf-text: #cdd6f4;
+    --srf-accent: #cba6f7;
   }
 
   window,
