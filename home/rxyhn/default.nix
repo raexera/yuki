@@ -13,9 +13,9 @@
     ./modules/desktop/windowManagers/hyprland
 
     ./modules/programs/discord.nix
+    ./modules/programs/helix.nix
     ./modules/programs/kitty.nix
     ./modules/programs/mpd.nix
-    ./modules/programs/neovim.nix
     ./modules/programs/vscode.nix
     ./modules/programs/zathura.nix
 

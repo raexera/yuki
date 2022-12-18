@@ -6,10 +6,10 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     hardware.url = "github:nixos/nixos-hardware";
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nur.url = "github:nix-community/NUR";
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
+    helix.url = "github:SoraTenshi/helix/experimental";
     hyprland.url = "github:hyprwm/Hyprland/";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
@@ -73,7 +73,6 @@
               {
                 # Packages provided by flake inputs
                 crane-lib = crane.lib.${system};
-                neovim-nightly = neovim.packages."${system}".neovim;
               }
               // (with nixpkgs-f2k.packages.${system}; {
                 # Overlays with f2k's repo
@@ -87,7 +86,6 @@
               }
           )
           nur.overlay
-          neovim-nightly.overlay
           nixpkgs-wayland.overlay
           nixpkgs-f2k.overlays.default
           rust-overlay.overlays.default

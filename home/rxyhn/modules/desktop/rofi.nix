@@ -138,7 +138,7 @@ in {
       cursor: inherit;
       vertical-align: 0.5;
       horizontal-align: 0.0;
-      font: "monospace Medium 13px";
+      font: "Inter Medium 13px";
     }
   '';
 
