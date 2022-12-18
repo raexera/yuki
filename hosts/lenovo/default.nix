@@ -96,6 +96,8 @@
       displayManager = {
         defaultSession = "hyprland";
         gdm.enable = true;
+
+        # add hyprland to display manager sessions
         sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
       };
     };
@@ -106,9 +108,11 @@
     wlr.enable = false;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      inputs.xdg-portal-hyprland.packages.${pkgs.system}.default
     ];
   };
+
+  # enable hyprland
+  programs.hyprland.nvidiaPatches = true;
 
   security = {
     pam.services.swaylock = {

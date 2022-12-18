@@ -19,6 +19,7 @@ in {
       [
         ./lenovo
         {networking.hostName = "lenovo";}
+        inputs.hyprland.nixosModules.default
       ]
       ++ sharedModules;
 
