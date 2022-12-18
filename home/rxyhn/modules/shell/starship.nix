@@ -2,10 +2,11 @@
   programs.starship = {
     enable = true;
     settings = {
+      scan_timeout = 10;
       add_newline = true;
 
       format = let
-        git = "$git_branch$git_commit$git_state$git_status";
+        git = "$git_branch$git_metrics$git_commit$git_state$git_status";
       in ''
         $directory(${git})$all
       '';
@@ -13,21 +14,32 @@
       right_format = "$status";
 
       character = {
-        success_symbol = "[](bold green)";
-        error_symbol = "[](bold red)";
-        vicmd_symbol = "[](bold green)";
+        success_symbol = "[λ](green)";
+        error_symbol = "[λ](red)";
       };
 
       directory = {
         format = "[$path]($style)( [$read_only]($read_only_style)) ";
+        style = "cyan";
         disabled = false;
       };
 
       status = {
         format = "[$symbol]($style)";
-        symbol = "[](bold red)";
-        success_symbol = "[](bold green)";
+        symbol = "[](red)";
+        success_symbol = "[](green)";
         disabled = false;
+      };
+
+      git_branch = {
+        style = "purple";
+        symbol = "";
+      };
+
+      git_metrics = {
+        disabled = false;
+        added_style = "bold yellow";
+        deleted_style = "bold red";
       };
 
       git_status = {
@@ -56,9 +68,7 @@
       elixir.symbol = " ";
       elm.symbol = " ";
       gcloud.symbol = " ";
-      git_branch.symbol = " ";
       golang.symbol = " ";
-      hg_branch.symbol = " ";
       java.symbol = " ";
       julia.symbol = " ";
       lua.symbol = " ";
