@@ -1,9 +1,13 @@
 <!-- Rxyhn's dotfiles -->
 <!-- https://github.com/rxyhn/dotfiles -->
 
-[![NixOS](https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos)](https://github.com/nixos/nixpkgs)
-
-[![NixOS_Check](https://github.com/rxyhn/dotfiles/actions/workflows/check.yml/badge.svg)](https://github.com/rxyhn/dotfiles/actions/workflows/check.yml) [![NixOS_Fmt](https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml/badge.svg)](https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml)
+<div align="center">
+<img src="https://github.com/rxyhn/dotfiles/actions/workflows/check.yml/badge.svg">
+<img src="https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml/badge.svg"> 
+<img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat-square&logo=nixos&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7">
+<img src="https://img.shields.io/static/v1.svg?style=flat-square&label=License&message=MIT&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7">
+<img src="https://img.shields.io/github/forks/rxyhn/dotfiles?style=flat-square&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7">
+</div>
 
 <br>
 
@@ -74,6 +78,5 @@ NixOS / Home-Manager / Flake
 
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
 
-<p align="center"><a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7"/></a></p>
 
 </div>
