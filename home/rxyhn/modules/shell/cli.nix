@@ -5,6 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    catimg
     duf
     du-dust
     fd
@@ -17,7 +18,6 @@
 
   programs = {
     exa.enable = true;
-    tmux.enable = true;
 
     fzf = {
       enable = true;

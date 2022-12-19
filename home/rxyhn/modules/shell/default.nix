@@ -51,16 +51,16 @@ in {
     };
 
     file = {
-      ".local/bin/updoot" = with pkgs; {
+      ".local/bin/updoot" = {
+        # Upload and get link
         executable = true;
-        text = ''
-          [ -f "$1" ] && op="cat"
-          ''${op:-echo} "''${@:-$(cat -)}" \
-            | ${curl}/bin/curl -sF file='@-' 'http://0x0.st' \
-            | tee /dev/stderr \
-            | tr -d '\n'      \
-            | ${wl-clipboard}/bin/wl-copy
-        '';
+        text = import ./bin/updoot.nix {inherit pkgs;};
+      };
+
+      ".local/bin/preview.sh" = {
+        # Preview script for fzf tab
+        executable = true;
+        text = import ./bin/preview.nix {inherit pkgs;};
       };
     };
   };
