@@ -4,11 +4,13 @@
     settings = {
       scan_timeout = 10;
       add_newline = true;
+      line_break.disabled = false;
+      cmd_duration.disabled = true;
 
       format = let
         git = "$git_branch$git_metrics$git_commit$git_state$git_status";
       in ''
-        $directory(${git})$all
+        $directory${git}$all
       '';
 
       right_format = "$status";
@@ -41,24 +43,6 @@
         added_style = "bold yellow";
         deleted_style = "bold red";
       };
-
-      git_status = {
-        format = "([\\[$all_status$ahead_behind\\]]($style)) ";
-        style = "bold red";
-        ahead = ">";
-        behind = "<";
-        diverged = "<>";
-        up_to_date = "";
-        untracked = "?";
-        stashed = "$";
-        modified = "!";
-        staged = "+";
-        renamed = "r";
-        deleted = "x";
-        disabled = false;
-      };
-
-      cmd_duration.disabled = true;
 
       aws.symbol = "  ";
       conda.symbol = " ";
