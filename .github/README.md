@@ -30,7 +30,7 @@ NixOS / Home-Manager / Flake
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="900px" />
-  <img src="https://user-images.githubusercontent.com/93292023/208284734-b5062b66-5bc0-48b3-b5a6-19d33a7b98a6.png" width="900px" alt="NixOS Desktop"/>
+  <img src="https://user-images.githubusercontent.com/93292023/208360860-c0fb98a7-9e48-46ac-bcb6-12839ca21b2e.png" width="900px" alt="NixOS Desktop"/>
 </p>
 
 <br>
