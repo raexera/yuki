@@ -76,7 +76,7 @@ in ''
     margin-right: 6px;
   }
 
-  #custom-launcher {
+  #custom-logo {
     margin: 6px 3px 6px 9px;
     padding: 6px 18px;
     background-image: url("${Logo}");

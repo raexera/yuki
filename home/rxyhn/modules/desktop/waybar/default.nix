@@ -43,7 +43,7 @@ in {
         gtk-layer-shell = true;
         height = 34;
         modules-left = [
-          "custom/launcher"
+          "custom/logo"
           "wlr/workspaces"
           "custom/swallow"
           "custom/weather"
@@ -72,10 +72,9 @@ in {
           active-only = false;
         };
 
-        "custom/launcher" = {
+        "custom/logo" = {
           tooltip = false;
           format = " ";
-          on-click = "killall rofi || rofi -no-lazy-grab -show drun -theme index";
         };
 
         "custom/todo" = {
