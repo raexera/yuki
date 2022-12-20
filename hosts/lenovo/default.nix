@@ -28,19 +28,12 @@
     ];
 
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
+      efi.canTouchEfiVariables = true;
 
-      grub = {
+      systemd-boot = {
         enable = true;
-        version = 2;
         configurationLimit = 3;
-        efiSupport = true;
-        useOSProber = true;
-        device = "nodev";
-        gfxmodeEfi = "1920x1080";
+        consoleMode = "max";
       };
     };
   };
