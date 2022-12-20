@@ -18,18 +18,27 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "ext4";
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-label/nix";
-    fsType = "ext4";
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = ["subvol=root" "compress=zstd"];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/home";
-    fsType = "ext4";
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = ["subvol=home" "compress=zstd"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = ["subvol=nix" "compress=zstd" "noatime"];
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = ["subvol=log" "compress=zstd"];
   };
 
   fileSystems."/boot" = {
@@ -46,7 +55,6 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

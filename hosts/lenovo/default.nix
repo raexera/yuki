@@ -28,7 +28,10 @@
     ];
 
     loader = {
-      efi.canTouchEfiVariables = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
 
       systemd-boot = {
         enable = true;
@@ -72,6 +75,7 @@
   };
 
   services = {
+    btrfs.autoScrub.enable = true;
     acpid.enable = true;
     thermald.enable = true;
     upower.enable = true;
@@ -84,17 +88,26 @@
       };
     };
 
-    xserver = {
+    greetd = {
       enable = true;
-      displayManager = {
-        defaultSession = "hyprland";
-        gdm.enable = true;
-
-        # add hyprland to display manager sessions
-        sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
+      settings = rec {
+        initial_session = {
+          command = "Hyprland";
+          user = "rxyhn";
+        };
+        default_session = initial_session;
       };
     };
+
+    # add hyprland to display manager sessions
+    xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
   };
+
+  # selectable options
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+    zsh
+  '';
 
   xdg.portal = {
     enable = true;
