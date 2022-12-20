@@ -17,6 +17,7 @@ in {
     # Apps
     cinnamon.nemo
     libsForQt5.qtstyleplugin-kvantum
+    libreoffice-fresh
     mpv-unwrapped
     yt-dlp
     zoom-us
@@ -24,6 +25,7 @@ in {
     # CLI Tools
     bandwhich
     cachix
+    cached-nix-shell
     dconf
     docker-compose
     docker-credential-helpers

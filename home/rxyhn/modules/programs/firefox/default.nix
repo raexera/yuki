@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  package,
   ...
 }: {
   programs.firefox = {
@@ -16,7 +15,7 @@
       ublock-origin
     ];
 
-    inherit package;
+    package = pkgs.firefox-wayland;
 
     profiles = {
       rxyhn = {
