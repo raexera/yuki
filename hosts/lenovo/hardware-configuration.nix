@@ -33,25 +33,25 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=root" "compress=zstd" "noatime"];
+    options = ["subvol=root" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=home" "compress=zstd" "noatime"];
+    options = ["subvol=home" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=nix" "compress=zstd" "noatime"];
+    options = ["subvol=nix" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
   };
 
   fileSystems."/var/log" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=log" "compress=zstd" "noatime"];
+    options = ["subvol=log" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
     neededForBoot = true;
   };
 

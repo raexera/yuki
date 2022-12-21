@@ -34,12 +34,12 @@ in {
       };
     };
 
-  opengl = {
-      extraPackages = with pkgs; [
+  opengl = with pkgs; {
+      extraPackages = [
         libvdpau-va-gl
         nvidia-vaapi-driver
       ];
-      extraPackages32 = with pkgs; [
+      extraPackages32 = [
         libvdpau-va-gl
       ];
     };
