@@ -21,6 +21,7 @@ in {
     bandwhich
     blueberry
     cached-nix-shell
+    cinnamon.nemo
     curl
     dconf
     findutils
