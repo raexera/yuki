@@ -64,7 +64,9 @@ in {
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       WLR_DRM_NO_ATOMIC = "1";
+      WLR_BACKEND = "vulkan";
       WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
 
       # Toolkit Backend Variables
       SDL_VIDEODRIVER = "wayland";
@@ -74,6 +76,7 @@ in {
       MOZ_ENABLE_WAYLAND = "1";
 
       # Theming Related Variables
+      GTK_THEME = "Catppuccin-Mocha-Standard-Mauve-Dark";
       XCURSOR_SIZE = "24";
     };
   };

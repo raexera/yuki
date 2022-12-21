@@ -140,7 +140,6 @@
     docker-client
     libva-utils
     mesa
-    polkit_gnome
     qt5.qtwayland
     qt5ct
     spice-gtk

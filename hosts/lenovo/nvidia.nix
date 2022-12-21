@@ -34,7 +34,7 @@ in {
       };
     };
 
-  opengl = {
+    opengl = {
       extraPackages = with pkgs; [
         libvdpau-va-gl
         nvidia-vaapi-driver
