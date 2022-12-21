@@ -26,7 +26,7 @@
     ]
     ++ config.boot.initrd.luks.cryptoModules;
 
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = ["dm-snapshot"];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
