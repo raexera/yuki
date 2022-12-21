@@ -5,14 +5,11 @@
   ...
 }: {
   imports = [
-    inputs.hardware.nixosModules.common-cpu-intel
-    inputs.hardware.nixosModules.common-gpu-nvidia
-    inputs.hardware.nixosModules.common-pc-ssd
-
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./nvidia.nix
 
+    # Shared configuration across all machines
     ../shared
     ../shared/users/rxyhn.nix
   ];
