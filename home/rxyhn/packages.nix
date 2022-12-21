@@ -14,29 +14,54 @@
   });
 in {
   home.packages = with pkgs; [
-    # Apps
-    cinnamon.nemo
-    libsForQt5.qtstyleplugin-kvantum
-    libreoffice-fresh
-    mpv-unwrapped
-    yt-dlp
-    zoom-us
-
-    # CLI Tools
+    alsa-lib
+    alsa-plugins
+    alsa-tools
+    alsa-utils
     bandwhich
-    cachix
+    bc
+    blueberry
+    cairo
     cached-nix-shell
+    cinnamon.nemo
+    coreutils
     dconf
-    docker-compose
-    docker-credential-helpers
+    findutils
+    ffmpeg-full
+    fzf
+    glib
     glxinfo
+    gnumake
+    gnuplot
+    gnused
+    gnutls
     grex
     hyperfine
+    imagemagick
+    inotify-tools
     keepassxc
     killall
-    lm_sensors
+    libappindicator
+    libnotify
+    libsecret
+    libreoffice-fresh
+    mpv-unwrapped
+    nodejs
+    pamixer
+    psmisc
+    pavucontrol
+    pulseaudio
+    python3
+    rsync
     todo
     trash-cli
+    util-linux
+    wirelesstools
+    xarchiver
+    xclip
+    xdg-utils
+    xh
     xorg.xhost
+    zoom-us
   ];
 }

@@ -45,11 +45,6 @@ in {
       "${config.home.homeDirectory}/.local/bin"
     ];
 
-    sessionVariables = {
-      GOPATH = "${config.home.homeDirectory}/Extras/go";
-      RUSTUP_HOME = "${config.home.homeDirectory}/.local/share/rustup";
-    };
-
     file = {
       ".local/bin/updoot" = {
         # Upload and get link

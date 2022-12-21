@@ -12,20 +12,14 @@
     exec "$@"
   '';
 in {
-  environment = {
-    systemPackages = [nvidia-offload];
-    variables = {
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    };
-  };
+  environment.systemPackages = [nvidia-offload];
 
   services.xserver.videoDrivers = ["nvidia"];
   boot.blacklistedKernelModules = ["nouveau"];
 
   hardware = {
     nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
 
       powerManagement = {
@@ -40,6 +34,11 @@ in {
       };
     };
 
-    opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+    opengl = {
+      extraPackages = with pkgs; [
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+      ];
+    };
   };
 }

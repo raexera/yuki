@@ -5,14 +5,11 @@
   ...
 }: {
   imports = [
-    inputs.hardware.nixosModules.common-cpu-intel
-    inputs.hardware.nixosModules.common-gpu-nvidia
-    inputs.hardware.nixosModules.common-pc-ssd
-
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./nvidia.nix
 
+    # Shared configuration across all machines
     ../shared
     ../shared/users/rxyhn.nix
   ];
@@ -27,28 +24,38 @@
       "i8042.dumbkbd"
     ];
 
-    loader = {
-      efi.canTouchEfiVariables = true;
+    supportedFilesystems = ["btrfs"];
 
-      systemd-boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+
+      systemd-boot.enable = false;
+
+      grub = {
         enable = true;
+        version = 2;
+        device = "nodev";
+        efiSupport = true;
+        enableCryptodisk = true;
         configurationLimit = 3;
-        consoleMode = "max";
       };
     };
   };
 
   hardware = {
-    opengl = {
+    opengl = with pkgs; {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [
+      extraPackages = [
         intel-compute-runtime
         intel-media-driver
+        libva
         vaapiIntel
         vaapiVdpau
-        libvdpau-va-gl
       ];
     };
 
@@ -72,6 +79,7 @@
   };
 
   services = {
+    btrfs.autoScrub.enable = true;
     acpid.enable = true;
     thermald.enable = true;
     upower.enable = true;
@@ -84,17 +92,25 @@
       };
     };
 
-    xserver = {
+    greetd = {
       enable = true;
-      displayManager = {
-        defaultSession = "hyprland";
-        gdm.enable = true;
-
-        # add hyprland to display manager sessions
-        sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
+      settings = rec {
+        initial_session = {
+          command = "Hyprland";
+          user = "rxyhn";
+        };
+        default_session = initial_session;
       };
     };
+
+    # add hyprland to display manager sessions
+    xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
   };
+
+  # selectable options
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+  '';
 
   xdg.portal = {
     enable = true;
@@ -117,20 +133,27 @@
 
   environment.systemPackages = with pkgs; [
     acpi
-    blueberry
     brightnessctl
-    pavucontrol
+    cudaPackages_11.cudatoolkit
+    cudaPackages_11.cudnn
     docker-client
-    mesa
-    polkit_gnome
-    spice-gtk
-    swtpm
+    docker-compose
+    docker-credential-helpers
+    libva-utils
+    ocl-icd
+    qt5.qtwayland
+    qt5ct
     virt-manager
+    vulkan-tools
   ];
 
   virtualisation = {
-    docker.enable = true;
     spiceUSBRedirection.enable = true;
+
+    docker = {
+      enable = true;
+      enableNvidia = true;
+    };
 
     libvirtd = {
       enable = true;
