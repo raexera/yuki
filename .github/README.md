@@ -63,7 +63,7 @@ NixOS / Home-Manager / Flake
     $ gdisk /dev/nvme0n1
     ```
     - `o` (create new empty partition table)
-    - `n` (add partition, 512M, type ef00 EFI)
+    - `n` (add partition, 1024M, type ef00 EFI)
     - `n` (add partition, remaining space, type 8e00 Linux LVM)
     - `w` (write partition table and exit)
     
@@ -100,7 +100,6 @@ NixOS / Home-Manager / Flake
     $ btrfs subvolume create /mnt/nix
     $ btrfs subvolume create /mnt/persist
     $ btrfs subvolume create /mnt/log
-    $ btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
     $ umount /mnt
 
     # Mount the directories

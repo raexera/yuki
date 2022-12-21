@@ -8,37 +8,58 @@
   modulesPath,
   ...
 }: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod"];
+  boot.initrd.luks.devices.luksroot = {
+    device = "/dev/disk/by-label/cryptroot";
+    preLVM = true;
+    allowDiscards = true;
+  };
+
+  boot.initrd.availableKernelModules =
+    [
+      "xhci_pci"
+      "thunderbolt"
+      "nvme"
+      "usb_storage"
+      "sd_mod"
+    ]
+    ++ config.boot.initrd.luks.cryptoModules;
+
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=root" "compress=zstd"];
+    options = ["subvol=root" "compress=zstd" "noatime"];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=home" "compress=zstd"];
+    options = ["subvol=home" "compress=zstd" "noatime"];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
     options = ["subvol=nix" "compress=zstd" "noatime"];
   };
 
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-label/nixos";
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=log" "compress=zstd"];
+    options = ["subvol=persist" "compress=zstd" "noatime"];
+    neededForBoot = true;
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = ["subvol=log" "compress=zstd" "noatime"];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {

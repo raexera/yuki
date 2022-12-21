@@ -27,16 +27,23 @@
       "i8042.dumbkbd"
     ];
 
+    supportedFilesystems = ["btrfs"];
+
     loader = {
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
 
-      systemd-boot = {
+      systemd-boot.enable = false;
+
+      grub = {
         enable = true;
+        version = 2;
+        device = "nodev";
+        efiSupport = true;
+        enableCryptodisk = true;
         configurationLimit = 3;
-        consoleMode = "max";
       };
     };
   };
