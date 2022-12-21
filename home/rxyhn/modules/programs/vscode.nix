@@ -5,6 +5,12 @@
 }: {
   programs.vscode = {
     enable = true;
+    package = pkgs.vscode.override {
+      commandLineArgs = ''
+        --enable-features=WaylandWindowDecorations \
+        --ozone-platform-hint=auto
+      '';
+    };
     extensions = with pkgs.vscode-extensions;
       [
         arrterian.nix-env-selector
