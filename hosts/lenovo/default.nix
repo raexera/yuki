@@ -110,7 +110,6 @@
   # selectable options
   environment.etc."greetd/environments".text = ''
     Hyprland
-    zsh
   '';
 
   xdg.portal = {
@@ -138,6 +137,8 @@
     brightnessctl
     pavucontrol
     docker-client
+    libva
+    libva-utils
     mesa
     polkit_gnome
     spice-gtk

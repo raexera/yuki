@@ -98,16 +98,14 @@ NixOS / Home-Manager / Flake
     $ btrfs subvolume create /mnt/root
     $ btrfs subvolume create /mnt/home
     $ btrfs subvolume create /mnt/nix
-    $ btrfs subvolume create /mnt/persist
     $ btrfs subvolume create /mnt/log
     $ umount /mnt
 
     # Mount the directories
     $ mount -o subvol=root,compress=zstd,noatime /dev/vg/root /mnt
-    $ mkdir -p /mnt/{home,nix,persist,var/log}
+    $ mkdir -p /mnt/{home,nix,var/log}
     $ mount -o subvol=home,compress=zstd,noatime /dev/vg/root /mnt/home
     $ mount -o subvol=nix,compress=zstd,noatime /dev/vg/root /mnt/nix
-    $ mount -o subvol=persist,compress=zstd,noatime /dev/vg/root /mnt/persist
     $ mount -o subvol=log,compress=zstd,noatime /dev/vg/root /mnt/var/log
 
     # Mount boot partition

@@ -48,13 +48,6 @@
     options = ["subvol=nix" "compress=zstd" "noatime"];
   };
 
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = ["subvol=persist" "compress=zstd" "noatime"];
-    neededForBoot = true;
-  };
-
   fileSystems."/var/log" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";

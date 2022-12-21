@@ -12,14 +12,7 @@
     exec "$@"
   '';
 in {
-  environment = {
-    systemPackages = [nvidia-offload];
-    variables = {
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    };
-  };
+  environment.systemPackages = [nvidia-offload];
 
   services.xserver.videoDrivers = ["nvidia"];
   boot.blacklistedKernelModules = ["nouveau"];
