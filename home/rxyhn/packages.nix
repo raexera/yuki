@@ -19,28 +19,32 @@ in {
     alsa-tools
     alsa-utils
     bandwhich
+    bc
     blueberry
+    cairo
     cached-nix-shell
     cinnamon.nemo
-    curl
+    coreutils
     dconf
     findutils
-    ffmpeg
+    ffmpeg-full
     fzf
+    glib
     glxinfo
+    gnumake
+    gnuplot
+    gnused
+    gnutls
     grex
     hyperfine
     imagemagick
     inotify-tools
-    jq
     keepassxc
     killall
     libappindicator
     libnotify
     libsecret
     libreoffice-fresh
-    libsForQt5.qtstyleplugin-kvantum
-    lm_sensors
     mpv-unwrapped
     nodejs
     pamixer
@@ -51,10 +55,7 @@ in {
     rsync
     todo
     trash-cli
-    unrar
-    unzip
     util-linux
-    wget
     wirelesstools
     xarchiver
     xclip
@@ -62,6 +63,5 @@ in {
     xh
     xorg.xhost
     zoom-us
-    zip
   ];
 }

@@ -134,11 +134,14 @@
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
-    egl-wayland
+    cudaPackages_11.cudatoolkit
+    cudaPackages_11.cudnn
     docker-client
     docker-compose
     docker-credential-helpers
+    egl-wayland
     libva-utils
+    ocl-icd
     qt5.qtwayland
     qt5ct
     virt-manager
