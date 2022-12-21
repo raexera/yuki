@@ -27,62 +27,9 @@
     binsh = "${pkgs.bash}/bin/bash";
     shells = with pkgs; [zsh];
 
-    systemPackages = lib.attrValues {
-      inherit
-        (pkgs)
-        alsa-lib
-        alsa-plugins
-        alsa-tools
-        alsa-utils
-        cairo
-        cmake
-        coreutils
-        curl
-        fd
-        findutils
-        ffmpeg
-        fzf
-        gcc
-        git
-        glib
-        gnumake
-        gnutls
-        gnuplot
-        gtk3
-        gtk4
-        imagemagick
-        inotify-tools
-        jq
-        libtool
-        libappindicator
-        libnotify
-        libsecret
-        librsvg
-        lm_sensors
-        lua
-        man-pages
-        man-pages-posix
-        nodejs
-        pamixer
-        pciutils
-        pkgconfig
-        psmisc
-        pulseaudio
-        python3
-        ripgrep
-        rsync
-        unrar
-        unzip
-        util-linux
-        wget
-        wirelesstools
-        xarchiver
-        xclip
-        xdg-utils
-        xh
-        zip
-        ;
-    };
+    systemPackages = with pkgs; [
+      git
+    ];
 
     loginShellInit = ''
       dbus-update-activation-environment --systemd DISPLAY

@@ -133,17 +133,14 @@
 
   environment.systemPackages = with pkgs; [
     acpi
-    blueberry
     brightnessctl
     egl-wayland
-    pavucontrol
     docker-client
+    docker-compose
+    docker-credential-helpers
     libva-utils
-    mesa
     qt5.qtwayland
     qt5ct
-    spice-gtk
-    swtpm
     virt-manager
     vulkan-tools
   ];

@@ -6,7 +6,7 @@
 }: {
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages."x86_64-linux".default;
+    package = inputs.helix.packages.${pkgs.system}.default;
     settings = {
       theme = "catppuccin_mocha_transparent";
       keys.normal = {
