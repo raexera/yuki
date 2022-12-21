@@ -139,7 +139,6 @@
     docker-client
     docker-compose
     docker-credential-helpers
-    egl-wayland
     libva-utils
     ocl-icd
     qt5.qtwayland
