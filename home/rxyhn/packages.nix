@@ -27,7 +27,6 @@ in {
     findutils
     ffmpeg
     fzf
-    gcc
     glxinfo
     grex
     hyperfine

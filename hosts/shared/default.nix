@@ -28,6 +28,7 @@
     shells = with pkgs; [zsh];
 
     systemPackages = with pkgs; [
+      gcc
       git
     ];
 
