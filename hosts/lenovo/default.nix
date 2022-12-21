@@ -53,12 +53,9 @@
       extraPackages = [
         intel-compute-runtime
         intel-media-driver
+        libva
         vaapiIntel
         vaapiVdpau
-        libvdpau-va-gl
-      ];
-      extraPackages32 = [
-        libva
       ];
     };
 
@@ -138,18 +135,18 @@
     acpi
     blueberry
     brightnessctl
+    egl-wayland
     pavucontrol
     docker-client
     libva-utils
     mesa
     polkit_gnome
+    qt5.qtwayland
+    qt5ct
     spice-gtk
     swtpm
     virt-manager
-
-    egl-wayland
-    qt5.qtwayland
-    qt5ct
+    vulkan-tools
   ];
 
   virtualisation = {
