@@ -7,8 +7,8 @@
     enable = true;
     package = pkgs.vscode.override {
       commandLineArgs = ''
-        --enable-features=WaylandWindowDecorations \
-        --ozone-platform-hint=auto
+        --enable-features=UseOzonePlatform \
+        --ozone-platform=wayland
       '';
     };
     extensions = with pkgs.vscode-extensions;
