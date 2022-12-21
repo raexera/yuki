@@ -41,7 +41,7 @@ NixOS / Home-Manager / Flake
 <br>
 <br>
 
-## <samp>Installation</samp>
+## :wrench: <samp>Installation</samp>
 
 1. Download iso
    ```sh
@@ -129,7 +129,7 @@ NixOS / Home-Manager / Flake
 <br>
 <br>
 
-## 👥 <samp>People</samp>
+## :busts_in_silhouette: <samp>People</samp>
 
 <table align="right">
   <tr>
