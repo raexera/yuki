@@ -19,6 +19,7 @@ in {
 
   hardware = {
     nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
 
       powerManagement = {
@@ -33,6 +34,14 @@ in {
       };
     };
 
-    opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+  opengl = {
+      extraPackages = with pkgs; [
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+      ];
+      extraPackages32 = with pkgs; [
+        libvdpau-va-gl
+      ];
+    };
   };
 }

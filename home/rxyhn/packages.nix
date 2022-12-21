@@ -17,7 +17,6 @@ in {
     # Apps
     cinnamon.nemo
     libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5ct
     libreoffice-fresh
     mpv-unwrapped
     yt-dlp

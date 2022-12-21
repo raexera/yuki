@@ -46,16 +46,19 @@
   };
 
   hardware = {
-    opengl = {
+    opengl = with pkgs; {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [
+      extraPackages = [
         intel-compute-runtime
         intel-media-driver
         vaapiIntel
         vaapiVdpau
         libvdpau-va-gl
+      ];
+      extraPackages32 = [
+        libva
       ];
     };
 
@@ -137,18 +140,25 @@
     brightnessctl
     pavucontrol
     docker-client
-    libva
     libva-utils
     mesa
     polkit_gnome
     spice-gtk
     swtpm
     virt-manager
+
+    egl-wayland
+    qt5.qtwayland
+    qt5ct
   ];
 
   virtualisation = {
-    docker.enable = true;
     spiceUSBRedirection.enable = true;
+
+    docker = {
+      enable = true;
+      enableNvidia = true;
+    };
 
     libvirtd = {
       enable = true;
