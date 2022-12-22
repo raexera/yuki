@@ -54,8 +54,8 @@
         intel-compute-runtime
         intel-media-driver
         libva
-        vaapiIntel
         vaapiVdpau
+        (vaapiIntel.override {enableHybridCodec = true;})
       ];
     };
 
@@ -66,10 +66,6 @@
 
     enableRedistributableFirmware = true;
     pulseaudio.enable = false;
-  };
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
 
   # compresses half the ram for use as swap
@@ -149,16 +145,13 @@
     ];
 
     variables = {
-      NIXOS_OZONE_WL = "1";
       GBM_BACKEND = "nvidia-drm";
       GBM_BACKENDS_PATH = "/run/opengl-driver/lib/gbm";
       LIBVA_DRIVER_NAME = "nvidia";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       WLR_DRM_NO_ATOMIC = "1";
-      WLR_BACKEND = "vulkan";
       WLR_NO_HARDWARE_CURSORS = "1";
-      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     };
   };
 
