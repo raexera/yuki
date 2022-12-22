@@ -45,6 +45,11 @@
     };
   };
 
+	# OpenGL and accelerated video playback
+	nixpkgs.config.packageOverrides = pkgs: {
+		vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+	};
+
   hardware = {
     opengl = {
       enable = true;
@@ -52,9 +57,12 @@
       driSupport32Bit = true;
       extraPackages = with pkgs; [
         intel-media-driver
+        vaapiIntel
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        intel-media-driver
         libva
-        vaapiVdpau
-        (vaapiIntel.override {enableHybridCodec = true;})
+        vaapiIntel
       ];
     };
 
