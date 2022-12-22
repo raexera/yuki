@@ -45,15 +45,26 @@
     };
   };
 
+  # OpenGL and accelerated video playback
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
+  };
+
   hardware = {
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        intel-compute-runtime
+        intel-media-driver
+        libvdpau-va-gl
+        vaapiIntel
+        vaapiVdpau
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
         intel-media-driver
         libva
+        libvdpau-va-gl
         vaapiIntel
         vaapiVdpau
       ];
@@ -66,10 +77,6 @@
 
     enableRedistributableFirmware = true;
     pulseaudio.enable = false;
-  };
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
 
   # compresses half the ram for use as swap
@@ -149,16 +156,13 @@
     ];
 
     variables = {
-      NIXOS_OZONE_WL = "1";
       GBM_BACKEND = "nvidia-drm";
       GBM_BACKENDS_PATH = "/run/opengl-driver/lib/gbm";
       LIBVA_DRIVER_NAME = "nvidia";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       WLR_DRM_NO_ATOMIC = "1";
-      WLR_BACKEND = "vulkan";
       WLR_NO_HARDWARE_CURSORS = "1";
-      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     };
   };
 
@@ -168,6 +172,16 @@
     docker = {
       enable = true;
       enableNvidia = true;
+    };
+
+    podman = {
+      enable = true;
+      enableNvidia = true;
+      extraPackages = with pkgs; [
+        skopeo
+        conmon
+        runc
+      ];
     };
 
     libvirtd = {

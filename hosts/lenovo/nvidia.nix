@@ -31,14 +31,9 @@ in {
       };
     };
 
-    opengl = with pkgs; {
-      extraPackages = [
-        libvdpau-va-gl
-        nvidia-vaapi-driver
-      ];
-      extraPackages32 = [
-        libvdpau-va-gl
-      ];
+    opengl = {
+      extraPackages = with pkgs; [nvidia-vaapi-driver];
+      extraPackages32 = with pkgs.pkgsi686Linux; [nvidia-vaapi-driver];
     };
   };
 }

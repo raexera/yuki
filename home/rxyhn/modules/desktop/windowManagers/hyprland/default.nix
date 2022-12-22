@@ -63,6 +63,7 @@ in {
       GDK_BACKEND = "wayland";
       EGL_PLATFORM = "wayland";
       MOZ_ENABLE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
 
       # Theming Related Variables
       GTK_THEME = "Catppuccin-Mocha-Standard-Mauve-Dark";
