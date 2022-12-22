@@ -39,7 +39,6 @@ in {
       wl-clipboard
       xorg.xprop
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-      inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     ];
 
     sessionVariables = {
@@ -61,13 +60,8 @@ in {
       _JAVA_AWT_WM_NONREPARENTING = "1";
       CLUTTER_BACKEND = "wayland";
       GDK_BACKEND = "wayland";
-      EGL_PLATFORM = "wayland";
       MOZ_ENABLE_WAYLAND = "1";
       NIXOS_OZONE_WL = "1";
-
-      # Theming Related Variables
-      GTK_THEME = "Catppuccin-Mocha-Standard-Mauve-Dark";
-      XCURSOR_SIZE = "24";
     };
   };
 

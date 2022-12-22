@@ -51,4 +51,10 @@
     size = 24;
     gtk.enable = true;
   };
+
+  home.sessionVariables = {
+    # Theming Related Variables
+    GTK_THEME = "Catppuccin-Mocha-Standard-Mauve-Dark";
+    XCURSOR_SIZE = "24";
+  };
 }

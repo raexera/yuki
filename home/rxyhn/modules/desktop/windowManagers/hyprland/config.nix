@@ -189,7 +189,6 @@
   bind = SUPER SHIFT ALT, R, exec, grimblast --notify --cursor copysave screen
 
   # Misc
-  bind = SUPER, C, exec, hyprpicker -a -n
   bind = CTRL ALT, L, exec, swaylock
   bind = SUPER SHIFT, O, exec, run-as-service wl-ocr
 
