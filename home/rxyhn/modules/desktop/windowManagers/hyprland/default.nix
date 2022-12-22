@@ -48,12 +48,12 @@ in {
       XDG_SESSION_DESKTOP = "Hyprland";
 
       # QT Variables
+      DISABLE_QT5_COMPAT = "0";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      QT_QPA_PLATFORM = "wayland;xcb";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QT_QPA_PLATFORM = "wayland";
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_STYLE_OVERRIDE = "kvantum";
-      DISABLE_QT5_COMPAT = "0";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
 
       # Toolkit Backend Variables
       SDL_VIDEODRIVER = "wayland";
@@ -61,7 +61,6 @@ in {
       CLUTTER_BACKEND = "wayland";
       GDK_BACKEND = "wayland";
       MOZ_ENABLE_WAYLAND = "1";
-      NIXOS_OZONE_WL = "1";
     };
   };
 
