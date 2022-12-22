@@ -45,10 +45,10 @@
     };
   };
 
-	# OpenGL and accelerated video playback
-	nixpkgs.config.packageOverrides = pkgs: {
-		vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-	};
+  # OpenGL and accelerated video playback
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
+  };
 
   hardware = {
     opengl = {
@@ -177,7 +177,8 @@
         skopeo
         conmon
         runc
-    ];
+      ];
+    };
 
     libvirtd = {
       enable = true;
