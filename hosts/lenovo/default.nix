@@ -46,11 +46,11 @@
   };
 
   hardware = {
-    opengl = with pkgs; {
+    opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = [
+      extraPackages = with pkgs; [
         intel-compute-runtime
         intel-media-driver
         libva
@@ -131,21 +131,35 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    acpi
-    brightnessctl
-    cudaPackages_11.cudatoolkit
-    cudaPackages_11.cudnn
-    docker-client
-    docker-compose
-    docker-credential-helpers
-    libva-utils
-    ocl-icd
-    qt5.qtwayland
-    qt5ct
-    virt-manager
-    vulkan-tools
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      acpi
+      brightnessctl
+      cudaPackages_11.cudatoolkit
+      cudaPackages_11.cudnn
+      docker-client
+      docker-compose
+      docker-credential-helpers
+      libva-utils
+      ocl-icd
+      qt5.qtwayland
+      qt5ct
+      virt-manager
+      vulkan-tools
+    ];
+
+    variables = {
+      NIXOS_OZONE_WL = "1";
+      GBM_BACKEND = "nvidia-drm";
+      LIBVA_DRIVER_NAME = "nvidia";
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
+      WLR_DRM_NO_ATOMIC = "1";
+      WLR_BACKEND = "vulkan";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
+    };
+  };
 
   virtualisation = {
     spiceUSBRedirection.enable = true;

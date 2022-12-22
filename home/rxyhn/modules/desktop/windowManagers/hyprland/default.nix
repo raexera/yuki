@@ -43,8 +43,6 @@ in {
     ];
 
     sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-
       # XDG Specifications
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_TYPE = "wayland";
@@ -57,16 +55,6 @@ in {
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_STYLE_OVERRIDE = "kvantum";
       DISABLE_QT5_COMPAT = "0";
-
-      # NVIDIA Specific
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
-      WLR_DRM_NO_ATOMIC = "1";
-      WLR_BACKEND = "vulkan";
-      WLR_NO_HARDWARE_CURSORS = "1";
-      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
 
       # Toolkit Backend Variables
       SDL_VIDEODRIVER = "wayland";
