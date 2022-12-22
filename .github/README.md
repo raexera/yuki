@@ -58,12 +58,12 @@ NixOS / Home-Manager / Flake
   
 4. Partitioning
 
-    We create a 1024MB EFI boot partition (`/dev/nvme0n1p1`) and the rest will be our LUKS encrypted physical volume for LVM (`/dev/nvme0n1p2`).
+    We create a 512MB EFI boot partition (`/dev/nvme0n1p1`) and the rest will be our LUKS encrypted physical volume for LVM (`/dev/nvme0n1p2`).
     ```bash
     $ gdisk /dev/nvme0n1
     ```
     - `o` (create new empty partition table)
-    - `n` (add partition, 1024M, type ef00 EFI)
+    - `n` (add partition, 512M, type ef00 EFI)
     - `n` (add partition, remaining space, type 8e00 Linux LVM)
     - `w` (write partition table and exit)
     
