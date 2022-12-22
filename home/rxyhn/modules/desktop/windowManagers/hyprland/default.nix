@@ -61,6 +61,7 @@ in {
       _JAVA_AWT_WM_NONREPARENTING = "1";
       CLUTTER_BACKEND = "wayland";
       GDK_BACKEND = "wayland";
+      EGL_PLATFORM = "wayland";
       MOZ_ENABLE_WAYLAND = "1";
 
       # Theming Related Variables

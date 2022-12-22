@@ -20,12 +20,9 @@ in {
   hardware = {
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      modesetting.enable = true;
 
-      powerManagement = {
-        enable = true;
-        finegrained = true;
-      };
+      modesetting.enable = true;
+      powerManagement.enable = true;
 
       prime = {
         offload.enable = true;
@@ -34,10 +31,13 @@ in {
       };
     };
 
-    opengl = {
-      extraPackages = with pkgs; [
+    opengl = with pkgs; {
+      extraPackages = [
         libvdpau-va-gl
         nvidia-vaapi-driver
+      ];
+      extraPackages32 = [
+        libvdpau-va-gl
       ];
     };
   };
