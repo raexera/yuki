@@ -17,7 +17,7 @@ in {
     alsa-lib
     alsa-plugins
     alsa-tools
-    alsa-utilsa
+    alsa-utils
     arandr
     bandwhich
     bc
