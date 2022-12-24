@@ -128,6 +128,7 @@
 
   security = {
     rtkit.enable = true;
+    polkit.enable = true;
 
     apparmor = {
       enable = true;

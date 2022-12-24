@@ -16,6 +16,9 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+
+    kernelModules = ["acpi_call"];
+
     kernelParams = [
       "i915.force_probe=46a6"
       "i915.enable_psr=0"
@@ -108,6 +111,7 @@
           enable = true;
           user = "rxyhn";
         };
+
         defaultSession = "none+awesome";
         lightdm.enable = true;
       };
@@ -133,21 +137,24 @@
   };
 
   environment = {
+    sessionVariables = { _JAVA_AWT_WM_NONREPARENTING = "1"; };
+
     systemPackages = with pkgs; [
       acpi
       brightnessctl
-      cudaPackages_11.cudatoolkit
-      cudaPackages_11.cudnn
       docker-client
       docker-compose
       docker-credential-helpers
       libva-utils
       ocl-icd
-      qt5.qtwayland
-      qt5ct
       virt-manager
       vulkan-tools
     ];
+
+    variables = {
+      __GL_MaxFramesAllowed = "0";
+      VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+    };
   };
 
   virtualisation = {

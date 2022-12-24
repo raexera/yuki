@@ -17,7 +17,8 @@ in {
     alsa-lib
     alsa-plugins
     alsa-tools
-    alsa-utils
+    alsa-utilsa
+    arandr
     bandwhich
     bc
     blueberry
@@ -44,6 +45,7 @@ in {
     libappindicator
     libnotify
     libsecret
+    librsvg
     libreoffice-fresh
     mpv-unwrapped
     nodejs

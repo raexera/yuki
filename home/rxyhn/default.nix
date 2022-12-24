@@ -10,6 +10,7 @@
     ./packages.nix
 
     ./modules/shell
+    ./modules/services/picom.nix
 
     ./modules/programs/firefox
     ./modules/programs/helix.nix
