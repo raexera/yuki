@@ -12,15 +12,19 @@
     exec "$@"
   '';
 in {
-  environment.systemPackages = [nvidia-offload];
+  environment = {
+    systemPackages = [nvidia-offload];
+
+    variables = {
+      GBM_BACKEND = "nvidia-drm";
+      LIBVA_DRIVER_NAME = "nvidia";
+    };
+  };
 
   services.xserver.videoDrivers = ["nvidia"];
-  boot.blacklistedKernelModules = ["nouveau"];
 
   hardware = {
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-
       modesetting.enable = true;
       powerManagement.enable = true;
 

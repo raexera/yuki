@@ -100,42 +100,35 @@
       };
     };
 
-    greetd = {
+    xserver = {
       enable = true;
-      settings = rec {
-        initial_session = {
-          command = "Hyprland";
+
+      displayManager = {
+        autoLogin = {
+          enable = true;
           user = "rxyhn";
         };
-        default_session = initial_session;
+        defaultSession = "none+awesome";
+        lightdm.enable = true;
       };
-    };
 
-    # add hyprland to display manager sessions
-    xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
-  };
+      dpi = 120;
+      exportConfiguration = true;
+      layout = "us";
 
-  # selectable options
-  environment.etc."greetd/environments".text = ''
-    Hyprland
-  '';
+      libinput = {
+        enable = true;
+        touchpad = { naturalScrolling = true; };
+      };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
-
-  # enable hyprland
-  programs.hyprland.nvidiaPatches = true;
-
-  security = {
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-      '';
+      windowManager = {
+        awesome = {
+          enable = true;
+          luaModules = lib.attrValues {
+            inherit (pkgs.luaPackages) lgi ldbus luadbi-mysql luaposix;
+          };
+        };
+      };
     };
   };
 
@@ -155,18 +148,6 @@
       virt-manager
       vulkan-tools
     ];
-
-    variables = {
-      NIXOS_OZONE_WL = "1";
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
-      WLR_BACKEND = "vulkan";
-      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
-      WLR_DRM_NO_ATOMIC = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
-    };
   };
 
   virtualisation = {

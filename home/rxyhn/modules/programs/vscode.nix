@@ -5,12 +5,6 @@
 }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.override {
-      commandLineArgs = ''
-        --enable-features=UseOzonePlatform \
-        --ozone-platform=wayland
-      '';
-    };
     extensions = with pkgs.vscode-extensions;
       [
         arrterian.nix-env-selector

@@ -15,8 +15,6 @@
       ublock-origin
     ];
 
-    package = pkgs.firefox-wayland;
-
     profiles = {
       rxyhn = {
         id = 0;

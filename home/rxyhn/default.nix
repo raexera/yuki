@@ -10,10 +10,8 @@
     ./packages.nix
 
     ./modules/shell
-    ./modules/desktop/windowManagers/hyprland
 
     ./modules/programs/firefox
-    ./modules/programs/discord.nix
     ./modules/programs/helix.nix
     ./modules/programs/kitty.nix
     ./modules/programs/mpd.nix
