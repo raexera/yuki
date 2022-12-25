@@ -48,13 +48,13 @@
   home.pointerCursor = {
     name = "Catppuccin-Mocha-Light-Cursors";
     package = pkgs.catppuccin-cursors;
-    size = 24;
+    size = 32;
     gtk.enable = true;
   };
 
   home.sessionVariables = {
     # Theming Related Variables
     GTK_THEME = "Catppuccin-Mocha-Standard-Mauve-Dark";
-    XCURSOR_SIZE = "24";
+    XCURSOR_SIZE = "32";
   };
 }

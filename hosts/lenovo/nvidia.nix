@@ -16,17 +16,25 @@ in {
     systemPackages = [nvidia-offload];
 
     variables = {
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
+      LIBVA_DRIVER_NAME = "iHD";
+      VDPAU_DRIVER = "va_gl";
     };
   };
+
+  boot.initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
 
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware = {
     nvidia = {
+      # nvidia-settings doesn't work with clang lto
+      nvidiaSettings = false;
+
       modesetting.enable = true;
-      powerManagement.enable = true;
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
 
       prime = {
         offload.enable = true;
@@ -35,9 +43,6 @@ in {
       };
     };
 
-    opengl = {
-      extraPackages = with pkgs; [nvidia-vaapi-driver];
-      extraPackages32 = with pkgs.pkgsi686Linux; [nvidia-vaapi-driver];
-    };
+    opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
   };
 }

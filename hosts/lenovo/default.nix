@@ -46,13 +46,15 @@
         useOSProber = true;
         enableCryptodisk = true;
         configurationLimit = 3;
+        gfxmodeEfi = "1920x1080";
+        theme = pkgs.fetchzip {
+          # https://github.com/AdisonCavani/distro-grub-themes
+          url = "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/lenovo.tar";
+          hash = "sha256-6ZevSnSNJ/Q67DTNJj8k4pjOjWZFj0tG0ljG3gwbLuc=";
+          stripRoot = false;
+        };
       };
     };
-  };
-
-  # OpenGL and accelerated video playback
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
 
   hardware = {
@@ -61,16 +63,12 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        intel-media-driver
-        libvdpau-va-gl
-        vaapiIntel
-        vaapiVdpau
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        intel-media-driver
+        intel-compute-runtime
+        intel-media-driver # iHD
         libva
+        libvdpau
         libvdpau-va-gl
-        vaapiIntel
+        (vaapiIntel.override {enableHybridCodec = true;}) # i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
       ];
     };
@@ -117,13 +115,13 @@
         lightdm.enable = true;
       };
 
-      dpi = 120;
+      dpi = 189;
       exportConfiguration = true;
       layout = "us";
 
       libinput = {
         enable = true;
-        touchpad = { naturalScrolling = true; };
+        touchpad = {naturalScrolling = true;};
       };
 
       windowManager = {
@@ -138,7 +136,8 @@
   };
 
   environment = {
-    sessionVariables = { _JAVA_AWT_WM_NONREPARENTING = "1"; };
+    sessionVariables = {_JAVA_AWT_WM_NONREPARENTING = "1";};
+    variables = {__GL_MaxFramesAllowed = "0";};
 
     systemPackages = with pkgs; [
       acpi
@@ -151,11 +150,6 @@
       virt-manager
       vulkan-tools
     ];
-
-    variables = {
-      __GL_MaxFramesAllowed = "0";
-      VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
-    };
   };
 
   virtualisation = {

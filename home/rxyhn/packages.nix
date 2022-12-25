@@ -46,6 +46,7 @@ in {
     libnotify
     libsecret
     librsvg
+    libtool
     libreoffice-fresh
     mpv-unwrapped
     nodejs

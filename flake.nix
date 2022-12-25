@@ -95,6 +95,9 @@
   in rec {
     inherit lib pkgs;
 
+    # nixos modules
+    nixosModules = import ./modules/nixos;
+
     # nixos-configs with home-manager
     nixosConfigurations = import ./hosts inputs;
 
