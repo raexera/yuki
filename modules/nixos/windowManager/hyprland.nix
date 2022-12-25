@@ -8,7 +8,7 @@ with lib; let
   cfg = config.modules.nixos.windowManager.hyprland;
 in {
   options.modules.nixos.windowManager.hyprland = {
-    enable = mkEnableOption "Enable The Awesome Window Manager";
+    enable = mkEnableOption "Enable The Hyprland Window Manager";
   };
 
   config = mkIf cfg.enable {
