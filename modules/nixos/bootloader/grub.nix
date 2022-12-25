@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.bootloader.grub;
+  cfg = config.modules.nixos.bootloader.grub;
 in {
-  options.modules.bootloader.grub = {
+  options.modules.nixos.bootloader.grub = {
     enable = mkEnableOption "Enable The Grub Bootloader";
 
     efiSysMountPoint = mkOption {

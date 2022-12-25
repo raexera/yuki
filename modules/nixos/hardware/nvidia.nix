@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.hardware.nvidia;
+  cfg = config.modules.nixos.hardware.nvidia;
 
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
@@ -15,7 +15,7 @@ with lib; let
     exec "$@"
   '';
 in {
-  options.modules.hardware.nvidia = {
+  options.modules.nixos.hardware.nvidia = {
     enable = mkEnableOption "Enable The NVIDIA Optimus Prime Offload";
   };
 

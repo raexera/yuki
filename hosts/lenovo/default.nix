@@ -89,9 +89,7 @@
     ];
   };
 
-  virtualisation.spiceUSBRedirection.enable = true;
-
-  modules = {
+  modules.nixos = {
     bootloader.grub = {
       enable = true;
       efiSysMountPoint = "/boot";

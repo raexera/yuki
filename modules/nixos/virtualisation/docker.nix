@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.virtualisation.docker;
+  cfg = config.modules.nixos.virtualisation.docker;
 in {
-  options.modules.virtualisation.docker = {
+  options.modules.nixos.virtualisation.docker = {
     enable = mkEnableOption "Enable The Docker Daemon";
 
     enableNvidia = mkOption {

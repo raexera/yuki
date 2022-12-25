@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.virtualisation.libvirtd;
+  cfg = config.modules.nixos.virtualisation.libvirtd;
 in {
-  options.modules.virtualisation.libvirtd = {
+  options.modules.nixos.virtualisation.libvirtd = {
     enable = mkEnableOption "Enable The Libvirt Virtualization Daemon";
   };
 

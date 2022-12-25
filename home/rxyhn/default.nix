@@ -17,7 +17,7 @@
     ./modules/desktop/gtk.nix
 
     ./modules/programs/firefox
-    # ./modules/programs/helix.nix
+    ./modules/programs/helix.nix
     ./modules/programs/kitty.nix
     ./modules/programs/mpd.nix
     ./modules/programs/obs-studio.nix

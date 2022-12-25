@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.windowManager.awesome;
+  cfg = config.modules.nixos.windowManager.awesome;
 in {
-  options.modules.windowManager.awesome = {
+  options.modules.nixos.windowManager.awesome = {
     enable = mkEnableOption "Enable The Awesome Window Manager";
 
     dpi = mkOption {
