@@ -37,15 +37,19 @@
           "widget.dmabuf.force-enabled" = true;
           "widget.wayland-dmabuf-vaapi.enabled" = true;
           "widget.use-xdg-desktop-portal" = true;
+          "extensions.pocket.enabled" = false;
+          "extensions.pocket.onSaveRecs" = false;
         };
 
-        userChrome = import ./userChrome-css.nix;
-        userContent = import ./userContent-css.nix;
-
-        extraConfig = ''
-          user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-          user_pref("full-screen-api.ignore-widgets", true);
+        userChrome = ''
+          @import "${pkgs.firefox-gnome-theme}/share/firefox-gnome-theme/userChrome.css";
         '';
+
+        userContent = ''
+          @import "${pkgs.firefox-gnome-theme}/share/firefox-gnome-theme/userContent.css";
+        '';
+
+        extraConfig = builtins.readFile "${pkgs.firefox-gnome-theme}/share/firefox-gnome-theme/configuration/user.js";
       };
     };
   };
