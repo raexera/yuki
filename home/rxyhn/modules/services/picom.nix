@@ -1,12 +1,10 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   services.picom = {
     enable = true;
     backend = "glx";
     vSync = true;
     shadow = false;
-    shadowOffsets = [ (-40) (-40) ];
+    shadowOffsets = [(-40) (-40)];
     shadowOpacity = 0.4;
 
     shadowExclude = [
@@ -28,13 +26,13 @@
       "class_g = 'Peek'"
     ];
 
-    opacityRules = [ "70:class_g = 'splash'" ];
+    opacityRules = ["70:class_g = 'splash'"];
 
     wintypes = {
-      popup_menu = { full-shadow = true; };
-      dropdown_menu = { full-shadow = true; };
-      notification = { full-shadow = true; };
-      normal = { full-shadow = true; };
+      popup_menu = {full-shadow = true;};
+      dropdown_menu = {full-shadow = true;};
+      notification = {full-shadow = true;};
+      normal = {full-shadow = true;};
     };
 
     settings = {
@@ -45,8 +43,7 @@
       ];
 
       corner-radius = 0; #8
-      rounded-corners-exclude =
-        [ "!window_type = 'normal' && !window_type = 'dialog'" ];
+      rounded-corners-exclude = ["!window_type = 'normal' && !window_type = 'dialog'"];
 
       blur-method = "dual_kawase";
       blur-strength = 7.0;
@@ -55,7 +52,7 @@
       blur-background-frame = true;
       blur-background-fixed = true;
 
-      blur-background-exclude = [ "!window_type = 'splash'" ];
+      blur-background-exclude = ["!window_type = 'splash'"];
     };
   };
 }

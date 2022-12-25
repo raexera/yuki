@@ -11,7 +11,9 @@
 
     ./modules/shell
     ./modules/xresources.nix
-    ./modules/services/picom.nix
+
+    (import ./modules/services/picom.nix {inherit config;})
+
     ./modules/desktop/gtk.nix
 
     ./modules/programs/firefox
