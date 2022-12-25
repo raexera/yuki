@@ -11,7 +11,6 @@
 
     # Shared configuration across all machines
     ../shared
-    ../shared/users/rxyhn.nix
   ];
 
   boot = {

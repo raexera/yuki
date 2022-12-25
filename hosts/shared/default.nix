@@ -12,6 +12,7 @@
     ./network.nix
     ./nix.nix
     ./ssh.nix
+    ./users.nix
   ];
 
   console = let
