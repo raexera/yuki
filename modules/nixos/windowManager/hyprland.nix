@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -10,6 +11,8 @@ in {
   options.modules.nixos.windowManager.hyprland = {
     enable = mkEnableOption "Enable The Hyprland Window Manager";
   };
+
+  imports = [inputs.hyprland.nixosModules.default];
 
   config = mkIf cfg.enable {
     services = {

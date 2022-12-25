@@ -12,7 +12,7 @@
     ./modules/shell
     ./modules/xresources.nix
 
-    (import ./modules/services/picom.nix {inherit config;})
+    ./modules/services/picom.nix
 
     ./modules/desktop/gtk.nix
 
