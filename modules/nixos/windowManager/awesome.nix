@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.windowManager.awesome;
+  cfg = config.modules.windowManager.awesome;
 in {
-  options.windowManager.awesome = {
-    enable = mkEnableOption "Awesome Window Manager";
+  options.modules.windowManager.awesome = {
+    enable = mkEnableOption "Enable The Awesome Window Manager";
 
     dpi = mkOption {
       type = types.int;

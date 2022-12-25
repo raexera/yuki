@@ -3,7 +3,7 @@
     enable = true;
     backend = "glx";
     vSync = true;
-    shadow = false;
+    shadow = true;
     shadowOffsets = [(-40) (-40)];
     shadowOpacity = 0.4;
 

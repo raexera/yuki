@@ -101,38 +101,6 @@
         STOP_CHARGE_THRESH_BAT0 = 80;
       };
     };
-
-    xserver = {
-      enable = true;
-
-      displayManager = {
-        autoLogin = {
-          enable = true;
-          user = "rxyhn";
-        };
-
-        defaultSession = "none+awesome";
-        lightdm.enable = true;
-      };
-
-      dpi = 189;
-      exportConfiguration = true;
-      layout = "us";
-
-      libinput = {
-        enable = true;
-        touchpad = {naturalScrolling = true;};
-      };
-
-      windowManager = {
-        awesome = {
-          enable = true;
-          luaModules = lib.attrValues {
-            inherit (pkgs.luaPackages) lgi ldbus luadbi-mysql luaposix;
-          };
-        };
-      };
-    };
   };
 
   environment = {
@@ -142,44 +110,33 @@
     systemPackages = with pkgs; [
       acpi
       brightnessctl
-      docker-client
-      docker-compose
-      docker-credential-helpers
       libva-utils
       ocl-icd
-      virt-manager
       vulkan-tools
     ];
   };
 
-  virtualisation = {
-    spiceUSBRedirection.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 
-    docker = {
-      enable = true;
-      enableNvidia = true;
-    };
-
-    podman = {
-      enable = true;
-      enableNvidia = true;
-      extraPackages = with pkgs; [
-        skopeo
-        conmon
-        runc
-      ];
-    };
-
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        ovmf = {
-          enable = true;
-          packages = with pkgs; [OVMFFull.fd];
-        };
-        swtpm.enable = true;
+  modules = {
+    virtualisation = {
+      docker = {
+        enable = true;
+        enableNvidia = true;
       };
+
+      libvirtd.enable = true;
+
+      podman = {
+        enable = true;
+        enableNvidia = true;
+      };
+    };
+
+    windowManager.awesome = {
+      enable = true;
+      dpi = 189;
+      layout = "us";
     };
   };
 
