@@ -42,7 +42,10 @@ in {
 
       libinput = {
         enable = true;
-        touchpad = {naturalScrolling = true;};
+        touchpad = {
+          disableWhileTyping = true;
+          naturalScrolling = true;
+        };
       };
 
       windowManager = {

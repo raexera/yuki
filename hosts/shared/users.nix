@@ -16,6 +16,7 @@ in {
       [
         "wheel"
         "networkmanager"
+        "input"
         "video"
         "audio"
         "nix"
