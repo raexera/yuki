@@ -42,17 +42,22 @@
         "class_g = 'Peek'"
       ];
 
-      corner-radius = 0; #8
+      corner-radius = 8;
       rounded-corners-exclude = ["!window_type = 'normal' && !window_type = 'dialog'"];
 
       blur-method = "dual_kawase";
-      blur-strength = 7.0;
       kernel = "11x11gaussian";
+      blur-size = 12;
+      blur-strength = 8.0;
       blur-background = false;
       blur-background-frame = true;
       blur-background-fixed = true;
 
-      blur-background-exclude = ["!window_type = 'splash'"];
+      blur-background-exclude = [
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+        "_GTK_FRAME_EXTENTS@:c"
+      ];
     };
   };
 }

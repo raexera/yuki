@@ -26,7 +26,7 @@
 
     sessionVariables = {
       LC_ALL = "en_US.UTF-8";
-      SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+      SSH_AUTH_SOCK = "/run/user/$(id -u)/keyring/ssh";
     };
 
     completionInit = ''
