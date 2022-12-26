@@ -185,34 +185,34 @@
           -- Aesthetic Night Colorscheme
           bold_brightens_ansi_colors = true,
           colors = {
-              foreground = "#edeff0",
-              background = "#0c0e0f",
-              cursor_bg = "#edeff0",
-              cursor_fg = "#edeff0",
-              cursor_border = "#232526",
-              selection_fg = "#0c0e0f",
-              selection_bg = "#edeff0",
-              scrollbar_thumb = "#edeff0",
-              split = "#090909",
+              foreground = "#b6beca",
+              background = "#101419",
+              cursor_bg = "#b6beca",
+              cursor_fg = "#b6beca",
+              cursor_border = "#4d5768",
+              selection_fg = "#101419",
+              selection_bg = "#b6beca",
+              scrollbar_thumb = "#b6beca",
+              split = "#0e1217",
               ansi = {
-                  "#232526", "#df5b61", "#78b892", "#de8f78", "#6791c9", "#bc83e3",
-                  "#67afc1", "#e4e6e7"
+                  "#4d5768", "#e05f65", "#78dba9", "#f1cf8a", "#70a5eb", "#c68aee",
+                  "#74bee9", "#b6beca"
               },
               brights = {
-                  "#2c2e2f", "#e8646a", "#81c19b", "#e79881", "#709ad2", "#c58cec",
-                  "#70b8ca", "#f2f4f5"
+                  "#485263", "#e5646a", "#94f7c5", "#f6d48f", "#75aaf0", "#cb8ff3",
+                  "#79c3ee", "#e3e6eb"
               },
-              indexed = {[136] = "#edeff0"},
+              indexed = {[136] = "#b6beca"},
               tab_bar = {
                   active_tab = {
-                      bg_color = "#0c0e0f",
-                      fg_color = "#edeff0",
+                      bg_color = "#101419",
+                      fg_color = "#b6beca",
                       italic = true
                   },
-                  inactive_tab = {bg_color = "#090909", fg_color = "#0c0e0f"},
-                  inactive_tab_hover = {bg_color = "#151515", fg_color = "#090909"},
-                  new_tab = {bg_color = "#151515", fg_color = "#090909"},
-                  new_tab_hover = {bg_color = "#6791c9", fg_color = "#090909"}
+                  inactive_tab = {bg_color = "#0e1217", fg_color = "#101419"},
+                  inactive_tab_hover = {bg_color = "#13171c", fg_color = "#0e1217"},
+                  new_tab = {bg_color = "#13171c", fg_color = "#0e1217"},
+                  new_tab_hover = {bg_color = "#78dba9", fg_color = "#0e1217"}
               }
           },
 
@@ -228,10 +228,10 @@
           -- General
           automatically_reload_config = true,
           inactive_pane_hsb = {saturation = 1.0, brightness = 1.0},
-          window_background_opacity = 0.4,
+          window_background_opacity = 0.65,
           window_close_confirmation = "NeverPrompt",
           window_frame = {
-              active_titlebar_bg = "#090909",
+              active_titlebar_bg = "#0e1217",
               font = font_with_fallback(font_name, {bold = true})
           }
       }
