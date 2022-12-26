@@ -38,7 +38,6 @@
 
           wrapProgramShell $out/opt/${binaryName}/${binaryName} \
               "''${gappsWrapperArgs[@]}" \
-              --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations}}" \
               --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}/" \
               --prefix LD_LIBRARY_PATH : ${libPath}:$out/opt/${binaryName} \
               --run "${lib.getExe disableBreakingUpdates}"

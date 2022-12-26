@@ -16,7 +16,8 @@
 
     ./modules/desktop/gtk.nix
 
-    ./modules/programs/firefox
+    ./modules/programs/discord.nix
+    ./modules/programs/firefox.nix
     ./modules/programs/helix.nix
     ./modules/programs/kitty.nix
     ./modules/programs/mpd.nix

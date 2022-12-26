@@ -175,7 +175,7 @@
     shfmt
     solc
     sumneko-lua-language-server
-    stylua
+    luaFormatter
     texlab
     uncrustify
     zls

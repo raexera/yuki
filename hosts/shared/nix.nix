@@ -73,7 +73,6 @@
         "https://fortuneteller2k.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
         "https://helix.cachix.org"
-        "https://hyprland.cachix.org"
       ];
 
       trusted-public-keys = [
@@ -82,7 +81,6 @@
         "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
     };
   };

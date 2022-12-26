@@ -27,6 +27,7 @@
         pkief.material-icon-theme
         rust-lang.rust-analyzer
         shardulm94.trailing-spaces
+        sumneko.lua
         timonwong.shellcheck
         usernamehw.errorlens
         vadimcn.vscode-lldb
@@ -39,7 +40,13 @@
           name = "copilot-nightly";
           publisher = "github";
           version = "1.61.7476";
-          sha256 = "QBGxt+uMbk6E86HFzgPl1iFC7VVFTkQV6VNqpChFI0A=";
+          sha256 = "sha256-QBGxt+uMbk6E86HFzgPl1iFC7VVFTkQV6VNqpChFI0A=";
+        }
+        {
+          name = "vscode-lua-format";
+          publisher = "koihik";
+          version = "1.3.8";
+          sha256 = "sha256-ACdjiy+Rj2wmxvSojaJmtCwyryWWB+OA/9hBEMJi39g=";
         }
       ];
 
@@ -61,6 +68,8 @@
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = false;
+      "editor.defaultFormatter" = "Koihik.vscode-lua-format";
+      "vscode-lua-format.binaryPath" = "${pkgs.luaFormatter}/bin/lua-format";
       "editor.minimap.enabled" = false;
       "editor.minimap.renderCharacters" = false;
       "editor.overviewRulerBorder" = false;
