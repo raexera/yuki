@@ -9,7 +9,6 @@
       [
         arrterian.nix-env-selector
         bbenoist.nix
-        catppuccin.catppuccin-vsc
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         eamodio.gitlens
@@ -37,6 +36,12 @@
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
+          name = "decay";
+          publisher = "decaycs";
+          version = "1.0.5";
+          sha256 = "sha256-UKPGopCNY0A4J+E9Egu1lhM7woDW+4lNOs3L1CfQq+0=";
+        }
+        {
           name = "copilot-nightly";
           publisher = "github";
           version = "1.61.7476";
@@ -51,8 +56,7 @@
       ];
 
     userSettings = {
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "catppuccin.accentColor" = "mauve";
+      "workbench.colorTheme" = "Dark Decay Theme";
       "workbench.iconTheme" = "material-icon-theme";
       "editor.fontFamily" = "'monospace', monospace";
       "editor.fontSize" = 13;
@@ -70,6 +74,7 @@
       "editor.formatOnType" = false;
       "editor.defaultFormatter" = "Koihik.vscode-lua-format";
       "vscode-lua-format.binaryPath" = "${pkgs.luaFormatter}/bin/lua-format";
+      "stylua.styluaPath" = "${pkgs.stylua}/bin/stylua";
       "editor.minimap.enabled" = false;
       "editor.minimap.renderCharacters" = false;
       "editor.overviewRulerBorder" = false;

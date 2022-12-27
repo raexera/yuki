@@ -8,6 +8,8 @@
     Xft.hintstyle: hintfull
     Xft.lcdfilter: lcddefault
 
+    Xcursor.size: 32
+
     *background: #1E1E2E
     *foreground: #CDD6F4
 

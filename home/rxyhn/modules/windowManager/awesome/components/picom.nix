@@ -68,8 +68,10 @@
         "class_g = 'slop'"
         "class_g = 'firefox'"
         "_GTK_FRAME_EXTENTS@:c"
-        "window_type = 'desktop'"
         "window_type = 'menu'"
+        "window_type = 'dropdown_menu'"
+        "window_type = 'popup_menu'"
+        "window_type = 'tooltip'"
       ];
 
       mark-wmwin-focused = true;

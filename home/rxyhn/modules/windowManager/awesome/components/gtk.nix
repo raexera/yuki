@@ -6,13 +6,13 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
-      package = pkgs.catppuccin-gtk;
+      name = "dark-decay";
+      package = pkgs.decay-gtk;
     };
 
     iconTheme = {
-      name = "Papirus";
-      package = pkgs.catppuccin-folders;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
 
     font = {
@@ -46,15 +46,15 @@
   };
 
   home.pointerCursor = {
-    name = "Catppuccin-Mocha-Light-Cursors";
-    package = pkgs.catppuccin-cursors;
+    name = "capitaine-cursors-white";
+    package = pkgs.capitaine-cursors;
     size = 32;
     gtk.enable = true;
   };
 
   home.sessionVariables = {
     # Theming Related Variables
-    GTK_THEME = "Catppuccin-Mocha-Standard-Mauve-Dark";
+    GTK_THEME = "dark-decay";
     XCURSOR_SIZE = "32";
   };
 }
