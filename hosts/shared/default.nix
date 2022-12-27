@@ -47,7 +47,7 @@
     ];
 
     loginShellInit = ''
-      eval $(gnome-keyring-daemon --start --daemonize --components="pkcs11,secrets,ssh")
+      eval $(gnome-keyring-daemon --start --components=ssh)
       eval $(ssh-agent)
     '';
 

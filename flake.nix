@@ -56,6 +56,8 @@
     nixpkgs,
     ...
   } @ inputs: let
+    inherit (self) outputs;
+
     system = "x86_64-linux";
     lib = nixpkgs.lib;
 
@@ -110,7 +112,7 @@
     nixosModules = import ./modules/nixos;
 
     # nixos-configs with home-manager
-    nixosConfigurations = import ./hosts inputs;
+    nixosConfigurations = import ./hosts {inherit inputs outputs;};
 
     # dev shell (for direnv)
     devShells.${system}.default = pkgs.mkShell {

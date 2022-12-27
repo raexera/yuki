@@ -16,7 +16,6 @@ in {
       [
         "wheel"
         "networkmanager"
-        "input"
         "video"
         "audio"
         "nix"
@@ -24,6 +23,7 @@ in {
       ]
       ++ ifTheyExist [
         "docker"
+        "podman"
         "git"
         "libvirtd"
         "mysql"
