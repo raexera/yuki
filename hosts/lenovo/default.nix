@@ -113,7 +113,7 @@
 
     windowManager.awesome = {
       enable = true;
-      dpi = 189;
+      dpi = 192;
       layout = "us";
     };
   };
