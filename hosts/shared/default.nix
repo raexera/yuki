@@ -47,7 +47,8 @@
     ];
 
     loginShellInit = ''
-      eval $(gnome-keyring-daemon --start --components=ssh)
+      dbus-update-activation-environment --all
+      eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
       eval $(ssh-agent)
     '';
 
@@ -137,8 +138,6 @@
     };
 
     pam = {
-      services.login.enableGnomeKeyring = true;
-
       loginLimits = [
         {
           domain = "@wheel";
