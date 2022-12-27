@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   ];
 
   installPhase = ''
-    mkdir -p $out/share/themes/
+    mkdir -p $out/share/themes
     cp -r Dark-decay $out/share/themes/dark-decay
   '';
 

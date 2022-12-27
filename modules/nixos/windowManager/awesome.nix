@@ -33,7 +33,14 @@ in {
         };
 
         defaultSession = "none+awesome";
-        lightdm.enable = true;
+        lightdm = {
+          enable = true;
+          greeters.gtk.cursorTheme = {
+            name = "macOS-Monterey";
+            package = pkgs.macos-cursors;
+            size = 48;
+          };
+        };
       };
 
       dpi = cfg.dpi;

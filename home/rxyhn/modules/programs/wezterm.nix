@@ -186,7 +186,7 @@
           bold_brightens_ansi_colors = true,
           colors = {
               foreground = "#b6beca",
-              background = "#101419",
+              background = "#000000",
               cursor_bg = "#b6beca",
               cursor_fg = "#b6beca",
               cursor_border = "#4d5768",
@@ -209,9 +209,9 @@
                       fg_color = "#b6beca",
                       italic = true
                   },
-                  inactive_tab = {bg_color = "#0e1217", fg_color = "#101419"},
-                  inactive_tab_hover = {bg_color = "#13171c", fg_color = "#0e1217"},
-                  new_tab = {bg_color = "#13171c", fg_color = "#0e1217"},
+                  inactive_tab = {bg_color = "#0e1217", fg_color = "#4d5768"},
+                  inactive_tab_hover = {bg_color = "#0e1217", fg_color = "#485263"},
+                  new_tab = {bg_color = "#0e1217", fg_color = "#78dba9"},
                   new_tab_hover = {bg_color = "#78dba9", fg_color = "#0e1217"}
               }
           },

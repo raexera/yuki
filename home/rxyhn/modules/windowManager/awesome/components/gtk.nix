@@ -46,15 +46,15 @@
   };
 
   home.pointerCursor = {
-    name = "capitaine-cursors-white";
-    package = pkgs.capitaine-cursors;
-    size = 32;
+    name = "macOS-Monterey";
+    package = pkgs.macos-cursors;
+    size = 48;
     gtk.enable = true;
   };
 
   home.sessionVariables = {
     # Theming Related Variables
     GTK_THEME = "dark-decay";
-    XCURSOR_SIZE = "32";
+    XCURSOR_SIZE = "48";
   };
 }

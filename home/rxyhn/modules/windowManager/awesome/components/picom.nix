@@ -60,7 +60,7 @@
       blur-kernel = "11x11gaussian";
       blur-size = 6;
       blur-deviation = 1.0;
-      blur-strength = 12;
+      blur-strength = 10;
       blur-background = false;
       blur-background-frame = true;
       blur-background-fixed = true;
