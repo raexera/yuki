@@ -5,21 +5,14 @@
     vSync = true;
 
     shadow = true;
-    shadowOffsets = [(-40) (-40)];
+    shadowOffsets = [(-40) (-20)];
     shadowOpacity = 0.55;
     shadowExclude = [
-      "class_g = 'slop'"
-      "window_type = 'menu'"
-      "window_type = 'dock'"
-      "window_type = 'desktop'"
-      "class_g = 'Peek'"
-      "class_g = 'firefox' && window_type = 'utility'"
+      "name = 'Notification'"
+      "class_g = 'Conky'"
+      "class_g ?= 'Notify-osd'"
+      "class_g = 'Cairo-clock'"
       "_GTK_FRAME_EXTENTS@:c"
-      "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
-      "class_g *?= 'zoom'"
-      "name = 'cpt_frame_window'"
-      "name = 'as_toolbar'"
-      "name = 'cpt_frame_xcb_window'"
     ];
 
     fade = true;
@@ -33,21 +26,22 @@
     opacityRules = ["70:class_g = 'splash'"];
 
     wintypes = {
-      dock = {
-        shadow = true;
-        clip-shadow-above = false;
-        full-shadow = true;
-      };
-      dropdown_menu = {full-shadow = true;};
-      normal = {full-shadow = true;};
-      notification = {full-shadow = true;};
-      popup_menu = {full-shadow = true;};
       tooltip = {
         fade = true;
         shadow = true;
         focus = true;
         full-shadow = true;
       };
+      dock = {
+        shadow = true;
+        clip-shadow-above = false;
+        full-shadow = true;
+      };
+      dnd = {shadow = false;};
+      popup_menu = {opacity = 1;};
+      dropdown_menu = {opacity = 1;};
+      desktop = {full-shadow = false;};
+      normal = {full-shadow = false;};
     };
 
     settings = {
@@ -66,16 +60,19 @@
       rounded-corners-exclude = [];
 
       blur-method = "dual_kawase";
-      kernel = "11x11gaussian";
+      blur-kernel = "11x11gaussian";
       blur-size = 12;
+      blur-deviation = 1.0;
       blur-strength = 8;
       blur-background = false;
       blur-background-frame = true;
       blur-background-fixed = true;
       blur-background-exclude = [
-        "window_type = 'dock'"
-        "window_type = 'desktop'"
+        "class_g = 'slop'"
+        "class_g = 'firefox'"
         "_GTK_FRAME_EXTENTS@:c"
+        "window_type = 'desktop'"
+        "window_type = 'menu'"
       ];
 
       mark-wmwin-focused = true;
@@ -83,6 +80,7 @@
       detect-rounded-corners = true;
       detect-client-opacity = true;
       detect-transient = true;
+      detect-client-leader = true;
       glx-no-stencil = true;
       use-damage = true;
       transparent-clipping = false;

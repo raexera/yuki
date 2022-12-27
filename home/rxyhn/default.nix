@@ -10,11 +10,8 @@
     ./packages.nix
 
     ./modules/shell
-    ./modules/xresources.nix
 
-    ./modules/services/picom.nix
-
-    ./modules/desktop/gtk.nix
+    ./modules/windowManager/awesome
 
     ./modules/programs/discord.nix
     ./modules/programs/firefox.nix
