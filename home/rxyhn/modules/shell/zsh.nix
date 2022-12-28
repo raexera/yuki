@@ -40,18 +40,22 @@
       export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
 
       export FZF_DEFAULT_OPTS="
-      --color bg+:#313244
-      --color bg:#1e1e2e
-      --color fg:#cdd6f4
-      --color fg+:#cdd6f4
-      --color hl:#f38ba8
-      --color hl+:#f38ba8
-      --color header:#f38ba8
-      --color spinner:#f5e0dc
-      --color info:#cba6f7
-      --color pointer:#f5e0dc
-      --color marker:#f5e0dc
-      --color prompt:#cba6f7
+      --color fg:#485263
+      --color fg+:#b6beca
+      --color bg:#101419
+      --color bg+:#1a1e23
+      --color hl:#4e88d4
+      --color hl+:#70a5eb
+      --color info:#e05f65
+      --color marker:#c68aee
+      --color prompt:#78DBA9
+      --color spinner:#e05f65
+      --color pointer:#c68aee
+      --color header:#78dba9
+      --color gutter:#242931
+      --color preview-fg:#b6beca
+      --color preview-bg:#1a1e23
+      --border --color border:#1a1e23
       --prompt 'λ '
       --pointer 'λ'
       "

@@ -187,34 +187,38 @@
           colors = {
               foreground = "#b6beca",
               background = "#000000",
-              cursor_bg = "#b6beca",
-              cursor_fg = "#b6beca",
-              cursor_border = "#4d5768",
-              selection_fg = "#101419",
-              selection_bg = "#b6beca",
-              scrollbar_thumb = "#b6beca",
+              cursor_bg = "#dee1e6",
+              cursor_fg = "#22262e",
+              cursor_border = "#fafdff",
+              selection_bg = "#575268",
+              selection_fg = "#D9E0EE",
+
+              scrollbar_thumb = "#384148",
               split = "#0e1217",
+              indexed = {[16] = "#f1cf8a", [17] = "#dee1e6"},
+
               ansi = {
-                  "#4d5768", "#e05f65", "#78dba9", "#f1cf8a", "#70a5eb", "#c68aee",
-                  "#74bee9", "#b6beca"
+                  "#1c252c", "#e05f65", "#78dba9", "#f1cf8a", "#70a5eb", "#c68aee",
+                  "#74bee9", "#dee1e6"
               },
               brights = {
-                  "#485263", "#e5646a", "#94f7c5", "#f6d48f", "#75aaf0", "#cb8ff3",
-                  "#79c3ee", "#e3e6eb"
+                  "#384148", "#fc7b81", "#94f7c5", "#ffeba6", "#8cc1ff", "#e2a6ff",
+                  "#90daff", "#fafdff"
               },
-              indexed = {[136] = "#b6beca"},
               tab_bar = {
-                  active_tab = {
-                      bg_color = "#101419",
-                      fg_color = "#b6beca",
+                  background = "#22262e",
+                  active_tab = {bg_color = "#70a5eb", fg_color = "#fafdff"},
+                  inactive_tab = {bg_color = "#22262e", fg_color = "#fafdff"},
+                  inactive_tab_hover = {bg_color = "#384148", fg_color = "#fafdff"},
+                  new_tab = {bg_color = "#22262e", fg_color = "#fafdff"},
+                  new_tab_hover = {
+                      bg_color = "#384148",
+                      fg_color = "#fafdff",
                       italic = true
-                  },
-                  inactive_tab = {bg_color = "#0e1217", fg_color = "#4d5768"},
-                  inactive_tab_hover = {bg_color = "#0e1217", fg_color = "#485263"},
-                  new_tab = {bg_color = "#0e1217", fg_color = "#78dba9"},
-                  new_tab_hover = {bg_color = "#78dba9", fg_color = "#0e1217"}
+                  }
               }
           },
+
 
           -- Padding
           window_padding = {left = 40, right = 40, top = 40, bottom = 40},
