@@ -1,4 +1,8 @@
 final: prev: {
+  material-symbols = prev.callPackage ../derivations/material-symbols.nix {};
+  decay-gtk = prev.callPackage ../derivations/decay-gtk.nix {};
+  macos-cursors = prev.callPackage ../derivations/macos-cursors.nix {};
+
   sf-mono-liga = prev.callPackage ../derivations/sf-mono-liga.nix {
     src = prev.sf-mono-liga-src;
     version = "999-master";
@@ -13,7 +17,4 @@ final: prev: {
     src = prev.luaFormatter-src;
     version = "999-master";
   };
-
-  decay-gtk = prev.callPackage ../derivations/decay-gtk.nix {};
-  macos-cursors = prev.callPackage ../derivations/macos-cursors.nix {};
 }

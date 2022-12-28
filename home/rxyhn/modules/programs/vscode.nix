@@ -58,7 +58,7 @@
     userSettings = {
       "workbench.colorTheme" = "Dark Decay Theme";
       "workbench.iconTheme" = "material-icon-theme";
-      "editor.fontFamily" = "'monospace', monospace";
+      "editor.fontFamily" = "'monospace', monospace, Material Symbols Outlined";
       "editor.fontSize" = 13;
       "editor.fontLigatures" = true;
       "workbench.fontAliasing" = "antialiased";
