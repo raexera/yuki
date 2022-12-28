@@ -1,5 +1,5 @@
 {
-  inputs,
+  config,
   pkgs,
   ...
 }: {
@@ -74,7 +74,7 @@
       "editor.formatOnType" = false;
       "editor.defaultFormatter" = "Koihik.vscode-lua-format";
       "vscode-lua-format.binaryPath" = "${pkgs.luaFormatter}/bin/lua-format";
-      "stylua.styluaPath" = "${pkgs.stylua}/bin/stylua";
+      "vscode-lua-format.configPath" = "${config.xdg.configHome}/LuaFormatter.cfg";
       "editor.minimap.enabled" = false;
       "editor.minimap.renderCharacters" = false;
       "editor.overviewRulerBorder" = false;
@@ -101,4 +101,14 @@
       "git.verboseCommit" = true;
     };
   };
+
+  xdg.configFile."LuaFormatter.cfg".text = ''
+    indent_width: 4
+    use_tab: false
+    keep_simple_control_block_one_line: false
+    keep_simple_function_one_line: false
+    single_quote_to_double_quote: true
+    chop_down_table: true
+    chop_down_kv_table: true
+  '';
 }
