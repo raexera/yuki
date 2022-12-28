@@ -8,12 +8,19 @@
     shadowOffsets = [(-40) (-20)];
     shadowOpacity = 0.55;
     shadowExclude = [
-      "name = 'Notification'"
-      "class_g = 'Conky'"
-      "class_g ?= 'Notify-osd'"
-      "class_g = 'Cairo-clock'"
       "_GTK_FRAME_EXTENTS@:c"
+      "_PICOM_SHADOW@:32c = 0"
+      "window_type = 'combo'"
+      "window_type = 'desktop'"
+      "window_type = 'dnd'"
       "window_type = 'dock'"
+      "window_type = 'menu'"
+      "window_type = 'popup_menu'"
+      "window_type = 'splash'"
+      "window_type = 'toolbar'"
+      "window_type = 'utility'"
+      "class_g = 'Conky'"
+      "class_g = 'slop'"
     ];
 
     fade = true;
@@ -54,24 +61,29 @@
       ];
 
       corner-radius = 12;
-      rounded-corners-exclude = [];
+      rounded-corners-exclude = [
+        "_PICOM_SHADOW@:32c = 0"
+      ];
 
       blur-method = "dual_kawase";
       blur-kernel = "11x11gaussian";
-      blur-size = 6;
       blur-deviation = 1.0;
       blur-strength = 10;
-      blur-background = false;
+      blur-background = true;
       blur-background-frame = true;
       blur-background-fixed = true;
       blur-background-exclude = [
-        "class_g = 'slop'"
-        "class_g = 'firefox'"
         "_GTK_FRAME_EXTENTS@:c"
+        "window_type = 'combo'"
+        "window_type = 'desktop'"
+        "window_type = 'dnd'"
         "window_type = 'menu'"
-        "window_type = 'dropdown_menu'"
-        "window_type = 'popup_menu'"
+        "window_type = 'toolbar'"
         "window_type = 'tooltip'"
+        "window_type = 'utility'"
+        "window_type = 'unknown'"
+        "class_g = 'firefox' && window_type != 'normal'"
+        "class_g = 'slop'"
       ];
 
       mark-wmwin-focused = true;
