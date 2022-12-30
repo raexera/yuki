@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./fonts.nix
+  ];
+}

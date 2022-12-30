@@ -1,0 +1,5 @@
+{
+  security.polkit = {
+    enable = true;
+  };
+}
