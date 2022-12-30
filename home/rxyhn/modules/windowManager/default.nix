@@ -1,5 +1,7 @@
-{config, ...}: {
+{
   imports = [
     ./awesome.nix
+    ./gtk.nix
+    ./picom.nix
   ];
 }

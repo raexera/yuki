@@ -10,12 +10,6 @@ in {
   options.modules.nixos.windowManager.awesome = {
     enable = mkEnableOption "Enable The Awesome Window Manager";
 
-    dpi = mkOption {
-      type = types.int;
-      default = 96;
-      description = "The DPI to use for the X server.";
-    };
-
     layout = mkOption {
       type = types.str;
       default = "us";
@@ -43,7 +37,7 @@ in {
         };
       };
 
-      dpi = cfg.dpi;
+      dpi = 192;
       exportConfiguration = true;
       layout = "${cfg.layout}";
 

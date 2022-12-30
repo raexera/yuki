@@ -111,9 +111,6 @@
     # nixos modules
     nixosModules = import ./modules/nixos;
 
-    # home-manager modules
-    homeManagerModules = import ./modules/home-manager;
-
     # nixos-configs with home-manager
     nixosConfigurations = import ./hosts {inherit inputs outputs;};
 
