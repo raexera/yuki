@@ -1,0 +1,3 @@
+{
+  windowManager = import ./windowManager;
+}
