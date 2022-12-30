@@ -2,12 +2,12 @@
   stdenv,
   pkgs,
   src,
-  version,
   ...
 }:
 stdenv.mkDerivation {
   name = "lua-format";
-  inherit version;
+  version = "dev";
+
   inherit src;
   nativeBuildInputs = [pkgs.cmake];
 }

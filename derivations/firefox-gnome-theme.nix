@@ -2,12 +2,11 @@
   lib,
   stdenv,
   src,
-  version,
 }:
 stdenv.mkDerivation {
   pname = "firefox-gnome-theme";
+  version = "dev";
 
-  inherit version;
   inherit src;
 
   dontConfigure = true;

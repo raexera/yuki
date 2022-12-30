@@ -1,12 +1,12 @@
 {
   stdenv,
   src,
-  version,
   ...
 }:
 stdenv.mkDerivation {
   name = "SFMono-Nerd-Font-Ligaturized";
-  inherit version;
+  version = "dev";
+
   inherit src;
   dontConfigue = true;
 
