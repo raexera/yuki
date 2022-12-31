@@ -144,7 +144,6 @@
 
   home.packages = with pkgs; [
     # Dev tools
-    alejandra
     asmfmt
     black
     ccls
