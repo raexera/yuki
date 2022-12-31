@@ -9,7 +9,7 @@
     nur.url = "github:nix-community/NUR";
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
-    helix.url = "github:SoraTenshi/helix/experimental";
+    helix.url = "github:SoraTenshi/helix/experimental-22.12";
 
     home-manager = {
       url = "github:nix-community/home-manager";
