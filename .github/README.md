@@ -1,23 +1,23 @@
 <!-- Rxyhn's dotfiles -->
 <!-- https://github.com/rxyhn/dotfiles -->
 
-[![NixOS](https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos)](https://github.com/nixos/nixpkgs)
-
-[![NixOS_Check](https://github.com/rxyhn/dotfiles/actions/workflows/check.yml/badge.svg)](https://github.com/rxyhn/dotfiles/actions/workflows/check.yml) [![NixOS_Fmt](https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml/badge.svg)](https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml)
+<div align="center">
+<samp><h3>Rxykn's dotfiles<h3></samp>
+<img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat-sqaure&logo=nixos&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7"/>
+<img src="https://github.com/rxyhn/dotfiles/actions/workflows/check.yml/badge.svg"/>
+<img src="https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml/badge.svg"/>
+<img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7"/>
+</div>
 
 <br>
 
 <div align="justify">
 <div align="center">
 
-```ocaml
-Rxyhn's Dotfiles
-```
-
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos-white.png" width="500px" alt="NixOS logo"/>
+  <img src="https://user-images.githubusercontent.com/119129086/210351451-63d704c3-50a3-4c0d-bdff-ae563e88e493.png" width="500px" alt="NixOS logo"/>
 </p>
 
 <br>
@@ -29,8 +29,8 @@ NixOS / Home-Manager / Flake
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="900px" />
-  <img src="https://user-images.githubusercontent.com/93292023/208360860-c0fb98a7-9e48-46ac-bcb6-12839ca21b2e.png" width="900px" alt="NixOS Desktop"/>
+  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="800px" />
+  <img src="https://user-images.githubusercontent.com/93292023/208360860-c0fb98a7-9e48-46ac-bcb6-12839ca21b2e.png" width="800px" alt="NixOS Desktop"/>
 </p>
 
 <br>
@@ -39,22 +39,24 @@ NixOS / Home-Manager / Flake
 
 <br>
 <br>
-<br>
 
 ## :wrench: <samp>Installation</samp>
 
 1. Download iso
    ```sh
    # Yoink nixos-unstable
-   wget -O nixos.iso https://channels.nixos.org/nixos-unstable/latest-nixos-minimal-x86_64-linux.iso
+   $ wget -O nixos.iso https://channels.nixos.org/nixos-unstable/latest-nixos-minimal-x86_64-linux.iso
    
    # Write it to a flash drive
-   cp nixos.iso /dev/sdX
+   $ cp nixos.iso /dev/sdX
    ```
 
 2. Boot into the installer.
 
-3. Switch to root user: `sudo su -`
+3. Switch to root user:
+    ```bash
+    $ sudo -i
+    ```
   
 4. Partitioning
 
@@ -160,6 +162,5 @@ NixOS / Home-Manager / Flake
 
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
 
-<p align="center"><a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=cdd6f4&colorA=1e1e2e&colorB=cba6f7"/></a></p>
 
 </div>
