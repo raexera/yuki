@@ -49,6 +49,7 @@ in {
     libreoffice-fresh
     mpv-unwrapped
     nodejs
+    obs-studio
     pamixer
     psmisc
     pavucontrol

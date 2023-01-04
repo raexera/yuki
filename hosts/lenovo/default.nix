@@ -13,10 +13,21 @@
   ];
 
   boot = {
+    # Use the latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
 
+    # Make modules available to modprobe
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+
+    initrd = {
+      systemd.enable = true;
+      supportedFilesystems = ["btrfs"];
+    };
+
+    # Load modules on boot
     kernelModules = ["acpi_call"];
 
+    # Kernel parameters
     kernelParams = [
       "i915.force_probe=46a6"
       "i915.enable_psr=0"
@@ -24,8 +35,6 @@
       "i8042.direct"
       "i8042.dumbkbd"
     ];
-
-    supportedFilesystems = ["btrfs"];
   };
 
   hardware = {

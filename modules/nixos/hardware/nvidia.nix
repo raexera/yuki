@@ -29,7 +29,8 @@ in {
       };
     };
 
-    boot.initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
+    # Load modules on boot
+    boot.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
 
     services.xserver.videoDrivers = ["nvidia"];
 

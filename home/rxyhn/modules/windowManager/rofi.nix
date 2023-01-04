@@ -142,7 +142,7 @@
       "element-text" = {
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "inherit";
-        highlight = mkLiteral "inherit";
+        highlight = mkLiteral "bold";
         cursor = mkLiteral "inherit";
         vertical-align = mkLiteral "0.5";
         horizontal-align = mkLiteral "0.5";
