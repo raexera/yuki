@@ -61,7 +61,6 @@ in {
     util-linux
     wirelesstools
     xarchiver
-    xclip
     xdg-utils
     xh
     xorg.xhost

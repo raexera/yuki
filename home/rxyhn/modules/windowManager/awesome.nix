@@ -1,4 +1,8 @@
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./gtk.nix
     ./picom.nix
@@ -53,6 +57,13 @@
   '';
 
   home = {
+    packages = with pkgs; [
+      feh
+      libcanberra
+      maim
+      xclip
+    ];
+
     sessionVariables = {
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
