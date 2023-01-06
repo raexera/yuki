@@ -35,7 +35,6 @@
           "media.hardware-video-decoding.force-enabled" = true;
           "media.rdd-ffmpeg.enabled" = true;
           "widget.dmabuf.force-enabled" = true;
-          "widget.wayland-dmabuf-vaapi.enabled" = true;
           "widget.use-xdg-desktop-portal" = true;
           "extensions.pocket.enabled" = false;
           "extensions.pocket.onSaveRecs" = false;

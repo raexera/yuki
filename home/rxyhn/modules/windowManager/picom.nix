@@ -63,6 +63,9 @@
       corner-radius = 22;
       rounded-corners-exclude = [
         "_PICOM_SHADOW@:32c = 0"
+        "window_type = 'dock'"
+        "_NET_WM_STATE@:32a *= '_NET_WM_STATE_MAXIMIZED_VERT'"
+        "_NET_WM_STATE@:32a *= '_NET_WM_STATE_MAXIMIZED_HORZ'"
       ];
 
       blur-method = "dual_kawase";

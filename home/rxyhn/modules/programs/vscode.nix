@@ -103,7 +103,7 @@
   };
 
   xdg.configFile."LuaFormatter.cfg".text = ''
-    indent_width: 4
+    indent_width: 2
     use_tab: false
     keep_simple_control_block_one_line: false
     keep_simple_function_one_line: false
