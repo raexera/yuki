@@ -59,7 +59,7 @@
   home = {
     packages = with pkgs; [
       feh
-      libcanberra
+      libcanberra-gtk3
       maim
       xclip
     ];
