@@ -41,6 +41,8 @@ NixOS / Home-Manager / Flake
 <br>
 <br>
 
+## :snowflake: <samp>Information</samp>
+
 <div>
 <img src="https://raw.githubusercontent.com/awesomeWM/apidoc/gh-pages/images/AUTOGEN_wibox_logo_logo_and_name.svg" align=right />
 
