@@ -2,7 +2,7 @@
 <!-- https://github.com/rxyhn/dotfiles -->
 
 <p align="center">
-<a href="https://github.com/nixos/nixpkgs"><img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos&logoColor=dee1e6&colorA=101419&colorB=70a5eb"></a> <a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=dee1e6&colorA=101419&colorB=70a5eb"/></a>
+<a href="https://github.com/nixos/nixpkgs"><img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos&logoColor=dee1e6&colorA=101419&colorB=70a5eb"></a> <a href="https://awesomewm.org"><img src="https://img.shields.io/static/v1?label=AwesomeWM&message=master&style=flat&logo=awesomewm&colorA=101419&colorB=70a5eb&logoColor=dee1e6"/></a>
 </p>
 
 <p align="center">
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-<a href="https://awesomewm.org"><img src="https://img.shields.io/static/v1?label=&message=AwesomeWM&color=101419&style=flat&logo=awesomewm&logoColor=dee1e6"/></a>
+<a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=dee1e6&colorA=101419&colorB=70a5eb"/></a>
 </p>
 
 <br>
@@ -45,21 +45,24 @@ NixOS / Home-Manager / Flake
 <img src="https://raw.githubusercontent.com/awesomeWM/apidoc/gh-pages/images/AUTOGEN_wibox_logo_logo_and_name.svg" align=right />
 
 <table align=left><tr><td>
-<b>- OS: </b><br />
+<b>- Operating System: </b><br />
 <b>- Window Manager: </b><br />
+<b>- Compositor: </b><br />
 <b>- Terminal: </b><br />
 <b>- Shell: </b><br />
-<b>- Editor: </b><br /></table>
+<b>- Editor: </b><br />
+<b>- GPU: </b><br /></table>
 
 <table><tr><td>
 <a href="https://nixos.org">NixOS</a><br />
 <a href="https://awesomewm.org">AwesomeWM</a><br />
+<a href="https://github.com/yshui/picom">Picom</a><br />
 <a href="https://wezfurlong.org/wezterm/">Wezterm</a><br />
 <a href="https://www.zsh.org">ZSH</a><br />
-<a href="https://helix-editor.com">Helix</a><br /></table>
+<a href="https://helix-editor.com">Helix</a><br />
+<a href="https://www.nvidia.com">Nvidia</a><br /></table>
 </div>
 
-<br>
 <br>
 <br>
 
@@ -145,7 +148,6 @@ NixOS / Home-Manager / Flake
     $ nixos-install --flake github:rxyhn/dotfiles#lenovo --impure
     ```
 
-<br>
 <br>
 <br>
 
