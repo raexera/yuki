@@ -1,21 +1,33 @@
 {
+  config,
   lib,
   pkgs,
-  inputs,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./nvidia.nix
 
     # Shared configuration across all machines
     ../shared
-    ../shared/users/rxyhn.nix
   ];
 
   boot = {
+    # Use the latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
+
+    # Make modules available to modprobe
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+
+    initrd = {
+      systemd.enable = true;
+      supportedFilesystems = ["btrfs"];
+    };
+
+    # Load modules on boot
+    kernelModules = ["acpi_call"];
+
+    # Kernel parameters
     kernelParams = [
       "i915.force_probe=46a6"
       "i915.enable_psr=0"
@@ -23,32 +35,6 @@
       "i8042.direct"
       "i8042.dumbkbd"
     ];
-
-    supportedFilesystems = ["btrfs"];
-
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
-      };
-
-      systemd-boot.enable = false;
-
-      grub = {
-        enable = true;
-        version = 2;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = true;
-        enableCryptodisk = true;
-        configurationLimit = 3;
-      };
-    };
-  };
-
-  # OpenGL and accelerated video playback
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
 
   hardware = {
@@ -57,16 +43,12 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        intel-media-driver
-        libvdpau-va-gl
-        vaapiIntel
-        vaapiVdpau
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        intel-media-driver
+        intel-compute-runtime
+        intel-media-driver # iHD
         libva
+        libvdpau
         libvdpau-va-gl
-        vaapiIntel
+        (vaapiIntel.override {enableHybridCodec = true;}) # i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
       ];
     };
@@ -99,104 +81,47 @@
         STOP_CHARGE_THRESH_BAT0 = 80;
       };
     };
-
-    greetd = {
-      enable = true;
-      settings = rec {
-        initial_session = {
-          command = "Hyprland";
-          user = "rxyhn";
-        };
-        default_session = initial_session;
-      };
-    };
-
-    # add hyprland to display manager sessions
-    xserver.displayManager.sessionPackages = [inputs.hyprland.packages.${pkgs.system}.default];
-  };
-
-  # selectable options
-  environment.etc."greetd/environments".text = ''
-    Hyprland
-  '';
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
-
-  # enable hyprland
-  programs.hyprland.nvidiaPatches = true;
-
-  security = {
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-      '';
-    };
   };
 
   environment = {
+    sessionVariables = {_JAVA_AWT_WM_NONREPARENTING = "1";};
+    variables = {__GL_MaxFramesAllowed = "0";};
+
     systemPackages = with pkgs; [
       acpi
       brightnessctl
-      cudaPackages_11.cudatoolkit
-      cudaPackages_11.cudnn
-      docker-client
-      docker-compose
-      docker-credential-helpers
       libva-utils
       ocl-icd
-      qt5.qtwayland
-      qt5ct
-      virt-manager
       vulkan-tools
     ];
-
-    variables = {
-      NIXOS_OZONE_WL = "1";
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
-      WLR_BACKEND = "vulkan";
-      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
-      WLR_DRM_NO_ATOMIC = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
-    };
   };
 
-  virtualisation = {
-    spiceUSBRedirection.enable = true;
-
-    docker = {
+  modules.nixos = {
+    bootloader.grub = {
       enable = true;
-      enableNvidia = true;
+      efiSysMountPoint = "/boot";
+      device = "nodev";
     };
 
-    podman = {
-      enable = true;
-      enableNvidia = true;
-      extraPackages = with pkgs; [
-        skopeo
-        conmon
-        runc
-      ];
-    };
+    hardware.nvidia.enable = true;
 
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        ovmf = {
-          enable = true;
-          packages = with pkgs; [OVMFFull.fd];
-        };
-        swtpm.enable = true;
+    virtualisation = {
+      docker = {
+        enable = true;
+        enableNvidia = true;
       };
+
+      libvirtd.enable = true;
+
+      podman = {
+        enable = true;
+        enableNvidia = true;
+      };
+    };
+
+    windowManager.awesome = {
+      enable = true;
+      layout = "us";
     };
   };
 

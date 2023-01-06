@@ -1,21 +1,14 @@
 {
-  inputs,
+  config,
   pkgs,
   ...
 }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.override {
-      commandLineArgs = ''
-        --enable-features=UseOzonePlatform \
-        --ozone-platform=wayland
-      '';
-    };
     extensions = with pkgs.vscode-extensions;
       [
         arrterian.nix-env-selector
         bbenoist.nix
-        catppuccin.catppuccin-vsc
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         eamodio.gitlens
@@ -33,6 +26,7 @@
         pkief.material-icon-theme
         rust-lang.rust-analyzer
         shardulm94.trailing-spaces
+        sumneko.lua
         timonwong.shellcheck
         usernamehw.errorlens
         vadimcn.vscode-lldb
@@ -42,18 +36,29 @@
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
+          name = "decay";
+          publisher = "decaycs";
+          version = "1.0.5";
+          sha256 = "sha256-UKPGopCNY0A4J+E9Egu1lhM7woDW+4lNOs3L1CfQq+0=";
+        }
+        {
           name = "copilot-nightly";
           publisher = "github";
           version = "1.61.7476";
-          sha256 = "QBGxt+uMbk6E86HFzgPl1iFC7VVFTkQV6VNqpChFI0A=";
+          sha256 = "sha256-QBGxt+uMbk6E86HFzgPl1iFC7VVFTkQV6VNqpChFI0A=";
+        }
+        {
+          name = "vscode-lua-format";
+          publisher = "koihik";
+          version = "1.3.8";
+          sha256 = "sha256-ACdjiy+Rj2wmxvSojaJmtCwyryWWB+OA/9hBEMJi39g=";
         }
       ];
 
     userSettings = {
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "catppuccin.accentColor" = "mauve";
+      "workbench.colorTheme" = "Dark Decay Theme";
       "workbench.iconTheme" = "material-icon-theme";
-      "editor.fontFamily" = "'monospace', monospace";
+      "editor.fontFamily" = "'monospace', monospace, Material Symbols Outlined";
       "editor.fontSize" = 13;
       "editor.fontLigatures" = true;
       "workbench.fontAliasing" = "antialiased";
@@ -67,6 +72,8 @@
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = false;
+      "vscode-lua-format.binaryPath" = "${pkgs.luaFormatter}/bin/lua-format";
+      "vscode-lua-format.configPath" = "${config.xdg.configHome}/LuaFormatter.cfg";
       "editor.minimap.enabled" = false;
       "editor.minimap.renderCharacters" = false;
       "editor.overviewRulerBorder" = false;
@@ -87,6 +94,20 @@
       "security.workspace.trust.enabled" = false;
       "explorer.confirmDelete" = false;
       "breadcrumbs.enabled" = true;
+      "git.autofetch" = true;
+      "git.enableSmartCommit" = true;
+      "git.enableCommitSigning" = true;
+      "git.verboseCommit" = true;
     };
   };
+
+  xdg.configFile."LuaFormatter.cfg".text = ''
+    indent_width: 2
+    use_tab: false
+    keep_simple_control_block_one_line: false
+    keep_simple_function_one_line: false
+    single_quote_to_double_quote: true
+    chop_down_table: true
+    chop_down_kv_table: true
+  '';
 }

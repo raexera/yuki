@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   config,
   ...
@@ -18,6 +17,7 @@ in {
     alsa-plugins
     alsa-tools
     alsa-utils
+    arandr
     bandwhich
     bc
     blueberry
@@ -44,9 +44,12 @@ in {
     libappindicator
     libnotify
     libsecret
+    librsvg
+    libtool
     libreoffice-fresh
     mpv-unwrapped
     nodejs
+    obs-studio
     pamixer
     psmisc
     pavucontrol

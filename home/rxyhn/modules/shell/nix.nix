@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{pkgs, ...}:
 # nix tooling
 {
   home = {

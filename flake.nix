@@ -3,16 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
-    hardware.url = "github:nixos/nixos-hardware";
     nur.url = "github:nix-community/NUR";
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
-    helix.url = "github:SoraTenshi/helix/experimental";
-    hyprland.url = "github:hyprwm/Hyprland/";
-    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    hyprland-contrib.url = "github:hyprwm/contrib";
+    helix.url = "github:SoraTenshi/helix/experimental-22.12";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -40,6 +35,18 @@
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
+
+    firefox-gnome-theme = {
+      url = "github:rafaelmardojai/firefox-gnome-theme";
+      flake = false;
+    };
+
+    luaFormatter = {
+      type = "git";
+      url = "https://github.com/Koihik/LuaFormatter.git";
+      submodules = true;
+      flake = false;
+    };
   };
 
   outputs = {
@@ -47,6 +54,8 @@
     nixpkgs,
     ...
   } @ inputs: let
+    inherit (self) outputs;
+
     system = "x86_64-linux";
     lib = nixpkgs.lib;
 
@@ -82,10 +91,11 @@
               // {
                 # Non Flakes
                 sf-mono-liga-src = sf-mono-liga;
+                firefox-gnome-theme-src = firefox-gnome-theme;
+                luaFormatter-src = luaFormatter;
               }
           )
           nur.overlay
-          nixpkgs-wayland.overlay
           nixpkgs-f2k.overlays.default
           rust-overlay.overlays.default
         ]
@@ -95,8 +105,11 @@
   in rec {
     inherit lib pkgs;
 
+    # nixos modules
+    nixosModules = import ./modules/nixos;
+
     # nixos-configs with home-manager
-    nixosConfigurations = import ./hosts inputs;
+    nixosConfigurations = import ./hosts {inherit inputs outputs;};
 
     # dev shell (for direnv)
     devShells.${system}.default = pkgs.mkShell {
