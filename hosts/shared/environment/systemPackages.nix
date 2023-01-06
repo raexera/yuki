@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     curl
-    gcc
     git
     hddtemp
     jq

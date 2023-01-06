@@ -7,11 +7,14 @@
   programs.helix = {
     enable = true;
     package = inputs.helix.packages.${pkgs.system}.default;
+
     settings = {
-      theme = "catppuccin_mocha_transparent";
+      theme = "catppuccin_macchiato_transparent";
       keys.normal = {
         "{" = "goto_prev_paragraph";
         "}" = "goto_next_paragraph";
+        "X" = "extend_line_above";
+        "esc" = ["collapse_selection" "keep_primary_selection"];
         space.space = "file_picker";
         space.w = ":w";
         space.q = ":q";
@@ -24,12 +27,15 @@
           W = ":set whitespace.render none";
         };
       };
+
       keys.select = {
         "%" = "match_brackets";
       };
+
       editor = {
         color-modes = true;
         cursorline = true;
+        mouse = false;
         idle-timeout = 1;
         line-number = "relative";
         scrolloff = 5;
@@ -40,10 +46,13 @@
         indent-guides = {
           render = true;
         };
+
         rainbow-brackets = true;
         gutters = ["diagnostics" "line-numbers" "spacer" "diff"];
+
         statusline = {
-          separator = "|";
+          mode-separator = "";
+          separator = "";
           left = ["mode" "selections" "spinner" "file-name" "total-line-numbers"];
           center = [];
           right = ["diagnostics" "file-encoding" "file-line-ending" "file-type" "position-percentage" "position"];
@@ -71,8 +80,8 @@
 
     # override catppuccin theme and remove background to fix transparency
     themes = {
-      catppuccin_mocha_transparent = {
-        "inherits" = "catppuccin_mocha";
+      catppuccin_macchiato_transparent = {
+        "inherits" = "catppuccin_macchiato";
         "ui.background" = "{}";
       };
     };
@@ -97,12 +106,8 @@
       {
         name = "go";
         auto-format = true;
-        language-server = {
-          command = "${gopls}/bin/gopls";
-        };
-        formatter = {
-          command = "${go}/bin/gofmt";
-        };
+        language-server.command = "${gopls}/bin/gopls";
+        formatter.command = "${go}/bin/gofmt";
       }
       {
         name = "javascript";
@@ -115,18 +120,13 @@
       {
         name = "nix";
         auto-format = true;
-        language-server = {command = lib.getExe inputs.nil.packages.${system}.default;};
+        language-server = {command = lib.getExe inputs.nil.packages.${pkgs.system}.default;};
         config.nil.formatting.command = ["alejandra" "-q"];
       }
       {
         name = "rust";
         auto-format = true;
-        language-server = {
-          command = "${rust-analyzer}/bin/rust-analyzer";
-        };
-        formatter = {
-          command = "${rustfmt}/bin/rustfmt";
-        };
+        formatter.command = lib.getExe rustfmt;
       }
       {
         name = "typescript";
@@ -135,59 +135,44 @@
           command = "${nodePackages.typescript-language-server}/bin/typescript-language-server";
           args = ["--stdio"];
         };
-        formatter = {
-          command = "${nodePackages.prettier}/bin/prettier";
-        };
+        formatter.command = "${nodePackages.prettier}/bin/prettier";
       }
     ];
   };
 
   home.packages = with pkgs; [
     # Dev tools
-    asmfmt
     black
-    ccls
-    cargo
-    clang
-    clang-tools
     delve
     elixir_ls
     gawk
+    gcc
     go
-    gocode-gomod
     gomodifytags
     gopkgs
     gopls
     gotests
-    go-outline
     go-tools
     java-language-server
     kotlin-language-server
     ktlint
     lldb
-    nodejs
     rust-analyzer
     rustfmt
-    rnix-lsp
     selene
     shellcheck
-    shfmt
     solc
     sumneko-lua-language-server
     luaFormatter
     texlab
     uncrustify
-    zls
     nodePackages.jsonlint
-    nodePackages.jsonlint
-    nodePackages.node2nix
     nodePackages.prettier
-    nodePackages.pyright
-    nodePackages.stylelint
     nodePackages.typescript-language-server
     nodePackages.vls
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodePackages.yarn
+    cargo
   ];
 }
