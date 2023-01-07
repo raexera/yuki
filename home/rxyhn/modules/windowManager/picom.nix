@@ -10,23 +10,26 @@
     shadowExclude = [
       "_GTK_FRAME_EXTENTS@:c"
       "_PICOM_SHADOW@:32c = 0"
+      "class_g = 'Conky'"
+      "class_g = 'slop'"
       "window_type = 'combo'"
       "window_type = 'desktop'"
       "window_type = 'dnd'"
       "window_type = 'dock'"
       "window_type = 'menu'"
+      "window_type = 'notification'"
       "window_type = 'popup_menu'"
       "window_type = 'splash'"
       "window_type = 'toolbar'"
       "window_type = 'utility'"
-      "class_g = 'Conky'"
-      "class_g = 'slop'"
     ];
 
     fade = true;
     fadeDelta = 10;
     fadeSteps = [0.03 0.03];
-    fadeExclude = [];
+    fadeExclude = [
+      "window_type = 'notification'"
+    ];
 
     activeOpacity = 1.0;
     inactiveOpacity = 1.0;
@@ -58,6 +61,7 @@
       focus-exclude = [
         "class_g = 'Peek'"
         "class_g = 'Cairo-clock'"
+        "window_type = 'notification'"
       ];
 
       corner-radius = 22;
