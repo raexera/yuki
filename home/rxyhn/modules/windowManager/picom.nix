@@ -16,6 +16,7 @@
       "window_type = 'desktop'"
       "window_type = 'dnd'"
       "window_type = 'dock'"
+      "window_type = 'dropdown_menu'"
       "window_type = 'menu'"
       "window_type = 'notification'"
       "window_type = 'popup_menu'"
@@ -28,7 +29,15 @@
     fadeDelta = 10;
     fadeSteps = [0.03 0.03];
     fadeExclude = [
+      "window_type = 'combo'"
+      "window_type = 'desktop'"
+      "window_type = 'dock'"
+      "window_type = 'dnd'"
       "window_type = 'notification'"
+      "window_type = 'toolbar'"
+      "window_type = 'unknown'"
+      "window_type = 'utility'"
+      "_PICOM_FADE@:32c = 0"
     ];
 
     activeOpacity = 1.0;
@@ -61,7 +70,16 @@
       focus-exclude = [
         "class_g = 'Peek'"
         "class_g = 'Cairo-clock'"
-        "window_type = 'notification'"
+        "window_type = 'combo'"
+        "window_type = 'desktop'"
+        "window_type = 'dialog'"
+        "window_type = 'dnd'"
+        "window_type = 'dock'"
+        "window_type = 'dropdown_menu'"
+        "window_type = 'menu'"
+        "window_type = 'tooltip'"
+        "window_type = 'unknown'"
+        "window_type = 'utility'"
       ];
 
       corner-radius = 22;
