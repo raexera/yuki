@@ -10,6 +10,8 @@
     shadowExclude = [
       "_GTK_FRAME_EXTENTS@:c"
       "_PICOM_SHADOW@:32c = 0"
+      "_NET_WM_WINDOW_TYPE:a = '_NET_WM_WINDOW_TYPE_NOTIFICATION'"
+      "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
       "class_g = 'Conky'"
       "class_g = 'slop'"
       "window_type = 'combo'"

@@ -27,11 +27,11 @@
         rust-lang.rust-analyzer
         shardulm94.trailing-spaces
         sumneko.lua
-        timonwong.shellcheck
         usernamehw.errorlens
         vadimcn.vscode-lldb
         xaver.clang-format
         yzhang.markdown-all-in-one
+        zhuangtongfa.material-theme
         _2gua.rainbow-brackets
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -56,9 +56,9 @@
       ];
 
     userSettings = {
-      "workbench.colorTheme" = "Dark Decay Theme";
+      "workbench.colorTheme" = "One Dark Pro Darker";
       "workbench.iconTheme" = "material-icon-theme";
-      "editor.fontFamily" = "'monospace', monospace, Material Symbols Outlined";
+      "editor.fontFamily" = "'monospace', monospace, Material Symbols Rounded";
       "editor.fontSize" = 13;
       "editor.fontLigatures" = true;
       "workbench.fontAliasing" = "antialiased";
@@ -72,6 +72,7 @@
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = false;
+      "editor.defaultFormatter" = "Koihik.vscode-lua-format";
       "vscode-lua-format.binaryPath" = "${pkgs.luaFormatter}/bin/lua-format";
       "vscode-lua-format.configPath" = "${config.xdg.configHome}/LuaFormatter.cfg";
       "editor.minimap.enabled" = false;
