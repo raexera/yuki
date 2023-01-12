@@ -90,6 +90,7 @@
     systemPackages = with pkgs; [
       acpi
       brightnessctl
+      gcc
       libva-utils
       ocl-icd
       vulkan-tools

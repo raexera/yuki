@@ -143,10 +143,11 @@
   home.packages = with pkgs; [
     # Dev tools
     black
+    clang
+    clang-tools
     delve
     elixir_ls
     gawk
-    gcc
     go
     gomodifytags
     gopkgs
