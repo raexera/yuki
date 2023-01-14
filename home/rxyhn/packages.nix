@@ -48,6 +48,7 @@ in {
     libtool
     libreoffice-fresh
     mpv-unwrapped
+    ncurses
     nodejs
     obs-studio
     pamixer

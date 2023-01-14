@@ -20,22 +20,25 @@
         ms-azuretools.vscode-docker
         ms-python.python
         ms-python.vscode-pylance
-        ms-vscode-remote.remote-ssh
         ms-vscode.cpptools
         naumovs.color-highlight
         oderwat.indent-rainbow
         pkief.material-icon-theme
-        rust-lang.rust-analyzer
         shardulm94.trailing-spaces
         sumneko.lua
         usernamehw.errorlens
         vadimcn.vscode-lldb
         xaver.clang-format
         yzhang.markdown-all-in-one
-        zhuangtongfa.material-theme
         _2gua.rainbow-brackets
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "tokyo-night";
+          publisher = "enkia";
+          version = "0.9.4";
+          sha256 = "sha256-pKokB6446SR6LsTHyJtQ+FEA07A0W9UAI+byqtGeMGw=";
+        }
         {
           name = "decay";
           publisher = "decaycs";
@@ -51,7 +54,7 @@
       ];
 
     userSettings = {
-      "workbench.colorTheme" = "One Dark Pro Darker";
+      "workbench.colorTheme" = "Tokyo Night";
       "workbench.iconTheme" = "material-icon-theme";
       "editor.fontFamily" = "'monospace', monospace, Material Symbols Rounded";
       "editor.fontSize" = 13;
@@ -67,7 +70,6 @@
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = false;
-      "editor.defaultFormatter" = "Koihik.vscode-lua-format";
       "vscode-lua-format.binaryPath" = "${pkgs.luaFormatter}/bin/lua-format";
       "vscode-lua-format.configPath" = "${config.xdg.configHome}/LuaFormatter.cfg";
       "editor.minimap.enabled" = false;
@@ -94,6 +96,15 @@
       "git.enableSmartCommit" = true;
       "git.enableCommitSigning" = true;
       "git.verboseCommit" = true;
+      "[c]" = {
+        "editor.defaultFormatter" = "xaver.clang-format";
+      };
+      "[cpp]" = {
+        "editor.defaultFormatter" = "xaver.clang-format";
+      };
+      "[lua]" = {
+        "editor.defaultFormatter" = "Koihik.vscode-lua-format";
+      };
     };
   };
 
