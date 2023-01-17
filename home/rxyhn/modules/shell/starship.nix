@@ -1,6 +1,7 @@
 {config, ...}: {
   programs.starship = {
     enable = true;
+    enableFishIntegration = true;
     settings = {
       scan_timeout = 10;
       add_newline = true;

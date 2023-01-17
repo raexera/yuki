@@ -62,7 +62,7 @@
       "terminal.integrated.fontFamily" = "monospace";
       "window.titleBarStyle" = "custom";
       "terminal.integrated.automationShell.linux" = "nix-shell";
-      "terminal.integrated.defaultProfile.linux" = "zsh";
+      "terminal.integrated.defaultProfile.linux" = "fish";
       "terminal.integrated.cursorBlinking" = true;
       "terminal.integrated.enableBell" = false;
       "editor.formatOnPaste" = true;

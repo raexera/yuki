@@ -33,11 +33,10 @@ with lib; let
 in {
   imports = [
     ./cli.nix
+    ./fish.nix
     ./git.nix
     ./nix.nix
     ./starship.nix
-    ./transient-services.nix
-    ./zsh.nix
   ];
 
   home = {
@@ -49,13 +48,18 @@ in {
       ".local/bin/updoot" = {
         # Upload and get link
         executable = true;
-        text = import ./bin/updoot.nix {inherit pkgs;};
-      };
+        text = ''
+          #> Syntax: bash
 
-      ".local/bin/preview.sh" = {
-        # Preview script for fzf tab
-        executable = true;
-        text = import ./bin/preview.nix {inherit pkgs;};
+          # Send to host
+
+          [ -f "$1" ] && op="cat"
+          ''${op:-echo} "''${@:-$(cat -)}" \
+              | ${pkgs.curl}/bin/curl -sF file='@-' 'http://0x0.st' \
+              | tee /dev/stderr \
+              | tr -d '\n'      \
+              | ${pkgs.xclip}/bin/xclip -sel clip
+        '';
       };
     };
   };
@@ -66,7 +70,7 @@ in {
     gpg-agent = {
       enable = true;
       pinentryFlavor = "gnome3";
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       enableSshSupport = true;
     };
   };

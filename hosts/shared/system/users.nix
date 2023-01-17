@@ -10,7 +10,7 @@ in {
   users.users.rxyhn = {
     description = "Rayhan Pratama";
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     initialPassword = "nixos";
     extraGroups =
       [
