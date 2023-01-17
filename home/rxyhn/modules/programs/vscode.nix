@@ -9,6 +9,7 @@
       [
         arrterian.nix-env-selector
         bbenoist.nix
+        catppuccin.catppuccin-vsc
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         eamodio.gitlens
@@ -32,18 +33,6 @@
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
-          name = "tokyo-night";
-          publisher = "enkia";
-          version = "0.9.4";
-          sha256 = "sha256-pKokB6446SR6LsTHyJtQ+FEA07A0W9UAI+byqtGeMGw=";
-        }
-        {
-          name = "decay";
-          publisher = "decaycs";
-          version = "1.0.5";
-          sha256 = "sha256-UKPGopCNY0A4J+E9Egu1lhM7woDW+4lNOs3L1CfQq+0=";
-        }
-        {
           name = "vscode-lua-format";
           publisher = "koihik";
           version = "1.3.8";
@@ -52,7 +41,8 @@
       ];
 
     userSettings = {
-      "workbench.colorTheme" = "Tokyo Night";
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "catppuccin.accentColor" = "blue";
       "workbench.iconTheme" = "material-icon-theme";
       "editor.fontFamily" = "'monospace', monospace, Material Symbols Rounded";
       "editor.fontSize" = 13;

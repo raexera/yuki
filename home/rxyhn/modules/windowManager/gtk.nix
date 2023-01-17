@@ -2,8 +2,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "dark-decay";
-      package = pkgs.decay-gtk;
+      name = "Colloid-Dark";
+      package = pkgs.colloid-gtk-theme;
     };
 
     iconTheme = {
@@ -50,7 +50,7 @@
 
   home.sessionVariables = {
     # Theming Related Variables
-    GTK_THEME = "dark-decay";
+    GTK_THEME = "Colloid-Dark";
     XCURSOR_SIZE = "48";
   };
 }

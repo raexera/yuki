@@ -1,5 +1,4 @@
 final: prev: {
-  decay-gtk = prev.callPackage ../derivations/decay-gtk.nix {};
   macos-cursors = prev.callPackage ../derivations/macos-cursors.nix {};
   material-symbols = prev.callPackage ../derivations/material-symbols.nix {};
 
