@@ -19,14 +19,6 @@
     '';
   };
 
-  services.mpdris2 = {
-    enable = true;
-    notifications = true;
-    mpd = {
-      host = "127.0.0.1";
-    };
-  };
-
   home.packages = with pkgs; [mpc_cli];
 
   programs.ncmpcpp = {

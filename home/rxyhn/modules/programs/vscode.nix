@@ -18,8 +18,6 @@
         ibm.output-colorizer
         kamadorueda.alejandra
         ms-azuretools.vscode-docker
-        ms-python.python
-        ms-python.vscode-pylance
         ms-vscode.cpptools
         naumovs.color-highlight
         oderwat.indent-rainbow

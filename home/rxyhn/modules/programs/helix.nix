@@ -162,7 +162,6 @@
     rustfmt
     selene
     shellcheck
-    solc
     sumneko-lua-language-server
     luaFormatter
     texlab

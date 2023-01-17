@@ -266,7 +266,6 @@
       v = "hx";
       nvim = "hx";
       vim = "hx";
-      ssh = "kitty +kitten ssh";
     };
 
     plugins = with pkgs; [

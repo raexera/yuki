@@ -55,7 +55,6 @@ in {
     psmisc
     pavucontrol
     pulseaudio
-    python3
     rsync
     todo
     trash-cli
