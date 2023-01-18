@@ -8,6 +8,7 @@
     gitAndTools.git-machete
     gitAndTools.gh
     git-filter-repo
+    subversion
   ];
 
   programs.git = {
