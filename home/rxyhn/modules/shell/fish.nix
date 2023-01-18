@@ -11,11 +11,18 @@
       any-nix-shell fish --info-right | source
     '';
     shellInit = ''
+      # Disable fish greeting
       set -g fish_greeting
+
+      # Set fish vi key bindings
       fish_vi_key_bindings
 
+      # Language Default
+      set -gx LC_ALL en_US.UTF-8
+      set -gx LC_CTYPE en_US.UTF-8
+
       # PATH
-      fish_add_path -maP ~/.local/bin
+      set -gx PATH "$HOME/.local/bin" $PATH
 
       # Colorschemes
       set fish_color_normal cdd6f4
@@ -50,7 +57,7 @@
       --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
       # Sudo prompt
-      set -gx SUDO_PROMPT (set_color -b blue white)"[sudo]"(set_color normal)" password for %u: "(echo -e '\a')
+      set -gx SUDO_PROMPT (set_color blue)"[sudo]"(set_color normal)" password for %u: "(echo -e '\a')
     '';
     shellAbbrs = {
       g = "git";
@@ -111,8 +118,71 @@
           nix run nixpkgs#$argv[1]
         '';
       };
+      extract = {
+        description = "Expand or extract bundled & compressed files";
+        body = ''
+          for file in $argv
+            if test -f $file
+              echo -s "Extracting " (set_color --bold blue) $file (set_color normal)
+              switch $file
+                case "*.tar"
+                  tar -xvf $file
+                case "*.tar.bz2" "*.tbz2"
+                  tar --bzip2 -xvf $file
+                case "*.tar.gz" "*.tgz"
+                  tar --gzip -xvf $file
+                case "*.bz" "*.bz2"
+                  bunzip2 $file
+                case "*.gz"
+                  gunzip $file
+                case "*.rar"
+                  unrar x $file
+                case "*.zip"
+                  unzip -uo $file -d (basename $file .zip)
+                case "*.Z"
+                  uncompress $file
+                case "*.pax"
+                  pax -r < $file
+                case "*.7z"
+                  7z x $file -o(basename $file .7z)
+                case '*'
+                  echo "Extension not recognized, cannot extract $file"
+              end
+            else
+              echo "$file is not a valid file"
+            end
+          end
+        '';
+      };
     };
     plugins = [
+      {
+        name = "nix-env.fish";
+        src = pkgs.fetchFromGitHub {
+          owner = "lilyball";
+          repo = "nix-env.fish";
+          rev = "7b65bd228429e852c8fdfa07601159130a818cfa";
+          sha256 = "sha256-RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
+        };
+      }
+      {
+        name = "fzf.fish";
+        src = pkgs.fetchFromGitHub {
+          owner = "PatrickF1";
+          repo = "fzf.fish";
+          rev = "ff3e9c5e31b46e1a7f70a0114af4b2a68e1b9bc3";
+          sha256 = "sha256-uykuDA8G+n9IJjt2FS9fCaUMx0ubWlTR//A+TpVMM/k=";
+        };
+      }
+      {
+        name = "autopair.fish";
+        src = pkgs.fetchFromGitHub {
+          owner = "jorgebucaran";
+          repo = "autopair.fish";
+          rev = "4d1752ff5b39819ab58d7337c69220342e9de0e2";
+          sha256 = "sha256-qt3t1iKRRNuiLWiVoiAYOu+9E7jsyECyIqZJ/oRIT1A=";
+        };
+      }
       {
         name = "fisher";
         src = pkgs.fetchFromGitHub {
@@ -150,30 +220,12 @@
         };
       }
       {
-        name = "fzf.fish";
+        name = "forgit";
         src = pkgs.fetchFromGitHub {
-          owner = "PatrickF1";
-          repo = "fzf.fish";
-          rev = "ff3e9c5e31b46e1a7f70a0114af4b2a68e1b9bc3";
-          sha256 = "sha256-uykuDA8G+n9IJjt2FS9fCaUMx0ubWlTR//A+TpVMM/k=";
-        };
-      }
-      {
-        name = "autopair.fish";
-        src = pkgs.fetchFromGitHub {
-          owner = "jorgebucaran";
-          repo = "autopair.fish";
-          rev = "4d1752ff5b39819ab58d7337c69220342e9de0e2";
-          sha256 = "sha256-qt3t1iKRRNuiLWiVoiAYOu+9E7jsyECyIqZJ/oRIT1A=";
-        };
-      }
-      {
-        name = "nix-env.fish";
-        src = pkgs.fetchFromGitHub {
-          owner = "lilyball";
-          repo = "nix-env.fish";
-          rev = "7b65bd228429e852c8fdfa07601159130a818cfa";
-          sha256 = "sha256-RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
+          owner = "wfxr";
+          repo = "forgit";
+          rev = "be8c306c18754f6ede2955f901b832a3225d4b83";
+          sha256 = "sha256-2uuYNh3byk6yrMB3+7dvea+LgDZuAdvrpiPPlCTDlFI=";
         };
       }
     ];
