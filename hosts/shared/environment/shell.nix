@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment = {
     binsh = "${pkgs.bash}/bin/bash";
-    shells = with pkgs; [fish];
+    shells = with pkgs; [zsh];
 
     loginShellInit = ''
       dbus-update-activation-environment --all

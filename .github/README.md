@@ -59,8 +59,8 @@ NixOS / Home-Manager / Flake
 <a href="https://nixos.org">NixOS</a><br />
 <a href="https://awesomewm.org">AwesomeWM</a><br />
 <a href="https://github.com/yshui/picom">Picom</a><br />
-<a href="https://wezfurlong.org/wezterm/">Wezterm</a><br />
-<a href="https://fishshell.com/">Fish</a><br />
+<a href="https://wezfurlong.org/wezterm">Wezterm</a><br />
+<a href="https://www.zsh.org">ZSH</a><br />
 <a href="https://helix-editor.com">Helix</a><br />
 <a href="https://www.nvidia.com">Nvidia</a><br /></table>
 </div>

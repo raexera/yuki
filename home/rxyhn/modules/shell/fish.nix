@@ -21,9 +21,6 @@
       set -gx LC_ALL en_US.UTF-8
       set -gx LC_CTYPE en_US.UTF-8
 
-      # PATH
-      set -gx PATH "$HOME/.local/bin" $PATH
-
       # Colorschemes
       set fish_color_normal cdd6f4
       set fish_color_command 89b4fa
@@ -93,9 +90,6 @@
       rebuild = "sudo nix-store --verify; pushd ~dotfiles && sudo nixos-rebuild switch --flake .# && notify-send \"Done\" && bat cache --build; popd";
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
       bloat = "nix path-info -Sh /run/current-system";
-      ytmp3 = ''
-        ${pkgs.yt-dlp}/bin/yt-dlp -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"
-      '';
       cat = "${pkgs.bat}/bin/bat --style=plain";
       grep = "${pkgs.ripgrep}/bin/rg";
       du = "${pkgs.du-dust}/bin/dust";
@@ -166,6 +160,12 @@
               echo "$file is not a valid file"
             end
           end
+        '';
+      };
+      ytmp3 = {
+        description = "Download youtube video using yt-dlp and convert it to mp3";
+        body = ''
+          ${pkgs.yt-dlp}/bin/yt-dlp -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s" $argv[1]
         '';
       };
     };

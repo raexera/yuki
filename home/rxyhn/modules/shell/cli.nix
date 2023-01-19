@@ -11,6 +11,7 @@
     fd
     file
     joshuto
+    perl
     ranger
     ripgrep
     yt-dlp
@@ -38,17 +39,17 @@
 
     fzf = {
       enable = true;
-      enableFishIntegration = true;
+      enableZshIntegration = true;
     };
 
     zoxide = {
       enable = true;
-      enableFishIntegration = true;
+      enableZshIntegration = true;
     };
 
     dircolors = {
       enable = true;
-      enableFishIntegration = true;
+      enableZshIntegration = true;
     };
   };
 }

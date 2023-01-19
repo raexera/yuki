@@ -58,8 +58,12 @@
   home = {
     packages = with pkgs; [
       feh
+      gcalcli
       libcanberra-gtk3
       maim
+      mpg123
+      taskwarrior
+      timewarrior
       xclip
     ];
 
