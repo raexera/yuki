@@ -2,6 +2,7 @@
   environment = {
     binsh = "${pkgs.bash}/bin/bash";
     shells = with pkgs; [zsh];
+    pathsToLink = ["/share/zsh"];
 
     loginShellInit = ''
       dbus-update-activation-environment --all
