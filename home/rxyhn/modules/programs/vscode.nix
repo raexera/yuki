@@ -33,10 +33,10 @@
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
-          name = "vscode-lua-format";
-          publisher = "koihik";
-          version = "1.3.8";
-          sha256 = "sha256-ACdjiy+Rj2wmxvSojaJmtCwyryWWB+OA/9hBEMJi39g=";
+          name = "stylua";
+          publisher = "johnnymorganz";
+          version = "1.4.0";
+          sha256 = "sha256-0hdjyQbBbo4NblG6VH339sN/oPQEGDtGjJSyHdM4JCM=";
         }
       ];
 
@@ -58,8 +58,7 @@
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = false;
-      "vscode-lua-format.binaryPath" = "${pkgs.luaFormatter}/bin/lua-format";
-      "vscode-lua-format.configPath" = "${config.xdg.configHome}/LuaFormatter.cfg";
+      "stylua.styluaPath" = "${pkgs.stylua}/bin/stylua";
       "editor.minimap.enabled" = false;
       "editor.minimap.renderCharacters" = false;
       "editor.overviewRulerBorder" = false;
@@ -91,18 +90,18 @@
         "editor.defaultFormatter" = "xaver.clang-format";
       };
       "[lua]" = {
-        "editor.defaultFormatter" = "Koihik.vscode-lua-format";
+        "editor.defaultFormatter" = "johnnymorganz.stylua";
       };
     };
   };
 
-  xdg.configFile."LuaFormatter.cfg".text = ''
-    indent_width: 2
-    use_tab: false
-    keep_simple_control_block_one_line: false
-    keep_simple_function_one_line: false
-    single_quote_to_double_quote: true
-    chop_down_table: true
-    chop_down_kv_table: true
+  xdg.configFile.".stylua.toml".text = ''
+    column_width = 120
+    line_endings = "Unix"
+    indent_type = "Spaces"
+    indent_width = 2
+    quote_style = "AutoPreferDouble"
+    call_parentheses = "Always"
+    collapse_simple_statement = "Always"
   '';
 }

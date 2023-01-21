@@ -40,13 +40,6 @@
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
-
-    luaFormatter = {
-      type = "git";
-      url = "https://github.com/Koihik/LuaFormatter.git";
-      submodules = true;
-      flake = false;
-    };
   };
 
   outputs = {
@@ -92,7 +85,6 @@
                 # Non Flakes
                 sf-mono-liga-src = sf-mono-liga;
                 firefox-gnome-theme-src = firefox-gnome-theme;
-                luaFormatter-src = luaFormatter;
               }
           )
           nur.overlay

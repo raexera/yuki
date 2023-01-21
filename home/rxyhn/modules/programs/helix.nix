@@ -163,7 +163,7 @@
     selene
     shellcheck
     sumneko-lua-language-server
-    luaFormatter
+    stylua
     texlab
     uncrustify
     nodePackages.jsonlint

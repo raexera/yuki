@@ -414,24 +414,6 @@
         "type": "github"
       }
     },
-    "luaFormatter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1667467260,
-        "narHash": "sha256-zT1MbxrGoIUaY1lDDAUYtz0NZvX4lwf0SEFBUsmXRT8=",
-        "ref": "refs/heads/master",
-        "rev": "82756f482d20b85cda6c4c338f6f11438eae8bc4",
-        "revCount": 282,
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/Koihik/LuaFormatter.git"
-      },
-      "original": {
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/Koihik/LuaFormatter.git"
-      }
-    },
     "nci": {
       "inputs": {
         "devshell": "devshell_2",
@@ -612,11 +594,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1674286396,
-        "narHash": "sha256-btCa0JGdwmoowjAaGxSmuCAh3mxGJkhi5+L4E8mwNK0=",
+        "lastModified": 1674330271,
+        "narHash": "sha256-TAapjB7/CBYxqJ082NhKxysKXVz51tsBGd3WzgfEfcw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "cd0df3f8287b24f3e123a13c39c8d2b338037d66",
+        "rev": "cb49a24f55107dae9ad55cbeb94d14e35e4a9453",
         "type": "github"
       },
       "original": {
@@ -651,7 +633,6 @@
         "flake-utils": "flake-utils_3",
         "helix": "helix",
         "home-manager": "home-manager",
-        "luaFormatter": "luaFormatter",
         "nil": "nil",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-f2k": "nixpkgs-f2k",

@@ -19,9 +19,42 @@
     };
 
     completionInit = ''
-      autoload -Uz colors
-      autoload -U compinit && compinit -i
-      colors
+      autoload -Uz compinit
+      umask 022
+      zmodload zsh/zle
+      zmodload zsh/zpty
+      zmodload zsh/complist
+      _comp_options+=(globdots)
+      zstyle ':completion:*' sort false
+      zstyle ':completion:complete:*:options' sort false
+      zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+      zstyle ':completion:*' special-dirs true
+      zstyle ':completion:*' rehash true
+      zstyle ':completion:*' menu yes select
+      zstyle ':completion:*' list-grouped false
+      zstyle ':completion:*' list-separator '''
+      zstyle ':completion:*' group-name '''
+      zstyle ':completion:*' verbose yes
+      zstyle ':completion:*:matches' group 'yes'
+      zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
+      zstyle ':completion:*:messages' format '%d'
+      zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+      zstyle ':completion:*:descriptions' format '[%d]'
+      zstyle ':completion:*' completer _complete _match _approximate
+      zstyle ':completion:*:match:*' original only
+      zstyle ':completion:*:approximate:*' max-errors 1 numeric
+      zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
+      zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+      zstyle ':completion:*:jobs' numbers true
+      zstyle ':completion:*:jobs' verbose true
+      zstyle ":completion:*:git-checkout:*" sort false
+      zstyle ':completion:*' file-sort modification
+      zstyle ':completion:*:exa' sort false
+      zstyle ':completion:files' sort false
+      compinit -i
+
+      autoload -Uz colors && colors
     '';
 
     envExtra = ''
@@ -59,35 +92,6 @@
     '';
 
     initExtra = ''
-      umask 022
-      zmodload zsh/zle
-      zmodload zsh/zpty
-      zmodload zsh/complist
-
-      zstyle ':completion:*' sort false
-      zstyle ':completion:complete:*:options' sort false
-      zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-      zstyle ':completion:*' special-dirs true
-      zstyle ':completion:*' rehash true
-      zstyle ':completion:*' menu yes select # search
-      zstyle ':completion:*' list-grouped false
-      zstyle ':completion:*' list-separator '''
-      zstyle ':completion:*' group-name '''
-      zstyle ':completion:*' verbose yes
-      zstyle ':completion:*:matches' group 'yes'
-      zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
-      zstyle ':completion:*:messages' format '%d'
-      zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-      zstyle ':completion:*:descriptions' format '[%d]'
-      zstyle ':completion:*' completer _complete _match _approximate
-      zstyle ':completion:*:match:*' original only
-      zstyle ':completion:*:approximate:*' max-errors 1 numeric
-      zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
-      zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
-      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-      zstyle ':completion:*:jobs' numbers true
-      zstyle ':completion:*:jobs' verbose true
-
       FZF_TAB_COMMAND=(
         ${pkgs.fzf}/bin/fzf
         --ansi
@@ -103,10 +107,6 @@
       zstyle ':fzf-tab:*' switch-group ',' '.'
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview.sh $realpath'
-      zstyle ":completion:*:git-checkout:*" sort false
-      zstyle ':completion:*' file-sort modification
-      zstyle ':completion:*:exa' sort false
-      zstyle ':completion:files' sort false
 
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
       ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
