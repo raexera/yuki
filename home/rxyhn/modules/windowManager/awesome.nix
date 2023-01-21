@@ -58,10 +58,13 @@
   home = {
     packages = with pkgs; [
       feh
+      fortune
       gcalcli
       libcanberra-gtk3
+      libgudev
       maim
       mpg123
+      redshift
       taskwarrior
       timewarrior
       xclip
