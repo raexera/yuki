@@ -10,54 +10,58 @@
 }: {
   imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
-  boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-label/cryptroot";
-    preLVM = true;
-    allowDiscards = true;
+  boot = {
+    initrd.luks.devices.luksroot = {
+      device = "/dev/disk/by-label/cryptroot";
+      preLVM = true;
+      allowDiscards = true;
+    };
+
+    initrd.availableKernelModules =
+      [
+        "xhci_pci"
+        "thunderbolt"
+        "nvme"
+        "usb_storage"
+        "sd_mod"
+      ]
+      ++ config.boot.initrd.luks.cryptoModules;
+
+    initrd.kernelModules = ["dm-snapshot"];
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
   };
 
-  boot.initrd.availableKernelModules =
-    [
-      "xhci_pci"
-      "thunderbolt"
-      "nvme"
-      "usb_storage"
-      "sd_mod"
-    ]
-    ++ config.boot.initrd.luks.cryptoModules;
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = ["subvol=root" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
+    };
 
-  boot.initrd.kernelModules = ["dm-snapshot"];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+    "/home" = {
+      device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = ["subvol=home" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
+    };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = ["subvol=root" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
-  };
+    "/nix" = {
+      device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = ["subvol=nix" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = ["subvol=home" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
-  };
+    "/var/log" = {
+      device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = ["subvol=log" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
+      neededForBoot = true;
+    };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = ["subvol=nix" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
-  };
-
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = ["subvol=log" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
-    neededForBoot = true;
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/boot";
-    fsType = "vfat";
+    ${config.boot.loader.efi.efiSysMountPoint} = {
+      device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
   };
 
   swapDevices = [
