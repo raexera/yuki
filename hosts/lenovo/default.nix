@@ -84,8 +84,15 @@
   };
 
   environment = {
-    sessionVariables = {_JAVA_AWT_WM_NONREPARENTING = "1";};
-    variables = {__GL_MaxFramesAllowed = "0";};
+    variables = {
+      __GL_MaxFramesAllowed = "0";
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
+      _JAVA_AWT_WM_NONEREPARENTING = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      GDK_SCALE = "2";
+      GDK_DPI_SCALE = "0.5";
+    };
 
     systemPackages = with pkgs; [
       acpi

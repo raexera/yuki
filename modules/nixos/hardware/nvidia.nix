@@ -21,7 +21,12 @@ in {
 
   config = mkIf cfg.enable {
     environment = {
-      systemPackages = [nvidia-offload];
+      systemPackages = with pkgs; [
+        nvidia-offload
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-tools
+      ];
 
       variables = {
         LIBVA_DRIVER_NAME = "iHD";
