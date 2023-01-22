@@ -51,10 +51,16 @@
       zmodload zsh/zle
       zmodload zsh/zpty
       zmodload zsh/complist
-      _comp_options+=(globdots)
       compinit -i
+      _comp_options+=(globdots)
 
       autoload -Uz colors && colors
+
+      bindkey -M menuselect 'h' vi-backward-char
+      bindkey -M menuselect 'k' vi-up-line-or-history
+      bindkey -M menuselect 'l' vi-forward-char
+      bindkey -M menuselect 'j' vi-down-line-or-history
+      bindkey -v '^?' backward-delete-char
     '';
 
     envExtra = ''
@@ -85,9 +91,10 @@
         --color preview-bg:#1e1e2e
         --color gutter:#313244
         --color border:#11111b
-        --border horizontal
+        --border
         --prompt 'λ '
         --pointer ''
+        --marker ''
       "
     '';
 
