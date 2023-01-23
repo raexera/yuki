@@ -60,6 +60,7 @@
       feh
       fortune
       gcalcli
+      gnome.dconf-editor
       libcanberra-gtk3
       libgudev
       maim

@@ -47,6 +47,7 @@ in {
     librsvg
     libtool
     libreoffice-fresh
+    luaPackages.lua
     mpv-unwrapped
     ncurses
     nodejs
