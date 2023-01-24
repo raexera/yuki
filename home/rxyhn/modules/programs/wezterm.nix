@@ -6,10 +6,9 @@
   programs.wezterm = {
     enable = true;
     extraConfig = ''
-      local wezterm = require("wezterm")
+      local wezterm = require "wezterm"
 
-      wezterm.on("format-tab-title",
-                 function(tab, tabs, panes, config, hover, max_width)
+      wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
         local RIGHT_DIVIDER = utf8.char(0xe0bc)
 
         local active_tab_index = 0
@@ -57,20 +56,20 @@
           e_fg = inactive_bg
         end
         return {
-          {Background = {Color = s_bg}},
-          {Foreground = {Color = s_fg}},
-          {Text = " " .. tab.tab_index + 1 .. ": " .. tab.active_pane.title .. " "},
-          {Background = {Color = e_bg}},
-          {Foreground = {Color = e_fg}},
-          {Text = RIGHT_DIVIDER}
+          { Background = { Color = s_bg } },
+          { Foreground = { Color = s_fg } },
+          { Text = " " .. tab.tab_index + 1 .. ": " .. tab.active_pane.title .. " " },
+          { Background = { Color = e_bg } },
+          { Foreground = { Color = e_fg } },
+          { Text = RIGHT_DIVIDER },
         }
       end)
 
-      local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-      custom.background = "#000000"
+      local mocha_cat = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+      mocha_cat.background = "#000000"
 
       local function font_with_fallback(name, params)
-        local names = {name, "emoji"}
+        local names = { name, "emoji" }
         return wezterm.font_with_fallback(names, params)
       end
 
@@ -86,14 +85,19 @@
         -- Font config
         font = font_with_fallback(font_name),
         font_rules = {
-          {italic = true, font = font_with_fallback(font_name, {italic = true})},
+          {
+            italic = true,
+            font = font_with_fallback(font_name, { italic = true }),
+          },
           {
             italic = true,
             intensity = "Bold",
-            font = font_with_fallback(font_name, {bold = true, italic = true})
+            font = font_with_fallback(font_name, { italic = true, bold = true }),
           },
-          {intensity = "Bold", font = font_with_fallback(font_name, {bold = true})},
-          {intensity = "Half", font = font_with_fallback(font_name .. " Light")}
+          {
+            intensity = "Bold",
+            font = font_with_fallback(font_name, { bold = true }),
+          },
         },
         warn_about_missing_glyphs = false,
         font_size = 10.0,
@@ -111,98 +115,98 @@
           {
             key = [[\]],
             mods = "CTRL|ALT",
-            action = wezterm.action({SplitHorizontal = {domain = "CurrentPaneDomain"}})
+            action = wezterm.action { SplitHorizontal = { domain = "CurrentPaneDomain" } },
           },
           {
             key = [[\]],
             mods = "CTRL",
-            action = wezterm.action({SplitVertical = {domain = "CurrentPaneDomain"}})
+            action = wezterm.action { SplitVertical = { domain = "CurrentPaneDomain" } },
           },
           {
             key = "q",
             mods = "CTRL",
-            action = wezterm.action({CloseCurrentPane = {confirm = false}})
+            action = wezterm.action { CloseCurrentPane = { confirm = false } },
           },
           {
-            key = "h",
+            key = "LeftArrow",
             mods = "CTRL|SHIFT",
-            action = wezterm.action({ActivatePaneDirection = "Left"})
+            action = wezterm.action { ActivatePaneDirection = "Left" },
           },
           {
-            key = "l",
+            key = "RightArrow",
             mods = "CTRL|SHIFT",
-            action = wezterm.action({ActivatePaneDirection = "Right"})
+            action = wezterm.action { ActivatePaneDirection = "Right" },
           },
           {
-            key = "k",
+            key = "UpArrow",
             mods = "CTRL|SHIFT",
-            action = wezterm.action({ActivatePaneDirection = "Up"})
+            action = wezterm.action { ActivatePaneDirection = "Up" },
           },
           {
-            key = "j",
+            key = "DownArrow",
             mods = "CTRL|SHIFT",
-            action = wezterm.action({ActivatePaneDirection = "Down"})
+            action = wezterm.action { ActivatePaneDirection = "Down" },
           },
           {
-            key = "h",
+            key = "LeftArrow",
             mods = "CTRL|SHIFT|ALT",
-            action = wezterm.action({AdjustPaneSize = {"Left", 1}})
+            action = wezterm.action { AdjustPaneSize = { "Left", 1 } },
           },
           {
-            key = "l",
+            key = "RightArrow",
             mods = "CTRL|SHIFT|ALT",
-            action = wezterm.action({AdjustPaneSize = {"Right", 1}})
+            action = wezterm.action { AdjustPaneSize = { "Right", 1 } },
           },
           {
-            key = "k",
+            key = "UpArrow",
             mods = "CTRL|SHIFT|ALT",
-            action = wezterm.action({AdjustPaneSize = {"Up", 1}})
+            action = wezterm.action { AdjustPaneSize = { "Up", 1 } },
           },
           {
-            key = "j",
+            key = "DownArrow",
             mods = "CTRL|SHIFT|ALT",
-            action = wezterm.action({AdjustPaneSize = {"Down", 1}})
+            action = wezterm.action { AdjustPaneSize = { "Down", 1 } },
           },
           { -- browser-like bindings for tabbing
             key = "t",
             mods = "CTRL",
-            action = wezterm.action({SpawnTab = "CurrentPaneDomain"})
+            action = wezterm.action { SpawnTab = "CurrentPaneDomain" },
           },
           {
             key = "w",
             mods = "CTRL",
-            action = wezterm.action({CloseCurrentTab = {confirm = false}})
+            action = wezterm.action { CloseCurrentTab = { confirm = false } },
           },
           {
             key = "Tab",
             mods = "CTRL",
-            action = wezterm.action({ActivateTabRelative = 1})
+            action = wezterm.action { ActivateTabRelative = 1 },
           },
           {
             key = "Tab",
             mods = "CTRL|SHIFT",
-            action = wezterm.action({ActivateTabRelative = -1})
+            action = wezterm.action { ActivateTabRelative = -1 },
           }, -- standard copy/paste bindings
-          {key = "x", mods = "CTRL", action = "ActivateCopyMode"},
+          { key = "x", mods = "CTRL", action = "ActivateCopyMode" },
           {
             key = "v",
             mods = "CTRL|SHIFT",
-            action = wezterm.action({PasteFrom = "Clipboard"})
+            action = wezterm.action { PasteFrom = "Clipboard" },
           },
           {
             key = "c",
             mods = "CTRL|SHIFT",
-            action = wezterm.action({CopyTo = "ClipboardAndPrimarySelection"})
-          }
+            action = wezterm.action { CopyTo = "ClipboardAndPrimarySelection" },
+          },
         },
 
         -- Colorschemes
         bold_brightens_ansi_colors = true,
-        color_schemes = {["MochaCat"] = custom},
+        color_schemes = { ["MochaCat"] = mocha_cat },
         color_scheme = "MochaCat",
 
         -- Padding
-        window_padding = {left = 40, right = 40, top = 40, bottom = 40},
+        window_padding = { left = 40, right = 40, top = 40, bottom = 40 },
 
         -- Tab Bar
         enable_tab_bar = true,
@@ -212,9 +216,9 @@
 
         -- General
         automatically_reload_config = true,
-        inactive_pane_hsb = {saturation = 1.0, brightness = 1.0},
+        inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
         window_background_opacity = 0.4,
-        window_close_confirmation = "NeverPrompt"
+        window_close_confirmation = "NeverPrompt",
       }
     '';
   };
