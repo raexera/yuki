@@ -43,12 +43,9 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        intel-compute-runtime
-        intel-media-driver # iHD
-        libva
-        libvdpau
-        libvdpau-va-gl
         (vaapiIntel.override {enableHybridCodec = true;}) # i965 (older but works better for Firefox/Chromium)
+        intel-media-driver # iHD
+        libvdpau-va-gl
         vaapiVdpau
       ];
     };

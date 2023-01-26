@@ -29,13 +29,10 @@ in {
       ];
 
       variables = {
-        LIBVA_DRIVER_NAME = "iHD";
-        VDPAU_DRIVER = "va_gl";
+        LIBVA_DRIVER_NAME = "nvidia";
+        VDPAU_DRIVER = "nvidia";
       };
     };
-
-    # Load modules on boot
-    boot.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
 
     services.xserver.videoDrivers = ["nvidia"];
 
