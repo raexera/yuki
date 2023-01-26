@@ -78,6 +78,7 @@
     tlp = {
       enable = true;
       settings = {
+        START_CHARGE_THRESH_BAT0 = 0; # dummy value
         STOP_CHARGE_THRESH_BAT0 = 1; # battery conservation mode
         CPU_BOOST_ON_AC = 1;
         CPU_BOOST_ON_BAT = 0;
