@@ -1,5 +1,6 @@
 {config, ...}: {
   imports = [
-    ./nvidia.nix
+    ./nvidia-offload.nix
+    ./nvidia-sync.nix
   ];
 }

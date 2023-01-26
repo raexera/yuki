@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.hardware.nvidia;
+  cfg = config.modules.nixos.hardware.nvidia-offload;
 
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
@@ -15,8 +15,8 @@ with lib; let
     exec "$@"
   '';
 in {
-  options.modules.nixos.hardware.nvidia = {
-    enable = mkEnableOption "Enable The NVIDIA Optimus Prime Offload";
+  options.modules.nixos.hardware.nvidia-offload = {
+    enable = mkEnableOption "Enable the NVIDIA optimus prime offload mode";
   };
 
   config = mkIf cfg.enable {
@@ -31,6 +31,7 @@ in {
       variables = {
         LIBVA_DRIVER_NAME = "nvidia";
         VDPAU_DRIVER = "nvidia";
+        GBM_BACKEND = "nvidia-drm";
       };
     };
 

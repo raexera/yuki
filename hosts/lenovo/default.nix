@@ -99,6 +99,7 @@
       acpi
       brightnessctl
       gcc
+      libva
       libva-utils
       ocl-icd
       vulkan-tools
@@ -112,7 +113,8 @@
       device = "nodev";
     };
 
-    hardware.nvidia.enable = true;
+    hardware.nvidia-offload.enable = false;
+    hardware.nvidia-sync.enable = true;
 
     virtualisation = {
       docker = {

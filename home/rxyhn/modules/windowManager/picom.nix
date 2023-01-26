@@ -123,6 +123,7 @@
       glx-no-stencil = true;
       use-damage = true;
       transparent-clipping = false;
+      unredir-if-possible = false;
       log-level = "warn";
     };
   };
