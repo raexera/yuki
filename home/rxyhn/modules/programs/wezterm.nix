@@ -100,7 +100,7 @@
           },
         },
         warn_about_missing_glyphs = false,
-        font_size = 10.0,
+        font_size = 12.0,
         line_height = 1.0,
 
         -- Cursor style

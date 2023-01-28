@@ -45,7 +45,7 @@
       "catppuccin.accentColor" = "blue";
       "workbench.iconTheme" = "material-icon-theme";
       "editor.fontFamily" = "'monospace', monospace, Material Symbols Rounded";
-      "editor.fontSize" = 13;
+      "editor.fontSize" = 16;
       "editor.fontLigatures" = true;
       "workbench.fontAliasing" = "antialiased";
       "files.trimTrailingWhitespace" = true;
