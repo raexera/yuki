@@ -52,7 +52,13 @@ in {
         };
       };
 
-      opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+      opengl.extraPackages = with pkgs; [
+        (vaapiIntel.override {enableHybridCodec = true;}) # i965 (older but works better for Firefox/Chromium)
+        intel-media-driver # iHD
+        libvdpau-va-gl
+        vaapiVdpau
+        nvidia-vaapi-driver
+      ];
     };
   };
 }

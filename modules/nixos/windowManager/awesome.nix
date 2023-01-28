@@ -37,7 +37,7 @@ in {
         };
       };
 
-      dpi = 192;
+      dpi = 144;
       exportConfiguration = true;
       layout = "${cfg.layout}";
 

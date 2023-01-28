@@ -9,7 +9,7 @@
   ];
 
   xresources.extraConfig = ''
-    Xft.dpi: 192
+    Xft.dpi: 144
     Xft.antialias: true
     Xft.hinting: true
     Xft.rgba: rgb

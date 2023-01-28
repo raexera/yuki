@@ -41,7 +41,11 @@ in {
         };
       };
 
-      opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+      opengl.extraPackages = with pkgs; [
+        libvdpau-va-gl
+        vaapiVdpau
+        nvidia-vaapi-driver
+      ];
     };
   };
 }

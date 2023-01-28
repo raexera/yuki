@@ -42,12 +42,6 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        (vaapiIntel.override {enableHybridCodec = true;}) # i965 (older but works better for Firefox/Chromium)
-        intel-media-driver # iHD
-        libvdpau-va-gl
-        vaapiVdpau
-      ];
     };
 
     bluetooth = {
@@ -55,7 +49,6 @@
       package = pkgs.bluez;
     };
 
-    cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
     pulseaudio.enable = false;
   };
@@ -102,7 +95,6 @@
       libva
       libva-utils
       ocl-icd
-      vulkan-tools
     ];
   };
 
@@ -113,8 +105,8 @@
       device = "nodev";
     };
 
-    hardware.nvidia-offload.enable = false;
-    hardware.nvidia-sync.enable = true;
+    hardware.nvidia-offload.enable = true;
+    hardware.nvidia-sync.enable = false;
 
     virtualisation = {
       docker = {

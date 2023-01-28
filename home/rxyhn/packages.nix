@@ -46,7 +46,6 @@ in {
     libsecret
     librsvg
     libtool
-    libreoffice-fresh
     luaPackages.lua
     mpv-unwrapped
     ncurses
