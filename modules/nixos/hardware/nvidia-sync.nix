@@ -12,19 +12,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment = {
-      systemPackages = with pkgs; [
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-tools
-      ];
-
-      variables = {
-        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        LIBVA_DRIVER_NAME = "nvidia";
-        VDPAU_DRIVER = "nvidia";
-        GBM_BACKEND = "nvidia-drm";
-      };
+    environment.variables = {
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      LIBVA_DRIVER_NAME = "nvidia";
+      VDPAU_DRIVER = "nvidia";
+      GBM_BACKEND = "nvidia-drm";
     };
 
     services.xserver.videoDrivers = ["nvidia"];

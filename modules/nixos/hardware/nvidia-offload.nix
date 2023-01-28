@@ -20,20 +20,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment = {
-      systemPackages = with pkgs; [
-        nvidia-offload
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-tools
-      ];
-
-      variables = {
-        LIBVA_DRIVER_NAME = "nvidia";
-        VDPAU_DRIVER = "nvidia";
-        GBM_BACKEND = "nvidia-drm";
-      };
-    };
+    environment.systemPackages = with pkgs; [nvidia-offload];
 
     services.xserver.videoDrivers = ["nvidia"];
 

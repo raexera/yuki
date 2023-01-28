@@ -95,6 +95,9 @@
       libva
       libva-utils
       ocl-icd
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-tools
     ];
   };
 
