@@ -38,7 +38,6 @@
     mpc_cli
     ncurses
     nodejs
-    obs-studio
     pamixer
     psmisc
     pavucontrol
