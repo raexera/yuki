@@ -1,17 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
-  mpv-unwrapped = pkgs.mpv-unwrapped.overrideAttrs (o: {
-    src = pkgs.fetchFromGitHub {
-      owner = "mpv-player";
-      repo = "mpv";
-      rev = "48ad2278c7a1fc2a9f5520371188911ef044b32c";
-      sha256 = "sha256-6qbv34ysNQbI/zff6rAnVW4z6yfm2t/XL/PF7D/tjv4=";
-    };
-  });
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     alsa-lib
     alsa-plugins
@@ -38,6 +25,7 @@ in {
     grex
     hyperfine
     imagemagick
+    imv
     inotify-tools
     keepassxc
     killall
@@ -47,7 +35,7 @@ in {
     librsvg
     libtool
     luaPackages.lua
-    mpv-unwrapped
+    mpc_cli
     ncurses
     nodejs
     obs-studio
