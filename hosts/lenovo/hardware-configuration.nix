@@ -33,25 +33,49 @@
     "/" = {
       device = "/dev/disk/by-label/root";
       fsType = "btrfs";
-      options = ["subvol=root" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
+      options = [
+        "subvol=root"
+        "compress=zstd"
+        "noatime"
+        "ssd"
+        "space_cache=v2"
+      ];
     };
 
     "/home" = {
       device = "/dev/disk/by-label/root";
       fsType = "btrfs";
-      options = ["subvol=home" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
+      options = [
+        "subvol=home"
+        "compress=zstd"
+        "noatime"
+        "ssd"
+        "space_cache=v2"
+      ];
     };
 
     "/nix" = {
       device = "/dev/disk/by-label/root";
       fsType = "btrfs";
-      options = ["subvol=nix" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
+      options = [
+        "subvol=nix"
+        "compress=zstd"
+        "noatime"
+        "ssd"
+        "space_cache=v2"
+      ];
     };
 
     "/var/log" = {
       device = "/dev/disk/by-label/root";
       fsType = "btrfs";
-      options = ["subvol=log" "compress=zstd" "noatime" "ssd" "space_cache=v2"];
+      options = [
+        "subvol=log"
+        "compress=zstd"
+        "noatime"
+        "ssd"
+        "space_cache=v2"
+      ];
       neededForBoot = true;
     };
 
