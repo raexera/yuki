@@ -248,7 +248,6 @@
         {name = "zsh-users/zsh-autosuggestions";}
         {name = "hlissner/zsh-autopair";}
         {name = "chisui/zsh-nix-shell";}
-        {name = "marzocchi/zsh-notify";}
       ];
     };
   };

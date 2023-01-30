@@ -6,27 +6,24 @@
     enableZshIntegration = true;
     settings = {
       scan_timeout = 10;
-      add_newline = true;
-      line_break.disabled = false;
 
       format = "$directory$git_branch$git_metrics$all";
-      right_format = "$status";
 
-      directory.style = "cyan";
+      add_newline = true;
+      line_break.disabled = true;
+
       git_branch.style = "purple";
       git_commit.tag_symbol = " tag ";
 
       character = {
-        success_symbol = "[λ](bold green)";
-        error_symbol = "[λ](bold red)";
-        vimcmd_symbol = "[λ](bold green)";
+        success_symbol = "[λ](green)";
+        error_symbol = "[λ](red)";
+        vimcmd_symbol = "[λ](green)";
       };
 
-      status = {
-        format = "[$symbol]($style)";
-        symbol = "[](bold red)";
-        success_symbol = "[](bold green)";
-        disabled = false;
+      directory = {
+        home_symbol = "home";
+        style = "cyan";
       };
 
       git_metrics = {
