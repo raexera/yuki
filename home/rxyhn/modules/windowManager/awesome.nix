@@ -2,7 +2,17 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  luaPackages = [
+    (pkgs.lua.withPackages (p:
+      with p; [
+        lgi
+        ldbus
+        luadbi-mysql
+        luaposix
+      ]))
+  ];
+in {
   imports = [
     ./gtk.nix
     ./picom.nix
@@ -56,19 +66,21 @@
   '';
 
   home = {
-    packages = with pkgs; [
-      feh
-      fortune
-      gcalcli
-      gnome.dconf-editor
-      libcanberra-gtk3
-      libgudev
-      maim
-      mpg123
-      redshift
-      taskwarrior
-      timewarrior
-      xclip
-    ];
+    packages = with pkgs;
+      [
+        feh
+        fortune
+        gcalcli
+        gnome.dconf-editor
+        libcanberra-gtk3
+        libgudev
+        maim
+        mpg123
+        redshift
+        taskwarrior
+        timewarrior
+        xclip
+      ]
+      ++ luaPackages;
   };
 }

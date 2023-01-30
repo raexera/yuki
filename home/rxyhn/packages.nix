@@ -34,7 +34,6 @@
     libsecret
     librsvg
     libtool
-    luaPackages.lua
     mpc_cli
     ncurses
     nodejs
