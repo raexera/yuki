@@ -23,8 +23,12 @@
         style = "cyan";
       };
 
-      git_branch.style = "cyan";
       git_commit.tag_symbol = " tag ";
+      git_branch = {
+        style = "purple";
+        symbol = "";
+      };
+
       git_metrics = {
         added_style = "bold yellow";
         deleted_style = "bold red";
@@ -46,7 +50,6 @@
       docker_context.symbol = "docker ";
       elixir.symbol = "exs ";
       elm.symbol = "elm ";
-      git_branch.symbol = "git ";
       golang.symbol = "go ";
       guix_shell.symbol = "guix ";
       hg_branch.symbol = "hg ";
