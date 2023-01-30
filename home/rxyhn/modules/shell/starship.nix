@@ -8,37 +8,25 @@
       scan_timeout = 10;
       add_newline = true;
       line_break.disabled = false;
-      cmd_duration.disabled = true;
 
-      format = let
-        git = "$git_branch$git_metrics$git_commit$git_state$git_status";
-      in ''
-        $directory${git}$all
-      '';
-
+      format = "$directory$git_branch$git_metrics$all";
       right_format = "$status";
 
-      character = {
-        success_symbol = "[λ](green)";
-        error_symbol = "[λ](red)";
-      };
+      directory.style = "cyan";
+      git_branch.style = "purple";
+      git_commit.tag_symbol = " tag ";
 
-      directory = {
-        format = "[$path]($style)( [$read_only]($read_only_style)) ";
-        style = "cyan";
-        disabled = false;
+      character = {
+        success_symbol = "[λ](bold green)";
+        error_symbol = "[λ](bold red)";
+        vimcmd_symbol = "[λ](bold green)";
       };
 
       status = {
         format = "[$symbol]($style)";
-        symbol = "[](red)";
-        success_symbol = "[](green)";
+        symbol = "[](bold red)";
+        success_symbol = "[](bold green)";
         disabled = false;
-      };
-
-      git_branch = {
-        style = "purple";
-        symbol = "";
       };
 
       git_metrics = {
@@ -47,31 +35,51 @@
         deleted_style = "bold red";
       };
 
-      aws.symbol = "  ";
-      conda.symbol = " ";
-      dart.symbol = " ";
-      directory.read_only = " ";
-      docker_context.symbol = " ";
-      elixir.symbol = " ";
-      elm.symbol = " ";
-      gcloud.symbol = " ";
-      golang.symbol = " ";
-      java.symbol = " ";
-      julia.symbol = " ";
-      lua.symbol = " ";
-      memory_usage.symbol = " ";
-      nim.symbol = " ";
-      nix_shell.symbol = " ";
-      nodejs.symbol = " ";
-      package.symbol = " ";
-      perl.symbol = " ";
-      php.symbol = " ";
-      python.symbol = " ";
-      ruby.symbol = " ";
-      rust.symbol = " ";
-      scala.symbol = " ";
-      swift.symbol = "ﯣ ";
-      terraform.symbol = "行 ";
+      aws.symbol = "aws ";
+      bun.symbol = "bun ";
+      c.symbol = "C ";
+      cobol.symbol = "cobol ";
+      conda.symbol = "conda ";
+      crystal.symbol = "cr ";
+      cmake.symbol = "cmake ";
+      daml.symbol = "daml ";
+      dart.symbol = "dart ";
+      deno.symbol = "deno ";
+      dotnet.symbol = ".NET ";
+      directory.read_only = " ro";
+      docker_context.symbol = "docker ";
+      elixir.symbol = "exs ";
+      elm.symbol = "elm ";
+      git_branch.symbol = "git ";
+      golang.symbol = "go ";
+      guix_shell.symbol = "guix ";
+      hg_branch.symbol = "hg ";
+      java.symbol = "java ";
+      julia.symbol = "jl ";
+      kotlin.symbol = "kt ";
+      lua.symbol = "lua ";
+      memory_usage.symbol = "memory ";
+      meson.symbol = "meson ";
+      nim.symbol = "nim ";
+      nix_shell.symbol = "nix ";
+      ocaml.symbol = "ml ";
+      opa.symbol = "opa ";
+      nodejs.symbol = "nodejs ";
+      package.symbol = "pkg ";
+      perl.symbol = "pl ";
+      php.symbol = "php ";
+      pulumi.symbol = "pulumi ";
+      purescript.symbol = "purs ";
+      python.symbol = "py ";
+      raku.symbol = "raku ";
+      ruby.symbol = "rb ";
+      rust.symbol = "rs ";
+      scala.symbol = "scala ";
+      spack.symbol = "spack ";
+      sudo.symbol = "sudo ";
+      swift.symbol = "swift ";
+      terraform.symbol = "terraform ";
+      zig.symbol = "zig ";
     };
   };
 }
