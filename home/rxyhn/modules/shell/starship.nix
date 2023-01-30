@@ -7,13 +7,10 @@
     settings = {
       scan_timeout = 10;
 
-      format = "$directory$git_branch$git_metrics$all";
-
       add_newline = true;
       line_break.disabled = true;
 
-      git_branch.style = "purple";
-      git_commit.tag_symbol = " tag ";
+      format = "$directory$git_branch$git_metrics$git_commit$git_state$git_status$all";
 
       character = {
         success_symbol = "[λ](green)";
@@ -26,10 +23,12 @@
         style = "cyan";
       };
 
+      git_branch.style = "cyan";
+      git_commit.tag_symbol = " tag ";
       git_metrics = {
-        disabled = false;
         added_style = "bold yellow";
         deleted_style = "bold red";
+        disabled = false;
       };
 
       aws.symbol = "aws ";
