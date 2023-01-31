@@ -90,11 +90,20 @@
 
     systemPackages = with pkgs; [
       acpi
+      alsa-lib
+      alsa-plugins
+      alsa-tools
+      alsa-utils
+      arandr
+      blueberry
       brightnessctl
       gcc
       libva
       libva-utils
       ocl-icd
+      pamixer
+      pavucontrol
+      pulseaudio
       vulkan-loader
       vulkan-validation-layers
       vulkan-tools

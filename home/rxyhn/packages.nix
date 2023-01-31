@@ -1,13 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    alsa-lib
-    alsa-plugins
-    alsa-tools
-    alsa-utils
-    arandr
-    bandwhich
     bc
-    blueberry
     cairo
     cached-nix-shell
     coreutils
@@ -32,20 +25,13 @@
     librsvg
     libtool
     mpc_cli
-    ncurses
     nodejs
-    pamixer
     psmisc
-    pavucontrol
-    pulseaudio
     rsync
-    todo
     trash-cli
     util-linux
     wirelesstools
     xarchiver
-    xdg-utils
-    xh
     xorg.xhost
     zoom-us
   ];
