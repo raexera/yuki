@@ -18,6 +18,25 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      feh
+      fortune
+      gcalcli
+      inotify-tools
+      libcanberra-gtk3
+      libgudev
+      libnotify
+      maim
+      mpg123
+      redshift
+      taskwarrior
+      timewarrior
+      xclip
+      xsel
+      cinnamon.nemo
+      gnome.dconf-editor
+    ];
+
     services.xserver = {
       enable = true;
       displayManager = {

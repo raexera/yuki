@@ -143,6 +143,7 @@
   home.packages = with pkgs; [
     # Dev tools
     black
+    cargo
     clang
     clang-tools
     delve
@@ -166,6 +167,7 @@
     stylua
     texlab
     uncrustify
+    luaPackages.lua
     nodePackages.jsonlint
     nodePackages.prettier
     nodePackages.typescript-language-server
@@ -173,6 +175,5 @@
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodePackages.yarn
-    cargo
   ];
 }

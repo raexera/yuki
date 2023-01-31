@@ -10,7 +10,6 @@
     blueberry
     cairo
     cached-nix-shell
-    cinnamon.nemo
     coreutils
     dconf
     findutils
@@ -26,11 +25,9 @@
     hyperfine
     imagemagick
     imv
-    inotify-tools
     keepassxc
     killall
     libappindicator
-    libnotify
     libsecret
     librsvg
     libtool

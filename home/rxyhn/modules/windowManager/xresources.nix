@@ -1,23 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: let
-  luaPackages = [
-    (pkgs.lua.withPackages (p:
-      with p; [
-        lgi
-        ldbus
-        luadbi-mysql
-        luaposix
-      ]))
-  ];
-in {
-  imports = [
-    ./gtk.nix
-    ./picom.nix
-  ];
-
   xresources.extraConfig = ''
     Xft.dpi: 144
     Xft.antialias: true
@@ -64,23 +45,4 @@ in {
     *color7: #BAC2DE
     *color15: #A6ADC8
   '';
-
-  home = {
-    packages = with pkgs;
-      [
-        feh
-        fortune
-        gcalcli
-        gnome.dconf-editor
-        libcanberra-gtk3
-        libgudev
-        maim
-        mpg123
-        redshift
-        taskwarrior
-        timewarrior
-        xclip
-      ]
-      ++ luaPackages;
-  };
 }
