@@ -1,144 +1,91 @@
+# This is your system's configuration file.
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
-  config,
+  inputs,
+  outputs,
   lib,
+  config,
   pkgs,
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ../common/shared
+    ../common/users/rxyhn
 
-    # Shared configuration across all machines
-    ../shared
+    ./hardware-configuration.nix
+    ./nvidia.nix
   ];
 
-  boot = {
-    # Use the latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
-
-    # Make modules available to modprobe
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
-
-    initrd = {
-      systemd.enable = true;
-      supportedFilesystems = ["btrfs"];
-    };
-
-    # Load modules on boot
-    kernelModules = ["acpi_call"];
-
-    # Kernel parameters
-    kernelParams = [
-      "i915.force_probe=46a6"
-      "i915.enable_psr=0"
-      "i915.enable_guc=2"
-      "i8042.direct"
-      "i8042.dumbkbd"
-    ];
-  };
-
   hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
+    enableRedistributableFirmware = true;
 
     bluetooth = {
       enable = true;
       package = pkgs.bluez;
     };
 
-    enableRedistributableFirmware = true;
-    pulseaudio.enable = false;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
   };
 
-  # compresses half the ram for use as swap
-  zramSwap = {
-    enable = true;
-    memoryPercent = 50;
+  networking = {
+    hostName = "lenovo";
+    networkmanager.enable = true;
+    useDHCP = false;
   };
 
   services = {
-    btrfs.autoScrub.enable = true;
     acpid.enable = true;
-    thermald.enable = true;
+    blueman.enable = true;
     upower.enable = true;
+
+    xserver = {
+      enable = true;
+      displayManager = {
+        autoLogin = {
+          enable = true;
+          user = "rxyhn";
+        };
+
+        defaultSession = "none+awesome";
+        lightdm.enable = true;
+      };
+
+      dpi = 144;
+      exportConfiguration = true;
+      layout = "us";
+
+      libinput = {
+        enable = true;
+        touchpad = {naturalScrolling = true;};
+      };
+
+      windowManager = {
+        awesome = {
+          enable = true;
+
+          luaModules = lib.attrValues {
+            inherit (pkgs.luaPackages) lgi ldbus luadbi-mysql luaposix;
+          };
+        };
+      };
+    };
+
+    logind.lidSwitch = "suspend";
+    thermald.enable = true;
 
     tlp = {
       enable = true;
       settings = {
-        START_CHARGE_THRESH_BAT0 = 0; # dummy value
-        STOP_CHARGE_THRESH_BAT0 = 1; # battery conservation mode
-        CPU_BOOST_ON_AC = 1;
-        CPU_BOOST_ON_BAT = 0;
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        START_CHARGE_THRESH_BAT0 = 80;
+        STOP_CHARGE_THRESH_BAT0 = 85;
       };
     };
   };
 
-  environment = {
-    variables = {
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
-      _JAVA_AWT_WM_NONEREPARENTING = "1";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      GDK_SCALE = "2";
-      GDK_DPI_SCALE = "0.5";
-    };
-
-    systemPackages = with pkgs; [
-      acpi
-      alsa-lib
-      alsa-plugins
-      alsa-tools
-      alsa-utils
-      arandr
-      blueberry
-      brightnessctl
-      gcc
-      libva
-      libva-utils
-      ocl-icd
-      pamixer
-      pavucontrol
-      pulseaudio
-      vulkan-loader
-      vulkan-validation-layers
-      vulkan-tools
-    ];
-  };
-
-  modules.nixos = {
-    bootloader.grub = {
-      enable = true;
-      efiSysMountPoint = "/boot";
-      device = "nodev";
-    };
-
-    hardware.nvidia-offload.enable = true;
-    hardware.nvidia-sync.enable = false;
-
-    virtualisation = {
-      docker = {
-        enable = true;
-        enableNvidia = true;
-      };
-
-      libvirtd.enable = true;
-
-      podman = {
-        enable = true;
-        enableNvidia = true;
-      };
-    };
-
-    windowManager.awesome = {
-      enable = true;
-      layout = "us";
-    };
-  };
-
-  system.stateVersion = lib.mkForce "22.11"; # DONT TOUCH THIS
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.05";
 }
