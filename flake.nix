@@ -11,16 +11,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    sf-mono-liga = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
-
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -30,51 +20,31 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    forAllSystems = nixpkgs.lib.genAttrs [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
-  in rec {
-    packages = forAllSystems (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-        import ./pkgs {inherit pkgs inputs;}
-    );
-
-    devShells = forAllSystems (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-        import ./shell.nix {inherit pkgs;}
-    );
-
-    overlays = import ./overlays {inherit inputs;};
-
+    forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
+    forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
+  in {
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
+
+    overlays = import ./overlays {inherit inputs outputs;};
+
+    packages = forEachPkgs (pkgs: import ./pkgs {inherit pkgs;});
+    devShells = forEachPkgs (pkgs: import ./shell.nix {inherit pkgs;});
 
     nixosConfigurations = {
       # Laptop
       lenovo = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/lenovo
-        ];
+        modules = [./hosts/lenovo];
       };
     };
 
     homeConfigurations = {
       # Laptop
       "rxyhn@lenovo" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          ./home/rxyhn/lenovo.nix
-        ];
+        modules = [./home/rxyhn/lenovo.nix];
       };
     };
   };

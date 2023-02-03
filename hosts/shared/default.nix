@@ -15,6 +15,7 @@
       ./security
       ./services
       ./system
+      ./users
     ]
     ++ (builtins.attrValues outputs.nixosModules);
 

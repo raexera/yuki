@@ -144,22 +144,6 @@
         "type": "github"
       }
     },
-    "firefox-gnome-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1674844038,
-        "narHash": "sha256-ecyiIohYZxUriIkGQXZjHYJuHIQt0IfWqn4RF6GIA/Y=",
-        "owner": "rafaelmardojai",
-        "repo": "firefox-gnome-theme",
-        "rev": "78fb30118a58425a41ead035324c353828200112",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rafaelmardojai",
-        "repo": "firefox-gnome-theme",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -453,13 +437,11 @@
     },
     "root": {
       "inputs": {
-        "firefox-gnome-theme": "firefox-gnome-theme",
         "helix": "helix",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-f2k": "nixpkgs-f2k",
-        "nur": "nur",
-        "sf-mono-liga": "sf-mono-liga"
+        "nur": "nur"
       }
     },
     "rust-analyzer-src": {
@@ -525,22 +507,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "sf-mono-liga": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1670759310,
-        "narHash": "sha256-vPUl6O/ji4hHIH7/qSbUe7q1QdugE1D1ZRw92QcSSDQ=",
-        "owner": "shaunsingh",
-        "repo": "SFMono-Nerd-Font-Ligaturized",
-        "rev": "7723040ef50633da5094f01f93b96dae5e9b9299",
-        "type": "github"
-      },
-      "original": {
-        "owner": "shaunsingh",
-        "repo": "SFMono-Nerd-Font-Ligaturized",
         "type": "github"
       }
     },

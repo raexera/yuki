@@ -7,13 +7,15 @@
     fonts = lib.attrValues {
       inherit
         (pkgs)
+        cantarell-fonts
         inter
         material-symbols
         noto-fonts
         noto-fonts-cjk
         noto-fonts-emoji
-        sf-mono-liga
         ;
+
+      nerdfonts = pkgs.nerdfonts.override {fonts = ["IBMPlexMono"];};
     };
 
     fontconfig = {
@@ -29,7 +31,7 @@
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = ["Liga SFMono Nerd Font"];
+        monospace = ["BlexMono Nerd Font Mono"];
         sansSerif = ["Noto Sans" "Noto Color Emoji"];
         serif = ["Noto Serif" "Noto Color Emoji"];
       };

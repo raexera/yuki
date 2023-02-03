@@ -7,8 +7,7 @@
   ...
 }: {
   imports = [
-    ../common/shared
-    ../common/users/rxyhn
+    ../shared
 
     ./hardware-configuration.nix
     ./nvidia.nix
@@ -40,6 +39,33 @@
     };
   };
 
+  environment = {
+    variables = {
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      GDK_SCALE = "2";
+      GDK_DPI_SCALE = "0.5";
+    };
+
+    systemPackages = lib.attrValues {
+      inherit
+        (pkgs)
+        acpi
+        arandr
+        blueberry
+        brightnessctl
+        libva
+        libva-utils
+        ocl-icd
+        slop
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-tools
+        ;
+    };
+  };
+
   hardware = {
     enableRedistributableFirmware = true;
 
@@ -64,7 +90,21 @@
   services = {
     acpid.enable = true;
     blueman.enable = true;
+    btrfs.autoScrub.enable = true;
+    thermald.enable = true;
     upower.enable = true;
+
+    tlp = {
+      enable = true;
+      settings = {
+        START_CHARGE_THRESH_BAT0 = 0; # dummy value
+        STOP_CHARGE_THRESH_BAT0 = 1; # battery conservation mode
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      };
+    };
 
     xserver = {
       enable = true;
@@ -95,17 +135,6 @@
             inherit (pkgs.luaPackages) lgi ldbus luadbi-mysql luaposix;
           };
         };
-      };
-    };
-
-    logind.lidSwitch = "suspend";
-    thermald.enable = true;
-
-    tlp = {
-      enable = true;
-      settings = {
-        START_CHARGE_THRESH_BAT0 = 80;
-        STOP_CHARGE_THRESH_BAT0 = 85;
       };
     };
   };
