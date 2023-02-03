@@ -7,11 +7,25 @@
   ...
 }: {
   imports =
-    []
+    [
+      inputs.webcord.homeManagerModules.default
+    ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
+    overlays = [
+      outputs.overlays.modifications
+      outputs.overlays.additions
+      inputs.nixpkgs-f2k.overlays.stdenvs
+      inputs.nur.overlay
+
+      (final: prev: (with inputs.nixpkgs-f2k.packages.${pkgs.system}; {
+        inherit phocus;
+        picom = picom-git;
+        wezterm = wezterm-git;
+      }))
+    ];
+
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;

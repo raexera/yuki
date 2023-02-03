@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = lib.attrValues {
     inherit
       (pkgs)

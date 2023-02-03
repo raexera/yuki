@@ -1,4 +1,3 @@
-# This file (and the global directory) holds config that i use on all hosts
 {
   lib,
   pkgs,
@@ -49,6 +48,7 @@
   services = {
     fstrim.enable = true;
     fwupd.enable = true;
+    geoclue2.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
     printing.enable = true;
