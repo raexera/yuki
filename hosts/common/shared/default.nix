@@ -1,6 +1,7 @@
 # This file (and the global directory) holds config that i use on all hosts
 {
   lib,
+  pkgs,
   inputs,
   outputs,
   ...
@@ -23,7 +24,17 @@
   };
 
   nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
+    overlays = [
+      outputs.overlays.modifications
+      outputs.overlays.additions
+      inputs.nixpkgs-f2k.overlays.stdenvs
+
+      (final: prev: {
+        awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+        vaapiIntel = prev.vaapiIntel.override {enableHybridCodec = true;};
+      })
+    ];
+
     config = {
       allowUnfree = true;
     };

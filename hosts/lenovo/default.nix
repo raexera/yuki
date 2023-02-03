@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   outputs,
@@ -15,6 +13,32 @@
     ./hardware-configuration.nix
     ./nvidia.nix
   ];
+
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+
+    systemd-boot.enable = false;
+
+    grub = {
+      enable = true;
+      version = 2;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+      enableCryptodisk = true;
+      configurationLimit = 3;
+      gfxmodeEfi = "1920x1080";
+      theme = pkgs.fetchzip {
+        # https://github.com/AdisonCavani/distro-grub-themes
+        url = "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/lenovo.tar";
+        hash = "sha256-6ZevSnSNJ/Q67DTNJj8k4pjOjWZFj0tG0ljG3gwbLuc=";
+        stripRoot = false;
+      };
+    };
+  };
 
   hardware = {
     enableRedistributableFirmware = true;

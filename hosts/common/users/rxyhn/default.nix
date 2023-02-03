@@ -11,6 +11,8 @@ in {
   users.users.rxyhn = {
     isNormalUser = true;
     shell = pkgs.zsh;
+    description = "Rayhan Pratama";
+    initialPassword = "nixos";
     extraGroups =
       [
         "wheel"
@@ -32,5 +34,5 @@ in {
     packages = [pkgs.home-manager];
   };
 
-  home-manager.users.rxyhn = import home/${config.networking.hostName}.nix;
+  home-manager.users.rxyhn = import ../../../../home/rxyhn/${config.networking.hostName}.nix;
 }

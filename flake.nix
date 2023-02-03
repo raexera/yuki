@@ -42,7 +42,7 @@
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
       in
-        import ./pkgs {inherit pkgs;}
+        import ./pkgs {inherit pkgs inputs;}
     );
 
     devShells = forAllSystems (
@@ -52,7 +52,8 @@
         import ./shell.nix {inherit pkgs;}
     );
 
-    overlays = import ./overlays;
+    overlays = import ./overlays {inherit inputs;};
+
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 

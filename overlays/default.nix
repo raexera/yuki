@@ -1,11 +1,11 @@
-{
-  outputs,
-  inputs,
-}: {
-  additions = final: _prev: import ../pkgs {pkgs = final;};
+{inputs}: {
+  # Adds my custom packages
+  additions = final: _prev:
+    import ../pkgs {
+      pkgs = final;
+      inherit inputs;
+    };
 
-  modifications = final: prev: {
-    awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
-    vaapiIntel = prev.vaapiIntel.override {enableHybridCodec = true;};
-  };
+  # Modifies existing packages
+  modifications = final: prev: {};
 }

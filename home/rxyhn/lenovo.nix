@@ -1,0 +1,9 @@
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./shared
+  ];
+}
