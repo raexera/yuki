@@ -21,22 +21,30 @@
         alsa-plugins
         alsa-tools
         alsa-utils
+        cairo
         cmake
         coreutils
         curl
+        dconf
         fd
-        ffmpeg
+        findutils
+        ffmpeg-full
         fzf
         gcc
         git
         glib
         gnumake
+        gnuplot
+        gnused
         gnutls
-        hddtemp
         imagemagick
         iw
         jq
+        killall
         lz4
+        libappindicator
+        libsecret
+        librsvg
         libtool
         lm_sensors
         man-pages
@@ -53,11 +61,10 @@
         ripgrep
         unrar
         unzip
+        util-linux
         vim
         wget
-        wirelesstools
         xarchiver
-        xclip
         zip
         ;
     };

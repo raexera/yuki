@@ -5,11 +5,17 @@
   inputs,
   outputs,
   ...
-}: {
+}: let
+  inherit (inputs.nix-colors) colorSchemes;
+in {
   imports =
     [
       inputs.nix-colors.homeManagerModule
       inputs.webcord.homeManagerModules.default
+
+      ./programs
+      ./shell
+      ./pkgs.nix
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
@@ -48,4 +54,7 @@
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "23.05";
   };
+
+  colorscheme = lib.mkDefault colorSchemes.ashes;
+  home.file.".colorscheme".text = config.colorscheme.slug;
 }
