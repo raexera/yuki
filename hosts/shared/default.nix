@@ -8,8 +8,8 @@
   imports =
     [
       inputs.home-manager.nixosModules.home-manager
+      ./desktop
       ./environment
-      ./pkgs
       ./programs
       ./security
       ./services
