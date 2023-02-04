@@ -22,7 +22,6 @@
       gnumake
       gnutls
       hddtemp
-      home-manager
       imagemagick
       iw
       jq

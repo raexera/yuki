@@ -2,21 +2,18 @@
   description = "Rxyhn's NixOS Configuration";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    nix-colors.url = "github:misterio77/nix-colors";
     helix.url = "github:helix-editor/helix";
     nur.url = "github:nix-community/NUR";
     webcord.url = "github:fufexan/webcord-flake";
 
-    master.url = "github:nixos/nixpkgs/master";
-    stable.url = "github:nixos/nixpkgs/nixos-22.11";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
-    nixpkgs.follows = "nixos-unstable";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-f2k.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

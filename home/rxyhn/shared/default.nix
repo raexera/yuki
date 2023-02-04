@@ -1,13 +1,14 @@
 {
-  inputs,
   lib,
   pkgs,
   config,
+  inputs,
   outputs,
   ...
 }: {
   imports =
     [
+      inputs.nix-colors.homeManagerModule
       inputs.webcord.homeManagerModules.default
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
