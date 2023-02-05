@@ -156,7 +156,7 @@ NixOS / Home-Manager / Flake
 6. Install nixos from flake
 
    ```bash
-   $ nixos-install --flake github:rxyhn/dotfiles#lenovo
+   $ nixos-install --flake 'github:rxyhn/dotfiles#lenovo'
    ```
 
 7. Reboot, login as root, and change the password for your user using passwd
@@ -165,7 +165,7 @@ NixOS / Home-Manager / Flake
 
 9. Install the home manager configuration
    ```bash
-   $ home-manager switch --flake github:rxyhn/dotfiles#rxyhn@lenovo
+   $ home-manager switch --flake 'github:rxyhn/dotfiles#rxyhn@lenovo'
    ```
 
 <br>
