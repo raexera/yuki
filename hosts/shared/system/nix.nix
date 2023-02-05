@@ -22,10 +22,14 @@
       ];
 
       auto-optimise-store = lib.mkDefault true;
-      warn-dirty = false;
-      trusted-users = ["root" "@wheel"];
-      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      builders-use-substitutes = true;
       max-jobs = "auto";
+      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      trusted-users = ["root" "@wheel"];
+      flake-registry = "/etc/nix/registry.json";
+      keep-derivations = true;
+      keep-outputs = true;
+      warn-dirty = false;
     };
 
     package = pkgs.nixUnstable;
@@ -33,6 +37,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
+      options = "--delete-older-than 7d";
     };
 
     # Add each flake input as a registry

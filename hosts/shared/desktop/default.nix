@@ -8,7 +8,9 @@
       inherit
         (pkgs)
         cantarell-fonts
+        fira
         inter
+        maple-font
         material-symbols
         noto-fonts
         noto-fonts-cjk
