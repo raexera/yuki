@@ -1,9 +1,0 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./shared
-  ];
-}

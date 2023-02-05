@@ -15,7 +15,7 @@ in {
 
       ./programs
       ./shell
-      ./pkgs.nix
+      ./packages.nix
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 

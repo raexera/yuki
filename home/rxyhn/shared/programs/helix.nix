@@ -140,40 +140,50 @@
     ];
   };
 
-  home.packages = with pkgs; [
-    # Dev tools
-    black
-    cargo
-    clang
-    clang-tools
-    delve
-    elixir_ls
-    gawk
-    go
-    gomodifytags
-    gopkgs
-    gopls
-    gotests
-    go-tools
-    java-language-server
-    kotlin-language-server
-    ktlint
-    lldb
-    rust-analyzer
-    rustfmt
-    selene
-    shellcheck
-    sumneko-lua-language-server
-    stylua
-    texlab
-    uncrustify
-    luaPackages.lua
-    nodePackages.jsonlint
-    nodePackages.prettier
-    nodePackages.typescript-language-server
-    nodePackages.vls
-    nodePackages.vscode-langservers-extracted
-    nodePackages.yaml-language-server
-    nodePackages.yarn
-  ];
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      black
+      cargo
+      ccls
+      clang
+      clang-tools
+      delve
+      gawk
+      go
+      gomodifytags
+      gopkgs
+      gopls
+      gotests
+      go-tools
+      java-language-server
+      kotlin-language-server
+      ktlint
+      lldb
+      rust-analyzer
+      rustfmt
+      selene
+      shfmt
+      shellcheck
+      sumneko-lua-language-server
+      stylua
+      uncrustify
+      ;
+
+    inherit
+      (pkgs.luaPackages)
+      lua
+      ;
+
+    inherit
+      (pkgs.nodePackages_latest)
+      jsonlint
+      prettier
+      typescript-language-server
+      vls
+      vscode-langservers-extracted
+      yaml-language-server
+      yarn
+      ;
+  };
 }

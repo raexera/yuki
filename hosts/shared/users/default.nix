@@ -34,5 +34,5 @@ in {
     packages = [pkgs.home-manager];
   };
 
-  home-manager.users.rxyhn = import ../../../home/rxyhn/${config.networking.hostName}.nix;
+  home-manager.users.rxyhn = import ../../../home/rxyhn/${config.networking.hostName};
 }

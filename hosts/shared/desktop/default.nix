@@ -1,6 +1,6 @@
 {
-  pkgs,
   lib,
+  pkgs,
   ...
 }: {
   fonts = {

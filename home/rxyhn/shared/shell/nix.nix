@@ -2,13 +2,16 @@
 # nix tooling
 {
   home = {
-    packages = with pkgs; [
-      alejandra
-      any-nix-shell
-      deadnix
-      nix-index
-      statix
-    ];
+    packages = lib.attrValues {
+      inherit
+        (pkgs)
+        alejandra
+        any-nix-shell
+        deadnix
+        nix-index
+        statix
+        ;
+    };
 
     sessionVariables = {
       DIRENV_LOG_FORMAT = "";

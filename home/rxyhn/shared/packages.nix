@@ -22,11 +22,13 @@
       trash-cli
       wirelesstools
       xclip
+      xsel
       zoom-us
       ;
 
     inherit
       (pkgs.gnome)
+      dconf-editor
       eog
       gnome-disk-utility
       nautilus

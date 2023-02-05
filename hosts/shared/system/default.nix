@@ -1,7 +1,7 @@
 {
   config,
-  pkgs,
   lib,
+  pkgs,
   ...
 }: {
   imports = [./nix.nix];
@@ -42,7 +42,6 @@
     };
   };
 
-  # slows down boot time
   systemd.services.NetworkManager-wait-online.enable = false;
 
   time = {

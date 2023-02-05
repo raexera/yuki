@@ -4,18 +4,19 @@
   lib,
   ...
 }: {
-  home.packages = with pkgs; [
-    catimg
-    duf
-    du-dust
-    fd
-    file
-    joshuto
-    perl
-    ranger
-    ripgrep
-    yt-dlp
-  ];
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      catimg
+      duf
+      du-dust
+      file
+      joshuto
+      perl
+      ranger
+      yt-dlp
+      ;
+  };
 
   services = {
     syncthing.enable = true;
@@ -30,6 +31,7 @@
 
   programs = {
     ssh.enable = true;
+    exa.enable = true;
 
     gpg = {
       enable = true;
@@ -42,6 +44,7 @@
         pager = "less -FR";
         theme = "Catppuccin-mocha";
       };
+
       themes = {
         Catppuccin-mocha = builtins.readFile (pkgs.fetchFromGitHub {
             owner = "catppuccin";
@@ -52,8 +55,6 @@
           + "/Catppuccin-mocha.tmTheme");
       };
     };
-
-    exa.enable = true;
 
     fzf = {
       enable = true;

@@ -8,6 +8,5 @@
     ./obs-studio.nix
     ./vscode.nix
     ./wezterm.nix
-    ./zathura.nix
   ];
 }

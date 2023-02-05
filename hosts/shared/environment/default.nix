@@ -38,11 +38,15 @@
         gnused
         gnutls
         imagemagick
+        inotify-tools
         iw
         jq
         killall
         lz4
         libappindicator
+        libcanberra-gtk3
+        libgudev
+        libnotify
         libsecret
         librsvg
         libtool
