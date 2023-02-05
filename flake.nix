@@ -1,21 +1,17 @@
 {
-  description = "Rxyhn's NixOS Configuration with Home-Manager & Flake";
+  description = "Rxyhn's NixOS Configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    nix-colors.url = "github:misterio77/nix-colors";
+    helix.url = "github:helix-editor/helix";
     nur.url = "github:nix-community/NUR";
-    devshell.url = "github:numtide/devshell";
-    flake-utils.url = "github:numtide/flake-utils";
-    helix.url = "github:SoraTenshi/helix/experimental-22.12";
+    webcord.url = "github:fufexan/webcord-flake";
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    crane = {
-      url = "github:ipetkov/crane";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -29,90 +25,41 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };
-
-    # Non Flakes
-    sf-mono-liga = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
-
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
-      flake = false;
-    };
   };
 
   outputs = {
     self,
     nixpkgs,
+    home-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
-
-    system = "x86_64-linux";
-    lib = nixpkgs.lib;
-
-    filterNixFiles = k: v: v == "regular" && lib.hasSuffix ".nix" k;
-    importNixFiles = path:
-      (lib.lists.forEach (lib.mapAttrsToList (name: _: path + ("/" + name))
-          (lib.filterAttrs filterNixFiles (builtins.readDir path))))
-      import;
-
-    pkgs = import inputs.nixpkgs {
-      inherit system;
-      config = {
-        allowBroken = true;
-        allowUnfree = true;
-        tarball-ttl = 0;
-      };
-      overlays = with inputs;
-        [
-          (
-            final: _: let
-              inherit (final) system;
-            in
-              {
-                # Packages provided by flake inputs
-                crane-lib = crane.lib.${system};
-              }
-              // (with nixpkgs-f2k.packages.${system}; {
-                # Overlays with f2k's repo
-                awesome = awesome-git;
-                picom = picom-git;
-                wezterm = wezterm-git;
-              })
-              // {
-                # Non Flakes
-                sf-mono-liga-src = sf-mono-liga;
-                firefox-gnome-theme-src = firefox-gnome-theme;
-              }
-          )
-          nur.overlay
-          nixpkgs-f2k.overlays.default
-          rust-overlay.overlays.default
-        ]
-        # Overlays from ./overlays directory
-        ++ (importNixFiles ./overlays);
-    };
-  in rec {
-    inherit lib pkgs;
-
-    # nixos modules
+    forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
+    forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
+  in {
     nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
 
-    # nixos-configs with home-manager
-    nixosConfigurations = import ./hosts {inherit inputs outputs;};
+    overlays = import ./overlays {inherit inputs outputs;};
 
-    # dev shell (for direnv)
-    devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [
-        alejandra
-        git
-      ];
-      name = "dotfiles";
+    packages = forEachPkgs (pkgs: import ./pkgs {inherit pkgs;});
+    devShells = forEachPkgs (pkgs: import ./shell.nix {inherit pkgs;});
+
+    nixosConfigurations = {
+      # Laptop
+      lenovo = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/lenovo];
+      };
     };
 
-    # Default formatter for the entire repo
-    formatter.${system} = pkgs.${system}.alejandra;
+    homeConfigurations = {
+      # Laptop
+      "rxyhn@lenovo" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home/rxyhn/lenovo];
+      };
+    };
   };
 }

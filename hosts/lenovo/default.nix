@@ -1,22 +1,20 @@
 {
-  config,
+  inputs,
+  outputs,
   lib,
+  config,
   pkgs,
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-
-    # Shared configuration across all machines
     ../shared
+
+    ./hardware-configuration.nix
+    ./nvidia.nix
   ];
 
   boot = {
-    # Use the latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
-
-    # Make modules available to modprobe
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
 
     initrd = {
@@ -24,10 +22,8 @@
       supportedFilesystems = ["btrfs"];
     };
 
-    # Load modules on boot
     kernelModules = ["acpi_call"];
 
-    # Kernel parameters
     kernelParams = [
       "i915.force_probe=46a6"
       "i915.enable_psr=0"
@@ -35,33 +31,86 @@
       "i8042.direct"
       "i8042.dumbkbd"
     ];
+
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+
+      systemd-boot.enable = false;
+
+      grub = {
+        enable = true;
+        version = 2;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+        enableCryptodisk = true;
+        configurationLimit = 3;
+        gfxmodeEfi = "1920x1080";
+        theme = pkgs.fetchzip {
+          # https://github.com/AdisonCavani/distro-grub-themes
+          url = "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/lenovo.tar";
+          hash = "sha256-6ZevSnSNJ/Q67DTNJj8k4pjOjWZFj0tG0ljG3gwbLuc=";
+          stripRoot = false;
+        };
+      };
+    };
+  };
+
+  environment = {
+    variables = {
+      __GL_GSYNC_ALLOWED = "0";
+      __GL_VRR_ALLOWED = "0";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      GDK_SCALE = "2";
+      GDK_DPI_SCALE = "0.5";
+    };
+
+    systemPackages = lib.attrValues {
+      inherit
+        (pkgs)
+        acpi
+        arandr
+        blueberry
+        brightnessctl
+        libva
+        libva-utils
+        ocl-icd
+        slop
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-tools
+        ;
+    };
   };
 
   hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
+    enableRedistributableFirmware = true;
 
     bluetooth = {
       enable = true;
       package = pkgs.bluez;
     };
 
-    enableRedistributableFirmware = true;
-    pulseaudio.enable = false;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
   };
 
-  # compresses half the ram for use as swap
-  zramSwap = {
-    enable = true;
-    memoryPercent = 50;
+  networking = {
+    hostName = "lenovo";
+    networkmanager.enable = true;
+    useDHCP = false;
   };
 
   services = {
-    btrfs.autoScrub.enable = true;
     acpid.enable = true;
+    blueman.enable = true;
+    btrfs.autoScrub.enable = true;
     thermald.enable = true;
     upower.enable = true;
 
@@ -76,69 +125,40 @@
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       };
     };
-  };
 
-  environment = {
-    variables = {
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
-      _JAVA_AWT_WM_NONEREPARENTING = "1";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      GDK_SCALE = "2";
-      GDK_DPI_SCALE = "0.5";
-    };
-
-    systemPackages = with pkgs; [
-      acpi
-      alsa-lib
-      alsa-plugins
-      alsa-tools
-      alsa-utils
-      arandr
-      blueberry
-      brightnessctl
-      gcc
-      libva
-      libva-utils
-      ocl-icd
-      pamixer
-      pavucontrol
-      pulseaudio
-      vulkan-loader
-      vulkan-validation-layers
-      vulkan-tools
-    ];
-  };
-
-  modules.nixos = {
-    bootloader.grub = {
+    xserver = {
       enable = true;
-      efiSysMountPoint = "/boot";
-      device = "nodev";
-    };
+      displayManager = {
+        autoLogin = {
+          enable = true;
+          user = "rxyhn";
+        };
 
-    hardware.nvidia-offload.enable = true;
-    hardware.nvidia-sync.enable = false;
-
-    virtualisation = {
-      docker = {
-        enable = true;
-        enableNvidia = true;
+        defaultSession = "none+awesome";
+        lightdm.enable = true;
       };
 
-      libvirtd.enable = true;
-
-      podman = {
-        enable = true;
-        enableNvidia = true;
-      };
-    };
-
-    windowManager.awesome = {
-      enable = true;
+      dpi = 144;
+      exportConfiguration = true;
       layout = "us";
+
+      libinput = {
+        enable = true;
+        touchpad = {naturalScrolling = true;};
+      };
+
+      windowManager = {
+        awesome = {
+          enable = true;
+
+          luaModules = lib.attrValues {
+            inherit (pkgs.luaPackages) lgi ldbus luadbi-mysql luaposix;
+          };
+        };
+      };
     };
   };
 
-  system.stateVersion = lib.mkForce "22.11"; # DONT TOUCH THIS
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.05";
 }

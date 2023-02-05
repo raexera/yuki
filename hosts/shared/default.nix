@@ -1,30 +1,42 @@
-# This file (and the global directory) holds config that i use on all hosts
 {
   lib,
   pkgs,
   inputs,
+  outputs,
   ...
 }: {
-  imports = [
-    ./environment
-    ./pkgs
-    ./programs
-    ./security
-    ./services
-    ./system
-  ];
+  imports =
+    [
+      inputs.home-manager.nixosModules.home-manager
+      ./desktop
+      ./environment
+      ./programs
+      ./security
+      ./services
+      ./system
+      ./users
+    ]
+    ++ (builtins.attrValues outputs.nixosModules);
 
-  programs = {
-    dconf.enable = true;
-    seahorse.enable = true;
+  home-manager = {
+    useUserPackages = true;
+    extraSpecialArgs = {inherit inputs outputs;};
   };
 
-  services = {
-    blueman.enable = true;
-    fstrim.enable = true;
-    fwupd.enable = true;
-    gvfs.enable = true;
-    udisks2.enable = true;
-    printing.enable = true;
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.modifications
+      outputs.overlays.additions
+      inputs.nixpkgs-f2k.overlays.stdenvs
+
+      (final: prev: {
+        awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+        vaapiIntel = prev.vaapiIntel.override {enableHybridCodec = true;};
+      })
+    ];
+
+    config = {
+      allowUnfree = true;
+    };
   };
 }

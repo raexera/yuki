@@ -1,24 +1,10 @@
 {
-  config,
   pkgs,
-  lib,
   inputs,
+  lib,
+  config,
   ...
 }: {
-  environment = {
-    # set channels (backwards compatibility)
-    etc = {
-      "nix/flake-channels/system".source = inputs.self;
-      "nix/flake-channels/nixpkgs".source = inputs.nixpkgs;
-      "nix/flake-channels/home-manager".source = inputs.home-manager;
-    };
-
-    # we need git for flakes
-    systemPackages = [pkgs.git];
-    defaultPackages = [];
-  };
-
-  # faster rebuilding
   documentation = {
     enable = true;
     doc.enable = false;
@@ -26,47 +12,8 @@
     dev.enable = false;
   };
 
-  # pickup pkgs from flake export
-  nixpkgs.pkgs = inputs.self.pkgs;
-
   nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-
-    # pin the registry to avoid downloading and evaling a new nixpkgs version every time
-    registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
-
-    # set the path for channels compat
-    nixPath = [
-      "nixpkgs=/etc/nix/flake-channels/nixpkgs"
-      "home-manager=/etc/nix/flake-channels/home-manager"
-    ];
-
-    # Free up to 1GiB whenever there is less than 100MiB left.
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      keep-outputs = true
-      warn-dirty = false
-      keep-derivations = true
-      min-free = ${toString (100 * 1024 * 1024)}
-      max-free = ${toString (1024 * 1024 * 1024)}
-    '';
-
     settings = {
-      auto-optimise-store = true;
-      builders-use-substitutes = true;
-      trusted-users = ["root" "@wheel"];
-      max-jobs = "auto";
-      flake-registry = "/etc/nix/registry.json";
-
-      # for direnv GC roots
-      keep-derivations = true;
-      keep-outputs = true;
-
-      # use binary cache, its not gentoo
       substituters = [
         "https://cache.nixos.org?priority=10"
         "https://nix-community.cachix.org"
@@ -80,9 +27,28 @@
         "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       ];
-    };
-  };
 
-  system.autoUpgrade.enable = false;
-  system.stateVersion = lib.mkDefault "22.11"; # DONT TOUCH THIS
+      auto-optimise-store = lib.mkDefault true;
+      builders-use-substitutes = true;
+      max-jobs = "auto";
+      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      trusted-users = ["root" "@wheel"];
+      flake-registry = "/etc/nix/registry.json";
+      keep-derivations = true;
+      keep-outputs = true;
+      warn-dirty = false;
+    };
+
+    package = pkgs.nixUnstable;
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+  };
 }
