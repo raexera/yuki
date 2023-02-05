@@ -16,13 +16,10 @@
   };
 
   i18n = {
-    defaultLocale = lib.mkDefault "en_US.UTF-8";
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings.LC_TIME = "en_US.UTF-8";
 
-    extraLocaleSettings = {
-      LC_TIME = lib.mkDefault "en_US.UTF-8";
-    };
-
-    supportedLocales = lib.mkDefault [
+    supportedLocales = [
       "en_US.UTF-8/UTF-8"
       "ja_JP.UTF-8/UTF-8"
     ];
@@ -45,7 +42,7 @@
   systemd.services.NetworkManager-wait-online.enable = false;
 
   time = {
-    timeZone = lib.mkDefault "Asia/Jakarta";
+    timeZone = "Asia/Jakarta";
     hardwareClockInLocalTime = true;
   };
 }

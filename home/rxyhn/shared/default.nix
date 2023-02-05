@@ -26,7 +26,7 @@ in {
   };
 
   nix = {
-    package = lib.mkDefault pkgs.nix;
+    package = lib.mkForce pkgs.nixUnstable;
     settings = {
       experimental-features = ["nix-command" "flakes" "repl-flake"];
       warn-dirty = false;
@@ -35,15 +35,12 @@ in {
 
   nixpkgs = {
     overlays = [
-      outputs.overlays.modifications
-      outputs.overlays.additions
+      outputs.overlays.default
       inputs.nixpkgs-f2k.overlays.stdenvs
       inputs.nur.overlay
 
       (final: prev: (with inputs.nixpkgs-f2k.packages.${pkgs.system}; {
-        inherit phocus;
-        picom = picom-git;
-        wezterm = wezterm-git;
+        inherit phocus; # suggest consuming this as inputs.nixpkgs-f2k.packages.${pkgs.system}.phocus;
       }))
     ];
 
@@ -56,11 +53,11 @@ in {
   programs.home-manager.enable = true;
 
   home = {
-    username = lib.mkDefault "rxyhn";
-    homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "23.05";
+    username = "rxyhn";
+    homeDirectory = "/home/${config.home.username}";
+    stateVersion = "23.05";
   };
 
-  colorscheme = lib.mkDefault colorSchemes.ashes;
+  colorscheme = colorSchemes.ashes;
   home.file.".colorscheme".text = config.colorscheme.slug;
 }
