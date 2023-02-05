@@ -1,6 +1,8 @@
-{pkgs, ...}:
-# nix tooling
 {
+  lib,
+  pkgs,
+  ...
+}: {
   home = {
     packages = lib.attrValues {
       inherit
