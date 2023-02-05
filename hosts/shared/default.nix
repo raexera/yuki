@@ -25,14 +25,8 @@
 
   nixpkgs = {
     overlays = [
-      outputs.overlays.modifications
-      outputs.overlays.additions
+      outputs.overlays.default
       inputs.nixpkgs-f2k.overlays.stdenvs
-
-      (final: prev: {
-        awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
-        vaapiIntel = prev.vaapiIntel.override {enableHybridCodec = true;};
-      })
     ];
 
     config = {

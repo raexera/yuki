@@ -35,15 +35,12 @@ in {
 
   nixpkgs = {
     overlays = [
-      outputs.overlays.modifications
-      outputs.overlays.additions
+      outputs.overlays.default
       inputs.nixpkgs-f2k.overlays.stdenvs
       inputs.nur.overlay
 
       (final: prev: (with inputs.nixpkgs-f2k.packages.${pkgs.system}; {
-        inherit phocus;
-        picom = picom-git;
-        wezterm = wezterm-git;
+        inherit phocus; # suggest consuming this as inputs.nixpkgs-f2k.packages.${pkgs.system}.phocus;
       }))
     ];
 
