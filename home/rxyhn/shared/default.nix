@@ -39,6 +39,12 @@ in {
     };
   };
 
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = false;
+  };
+
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {

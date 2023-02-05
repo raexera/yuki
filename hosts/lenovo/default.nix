@@ -13,28 +13,48 @@
     ./nvidia.nix
   ];
 
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+
+    initrd = {
+      systemd.enable = true;
+      supportedFilesystems = ["btrfs"];
     };
 
-    systemd-boot.enable = false;
+    kernelModules = ["acpi_call"];
 
-    grub = {
-      enable = true;
-      version = 2;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;
-      enableCryptodisk = true;
-      configurationLimit = 3;
-      gfxmodeEfi = "1920x1080";
-      theme = pkgs.fetchzip {
-        # https://github.com/AdisonCavani/distro-grub-themes
-        url = "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/lenovo.tar";
-        hash = "sha256-6ZevSnSNJ/Q67DTNJj8k4pjOjWZFj0tG0ljG3gwbLuc=";
-        stripRoot = false;
+    kernelParams = [
+      "i915.force_probe=46a6"
+      "i915.enable_psr=0"
+      "i915.enable_guc=2"
+      "i8042.direct"
+      "i8042.dumbkbd"
+    ];
+
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+
+      systemd-boot.enable = false;
+
+      grub = {
+        enable = true;
+        version = 2;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+        enableCryptodisk = true;
+        configurationLimit = 3;
+        gfxmodeEfi = "1920x1080";
+        theme = pkgs.fetchzip {
+          # https://github.com/AdisonCavani/distro-grub-themes
+          url = "https://raw.githubusercontent.com/AdisonCavani/distro-grub-themes/master/themes/lenovo.tar";
+          hash = "sha256-6ZevSnSNJ/Q67DTNJj8k4pjOjWZFj0tG0ljG3gwbLuc=";
+          stripRoot = false;
+        };
       };
     };
   };

@@ -5,6 +5,13 @@
   config,
   ...
 }: {
+  documentation = {
+    enable = true;
+    doc.enable = false;
+    man.enable = true;
+    dev.enable = false;
+  };
+
   nix = {
     settings = {
       substituters = [
@@ -40,12 +47,8 @@
       options = "--delete-older-than 7d";
     };
 
-    # Add each flake input as a registry
-    # To make nix3 commands consistent with the flake
     registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
-    # Map registries to channels
-    # Very useful when using legacy commands
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
   };
 }
