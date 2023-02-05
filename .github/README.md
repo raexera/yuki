@@ -71,6 +71,7 @@ NixOS / Home-Manager / Flake
 ## :wrench: <samp>Installation</samp>
 
 1. Download iso
+
    ```sh
    # Yoink nixos-unstable
    wget -O nixos.iso https://channels.nixos.org/nixos-unstable/latest-nixos-minimal-x86_64-linux.iso
@@ -85,86 +86,102 @@ NixOS / Home-Manager / Flake
 
 4. Partitioning
 
-    We create a 512MB EFI boot partition (`/dev/nvme0n1p1`) and the rest will be our LUKS encrypted physical volume for LVM (`/dev/nvme0n1p2`).
-    ```bash
-    $ gdisk /dev/nvme0n1
-    ```
-    - `o` (create new empty partition table)
-    - `n` (add partition, 512M, type ef00 EFI)
-    - `n` (add partition, remaining space, type 8e00 Linux LVM)
-    - `w` (write partition table and exit)
+   We create a 512MB EFI boot partition (`/dev/nvme0n1p1`) and the rest will be our LUKS encrypted physical volume for LVM (`/dev/nvme0n1p2`).
 
-    Setup the encrypted LUKS partition and open it:
-    ```bash
-    $ cryptsetup luksFormat /dev/nvme0n1p2
-    $ cryptsetup config /dev/nvme0n1p2 --label cryptroot
-    $ cryptsetup luksOpen /dev/nvme0n1p2 enc
-    ```
+   ```bash
+   $ gdisk /dev/nvme0n1
+   ```
 
-    We create two logical volumes, a 24GB swap parition and the rest will be our root filesystem
-    ```bash
-    $ pvcreate /dev/mapper/enc
-    $ vgcreate vg /dev/mapper/enc
-    $ lvcreate -L 24G -n swap vg
-    $ lvcreate -l '100%FREE' -n root vg
-    ```
+   - `o` (create new empty partition table)
+   - `n` (add partition, 512M, type ef00 EFI)
+   - `n` (add partition, remaining space, type 8e00 Linux LVM)
+   - `w` (write partition table and exit)
 
-    Format partitions
-    ```bash
-    $ mkfs.fat -F 32 -n boot /dev/nvme0n1p1
-    $ mkswap -L swap /dev/vg/swap
-    $ swapon /dev/vg/swap
-    $ mkfs.btrfs -L root /dev/vg/root
-    ```
+   Setup the encrypted LUKS partition and open it:
 
-    Mount partitions
-    ```bash
-    $ mount -t btrfs /dev/vg/root /mnt
+   ```bash
+   $ cryptsetup luksFormat /dev/nvme0n1p2
+   $ cryptsetup config /dev/nvme0n1p2 --label cryptroot
+   $ cryptsetup luksOpen /dev/nvme0n1p2 enc
+   ```
 
-    # Create the subvolumes
-    $ btrfs subvolume create /mnt/root
-    $ btrfs subvolume create /mnt/home
-    $ btrfs subvolume create /mnt/nix
-    $ btrfs subvolume create /mnt/log
-    $ umount /mnt
+   We create two logical volumes, a 24GB swap parition and the rest will be our root filesystem
 
-    # Mount the directories
-    $ mount -o subvol=root,compress=zstd,noatime,ssd,space_cache=v2 /dev/vg/root /mnt
-    $ mkdir -p /mnt/{home,nix,var/log}
-    $ mount -o subvol=home,compress=zstd,noatime,ssd,space_cache=v2 /dev/vg/root /mnt/home
-    $ mount -o subvol=nix,compress=zstd,noatime,ssd,space_cache=v2 /dev/vg/root /mnt/nix
-    $ mount -o subvol=log,compress=zstd,noatime,ssd,space_cache=v2 /dev/vg/root /mnt/var/log
+   ```bash
+   $ pvcreate /dev/mapper/enc
+   $ vgcreate vg /dev/mapper/enc
+   $ lvcreate -L 24G -n swap vg
+   $ lvcreate -l '100%FREE' -n root vg
+   ```
 
-    # Mount boot partition
-    $ mkdir /mnt/boot
-    $ mount /dev/nvme0n1p1 /mnt/boot
-    ```
+   Format partitions
+
+   ```bash
+   $ mkfs.fat -F 32 -n boot /dev/nvme0n1p1
+   $ mkswap -L swap /dev/vg/swap
+   $ swapon /dev/vg/swap
+   $ mkfs.btrfs -L root /dev/vg/root
+   ```
+
+   Mount partitions
+
+   ```bash
+   $ mount -t btrfs /dev/vg/root /mnt
+
+   # Create the subvolumes
+   $ btrfs subvolume create /mnt/root
+   $ btrfs subvolume create /mnt/home
+   $ btrfs subvolume create /mnt/nix
+   $ btrfs subvolume create /mnt/log
+   $ umount /mnt
+
+   # Mount the directories
+   $ mount -o subvol=root,compress=zstd,noatime,ssd,space_cache=v2 /dev/vg/root /mnt
+   $ mkdir -p /mnt/{home,nix,var/log}
+   $ mount -o subvol=home,compress=zstd,noatime,ssd,space_cache=v2 /dev/vg/root /mnt/home
+   $ mount -o subvol=nix,compress=zstd,noatime,ssd,space_cache=v2 /dev/vg/root /mnt/nix
+   $ mount -o subvol=log,compress=zstd,noatime,ssd,space_cache=v2 /dev/vg/root /mnt/var/log
+
+   # Mount boot partition
+   $ mkdir /mnt/boot
+   $ mount /dev/nvme0n1p1 /mnt/boot
+   ```
 
 5. Enable flakes
-    ```bash
-    $ nix-shell -p nixFlakes
-    ```
+
+   ```bash
+   $ nix-shell -p nixFlakes
+   ```
 
 6. Install nixos from flake
-    ```bash
-    $ nixos-install --flake github:rxyhn/dotfiles#lenovo --impure
-    ```
+
+   ```bash
+   $ nixos-install --flake github:rxyhn/dotfiles#lenovo
+   ```
+
+7. Reboot, login as root, and change the password for your user using passwd
+
+8. Log in as your normal user.
+
+9. Install the home manager configuration
+   ```bash
+   $ home-manager switch --flake github:rxyhn/dotfiles#rxyhn@lenovo
+   ```
 
 <br>
 <br>
 
-## :busts_in_silhouette: <samp>People</samp>
+## :bulb: <samp>Acknowledgements</samp>
 
 <table align="right">
   <tr>
     <th align="center">
-      <sup><sub>:warning:</sub></sup>
+      <sup><sub>:warning: WARNING :warning:</sub></sup>
     </th>
   </tr>
   <tr>
     <td align="center">
-        <sup><sub><samp>If you stole something from here at least give us credits!</samp></sub></sup>
-      </a>
+        <sup><sub><samp>It worked perfectly on my machine, but I can't guarantee it will work on your machine</samp></sub></sup>
     </td>
   </tr>
   <tr>
@@ -176,8 +193,10 @@ NixOS / Home-Manager / Flake
   </tr>
 </table>
 
- **These are the people who build and maintain this repository.**
+**Other dotfiles**
 
- **[rxyhn](https://github.com/rxyhn) - [sioodmy](https://github.com/sioodmy) - [fufexan](https://github.com/fufexan)**
+- [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
+- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
+- [sioodmy/dotfiles](https://github.com/sioodmy/dotfiles)
 
 </div>
