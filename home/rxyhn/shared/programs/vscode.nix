@@ -10,7 +10,6 @@
     extensions = with pkgs.vscode-extensions;
       [
         adpyke.codesnap
-        aaron-bond.better-comments
         bbenoist.nix
         catppuccin.catppuccin-vsc
         christian-kohler.path-intellisense

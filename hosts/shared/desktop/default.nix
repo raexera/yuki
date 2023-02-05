@@ -9,15 +9,16 @@
         (pkgs)
         cantarell-fonts
         fira
-        inter
-        maple-font
+        lato
+        maple-mono
+        maple-mono-NF
+        maple-mono-SC-NF
         material-symbols
         noto-fonts
         noto-fonts-cjk
         noto-fonts-emoji
+        roboto-slab
         ;
-
-      nerdfonts = pkgs.nerdfonts.override {fonts = ["IBMPlexMono"];};
     };
 
     fontconfig = {
@@ -33,9 +34,9 @@
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = ["BlexMono Nerd Font Mono"];
-        sansSerif = ["Noto Sans" "Noto Color Emoji"];
-        serif = ["Noto Serif" "Noto Color Emoji"];
+        monospace = ["Maple Mono NF"];
+        sansSerif = ["Lato"];
+        serif = ["Roboto Slab"];
       };
     };
   };
