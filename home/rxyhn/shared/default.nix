@@ -19,6 +19,8 @@ in {
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
+  systemd.user.startServices = "sd-switch";
+
   manual = {
     html.enable = false;
     json.enable = false;
@@ -38,10 +40,6 @@ in {
       outputs.overlays.default
       inputs.nixpkgs-f2k.overlays.stdenvs
       inputs.nur.overlay
-
-      (final: prev: (with inputs.nixpkgs-f2k.packages.${pkgs.system}; {
-        inherit phocus; # suggest consuming this as inputs.nixpkgs-f2k.packages.${pkgs.system}.phocus;
-      }))
     ];
 
     config = {

@@ -198,5 +198,6 @@ NixOS / Home-Manager / Flake
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [sioodmy/dotfiles](https://github.com/sioodmy/dotfiles)
+- [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
 
 </div>

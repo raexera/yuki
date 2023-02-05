@@ -6,6 +6,7 @@
   home.packages = lib.attrValues {
     inherit
       (pkgs)
+      feh
       fortune
       gcalcli
       maim

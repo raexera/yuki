@@ -2,9 +2,42 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  inherit (config) colorscheme;
+  inherit (colorscheme) colors;
+in {
   programs.wezterm = {
     enable = true;
+
+    colorSchemes = {
+      "${colorscheme.slug}" = {
+        ansi = [
+          "#${colors.base00}"
+          "#${colors.base01}"
+          "#${colors.base02}"
+          "#${colors.base03}"
+          "#${colors.base04}"
+          "#${colors.base05}"
+          "#${colors.base06}"
+          "#${colors.base07}"
+          "#${colors.base08}"
+          "#${colors.base09}"
+          "#${colors.base0A}"
+          "#${colors.base0B}"
+          "#${colors.base0C}"
+          "#${colors.base0D}"
+          "#${colors.base0E}"
+          "#${colors.base0F}"
+        ];
+        foreground = "#${colors.base05}";
+        background = "#${colors.base00}";
+        cursor_fg = "#${colors.base00}";
+        cursor_bg = "#${colors.base05}";
+        selection_fg = "#${colors.base00}";
+        selection_bg = "#${colors.base05}";
+      };
+    };
+
     extraConfig = ''
       local wezterm = require "wezterm"
 
@@ -64,9 +97,6 @@
           { Text = RIGHT_DIVIDER },
         }
       end)
-
-      local mocha_cat = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-      mocha_cat.background = "#000000"
 
       local function font_with_fallback(name, params)
         local names = { name, "emoji" }
@@ -202,8 +232,7 @@
 
         -- Colorschemes
         bold_brightens_ansi_colors = true,
-        color_schemes = { ["MochaCat"] = mocha_cat },
-        color_scheme = "MochaCat",
+        color_scheme = "${colorscheme.slug}",
 
         -- Padding
         window_padding = { left = 40, right = 40, top = 40, bottom = 40 },
@@ -217,7 +246,7 @@
         -- General
         automatically_reload_config = true,
         inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-        window_background_opacity = 0.4,
+        window_background_opacity = 1.0,
         window_close_confirmation = "NeverPrompt",
       }
     '';
