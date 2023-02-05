@@ -28,14 +28,18 @@
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       ];
 
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+
       auto-optimise-store = lib.mkDefault true;
       builders-use-substitutes = true;
-      max-jobs = "auto";
       experimental-features = ["nix-command" "flakes" "repl-flake"];
-      trusted-users = ["root" "@wheel"];
       flake-registry = "/etc/nix/registry.json";
       keep-derivations = true;
       keep-outputs = true;
+      max-jobs = "auto";
       warn-dirty = false;
     };
 

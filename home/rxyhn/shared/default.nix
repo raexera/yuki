@@ -19,6 +19,20 @@ in {
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = false;
+  };
+
+  nix = {
+    package = lib.mkDefault pkgs.nix;
+    settings = {
+      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      warn-dirty = false;
+    };
+  };
+
   nixpkgs = {
     overlays = [
       outputs.overlays.modifications
@@ -36,20 +50,6 @@ in {
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
-    };
-  };
-
-  manual = {
-    html.enable = false;
-    json.enable = false;
-    manpages.enable = false;
-  };
-
-  nix = {
-    package = lib.mkDefault pkgs.nix;
-    settings = {
-      experimental-features = ["nix-command" "flakes" "repl-flake"];
-      warn-dirty = false;
     };
   };
 
