@@ -19,14 +19,14 @@
       ];
     };
 
-    java = {
-      enable = true;
-      package = pkgs.jre;
-    };
-
     adb.enable = true;
     dconf.enable = true;
     nm-applet.enable = true;
     seahorse.enable = true;
+  };
+
+  java = {
+    enable = true;
+    package = pkgs.jre;
   };
 }

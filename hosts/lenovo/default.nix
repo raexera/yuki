@@ -7,8 +7,12 @@
   ...
 }: {
   imports = [
-    ../shared
+    # Shared configuration across all machines
+    ../global/default
+    ../global/users/rxyhn.nix
+    ../global/optional/services/ssh.nix
 
+    # Machine specific configuration
     ./hardware-configuration.nix
     ./nvidia.nix
   ];

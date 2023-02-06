@@ -13,7 +13,6 @@ in {
       inputs.nix-colors.homeManagerModule
       inputs.webcord.homeManagerModules.default
 
-      ./programs
       ./shell
       ./packages.nix
     ]

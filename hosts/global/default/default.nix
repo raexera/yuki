@@ -8,13 +8,14 @@
   imports =
     [
       inputs.home-manager.nixosModules.home-manager
-      ./desktop
-      ./environment
-      ./programs
-      ./security
-      ./services
-      ./system
-      ./users
+      ./console.nix
+      ./environment.nix
+      ./fonts.nix
+      ./locale.nix
+      ./networking.nix
+      ./nix.nix
+      ./security.nix
+      ./services.nix
     ]
     ++ (builtins.attrValues outputs.nixosModules);
 

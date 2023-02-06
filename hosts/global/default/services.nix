@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  imports = [./ssh.nix];
-
   services = {
     dbus = {
       enable = true;
