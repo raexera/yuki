@@ -16,7 +16,7 @@
     ../global/optional/programs/vscode.nix
     ../global/optional/programs/wezterm.nix
 
-    # Self configuration
+    # Specific configuration
     ./desktop
     ./services
     ./X

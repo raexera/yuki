@@ -6,7 +6,6 @@
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
-
     extensions = with pkgs.vscode-extensions;
       [
         adpyke.codesnap
@@ -58,7 +57,6 @@
     userSettings = {
       breadcrumbs.enabled = false;
       emmet.useInlineCompletions = true;
-      explorer.confirmDelete = false;
       github.copilot.enable."*" = true;
       security.workspace.trust.enabled = false;
       security.workspace.trust.untrustedFiles = "open";
@@ -94,7 +92,7 @@
         minimap.enabled = false;
         overviewRulerBorder = false;
         quickSuggestions.strings = true;
-        renderWhitespace = "all";
+        renderWhitespace = "none";
         renderLineHighlight = "all";
         smoothScrolling = true;
         suggest.showStatusBar = true;
@@ -114,6 +112,11 @@
           bracketPairs = true;
           indentation = true;
         };
+      };
+
+      explorer = {
+        confirmDragAndDrop = false;
+        confirmDelete = true;
       };
 
       files = {
@@ -138,6 +141,15 @@
         enableSmartCommit = true;
       };
 
+      terminal.integrated = {
+        cursorBlinking = true;
+        cursorStyle = "line";
+        cursorWidth = 2;
+        fontFamily = "'monospace'";
+        fontSize = 16;
+        smoothScrolling = true;
+      };
+
       window = {
         menuBarVisibility = "toggle";
         nativeTabs = true;
@@ -151,15 +163,7 @@
         iconTheme = "material-icon-theme";
         list.smoothScrolling = true;
         panel.defaultLocation = "right";
-        smoothScrolling = true;
-      };
-
-      terminal.integrated = {
-        cursorBlinking = true;
-        cursorStyle = "line";
-        cursorWidth = 2;
-        fontFamily = "'monospace'";
-        fontSize = 16;
+        productIconTheme = "material-product-icons";
         smoothScrolling = true;
       };
     };

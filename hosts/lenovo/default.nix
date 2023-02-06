@@ -12,7 +12,7 @@
     ../global/users/rxyhn.nix
     ../global/optional/services/ssh.nix
 
-    # Machine specific configuration
+    # Specific configuration
     ./hardware-configuration.nix
     ./nvidia.nix
   ];
