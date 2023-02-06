@@ -12,8 +12,8 @@
     exec "$@"
   '';
 in {
+  boot.blacklistedKernelModules = ["nouveau"];
   environment.systemPackages = [nvidia-offload];
-
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware = {
