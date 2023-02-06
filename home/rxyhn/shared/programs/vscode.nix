@@ -24,6 +24,8 @@
         matklad.rust-analyzer
         mkhl.direnv
         ms-azuretools.vscode-docker
+        ms-python.python
+        ms-python.vscode-pylance
         ms-vscode.cpptools
         ms-vscode-remote.remote-ssh
         naumovs.color-highlight
@@ -144,7 +146,7 @@
       };
 
       workbench = {
-        colorTheme = "Catppuccin Mocha";
+        colorTheme = "Catppuccin Macchiato";
         editor.tabCloseButton = "left";
         iconTheme = "material-icon-theme";
         list.smoothScrolling = true;

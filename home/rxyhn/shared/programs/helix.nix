@@ -10,7 +10,7 @@
     package = inputs.helix.packages.${pkgs.system}.default;
 
     settings = {
-      theme = "catppuccin_mocha_transparent";
+      theme = "catppuccin_macchiato_transparent";
       keys.normal = {
         "{" = "goto_prev_paragraph";
         "}" = "goto_next_paragraph";
@@ -81,8 +81,8 @@
 
     # override catppuccin theme and remove background to fix transparency
     themes = {
-      catppuccin_mocha_transparent = {
-        "inherits" = "catppuccin_mocha";
+      catppuccin_macchiato_transparent = {
+        "inherits" = "catppuccin_macchiato";
         "ui.background" = "{}";
       };
     };
