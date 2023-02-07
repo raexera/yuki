@@ -7,6 +7,11 @@
 
   # Modifies existing packages
   modifications = final: prev: {
+    discord-canary = prev.discord-canary.override {
+      nss = prev.nss_latest;
+      withOpenASAR = true;
+    };
+
     picom = inputs.nixpkgs-f2k.packages.${prev.system}.picom-git;
     vaapiIntel = prev.vaapiIntel.override {enableHybridCodec = true;};
     wezterm = inputs.nixpkgs-f2k.packages.${prev.system}.wezterm-git;
