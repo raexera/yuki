@@ -1,16 +1,16 @@
-<!-- Rxyhn's dotfiles -->
-<!-- https://github.com/rxyhn/dotfiles -->
+<!-- Rxyhn's yuki -->
+<!-- https://github.com/rxyhn/yuki -->
 
 <p align="center">
 <a href="https://github.com/nixos/nixpkgs"><img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8AADF4"></a> <a href="https://awesomewm.org"><img src="https://img.shields.io/static/v1?label=AwesomeWM&message=master&style=flat&logo=awesomewm&colorA=24273A&colorB=8AADF4&logoColor=CAD3F5"/></a>
 </p>
 
 <p align="center">
-<a href="https://github.com/rxyhn/dotfiles/actions/workflows/check.yml"><img src="https://github.com/rxyhn/dotfiles/actions/workflows/check.yml/badge.svg"></a> <a href="https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml"><img src="https://github.com/rxyhn/dotfiles/actions/workflows/fmt.yml/badge.svg"/></a>
+<a href="https://github.com/rxyhn/yuki/actions/workflows/check.yml"><img src="https://github.com/rxyhn/yuki/actions/workflows/check.yml/badge.svg"></a> <a href="https://github.com/rxyhn/yuki/actions/workflows/fmt.yml"><img src="https://github.com/rxyhn/yuki/actions/workflows/fmt.yml/badge.svg"/></a>
 </p>
 
 <p align="center">
-<a href="https://github.com/rxyhn/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=CAD3F5&colorA=24273A&colorB=8AADF4"/></a>
+<a href="https://github.com/rxyhn/yuki/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat&label=License&message=MIT&logoColor=CAD3F5&colorA=24273A&colorB=8AADF4"/></a>
 </p>
 
 <br>
@@ -156,7 +156,7 @@ NixOS / Home-Manager / Flake
 6. Install nixos from flake
 
    ```bash
-   $ nixos-install --flake 'github:rxyhn/dotfiles#lenovo'
+   $ nixos-install --flake 'github:rxyhn/yuki#lenovo'
    ```
 
 7. Reboot, login as root, and change the password for your user using passwd
@@ -165,7 +165,7 @@ NixOS / Home-Manager / Flake
 
 9. Install the home manager configuration
    ```bash
-   $ home-manager switch --flake 'github:rxyhn/dotfiles#rxyhn@lenovo'
+   $ home-manager switch --flake 'github:rxyhn/yuki#rxyhn@lenovo'
    ```
 
 <br>

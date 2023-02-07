@@ -211,7 +211,7 @@
     '';
 
     shellAliases = {
-      rebuild = "sudo nix-store --verify; pushd ~dotfiles && sudo nixos-rebuild switch --flake .# && notify-send \"Done\" && bat cache --build; popd";
+      rebuild = "sudo nix-store --verify; pushd ~yuki && sudo nixos-rebuild switch --flake .# && notify-send \"Done\" && bat cache --build; popd";
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
       bloat = "nix path-info -Sh /run/current-system";
       v = "hx";
