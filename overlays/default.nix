@@ -12,6 +12,12 @@
       withOpenASAR = true;
     };
 
+    ncmpcpp = prev.ncmpcpp.override {
+      visualizerSupport = true;
+      clockSupport = true;
+      taglibSupport = true;
+    };
+
     picom = inputs.nixpkgs-f2k.packages.${prev.system}.picom-git;
     vaapiIntel = prev.vaapiIntel.override {enableHybridCodec = true;};
     wezterm = inputs.nixpkgs-f2k.packages.${prev.system}.wezterm-git;

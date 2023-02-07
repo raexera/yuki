@@ -1,80 +1,71 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.ncmpcpp = {
     enable = true;
-    package = pkgs.ncmpcpp;
+    mpdMusicDir = "${config.xdg.userDirs.music}";
     settings = {
-      ncmpcpp_directory = "/home/rxyhn/.config/ncmpcpp";
-      mpd_crossfade_time = 2;
-      lyrics_directory = "/home/rxyhn/.cache/lyrics";
-      progressbar_look = "▃▃▃";
-      progressbar_elapsed_color = 5;
-      progressbar_color = "black";
-      media_library_primary_tag = "album_artist";
-      follow_now_playing_lyrics = "yes";
-      connected_message_on_startup = "no";
-      ignore_leading_the = "yes";
-      screen_switcher_mode = "playlist, media_library";
-      song_columns_list_format = "(50)[]{t|fr:Title} (0)[blue]{a}";
-      song_list_format = "$8%a - %t$R  %l";
-      song_library_format = "{{%a - %t} (%b)}|{%f}";
-      song_status_format = "$7%t";
-      song_window_title_format = "Now Playing ..";
-      now_playing_prefix = "$b$6 ";
-      now_playing_suffix = "  $/b$8";
-      current_item_prefix = "$b$6$/b$3 ";
-      current_item_suffix = "  $8";
-      statusbar_color = "white";
-      color1 = "white";
-      color2 = "blue";
-      header_visibility = "no";
-      statusbar_visibility = "no";
-      titles_visibility = "no";
-      enable_window_title = "yes";
-      cyclic_scrolling = "yes";
-      mouse_support = "yes";
-      mouse_list_scroll_whole_page = "yes";
-      lines_scrolled = "1";
-      message_delay_time = "1";
-      playlist_shorten_total_times = "yes";
-      playlist_display_mode = "columns";
-      browser_display_mode = "columns";
-      search_engine_display_mode = "columns";
-      playlist_editor_display_mode = "columns";
-      autocenter_mode = "yes";
-      centered_cursor = "yes";
-      user_interface = "classic";
-      locked_screen_width_part = "50";
-      ask_for_locked_screen_width_part = "yes";
-      display_bitrate = "no";
-      external_editor = "hx";
-      main_window_color = "default";
-      startup_screen = "playlist";
+      ncmpcpp_directory = "${config.xdg.configHome}/ncmpcpp";
       visualizer_data_source = "/tmp/mpd.fifo";
       visualizer_output_name = "Visualizer";
       visualizer_in_stereo = "no";
       visualizer_type = "ellipse";
       visualizer_fps = "60";
       visualizer_look = "●▮";
-      visualizer_color = "33,39,63,75,81,99,117,153,189";
+      visualizer_color = "blue,39,33,93,165,201,magenta,white";
+      alternative_header_first_line_format = "\"「 $b$5%a$8 - $6%t$0$/b 」\"";
+      alternative_header_second_line_format = "%n. $5%b$0 [$6%y$0]";
+      current_item_prefix = "\"$b$3»$5$i \"";
+      current_item_suffix = "\" $/i$3«$0$/b\"";
+      current_item_inactive_column_prefix = "\"$b$3»$/b$6 \"";
+      current_item_inactive_column_suffix = "\"$0\"";
+      now_playing_prefix = "\"$b$8 \"";
+      now_playing_suffix = "\"$/b\"";
+      song_window_title_format = "\"Now Playing: {%a - }{%t}|{%f}\"";
+      song_columns_list_format = "(4f)[blue]{nr} (10f)[]{: } (30)[magenta]{b} (10)[blue]{ar} (40)[white]{t} (7f)[magenta]{lr:Length}";
+      playlist_display_mode = "columns";
+      browser_display_mode = "columns";
+      search_engine_display_mode = "columns";
+      playlist_editor_display_mode = "columns";
+      volume_change_step = "5";
+      autocenter_mode = "yes";
+      centered_cursor = "yes";
+      progressbar_look = "\"   \"";
+      user_interface = "alternative";
+      media_library_primary_tag = "album_artist";
+      header_visibility = "no";
+      statusbar_visibility = "no";
+      connected_message_on_startup = "no";
+      titles_visibility = "no";
+      cyclic_scrolling = "yes";
+      follow_now_playing_lyrics = "yes";
+      screen_switcher_mode = "playlist, media_library, lyrics";
+      startup_screen = "playlist";
+      media_library_column_width_ratio_two = "1:2";
+      media_library_column_width_ratio_three = "1:2:3";
+      clock_display_seconds = "yes";
+      display_bitrate = "yes";
+      ignore_leading_the = "yes";
+      ignore_diacritics = "yes";
+      empty_tag_marker = "N/A";
+      tag_editor_extended_numeration = "yes";
+      tags_separator = "\", \"";
+      external_editor = "nvim";
+      colors_enabled = "yes";
+      empty_tag_color = "cyan";
+      header_window_color = "default";
+      volume_color = "blue:b";
+      state_flags_color = "blue:b";
+      main_window_color = "white";
+      color1 = "blue";
+      color2 = "magenta";
+      statusbar_time_color = "magenta:b";
+      player_state_color = "magenta:b";
+      alternative_ui_separator_color = "black:b";
+      window_border_color = "green";
+      active_window_border = "red";
     };
-
-    bindings = [
-      {
-        key = "j";
-        command = "scroll_down";
-      }
-      {
-        key = "k";
-        command = "scroll_up";
-      }
-      {
-        key = "J";
-        command = ["select_item" "scroll_down"];
-      }
-      {
-        key = "K";
-        command = ["select_item" "scroll_up"];
-      }
-    ];
   };
 }

@@ -1,25 +1,42 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.mpd = {
     enable = true;
-    network = {
-      listenAddress = "any";
-      port = 6600;
-    };
-
+    musicDirectory = "${config.xdg.userDirs.music}";
     extraConfig = ''
+      auto_update           "yes"
+      restore_paused        "yes"
+
       audio_output {
-        type    "pipewire"
-        name    "pipewire"
+      	type                "pipewire"
+      	name                "PipeWire Sound Server"
+      	buffer_time         "100000"
       }
-      auto_update "yes"
+
+      audio_output {
+      	type                "fifo"
+      	name                "Visualizer"
+      	format              "44100:16:2"
+      	path                "/tmp/mpd.fifo"
+      }
+
+      audio_output {
+      	type		            "httpd"
+      	name		            "lossless"
+      	encoder		          "flac"
+      	port		            "8000"
+      	max_client	        "8"
+      	mixer_type	        "software"
+      	format		          "44100:16:2"
+      }
     '';
   };
 
   services.mpdris2 = {
     enable = true;
-    notifications = true;
-    mpd = {
-      host = "127.0.0.1";
-    };
+    mpd.host = "127.0.0.1";
   };
 }
