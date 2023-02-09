@@ -36,8 +36,9 @@
     fwupd.enable = true;
     geoclue2.enable = true;
     gvfs.enable = true;
-    udisks2.enable = true;
+    openssh.enable = true;
     printing.enable = true;
+    udisks2.enable = true;
   };
 
   systemd.user.services = {

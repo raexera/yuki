@@ -10,7 +10,6 @@
     # Shared configuration across all machines
     ../global/default
     ../global/users/rxyhn.nix
-    ../global/optional/services/ssh.nix
 
     # Specific configuration
     ./hardware-configuration.nix

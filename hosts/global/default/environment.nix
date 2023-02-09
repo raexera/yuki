@@ -53,6 +53,7 @@
         lm_sensors
         man-pages
         man-pages-posix
+        mpg123
         nodejs
         ntfs3g
         nvme-cli

@@ -23,6 +23,7 @@
     dconf.enable = true;
     nm-applet.enable = true;
     seahorse.enable = true;
+    ssh.startAgent = true;
   };
 
   java = {
