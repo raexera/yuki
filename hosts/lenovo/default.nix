@@ -13,26 +13,20 @@
 
     # Specific configuration
     ./hardware-configuration.nix
-    ./nvidia.nix
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
-
     initrd = {
       systemd.enable = true;
       supportedFilesystems = ["btrfs"];
     };
 
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = ["acpi_call"];
-
     kernelParams = [
-      "i915.force_probe=46a6"
-      "i915.enable_psr=0"
-      "i915.enable_guc=2"
       "i8042.direct"
       "i8042.dumbkbd"
+      "i915.force_probe=46a6"
     ];
 
     loader = {
@@ -64,8 +58,6 @@
 
   environment = {
     variables = {
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       GDK_SCALE = "2";
       GDK_DPI_SCALE = "0.5";
@@ -97,10 +89,41 @@
       package = pkgs.bluez;
     };
 
+    nvidia = {
+      open = true;
+      modesetting.enable = true;
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+
+      prime = {
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+
+        reverseSync.enable = true;
+      };
+    };
+
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      extraPackages = lib.attrValues {
+        inherit
+          (pkgs)
+          intel-media-driver
+          libvdpau-va-gl
+          vaapiIntel
+          vaapiVdpau
+          nvidia-vaapi-driver
+          ;
+      };
     };
   };
 
@@ -149,6 +172,8 @@
         enable = true;
         touchpad = {naturalScrolling = true;};
       };
+
+      videoDrivers = ["nvidia"];
 
       windowManager = {
         awesome = {
