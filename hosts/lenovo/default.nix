@@ -21,7 +21,7 @@
       supportedFilesystems = ["btrfs"];
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelModules = ["acpi_call"];
     kernelParams = [
       "i8042.direct"
