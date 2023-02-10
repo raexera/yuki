@@ -21,13 +21,9 @@
       supportedFilesystems = ["btrfs"];
     };
 
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelModules = ["acpi_call"];
-    kernelParams = [
-      "i8042.direct"
-      "i8042.dumbkbd"
-      "i915.force_probe=46a6"
-    ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = ["i8042.direct" "i8042.dumbkbd" "i915.force_probe=46a6"];
 
     loader = {
       efi = {

@@ -30,7 +30,7 @@
       };
     };
 
-    udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+    udev.packages = [pkgs.gnome.gnome-settings-daemon];
 
     fstrim.enable = true;
     fwupd.enable = true;

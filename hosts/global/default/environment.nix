@@ -5,7 +5,7 @@
 }: {
   environment = {
     binsh = "${pkgs.bash}/bin/bash";
-    shells = with pkgs; [zsh];
+    shells = [pkgs.zsh];
     pathsToLink = ["/share/zsh"];
 
     loginShellInit = ''
