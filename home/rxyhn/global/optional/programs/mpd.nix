@@ -52,64 +52,66 @@
     mpdMusicDir = "${config.xdg.userDirs.music}";
     settings = {
       ncmpcpp_directory = "${config.xdg.configHome}/ncmpcpp";
-      visualizer_data_source = "/tmp/mpd.fifo";
-      visualizer_output_name = "Visualizer";
-      visualizer_in_stereo = "no";
-      visualizer_type = "ellipse";
-      visualizer_fps = "60";
-      visualizer_look = "●▮";
       visualizer_color = "blue,39,33,93,165,201,magenta,white";
-      alternative_header_first_line_format = "\"「 $b$5%a$8 - $6%t$0$/b 」\"";
-      alternative_header_second_line_format = "%n. $5%b$0 [$6%y$0]";
-      current_item_prefix = "\"$b$3»$5$i \"";
-      current_item_suffix = "\" $/i$3«$0$/b\"";
-      current_item_inactive_column_prefix = "\"$b$3»$/b$6 \"";
-      current_item_inactive_column_suffix = "\"$0\"";
-      now_playing_prefix = "\"$b$8 \"";
-      now_playing_suffix = "\"$/b\"";
-      song_window_title_format = "\"Now Playing: {%a - }{%t}|{%f}\"";
-      song_columns_list_format = "(4f)[blue]{nr} (10f)[]{: } (30)[magenta]{b} (10)[blue]{ar} (40)[white]{t} (7f)[magenta]{lr:Length}";
-      playlist_display_mode = "columns";
+      visualizer_data_source = "/tmp/mpd.fifo";
+      visualizer_fps = "60";
+      visualizer_in_stereo = "yes";
+      visualizer_look = "●▮";
+      visualizer_output_name = "Visualizer";
+      visualizer_spectrum_smooth_look = "yes";
+      visualizer_type = "ellipse";
+
       browser_display_mode = "columns";
-      search_engine_display_mode = "columns";
+      playlist_display_mode = "columns";
       playlist_editor_display_mode = "columns";
-      volume_change_step = "5";
-      autocenter_mode = "yes";
-      centered_cursor = "yes";
-      progressbar_look = "\"   \"";
-      user_interface = "alternative";
-      media_library_primary_tag = "album_artist";
+      search_engine_display_mode = "columns";
+      user_interface = "classic";
+
+      allow_for_physical_item_deletion = "no";
+      connected_message_on_startup = "no";
+      display_bitrate = "no";
       header_visibility = "no";
       statusbar_visibility = "no";
-      connected_message_on_startup = "no";
       titles_visibility = "no";
+
+      autocenter_mode = "yes";
+      centered_cursor = "yes";
+      clock_display_seconds = "yes";
       cyclic_scrolling = "yes";
       follow_now_playing_lyrics = "yes";
-      screen_switcher_mode = "playlist, media_library, lyrics";
-      startup_screen = "playlist";
-      media_library_column_width_ratio_two = "1:2";
-      media_library_column_width_ratio_three = "1:2:3";
-      clock_display_seconds = "yes";
-      display_bitrate = "yes";
       ignore_leading_the = "yes";
-      ignore_diacritics = "yes";
-      empty_tag_marker = "N/A";
-      tag_editor_extended_numeration = "yes";
-      tags_separator = "\", \"";
-      external_editor = "nvim";
+      mouse_support = "yes";
+      mouse_list_scroll_whole_page = "yes";
+      playlist_shorten_total_times = "yes";
+
+      lines_scrolled = "1";
+      message_delay_time = "1";
+      volume_change_step = "5";
+
+      startup_screen = "playlist";
+      external_editor = "hx";
+
+      now_playing_prefix = "$b$2$7 ";
+      now_playing_suffix = "  $/b$8";
+      current_item_prefix = "$b$7$/b$3 ";
+      current_item_suffix = "  $8";
+
+      song_columns_list_format = "(53)[white]{tr} (45)[blue]{a}";
+      song_library_format = "{{%a - %t} (%b)}|{%f}";
+      song_list_format = "  %t $R%a %l  ";
+      song_status_format = "$7%t";
+      song_window_title_format = "Music";
+
+      progressbar_color = "black";
+      progressbar_elapsed_color = "blue";
+      progressbar_look = "▂▂▂";
+
       colors_enabled = "yes";
-      empty_tag_color = "cyan";
-      header_window_color = "default";
-      volume_color = "blue:b";
-      state_flags_color = "blue:b";
-      main_window_color = "white";
-      color1 = "blue";
-      color2 = "magenta";
-      statusbar_time_color = "magenta:b";
-      player_state_color = "magenta:b";
-      alternative_ui_separator_color = "black:b";
-      window_border_color = "green";
-      active_window_border = "red";
+      color1 = "white";
+      color2 = "blue";
+      main_window_color = "blue";
+      statusbar_color = "white";
+      volume_color = "white";
     };
   };
 }

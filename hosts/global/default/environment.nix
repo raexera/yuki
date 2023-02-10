@@ -67,7 +67,6 @@
         unrar
         unzip
         util-linux
-        vim
         wget
         xarchiver
         zip
