@@ -60,6 +60,7 @@
       github.copilot.enable."*" = true;
       security.workspace.trust.enabled = false;
       security.workspace.trust.untrustedFiles = "open";
+      stylua.styluaPath = "${pkgs.stylua}/bin/stylua";
 
       "[c]".editor.defaultFormatter = "xaver.clang-format";
       "[cpp]".editor.defaultFormatter = "xaver.clang-format";
@@ -69,7 +70,6 @@
       "[json]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[jsonc]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
       "[lua]".editor.defaultFormatter = "johnnymorganz.stylua";
-      stylua.styluaPath = "${pkgs.stylua}/bin/stylua";
       "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
       "[rust]".editor.defaultFormatter = "rust-lang.rust-analyzer";
       "[scss]".editor.defaultFormatter = "sibiraj-s.vscode-scss-formatter";
@@ -168,14 +168,4 @@
       };
     };
   };
-
-  xdg.configFile.".stylua.toml".text = ''
-    column_width = 120
-    line_endings = "Unix"
-    indent_type = "Spaces"
-    indent_width = 2
-    quote_style = "AutoPreferDouble"
-    call_parentheses = "Always"
-    collapse_simple_statement = "Always"
-  '';
 }
