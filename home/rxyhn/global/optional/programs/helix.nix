@@ -172,11 +172,6 @@
       ;
 
     inherit
-      (pkgs.luaPackages)
-      lua
-      ;
-
-    inherit
       (pkgs.nodePackages_latest)
       jsonlint
       prettier
