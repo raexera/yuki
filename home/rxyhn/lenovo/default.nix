@@ -11,7 +11,6 @@
     ../global/optional/programs/helix.nix
     ../global/optional/programs/mpd.nix
     ../global/optional/programs/mpv.nix
-    ../global/optional/programs/ncmpcpp.nix
     ../global/optional/programs/obs-studio.nix
     ../global/optional/programs/vscode.nix
     ../global/optional/programs/wezterm.nix
