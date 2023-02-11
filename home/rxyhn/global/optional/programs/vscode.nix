@@ -60,6 +60,7 @@
       github.copilot.enable."*" = true;
       security.workspace.trust.enabled = false;
       stylua.styluaPath = "${pkgs.stylua}/bin/stylua";
+      Lua.misc.executablePath = "${pkgs.sumneko-lua-language-server}/bin/lua-language-server";
 
       "[c]".editor.defaultFormatter = "xaver.clang-format";
       "[cpp]".editor.defaultFormatter = "xaver.clang-format";
