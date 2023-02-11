@@ -59,7 +59,6 @@
       emmet.useInlineCompletions = true;
       github.copilot.enable."*" = true;
       security.workspace.trust.enabled = false;
-      security.workspace.trust.untrustedFiles = "open";
       stylua.styluaPath = "${pkgs.stylua}/bin/stylua";
 
       "[c]".editor.defaultFormatter = "xaver.clang-format";
@@ -80,7 +79,7 @@
         cursorSmoothCaretAnimation = "on";
         cursorWidth = 2;
         find.addExtraSpaceOnTop = false;
-        fontFamily = "'monospace', monospace";
+        fontFamily = "'Phosphor', 'monospace', monospace";
         fontSize = 16;
         formatOnSave = true;
         inlayHints.enabled = "off";
