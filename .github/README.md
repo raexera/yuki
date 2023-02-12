@@ -195,8 +195,8 @@ NixOS / Home-Manager / Flake
 
 **Other dotfiles**
 
-- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
+- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
 - [sioodmy/dotfiles](https://github.com/sioodmy/dotfiles)
 
