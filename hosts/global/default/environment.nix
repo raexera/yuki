@@ -21,11 +21,15 @@
         alsa-plugins
         alsa-tools
         alsa-utils
+        bc
+        bandwhich
+        bottom
+        btop
         cairo
         cmake
         coreutils
         curl
-        dconf
+        du-dust
         fd
         findutils
         ffmpeg-full
@@ -54,6 +58,7 @@
         man-pages
         man-pages-posix
         mpg123
+        neofetch
         nodejs
         ntfs3g
         nvme-cli
@@ -61,9 +66,12 @@
         pamixer
         pavucontrol
         pciutils
+        procs
         psmisc
         pulseaudio
         ripgrep
+        sd
+        tree
         unrar
         unzip
         util-linux

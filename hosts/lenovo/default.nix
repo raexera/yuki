@@ -17,21 +17,27 @@
 
   boot = {
     initrd = {
-      systemd.enable = true;
       supportedFilesystems = ["btrfs"];
+      systemd.enable = true;
     };
 
     kernelModules = ["acpi_call"];
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["i8042.direct" "i8042.dumbkbd" "i915.force_probe=46a6"];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+    ];
+
+    kernelParams = [
+      "i8042.direct"
+      "i8042.dumbkbd"
+      "i915.force_probe=46a6"
+    ];
 
     loader = {
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-
-      systemd-boot.enable = false;
 
       grub = {
         enable = true;
@@ -54,9 +60,9 @@
 
   environment = {
     variables = {
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       GDK_SCALE = "2";
       GDK_DPI_SCALE = "0.5";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
 
     systemPackages = lib.attrValues {
@@ -66,8 +72,11 @@
         arandr
         blueberry
         brightnessctl
+        cryptsetup
+        exfatprogs
         libva
         libva-utils
+        ntfs3g
         ocl-icd
         slop
         vulkan-loader
@@ -79,7 +88,6 @@
 
   hardware = {
     enableRedistributableFirmware = true;
-
     bluetooth = {
       enable = true;
       package = pkgs.bluez;
@@ -96,7 +104,6 @@
       prime = {
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
-
         offload = {
           enable = true;
           enableOffloadCmd = true;
@@ -135,7 +142,6 @@
     btrfs.autoScrub.enable = true;
     thermald.enable = true;
     upower.enable = true;
-
     tlp = {
       enable = true;
       settings = {
@@ -163,7 +169,6 @@
       dpi = 144;
       exportConfiguration = true;
       layout = "us";
-
       libinput = {
         enable = true;
         touchpad = {naturalScrolling = true;};
@@ -175,7 +180,6 @@
         awesome = {
           enable = true;
           package = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
-
           luaModules = lib.attrValues {
             inherit (pkgs.luaPackages) lgi ldbus luadbi-mysql luaposix;
           };

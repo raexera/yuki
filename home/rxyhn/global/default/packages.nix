@@ -6,7 +6,6 @@
   home.packages = lib.attrValues {
     inherit
       (pkgs)
-      bc
       cached-nix-shell
       editorconfig-core-c
       gimp

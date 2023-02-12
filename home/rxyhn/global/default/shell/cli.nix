@@ -9,7 +9,6 @@
       (pkgs)
       catimg
       duf
-      du-dust
       file
       joshuto
       perl
