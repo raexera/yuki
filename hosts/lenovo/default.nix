@@ -8,8 +8,10 @@
 }: {
   imports = [
     # Shared configuration across all machines
-    ../global/default
-    ../global/users/rxyhn.nix
+    ../shared
+
+    # Select the user configuration
+    ../shared/users/rxyhn.nix
 
     # Specific configuration
     ./hardware-configuration.nix
@@ -23,10 +25,7 @@
 
     kernelModules = ["acpi_call"];
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    extraModulePackages = with config.boot.kernelPackages; [
-      acpi_call
-    ];
-
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     kernelParams = [
       "i8042.direct"
       "i8042.dumbkbd"
@@ -65,25 +64,22 @@
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
 
-    systemPackages = lib.attrValues {
-      inherit
-        (pkgs)
-        acpi
-        arandr
-        blueberry
-        brightnessctl
-        cryptsetup
-        exfatprogs
-        libva
-        libva-utils
-        ntfs3g
-        ocl-icd
-        slop
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-tools
-        ;
-    };
+    systemPackages = with pkgs; [
+      acpi
+      arandr
+      blueberry
+      brightnessctl
+      cryptsetup
+      exfatprogs
+      libva
+      libva-utils
+      ntfs3g
+      ocl-icd
+      slop
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-tools
+    ];
   };
 
   hardware = {
@@ -117,16 +113,13 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = lib.attrValues {
-        inherit
-          (pkgs)
-          intel-media-driver
-          libvdpau-va-gl
-          vaapiIntel
-          vaapiVdpau
-          nvidia-vaapi-driver
-          ;
-      };
+      extraPackages = with pkgs; [
+        intel-media-driver
+        libvdpau-va-gl
+        vaapiIntel
+        vaapiVdpau
+        nvidia-vaapi-driver
+      ];
     };
   };
 
@@ -138,10 +131,8 @@
 
   services = {
     acpid.enable = true;
-    blueman.enable = true;
     btrfs.autoScrub.enable = true;
     thermald.enable = true;
-    upower.enable = true;
     tlp = {
       enable = true;
       settings = {

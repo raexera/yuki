@@ -1,25 +1,18 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   fonts = {
-    fonts = lib.attrValues {
-      inherit
-        (pkgs)
-        cantarell-fonts
-        fira
-        lato
-        maple-mono
-        maple-mono-NF
-        maple-mono-SC-NF
-        material-symbols
-        noto-fonts
-        noto-fonts-cjk
-        noto-fonts-emoji
-        roboto-slab
-        ;
-    };
+    fonts = with pkgs; [
+      cantarell-fonts
+      fira
+      lato
+      maple-mono
+      maple-mono-NF
+      maple-mono-SC-NF
+      material-symbols
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      roboto-slab
+    ];
 
     fontconfig = {
       enable = true;

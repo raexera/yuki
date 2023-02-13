@@ -25,9 +25,4 @@
     seahorse.enable = true;
     ssh.startAgent = true;
   };
-
-  java = {
-    enable = true;
-    package = pkgs.jre;
-  };
 }

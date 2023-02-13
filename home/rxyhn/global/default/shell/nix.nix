@@ -1,20 +1,13 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
-    packages = lib.attrValues {
-      inherit
-        (pkgs)
-        alejandra
-        any-nix-shell
-        cached-nix-shell
-        deadnix
-        nix-index
-        statix
-        ;
-    };
+    packages = with pkgs; [
+      alejandra
+      any-nix-shell
+      cached-nix-shell
+      deadnix
+      nix-index
+      statix
+    ];
 
     sessionVariables = {
       DIRENV_LOG_FORMAT = "";
