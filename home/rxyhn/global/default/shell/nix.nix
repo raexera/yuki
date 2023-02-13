@@ -9,6 +9,7 @@
         (pkgs)
         alejandra
         any-nix-shell
+        cached-nix-shell
         deadnix
         nix-index
         statix

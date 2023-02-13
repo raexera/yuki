@@ -6,32 +6,45 @@
   home.packages = lib.attrValues {
     inherit
       (pkgs)
-      cached-nix-shell
-      editorconfig-core-c
-      gimp
-      glxinfo
+      black
+      cargo
+      ccls
+      clang
+      clang-tools
+      cmake
+      delve
+      go
+      gopls
       grex
-      hddtemp
-      hyperfine
-      imv
-      mpc_cli
-      nautilus-open-any-terminal
-      sdcv
+      java-language-server
+      lldb
+      nodejs
+      rust-analyzer
+      rustfmt
+      selene
+      shfmt
+      shellcheck
       sqlite
-      trash-cli
-      wirelesstools
-      xclip
-      xsel
-      zoom-us
+      texlab
+      sumneko-lua-language-server
+      stylua
+      uncrustify
       ;
 
     inherit
-      (pkgs.gnome)
-      dconf-editor
-      eog
-      gnome-disk-utility
-      nautilus
-      sushi
+      (pkgs.luaPackages)
+      lua
+      ;
+
+    inherit
+      (pkgs.nodePackages_latest)
+      jsonlint
+      prettier
+      typescript-language-server
+      vls
+      vscode-langservers-extracted
+      yaml-language-server
+      yarn
       ;
   };
 }

@@ -140,45 +140,4 @@
       }
     ];
   };
-
-  home.packages = lib.attrValues {
-    inherit
-      (pkgs)
-      black
-      ccls
-      clang
-      clang-tools
-      delve
-      gawk
-      go
-      gomodifytags
-      gopkgs
-      gopls
-      gotests
-      go-tools
-      java-language-server
-      kotlin-language-server
-      ktlint
-      lldb
-      rust-analyzer
-      rustfmt
-      selene
-      shfmt
-      shellcheck
-      sumneko-lua-language-server
-      stylua
-      uncrustify
-      ;
-
-    inherit
-      (pkgs.nodePackages_latest)
-      jsonlint
-      prettier
-      typescript-language-server
-      vls
-      vscode-langservers-extracted
-      yaml-language-server
-      yarn
-      ;
-  };
 }

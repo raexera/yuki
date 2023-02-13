@@ -7,12 +7,46 @@
   home.packages = lib.attrValues {
     inherit
       (pkgs)
+      bc
+      bandwhich
+      bottom
+      btop
       catimg
+      coreutils
+      curl
+      du-dust
       duf
+      fd
+      findutils
+      editorconfig-core-c
       file
+      hyperfine
       joshuto
+      jq
+      killall
+      lm_sensors
+      lz4
+      man-pages
+      man-pages-posix
+      mpg123
+      neofetch
+      pciutils
       perl
+      procs
+      psmisc
+      p7zip
       ranger
+      ripgrep
+      rsync
+      sd
+      trash-cli
+      tree
+      unrar
+      unzip
+      util-linux
+      wget
+      xarchiver
+      zip
       yt-dlp
       ;
   };

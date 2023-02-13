@@ -22,7 +22,7 @@
     };
 
     kernelModules = ["acpi_call"];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
     ];
@@ -90,7 +90,7 @@
     enableRedistributableFirmware = true;
     bluetooth = {
       enable = true;
-      package = pkgs.bluez;
+      package = pkgs.bluezFull;
     };
 
     nvidia = {

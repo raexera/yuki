@@ -21,24 +21,14 @@
         alsa-plugins
         alsa-tools
         alsa-utils
-        bc
-        bandwhich
-        bottom
-        btop
-        cairo
-        cmake
-        coreutils
-        curl
         dbus
         dconf
-        du-dust
-        fd
-        findutils
         ffmpeg-full
-        fzf
         gcc
         git
+        gimp
         glib
+        glxinfo
         gnumake
         gnuplot
         gnused
@@ -46,10 +36,7 @@
         imagemagick
         inotify-tools
         iw
-        jq
         keepassxc
-        killall
-        lz4
         libappindicator
         libcanberra-gtk3
         libgudev
@@ -57,31 +44,21 @@
         libsecret
         librsvg
         libtool
-        lm_sensors
-        man-pages
-        man-pages-posix
-        mpg123
-        neofetch
-        nodejs
-        ntfs3g
-        nvme-cli
-        p7zip
         pamixer
         pavucontrol
-        pciutils
-        procs
-        psmisc
         pulseaudio
-        ripgrep
-        rsync
-        sd
-        tree
-        unrar
-        unzip
-        util-linux
-        wget
-        xarchiver
-        zip
+        wirelesstools
+        nautilus-open-any-terminal
+        zoom-us
+        ;
+
+      inherit
+        (pkgs.gnome)
+        dconf-editor
+        eog
+        gnome-disk-utility
+        nautilus
+        sushi
         ;
     };
 
