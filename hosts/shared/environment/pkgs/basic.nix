@@ -1,13 +1,13 @@
 {pkgs, ...}:
 with pkgs; [
+  discord-canary
+  keepassxc
   libreoffice-still
+  librewolf
+  pdfarranger
   signal-desktop
   tdesktop
-  librewolf
-  zathura
-  unstable.thunderbird-bin
-  pdfarranger
-  unstable.discord
-  keepassxc
+  thunderbird-bin
   xournalpp
+  zathura
 ]

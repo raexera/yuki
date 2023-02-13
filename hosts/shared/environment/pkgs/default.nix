@@ -13,9 +13,8 @@ in {
   imports = [./fonts.nix];
   environment.systemPackages = with pkgs;
     [
+      figlet
       pfetch
-      cowsay
-      fortune
     ]
     ++ basic
     ++ core
