@@ -29,6 +29,8 @@
         cmake
         coreutils
         curl
+        dbus
+        dconf
         du-dust
         fd
         findutils
@@ -45,6 +47,7 @@
         inotify-tools
         iw
         jq
+        keepassxc
         killall
         lz4
         libappindicator
@@ -70,6 +73,7 @@
         psmisc
         pulseaudio
         ripgrep
+        rsync
         sd
         tree
         unrar

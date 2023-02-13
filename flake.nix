@@ -6,8 +6,8 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     nix-colors.url = "github:misterio77/nix-colors";
-    helix.url = "github:helix-editor/helix";
     nur.url = "github:nix-community/NUR";
+    helix.url = "github:SoraTenshi/helix/experimental-22.12";
     webcord.url = "github:fufexan/webcord-flake";
 
     home-manager = {

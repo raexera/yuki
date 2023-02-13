@@ -145,7 +145,6 @@
     inherit
       (pkgs)
       black
-      cargo
       ccls
       clang
       clang-tools
