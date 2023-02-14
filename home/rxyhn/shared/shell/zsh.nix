@@ -217,19 +217,20 @@
       commit = "git add . && git commit -m";
       push = "git push";
       pull = "git pull";
-      ytmp3 = ''
-        ${lib.getExe yt-dlp} -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
-      cat = "${lib.getExe bat} --style=plain";
+      m = "mkdir -p";
+      fcd = "cd $(find -type d | fzf)";
       grep = lib.getExe ripgrep;
       du = lib.getExe du-dust;
       ps = lib.getExe procs;
       rm = lib.getExe trash-cli;
-      m = "mkdir -p";
-      fcd = "cd $(find -type d | fzf)";
-      l = "ls -lF --time-style=long-iso --icons";
+      cat = "${lib.getExe bat} --style=plain";
+      l = "${lib.getExe exa} -lF --time-style=long-iso --icons";
       la = "${lib.getExe exa} -lah --tree";
       ls = "${lib.getExe exa} -h --git --icons --color=auto --group-directories-first -s extension";
       tree = "${lib.getExe exa} --tree --icons --tree";
+      ytmp3 = ''
+        ${lib.getExe yt-dlp} -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"
+      '';
     };
 
     zplug = {
