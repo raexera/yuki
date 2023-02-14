@@ -5,18 +5,23 @@
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        stdenv.cc.cc
-        openssl
         curl
         glib
-        util-linux
         glibc
         icu
         libunwind
         libuuid
-        zlib
         libsecret
+        openssl
+        stdenv.cc.cc
+        util-linux
+        zlib
       ];
+    };
+
+    java = {
+      enable = true;
+      package = pkgs.jre;
     };
 
     adb.enable = true;

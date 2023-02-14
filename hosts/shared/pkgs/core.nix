@@ -19,4 +19,6 @@ with pkgs; [
   librsvg
   libtool
   pulseaudio
+  stdenv.cc.cc.lib
+  zlib
 ]

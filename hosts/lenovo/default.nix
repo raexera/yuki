@@ -64,22 +64,30 @@
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
 
-    systemPackages = with pkgs; [
-      acpi
-      arandr
-      blueberry
-      brightnessctl
-      cryptsetup
-      exfatprogs
-      libva
-      libva-utils
-      ntfs3g
-      ocl-icd
-      slop
-      vulkan-loader
-      vulkan-validation-layers
-      vulkan-tools
-    ];
+    systemPackages = lib.attrValues {
+      inherit
+        (pkgs)
+        acpi
+        cudatoolkit
+        cryptsetup
+        libva
+        libva-utils
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-tools
+        ;
+
+      inherit
+        (pkgs.cudaPackages)
+        cuda_cudart
+        cudnn
+        ;
+
+      inherit
+        (pkgs.xorg)
+        libX11
+        ;
+    };
   };
 
   hardware = {

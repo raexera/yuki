@@ -4,18 +4,23 @@ with pkgs; [
   alsa-plugins
   alsa-tools
   alsa-utils
+  arandr
   brightnessctl
   bpytop
   efibootmgr
   efitools
+  exfatprogs
   gammastep
   git
   iw
   neovim
+  ntfs3g
+  ocl-icd
   pamixer
   patchelf
   playerctl
   pciutils
+  slop
   smartmontools
   unzip
   usbutils
