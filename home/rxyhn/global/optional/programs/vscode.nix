@@ -26,7 +26,6 @@
         ms-python.python
         ms-python.vscode-pylance
         ms-vscode.cpptools
-        ms-vscode-remote.remote-ssh
         naumovs.color-highlight
         oderwat.indent-rainbow
         pkief.material-product-icons

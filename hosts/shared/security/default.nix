@@ -21,6 +21,11 @@
           value = "1048576";
         }
       ];
+
+      services = {
+        lightdm.enableGnomeKeyring = true;
+        login.enableGnomeKeyring = true;
+      };
     };
 
     polkit.enable = true;

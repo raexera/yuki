@@ -47,25 +47,11 @@
     yt-dlp
   ];
 
-  services = {
-    syncthing.enable = true;
-
-    gpg-agent = {
-      enable = true;
-      pinentryFlavor = "gnome3";
-      enableZshIntegration = true;
-      enableSshSupport = true;
-    };
-  };
-
   programs = {
-    ssh.enable = true;
     exa.enable = true;
-
-    gpg = {
-      enable = true;
-      homedir = "${config.xdg.dataHome}/gnupg";
-    };
+    gpg.enable = true;
+    man.enable = true;
+    ssh.enable = true;
 
     bat = {
       enable = true;
@@ -90,5 +76,12 @@
       enable = true;
       enableZshIntegration = true;
     };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "gnome3";
+    enableSshSupport = true;
+    enableZshIntegration = true;
   };
 }

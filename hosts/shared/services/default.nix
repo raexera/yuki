@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./pipewire.nix
   ];
@@ -23,6 +27,14 @@
       '';
     };
 
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = lib.mkForce false;
+        PermitRootLogin = lib.mkForce "no";
+      };
+    };
+
     udev.packages = [pkgs.gnome.gnome-settings-daemon];
 
     blueman.enable = true;
@@ -30,7 +42,6 @@
     fwupd.enable = true;
     geoclue2.enable = true;
     gvfs.enable = true;
-    openssh.enable = true;
     printing.enable = true;
     udisks2.enable = true;
     upower.enable = true;
