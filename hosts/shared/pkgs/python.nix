@@ -3,7 +3,7 @@ with pkgs;
   [
     (python3.withPackages (p:
       with p; [
-        matpotlib
+        matplotlib
         numpy
         pandas
         pygobject3
