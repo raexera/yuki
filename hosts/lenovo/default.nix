@@ -81,6 +81,11 @@
         (pkgs.cudaPackages)
         cuda_cudart
         cudnn
+        libcublas
+        libcufft
+        libcurand
+        libcusolver
+        libcusparse
         ;
 
       inherit
