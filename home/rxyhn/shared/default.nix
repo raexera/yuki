@@ -13,8 +13,8 @@ in {
       inputs.nix-colors.homeManagerModule
       inputs.webcord.homeManagerModules.default
 
+      ./pkgs
       ./shell
-      ./packages.nix
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 

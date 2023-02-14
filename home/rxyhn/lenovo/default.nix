@@ -6,19 +6,19 @@
 }: {
   imports = [
     # Shared configuration
-    ../global/default
-    ../global/optional/programs/firefox.nix
-    ../global/optional/programs/helix.nix
-    ../global/optional/programs/mpd.nix
-    ../global/optional/programs/mpv.nix
-    ../global/optional/programs/obs-studio.nix
-    ../global/optional/programs/vscode.nix
-    ../global/optional/programs/wezterm.nix
+    ../shared
+    ../shared/optional/programs/firefox.nix
+    ../shared/optional/programs/helix.nix
+    ../shared/optional/programs/mpd.nix
+    ../shared/optional/programs/mpv.nix
+    ../shared/optional/programs/obs-studio.nix
+    ../shared/optional/programs/vscode.nix
+    ../shared/optional/programs/wezterm.nix
 
     # Specific configuration
     ./desktop
+    ./pkgs
     ./services
     ./X
-    ./packages.nix
   ];
 }

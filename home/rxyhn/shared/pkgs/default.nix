@@ -46,5 +46,13 @@
       yaml-language-server
       yarn
       ;
+
+    inherit
+      (pkgs.python310.withPackages (p:
+        with p; [
+          python-lsp-server
+          flake8
+        ]))
+      ;
   };
 }
