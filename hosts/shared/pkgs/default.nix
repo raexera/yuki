@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  basic = import ./basic.nix {pkgs = pkgs;};
+  common = import ./common.nix {pkgs = pkgs;};
   core = import ./core.nix {pkgs = pkgs;};
   cliutils = import ./cliutils.nix {pkgs = pkgs;};
   guiutils = import ./guiutils.nix {pkgs = pkgs;};
@@ -16,10 +16,10 @@ in {
       figlet
       pfetch
     ]
-    ++ basic
+    ++ common
     ++ core
-    ++ guiutils
     ++ cliutils
+    ++ guiutils
     ++ media
     ++ pythonpackages;
 }

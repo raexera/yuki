@@ -18,6 +18,8 @@ in {
         "wheel"
         "video"
         "audio"
+        "input"
+        "networkmanager"
       ]
       ++ ifTheyExist [
         "network"

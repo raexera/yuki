@@ -68,6 +68,7 @@
       inherit
         (pkgs)
         acpi
+        addOpenGLRunpath
         cudatoolkit
         cryptsetup
         libva
@@ -79,13 +80,11 @@
 
       inherit
         (pkgs.cudaPackages)
+        cuda_cccl
         cuda_cudart
+        cuda_nvcc
         cudnn
-        libcublas
-        libcufft
-        libcurand
-        libcusolver
-        libcusparse
+        cutensor
         ;
 
       inherit
