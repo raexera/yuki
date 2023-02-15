@@ -6,7 +6,6 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    nix-colors.url = "github:misterio77/nix-colors";
     nur.url = "github:nix-community/NUR";
     helix.url = "github:SoraTenshi/helix/experimental-22.12";
 
@@ -24,6 +23,16 @@
       url = "github:oxalica/nil";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
+    };
+
+    whitesur-gtk-theme = {
+      url = "github:vinceliuice/WhiteSur-gtk-theme";
+      flake = false;
+    };
+
+    whitesur-icon-theme = {
+      url = "github:vinceliuice/WhiteSur-icon-theme";
+      flake = false;
     };
   };
 

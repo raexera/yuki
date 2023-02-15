@@ -5,13 +5,9 @@
   inputs,
   outputs,
   ...
-}: let
-  inherit (inputs.nix-colors) colorSchemes;
-in {
+}: {
   imports =
     [
-      inputs.nix-colors.homeManagerModule
-
       ./pkgs
       ./shell
     ]
@@ -53,7 +49,4 @@ in {
     homeDirectory = "/home/${config.home.username}";
     stateVersion = "23.05";
   };
-
-  colorscheme = colorSchemes.ashes;
-  home.file.".colorscheme".text = config.colorscheme.slug;
 }

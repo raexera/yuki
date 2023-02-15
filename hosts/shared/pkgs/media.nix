@@ -3,7 +3,6 @@ with pkgs; [
   feh
   inkscape
   gimp
-  nomacs
-  spotify
+  # spotify
   vlc
 ]
