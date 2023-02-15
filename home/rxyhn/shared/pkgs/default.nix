@@ -47,12 +47,10 @@
       yarn
       ;
 
-    inherit
-      (pkgs.python310.withPackages (p:
-        with p; [
-          python-lsp-server
-          flake8
-        ]))
-      ;
+    pylsp = pkgs.python310.withPackages (p:
+      with p; [
+        python-lsp-server
+        flake8
+      ]);
   };
 }
