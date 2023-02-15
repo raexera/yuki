@@ -13,7 +13,7 @@
     };
 
     sessionVariables = {
-      GTK_THEME = "phocus";
+      GTK_THEME = "WhiteSur-dark";
       XCURSOR_SIZE = "48";
     };
   };
