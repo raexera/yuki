@@ -46,6 +46,7 @@ in {
       emmet.useInlineCompletions = true;
       github.copilot.enable."*" = true;
       security.workspace.trust.enabled = false;
+      black-formatter.path = lib.getExe pkgs.black;
       stylua.styluaPath = lib.getExe pkgs.stylua;
       nix.serverPath = lib.getExe inputs.nil.packages.${pkgs.system}.default;
       Lua.misc.executablePath = "${pkgs.sumneko-lua-language-server}/bin/lua-language-server";
@@ -59,10 +60,13 @@ in {
       "[jsonc]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
       "[lua]".editor.defaultFormatter = "johnnymorganz.stylua";
       "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
-      "[python]".editor.defaultFormatter = "ms-python.black-formatter";
       "[rust]".editor.defaultFormatter = "rust-lang.rust-analyzer";
       "[scss]".editor.defaultFormatter = "sibiraj-s.vscode-scss-formatter";
       "[typescript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
+      "[python]".editor = {
+        defaultFormatter = "ms-python.black-formatter";
+        formatOnType = true;
+      };
 
       editor = {
         cursorBlinking = "smooth";
