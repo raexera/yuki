@@ -13,7 +13,7 @@
     };
 
     sessionVariables = {
-      GTK_THEME = "WhiteSur-dark";
+      GTK_THEME = "WhiteSur-Dark";
       XCURSOR_SIZE = "48";
     };
   };
@@ -48,7 +48,7 @@
     };
 
     theme = {
-      name = "WhiteSur-dark";
+      name = "WhiteSur-Dark";
       package = pkgs.whitesur-gtk-theme;
     };
   };

@@ -3,15 +3,13 @@ with pkgs; [
   blueman
   galculator
   gparted
-  nautilus-open-any-terminal
+  nemo-qml-plugin-dbus
   pavucontrol
   virt-manager
   xarchiver
   zoom-us
 
+  cinnamon.nemo
   gnome.dconf-editor
-  gnome.eog
   gnome.gnome-disk-utility
-  gnome.nautilus
-  gnome.sushi
 ]
