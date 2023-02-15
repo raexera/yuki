@@ -1,28 +1,31 @@
 {
   config,
+  inputs,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  marketplace-extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
+    johnnymorganz.stylua
+    ms-python.black-formatter
+    rvest.vs-code-prettier-eslint
+    sndst00m.markdown-github-dark-pack
+  ];
+in {
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
     extensions = with pkgs.vscode-extensions;
       [
-        adpyke.codesnap
         bbenoist.nix
         catppuccin.catppuccin-vsc
-        christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         eamodio.gitlens
         esbenp.prettier-vscode
-        formulahendry.code-runner
         github.copilot
         golang.go
-        ibm.output-colorizer
         kamadorueda.alejandra
-        matklad.rust-analyzer
         mkhl.direnv
-        ms-azuretools.vscode-docker
         ms-python.python
         ms-python.vscode-pylance
         ms-vscode.cpptools
@@ -30,36 +33,22 @@
         oderwat.indent-rainbow
         pkief.material-product-icons
         pkief.material-icon-theme
-        streetsidesoftware.code-spell-checker
         oderwat.indent-rainbow
         sumneko.lua
         usernamehw.errorlens
         vadimcn.vscode-lldb
         xaver.clang-format
-        yzhang.markdown-all-in-one
       ]
-      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "stylua";
-          publisher = "johnnymorganz";
-          version = "1.4.0";
-          sha256 = "sha256-0hdjyQbBbo4NblG6VH339sN/oPQEGDtGjJSyHdM4JCM=";
-        }
-        {
-          name = "vs-code-prettier-eslint";
-          publisher = "rvest";
-          version = "5.0.4";
-          sha256 = "sha256-aLEAuFQQTxyFSfr7dXaYpm11UyBuDwBNa0SBCMJAVRI=";
-        }
-      ];
+      ++ marketplace-extensions;
 
     userSettings = {
       breadcrumbs.enabled = false;
       emmet.useInlineCompletions = true;
       github.copilot.enable."*" = true;
       security.workspace.trust.enabled = false;
-      stylua.styluaPath = "${pkgs.stylua}/bin/stylua";
-      Lua.misc.executablePath = "${pkgs.sumneko-lua-language-server}/bin/lua-language-server";
+      stylua.styluaPath = lib.getExe pkgs.stylua;
+      Lua.misc.executablePath = lib.getExe pkgs.sumneko-lua-language-server;
+      nix.serverPath = lib.getExe inputs.nil.packages.${pkgs.system}.default;
 
       "[c]".editor.defaultFormatter = "xaver.clang-format";
       "[cpp]".editor.defaultFormatter = "xaver.clang-format";
@@ -70,6 +59,7 @@
       "[jsonc]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
       "[lua]".editor.defaultFormatter = "johnnymorganz.stylua";
       "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
+      "[python]".editor.defaultFormatter = "ms-python.black-formatter";
       "[rust]".editor.defaultFormatter = "rust-lang.rust-analyzer";
       "[scss]".editor.defaultFormatter = "sibiraj-s.vscode-scss-formatter";
       "[typescript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";

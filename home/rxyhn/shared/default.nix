@@ -11,7 +11,6 @@ in {
   imports =
     [
       inputs.nix-colors.homeManagerModule
-      inputs.webcord.homeManagerModules.default
 
       ./pkgs
       ./shell
