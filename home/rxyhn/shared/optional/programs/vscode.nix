@@ -47,8 +47,8 @@ in {
       github.copilot.enable."*" = true;
       security.workspace.trust.enabled = false;
       stylua.styluaPath = lib.getExe pkgs.stylua;
-      Lua.misc.executablePath = lib.getExe pkgs.sumneko-lua-language-server;
       nix.serverPath = lib.getExe inputs.nil.packages.${pkgs.system}.default;
+      Lua.misc.executablePath = "${pkgs.sumneko-lua-language-server}/bin/lua-language-server";
 
       "[c]".editor.defaultFormatter = "xaver.clang-format";
       "[cpp]".editor.defaultFormatter = "xaver.clang-format";

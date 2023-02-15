@@ -100,7 +100,7 @@
 
     initExtra = ''
       FZF_TAB_COMMAND=(
-        ${pkgs.fzf}/bin/fzf
+        ${lib.getExe pkgs.fzf}
         --ansi
         --expect='$continuous_trigger'
         --nth=2,3 --delimiter='\x00'

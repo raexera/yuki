@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   programs = {
-    bash.promptInit = ''eval "$(${pkgs.starship}/bin/starship init bash)"'';
+    bash.promptInit = ''eval "$(${lib.getExe pkgs.starship} init bash)"'';
 
     nix-ld = {
       enable = true;

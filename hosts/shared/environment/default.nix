@@ -1,11 +1,15 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./variables.nix
   ];
 
-  environment = {
-    binsh = "${pkgs.bash}/bin/bash";
-    shells = [pkgs.zsh];
+  environment = with pkgs; {
+    binsh = lib.getExe bash;
+    shells = [zsh];
     pathsToLink = ["/share/zsh"];
 
     loginShellInit = ''
