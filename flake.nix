@@ -24,16 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };
-
-    whitesur-gtk-theme = {
-      url = "github:vinceliuice/WhiteSur-gtk-theme";
-      flake = false;
-    };
-
-    whitesur-icon-theme = {
-      url = "github:vinceliuice/WhiteSur-icon-theme";
-      flake = false;
-    };
   };
 
   outputs = {

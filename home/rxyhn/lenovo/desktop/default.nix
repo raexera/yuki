@@ -13,7 +13,7 @@
     };
 
     sessionVariables = {
-      GTK_THEME = "WhiteSur-Dark";
+      GTK_THEME = "Colloid-Dark";
       XCURSOR_SIZE = "48";
     };
   };
@@ -23,33 +23,28 @@
   gtk = {
     enable = true;
     font = {
-      name = "sans-serif";
-      size = 13;
+      name = "Lato";
+      package = pkgs.lato;
     };
 
-    gtk2.extraConfig = ''
-      gtk-xft-antialias=1
-      gtk-xft-hinting=1
-      gtk-xft-hintstyle="hintslight"
-      gtk-xft-rgba="rgb"
-    '';
-
     gtk3.extraConfig = {
-      gtk-xft-antialias = 1;
-      gtk-xft-hinting = 1;
-      gtk-xft-hintstyle = "hintslight";
-      gtk-xft-rgba = "rgb";
+      gtk-application-prefer-dark-theme = true;
+      gtk-decoration-layout = "menu:";
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
       gtk-decoration-layout = "menu:";
     };
 
     iconTheme = {
-      name = "WhiteSur-dark";
-      package = pkgs.whitesur-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
 
     theme = {
-      name = "WhiteSur-Dark";
-      package = pkgs.whitesur-gtk-theme;
+      name = "Colloid-Dark";
+      package = pkgs.colloid-gtk-theme;
     };
   };
 
@@ -57,8 +52,8 @@
     enable = true;
     platformTheme = "gnome";
     style = {
-      package = pkgs.adwaita-qt;
       name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
     };
   };
 }

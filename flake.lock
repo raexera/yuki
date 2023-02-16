@@ -583,9 +583,7 @@
         "nixpkgs-f2k": "nixpkgs-f2k",
         "nixpkgs-master": "nixpkgs-master",
         "nur": "nur",
-        "rust-overlay": "rust-overlay_3",
-        "whitesur-gtk-theme": "whitesur-gtk-theme",
-        "whitesur-icon-theme": "whitesur-icon-theme"
+        "rust-overlay": "rust-overlay_3"
       }
     },
     "rust-analyzer-src": {
@@ -707,38 +705,6 @@
         "submodules": true,
         "type": "git",
         "url": "https://github.com/wez/wezterm.git"
-      }
-    },
-    "whitesur-gtk-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1676392122,
-        "narHash": "sha256-GQKGG/BSUBSa3dVzOaNZHWMOmUMxgsaaBMp3RAdL9KE=",
-        "owner": "vinceliuice",
-        "repo": "WhiteSur-gtk-theme",
-        "rev": "194ea65fbaae0994b5ccfcef16e3eea61002eca9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vinceliuice",
-        "repo": "WhiteSur-gtk-theme",
-        "type": "github"
-      }
-    },
-    "whitesur-icon-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1675845725,
-        "narHash": "sha256-bGFxp48yk1DfJ7DMsSe3oeZfUekh/I51nSPBdG1bLc0=",
-        "owner": "vinceliuice",
-        "repo": "WhiteSur-icon-theme",
-        "rev": "b8acec9dd708689a76504d79307e102228e78fdb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vinceliuice",
-        "repo": "WhiteSur-icon-theme",
-        "type": "github"
       }
     }
   },
