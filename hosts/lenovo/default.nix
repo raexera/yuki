@@ -64,16 +64,30 @@
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
 
-    systemPackages = with pkgs; [
-      acpi
-      addOpenGLRunpath
-      cryptsetup
-      libva
-      libva-utils
-      vulkan-loader
-      vulkan-validation-layers
-      vulkan-tools
-    ];
+    systemPackages = lib.attrValues {
+      inherit
+        (pkgs)
+        acpi
+        addOpenGLRunpath
+        cryptsetup
+        cudatoolkit
+        libva
+        libva-utils
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-tools
+        ;
+
+      inherit
+        (pkgs.cudaPackages)
+        cuda_cccl
+        cuda_cudart
+        cuda_nvcc
+        cudnn
+        cutensor
+        nccl
+        ;
+    };
   };
 
   hardware = {
