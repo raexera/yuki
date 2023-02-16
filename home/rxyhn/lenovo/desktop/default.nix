@@ -25,6 +25,7 @@
     font = {
       name = "Lato";
       package = pkgs.lato;
+      size = 12;
     };
 
     gtk3.extraConfig = {
