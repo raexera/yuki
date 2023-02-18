@@ -7,6 +7,10 @@
 
   # Modifies existing packages
   modifications = final: prev: {
+    awesome-git-luajit = inputs.nixpkgs-f2k.packages.${prev.system}.awesome-git.override {
+      lua = prev.luajit;
+    };
+
     discord-canary = prev.discord-canary.override {
       nss = prev.nss_latest;
       withOpenASAR = true;
