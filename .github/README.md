@@ -42,22 +42,40 @@ NixOS / Home-Manager / Flake
 <br>
 
 ## :snowflake: <samp>Information</samp>
+NixOS is a unique Linux distribution that employs an advanced package management system called Nix. With Nix, users can install and update software packages in isolated environments, enabling them to securely install multiple versions of software simultaneously.
 
-NixOS is a Linux distribution that introduces a unique and advanced package management model called Nix. Nix allows users to install and update software packages in an isolated environment, so users can install different versions of software simultaneously and securely.
+In NixOS, dotfiles are akin to dotfiles found in other Unix-based operating systems, but they differ in that they use Nix expressions to organize system and application configurations. Nix expressions are configuration files that are written in Nix syntax, which can be used to define, install, and configure software packages, services, and other system components in NixOS.
 
-Dotfiles in NixOS are similar to dotfiles in other Unix-based operating systems, but because of their use with Nix, system and application configurations in NixOS can be organized using Nix expressions. Nix expressions are configuration files in Nix format that can be used to define, install, and configure software packages, services, and other system configurations in NixOS.
+By utilizing Nix expressions to organize dotfiles, NixOS provides an efficient and reliable way to manage configurations, allowing for easy reproducibility, version control, and consistent setups across multiple machines. Additionally, this approach provides a modular system that enables users to share, reuse, and modify their configurations easily.
 
-Dotfiles in NixOS usually consist of a collection of Nix expressions and scripts used to configure the system and applications in NixOS.
+For new users, it's important to note that the learning curve for NixOS can be steep, as it requires a different approach to package management and system configuration compared to other Linux distributions. However, with the benefits it offers, many users find it worth the effort to learn.
+
+Typically, NixOS dotfiles consist of a collection of Nix expressions and scripts used to configure the system and applications.
+
+There are several advantages to using NixOS as an operating system:
+
+1. **Reproducibility**: Every package and dependency in NixOS is installed in an isolated environment, ensuring the right version is installed for the user's needs. Additionally, installations can be easily reproduced on other machines.
+
+2. **Consistent configuration**: NixOS stores the operating system configuration in a centralized Nix configuration file, ensuring consistent setup on other machines.
+
+3. **Rollback**: NixOS keeps a copy of every configuration change, making it easy to rollback to the previous configuration if a problem occurs.
+
+4. **Modularity**: The Nix package manager and flake feature allow users to organize and prepare configurations as reusable packages or modules, making it easy to install new applications or change system configurations.
+
+5. **Easy application management**: Applications and dependencies are installed in isolated environments, making it easy to install and remove applications without disrupting other system components.
+
+6. **Active community**: The NixOS community is friendly and active, providing support and solutions for troubleshooting.
+
+In summary, NixOS is a highly modular and consistent operating system that offers users complete control over their system configuration. It's an excellent choice for users who want to ensure reproducibility, consistency, and easy management of their software installations, but it does require a learning curve. However, many users find it worth the effort due to its benefits.
 
 <br>
 <br>
 
 ## :wrench: <samp>Installation</samp>
 
-I highly recommend creating your own configurations and using this repo as a reference to suit your preferences and needs.
-And please note that I made these dotfiles specific to my hardware. so use at your own risk.
+I highly recommend creating your own configurations based on these dotfiles. Use this repository as a reference to customize your setup according to your preferences and requirements. Please note that these dotfiles were created for my specific hardware configuration, so use them at your own risk.
 
-Well, let's go straight to the installation stage!
+But anyway… let's move on to the installation process!
 
 1. Download iso
 
