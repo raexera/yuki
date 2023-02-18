@@ -8,12 +8,12 @@
 with lib; let
   cfg = config.windowManager.awesome;
 
-  fzy-lua = pkgs.callPackage ({
+  fzy = pkgs.callPackage ({
     luajit,
     fetchFromGitHub,
   }:
     luajit.pkgs.buildLuarocksPackage rec {
-      pname = "fzy-lua";
+      pname = "fzy";
       version = "scm-1";
       src = fetchFromGitHub {
         owner = "swarn";
@@ -87,7 +87,7 @@ in {
             ldbus
             luadbi-mysql
             luaposix
-            fzy-lua
+            fzy
           ];
         };
       };
