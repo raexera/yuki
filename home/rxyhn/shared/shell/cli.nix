@@ -13,11 +13,12 @@
     curl
     du-dust
     duf
+    editorconfig-core-c
     fd
     findutils
-    editorconfig-core-c
     file
     hyperfine
+    imv
     joshuto
     jq
     killall
@@ -25,6 +26,7 @@
     lz4
     man-pages
     man-pages-posix
+    mpc_cli
     mpg123
     neofetch
     pciutils
@@ -76,12 +78,5 @@
       enable = true;
       enableZshIntegration = true;
     };
-  };
-
-  services.gpg-agent = {
-    enable = true;
-    pinentryFlavor = "gnome3";
-    enableSshSupport = true;
-    enableZshIntegration = true;
   };
 }

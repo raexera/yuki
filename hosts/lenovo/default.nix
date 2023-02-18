@@ -64,30 +64,15 @@
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     };
 
-    systemPackages = lib.attrValues {
-      inherit
-        (pkgs)
-        acpi
-        addOpenGLRunpath
-        cryptsetup
-        cudatoolkit
-        libva
-        libva-utils
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-tools
-        ;
-
-      inherit
-        (pkgs.cudaPackages)
-        cuda_cccl
-        cuda_cudart
-        cuda_nvcc
-        cudnn
-        cutensor
-        nccl
-        ;
-    };
+    systemPackages = with pkgs; [
+      acpi
+      cryptsetup
+      libva
+      libva-utils
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-tools
+    ];
   };
 
   hardware = {
@@ -153,39 +138,10 @@
       };
     };
 
-    xserver = {
-      enable = true;
-      displayManager = {
-        autoLogin = {
-          enable = true;
-          user = "rxyhn";
-        };
-
-        defaultSession = "none+awesome";
-        lightdm.enable = true;
-      };
-
-      dpi = 144;
-      exportConfiguration = true;
-      layout = "us";
-      libinput = {
-        enable = true;
-        touchpad = {naturalScrolling = true;};
-      };
-
-      videoDrivers = ["nvidia"];
-
-      windowManager = {
-        awesome = {
-          enable = true;
-          package = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
-          luaModules = lib.attrValues {
-            inherit (pkgs.luaPackages) lgi ldbus luadbi-mysql luaposix;
-          };
-        };
-      };
-    };
+    xserver.videoDrivers = ["nvidia"];
   };
+
+  windowManager.awesome.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

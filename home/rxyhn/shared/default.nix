@@ -9,6 +9,7 @@
   imports =
     [
       ./pkgs
+      ./services
       ./shell
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
