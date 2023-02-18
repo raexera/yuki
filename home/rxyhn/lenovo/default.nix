@@ -17,7 +17,6 @@
 
     # Specific configuration
     ./desktop
-    ./pkgs
     ./services
     ./X
   ];
