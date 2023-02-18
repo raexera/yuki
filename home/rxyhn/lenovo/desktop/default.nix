@@ -3,19 +3,12 @@
   pkgs,
   ...
 }: {
-  home = {
-    pointerCursor = {
-      name = "macOS-Monterey";
-      package = pkgs.macos-cursors;
-      size = 48;
-      gtk.enable = true;
-      x11.enable = true;
-    };
-
-    sessionVariables = {
-      GTK_THEME = "Colloid-Dark";
-      XCURSOR_SIZE = "48";
-    };
+  home.pointerCursor = {
+    name = "macOS-Monterey";
+    package = pkgs.macos-cursors;
+    size = 32;
+    gtk.enable = true;
+    x11.enable = true;
   };
 
   fonts.fontconfig.enable = true;
@@ -25,7 +18,7 @@
     font = {
       name = "Lato";
       package = pkgs.lato;
-      size = 12;
+      size = 13;
     };
 
     gtk3.extraConfig = {

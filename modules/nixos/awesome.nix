@@ -82,7 +82,7 @@ in {
         };
     };
 
-    environment.systemPackages = attrValues {
+    environment.systemPackages = lib.attrValues {
       inherit
         (pkgs)
         awesome-git-luajit
