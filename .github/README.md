@@ -43,32 +43,21 @@ NixOS / Home-Manager / Flake
 
 ## :snowflake: <samp>Information</samp>
 
-<div>
-<img src="https://raw.githubusercontent.com/awesomeWM/apidoc/gh-pages/images/AUTOGEN_wibox_logo_logo_and_name.svg" align=right />
+NixOS is a Linux distribution that introduces a unique and advanced package management model called Nix. Nix allows users to install and update software packages in an isolated environment, so users can install different versions of software simultaneously and securely.
 
-<table align=left><tr><td>
-<b>- Operating System: </b><br />
-<b>- Window Manager: </b><br />
-<b>- Compositor: </b><br />
-<b>- Terminal: </b><br />
-<b>- Shell: </b><br />
-<b>- Editor: </b><br />
-<b>- GPU: </b><br /></table>
+Dotfiles in NixOS are similar to dotfiles in other Unix-based operating systems, but because of their use with Nix, system and application configurations in NixOS can be organized using Nix expressions. Nix expressions are configuration files in Nix format that can be used to define, install, and configure software packages, services, and other system configurations in NixOS.
 
-<table><tr><td>
-<a href="https://nixos.org">NixOS</a><br />
-<a href="https://awesomewm.org">AwesomeWM</a><br />
-<a href="https://github.com/yshui/picom">Picom</a><br />
-<a href="https://wezfurlong.org/wezterm">Wezterm</a><br />
-<a href="https://www.zsh.org">ZSH</a><br />
-<a href="https://helix-editor.com">Helix</a><br />
-<a href="https://www.nvidia.com">Nvidia</a><br /></table>
-</div>
+Dotfiles in NixOS usually consist of a collection of Nix expressions and scripts used to configure the system and applications in NixOS.
 
 <br>
 <br>
 
 ## :wrench: <samp>Installation</samp>
+
+I highly recommend creating your own configurations and using this repo as a reference to suit your preferences and needs.
+And please note that I made these dotfiles specific to my hardware. so use at your own risk.
+
+Well, let's go straight to the installation stage!
 
 1. Download iso
 
@@ -193,7 +182,7 @@ NixOS / Home-Manager / Flake
   </tr>
 </table>
 
-**Other dotfiles**
+Other dotfiles
 
 - [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
