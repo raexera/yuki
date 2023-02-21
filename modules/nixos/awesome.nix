@@ -78,6 +78,15 @@ with lib; let
       propagatedBuildInputs = [async-lua luajit luajitPackages.lgi];
     }) {};
 
+  getLuaPath = lib: dir: "${lib}/${dir}/lua/${pkgs.luajit.luaversion}";
+  makeSearchPath = lib.concatMapStrings (
+    path:
+      " --search "
+      + (getLuaPath path "share")
+      + " --search "
+      + (getLuaPath path "lib")
+  );
+
   luaModules = with pkgs.luajitPackages; [
     lgi
     ldbus
