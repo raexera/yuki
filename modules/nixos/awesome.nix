@@ -27,6 +27,77 @@ with lib; let
       luaposix
       ;
 
+    dbus_proxy = pkgs.callPackage ({
+      luajit,
+      luajitPackages,
+      fetchFromGitHub,
+    }:
+      luajitPackages.buildLuaPackage rec {
+        pname = "dbus_proxy";
+        version = "0.10.3";
+        name = "${pname}-${version}";
+
+        src = fetchFromGitHub {
+          owner = "stefano-m";
+          repo = "lua-${pname}";
+          rev = "v${version}";
+          sha256 = "sha256-Yd8TN/vKiqX7NOZyy8OwOnreWS5gdyVMTAjFqoAuces=";
+        };
+
+        propagatedBuildInputs = [luajitPackages.lgi];
+        buildPhase = ":";
+        installPhase = ''
+          mkdir -p "$out/share/lua/${luajit.luaversion}"
+          cp -r src/${pname} "$out/share/lua/${luajit.luaversion}/"
+        '';
+      }) {};
+
+    async-lua = pkgs.callPackage ({
+      luajit,
+      fetchFromGitHub,
+    }:
+      luajit.pkgs.buildLuarocksPackage rec {
+        pname = "async.lua";
+        version = "scm-1";
+
+        src = fetchFromGitHub {
+          owner = "sclu1034";
+          repo = pname;
+          rev = "f8d8f70a1ef1f7c4d5e3e65a36e0e23d65129e92";
+          hash = "sha256-zWeIZkdO5uOHI2dkzseCEj8+BldH7X1ZtfIQhDFjaQY=";
+        };
+
+        preConfigure = ''
+          ln -s rocks/${pname}-${version}.rockspec .
+        '';
+
+        propagatedBuildInputs = [luajit];
+      }) {};
+
+    lgi-async-extra = pkgs.callPackage ({
+      async-lua,
+      luajit,
+      luajitPackages,
+      fetchFromGitHub,
+    }:
+      luajit.pkgs.buildLuarocksPackage rec {
+        pname = "lgi-async-extra";
+        version = "scm-1";
+
+        src = fetchFromGitHub {
+          owner = "sclu1034";
+          repo = pname;
+          rev = "45281ceaf42140f131861ca6d1717912f94f0bfd";
+          hash = "sha256-4Lydw1l3ETLzmsdQu53116rn2oV+XKDDpgxpa3yFbYM=";
+        };
+
+        preConfigure = ''
+          ln -s rocks/${pname}-${version}.rockspec .
+        '';
+
+        propagatedBuildInputs = [async-lua luajit luajitPackages.lgi];
+      }) {};
+
     fzy = pkgs.callPackage ({
       luajit,
       fetchFromGitHub,
@@ -34,12 +105,14 @@ with lib; let
       luajit.pkgs.buildLuarocksPackage rec {
         pname = "fzy";
         version = "scm-1";
+
         src = fetchFromGitHub {
           owner = "swarn";
           repo = pname;
           rev = "0afc7bfaef9c8e6c3882069c7bf3d6548efa788e";
           hash = "sha256-WfHPRN2fC3qYLuHpJHoOzh7DnY7xZdCp8bN6kEKc7W8=";
         };
+
         propagatedBuildInputs = [luajit];
       }) {};
   };
@@ -109,6 +182,11 @@ in {
       inherit
         (pkgs.xfce)
         xfce4-clipman-plugin
+        ;
+
+      inherit
+        (pkgs.xorg)
+        xwininfo
         ;
     };
   };
