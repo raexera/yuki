@@ -18,7 +18,7 @@ with lib; let
       + (getLuaPath path "lib")
   );
 
-  luaModules = lib.attrValues {
+  luaModules = lib.attrValues rec {
     inherit
       (pkgs.luajitPackages)
       lgi
@@ -75,7 +75,6 @@ with lib; let
       }) {};
 
     lgi-async-extra = pkgs.callPackage ({
-      async-lua,
       luajit,
       luajitPackages,
       fetchFromGitHub,
