@@ -13,7 +13,7 @@ with lib; let
     luajitPackages,
     fetchFromGitHub,
   }:
-    luajitPackages.buildLuaPackage rec {
+    luajit.pkgs.buildLuaPackage rec {
       pname = "dbus_proxy";
       version = "0.10.3";
       name = "${pname}-${version}";
@@ -27,6 +27,7 @@ with lib; let
 
       propagatedBuildInputs = [luajitPackages.lgi];
       buildPhase = ":";
+
       installPhase = ''
         mkdir -p "$out/share/lua/${luajit.luaversion}"
         cp -r src/${pname} "$out/share/lua/${luajit.luaversion}/"
