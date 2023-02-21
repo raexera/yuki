@@ -90,6 +90,7 @@
     nvidia = {
       open = true;
       modesetting.enable = true;
+
       powerManagement = {
         enable = true;
         finegrained = true;
@@ -98,6 +99,7 @@
       prime = {
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
+
         offload = {
           enable = true;
           enableOffloadCmd = true;
@@ -121,6 +123,8 @@
     };
   };
 
+  location.provider = "geoclue2";
+
   networking = {
     hostName = "lenovo";
     networkmanager.enable = true;
@@ -130,6 +134,7 @@
   services = {
     acpid.enable = true;
     btrfs.autoScrub.enable = true;
+    logind.lidSwitch = "suspend";
     thermald.enable = true;
     tlp = {
       enable = true;
@@ -142,6 +147,8 @@
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       };
     };
+
+    upower.enable = true;
 
     xserver = {
       dpi = 144;

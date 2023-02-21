@@ -8,113 +8,87 @@
 with lib; let
   cfg = config.services.xserver.windowManager.awesome;
 
-  # reinventing the wheel of the default awesomewm module
-  getLuaPath = lib: dir: "${lib}/${dir}/lua/${pkgs.luajit.luaversion}";
-  makeSearchPath = lib.concatMapStrings (
-    path:
-      " --search "
-      + (getLuaPath path "share")
-      + " --search "
-      + (getLuaPath path "lib")
-  );
+  dbus_proxy = pkgs.callPackage ({
+    luajit,
+    luajitPackages,
+    fetchFromGitHub,
+  }:
+    luajitPackages.buildLuaPackage rec {
+      pname = "dbus_proxy";
+      version = "0.10.3";
+      name = "${pname}-${version}";
 
-  luaModules = lib.attrValues rec {
-    inherit
-      (pkgs.luajitPackages)
-      lgi
-      ldbus
-      luadbi-mysql
-      luaposix
-      ;
+      src = fetchFromGitHub {
+        owner = "stefano-m";
+        repo = "lua-${pname}";
+        rev = "v${version}";
+        sha256 = "sha256-Yd8TN/vKiqX7NOZyy8OwOnreWS5gdyVMTAjFqoAuces=";
+      };
 
-    dbus_proxy = pkgs.callPackage ({
-      luajit,
-      luajitPackages,
-      fetchFromGitHub,
-    }:
-      luajitPackages.buildLuaPackage rec {
-        pname = "dbus_proxy";
-        version = "0.10.3";
-        name = "${pname}-${version}";
+      propagatedBuildInputs = [luajitPackages.lgi];
+      buildPhase = ":";
+      installPhase = ''
+        mkdir -p "$out/share/lua/${luajit.luaversion}"
+        cp -r src/${pname} "$out/share/lua/${luajit.luaversion}/"
+      '';
+    }) {};
 
-        src = fetchFromGitHub {
-          owner = "stefano-m";
-          repo = "lua-${pname}";
-          rev = "v${version}";
-          sha256 = "sha256-Yd8TN/vKiqX7NOZyy8OwOnreWS5gdyVMTAjFqoAuces=";
-        };
+  async-lua = pkgs.callPackage ({
+    luajit,
+    fetchFromGitHub,
+  }:
+    luajit.pkgs.buildLuarocksPackage rec {
+      pname = "async.lua";
+      version = "scm-1";
 
-        propagatedBuildInputs = [luajitPackages.lgi];
-        buildPhase = ":";
-        installPhase = ''
-          mkdir -p "$out/share/lua/${luajit.luaversion}"
-          cp -r src/${pname} "$out/share/lua/${luajit.luaversion}/"
-        '';
-      }) {};
+      src = fetchFromGitHub {
+        owner = "sclu1034";
+        repo = pname;
+        rev = "f8d8f70a1ef1f7c4d5e3e65a36e0e23d65129e92";
+        hash = "sha256-zWeIZkdO5uOHI2dkzseCEj8+BldH7X1ZtfIQhDFjaQY=";
+      };
 
-    fzy = pkgs.callPackage ({
-      luajit,
-      fetchFromGitHub,
-    }:
-      luajit.pkgs.buildLuarocksPackage rec {
-        pname = "fzy";
-        version = "scm-1";
+      preConfigure = ''
+        ln -s rocks/${pname}-${version}.rockspec .
+      '';
 
-        src = fetchFromGitHub {
-          owner = "swarn";
-          repo = pname;
-          rev = "0afc7bfaef9c8e6c3882069c7bf3d6548efa788e";
-          hash = "sha256-WfHPRN2fC3qYLuHpJHoOzh7DnY7xZdCp8bN6kEKc7W8=";
-        };
+      propagatedBuildInputs = [luajit];
+    }) {};
 
-        propagatedBuildInputs = [luajit];
-      }) {};
+  lgi-async-extra = pkgs.callPackage ({
+    luajit,
+    luajitPackages,
+    fetchFromGitHub,
+  }:
+    luajit.pkgs.buildLuarocksPackage rec {
+      pname = "lgi-async-extra";
+      version = "scm-1";
 
-    async-lua = pkgs.callPackage ({
-      luajit,
-      fetchFromGitHub,
-    }:
-      luajit.pkgs.buildLuarocksPackage rec {
-        pname = "async.lua";
-        version = "scm-1";
+      src = fetchFromGitHub {
+        owner = "sclu1034";
+        repo = pname;
+        rev = "45281ceaf42140f131861ca6d1717912f94f0bfd";
+        hash = "sha256-4Lydw1l3ETLzmsdQu53116rn2oV+XKDDpgxpa3yFbYM=";
+      };
 
-        src = fetchFromGitHub {
-          owner = "sclu1034";
-          repo = pname;
-          rev = "f8d8f70a1ef1f7c4d5e3e65a36e0e23d65129e92";
-          hash = "sha256-zWeIZkdO5uOHI2dkzseCEj8+BldH7X1ZtfIQhDFjaQY=";
-        };
+      preConfigure = ''
+        ln -s rocks/${pname}-${version}.rockspec .
+      '';
 
-        preConfigure = ''
-          ln -s rocks/${pname}-${version}.rockspec .
-        '';
+      propagatedBuildInputs = [async-lua luajit luajitPackages.lgi];
+    }) {};
 
-        propagatedBuildInputs = [luajit];
-      }) {};
+  luaModules = with pkgs.luajitPackages; [
+    lgi
+    ldbus
+    luadbi-mysql
+    luaposix
 
-    lgi-async-extra = pkgs.callPackage ({
-      luajit,
-      luajitPackages,
-      fetchFromGitHub,
-    }:
-      luajit.pkgs.buildLuarocksPackage rec {
-        pname = "lgi-async-extra";
-        version = "scm-1";
-
-        src = fetchFromGitHub {
-          owner = "sclu1034";
-          repo = pname;
-          rev = "45281ceaf42140f131861ca6d1717912f94f0bfd";
-          hash = "sha256-4Lydw1l3ETLzmsdQu53116rn2oV+XKDDpgxpa3yFbYM=";
-        };
-
-        preConfigure = ''
-          ln -s rocks/${pname}-${version}.rockspec .
-        '';
-
-        propagatedBuildInputs = [async-lua luajit luajitPackages.lgi];
-      }) {};
-  };
+    # custom modules
+    dbus_proxy
+    async-lua
+    lgi-async-extra
+  ];
 in {
   options = {
     services.xserver.windowManager.awesome = {

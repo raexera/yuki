@@ -4,7 +4,9 @@
   ...
 }: {
   programs = {
+    adb.enable = true;
     bash.promptInit = ''eval "$(${lib.getExe pkgs.starship} init bash)"'';
+    dconf.enable = true;
 
     nix-ld = {
       enable = true;
@@ -28,9 +30,6 @@
       package = pkgs.jre;
     };
 
-    adb.enable = true;
-    dconf.enable = true;
-    nm-applet.enable = true;
     seahorse.enable = true;
     ssh.startAgent = true;
   };
