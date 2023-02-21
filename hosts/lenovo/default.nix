@@ -143,7 +143,16 @@
       };
     };
 
-    xserver.videoDrivers = ["nvidia"];
+    xserver = {
+      dpi = 144;
+      libinput = {
+        enable = true;
+        touchpad = {naturalScrolling = true;};
+      };
+
+      xkbOptions = "caps:escape";
+      videoDrivers = ["nvidia"];
+    };
   };
 
   # Use custom Awesome WM module

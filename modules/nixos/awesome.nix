@@ -52,6 +52,24 @@ with lib; let
         '';
       }) {};
 
+    fzy = pkgs.callPackage ({
+      luajit,
+      fetchFromGitHub,
+    }:
+      luajit.pkgs.buildLuarocksPackage rec {
+        pname = "fzy";
+        version = "scm-1";
+
+        src = fetchFromGitHub {
+          owner = "swarn";
+          repo = pname;
+          rev = "0afc7bfaef9c8e6c3882069c7bf3d6548efa788e";
+          hash = "sha256-WfHPRN2fC3qYLuHpJHoOzh7DnY7xZdCp8bN6kEKc7W8=";
+        };
+
+        propagatedBuildInputs = [luajit];
+      }) {};
+
     async-lua = pkgs.callPackage ({
       luajit,
       fetchFromGitHub,
@@ -96,24 +114,6 @@ with lib; let
 
         propagatedBuildInputs = [async-lua luajit luajitPackages.lgi];
       }) {};
-
-    fzy = pkgs.callPackage ({
-      luajit,
-      fetchFromGitHub,
-    }:
-      luajit.pkgs.buildLuarocksPackage rec {
-        pname = "fzy";
-        version = "scm-1";
-
-        src = fetchFromGitHub {
-          owner = "swarn";
-          repo = pname;
-          rev = "0afc7bfaef9c8e6c3882069c7bf3d6548efa788e";
-          hash = "sha256-WfHPRN2fC3qYLuHpJHoOzh7DnY7xZdCp8bN6kEKc7W8=";
-        };
-
-        propagatedBuildInputs = [luajit];
-      }) {};
   };
 in {
   options = {
@@ -125,22 +125,13 @@ in {
   config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
-      dpi = 144;
       exportConfiguration = true;
-      xkbOptions = "caps:escape";
-      libinput = {
-        enable = true;
-        touchpad = {naturalScrolling = true;};
-      };
 
       displayManager = {
-        autoLogin = {
-          enable = true;
-          user = "rxyhn";
-        };
-
         defaultSession = "none+awesome";
-        lightdm.enable = true;
+        lightdm = {
+          enable = true;
+        };
       };
 
       windowManager.session =
