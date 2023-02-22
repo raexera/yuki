@@ -6,7 +6,6 @@ with pkgs; [
   alsa-utils
   arandr
   brightnessctl
-  bpytop
   efibootmgr
   efitools
   exfatprogs
