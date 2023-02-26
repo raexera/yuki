@@ -42,8 +42,7 @@
     docker = {
       enable = true;
       enableOnBoot = false;
+      enableNvidia = true;
     };
-
-    libvirtd.enable = true;
   };
 }
