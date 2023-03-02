@@ -18,7 +18,6 @@
 
     fstrim.enable = true;
     fwupd.enable = true;
-    geoclue2.enable = true;
 
     gnome = {
       glib-networking.enable = true;

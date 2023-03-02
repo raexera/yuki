@@ -88,7 +88,6 @@
     };
 
     nvidia = {
-      open = true;
       modesetting.enable = true;
 
       powerManagement = {
@@ -122,8 +121,6 @@
       ];
     };
   };
-
-  location.provider = "geoclue2";
 
   networking = {
     hostName = "lenovo";
