@@ -7,7 +7,6 @@
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nur.url = "github:nix-community/NUR";
-    helix.url = "github:SoraTenshi/helix/experimental-22.12";
 
     home-manager = {
       url = "github:nix-community/home-manager";

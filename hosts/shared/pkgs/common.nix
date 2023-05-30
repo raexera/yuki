@@ -2,8 +2,6 @@
 with pkgs; [
   discord-canary
   keepassxc
-  libreoffice-still
-  librewolf
   pdfarranger
   signal-desktop
   tdesktop

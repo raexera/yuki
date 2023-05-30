@@ -96,11 +96,6 @@ in {
           independentColorPoolPerBracketType = true;
         };
 
-        codeActionsOnSave.source = {
-          organizeImports = true;
-          fixAll.eslint = true;
-        };
-
         guides = {
           bracketPairs = true;
           indentation = true;
@@ -113,19 +108,9 @@ in {
       };
 
       files = {
-        autoSave = "afterDelay";
         eol = "\n";
         insertFinalNewline = true;
         trimTrailingWhitespace = true;
-
-        exclude = {
-          "**/.classpath" = true;
-          "**/.direnv" = true;
-          "**/.factorypath" = true;
-          "**/.git" = true;
-          "**/.project" = true;
-          "**/.settings" = true;
-        };
       };
 
       git = {

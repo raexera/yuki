@@ -21,8 +21,8 @@ with lib; let
     "x-scheme-handler/https" = browser;
     "x-scheme-handler/unknown" = browser;
 
-    "audio/*" = ["mpv.desktop"];
-    "video/*" = ["mpv.dekstop"];
+    "audio/*" = ["vlc.desktop"];
+    "video/*" = ["vlc.dekstop"];
     "image/*" = ["imv.desktop"];
     "application/json" = browser;
     "application/pdf" = ["org.pwmt.zathura.desktop.desktop"];

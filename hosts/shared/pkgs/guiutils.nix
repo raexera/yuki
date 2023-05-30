@@ -6,5 +6,4 @@ with pkgs; [
   pavucontrol
   virt-manager
   xarchiver
-  zoom-us
 ]
