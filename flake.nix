@@ -9,43 +9,56 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    fu.url = "github:numtide/flake-utils";
-
-    hm = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     lanzaboote.url = "github:nix-community/lanzaboote";
 
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "fu";
     };
   };
 
@@ -65,22 +78,23 @@
         config,
         pkgs,
         ...
-      }:
-        with pkgs; {
-          devShells.default = mkShell {
-            packages = [
-              alejandra
-              git
-              nodePackages.prettier
-            ];
-            name = "dotfiles";
-            DIRENV_LOG_FORMAT = "";
-            shellHook = ''
-              ${config.pre-commit.installationScript}
-            '';
-          };
-
-          formatter = alejandra;
+      }: {
+        devShells.default = pkgs.mkShell {
+          name = "dotfiles";
+          DIRENV_LOG_FORMAT = "";
+          packages = with pkgs; [
+            alejandra
+            deadnix
+            git
+            nodePackages.prettier
+            statix
+          ];
+          shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
         };
+
+        formatter = pkgs.alejandra;
+      };
     };
 }

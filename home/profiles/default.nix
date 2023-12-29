@@ -17,7 +17,7 @@
     "rxyhn@hiru" = [./hiru] ++ sharedModules;
   };
 
-  inherit (inputs.hm.lib) homeManagerConfiguration;
+  inherit (inputs.home-manager.lib) homeManagerConfiguration;
 in {
   imports = [
     {_module.args = {inherit homeImports;};}

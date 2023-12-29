@@ -7,21 +7,32 @@
 }: {
   fonts = {
     packages = with pkgs; [
+      comfortaa
+      dosis
+      dejavu_fonts
+      inter
+      iosevka-bin
+      material-design-icons
+      material-icons
       material-symbols
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
       roboto
-      (google-fonts.override {fonts = ["Inter"];})
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
     ];
 
     enableDefaultPackages = false;
 
     fontconfig.defaultFonts = {
+      monospace = [
+        "Iosevka Term"
+        "Iosevka Term Nerd Font Complete Mono"
+        "Iosevka Nerd Font"
+        "Noto Color Emoji"
+      ];
+      sansSerif = ["Lexend" "Noto Color Emoji"];
       serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Inter" "Noto Color Emoji"];
-      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
       emoji = ["Noto Color Emoji"];
     };
   };
@@ -74,18 +85,21 @@
     geoclue2.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      jack.enable = true;
-      pulse.enable = true;
-    };
-
     power-profiles-daemon.enable = true;
     upower.enable = true;
     dbus.packages = [pkgs.gcr];
+
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+
+      pulse.enable = true;
+      wireplumber.enable = true;
+      jack.enable = true;
+    };
   };
 
   security = {

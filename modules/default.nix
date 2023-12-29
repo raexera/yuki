@@ -21,7 +21,7 @@ in {
             };
           }
 
-          inputs.hm.nixosModule
+          inputs.home-manager.nixosModule
           inputs.hyprland.nixosModules.default
           inputs.lanzaboote.nixosModules.lanzaboote
           inputs.nh.nixosModules.default

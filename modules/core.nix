@@ -40,7 +40,16 @@
   users.users.rxyhn = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = ["input" "libvirtd" "networkmanager" "video" "wheel"];
+    extraGroups = [
+      "adbusers"
+      "docker"
+      "input"
+      "libvirtd"
+      "networkmanager"
+      "plugdev"
+      "video"
+      "wheel"
+    ];
   };
 
   zramSwap.enable = true;
