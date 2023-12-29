@@ -42,6 +42,7 @@ NixOS / Home-Manager / Flake
 <br>
 
 ## :snowflake: <samp>Information</samp>
+
 NixOS is a unique Linux distribution that employs an advanced package management system called Nix. With Nix, users can install and update software packages in isolated environments, enabling them to securely install multiple versions of software simultaneously.
 
 In NixOS, dotfiles are akin to dotfiles found in other Unix-based operating systems, but they differ in that they use Nix expressions to organize system and application configurations. Nix expressions are configuration files that are written in Nix syntax, which can be used to define, install, and configure software packages, services, and other system components in NixOS.
