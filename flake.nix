@@ -1,61 +1,86 @@
 {
-  description = "Rxyhn's NixOS Configuration";
+  description = "rxyhn's dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    nur.url = "github:nix-community/NUR";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    home-manager = {
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fu.url = "github:numtide/flake-utils";
+
+    hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
+    nh = {
+      url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nil = {
-      url = "github:oxalica/nil";
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+
+    lanzaboote.url = "github:nix-community/lanzaboote";
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "fu";
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
-    forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
-  in {
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-    overlays = import ./overlays {inherit inputs outputs;};
-    packages = forEachPkgs (pkgs: import ./pkgs {inherit pkgs;});
-    devShells = forEachPkgs (pkgs: import ./shell.nix {inherit pkgs;});
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-    nixosConfigurations = {
-      # Laptop
-      lenovo = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/lenovo];
-      };
-    };
+      imports = [
+        ./home/profiles
+        ./hosts
+        ./modules
+        ./pkgs
+        ./pre-commit-hooks.nix
+      ];
 
-    homeConfigurations = {
-      # Laptop
-      "rxyhn@lenovo" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/rxyhn/lenovo];
-      };
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }:
+        with pkgs; {
+          devShells.default = mkShell {
+            packages = [
+              alejandra
+              git
+              nodePackages.prettier
+            ];
+            name = "dotfiles";
+            DIRENV_LOG_FORMAT = "";
+            shellHook = ''
+              ${config.pre-commit.installationScript}
+            '';
+          };
+
+          formatter = alejandra;
+        };
     };
-  };
 }
