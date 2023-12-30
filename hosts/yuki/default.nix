@@ -34,12 +34,20 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    acpi
-    vulkan-loader
-    vulkan-validation-layers
-    vulkan-tools
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      acpi
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-tools
+    ];
+
+    variables = {
+      _JAVA_AWT_WM_NONEREPARENTING = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      GDK_SCALE = "2";
+    };
+  };
 
   hardware = {
     enableAllFirmware = true;

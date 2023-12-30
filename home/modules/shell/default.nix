@@ -9,6 +9,7 @@
     ./starship.nix
     ./zsh.nix
     ../programs/git.nix
+    ../programs/xdg.nix
   ];
 
   home = {

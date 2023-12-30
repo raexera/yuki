@@ -1,4 +1,4 @@
-{default, ...}: {
+{
   systems = ["x86_64-linux"];
 
   perSystem = {
@@ -7,6 +7,7 @@
     ...
   }: {
     packages = {
+      firefox-gnome-theme = pkgs.callPackage ./firefox-gnome-theme {};
     };
   };
 }

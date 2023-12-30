@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  self,
   inputs,
   lib,
   ...
@@ -64,6 +63,7 @@
 
       overlays = [
         inputs.nixpkgs-wayland.overlay
+        inputs.nur.overlay
       ];
     };
   };

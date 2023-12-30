@@ -215,11 +215,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1703893092,
-        "narHash": "sha256-YXNv2Ux2PK+9LFFiWuBvgWTHZmu9m6mUUShgHjA0pFM=",
+        "lastModified": 1703951941,
+        "narHash": "sha256-OWWeq3/ENX2Bo3F/OkhG3HFcgcdqJnsapjA3tD7B+fk=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "5f8e4068e51480791dbccbe48e86910e9b3cc881",
+        "rev": "94d6b2d2c12663efe90f6d0410528b0d7bcc671e",
         "type": "github"
       },
       "original": {
@@ -492,11 +492,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1703934744,
-        "narHash": "sha256-7XbtSGZe5I5iVELOxtARVtmncKb6PSI+NNdKQSjtxGs=",
+        "lastModified": 1703956377,
+        "narHash": "sha256-iJ7sF25xIBlVqbXJayBhtaKFazxwIVyGwhXbPZn0V0w=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "2a5b8de4f92509941f97112c582629e70645b963",
+        "rev": "1df757bc9cc0031a3e271103bc62e28e8b7e114b",
         "type": "github"
       },
       "original": {
@@ -537,6 +537,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1703961491,
+        "narHash": "sha256-S1QGhwCsJs7QEt4AL0rRlmSbY6+wSfyjwu5tYOZ2rJQ=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "945e1bb3d8888a3bb2dcf7cfe29e650335055399",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_3",
@@ -548,11 +563,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1703426812,
-        "narHash": "sha256-aODSOH8Og8ne4JylPJn+hZ6lyv6K7vE5jFo4KAGIebM=",
+        "lastModified": 1703939133,
+        "narHash": "sha256-Gxe+mfOT6bL7wLC/tuT2F+V+Sb44jNr8YsJ3cyIl4Mo=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "7f35ec30d16b38fe0eed8005933f418d1a4693ee",
+        "rev": "9d3d7e18c6bc4473d7520200d4ddab12f8402d38",
         "type": "github"
       },
       "original": {
@@ -575,6 +590,7 @@
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-wayland": "nixpkgs-wayland",
+        "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks"
       }
     },
