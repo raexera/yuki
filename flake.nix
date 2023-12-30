@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

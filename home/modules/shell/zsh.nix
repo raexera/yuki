@@ -12,6 +12,8 @@
       enable = true;
       config = {
         pager = "less -FR";
+        style = "plain";
+        theme = "base16";
       };
     };
 
