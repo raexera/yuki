@@ -11,6 +11,7 @@
       modules =
         [
           ./yuki
+          ../modules/bluetooth.nix
           ../modules/greetd.nix
           ../modules/desktop.nix
           {home-manager.users.rxyhn.imports = homeImports."rxyhn@hiru";}

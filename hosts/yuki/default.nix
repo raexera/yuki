@@ -82,6 +82,7 @@ in {
   networking.hostName = "yuki";
 
   services = {
+    fstrim.enable = true;
     thermald.enable = true;
     power-profiles-daemon.enable = true;
 

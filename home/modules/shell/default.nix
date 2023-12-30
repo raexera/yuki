@@ -76,6 +76,7 @@
   };
 
   services = {
+    udiskie.enable = true;
     gpg-agent = {
       enable = true;
       pinentryFlavor = "gnome3";

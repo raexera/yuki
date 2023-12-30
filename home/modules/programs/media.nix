@@ -2,14 +2,7 @@
   pkgs,
   config,
   ...
-}:
-# media - control and enjoy audio/video
-{
-  imports = [
-    ./rnnoise.nix
-    ./spicetify.nix
-  ];
-
+}: {
   home.packages = with pkgs; [
     pavucontrol
     playerctl
