@@ -19,7 +19,6 @@ in {
       monocle = "dwindle:no_gaps_when_only";
     in
       [
-        # compositor commands
         "$mod SHIFT, E, exec, pkill Hyprland"
         "$mod, Q, killactive,"
         "$mod, F, fullscreen,"
@@ -31,45 +30,22 @@ in {
         "$mod, P, pseudo,"
         "$mod ALT, ,resizeactive,"
 
-        # toggle "monocle" (no_gaps_when_only)
         "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
-        # utility
-        # terminal
-        "$mod, Return, exec, run-as-service ${default.terminal.name}"
-        # logout menu
-        "$mod, Escape, exec, wlogout -p layer-shell"
-        # lock screen
-        "$mod, L, exec, loginctl lock-session"
-        # select area to perform OCR on
+        "$mod, Return, exec, run-as-service kitty"
         "$mod, O, exec, run-as-service wl-ocr"
 
-        # move focus
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
 
-        # screenshot
-        # stop animations while screenshotting; makes black border go away
-        ", Print, exec, ${screenshotarea}"
-        "$mod SHIFT, R, exec, ${screenshotarea}"
-
-        "CTRL, Print, exec, grimblast --notify --cursor copysave output"
-        "$mod SHIFT CTRL, R, exec, grimblast --notify --cursor copysave output"
-
-        "ALT, Print, exec, grimblast --notify --cursor copysave screen"
-        "$mod SHIFT ALT, R, exec, grimblast --notify --cursor copysave screen"
-
-        # special workspace
         "$mod SHIFT, grave, movetoworkspace, special"
         "$mod, grave, togglespecialworkspace, eDP-1"
 
-        # cycle workspaces
         "$mod, bracketleft, workspace, m-1"
         "$mod, bracketright, workspace, m+1"
 
-        # cycle monitors
         "$mod SHIFT, bracketleft, focusmonitor, l"
         "$mod SHIFT, bracketright, focusmonitor, r"
       ]

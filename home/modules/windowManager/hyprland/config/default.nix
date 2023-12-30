@@ -63,8 +63,8 @@
         gradients = false;
       };
 
-      "col.border_active" = "rgba(${c.color_accent_primary}88);";
-      "col.border_inactive" = "rgba(${c.color_accent_primary_variant}88)";
+      "col.active_border" = "rgba(33 ccffee)";
+      "col.inactive_border" = "rgba(595959 aa)";
     };
 
     input = {
@@ -98,6 +98,6 @@
   };
 
   wayland.windowManager.hyprland.extraConfig = ''
-
+    monitor =,highres,auto,2
   '';
 }
