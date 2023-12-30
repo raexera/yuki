@@ -92,8 +92,6 @@
 
           settings.hooks = {
             alejandra.enable = true;
-            denofmt.enable = true;
-            denolint.enable = true;
             prettier = {
               enable = true;
               excludes = [".js" ".md" ".ts"];
@@ -123,7 +121,7 @@
           programs = {
             alejandra.enable = true;
             black.enable = true;
-            deadnix.enable = true;
+            deadnix.enable = false;
             prettier.enable = true;
             shellcheck.enable = true;
             shfmt.enable = true;
