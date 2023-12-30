@@ -22,7 +22,6 @@ in {
           }
 
           inputs.home-manager.nixosModule
-          inputs.hyprland.nixosModules.default
           inputs.nh.nixosModules.default
           module_args
 
