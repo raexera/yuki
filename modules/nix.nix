@@ -14,7 +14,7 @@
       statix
     ];
 
-    variables.FLAKE = "/home/mihai/Documents/code/dotfiles";
+    variables.FLAKE = "/home/rxyhn/Documents/code/dotfiles";
   };
 
   nh = {

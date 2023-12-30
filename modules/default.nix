@@ -37,6 +37,7 @@ in {
   flake.nixosModules = {
     core = import ./core.nix;
     desktop = import ./desktop.nix;
+    greetd = import ./greetd.nix;
     network = import ./network.nix;
     nix = import ./nix.nix;
   };

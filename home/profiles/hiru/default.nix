@@ -1,2 +1,5 @@
 {
+  imports = [
+    # ../../modules/windowManager/hyprland
+  ];
 }
