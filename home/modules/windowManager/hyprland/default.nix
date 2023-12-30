@@ -5,8 +5,11 @@
   ...
 }: {
   imports = [
-    ./config
     ../../programs/gtk.nix
+
+    ./config
+    ./services/hyprpaper.nix
+    ./services/polkit-agent.nix
   ];
 
   home = {
