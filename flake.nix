@@ -105,6 +105,7 @@
           name = "dotfiles";
           DIRENV_LOG_FORMAT = "";
           packages = with pkgs; [
+            config.treefmt.build.wrapper
             alejandra
             deadnix
             git
