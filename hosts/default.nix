@@ -12,7 +12,6 @@
         [
           ./yuki
           ../modules/desktop.nix
-          ../modules/lanzaboote.nix
           {home-manager.users.rxyhn.imports = homeImports."rxyhn@hiru";}
         ]
         ++ sharedModules;

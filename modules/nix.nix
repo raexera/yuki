@@ -7,9 +7,11 @@
   ...
 }: {
   environment = {
-    systemPackages = [
-      # we need git for flakes
-      pkgs.git
+    systemPackages = with pkgs; [
+      git
+      deadnix
+      alejandra
+      statix
     ];
 
     variables.FLAKE = "/home/mihai/Documents/code/dotfiles";
@@ -32,8 +34,6 @@
       builders-use-substitutes = true;
       experimental-features = ["nix-command" "flakes"];
       flake-registry = "/etc/nix/registry.json";
-
-      # for direnv GC roots
       keep-derivations = true;
       keep-outputs = true;
 
@@ -62,14 +62,9 @@
         "electron-25.9.0"
       ];
 
-      # overlays = [
-      #   inputs.nixpkgs-wayland.overlay
-      #   # workaround for: https://github.com/NixOS/nixpkgs/issues/154163
-      #   (_: super: {
-      #     makeModulesClosure = x:
-      #       super.makeModulesClosure (x // {allowMissing = true;});
-      #   })
-      # ];
+      overlays = [
+        inputs.nixpkgs-wayland.overlay
+      ];
     };
   };
 }

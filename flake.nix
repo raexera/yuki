@@ -54,10 +54,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lanzaboote.url = "github:nix-community/lanzaboote";
-
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -71,7 +74,10 @@
         ./hosts
         ./modules
         ./pkgs
-        ./pre-commit-hooks.nix
+
+        inputs.flake-parts.flakeModules.easyOverlay
+        inputs.pre-commit-hooks.flakeModule
+        inputs.treefmt-nix.flakeModule
       ];
 
       perSystem = {
@@ -79,6 +85,22 @@
         pkgs,
         ...
       }: {
+        formatter = pkgs.alejandra;
+
+        pre-commit = {
+          settings.excludes = ["flake.lock"];
+
+          settings.hooks = {
+            alejandra.enable = true;
+            denofmt.enable = true;
+            denolint.enable = true;
+            prettier = {
+              enable = true;
+              excludes = [".js" ".md" ".ts"];
+            };
+          };
+        };
+
         devShells.default = pkgs.mkShell {
           name = "dotfiles";
           DIRENV_LOG_FORMAT = "";
@@ -94,7 +116,18 @@
           '';
         };
 
-        formatter = pkgs.alejandra;
+        treefmt = {
+          projectRootFile = "flake.nix";
+
+          programs = {
+            alejandra.enable = true;
+            black.enable = true;
+            deadnix.enable = true;
+            prettier.enable = true;
+            shellcheck.enable = true;
+            shfmt.enable = true;
+          };
+        };
       };
     };
 }

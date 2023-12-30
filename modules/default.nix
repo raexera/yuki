@@ -23,7 +23,6 @@ in {
 
           inputs.home-manager.nixosModule
           inputs.hyprland.nixosModules.default
-          inputs.lanzaboote.nixosModules.lanzaboote
           inputs.nh.nixosModules.default
           module_args
 
@@ -38,7 +37,6 @@ in {
   flake.nixosModules = {
     core = import ./core.nix;
     desktop = import ./desktop.nix;
-    lanzaboote = import ./lanzaboote.nix;
     network = import ./network.nix;
     nix = import ./nix.nix;
   };
