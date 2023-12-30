@@ -7,6 +7,7 @@
     ./starship.nix
     ./transient-services.nix
     ./zsh.nix
+    ../programs/git.nix
   ];
 
   home = {

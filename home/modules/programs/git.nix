@@ -3,41 +3,64 @@
   pkgs,
   ...
 }: {
-  home.packages = [pkgs.gh];
+  home.packages = with pkgs; [
+    zsh-forgit
+    gitflow
+    gh
+  ];
 
   programs.git = {
     enable = true;
-    delta.enable = true;
+    userName = "rxyhn";
+    userEmail = "rxyhn.dev@gmail.com";
 
     extraConfig = {
-      diff.colorMoved = "default";
-      merge.conflictstyle = "diff3";
+      init = {defaultBranch = "main";};
+      delta = {line-numbers = true;};
+      branch.autosetupmerge = "true";
+      push.default = "current";
+      merge.stat = "true";
+      core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
+      repack.usedeltabaseoffset = "true";
+      pull.ff = "only";
+      rebase = {
+        autoSquash = true;
+        autoStash = true;
+      };
+      rerere = {
+        autoupdate = true;
+        enabled = true;
+      };
     };
 
+    lfs.enable = true;
+    delta.enable = true;
+    ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
     aliases = {
-      a = "add";
-      b = "branch";
-      c = "commit";
-      ca = "commit --amend";
-      cm = "commit -m";
+      essa = "push --force";
       co = "checkout";
-      d = "diff";
-      ds = "diff --staged";
-      p = "push";
-      pf = "push --force-with-lease";
-      pl = "pull";
+      fuck = "commit --amend -m";
+      c = "commit -m";
+      ca = "commit -am";
+      forgor = "commit --amend --no-edit";
+      graph = "log --all --decorate --graph --oneline";
+      oops = "checkout --";
       l = "log";
       r = "rebase";
       s = "status --short";
       ss = "status";
-      forgor = "commit --amend --no-edit";
-      graph = "log --all --decorate --graph --oneline";
-      oops = "checkout --";
+      d = "diff";
+      ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)";
+      pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)";
+      af = "!git add $(git ls-files -m -o --exclude-standard | sk -m)";
+      st = "status";
+      br = "branch";
+      df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}";
+      hist = ''
+        log --pretty=format:"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)" --graph --date=relative --decorate --all'';
+      llog = ''
+        log --graph --name-status --pretty=format:"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset" --date=relative'';
+      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; hx `f`";
     };
-
-    ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
-
-    userEmail = "rxyhn.dev@gmail.com";
-    userName = "rxyhn";
   };
 }
