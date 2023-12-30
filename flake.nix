@@ -58,11 +58,6 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs:
@@ -77,7 +72,6 @@
 
         inputs.flake-parts.flakeModules.easyOverlay
         inputs.pre-commit-hooks.flakeModule
-        inputs.treefmt-nix.flakeModule
       ];
 
       perSystem = {
@@ -103,7 +97,6 @@
           name = "dotfiles";
           DIRENV_LOG_FORMAT = "";
           packages = with pkgs; [
-            config.treefmt.build.wrapper
             alejandra
             deadnix
             git
@@ -113,19 +106,6 @@
           shellHook = ''
             ${config.pre-commit.installationScript}
           '';
-        };
-
-        treefmt = {
-          projectRootFile = "flake.nix";
-
-          programs = {
-            alejandra.enable = true;
-            black.enable = true;
-            deadnix.enable = false;
-            prettier.enable = true;
-            shellcheck.enable = true;
-            shfmt.enable = true;
-          };
         };
       };
     };
