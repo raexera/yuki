@@ -16,7 +16,7 @@
 
     font = {
       name = "Dosis";
-      package = pkgs.google-fonts.override {fonts = ["Dosis"];};
+      package = pkgs.dosis;
       size = 11;
     };
 

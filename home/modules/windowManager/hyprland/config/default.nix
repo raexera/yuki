@@ -13,8 +13,6 @@
 
     exec-once = [
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-      "systemctl --user start clight"
-      "swaylock"
     ];
 
     general = {

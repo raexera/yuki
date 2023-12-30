@@ -23,7 +23,6 @@
       grim
       hyprpicker
       swappy
-      grimblast
       wl-clipboard
       wl-screenrec
       cliphist
