@@ -1,4 +1,4 @@
-{config, ...}: let
+let
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -45,9 +45,6 @@ in {
 
         "$mod, bracketleft, workspace, m-1"
         "$mod, bracketright, workspace, m+1"
-
-        "$mod SHIFT, bracketleft, focusmonitor, l"
-        "$mod SHIFT, bracketright, focusmonitor, r"
       ]
       ++ workspaces;
 

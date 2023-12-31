@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  self,
   ...
 }: let
   MHz = x: x * 1000;
@@ -30,7 +29,14 @@ in {
 
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+        configurationLimit = 3;
+        gfxmodeEfi = "1920x1080";
+      };
     };
   };
 

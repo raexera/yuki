@@ -1,8 +1,6 @@
-{config, ...}: {
+{
   wayland.windowManager.hyprland.settings = {
-    layerrule = let
-      layers = "^(bar|gtk-layer-shell)$";
-    in [
+    layerrule = [
       "blur, ^(gtk-layer-shell)$"
       "blur, bar"
       "blur, notifications"

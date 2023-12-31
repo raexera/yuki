@@ -1,8 +1,6 @@
 {
   pkgs,
   lib,
-  self,
-  inputs,
   ...
 }: {
   fonts = {
@@ -31,7 +29,7 @@
         "Iosevka Nerd Font"
         "Noto Color Emoji"
       ];
-      sansSerif = ["Lexend" "Noto Color Emoji"];
+      sansSerif = ["Dosis" "Noto Color Emoji"];
       serif = ["Noto Serif" "Noto Color Emoji"];
       emoji = ["Noto Color Emoji"];
     };

@@ -1,27 +1,21 @@
 {
-  config,
+  pkgs,
   lib,
   ...
 }: {
+  environment.systemPackages = with pkgs; [speedtest-cli bandwhich];
   networking = {
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
-      wifi.powersave = true;
+      wifi = {
+        macAddress = "random";
+        powersave = true;
+      };
     };
   };
 
   services = {
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      publish = {
-        enable = true;
-        domain = true;
-        userServices = true;
-      };
-    };
-
     openssh = {
       enable = true;
       settings.UseDns = true;

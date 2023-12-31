@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+let
   browser = ["firefox"];
   associations = {
     "text/html" = browser;

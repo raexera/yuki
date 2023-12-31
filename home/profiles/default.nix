@@ -1,5 +1,4 @@
 {
-  self,
   inputs,
   withSystem,
   module_args,
