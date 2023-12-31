@@ -8,7 +8,6 @@
     ../../modules/programs/vscode.nix
 
     ../../modules/services/kdeconnect.nix
-    ../../modules/services/syncthing.nix
 
     ../../modules/windowManager/hyprland
   ];

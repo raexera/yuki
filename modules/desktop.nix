@@ -94,9 +94,10 @@
     };
 
     dbus = {
-      packages = with pkgs; [dconf gcr udisks2];
       enable = true;
+      packages = with pkgs; [dconf gcr udisks2];
     };
+
     udev.packages = with pkgs; [gnome.gnome-settings-daemon android-udev-rules];
 
     pipewire = {
@@ -113,7 +114,7 @@
   };
 
   security = {
-    pam.services.swaylock.text = "auth include login";
+    # pam.services.swaylock.text = "auth include login";
     rtkit.enable = true;
   };
 
