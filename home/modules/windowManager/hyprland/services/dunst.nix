@@ -10,10 +10,11 @@
       global = {
         alignment = "left";
         corner_radius = 8;
+        ellipsize = "middle";
         follow = "mouse";
         font = "Dosis 9";
         format = "<b>%a</b>\\n<b>%s</b>\\n%b";
-        frame_width = 2;
+        frame_width = 0;
         gap_size = 5;
         height = 300;
         horizontal_padding = 8;
@@ -33,7 +34,7 @@
         padding = 8;
         progress_bar = true;
         progress_bar_corner_radius = 8;
-        progress_bar_frame_width = 2;
+        progress_bar_frame_width = 0;
         progress_bar_height = 10;
         progress_bar_max_width = 300;
         progress_bar_min_width = 150;
@@ -42,30 +43,27 @@
         separator_height = 2;
         show_indicators = true;
         text_icon_padding = 0;
-        transparency = 0;
+        transparency = 10;
         vertical_alignment = "center";
         width = 300;
         word_wrap = true;
       };
 
-      fullscreen_delay_everything = {fullscreen = "delay";};
+      fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
         background = "#ffffff33";
         foreground = "#00000066";
-        frame_color = "#88C0D0";
       };
 
       urgency_normal = {
         background = "#ffffff33";
         foreground = "#00000066";
-        frame_color = "#88C0D0";
       };
 
       urgency_critical = {
         background = "#ffffff33";
-        foreground = "#00000066";
-        frame_color = "#BF616A";
+        foreground = "#BF616A66";
       };
     };
   };
