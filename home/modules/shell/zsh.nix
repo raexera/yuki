@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   programs.zsh = {
@@ -44,19 +45,21 @@
       ''}
     '';
 
-    shellAliases = {
-      cat = "bat";
-      grep = "ripgrep";
-      fzf = "skim";
+    shellAliases = with lib;
+    with pkgs; {
+      cat = "${getExe bat} --style=plain";
+      fzf = getExe skim;
+      grep = getExe ripgrep;
+      du = getExe du-dust;
+      ps = getExe procs;
+      la = "${getExe eza} -lah --tree";
+      ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
+      tree = "${getExe eza} --tree --icons --tree";
       untar = "tar -xvf";
       untargz = "tar -xzf";
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-      du = "du-dust";
-      ps = "procs";
-      la = "eza -lah --tree";
-      ls = "eza -h --git --icons --color=auto --group-directories-first -s extension";
-      tree = "eza --tree --icons --tree";
     };
+
     shellGlobalAliases = {eza = "eza --icons --git";};
   };
 }

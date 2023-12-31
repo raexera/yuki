@@ -52,14 +52,6 @@ in {
     };
   };
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
-    systemd.enable = true;
-  };
-
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
-
   systemd.user.services = {
     swaybg = mkService {
       Unit.Description = "Wallpaper chooser";
@@ -83,5 +75,13 @@ in {
       Description = "Home Manager System Tray";
       Requires = ["graphical-session-pre.target"];
     };
+  };
+
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.default;
+    systemd.enable = true;
   };
 }
