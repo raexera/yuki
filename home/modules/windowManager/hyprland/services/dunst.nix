@@ -21,6 +21,7 @@
         icon_corner_radius = 0;
         icon_position = "left";
         indicate_hidden = true;
+        layer = "overlay";
         line_height = 0;
         markup = "full";
         max_icon_size = 64;
@@ -53,17 +54,17 @@
 
       urgency_low = {
         background = "#ffffff33";
-        foreground = "#00000066";
+        foreground = "#00000099";
       };
 
       urgency_normal = {
         background = "#ffffff33";
-        foreground = "#00000066";
+        foreground = "#00000099";
       };
 
       urgency_critical = {
-        background = "#ffffff33";
-        foreground = "#BF616A66";
+        background = "#FF000033";
+        foreground = "#ffffff99";
       };
     };
   };

@@ -27,15 +27,15 @@
       inside-ver-color = "#ffffff33";
       inside-wrong-color = "#ffffff33";
       ring-color = "#ffffff66";
-      bs-hl-color = "#BF616A";
-      key-hl-color = "#88C0D0";
-      ring-clear-color = "#88C0D0";
-      ring-ver-color = "#88C0D0";
-      ring-wrong-color = "#BF616A";
-      text-color = "#00000066";
-      text-clear-color = "#00000066";
-      text-ver-color = "#00000066";
-      text-wrong-color = "#BF616A";
+      bs-hl-color = "#FF000099";
+      key-hl-color = "#00FFFF99";
+      ring-clear-color = "#00FFFF99";
+      ring-ver-color = "#00FFFF99";
+      ring-wrong-color = "#FF000099";
+      text-color = "#00000099";
+      text-clear-color = "#00000099";
+      text-ver-color = "#00000099";
+      text-wrong-color = "#FF000099";
     };
   };
 }
