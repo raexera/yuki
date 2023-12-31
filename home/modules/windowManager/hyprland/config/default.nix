@@ -11,45 +11,32 @@
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
     ];
 
-    input = {
-      kb_layout = "us";
-
-      follow_mouse = 1;
-      touchpad = {
-        natural_scroll = true;
-      };
-
-      sensitivity = 0;
-    };
-
     general = {
+      border_size = 2;
       gaps_in = 5;
       gaps_out = 5;
-      border_size = 1;
-
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
       "col.inactive_border" = "rgba(595959aa)";
-
+      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
       layout = "dwindle";
-
       allow_tearing = false;
     };
 
     decoration = {
       rounding = 8;
+      drop_shadow = false;
+      shadow_ignore_window = true;
       blur = {
         enabled = true;
         size = 8;
         passes = 4;
+        new_optimizations = true;
+        xray = true;
       };
-
-      drop_shadow = false;
-      shadow_ignore_window = true;
     };
 
     animations = {
       enabled = true;
-      # first_launch_animation = false;
+      first_launch_animation = false;
 
       bezier = [
         "smoothOut, 0.36, 0, 0.66, -0.56"
@@ -68,6 +55,16 @@
       ];
     };
 
+    input = {
+      kb_layout = "us";
+      follow_mouse = 1;
+      sensitivity = 0;
+      accel_profile = "flat";
+      touchpad = {
+        natural_scroll = true;
+      };
+    };
+
     dwindle = {
       pseudotile = true;
       preserve_split = true;
@@ -77,18 +74,24 @@
       new_is_master = true;
     };
 
-    misc = {
-      disable_autoreload = true;
-      force_default_wallpaper = 0;
-      animate_mouse_windowdragging = false;
-    };
-
     gestures = {
       workspace_swipe = true;
-      # workspace_swipe_forever = true;
+      workspace_swipe_forever = true;
+    };
+
+    misc = {
+      disable_autoreload = true;
+      disable_splash_rendering = true;
+      disable_hyprland_logo = true;
+      force_hypr_chan = true;
+      force_default_wallpaper = 0;
+      animate_mouse_windowdragging = false;
+      vfr = true;
+      vrr = 1;
     };
 
     xwayland.force_zero_scaling = true;
+    debug.disable_logs = false;
   };
 
   wayland.windowManager.hyprland.extraConfig = ''

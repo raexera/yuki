@@ -35,7 +35,7 @@
     };
   };
 
-  environment.variables.NIXOS_OZONE_WL = "1";
+  # environment.variables.NIXOS_OZONE_WL = "1";
 
   hardware = {
     opengl = {

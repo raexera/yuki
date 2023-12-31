@@ -1,4 +1,4 @@
-let
+{pkgs, ...}: let
   browser = ["firefox"];
   associations = {
     "text/html" = browser;
@@ -36,4 +36,10 @@ in {
       createDirectories = true;
     };
   };
+
+  home.packages = [
+    (pkgs.writeShellScriptBin "xdg-terminal-exec" ''
+      kitty "$@"
+    '')
+  ];
 }
