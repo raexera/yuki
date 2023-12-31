@@ -1,13 +1,20 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  mkService = lib.recursiveUpdate {
+    Unit.PartOf = ["graphical-session.target"];
+    Unit.After = ["graphical-session.target"];
+    Install.WantedBy = ["graphical-session.target"];
+  };
+in {
   imports = [
     ../../programs/gtk.nix
 
     ./config
-    ./services/hyprpaper.nix
+    # ./services/hyprpaper.nix
     ./services/polkit-agent.nix
   ];
 
@@ -40,6 +47,12 @@
     };
   };
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.default;
+    systemd.enable = true;
+  };
+
   systemd.user.targets.tray = {
     Unit = {
       Description = "Home Manager System Tray";
@@ -47,9 +60,21 @@
     };
   };
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
-    systemd.enable = true;
+  systemd.user.services = {
+    swaybg = mkService {
+      Unit.Description = "Wallpaper chooser";
+      Service = {
+        ExecStart = "${lib.getExe pkgs.swaybg} -m fill -i ${./assets/wallpaper.png}";
+        Restart = "always";
+      };
+    };
+
+    cliphist = mkService {
+      Unit.Description = "Clipboard history";
+      Service = {
+        ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${lib.getBin pkgs.cliphist}/cliphist store";
+        Restart = "always";
+      };
+    };
   };
 }

@@ -6,6 +6,7 @@
   firefox-gnome-theme = inputs.self.packages.${pkgs.system}.firefox-gnome-theme;
 in {
   home.sessionVariables = {BROWSER = "firefox";};
+
   programs.firefox = {
     enable = true;
     profiles = {

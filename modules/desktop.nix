@@ -81,11 +81,19 @@
 
   services = {
     geoclue2.enable = true;
-    gnome.gnome-keyring.enable = true;
+    gnome = {
+      glib-networking.enable = true;
+      gnome-keyring.enable = true;
+    };
     gvfs.enable = true;
     power-profiles-daemon.enable = true;
-    upower.enable = true;
-    dbus.packages = [pkgs.gcr];
+    udisks2.enable = true;
+
+    dbus = {
+      packages = with pkgs; [dconf gcr udisks2];
+      enable = true;
+    };
+    udev.packages = with pkgs; [gnome.gnome-settings-daemon android-udev-rules];
 
     pipewire = {
       enable = true;
@@ -105,14 +113,10 @@
     rtkit.enable = true;
   };
 
+  environment.variables.GTK_USE_PORTAL = "1";
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
-    config = {
-      common.default = ["gtk"];
-      hyprland.default = ["gtk" "hyprland"];
-    };
-
+    config.common.default = "*";
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland

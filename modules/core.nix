@@ -5,6 +5,10 @@
 }: {
   documentation.dev.enable = true;
   environment.pathsToLink = ["/share/zsh"];
+  environment.systemPackages = with pkgs; [
+    git
+    starship
+  ];
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -15,11 +19,16 @@
     ];
   };
 
-  hardware.opengl.enable = true;
-
   programs = {
+    adb.enable = true;
     less.enable = true;
 
+    java = {
+      enable = true;
+      package = pkgs.jre;
+    };
+
+    bash.promptInit = ''eval "$(${pkgs.starship}/bin/starship init bash)"'';
     zsh = {
       enable = true;
       autosuggestions.enable = true;

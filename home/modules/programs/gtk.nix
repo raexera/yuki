@@ -1,14 +1,25 @@
 {
-  pkgs,
   config,
+  lib,
+  pkgs,
   ...
-}: {
-  home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 16;
-    gtk.enable = true;
-    x11.enable = true;
+}: let
+  colorschemePath = "/org/gnome/desktop/interface/color-scheme";
+  dconf = "${pkgs.dconf}/bin/dconf";
+  dconfDark = lib.hm.dag.entryAfter ["dconfSettings"] ''
+    ${dconf} write ${colorschemePath} "'prefer-dark'"
+  '';
+in {
+  home = {
+    activation = {inherit dconfDark;};
+
+    pointerCursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+      gtk.enable = true;
+      x11.enable = true;
+    };
   };
 
   gtk = {

@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   browser = ["firefox"];
   associations = {
     "text/html" = browser;
@@ -24,6 +28,7 @@
 in {
   xdg = {
     enable = true;
+    cacheHome = config.home.homeDirectory + "/.local/cache";
 
     mimeApps = {
       enable = true;

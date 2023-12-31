@@ -19,11 +19,14 @@ in {
       ++ [pkgs.cpupower-gui];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
+      "module_blacklist=nouveau"
+      "iommu=pt"
       "i8042.direct"
       "i8042.dumbkbd"
       "i915.enable_psr=0"
-      "iommu=pt"
-      "module_blacklist=nouveau"
+      "i915.modeset=1"
+      "nvidia_drm.modeset=1"
+      "nvidia_drm.fbdev=1"
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
 
@@ -50,8 +53,9 @@ in {
 
     variables = {
       _JAVA_AWT_WM_NONEREPARENTING = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
       GDK_SCALE = "2";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     };
   };
 
@@ -90,7 +94,6 @@ in {
   services = {
     fstrim.enable = true;
     thermald.enable = true;
-    power-profiles-daemon.enable = true;
 
     upower = {
       enable = true;
