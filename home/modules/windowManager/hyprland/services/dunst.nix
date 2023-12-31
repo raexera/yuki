@@ -8,7 +8,7 @@
     inherit (config.gtk) iconTheme;
     settings = {
       global = {
-        alignment = "center";
+        alignment = "left";
         corner_radius = 8;
         follow = "mouse";
         font = "Dosis 9";
