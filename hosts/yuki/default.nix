@@ -67,10 +67,10 @@ in {
 
   hardware = {
     enableAllFirmware = true;
+
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
-
       extraPackages = with pkgs; [
         vaapiIntel
         libvdpau-va-gl
@@ -78,7 +78,6 @@ in {
         intel-ocl
         nvidia-vaapi-driver
       ];
-
       extraPackages32 = with pkgs.pkgsi686Linux; [
         vaapiIntel
         libvdpau-va-gl
@@ -88,18 +87,15 @@ in {
 
     nvidia = {
       modesetting.enable = true;
-
       powerManagement = {
         enable = true;
         finegrained = true;
       };
-
       prime = {
         offload = {
           enable = true;
           enableOffloadCmd = true;
         };
-
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
@@ -140,4 +136,6 @@ in {
 
     xserver.videoDrivers = ["nvidia"];
   };
+
+  zramSwap.enable = true;
 }

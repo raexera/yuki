@@ -22,7 +22,6 @@
       expireDuplicatesFirst = true;
       path = "${config.xdg.dataHome}/zsh_history";
     };
-
     initExtra = ''
       autoload -U history-search-end
       zle -N history-beginning-search-backward-end history-search-end
@@ -44,7 +43,6 @@
         export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
       ''}
     '';
-
     shellAliases = with lib;
     with pkgs; {
       cat = "${getExe bat} --style=plain";
@@ -59,7 +57,6 @@
       untargz = "tar -xzf";
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     };
-
     shellGlobalAliases = {eza = "eza --icons --git";};
   };
 }

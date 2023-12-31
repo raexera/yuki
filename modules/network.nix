@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [speedtest-cli bandwhich];
+
   networking = {
     networkmanager = {
       enable = true;

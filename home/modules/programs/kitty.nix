@@ -2,11 +2,9 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
-    theme = "Xcodedark";
-
+    theme = "Nord";
     settings = {
       editor = "nvim";
-
       confirm_os_window_close = 0;
       window_margin_width = 0;
       window_padding_width = 15;
@@ -15,16 +13,13 @@
       hide_window_decorations = "titlebar-only";
       background_opacity = "0.7";
       inactive_text_alpha = "1.0";
-
       scrollback_lines = 10000;
       wheel_scroll_multiplier = "5.0";
       touch_scroll_multiplier = "1.0";
-
       cursor_shape = "underline";
       cursor_underline_thickness = "1.5";
       cursor_blink_interval = "-1";
       cursor_stop_blinking_after = 0;
-
       font_family = "monospace";
       bold_font = "auto";
       italic_font = "auto";
@@ -33,14 +28,12 @@
       disable_ligatures = "never";
       active_tab_font_style = "bold";
       inactive_tab_font_style = "normal";
-
       tab_bar_min_tabs = 1;
       tab_bar_edge = "bottom";
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
       tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
     };
-
     keybindings = {
       "ctrl+shift+v" = "paste_from_clipboard";
       "ctrl+shift+s" = "paste_from_selection";

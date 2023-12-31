@@ -73,21 +73,20 @@
     seahorse.enable = true;
   };
 
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
-  };
-
   services = {
     geoclue2.enable = true;
+
     gnome = {
       glib-networking.enable = true;
       gnome-keyring.enable = true;
     };
+
     gvfs.enable = true;
+
     udisks2.enable = true;
+
     power-profiles-daemon.enable = true;
+
     psd = {
       enable = true;
       resyncTimer = "10m";
@@ -119,6 +118,7 @@
   };
 
   environment.variables.GTK_USE_PORTAL = "1";
+
   xdg.portal = {
     enable = true;
     config.common.default = "*";

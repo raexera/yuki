@@ -22,7 +22,6 @@
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
-
     supportedLocales = [
       "en_US.UTF-8/UTF-8"
       "ja_JP.UTF-8/UTF-8"
@@ -40,6 +39,7 @@
     };
 
     bash.promptInit = ''eval "$(${pkgs.starship}/bin/starship init bash)"'';
+
     zsh = {
       enable = true;
       autosuggestions.enable = true;
@@ -71,6 +71,4 @@
       "wheel"
     ];
   };
-
-  zramSwap.enable = true;
 }

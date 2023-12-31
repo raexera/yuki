@@ -52,6 +52,7 @@
       util-linux
       wget
       xarchiver
+      zathura
       zip
     ];
 
@@ -64,9 +65,13 @@
 
   programs = {
     btop.enable = true;
+
     eza.enable = true;
+
     gpg.enable = true;
+
     man.enable = true;
+
     ssh.enable = true;
 
     bat = {

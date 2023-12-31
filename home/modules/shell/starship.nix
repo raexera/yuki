@@ -6,35 +6,28 @@
     enableZshIntegration = true;
     settings = {
       scan_timeout = 10;
-
       add_newline = true;
       line_break.disabled = true;
-
       format = "$directory$git_branch$git_metrics$git_commit$git_state$git_status$all";
-
       character = {
         success_symbol = "[λ](green)";
         error_symbol = "[λ](red)";
         vimcmd_symbol = "[λ](green)";
       };
-
       directory = {
         home_symbol = "home";
         style = "cyan";
       };
-
       git_commit.tag_symbol = " tag ";
       git_branch = {
         style = "purple";
         symbol = "";
       };
-
       git_metrics = {
         added_style = "bold yellow";
         deleted_style = "bold red";
         disabled = false;
       };
-
       aws.symbol = "aws ";
       bun.symbol = "bun ";
       c.symbol = "C ";

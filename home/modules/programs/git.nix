@@ -17,7 +17,6 @@
       key = "${config.home.homeDirectory}/.ssh/id_ed25519";
       signByDefault = true;
     };
-
     extraConfig = {
       init = {defaultBranch = "main";};
       delta = {line-numbers = true;};
@@ -37,7 +36,6 @@
         enabled = true;
       };
     };
-
     lfs.enable = true;
     delta.enable = true;
     ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
