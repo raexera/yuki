@@ -32,9 +32,9 @@
       ring-clear-color = "#88C0D0";
       ring-ver-color = "#88C0D0";
       ring-wrong-color = "#BF616A";
-      text-color = "#D8DEE9";
-      text-clear-color = "#D8DEE9";
-      text-ver-color = "#D8DEE9";
+      text-color = "#00000066";
+      text-clear-color = "#00000066";
+      text-ver-color = "#00000066";
       text-wrong-color = "#BF616A";
     };
   };
