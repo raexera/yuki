@@ -50,6 +50,8 @@ in {
   environment = {
     systemPackages = with pkgs; [
       acpi
+      libva
+      libva-utils
       vulkan-loader
       vulkan-validation-layers
       vulkan-tools
@@ -66,6 +68,10 @@ in {
   hardware = {
     enableAllFirmware = true;
     opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+
       extraPackages = with pkgs; [
         vaapiIntel
         libvdpau-va-gl
@@ -73,6 +79,7 @@ in {
         intel-ocl
         nvidia-vaapi-driver
       ];
+
       extraPackages32 = with pkgs.pkgsi686Linux; [
         vaapiIntel
         libvdpau-va-gl
@@ -83,11 +90,18 @@ in {
     nvidia = {
       open = true;
       modesetting.enable = true;
+
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+
       prime = {
         offload = {
           enable = true;
           enableOffloadCmd = true;
         };
+
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
