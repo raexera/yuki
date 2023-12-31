@@ -9,6 +9,8 @@
     [
       git
       starship
+      vim
+      neovim
 
       (python3.withPackages (p:
         with p; [
