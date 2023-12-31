@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>Rxyhn's dotfiles</h1>
+    <h1>雪 - Yuki</h1>
 </div>
 
 <div align="center">
@@ -19,7 +19,9 @@
 
 ## :snowflake: About
 
-Welcome to my repo! Here, you'll find my personal dotfiles for setting up NixOS and Home-Manager, all neatly organized with flakes and flake-parts. Feel free to take a look around! Curious about what's inside? See an overview of the flake outputs by running:
+In this repository, you'll discover a carefully curated collection of my personal dotfiles. These are designed for setting up NixOS and Home-Manager, utilizing the robust structure of [flakes](https://nixos.wiki/wiki/Flakes) and [flake-parts](https://github.com/hercules-ci/flake-parts) for optimal organization and efficiency.
+
+Interested in seeing the specifics? Get an overview of the flake outputs by executing the following command:
 
 ```sh
 nix flake show github:rxyhn/yuki
@@ -27,14 +29,14 @@ nix flake show github:rxyhn/yuki
 
 ## :package: Contents
 
-- [modules](./modules): NixOS modules
+- [modules](./modules): Essential components of the system
 - [hosts](./hosts): Host-specific configuration
 - [home](./home): [Home-Manager](https://github.com/nix-community/home-manager) configuration
 - [pkgs](./pkgs): Custom packages
 
-## :busts_in_silhouette: People
+## :bulb: Acknowledgments
 
-This configuration was inspired by several people. I thank everyone who influenced and contributed to my work. Grateful for all your input!
+I am thankful to the following individuals for their invaluable contributions and inspiration during the creation of these configurations. Their insights and feedback have been instrumental in this endeavor.
 
 <div align="center">
     <a href="https://github.com/fufexan">fufexan</a> -
