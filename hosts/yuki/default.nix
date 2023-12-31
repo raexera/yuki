@@ -11,15 +11,19 @@ in {
 
   boot = {
     kernelModules = ["acpi_call"];
+    blacklistedKernelModules = ["nouveau"];
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
         cpupower
       ]
       ++ [pkgs.cpupower-gui];
+    extraModprobeConfig = ''
+      blacklist nouveau
+      options nouveau modeset=0
+    '';
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "module_blacklist=nouveau"
       "iommu=pt"
       "i8042.direct"
       "i8042.dumbkbd"
@@ -77,6 +81,7 @@ in {
     };
 
     nvidia = {
+      open = true;
       modesetting.enable = true;
       prime = {
         offload = {
