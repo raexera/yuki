@@ -1,8 +1,8 @@
-<div style="text-align: center;">
+<div align="center">
     <h1>Rxyhn's dotfiles</h1>
 </div>
 
-<div style="text-align: center;">
+<div align="center">
    <a href="#">
         <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos-white.png" alt="Banner" width="800px" />
    </a>
@@ -11,15 +11,11 @@
 > [!NOTE]
 > System Information:
 >
-> OS: NixOS
->
-> WM: Hyprland
->
-> Shell: ZSH
->
-> Terminal: Kitty
->
-> Editor: Visual Studio Code
+> - OS: NixOS
+> - WM: Hyprland
+> - Shell: ZSH
+> - Terminal: Kitty
+> - Editor: Visual Studio Code
 
 ## :snowflake: About
 
@@ -40,7 +36,7 @@ nix flake show github:rxyhn/yuki
 
 This configuration was inspired by several people. I thank everyone who influenced and contributed to my work. Grateful for all your input!
 
-<div style="text-align: center;">
+<div align="center">
     <a href="https://github.com/fufexan">fufexan</a> -
     <a href="https://github.com/sioodmy">sioodmy</a> -
     <a href="https://github.com/moni-dz">moni-dz</a> -
