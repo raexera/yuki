@@ -3,10 +3,10 @@
     layerrule = [
       "blur, ^(gtk-layer-shell)$"
       "blur, bar"
-      "blur, notifications"
+      "blur, notification"
       "ignorezero, ^(gtk-layer-shell)$"
       "ignorezero, bar"
-      "ignorezero, notifications"
+      "ignorezero, notification"
     ];
 
     windowrulev2 = [
