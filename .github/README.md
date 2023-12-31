@@ -10,10 +10,15 @@
 
 > [!NOTE]
 > System Information:
+>
 > OS: NixOS
+>
 > WM: Hyprland
+>
 > Shell: ZSH
+>
 > Terminal: Kitty
+>
 > Editor: Visual Studio Code
 
 ## :snowflake: About
@@ -31,7 +36,7 @@ nix flake show github:rxyhn/yuki
 - [home](./home): [Home-Manager](https://github.com/nix-community/home-manager) configuration
 - [pkgs](./pkgs): Custom packages
 
-## :busts_in_silhoutte: People
+## :busts_in_silhouette: People
 
 This configuration was inspired by several people. I thank everyone who influenced and contributed to my work. Grateful for all your input!
 
