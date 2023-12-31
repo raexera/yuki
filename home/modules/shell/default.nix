@@ -14,24 +14,49 @@
 
   home = {
     packages = with pkgs; [
-      zip
-      unzip
-      unrar
+      bc
+      catimg
+      coreutils
+      curl
       du-dust
       duf
+      editorconfig-core-c
       fd
       file
+      findutils
+      gawk
+      gnused
+      hyperfine
+      imagemagick
+      imv
       jaq
+      joshuto
+      jq
+      killall
+      lz4
+      neofetch
+      p7zip
+      pciutils
+      perl
+      procs
+      psmisc
+      ranger
       ripgrep
+      rsync
+      sd
+      socat
+      trash-cli
+      tree
+      unrar
+      unzip
+      util-linux
+      wget
+      xarchiver
+      zip
     ];
 
     sessionVariables = {
-      LESSHISTFILE = config.xdg.cacheHome + "/less/history";
-      LESSKEY = config.xdg.configHome + "/less/lesskey";
-      DELTA_PAGER = "less -R";
       EDITOR = "nvim";
-      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-      MANROFFOPT = "-c";
       DIRENV_LOG_FORMAT = "";
       NIX_AUTO_RUN = "1";
     };

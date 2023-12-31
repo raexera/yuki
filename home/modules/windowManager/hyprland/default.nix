@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -14,13 +15,17 @@ in {
     ../../programs/gtk.nix
 
     ./config
+    ./programs/swaylock.nix
+    ./services/dunst.nix
     # ./services/hyprpaper.nix
     ./services/polkit-agent.nix
+    ./services/swayidle.nix
   ];
 
   home = {
     packages = with pkgs; [
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+      config.wayland.windowManager.hyprland.package
       libnotify
       wf-recorder
       brightnessctl
@@ -53,12 +58,7 @@ in {
     systemd.enable = true;
   };
 
-  systemd.user.targets.tray = {
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = ["graphical-session-pre.target"];
-    };
-  };
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
 
   systemd.user.services = {
     swaybg = mkService {
@@ -75,6 +75,13 @@ in {
         ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${lib.getBin pkgs.cliphist}/cliphist store";
         Restart = "always";
       };
+    };
+  };
+
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = ["graphical-session-pre.target"];
     };
   };
 }

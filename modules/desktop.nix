@@ -86,8 +86,12 @@
       gnome-keyring.enable = true;
     };
     gvfs.enable = true;
-    power-profiles-daemon.enable = true;
     udisks2.enable = true;
+    power-profiles-daemon.enable = true;
+    psd = {
+      enable = true;
+      resyncTimer = "10m";
+    };
 
     dbus = {
       packages = with pkgs; [dconf gcr udisks2];

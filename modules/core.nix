@@ -5,10 +5,20 @@
 }: {
   documentation.dev.enable = true;
   environment.pathsToLink = ["/share/zsh"];
-  environment.systemPackages = with pkgs; [
-    git
-    starship
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      git
+      starship
+
+      (python3.withPackages (p:
+        with p; [
+          pygobject3
+        ]))
+    ]
+    ++ [
+      gobject-introspection
+      pipenv
+    ];
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -19,8 +29,9 @@
     ];
   };
 
+  hardware.opengl.enable = true;
+
   programs = {
-    adb.enable = true;
     less.enable = true;
 
     java = {

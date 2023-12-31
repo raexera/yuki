@@ -68,7 +68,6 @@ in {
   hardware = {
     enableAllFirmware = true;
     opengl = {
-      enable = true;
       driSupport = true;
       driSupport32Bit = true;
 
@@ -88,7 +87,6 @@ in {
     };
 
     nvidia = {
-      open = true;
       modesetting.enable = true;
 
       powerManagement = {

@@ -6,6 +6,8 @@
     amberol
     loupe
     celluloid
+    mpc_cli
+    mpg123
   ];
 
   programs = {
