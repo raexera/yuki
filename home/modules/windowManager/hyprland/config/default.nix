@@ -10,6 +10,7 @@
     exec-once = [
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
+      "swaylock"
     ];
 
     general = {
@@ -58,6 +59,7 @@
 
     input = {
       kb_layout = "us";
+      kb_options = "caps:backspace";
       follow_mouse = 1;
       sensitivity = 0;
       accel_profile = "flat";

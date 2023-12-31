@@ -374,11 +374,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1703983292,
-        "narHash": "sha256-wayOd50KaymeD9UAA+dgg57iIhdOmhDMqSwTjI3SepM=",
+        "lastModified": 1704027971,
+        "narHash": "sha256-a/vTjzEE3BCQP2AnKy4H8uFcDJ9IOX13KrY7hrUPe2w=",
         "owner": "hyprwm",
         "repo": "hyprpaper",
-        "rev": "39ad021c7599a86c4619631af5226a887b104bf1",
+        "rev": "75270a9b38ecf3241a904c2248b1380f11ee9bce",
         "type": "github"
       },
       "original": {
@@ -721,11 +721,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1704027204,
-        "narHash": "sha256-t4egRb2Cqq2J8+S2FRz/YZ5kEHJVfoM1CPtPaew4Uq8=",
+        "lastModified": 1704033846,
+        "narHash": "sha256-KalnFnag7BpGgVZYQsPiv6zIWprqNZ/mfA2LvuqPgKI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "7872cce6f656b96c49a1f79b76d97492b87c6185",
+        "rev": "78f570d42d724fd1f2af27bc8dbcd908c372c702",
         "type": "github"
       },
       "original": {

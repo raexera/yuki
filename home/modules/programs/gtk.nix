@@ -3,16 +3,8 @@
   lib,
   pkgs,
   ...
-}: let
-  colorschemePath = "/org/gnome/desktop/interface/color-scheme";
-  dconf = "${pkgs.dconf}/bin/dconf";
-  dconfDark = lib.hm.dag.entryAfter ["dconfSettings"] ''
-    ${dconf} write ${colorschemePath} "'prefer-dark'"
-  '';
-in {
+}: {
   home = {
-    activation = {inherit dconfDark;};
-
     pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";

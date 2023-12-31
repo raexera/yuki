@@ -114,7 +114,7 @@
   };
 
   security = {
-    # pam.services.swaylock.text = "auth include login";
+    pam.services.swaylock.text = "auth include login";
     rtkit.enable = true;
   };
 

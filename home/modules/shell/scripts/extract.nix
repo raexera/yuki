@@ -1,5 +1,5 @@
 _: ''
-   SAVEIFS=$IFS
+  SAVEIFS=$IFS
   IFS="$(printf '\n\t')"
 
   function extract {
