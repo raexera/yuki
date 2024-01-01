@@ -21,7 +21,10 @@
       init = {defaultBranch = "main";};
       delta = {line-numbers = true;};
       branch.autosetupmerge = "true";
-      gpg.format = "ssh";
+      gpg = {
+        format = "ssh";
+        ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+      };
       push.default = "current";
       merge.stat = "true";
       core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
