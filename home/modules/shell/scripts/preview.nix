@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: ''
-  #> Syntax: bash
-  # Copied from Elkowar
-
   case "$1" in
     -*) exit 0;;
   esac
