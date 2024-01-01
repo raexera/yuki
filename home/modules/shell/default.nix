@@ -28,7 +28,6 @@
       gnused
       hyperfine
       imagemagick
-      imv
       jaq
       joshuto
       jq
