@@ -4,36 +4,28 @@
   pkgs,
   ...
 }: let
-  MHz = x: x * 1000;
   inherit (lib) mkDefault;
 in {
   imports = [./hardware-configuration.nix];
 
   boot = {
     kernelModules = ["acpi_call"];
-    blacklistedKernelModules = ["nouveau"];
-    extraModulePackages = with config.boot.kernelPackages;
-      [
-        acpi_call
-        cpupower
-      ]
-      ++ [pkgs.cpupower-gui];
-    extraModprobeConfig = ''
-      blacklist nouveau
-      options nouveau modeset=0
-    '';
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+    initrd.kernelModules = [
+      "i915"
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
+      "ideapad_laptop"
+    ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "iommu=pt"
       "i8042.direct"
       "i8042.dumbkbd"
       "i915.enable_psr=0"
-      "i915.modeset=1"
-      "nvidia_drm.modeset=1"
-      "nvidia_drm.fbdev=1"
-      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      "iommu=pt"
     ];
-
     loader = {
       efi.canTouchEfiVariables = true;
       grub = {
@@ -50,6 +42,7 @@ in {
   environment = {
     systemPackages = with pkgs; [
       acpi
+      glxinfo
       libva
       libva-utils
       vulkan-loader
@@ -60,44 +53,38 @@ in {
     variables = {
       _JAVA_AWT_WM_NONEREPARENTING = "1";
       GDK_SCALE = "2";
+      MOZ_DISABLE_RDD_SANDBOX = "1";
       WLR_NO_HARDWARE_CURSORS = "1";
-      WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     };
   };
 
   hardware = {
     enableAllFirmware = true;
-
     opengl = {
+      enable = true;
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        vaapiIntel
-        libvdpau-va-gl
-        vaapiVdpau
-        intel-ocl
+        intel-media-driver
+        intel-compute-runtime
         nvidia-vaapi-driver
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        vaapiIntel
-        libvdpau-va-gl
         vaapiVdpau
+        libvdpau-va-gl
       ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [vaapiIntel];
     };
 
     nvidia = {
-      modesetting.enable = true;
-      powerManagement = {
-        enable = true;
-        finegrained = true;
-      };
+      modesetting.enable = mkDefault true;
+      powerManagement.enable = mkDefault true;
+      open = mkDefault false;
       prime = {
         offload = {
           enable = true;
           enableOffloadCmd = true;
         };
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
+        intelBusId = mkDefault "PCI:0:2:0";
+        nvidiaBusId = mkDefault "PCI:1:0:0";
       };
     };
   };
@@ -116,25 +103,7 @@ in {
       criticalPowerAction = "Hibernate";
     };
 
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          scaling_min_freq = mkDefault (MHz 1800);
-          scaling_max_freq = mkDefault (MHz 3600);
-          turbo = "never";
-        };
-        charger = {
-          governor = "performance";
-          scaling_min_freq = mkDefault (MHz 2000);
-          scaling_max_freq = mkDefault (MHz 4800);
-          turbo = "auto";
-        };
-      };
-    };
-
-    xserver.videoDrivers = ["nvidia"];
+    xserver.videoDrivers = mkDefault ["nvidia"];
   };
 
   zramSwap.enable = true;

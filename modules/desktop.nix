@@ -37,21 +37,7 @@
 
   # environment.variables.NIXOS_OZONE_WL = "1";
 
-  hardware = {
-    opengl = {
-      extraPackages = with pkgs; [
-        libva
-        vaapiVdpau
-        libvdpau-va-gl
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        vaapiVdpau
-        libvdpau-va-gl
-      ];
-    };
-
-    pulseaudio.enable = lib.mkForce false;
-  };
+  hardware.pulseaudio.enable = lib.mkForce false;
 
   location.provider = "geoclue2";
 

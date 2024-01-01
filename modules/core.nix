@@ -30,8 +30,6 @@
     ];
   };
 
-  hardware.opengl.enable = true;
-
   programs = {
     less.enable = true;
 

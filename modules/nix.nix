@@ -65,6 +65,10 @@
         inputs.nixpkgs-wayland.overlay
         inputs.nur.overlay
       ];
+
+      packageOverrides = pkgs: {
+        vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
+      };
     };
   };
 }
