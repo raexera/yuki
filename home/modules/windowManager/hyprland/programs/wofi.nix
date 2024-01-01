@@ -6,13 +6,63 @@
   programs.wofi = {
     enable = true;
     settings = {
-      image_size = 48;
-      columns = 3;
+      width = "60%";
+      height = "40%";
+      prompt = "";
       allow_images = true;
+      allow_markup = true;
+      exec_search = true;
+      hide_scroll = true;
       insensitive = true;
-      run-always_parse_args = true;
-      run-cache_file = "/dev/null";
-      run-exec_search = true;
+      location = "center";
+      columns = 3;
+      gtk_dark = true;
+      orientation = "vertical";
+      image_size = 48;
+      layer = "top";
     };
+    style = ''
+      * {
+        font-family: Dosis;
+        background: transparent;
+      }
+
+      #window {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+      }
+
+      #input {
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px;
+        margin-bottom: 16px;
+      }
+
+      #outer-box {
+        padding: 16px;
+      }
+
+      #text {
+        margin: 4px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      #img {
+        background: transparent;
+        margin: 8px;
+      }
+
+      #entry {
+        border-radius: 8px;
+        background: transparent;
+      }
+
+      #entry:selected {
+        background: rgba(255, 255, 255, 0.2);
+        font-weight: bold;
+      }
+    '';
   };
 }

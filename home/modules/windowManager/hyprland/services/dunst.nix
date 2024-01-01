@@ -21,7 +21,7 @@
         icon_corner_radius = 0;
         icon_position = "left";
         indicate_hidden = true;
-        layer = "overlay";
+        layer = "top";
         line_height = 0;
         markup = "full";
         max_icon_size = 64;

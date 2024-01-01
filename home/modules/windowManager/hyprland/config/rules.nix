@@ -4,9 +4,11 @@
       "blur, ^(gtk-layer-shell)$"
       "blur, bar"
       "blur, notifications"
+      "blur, wofi"
       "ignorezero, ^(gtk-layer-shell)$"
       "ignorezero, bar"
       "ignorezero, notifications"
+      "ignorezero, wofi"
     ];
 
     windowrulev2 = [
