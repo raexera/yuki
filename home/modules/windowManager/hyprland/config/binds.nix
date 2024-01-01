@@ -1,4 +1,6 @@
 let
+  screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
+
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -29,13 +31,16 @@ in {
         "$mod, T, togglefloating,"
         "$mod, P, pseudo,"
         "$mod ALT, ,resizeactive,"
-
         "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
         "$mod, Space, exec, run-as-service $(wofi -S drun)"
         "$mod, Return, exec, run-as-service kitty"
         "$mod, L, exec, loginctl lock-session"
         "$mod, O, exec, run-as-service wl-ocr"
+
+        ", Print, exec, ${screenshotarea}"
+        "CTRL, Print, exec, grimblast --notify --cursor copysave output"
+        "ALT, Print, exec, grimblast --notify --cursor copysave screen"
 
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
