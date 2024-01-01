@@ -14,15 +14,13 @@
     userName = "rxyhn";
     userEmail = "rxyhn.dev@gmail.com";
     signing = {
-      key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+      key = "A69A110979DF4E36";
       signByDefault = true;
     };
     extraConfig = {
       init = {defaultBranch = "main";};
       delta = {line-numbers = true;};
       branch.autosetupmerge = "true";
-      gpg.format = "ssh";
-      gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
       push.default = "current";
       merge.stat = "true";
       core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
