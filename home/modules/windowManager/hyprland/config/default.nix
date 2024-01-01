@@ -10,26 +10,31 @@
     exec-once = [
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-      "swaylock"
     ];
 
     general = {
-      border_size = 2;
       gaps_in = 5;
       gaps_out = 5;
-      "col.inactive_border" = "rgba(595959aa)";
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-      layout = "dwindle";
+      border_size = 1;
+      "col.active_border" = "rgba(88888888)";
+      "col.inactive_border" = "rgba(00000088)";
+
       allow_tearing = false;
     };
 
     decoration = {
-      rounding = 8;
-      drop_shadow = false;
+      rounding = 12;
+      drop_shadow = true;
       shadow_ignore_window = true;
+      shadow_offset = "0 2";
+      shadow_range = 20;
+      shadow_render_power = 3;
+      "col.shadow" = "rgba(00000055)";
       blur = {
         enabled = true;
-        size = 8;
+        brightness = 1.0;
+        contrast = 1.0;
+        size = 10;
         passes = 4;
         new_optimizations = true;
         xray = true;

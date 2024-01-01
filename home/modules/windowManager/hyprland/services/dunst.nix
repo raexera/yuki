@@ -9,7 +9,7 @@
     settings = {
       global = {
         alignment = "left";
-        corner_radius = 8;
+        corner_radius = 12;
         ellipsize = "middle";
         follow = "mouse";
         font = "Dosis 9";
@@ -34,7 +34,7 @@
         origin = "top_center";
         padding = 8;
         progress_bar = true;
-        progress_bar_corner_radius = 8;
+        progress_bar_corner_radius = 12;
         progress_bar_frame_width = 0;
         progress_bar_height = 10;
         progress_bar_max_width = 300;

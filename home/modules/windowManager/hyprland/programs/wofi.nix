@@ -29,19 +29,19 @@
 
       #window {
         background: rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
+        border-radius: 12px;
       }
 
       #input {
-        border-radius: 8px;
+        border-radius: 12px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         background: rgba(255, 255, 255, 0.2);
         padding: 8px;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
       }
 
       #outer-box {
-        padding: 16px;
+        padding: 24px;
       }
 
       #text {
@@ -55,7 +55,7 @@
       }
 
       #entry {
-        border-radius: 8px;
+        border-radius: 12px;
         background: transparent;
       }
 
