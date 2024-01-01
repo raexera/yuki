@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -9,10 +10,10 @@
 
     ./config
     ./programs/swaylock.nix
+    ./programs/wofi.nix
 
     ./services/cliphist.nix
     ./services/dunst.nix
-    # ./services/hyprpaper.nix
     ./services/polkit-agent.nix
     ./services/swaybg.nix
     ./services/swayidle.nix
@@ -52,7 +53,13 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.default;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      extraCommands = lib.mkBefore [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
+      ];
+    };
   };
 
   systemd.user.targets.tray = {

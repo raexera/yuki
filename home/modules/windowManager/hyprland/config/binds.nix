@@ -32,6 +32,7 @@ in {
 
         "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
+        "$mod, Space, exec, run-as-service $(wofi -S drun)"
         "$mod, Return, exec, run-as-service kitty"
         "$mod, L, exec, loginctl lock-session"
         "$mod, O, exec, run-as-service wl-ocr"

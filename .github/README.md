@@ -41,6 +41,7 @@ I am thankful to the following individuals for their invaluable contributions an
 <div align="center">
     <a href="https://github.com/fufexan">fufexan</a> -
     <a href="https://github.com/sioodmy">sioodmy</a> -
+    <a href="https://github.com/Misterio77">Misterio77</a> -
     <a href="https://github.com/moni-dz">moni-dz</a> -
     <a href="https://github.com/paulhersch">paulhersch</a>
 </div>

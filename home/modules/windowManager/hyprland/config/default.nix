@@ -93,11 +93,9 @@
       vrr = 1;
     };
 
+    monitor = ",highres,auto,2";
+
     xwayland.force_zero_scaling = true;
     debug.disable_logs = false;
   };
-
-  wayland.windowManager.hyprland.extraConfig = ''
-    monitor =,highres,auto,2
-  '';
 }
