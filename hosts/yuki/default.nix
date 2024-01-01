@@ -80,11 +80,10 @@ in {
       driSupport = mkDefault true;
       driSupport32Bit = mkDefault true;
       extraPackages = with pkgs; [
-        intel-vaapi-driver
-        vaapiVdpau
         libvdpau-va-gl
         intel-media-driver
         intel-compute-runtime
+        vaapiVdpau
         nvidia-vaapi-driver
       ];
     };
