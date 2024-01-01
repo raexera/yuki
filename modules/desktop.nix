@@ -18,6 +18,7 @@
       noto-fonts-emoji
       roboto
       (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
+      inputs.self.packages.${pkgs.system}.tabler-icons
     ];
 
     enableDefaultPackages = false;
