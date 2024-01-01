@@ -11,21 +11,24 @@
         alignment = "left";
         corner_radius = 12;
         ellipsize = "middle";
+        enable_recursive_icon_lookup = true;
         follow = "mouse";
-        font = "Dosis 9";
-        format = "<b>%a</b>\\n<b>%s</b>\\n%b";
+        font = "Dosis 11";
+        format = "<b>%a</b>\\n<i>%s</i>%p\\n%b";
         frame_width = 0;
         gap_size = 5;
         height = 300;
-        horizontal_padding = 8;
+        horizontal_padding = 12;
         icon_corner_radius = 0;
         icon_position = "left";
+        icon_theme = "Adwaita";
+        ignore_newline = false;
         indicate_hidden = true;
         layer = "top";
         line_height = 0;
         markup = "full";
         max_icon_size = 64;
-        min_icon_size = 32;
+        min_icon_size = 64;
         mouse_left_click = "do_action";
         mouse_middle_click = "close_all";
         mouse_right_click = "close_current";
@@ -43,8 +46,8 @@
         separator_color = "auto";
         separator_height = 2;
         show_indicators = true;
+        sort = true;
         text_icon_padding = 0;
-        transparency = 10;
         vertical_alignment = "center";
         width = 300;
         word_wrap = true;
@@ -53,18 +56,24 @@
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "#ffffff33";
-        foreground = "#00000066";
+        background = "#00000033";
+        foreground = "#D8DEE9B2";
+        highlight = "#88C0D0B2";
+        timeout = 2;
       };
 
       urgency_normal = {
-        background = "#ffffff33";
-        foreground = "#00000066";
+        background = "#00000033";
+        foreground = "#D8DEE9B2";
+        highlight = "#88C0D0B2";
+        timeout = 2;
       };
 
       urgency_critical = {
         background = "#FF000033";
-        foreground = "#ffffff66";
+        foreground = "#D8DEE9B2";
+        highlight = "#88C0D0B2";
+        timeout = 10;
       };
     };
   };
