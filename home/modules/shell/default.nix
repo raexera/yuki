@@ -99,6 +99,11 @@
         "--exact"
       ];
     };
+
+    thefuck = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
 
   services = {
