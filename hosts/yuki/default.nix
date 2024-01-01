@@ -21,10 +21,11 @@ in {
     ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
+      "module_blacklist=nouveau"
+      "iommu=pt"
       "i8042.direct"
       "i8042.dumbkbd"
       "i915.enable_psr=0"
-      "iommu=pt"
     ];
     loader = {
       efi.canTouchEfiVariables = true;
@@ -59,25 +60,11 @@ in {
   };
 
   hardware = {
-    enableAllFirmware = true;
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        intel-compute-runtime
-        nvidia-vaapi-driver
-        vaapiVdpau
-        libvdpau-va-gl
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [vaapiIntel];
-    };
+    enableAllFirmware = mkDefault true;
 
     nvidia = {
       modesetting.enable = mkDefault true;
       powerManagement.enable = mkDefault true;
-      open = mkDefault false;
       prime = {
         offload = {
           enable = true;
@@ -86,6 +73,20 @@ in {
         intelBusId = mkDefault "PCI:0:2:0";
         nvidiaBusId = mkDefault "PCI:1:0:0";
       };
+    };
+
+    opengl = {
+      enable = mkDefault true;
+      driSupport = mkDefault true;
+      driSupport32Bit = mkDefault true;
+      extraPackages = with pkgs; [
+        intel-vaapi-driver
+        vaapiVdpau
+        libvdpau-va-gl
+        intel-media-driver
+        intel-compute-runtime
+        nvidia-vaapi-driver
+      ];
     };
   };
 
