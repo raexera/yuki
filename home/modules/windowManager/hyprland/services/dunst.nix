@@ -95,7 +95,7 @@ in {
         line_height = 0;
         markup = "full";
         max_icon_size = 64;
-        min_icon_size = 64;
+        min_icon_size = 48;
         mouse_left_click = "do_action";
         mouse_middle_click = "close_all";
         mouse_right_click = "close_current";
