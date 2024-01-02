@@ -1,4 +1,4 @@
-{
+{...}: {
   wayland.windowManager.hyprland.settings = {
     layerrule = [
       "blur, ^(gtk-layer-shell)$"
