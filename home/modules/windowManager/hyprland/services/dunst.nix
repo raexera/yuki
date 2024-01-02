@@ -77,7 +77,7 @@ in {
     settings = {
       global = {
         alignment = "left";
-        corner_radius = 12;
+        corner_radius = 8;
         ellipsize = "middle";
         enable_recursive_icon_lookup = true;
         follow = "mouse";
@@ -85,8 +85,7 @@ in {
         format = "<b>%a</b>\\n<i>%s</i>%p\\n%b";
         frame_width = 0;
         gap_size = 5;
-        height = 300;
-        horizontal_padding = 12;
+        horizontal_padding = 15;
         icon_corner_radius = 0;
         icon_position = "left";
         icon_theme = "Adwaita";
@@ -102,10 +101,10 @@ in {
         mouse_right_click = "close_current";
         notification_limit = 20;
         offset = "5x5";
-        origin = "top_center";
-        padding = 8;
+        origin = "top-center";
+        padding = 15;
         progress_bar = true;
-        progress_bar_corner_radius = 12;
+        progress_bar_corner_radius = 8;
         progress_bar_frame_width = 0;
         progress_bar_height = 10;
         progress_bar_max_width = 300;
@@ -115,7 +114,7 @@ in {
         separator_height = 2;
         show_indicators = true;
         sort = true;
-        text_icon_padding = 0;
+        text_icon_padding = 15;
         vertical_alignment = "center";
         width = 300;
         word_wrap = true;
