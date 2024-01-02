@@ -6,12 +6,15 @@
       "blur, launcher"
       "blur, lockscreen"
       "blur, notifications"
+      "blur, wofi"
       "ignorezero, ^(gtk-layer-shell)$"
       "ignorezero, bar"
       "ignorezero, launcher"
       "ignorezero, lockscreen"
       "ignorezero, notifications"
+      "ignorezero, wofi"
       "noanim, launcher"
+      "noanim, wofi"
     ];
 
     windowrulev2 = [

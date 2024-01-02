@@ -125,21 +125,21 @@ in {
 
       urgency_low = {
         background = "#00000033";
-        foreground = "#D8DEE9B2";
+        foreground = "#FFFFFFCC";
         highlight = "#88C0D0B2";
         timeout = 2;
       };
 
       urgency_normal = {
         background = "#00000033";
-        foreground = "#D8DEE9B2";
+        foreground = "#FFFFFFCC";
         highlight = "#88C0D0B2";
         timeout = 2;
       };
 
       urgency_critical = {
         background = "#FF000033";
-        foreground = "#D8DEE9B2";
+        foreground = "#FFFFFFCC";
         highlight = "#88C0D0B2";
         timeout = 10;
       };

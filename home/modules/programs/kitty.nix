@@ -11,7 +11,7 @@
       placement_strategy = "center";
       resize_in_steps = "yes";
       hide_window_decorations = "titlebar-only";
-      background_opacity = "0.7";
+      background_opacity = "1.0";
       inactive_text_alpha = "1.0";
       scrollback_lines = 10000;
       wheel_scroll_multiplier = "5.0";

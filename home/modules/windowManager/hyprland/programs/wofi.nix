@@ -24,14 +24,14 @@
       }
 
       #window {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.2);
         border-radius: 12px;
       }
 
       #input {
         border-radius: 12px;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(136, 192, 208, 0.8);
+        background: rgba(0, 0, 0, 0.2);
         padding: 8px;
         margin-bottom: 24px;
       }
@@ -42,7 +42,7 @@
 
       #text {
         margin: 4px;
-        color: rgba(0, 0, 0, 0.6);
+        color: rgba(255, 255, 255, 0.8);
       }
 
       #img {
@@ -56,7 +56,7 @@
       }
 
       #entry:selected {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.2);
         font-weight: bold;
       }
     '';
