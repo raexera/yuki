@@ -72,7 +72,6 @@ in {
       extraPackages = with pkgs; [
         intel-media-driver
         intel-ocl
-        libvdpau
         libvdpau-va-gl
         vaapiVdpau
         nvidia-vaapi-driver
