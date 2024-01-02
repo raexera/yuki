@@ -63,16 +63,16 @@ in {
       ];
 
       binde = [
-        ",XF86AudioRaiseVolume, exec, pamixer -i 5"
-        ",XF86AudioLowerVolume, exec, pamixer -d 5"
-        ",XF86AudioMute, exec, pamixer -t"
+        ",XF86AudioRaiseVolume, exec, volumectl up 5"
+        ",XF86AudioLowerVolume, exec, volumectl down 5"
+        ",XF86AudioMute, exec, volumectl toggle-mute"
 
-        ",XF86MonBrightnessUp, exec, lightctl up"
-        ",XF86MonBrightnessDown, exec, lightctl down"
+        ",XF86MonBrightnessUp, exec, lightctl up 5"
+        ",XF86MonBrightnessDown, exec, lightctl down 5"
       ];
     };
     extraConfig = ''
-      bind = $mod, S, submap, resize # enter resize window to resize the active window
+      bind = $mod, S, submap, resize
 
       submap=resize
       binde=,right,resizeactive,10 0

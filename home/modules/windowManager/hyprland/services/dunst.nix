@@ -1,8 +1,76 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  volumectl = let
+    inherit (pkgs) pamixer dunst libcanberra-gtk3;
+    _ = lib.getExe;
+  in
+    pkgs.writeShellScriptBin "volumectl" ''
+      #!/usr/bin/env sh
+
+      case "$1" in
+      up)
+          ${_ pamixer} -i "$2"
+          ;;
+      down)
+          ${_ pamixer} -d "$2"
+          ;;
+      toggle-mute)
+          ${_ pamixer} -t
+          ;;
+      esac
+
+      volume="$(${_ pamixer} --get-volume)"
+      isMuted="$(${_ pamixer} --get-mute)"
+
+      if [ "$isMuted" = "true" ]; then
+          ${dunst}/bin/dunstify -r 2593 \
+              -u normal \
+              -a "VOLUMECTL" "Muted" \
+              -i audio-volume-muted-symbolic
+      else
+          ${dunst}/bin/dunstify -r 2593 \
+              -u normal \
+              -a "VOLUMECTL" "Volume: " \
+              -h int:value:"$volume" \
+              -i audio-volume-high-symbolic
+
+          ${libcanberra-gtk3}/bin/canberra-gtk-play -i audio-volume-change -d "volumectl"
+      fi
+    '';
+
+  lightctl = let
+    inherit (pkgs) brightnessctl dunst;
+    _ = lib.getExe;
+  in
+    pkgs.writeShellScriptBin "lightctl" ''
+      #!/usr/bin/env sh
+
+      case "$1" in
+      up)
+          ${_ brightnessctl} -q s +"$2"%
+          ;;
+      down)
+          ${_ brightnessctl} -q s "$2"%-
+          ;;
+      esac
+
+      brightness_percentage=$((($(${_ brightnessctl} g) * 100) / $(${_ brightnessctl} m)))
+      ${dunst}/bin/dunstify -r 2593 \
+          -u normal \
+          -a "LIGHTCTL" "Brightness: " \
+          -h int:value:"$brightness_percentage" \
+          -i display-brightness-symbolic
+    '';
+in {
+  home.packages = [
+    volumectl
+    lightctl
+  ];
+
   services.dunst = {
     enable = true;
     inherit (config.gtk) iconTheme;

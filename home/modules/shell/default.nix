@@ -51,6 +51,7 @@
       util-linux
       wget
       xarchiver
+      xdg-utils
       zathura
       zip
     ];

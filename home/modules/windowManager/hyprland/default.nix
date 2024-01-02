@@ -25,6 +25,7 @@
       config.wayland.windowManager.hyprland.package
       dbus
       libnotify
+      libcanberra-gtk3
       wf-recorder
       brightnessctl
       pamixer
