@@ -10,6 +10,7 @@
 
     ./config
     ./programs/swaylock.nix
+    ./programs/waybar.nix
     ./programs/wlogout.nix
     ./programs/wofi.nix
 

@@ -36,6 +36,7 @@ in {
 
           "$mod, Space, exec, run-as-service $(wofi -S drun)"
           "$mod, Return, exec, run-as-service kitty"
+          "$mod, Escape, exec, wlogout -p layer-shell"
           "$mod, L, exec, loginctl lock-session"
           "$mod, O, exec, run-as-service wl-ocr"
 

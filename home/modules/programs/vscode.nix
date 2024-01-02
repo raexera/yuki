@@ -69,7 +69,7 @@
         cursorSmoothCaretAnimation = "on";
         cursorWidth = 2;
         find.addExtraSpaceOnTop = false;
-        fontFamily = "'monospace', monospace";
+        fontFamily = "'monospace', monospace, 'tabler-icons'";
         fontLigatures = true;
         fontSize = 16;
         formatOnPaste = true;
