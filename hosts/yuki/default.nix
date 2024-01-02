@@ -10,6 +10,7 @@ in {
 
   boot = {
     kernelModules = ["acpi_call"];
+    blacklistedKernelModules = ["nouveau"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     initrd.kernelModules = [
       "i915"
@@ -21,7 +22,8 @@ in {
     ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "module_blacklist=nouveau"
+      "quiet"
+      "splash"
       "iommu=pt"
       "i8042.direct"
       "i8042.dumbkbd"
@@ -40,29 +42,17 @@ in {
     };
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      acpi
-      glxinfo
-      libva
-      libva-utils
-      vulkan-loader
-      vulkan-validation-layers
-      vulkan-tools
-    ];
-
-    variables = {
-      _JAVA_AWT_WM_NONEREPARENTING = "1";
-      GDK_SCALE = "2";
-      MOZ_DISABLE_RDD_SANDBOX = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
-    };
+  environment.variables = {
+    GDK_SCALE = "2";
+    NVD_BACKEND = "direct";
+    MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
   hardware = {
     enableAllFirmware = mkDefault true;
 
     nvidia = {
+      package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = mkDefault true;
       powerManagement.enable = mkDefault true;
       prime = {
@@ -80,11 +70,19 @@ in {
       driSupport = mkDefault true;
       driSupport32Bit = mkDefault true;
       extraPackages = with pkgs; [
-        libvdpau-va-gl
         intel-media-driver
-        intel-compute-runtime
+        intel-ocl
+        libvdpau
+        libvdpau-va-gl
         vaapiVdpau
         nvidia-vaapi-driver
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        intel-media-driver
+        libvdpau-va-gl
+        vaapiVdpau
+        glxinfo
+        vdpauinfo
       ];
     };
   };
