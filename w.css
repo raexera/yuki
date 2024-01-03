@@ -1,6 +1,12 @@
 @define-color Background #000000;
 @define-color Foreground #ffffff;
-@define-color Accent #00FFFF;
+@define-color Accent #88C0D0;
+@define-color Red #BF616A;
+@define-color Orange #D08770;
+@define-color Yellow #EBCB8B;
+@define-color Green #A3BE8C;
+@define-color Blue #81A1C1;
+@define-color Magenta #B48EAD;
 
 * {
   all: initial;
@@ -9,15 +15,11 @@
   min-height: 0;
   min-width: 0;
   font-family: "Material Design Icons", monospace;
-  font-size: 11pt;
+  font-size: 1rem;
 }
 
 window#waybar {
   background-color: alpha(@Background, 0.2);
-}
-
-window#waybar.hidden {
-  opacity: 0;
 }
 
 #custom-search {
@@ -38,6 +40,11 @@ window#waybar.hidden {
 
 #workspaces button {
   margin: 0 0.82em;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
 }
 
 #workspaces button label {
@@ -62,6 +69,7 @@ window#waybar.hidden {
     0 0 0.68em @Yellow;
 }
 
+#user,
 #workspaces button.active label {
   color: alpha(@Accent, 0.8);
   text-shadow:
@@ -76,12 +84,16 @@ window#waybar.hidden {
 #battery,
 #clock,
 #clock.date,
+#custom-lock,
 #custom-power,
+#custom-reboot,
+#custom-suspend,
+#custom-quit,
 #network,
 #pulseaudio,
 #pulseaudio.microphone,
 #tray,
-#window {
+#user {
   color: alpha(@Foreground, 0.8);
   background-color: alpha(@Background, 0.2);
   border-radius: 4px;
@@ -89,8 +101,24 @@ window#waybar.hidden {
   padding: 0.41em 0.82em;
 }
 
+#custom-quit {
+  color: alpha(@Magenta, 0.8);
+}
+
+#custom-lock {
+  color: alpha(@Green, 0.8);
+}
+
+#custom-suspend {
+  color: alpha(@Blue, 0.8);
+}
+
+#custom-reboot {
+  color: alpha(@Yellow, 0.8);
+}
+
 #custom-power {
-  margin-right: 0.41em;
+  color: alpha(@Red, 0.8);
 }
 
 tooltip {
