@@ -26,6 +26,12 @@
       path = "${config.xdg.dataHome}/zsh_history";
     };
 
+    sessionVariables = {
+      LC_ALL = "en_US.UTF-8";
+      ZSH_AUTOSUGGEST_USE_ASYNC = "true";
+      SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/keyring/ssh";
+    };
+
     initExtra = ''
       zstyle ':completion:*' completer _complete _ignored _approximate
       zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s

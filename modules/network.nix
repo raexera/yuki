@@ -5,12 +5,11 @@
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
-      wifi = {
-        macAddress = "random";
-        powersave = true;
-      };
+      wifi.powersave = true;
     };
   };
+
+  programs.ssh.startAgent = true;
 
   services = {
     openssh = {
