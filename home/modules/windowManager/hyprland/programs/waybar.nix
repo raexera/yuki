@@ -232,15 +232,23 @@ in {
 
       #workspaces button.special label {
         color: alpha(@Yellow, 0.8);
-        text-shadow: 0 0 0.14em @Yellow, 0 0 0.27em @Yellow, 0 0 0.41em @Yellow,
-          0 0 0.55em @Yellow, 0 0 0.68em @Yellow;
+        text-shadow:
+          0 0 0.14em @Yellow,
+          0 0 0.27em @Yellow,
+          0 0 0.41em @Yellow,
+          0 0 0.55em @Yellow,
+          0 0 0.68em @Yellow;
       }
 
       #user,
       #workspaces button.active label {
         color: alpha(@Accent, 0.8);
-        text-shadow: 0 0 0.14em @Accent, 0 0 0.27em @Accent, 0 0 0.41em @Accent,
-          0 0 0.55em @Accent, 0 0 0.68em @Accent;
+        text-shadow:
+          0 0 0.14em @Accent,
+          0 0 0.27em @Accent,
+          0 0 0.41em @Accent,
+          0 0 0.55em @Accent,
+          0 0 0.68em @Accent;
       }
 
       #backlight,
