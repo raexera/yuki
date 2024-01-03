@@ -24,6 +24,16 @@
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+      gtk-decoration-layout = "menu:";
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+      gtk-decoration-layout = "menu:";
+    };
+
     iconTheme = {
       name = "Adwaita";
       package = pkgs.gnome.adwaita-icon-theme;
@@ -39,8 +49,8 @@
     enable = true;
     platformTheme = "gnome";
     style = {
-      package = pkgs.adwaita-qt;
       name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
     };
   };
 }
