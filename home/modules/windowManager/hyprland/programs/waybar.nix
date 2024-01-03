@@ -63,9 +63,9 @@ in {
           };
         };
         network = {
-          format-wifi = "󰖩 {essid}";
-          format-ethernet = "󰈀 {ipaddr}/{cidr}";
-          format-disconnected = "󰖪";
+          format-wifi = "<span color='#88C0D0CC' font_size='13pt'>󰖩</span> {essid}";
+          format-ethernet = "<span color='#88C0D0CC' font_size='13pt'>󰈀</span> {ipaddr}/{cidr}";
+          format-disconnected = "<span color='#BF616ACC' font_size='13pt'>󰖪</span>";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
@@ -89,8 +89,8 @@ in {
         };
         pulseaudio = {
           tooltip = false;
-          format = "{icon} {volume}%";
-          format-muted = "󰖁";
+          format = "<span color='#88C0D0CC' font_size='13pt'>{icon}</span> {volume}%";
+          format-muted = "<span color='#BF616ACC' font_size='13pt'>󰖁</span>";
           format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
           on-click = "${_ pamixer} -t";
           on-scroll-up = "${_ pamixer} -d 1";
@@ -99,8 +99,8 @@ in {
         "pulseaudio#microphone" = {
           tooltip = false;
           format = "{format_source}";
-          format-source = "󰍬 {volume}%";
-          format-source-muted = "󰍭";
+          format-source = "<span color='#88C0D0CC' font_size='13pt'>󰍬</span> {volume}%";
+          format-source-muted = "<span color='#BF616ACC' font_size='13pt'>󰍭</span>";
           on-click = "${_ pamixer} --default-source -t";
           on-scroll-up = "${_ pamixer} --default-source -d 1";
           on-scroll-down = "${_ pamixer} --default-source -i 1";
@@ -124,7 +124,7 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = "{icon} {percent}%";
+          format = "<span color='#88C0D0CC' font_size='13pt'>{icon}</span> {percent}%";
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
@@ -134,30 +134,18 @@ in {
             warning = 30;
             critical = 15;
           };
-          format = "{icon} {capacity}%";
           tooltip-format = "{timeTo}, {capacity}%";
-          format-charging = "󰂄 {capacity}%";
-          format-plugged = "󰚥 {capacity}%";
-          format-icons = [
-            "󰂎"
-            "󰁺"
-            "󰁻"
-            "󰁼"
-            "󰁽"
-            "󰁾"
-            "󰁿"
-            "󰂀"
-            "󰂁"
-            "󰂂"
-            "󰁹"
-          ];
+          format = "<span color='#88C0D0CC' font_size='13pt'>{icon}</span> {capacity}%";
+          format-charging = "<span color='#A3BE8CCC' font_size='13pt'>󰂄</span> {capacity}%";
+          format-plugged = "<span color='#88C0D0CC' font_size='13pt'>󰚥</span> {capacity}%";
+          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         clock = {
-          format = "󱑎 {:%I:%M %p}";
-          format-alt = "󱑎 {:%H:%M}";
+          format = "<span color='#88C0D0CC' font_size='13pt'>󱑎</span> {:%I:%M %p}";
+          format-alt = "<span color='#88C0D0CC' font_size='13pt'>󱑎</span> {:%H:%M}";
         };
         "clock#date" = {
-          format = "󰃶 {:%a %d %b}";
+          format = "<span color='#88C0D0CC' font_size='13pt'>󰃶</span> {:%a %d %b}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
@@ -178,27 +166,27 @@ in {
           ];
         };
         "custom/quit" = {
-          format = "󰍃";
+          format = "<span color='#B48EADCC' font_size='13pt'>󰍃</span>";
           onclick = "loginctl terminate-user $USER";
           tooltip = false;
         };
         "custom/lock" = {
-          format = "󰌾";
+          format = "<span color='#81A1C1CC' font_size='13pt'>󰌾</span>";
           onclick = "loginctl lock-session";
           tooltip = false;
         };
         "custom/suspend" = {
-          format = "󰒲";
+          format = "<span color='#A3BE8CCC' font_size='13pt'>󰒲</span>";
           onclick = "systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
-          format = "󰜉";
+          format = "<span color='#EBCB8BCC' font_size='13pt'>󰜉</span>";
           on-click = "systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
-          format = "󰐥";
+          format = "<span color='#BF616ACC' font_size='13pt'>󰐥</span>";
           on-click = "systemctl poweroff";
           tooltip = false;
         };
@@ -209,12 +197,8 @@ in {
       @define-color Background #000000;
       @define-color Foreground #ffffff;
       @define-color Accent #88C0D0;
-      @define-color Red #BF616A;
-      @define-color Orange #D08770;
-      @define-color Yellow #EBCB8B;
-      @define-color Green #A3BE8C;
-      @define-color Blue #81A1C1;
-      @define-color Magenta #B48EAD;
+      @define-color Error #BF616A;
+      @define-color Warning #EBCB8B;
 
       * {
         all: initial;
@@ -264,17 +248,17 @@ in {
       }
 
       #workspaces button.urgent label {
-        color: alpha(@Red, 0.8);
+        color: alpha(@Error, 0.8);
       }
 
       #workspaces button.special label {
-        color: alpha(@Yellow, 0.8);
+        color: alpha(@Warning, 0.8);
         text-shadow:
-          0 0 0.14em @Yellow,
-          0 0 0.27em @Yellow,
-          0 0 0.41em @Yellow,
-          0 0 0.55em @Yellow,
-          0 0 0.68em @Yellow;
+          0 0 0.14em @Warning,
+          0 0 0.27em @Warning,
+          0 0 0.41em @Warning,
+          0 0 0.55em @Warning,
+          0 0 0.68em @Warning;
       }
 
       #user,
@@ -309,26 +293,6 @@ in {
         border-radius: 4px;
         margin: 0.41em 0.21em;
         padding: 0.41em 0.82em;
-      }
-
-      #custom-quit {
-        color: alpha(@Magenta, 0.8);
-      }
-
-      #custom-lock {
-        color: alpha(@Green, 0.8);
-      }
-
-      #custom-suspend {
-        color: alpha(@Blue, 0.8);
-      }
-
-      #custom-reboot {
-        color: alpha(@Yellow, 0.8);
-      }
-
-      #custom-power {
-        color: alpha(@Red, 0.8);
       }
 
       #backlight-slider slider,

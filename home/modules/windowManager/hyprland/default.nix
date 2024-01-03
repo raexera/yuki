@@ -32,6 +32,7 @@
       pamixer
       slurp
       grim
+      glib
       hyprpicker
       swappy
       wl-clipboard
