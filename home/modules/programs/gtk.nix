@@ -26,12 +26,12 @@
 
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
-      gtk-decoration-layout = "menu:";
+      gtk-decoration-layout = "menu:maximize,minimize,close";
     };
 
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = true;
-      gtk-decoration-layout = "menu:";
+      gtk-decoration-layout = "menu:maximize,minimize,close";
     };
 
     iconTheme = {
