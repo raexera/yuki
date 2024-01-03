@@ -306,5 +306,8 @@ in {
         padding: 1.37em;
       }
     '';
+
+    systemd.enable = true;
+    systemd.target = "graphical-session.target";
   };
 }
