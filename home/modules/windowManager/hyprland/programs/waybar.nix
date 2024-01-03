@@ -35,9 +35,9 @@ in {
         modules-center = [];
         modules-right = [
           "network"
-          "pulseaudio"
           "pulseaudio#microphone"
-          "backlight"
+          "group/group-pulseaudio"
+          "group/group-backlight"
           "battery"
           "clock#date"
           "clock"
@@ -65,11 +65,27 @@ in {
         network = {
           format-wifi = "󰖩 {essid}";
           format-ethernet = "󰈀 {ipaddr}/{cidr}";
-          format-alt = "󱛇";
           format-disconnected = "󰖪";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
+        };
+        "group/group-pulseaudio" = {
+          orientation = "inherit";
+          drawer = {
+            transition-duration = 300;
+            children-class = "pulseaudio-child";
+            transition-left-to-right = false;
+          };
+          modules = [
+            "pulseaudio"
+            "pulseaudio/slider"
+          ];
+        };
+        "pulseaudio/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "horizontal";
         };
         pulseaudio = {
           tooltip = false;
@@ -89,6 +105,23 @@ in {
           on-scroll-up = "${_ pamixer} --default-source -d 1";
           on-scroll-down = "${_ pamixer} --default-source -i 1";
         };
+        "group/group-backlight" = {
+          orientation = "inherit";
+          drawer = {
+            transition-duration = 300;
+            children-class = "backlight-child";
+            transition-left-to-right = false;
+          };
+          modules = [
+            "backlight"
+            "backlight/slider"
+          ];
+        };
+        "backlight/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "horizontal";
+        };
         backlight = {
           tooltip = false;
           format = "{icon} {percent}%";
@@ -105,7 +138,6 @@ in {
           tooltip-format = "{timeTo}, {capacity}%";
           format-charging = "󰂄 {capacity}%";
           format-plugged = "󰚥 {capacity}%";
-          format-alt = "{time} {icon}";
           format-icons = [
             "󰂎"
             "󰁺"
@@ -133,9 +165,9 @@ in {
         "group/group-power" = {
           orientation = "inherit";
           drawer = {
-            "transition-duration" = 500;
-            "children-class" = "not-power";
-            "transition-left-to-right" = false;
+            transition-duration = 300;
+            transition-left-to-right = false;
+            children-class = "power-child";
           };
           modules = [
             "custom/power"
@@ -147,22 +179,27 @@ in {
         };
         "custom/quit" = {
           format = "󰍃";
+          onclick = "loginctl terminate-user $USER";
           tooltip = false;
         };
         "custom/lock" = {
           format = "󰌾";
+          onclick = "loginctl lock-session";
           tooltip = false;
         };
         "custom/suspend" = {
           format = "󰒲";
+          onclick = "systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
           format = "󰜉";
+          on-click = "systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
           format = "󰐥";
+          on-click = "systemctl poweroff";
           tooltip = false;
         };
       };
@@ -196,7 +233,7 @@ in {
       #custom-search {
         margin: 0 0.41em;
         padding: 0.41em 0.82em;
-        background-image: url("${snowflake}");
+        background-image: url("/nix/store/488hqs4jj4i981k6pfbbmxd62nigkpxa-Logo-14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8.svg");
         background-size: 80%;
         background-position: center;
         background-repeat: no-repeat;
@@ -252,6 +289,7 @@ in {
       }
 
       #backlight,
+      #backlight-slider,
       #battery,
       #clock,
       #clock.date,
@@ -262,6 +300,7 @@ in {
       #custom-quit,
       #network,
       #pulseaudio,
+      #pulseaudio-slider,
       #pulseaudio.microphone,
       #tray,
       #user {
@@ -290,6 +329,37 @@ in {
 
       #custom-power {
         color: alpha(@Red, 0.8);
+      }
+
+      #backlight-slider slider,
+      #pulseaudio-slider slider {
+        min-height: 0px;
+        min-width: 0px;
+        opacity: 0;
+        background-image: none;
+        border: none;
+        box-shadow: none;
+        margin: 0 0.68em;
+      }
+
+      #backlight-slider trough,
+      #pulseaudio-slider trough {
+        min-height: 0.68em;
+        min-width: 5.47em;
+        border-radius: 8px;
+        background-color: alpha(@Background, 0.2);
+      }
+
+      #backlight-slider highlight,
+      #pulseaudio-slider highlight {
+        min-width: 0.68em;
+        border-radius: 8px;
+        background-color: alpha(@Accent, 0.8);
+        box-shadow:
+          0 0 0.14em @Accent,
+          0 0 0.27em @Accent,
+          0 0 0.41em @Accent,
+          0 0 0.55em @Accent;
       }
 
       tooltip {
