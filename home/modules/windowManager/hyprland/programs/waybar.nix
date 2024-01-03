@@ -3,8 +3,11 @@
   pkgs,
   ...
 }: let
-  inherit (pkgs) brightnessctl pamixer;
   _ = lib.getExe;
+  inherit (pkgs) brightnessctl pamixer;
+
+  formatIcons = color: text: "<span color='${color}' font_size='13pt'>${text}</span>";
+
   snowflake = builtins.fetchurl rec {
     name = "Logo-${sha256}.svg";
     url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
@@ -63,9 +66,9 @@ in {
           };
         };
         network = {
-          format-wifi = "<span color='#88C0D0CC' font_size='13pt'>󰖩</span> {essid}";
-          format-ethernet = "<span color='#88C0D0CC' font_size='13pt'>󰈀</span> {ipaddr}/{cidr}";
-          format-disconnected = "<span color='#BF616ACC' font_size='13pt'>󰖪</span>";
+          format-wifi = formatIcons "#88C0D0CC" "󰖩" + " {essid}";
+          format-ethernet = formatIcons "#88C0D0CC" "󰈀" + " {ipaddr}/{cidr}";
+          format-disconnected = formatIcons "#BF616ACC" "󰖪";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
@@ -89,8 +92,8 @@ in {
         };
         pulseaudio = {
           tooltip = false;
-          format = "<span color='#88C0D0CC' font_size='13pt'>{icon}</span> {volume}%";
-          format-muted = "<span color='#BF616ACC' font_size='13pt'>󰖁</span>";
+          format = formatIcons "#88C0D0CC" "{icon}" + " {volume}%";
+          format-muted = formatIcons "#BF616ACC" "󰖁";
           format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
           on-click = "${_ pamixer} -t";
           on-scroll-up = "${_ pamixer} -d 1";
@@ -99,8 +102,8 @@ in {
         "pulseaudio#microphone" = {
           tooltip = false;
           format = "{format_source}";
-          format-source = "<span color='#88C0D0CC' font_size='13pt'>󰍬</span> {volume}%";
-          format-source-muted = "<span color='#BF616ACC' font_size='13pt'>󰍭</span>";
+          format-source = formatIcons "#88C0D0CC" "󰍬" + " {volume}%";
+          format-source-muted = formatIcons "#BF616ACC" "󰍭";
           on-click = "${_ pamixer} --default-source -t";
           on-scroll-up = "${_ pamixer} --default-source -d 1";
           on-scroll-down = "${_ pamixer} --default-source -i 1";
@@ -124,7 +127,7 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = "<span color='#88C0D0CC' font_size='13pt'>{icon}</span> {percent}%";
+          format = formatIcons "#88C0D0CC" "{icon}" + " {percent}%";
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
@@ -135,17 +138,17 @@ in {
             critical = 15;
           };
           tooltip-format = "{timeTo}, {capacity}%";
-          format = "<span color='#88C0D0CC' font_size='13pt'>{icon}</span> {capacity}%";
-          format-charging = "<span color='#A3BE8CCC' font_size='13pt'>󰂄</span> {capacity}%";
-          format-plugged = "<span color='#88C0D0CC' font_size='13pt'>󰚥</span> {capacity}%";
+          format = formatIcons "#88C0D0CC" "{icon}" + " {capacity}%";
+          format-charging = formatIcons "#A3BE8CCC" "󰂄" + " {capacity}%";
+          format-plugged = formatIcons "#A3BE8CCC" "󰚥" + " {capacity}%";
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         clock = {
-          format = "<span color='#88C0D0CC' font_size='13pt'>󱑎</span> {:%I:%M %p}";
-          format-alt = "<span color='#88C0D0CC' font_size='13pt'>󱑎</span> {:%H:%M}";
+          format = formatIcons "#88C0D0CC" "󱑎" + " {:%I:%M %p}";
+          format-alt = formatIcons "#88C0D0CC" "󱑎" + " {:%H:%M}";
         };
         "clock#date" = {
-          format = "<span color='#88C0D0CC' font_size='13pt'>󰃶</span> {:%a %d %b}";
+          format = formatIcons "#88C0D0CC" "󰃶" + " {:%a %d %b}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
@@ -166,27 +169,27 @@ in {
           ];
         };
         "custom/quit" = {
-          format = "<span color='#B48EADCC' font_size='13pt'>󰍃</span>";
+          format = formatIcons "#B48EADCC" "󰍃";
           onclick = "loginctl terminate-user $USER";
           tooltip = false;
         };
         "custom/lock" = {
-          format = "<span color='#81A1C1CC' font_size='13pt'>󰌾</span>";
+          format = formatIcons "#81A1C1CC" "󰌾";
           onclick = "loginctl lock-session";
           tooltip = false;
         };
         "custom/suspend" = {
-          format = "<span color='#A3BE8CCC' font_size='13pt'>󰒲</span>";
+          format = formatIcons "#A3BE8CCC" "󰒲";
           onclick = "systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
-          format = "<span color='#EBCB8BCC' font_size='13pt'>󰜉</span>";
+          format = formatIcons "#EBCB8BCC" "󰜉";
           on-click = "systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
-          format = "<span color='#BF616ACC' font_size='13pt'>󰐥</span>";
+          format = formatIcons "#BF616ACC" "󰐥";
           on-click = "systemctl poweroff";
           tooltip = false;
         };
