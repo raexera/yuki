@@ -6,38 +6,25 @@
 }: {
   fonts = {
     packages = with pkgs; [
-      comfortaa
-      dosis
-      dejavu_fonts
-      inter
-      iosevka-bin
-      material-design-icons
-      material-icons
       material-symbols
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
       roboto
-      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
-      inputs.self.packages.${pkgs.system}.tabler-icons
+
+      (google-fonts.override {fonts = ["Dosis" "Inter"];})
+      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     ];
 
     enableDefaultPackages = false;
 
     fontconfig.defaultFonts = {
-      monospace = [
-        "Iosevka Term"
-        "Iosevka Term Nerd Font Complete Mono"
-        "Iosevka Nerd Font"
-        "Noto Color Emoji"
-      ];
-      sansSerif = ["Dosis" "Noto Color Emoji"];
       serif = ["Noto Serif" "Noto Color Emoji"];
+      sansSerif = ["Dosis" "Noto Color Emoji"];
+      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
       emoji = ["Noto Color Emoji"];
     };
   };
-
-  # environment.variables.NIXOS_OZONE_WL = "1";
 
   hardware.pulseaudio.enable = lib.mkForce false;
 

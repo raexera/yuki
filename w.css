@@ -1,0 +1,73 @@
+@define-color Background #000000;
+@define-color Foreground #ffffff;
+@define-color Accent #88C0D0;
+@define-color Warning #EBCB8B;
+@define-color Error #BF616A;
+
+* {
+  all: initial;
+  font-family: "Dosis", "tabler-icons";
+  font-size: 13pt;
+  border-radius: 0;
+}
+
+window#waybar {
+  background-color: alpha(@Background, 0.2);
+}
+
+window#waybar.hidden {
+  opacity: 0;
+}
+
+#custom-search {
+  background-image: url("/nix/store/488hqs4jj4i981k6pfbbmxd62nigkpxa-Logo-14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 75%;
+  min-width: 32px;
+  min-height: 32px;
+  margin: 0 10px;
+}
+
+#workspaces {
+  background-color: alpha(@Background, 0.2);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 5px;
+}
+
+#workspaces button {
+  margin: 0 10px;
+}
+
+#workspaces button label {
+  color: alpha(@Foreground, 0.8);
+  font-size: 15pt;
+}
+
+#workspaces button.empty label {
+  color: alpha(@Foreground, 0.4);
+}
+
+#workspaces button.active label {
+  color: @Accent;
+  text-shadow:
+    0 0 5px @Accent,
+    0 0 10px @Accent,
+    0 0 15px @Accent,
+    0 0 20px @Accent,
+    0 0 30px @Accent,
+    0 0 40px @Accent,
+    0 0 50px @Accent,
+    0 0 60px @Accent;
+}
+
+#battery {
+  color: alpha(@Foreground, 0.8);
+  font-size: 15pt;
+}
+
+#custom-power {
+  color: alpha(@Error, 0.8);
+  font-size: 15pt;
+}
