@@ -10,7 +10,7 @@
 
     ./config
     ./programs/swaylock.nix
-    ./programs/waybar.nix
+    # ./programs/waybar.nix
     ./programs/wofi.nix
 
     ./services/cliphist.nix

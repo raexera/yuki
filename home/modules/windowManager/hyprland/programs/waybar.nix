@@ -34,7 +34,7 @@ in {
           "custom/power"
         ];
         "custom/search" = {
-          format = "";
+          format = " ";
           tooltip = false;
           on-click = "sh -c 'run-as-service $(wofi -S drun)'";
         };
@@ -45,60 +45,59 @@ in {
           on-click = "activate";
           format = "{icon}";
           format-icons = {
-            active = "";
-            default = "ﰓ";
-            empty = "ﰓ";
+            active = "";
+            default = "";
+            empty = "";
           };
           persistent-workspaces = {
             "*" = 5;
           };
+        };
+        network = {
+          format-wifi = "󰖩 {essid}";
+          format-ethernet = "󰈀 {ipaddr}/{cidr}";
+          format-alt = "󱛇";
+          format-disconnected = "󰖪";
+          tooltip-format = ''
+            󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
+            {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
         };
         battery = {
           states = {
             warning = 30;
             critical = 15;
           };
-          format = "{icon}";
-          format-charging = "";
-          format-plugged = "";
-          tooltip-format = "{timeTo}";
+          format = "{icon} {capacity}%";
+          tooltip-format = "{timeTo}, {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰚥 {capacity}%";
+          format-alt = "{time} {icon}";
           format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
+            "󰂎"
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
           ];
         };
         clock = {
-          format = "{:%H:%M}";
+          tooltip = false;
+          format = "󱑎 {:%H:%M}";
+        };
+        "clock#date" = {
+          format = "󰃶 {:%a %d %b}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
-          calendar = {
-            mode = "year";
-            mode-mon-col = 3;
-            weeks-pos = "right";
-            on-scroll = 1;
-            on-click-right = "mode";
-            format = {
-              months = "<span color='#f5c2e7'><b>{}</b></span>";
-              days = "<span color='#cdd6f4'><b>{}</b></span>";
-              weeks = "<span color='#cba6f7'><b>T{:%U}</b></span>";
-              weekdays = "<span color='#eba0ac'><b>{}</b></span>";
-              today = "<span color='#a6e3a1'><b><u>{}</u></b></span>";
-            };
-            actions = {
-              on-click-right = "mode";
-              on-click-forward = "tz_up";
-              on-click-backward = "tz_down";
-              on-scroll-up = "shift_up";
-              on-scroll-down = "shift_down";
-            };
-          };
         };
         "custom/power" = {
-          format = "";
+          format = "󰐥";
           tooltip = false;
         };
       };
@@ -107,7 +106,7 @@ in {
     style = ''
       * {
         all: initial;
-        font-family:'Dosis','Material Symbols Outlined';
+        font-family: Material Design Icons, monospace;
       }
 
       #custom-search {
