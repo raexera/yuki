@@ -1,61 +1,114 @@
 {
-  description = "Rxyhn's NixOS Configuration";
+  description = "rxyhn's dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nur.url = "github:nix-community/NUR";
+    lanzaboote.url = "github:nix-community/lanzaboote";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    nh = {
+      url = "github:viperML/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
+    hyprland = {
+      url = "github:hyprwm/hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nil = {
-      url = "github:oxalica/nil";
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
-    forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
-  in {
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-    overlays = import ./overlays {inherit inputs outputs;};
-    packages = forEachPkgs (pkgs: import ./pkgs {inherit pkgs;});
-    devShells = forEachPkgs (pkgs: import ./shell.nix {inherit pkgs;});
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-    nixosConfigurations = {
-      # Laptop
-      lenovo = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/lenovo];
+      imports = [
+        ./home/profiles
+        ./hosts
+        ./modules
+        ./pkgs
+
+        inputs.flake-parts.flakeModules.easyOverlay
+        inputs.pre-commit-hooks.flakeModule
+      ];
+
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
+        formatter = pkgs.alejandra;
+
+        pre-commit = {
+          settings.excludes = ["flake.lock"];
+
+          settings.hooks = {
+            alejandra.enable = true;
+            prettier = {
+              enable = true;
+              excludes = [".js" ".md" ".ts"];
+            };
+          };
+        };
+
+        devShells.default = pkgs.mkShell {
+          name = "dotfiles";
+          DIRENV_LOG_FORMAT = "";
+          packages = with pkgs; [
+            alejandra
+            deadnix
+            git
+            nodePackages.prettier
+            statix
+          ];
+          shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
+        };
       };
     };
-
-    homeConfigurations = {
-      # Laptop
-      "rxyhn@lenovo" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home/rxyhn/lenovo];
-      };
-    };
-  };
 }

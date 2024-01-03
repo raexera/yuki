@@ -1,4 +1,4 @@
-name: Nix Flake Check
+name: Check
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v18
+      - uses: cachix/install-nix-action@v20
         with:
           install_url: https://nixos.org/nix/install
           extra_nix_config: |
