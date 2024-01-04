@@ -35,7 +35,6 @@
       lz4
       neofetch
       p7zip
-      pciutils
       perl
       procs
       psmisc

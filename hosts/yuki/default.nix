@@ -42,10 +42,17 @@ in {
     };
   };
 
-  environment.variables = {
-    GDK_SCALE = "2";
-    NVD_BACKEND = "direct";
-    MOZ_DISABLE_RDD_SANDBOX = "1";
+  environment = {
+    systemPackages = with pkgs; [
+      acpi
+      pciutils
+    ];
+
+    variables = {
+      GDK_SCALE = "2";
+      NVD_BACKEND = "direct";
+      MOZ_DISABLE_RDD_SANDBOX = "1";
+    };
   };
 
   hardware = {
