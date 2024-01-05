@@ -29,9 +29,4 @@ in {
       };
     }
   ];
-
-  _module.args = {
-    default = import ./theme lib;
-    colors = import ./colors lib;
-  };
 }
