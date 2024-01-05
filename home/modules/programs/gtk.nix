@@ -4,6 +4,15 @@
   ...
 }: {
   home = {
+    packages = with pkgs; [
+      libsForQt5.qt5ct
+      libsForQt5.qtstyleplugin-kvantum
+      libsForQt5.qt5.qttools
+      qt6Packages.qt6ct
+      qt6Packages.qtstyleplugin-kvantum
+      breeze-icons
+    ];
+
     pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
@@ -47,7 +56,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "gnome";
+    platformTheme = "qtct";
     style = {
       name = "adwaita-dark";
       package = pkgs.adwaita-qt;

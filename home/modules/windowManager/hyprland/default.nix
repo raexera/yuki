@@ -53,6 +53,8 @@
     };
   };
 
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.default;

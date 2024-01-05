@@ -24,11 +24,14 @@ in {
     ];
     timeouts = [
       {
+        timeout = 300;
+        command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
+      }
+      {
         timeout = 330;
         command = suspendScript.outPath;
       }
     ];
   };
-
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
 }
