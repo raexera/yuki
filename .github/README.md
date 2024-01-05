@@ -1,5 +1,6 @@
 <div align="center">
     <h1>雪 - Yuki</h1>
+    <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="800px" alt="Yuki - NixOS Configuration"/>
 </div>
 
 <div align="center">
@@ -9,39 +10,39 @@
 </div>
 
 > [!NOTE]
-> System Information:
+> **System Information:**
 >
-> - OS: NixOS
-> - WM: Hyprland
-> - Shell: ZSH
-> - Terminal: Kitty
-> - Editor: Visual Studio Code
+> - **OS:** NixOS
+> - **Window Manager:** Hyprland
+> - **Shell:** ZSH
+> - **Terminal:** Kitty
+> - **Editor:** Visual Studio Code
 
-## :snowflake: About
+## :snowflake: About Yuki
 
-In this repository, you'll discover a carefully curated collection of my personal dotfiles. These are designed for setting up NixOS and Home-Manager, utilizing the robust structure of [flakes](https://nixos.wiki/wiki/Flakes) and [flake-parts](https://github.com/hercules-ci/flake-parts) for optimal organization and efficiency.
+Welcome to "雪 - Yuki", a repository showcasing my personal collection of dotfiles. These dotfiles are tailored for NixOS and Home-Manager, leveraging the power of [flakes](https://nixos.wiki/wiki/Flakes) and [flake-parts](https://github.com/hercules-ci/flake-parts). They provide a structured and efficient setup, perfect for any NixOS enthusiast.
 
-Interested in seeing the specifics? Get an overview of the flake outputs by executing the following command:
+To explore the flake outputs and their functionalities, run:
 
 ```sh
 nix flake show github:rxyhn/yuki
 ```
 
-## :package: Contents
+## :package: Repository Contents
 
-- [modules](./modules): Essential components of the system
-- [hosts](./hosts): Host-specific configuration
-- [home](./home): [Home-Manager](https://github.com/nix-community/home-manager) configuration
-- [pkgs](./pkgs): Custom packages
+- **[Modules](./modules):** Shared system-wide modules.
+- **[Hosts](./hosts):** Configurations specific to individual hosts.
+- **[Home](./home):** [Home-Manager](https://github.com/nix-community/home-manager) configurations.
+- **[pkgs](./pkgs):** Customized and additional packages.
 
 ## :bulb: Acknowledgments
 
-I am thankful to the following individuals for their invaluable contributions and inspiration during the creation of these configurations. Their insights and feedback have been instrumental in this endeavor.
+Special thanks to the following individuals for their insights, feedback, and inspiration in this endeavor to develop this configuration:
 
 <div align="center">
-    <a href="https://github.com/fufexan">fufexan</a> -
-    <a href="https://github.com/sioodmy">sioodmy</a> -
-    <a href="https://github.com/Misterio77">Misterio77</a> -
-    <a href="https://github.com/moni-dz">moni-dz</a> -
+    <a href="https://github.com/fufexan">fufexan</a> •
+    <a href="https://github.com/sioodmy">sioodmy</a> •
+    <a href="https://github.com/Misterio77">Misterio77</a> •
+    <a href="https://github.com/moni-dz">moni-dz</a> •
     <a href="https://github.com/paulhersch">paulhersch</a>
 </div>
