@@ -5,6 +5,8 @@
 }: {
   documentation.dev.enable = true;
 
+  environment.pathsToLink = ["/share/zsh"];
+
   programs = {
     bash.promptInit = ''eval "$(${pkgs.starship}/bin/starship init bash)"'';
 

@@ -1,10 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   environment.loginShellInit = ''
-    dbus-update-activation-environment --systemd DISPLAY
     eval $(${pkgs.gnome.gnome-keyring}/bin/gnome-keyring-daemon --start --components=ssh,secrets)
     eval $(${pkgs.openssh}/bin/ssh-agent)
   '';

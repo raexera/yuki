@@ -6,7 +6,23 @@
 }: let
   inherit (lib) mkDefault;
 in {
-  imports = [./hardware-configuration.nix];
+  imports = [
+    ./hardware-configuration.nix
+
+    ./modules/core
+    ./modules/core/network.nix
+    ./modules/core/ssh.nix
+
+    ./modules/desktop
+    ./modules/fonts.nix
+    ./modules/greetd.nix
+    ./modules/wayland.nix
+
+    ./modules/programs/java.nix
+    ./modules/programs/packages.nix
+
+    ./modules/services/pipewire.nix
+  ];
 
   boot = {
     kernelModules = ["acpi_call"];

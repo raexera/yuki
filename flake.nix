@@ -65,10 +65,10 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        ./home/profiles
-        ./hosts
-        ./modules
+        ./settings.nix
         ./pkgs
+        ./hosts
+        ./home/profiles
 
         inputs.flake-parts.flakeModules.easyOverlay
         inputs.pre-commit-hooks.flakeModule
