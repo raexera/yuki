@@ -9,19 +9,19 @@ in {
   imports = [
     ./hardware-configuration.nix
 
-    ./modules/core
-    ./modules/core/network.nix
-    ./modules/core/ssh.nix
+    ../modules/core
+    ../modules/core/network.nix
+    ../modules/core/ssh.nix
 
-    ./modules/desktop
-    ./modules/fonts.nix
-    ./modules/greetd.nix
-    ./modules/wayland.nix
+    ../modules/desktop
+    ../modules/desktop/fonts.nix
+    ../modules/desktop/greetd.nix
+    ../modules/desktop/wayland.nix
 
-    ./modules/programs/java.nix
-    ./modules/programs/packages.nix
+    ../modules/programs/java.nix
+    ../modules/programs/packages.nix
 
-    ./modules/services/pipewire.nix
+    ../modules/services/pipewire.nix
   ];
 
   boot = {
