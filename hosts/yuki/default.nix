@@ -56,6 +56,11 @@ in {
   };
 
   hardware = {
+    bluetooth = {
+      enable = true;
+      package = pkgs.bluez5-experimental;
+    };
+
     enableAllFirmware = mkDefault true;
 
     nvidia = {
