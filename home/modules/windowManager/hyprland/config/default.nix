@@ -87,12 +87,14 @@
     };
 
     misc = {
+      animate_mouse_windowdragging = false;
       disable_autoreload = true;
-      disable_splash_rendering = true;
       disable_hyprland_logo = true;
+      disable_splash_rendering = true;
       force_hypr_chan = true;
       force_default_wallpaper = 0;
-      animate_mouse_windowdragging = false;
+      key_press_enables_dpms = true;
+      mouse_move_enables_dpms = true;
       vfr = true;
       vrr = 1;
     };
