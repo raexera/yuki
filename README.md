@@ -9,9 +9,8 @@
 <br>
 
 <p align="center">
-  <img src="https://builtwithnix.org/badge.svg" alt="built with nix" width="80" height="20"/>
-  <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check/badge.svg" alt="workflow" width="80" height="20"/>
-  <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="Badge License" width="80" height="20"/>
+  <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check.yml/badge.svg" alt="workflow" height="20"/>
+  <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="Badge License"  height="20"/>
 </p>
 
 <br>
@@ -29,7 +28,7 @@
 
 ## :snowflake: About Yuki
 
-Welcome to "雪 - Yuki", a repository showcasing my personal collection of dotfiles. These dotfiles are tailored for NixOS and Home-Manager, leveraging the power of [flakes](https://nixos.wiki/wiki/Flakes) and [flake-parts](https://github.com/hercules-ci/flake-parts). They provide a structured and efficient setup, perfect for any NixOS enthusiast.
+Welcome to "雪 - Yuki", a repository showcasing my personal collection of dotfiles. These dotfiles are tailored for NixOS and Home-Manager, utilizing the power of [flakes](https://nixos.wiki/wiki/Flakes) and [flake-parts](https://github.com/hercules-ci/flake-parts) for optimal organization and efficiency.
 
 To explore the flake outputs and their functionalities, run:
 
