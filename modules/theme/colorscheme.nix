@@ -1,4 +1,3 @@
-# merge colors lib and defined colorsheme here
 {lib, ...}: let
   inherit (lib) types mkOption;
 in {

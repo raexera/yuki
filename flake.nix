@@ -66,8 +66,9 @@
 
       imports = [
         ./pkgs
-        ./hosts
+        ./lib
         ./modules
+        ./hosts
         ./home/profiles
 
         inputs.flake-parts.flakeModules.easyOverlay
