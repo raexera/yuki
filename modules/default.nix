@@ -23,6 +23,7 @@ in {
       inputs.nh.nixosModules.default
       module_args
       ../settings.nix
+      ./theme
     ];
   };
 }

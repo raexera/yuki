@@ -7,6 +7,7 @@
   sharedModules = [
     ../.
     ../modules/shell
+    ../../modules/theme
 
     module_args
     inputs.ags.homeManagerModules.default
