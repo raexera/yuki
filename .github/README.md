@@ -1,12 +1,8 @@
 <div align="center">
     <h1>雪 - Yuki</h1>
-    <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="800px" alt="Yuki - NixOS Configuration"/>
-</div>
-
-<div align="center">
-   <a href="#">
-        <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos-white.png" alt="Banner" width="800px" />
-   </a>
+    <a href="#">
+        <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="800px" alt="Yuki - NixOS Configuration"/>
+    </a>
 </div>
 
 > [!NOTE]
@@ -30,10 +26,10 @@ nix flake show github:rxyhn/yuki
 
 ## :package: Repository Contents
 
-- **[Modules](./modules):** Shared system-wide modules.
-- **[Hosts](./hosts):** Configurations specific to individual hosts.
-- **[Home](./home):** [Home-Manager](https://github.com/nix-community/home-manager) configurations.
-- **[pkgs](./pkgs):** Customized and additional packages.
+- **[Modules](../modules):** Shared system-wide modules.
+- **[Hosts](../hosts):** Configurations specific to individual hosts.
+- **[Home](../home):** [Home-Manager](https://github.com/nix-community/home-manager) configurations.
+- **[pkgs](../pkgs):** Customized and additional packages.
 
 ## :bulb: Acknowledgments
 
