@@ -65,7 +65,6 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        ./settings.nix
         ./pkgs
         ./hosts
         ./home/profiles
