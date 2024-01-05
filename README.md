@@ -1,8 +1,21 @@
 <div align="center">
-    <h1>雪 - Yuki</h1>
-    <a href="#">
-        <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="800px" alt="Yuki - NixOS Configuration"/>
-    </a>
+
+<h1>雪 - Yuki</h1>
+
+<a href="#">
+<img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="750" height="300" alt="banner"/>
+</a>
+
+<br>
+
+<p align="center">
+  <img src="https://builtwithnix.org/badge.svg" alt="built with nix" width="80" height="20"/>
+  <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check/badge.svg" alt="workflow" width="80" height="20"/>
+  <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="Badge License" width="80" height="20"/>
+</p>
+
+<br>
+
 </div>
 
 > [!NOTE]
@@ -42,3 +55,4 @@ Special thanks to the following individuals for their insights, feedback, and in
     <a href="https://github.com/moni-dz">moni-dz</a> •
     <a href="https://github.com/paulhersch">paulhersch</a>
 </div>
+
