@@ -220,7 +220,7 @@ in {
       #custom-search {
         margin: 0 0.41em;
         padding: 0.41em 0.82em;
-        background-image: url("/nix/store/488hqs4jj4i981k6pfbbmxd62nigkpxa-Logo-14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8.svg");
+        background-image: url("${snowflake}");
         background-size: 80%;
         background-position: center;
         background-repeat: no-repeat;
