@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
