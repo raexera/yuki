@@ -65,9 +65,9 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        ./pkgs
         ./lib
         ./modules
+        ./pkgs
         ./hosts
         ./home/profiles
 
