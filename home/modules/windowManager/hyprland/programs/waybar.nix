@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   _ = lib.getExe;
@@ -197,7 +198,7 @@ in {
     };
 
     style = ''
-      @define-color Background #000000;
+      @define-color Background #${config.colorscheme.colors.base00};
       @define-color Foreground #ffffff;
       @define-color Accent #88C0D0;
       @define-color Error #BF616A;

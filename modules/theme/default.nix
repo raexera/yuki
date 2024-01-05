@@ -11,5 +11,5 @@
     sha256 = "0jbnr6qhqdwki0rzbq4x41car77mpdfpb0p2v7yfwl15m4f1ibkm";
   };
 
-  colorscheme = import ./colorschemes/yoru.nix;
+  colorscheme = import ./colorscheme/yoru.nix;
 }
