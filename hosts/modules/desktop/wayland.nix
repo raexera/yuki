@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  environment.variables.NIXOS_OZONE_WL = "1";
+
   nix.settings = {
     substituters = [
       "https://hyprland.cachix.org"
@@ -14,11 +16,13 @@
     rtkit.enable = true;
   };
 
-  environment.variables.GTK_USE_PORTAL = "1";
-
   xdg.portal = {
     enable = true;
-    config.common.default = "*";
+    xdgOpenUsePortal = true;
+    config = {
+      common.default = ["gtk"];
+      hyprland.default = ["gtk" "hyprland"];
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
