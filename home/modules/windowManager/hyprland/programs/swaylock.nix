@@ -8,7 +8,6 @@
     package = pkgs.swaylock-effects;
     settings = {
       clock = true;
-      image = config.wallpaper;
       indicator = true;
       indicator-radius = 200;
       indicator-thickness = 20;
