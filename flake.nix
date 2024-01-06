@@ -95,7 +95,7 @@
         };
 
         devShells.default = pkgs.mkShell {
-          name = "dotfiles";
+          name = "yuki";
           DIRENV_LOG_FORMAT = "";
           packages = with pkgs; [
             alejandra

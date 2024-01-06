@@ -11,7 +11,7 @@
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
       code = "$HOME/Documents/code";
-      dots = "$HOME/Documents/code/dotfiles";
+      dots = "$HOME/Documents/code/yuki";
       pics = "$HOME/Pictures";
       vids = "$HOME/Videos";
     };
