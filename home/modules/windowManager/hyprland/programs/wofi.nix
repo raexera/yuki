@@ -18,36 +18,42 @@
       layer = "top";
     };
     style = ''
+      @define-color Background #000000;
+      @define-color Foreground #ffffff;
+      @define-color Accent #88c0d0;
+
       * {
+        all: initial;
         font-family: Dosis;
+        font-size: 1rem;
         background: transparent;
       }
 
       #window {
-        background: rgba(0, 0, 0, 0.2);
+        background: alpha(@Background, 0.2);
         border-radius: 12px;
       }
 
       #input {
         border-radius: 12px;
-        border: 1px solid rgba(136, 192, 208, 0.8);
-        background: rgba(0, 0, 0, 0.2);
-        padding: 8px;
-        margin-bottom: 24px;
+        border: 1px solid alpha(@Accent, 0.8);
+        background: alpha(@Background, 0.2);
+        padding: 0.75em;
+        margin-bottom: 1.5em;
       }
 
       #outer-box {
-        padding: 24px;
+        padding: 1.5em;
       }
 
       #text {
-        margin: 4px;
-        color: rgba(255, 255, 255, 0.8);
+        margin: 0.25em;
+        color: alpha(@Foreground, 0.8);
       }
 
       #img {
         background: transparent;
-        margin: 8px;
+        margin: 0.5em;
       }
 
       #entry {
@@ -56,7 +62,7 @@
       }
 
       #entry:selected {
-        background: rgba(0, 0, 0, 0.2);
+        background: alpha(@Background, 0.2);
         font-weight: bold;
       }
     '';
