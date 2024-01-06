@@ -38,10 +38,11 @@ nix flake show github:rxyhn/yuki
 
 ## :package: Repository Contents
 
-- **[Modules](../modules):** Shared system-wide modules.
-- **[Hosts](../hosts):** Configurations specific to individual hosts.
-- **[Home](../home):** [Home-Manager](https://github.com/nix-community/home-manager) configurations.
-- **[pkgs](../pkgs):** Customized and additional packages.
+- **[Modules](./modules):** Shared system-wide modules.
+- **[Lib](./lib):** Personal library and utilities.
+- **[Hosts](./hosts):** Configurations specific to individual hosts.
+- **[Home](./home):** [Home-Manager](https://github.com/nix-community/home-manager) configurations.
+- **[pkgs](./pkgs):** Customized and additional packages.
 
 ## :bulb: Acknowledgments
 
