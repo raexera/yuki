@@ -34,6 +34,12 @@ in {
   programs.firefox = {
     enable = true;
     profiles.rxyhn = {
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        octotree
+        refined-github
+        ublock-origin
+      ];
+
       settings = {
         "gfx.canvas.accelerated" = true;
         "gfx.webrender.enabled" = true;
