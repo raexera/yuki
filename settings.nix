@@ -61,19 +61,19 @@
         "openssl-1.1.1u"
         "electron-25.9.0"
       ];
-
-      overlays = [
-        inputs.nixpkgs-wayland.overlay
-        inputs.nur.overlay
-
-        (_final: prev: {
-          lib =
-            prev.lib
-            // {
-              colors = import "${self}/lib/colors" prev.lib;
-            };
-        })
-      ];
     };
+
+    overlays = [
+      inputs.nixpkgs-wayland.overlay
+      inputs.nur.overlay
+
+      (_final: prev: {
+        lib =
+          prev.lib
+          // {
+            colors = import "${self}/lib/colors" prev.lib;
+          };
+      })
+    ];
   };
 }
