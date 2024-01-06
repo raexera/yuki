@@ -1,4 +1,8 @@
-{...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home.sessionVariables.TERMINAL = "kitty";
 
   programs.kitty = {
@@ -6,9 +10,11 @@
     shellIntegration.enableZshIntegration = true;
     theme = "Nord";
 
-    settings = {
+    settings = let
+      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
+    in {
       active_tab_font_style = "bold";
-      background = "#000000";
+      background = xcolors.base00;
       background_opacity = "0.2";
       bold_font = "auto";
       bold_italic_font = "auto";

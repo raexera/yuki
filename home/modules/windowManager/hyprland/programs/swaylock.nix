@@ -6,7 +6,9 @@
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
-    settings = {
+    settings = let
+      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
+    in {
       clock = true;
       indicator = true;
       indicator-radius = 200;
@@ -20,27 +22,26 @@
       datestr = "%d / %m / %y";
       fade-in = "0.1";
       effect-blur = "20x5";
-      color = "00000000";
-      separator-color = "00000000";
-      ring-color = "#00000033";
-      line-color = "#00000066";
-      inside-color = "#00000066";
-      inside-ver-color = "#00000066";
-      inside-wrong-color = "#00000066";
-      inside-clear-color = "#00000066";
-      line-clear-color = "#00000066";
-      line-wrong-color = "#00000066";
-      text-color = "#FFFFFFCC";
-      text-caps-lock-color = "#FFFFFFCC";
-      text-ver-color = "#FFFFFFCC";
-      text-clear-color = "#FFFFFFCC";
-      text-wrong-color = "#BF616ACC";
-      ring-wrong-color = "#BF616ACC";
-      key-hl-color = "#88C0D0CC";
-      line-ver-color = "#88C0D0CC";
-      ring-ver-color = "#88C0D0CC";
-      ring-clear-color = "#88C0D0CC";
-      bs-hl-color = "#88C0D0CC";
+
+      ring-color = "${xcolors.base00}33";
+      line-color = "${xcolors.base00}66";
+      inside-color = "${xcolors.base00}66";
+      inside-ver-color = "${xcolors.base00}66";
+      inside-wrong-color = "${xcolors.base00}66";
+      inside-clear-color = "${xcolors.base00}66";
+      line-clear-color = "${xcolors.base00}66";
+      line-wrong-color = "${xcolors.base00}66";
+      text-color = "${xcolors.base05}CC";
+      text-caps-lock-color = "${xcolors.base05}CC";
+      text-ver-color = "${xcolors.base05}CC";
+      text-clear-color = "${xcolors.base05}CC";
+      text-wrong-color = "${xcolors.base08}CC";
+      ring-wrong-color = "${xcolors.base08}CC";
+      key-hl-color = "${xcolors.base0C}CC";
+      line-ver-color = "${xcolors.base0C}CC";
+      ring-ver-color = "${xcolors.base0C}CC";
+      ring-clear-color = "${xcolors.base0C}CC";
+      bs-hl-color = "${xcolors.base0C}CC";
     };
   };
 }

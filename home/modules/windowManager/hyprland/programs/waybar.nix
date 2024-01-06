@@ -14,6 +14,8 @@
     url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
     sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
   };
+
+  xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
 in {
   programs.waybar = {
     enable = true;
@@ -67,9 +69,9 @@ in {
           };
         };
         network = {
-          format-wifi = formatIcons "#88C0D0CC" "󰖩" + " {essid}";
-          format-ethernet = formatIcons "#88C0D0CC" "󰈀" + " {ipaddr}/{cidr}";
-          format-disconnected = formatIcons "#BF616ACC" "󰖪";
+          format-wifi = formatIcons "${xcolors.base0C}CC" "󰖩" + " {essid}";
+          format-ethernet = formatIcons "${xcolors.base0C}CC" "󰈀" + " {ipaddr}/{cidr}";
+          format-disconnected = formatIcons "${xcolors.base08}CC" "󰖪";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
@@ -93,8 +95,8 @@ in {
         };
         pulseaudio = {
           tooltip = false;
-          format = formatIcons "#88C0D0CC" "{icon}" + " {volume}%";
-          format-muted = formatIcons "#BF616ACC" "󰖁";
+          format = formatIcons "${xcolors.base0C}CC" "{icon}" + " {volume}%";
+          format-muted = formatIcons "${xcolors.base08}CC" "󰖁";
           format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
           on-click = "${_ pamixer} -t";
           on-scroll-up = "${_ pamixer} -d 1";
@@ -103,8 +105,8 @@ in {
         "pulseaudio#microphone" = {
           tooltip = false;
           format = "{format_source}";
-          format-source = formatIcons "#88C0D0CC" "󰍬" + " {volume}%";
-          format-source-muted = formatIcons "#BF616ACC" "󰍭";
+          format-source = formatIcons "${xcolors.base0C}CC" "󰍬" + " {volume}%";
+          format-source-muted = formatIcons "${xcolors.base08}CC" "󰍭";
           on-click = "${_ pamixer} --default-source -t";
           on-scroll-up = "${_ pamixer} --default-source -d 1";
           on-scroll-down = "${_ pamixer} --default-source -i 1";
@@ -128,7 +130,7 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = formatIcons "#88C0D0CC" "{icon}" + " {percent}%";
+          format = formatIcons "${xcolors.base0C}CC" "{icon}" + " {percent}%";
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
@@ -139,17 +141,17 @@ in {
             critical = 15;
           };
           tooltip-format = "{timeTo}, {capacity}%";
-          format = formatIcons "#88C0D0CC" "{icon}" + " {capacity}%";
-          format-charging = formatIcons "#A3BE8CCC" "󰂄" + " {capacity}%";
-          format-plugged = formatIcons "#A3BE8CCC" "󰚥" + " {capacity}%";
+          format = formatIcons "${xcolors.base0C}CC" "{icon}" + " {capacity}%";
+          format-charging = formatIcons "${xcolors.base0B}CC" "󰂄" + " {capacity}%";
+          format-plugged = formatIcons "${xcolors.base0B}CC" "󰚥" + " {capacity}%";
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         clock = {
-          format = formatIcons "#88C0D0CC" "󱑎" + " {:%I:%M %p}";
-          format-alt = formatIcons "#88C0D0CC" "󱑎" + " {:%H:%M}";
+          format = formatIcons "${xcolors.base0C}CC" "󱑎" + " {:%I:%M %p}";
+          format-alt = formatIcons "${xcolors.base0C}CC" "󱑎" + " {:%H:%M}";
         };
         "clock#date" = {
-          format = formatIcons "#88C0D0CC" "󰃶" + " {:%a %d %b}";
+          format = formatIcons "${xcolors.base0C}CC" "󰃶" + " {:%a %d %b}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
@@ -170,27 +172,27 @@ in {
           ];
         };
         "custom/quit" = {
-          format = formatIcons "#B48EADCC" "󰍃";
+          format = formatIcons "${xcolors.base0E}CC" "󰍃";
           onclick = "loginctl terminate-user $USER";
           tooltip = false;
         };
         "custom/lock" = {
-          format = formatIcons "#81A1C1CC" "󰌾";
+          format = formatIcons "${xcolors.base0C}CC" "󰌾";
           onclick = "loginctl lock-session";
           tooltip = false;
         };
         "custom/suspend" = {
-          format = formatIcons "#A3BE8CCC" "󰒲";
+          format = formatIcons "${xcolors.base0B}CC" "󰒲";
           onclick = "systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
-          format = formatIcons "#EBCB8BCC" "󰜉";
+          format = formatIcons "${xcolors.base0A}CC" "󰜉";
           on-click = "systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
-          format = formatIcons "#BF616ACC" "󰐥";
+          format = formatIcons "${xcolors.base08}CC" "󰐥";
           on-click = "systemctl poweroff";
           tooltip = false;
         };
@@ -198,11 +200,11 @@ in {
     };
 
     style = ''
-      @define-color Background #${config.colorscheme.colors.base00};
-      @define-color Foreground #ffffff;
-      @define-color Accent #88C0D0;
-      @define-color Error #BF616A;
-      @define-color Warning #EBCB8B;
+      @define-color Background ${xcolors.base00};
+      @define-color Foreground ${xcolors.base05};
+      @define-color Accent ${xcolors.base0C};
+      @define-color Error ${xcolors.base08};
+      @define-color Warning ${xcolors.base0A};
 
       * {
         all: initial;

@@ -1,4 +1,8 @@
-{...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.wofi = {
     enable = true;
     settings = {
@@ -17,10 +21,12 @@
       image_size = 48;
       layer = "top";
     };
-    style = ''
-      @define-color Background #000000;
-      @define-color Foreground #ffffff;
-      @define-color Accent #88c0d0;
+    style = let
+      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
+    in ''
+      @define-color Background ${xcolors.base00};
+      @define-color Foreground ${xcolors.base05};
+      @define-color Accent ${xcolors.base0C};
 
       * {
         all: initial;

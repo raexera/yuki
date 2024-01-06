@@ -70,7 +70,9 @@ in {
   services.dunst = {
     enable = true;
     inherit (config.gtk) iconTheme;
-    settings = {
+    settings = let
+      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
+    in {
       global = {
         alignment = "left";
         corner_radius = 8;
@@ -119,23 +121,23 @@ in {
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "#00000033";
-        foreground = "#FFFFFFCC";
-        highlight = "#88C0D0B2";
+        background = "${xcolors.base00}33";
+        foreground = "${xcolors.base05}CC";
+        highlight = "${xcolors.base0C}CC";
         timeout = 2;
       };
 
       urgency_normal = {
-        background = "#00000033";
-        foreground = "#FFFFFFCC";
-        highlight = "#88C0D0B2";
+        background = "${xcolors.base00}33";
+        foreground = "${xcolors.base05}CC";
+        highlight = "${xcolors.base0C}CC";
         timeout = 2;
       };
 
       urgency_critical = {
-        background = "#FF000033";
-        foreground = "#FFFFFFCC";
-        highlight = "#88C0D0B2";
+        background = "${xcolors.base08}33";
+        foreground = "${xcolors.base05}CC";
+        highlight = "${xcolors.base0C}CC";
         timeout = 10;
       };
     };
