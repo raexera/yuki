@@ -12,6 +12,10 @@ in {
     inherit module_args;
 
     sharedModules = [
+      inputs.home-manager.nixosModule
+      inputs.nh.nixosModules.default
+      module_args
+
       {
         home-manager = {
           useGlobalPkgs = true;
@@ -19,9 +23,6 @@ in {
         };
       }
 
-      inputs.home-manager.nixosModule
-      inputs.nh.nixosModules.default
-      module_args
       ../settings.nix
       ./theme
     ];
