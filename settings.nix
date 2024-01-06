@@ -66,7 +66,7 @@
         inputs.nixpkgs-wayland.overlay
         inputs.nur.overlay
 
-        (final: prev: {
+        (_final: prev: {
           lib =
             prev.lib
             // {
