@@ -45,12 +45,15 @@ in {
         "media.rdd-ffmpeg.enabled" = true;
         "widget.dmabuf.force-enabled" = true;
       };
+
       userChrome = ''
         @import "${firefox-gnome-theme}/share/firefox-gnome-theme/userChrome.css";
       '';
+
       userContent = ''
         @import "${firefox-gnome-theme}/share/firefox-gnome-theme/userContent.css";
       '';
+
       extraConfig = builtins.readFile "${firefox-gnome-theme}/share/firefox-gnome-theme/configuration/user.js";
     };
   };

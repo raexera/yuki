@@ -1,9 +1,11 @@
 {...}: {
   home.sessionVariables.TERMINAL = "kitty";
+
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
     theme = "Nord";
+
     settings = {
       active_tab_font_style = "bold";
       background = "#000000";
@@ -36,6 +38,7 @@
       window_margin_width = 0;
       window_padding_width = 15;
     };
+
     keybindings = {
       "ctrl+shift+v" = "paste_from_clipboard";
       "ctrl+shift+s" = "paste_from_selection";

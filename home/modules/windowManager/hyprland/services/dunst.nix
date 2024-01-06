@@ -9,8 +9,6 @@
     _ = lib.getExe;
   in
     pkgs.writeShellScriptBin "volumectl" ''
-      #!/usr/bin/env sh
-
       case "$1" in
       up)
           ${_ pamixer} -i "$2"
@@ -47,8 +45,6 @@
     _ = lib.getExe;
   in
     pkgs.writeShellScriptBin "lightctl" ''
-      #!/usr/bin/env sh
-
       case "$1" in
       up)
           ${_ brightnessctl} -q s +"$2"%
