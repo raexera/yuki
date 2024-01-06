@@ -19,7 +19,7 @@
     10);
 
   terminal = config.home.sessionVariables.TERMINAL;
-  browser = config.home.sessionVariables.BROSER;
+  browser = config.home.sessionVariables.BROWSER;
   editor = config.home.sessionVariables.EDITOR;
 in {
   wayland.windowManager.hyprland = {
