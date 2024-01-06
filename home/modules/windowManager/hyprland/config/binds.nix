@@ -12,8 +12,8 @@
         in
           builtins.toString (x + 1 - (c * 10));
       in [
-        "$mod, ${ws}, workspace, ${toString (x + 1)}"
-        "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        "SUPER, ${ws}, workspace, ${toString (x + 1)}"
+        "SUPERSHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
       ]
     )
     10);
@@ -24,52 +24,49 @@
 in {
   wayland.windowManager.hyprland = {
     settings = {
-      "$mod" = "SUPER";
-
       bind = let
         monocle = "dwindle:no_gaps_when_only";
       in
         [
-          "$mod SHIFT, Q, exec, pkill Hyprland"
-          "$mod, Q, killactive,"
-          "$mod, F, fullscreen,"
-          "$mod, G, togglegroup,"
-          "$mod SHIFT, N, changegroupactive, f"
-          "$mod SHIFT, P, changegroupactive, b"
-          "$mod, R, togglesplit,"
-          "$mod, T, togglefloating,"
-          "$mod, P, pseudo,"
-          "$mod ALT, ,resizeactive,"
-          "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
+          "SUPERSHIFT, Q, exec, pkill Hyprland"
+          "SUPER, Q, killactive,"
 
-          "$mod, Space, exec, run-as-service $(wofi -S drun)"
-          "$mod, Return, exec, run-as-service ${terminal}"
-          "$mod, B, exec, ${browser}"
-          "$mod, E, exec, ${editor}"
-          "$mod, L, exec, ${pkgs.swaylock-effects}/bin/swaylock --grace 2"
-          "$mod, O, exec, run-as-service wl-ocr"
+          "SUPER, S, togglesplit,"
+          "SUPER, F, fullscreen,"
+          "SUPER, P, pseudo,"
+          "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
+          "SUPER, Space, togglefloating,"
+          "SUPERALT, ,resizeactive,"
+
+          "SUPER, G, togglegroup,"
+          "SUPERSHIFT, N, changegroupactive, f"
+          "SUPERSHIFT, P, changegroupactive, b"
+
+          "SUPER, left, movefocus, l"
+          "SUPER, right, movefocus, r"
+          "SUPER, up, movefocus, u"
+          "SUPER, down, movefocus, d"
+
+          "SUPERSHIFT, grave, movetoworkspace, special"
+          "SUPER, grave, togglespecialworkspace, eDP-1"
+
+          "SUPER, bracketleft, workspace, m-1"
+          "SUPER, bracketright, workspace, m+1"
+
+          "SUPER, Return, exec, run-as-service ${terminal}"
+          "SUPER, B, exec, ${browser}"
+          "SUPER, E, exec, ${editor}"
+          "SUPER, L, exec, ${pkgs.swaylock-effects}/bin/swaylock --grace 2"
+          "SUPER, O, exec, run-as-service wl-ocr"
 
           ", Print, exec, ${screenshotarea}"
           "CTRL, Print, exec, grimblast --notify --cursor copysave output"
           "ALT, Print, exec, grimblast --notify --cursor copysave screen"
-
-          "$mod, left, movefocus, l"
-          "$mod, right, movefocus, r"
-          "$mod, up, movefocus, u"
-          "$mod, down, movefocus, d"
-
-          "$mod SHIFT, grave, movetoworkspace, special"
-          "$mod, grave, togglespecialworkspace, eDP-1"
-
-          "$mod, bracketleft, workspace, m-1"
-          "$mod, bracketright, workspace, m+1"
         ]
         ++ workspaces;
 
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-        "$mod ALT, mouse:272, resizewindow"
+      bindr = [
+        "SUPER, SUPER_L, exec, pkill wofi  || run-as-service $(wofi -S drun)"
       ];
 
       binde = [
@@ -80,9 +77,15 @@ in {
         ",XF86MonBrightnessUp, exec, lightctl up 5"
         ",XF86MonBrightnessDown, exec, lightctl down 5"
       ];
+
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+        "SUPER ALT, mouse:272, resizewindow"
+      ];
     };
     extraConfig = ''
-      bind = $mod, S, submap, resize
+      bind = SUPERSHIFT, S, submap, resize
 
       submap=resize
       binde=,right,resizeactive,10 0
