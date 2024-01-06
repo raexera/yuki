@@ -4,7 +4,6 @@
     mutableExtensionsDir = true;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
-      catppuccin.catppuccin-vsc
       christian-kohler.path-intellisense
       dbaeumer.vscode-eslint
       eamodio.gitlens

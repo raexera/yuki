@@ -1,3 +1,4 @@
+# Author: Mihai Fufezan(https://github.com/fufexan)
 lib:
 with lib; rec {
   x = c: "#${c}";

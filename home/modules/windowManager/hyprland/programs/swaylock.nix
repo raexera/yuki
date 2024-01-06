@@ -1,10 +1,14 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
     settings = {
-      screenshots = true;
       clock = true;
+      image = config.wallpaper;
       indicator = true;
       indicator-radius = 200;
       indicator-thickness = 20;

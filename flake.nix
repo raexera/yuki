@@ -65,9 +65,10 @@
       systems = ["x86_64-linux"];
 
       imports = [
+        ./lib
+        ./modules
         ./pkgs
         ./hosts
-        ./modules
         ./home/profiles
 
         inputs.flake-parts.flakeModules.easyOverlay
