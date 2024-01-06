@@ -24,6 +24,8 @@
     packages = with pkgs; [
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
       config.wayland.windowManager.hyprland.package
+
+      cliphist
       dbus
       libnotify
       libcanberra-gtk3
@@ -31,14 +33,16 @@
       brightnessctl
       pamixer
       slurp
-      grim
       glib
+      grim
+      gtk3
       hyprpicker
       swappy
       wl-clipboard
       wl-screenrec
-      cliphist
       wlr-randr
+      xdg-utils
+      ydotool
     ];
 
     sessionVariables = {
@@ -71,6 +75,16 @@
     Unit = {
       Description = "Home Manager System Tray";
       Requires = ["graphical-session-pre.target"];
+    };
+  };
+
+  xdg = {
+    enable = true;
+    cacheHome = config.home.homeDirectory + "/.local/cache";
+    mimeApps.enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
     };
   };
 }

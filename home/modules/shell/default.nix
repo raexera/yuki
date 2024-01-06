@@ -9,7 +9,6 @@
     ./starship.nix
     ./zsh.nix
     ../programs/git.nix
-    ../programs/xdg.nix
   ];
 
   home = {
@@ -50,13 +49,11 @@
       util-linux
       wget
       xarchiver
-      xdg-utils
       zathura
       zip
     ];
 
     sessionVariables = {
-      EDITOR = "nvim";
       DIRENV_LOG_FORMAT = "";
       NIX_AUTO_RUN = "1";
     };

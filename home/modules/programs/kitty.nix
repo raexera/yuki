@@ -1,4 +1,5 @@
 {...}: {
+  home.sessionVariables.TERMINAL = "kitty";
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;

@@ -12,10 +12,7 @@
       indicator = true;
       indicator-radius = 200;
       indicator-thickness = 20;
-      grace = 0;
-      grace-no-mouse = true;
-      grace-no-touch = true;
-      line-uses-inside = false;
+      line-uses-inside = true;
       line-uses-ring = false;
       ignore-empty-password = true;
       show-failed-attempts = false;
@@ -23,7 +20,7 @@
       timestr = "%I:%M %p";
       datestr = "%d / %m / %y";
       fade-in = "0.1";
-      effect-blur = "10x5";
+      effect-blur = "20x5";
       color = "00000000";
       separator-color = "00000000";
       ring-color = "#00000033";

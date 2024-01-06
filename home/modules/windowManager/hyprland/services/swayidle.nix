@@ -12,6 +12,7 @@
 in {
   services.swayidle = {
     enable = true;
+    systemdTarget = "graphical-session.target";
     events = [
       {
         event = "before-sleep";
@@ -19,7 +20,7 @@ in {
       }
       {
         event = "lock";
-        command = "${pkgs.swaylock-effects}/bin/swaylock";
+        command = "${pkgs.swaylock-effects}/bin/swaylock --daemonize --grace 15";
       }
     ];
     timeouts = [

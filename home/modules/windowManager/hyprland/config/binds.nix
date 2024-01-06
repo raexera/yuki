@@ -1,4 +1,8 @@
-{...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
 
   workspaces = builtins.concatLists (builtins.genList (
@@ -13,6 +17,10 @@
       ]
     )
     10);
+
+  terminal = config.home.sessionVariables.TERMINAL;
+  browser = config.home.sessionVariables.BROSER;
+  editor = config.home.sessionVariables.EDITOR;
 in {
   wayland.windowManager.hyprland = {
     settings = {
@@ -22,7 +30,7 @@ in {
         monocle = "dwindle:no_gaps_when_only";
       in
         [
-          "$mod SHIFT, E, exec, pkill Hyprland"
+          "$mod SHIFT, Q, exec, pkill Hyprland"
           "$mod, Q, killactive,"
           "$mod, F, fullscreen,"
           "$mod, G, togglegroup,"
@@ -35,8 +43,10 @@ in {
           "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
           "$mod, Space, exec, run-as-service $(wofi -S drun)"
-          "$mod, Return, exec, run-as-service kitty"
-          "$mod, L, exec, loginctl lock-session"
+          "$mod, Return, exec, run-as-service ${terminal}"
+          "$mod, B, exec, ${browser}"
+          "$mod, E, exec, ${editor}"
+          "$mod, L, exec, ${pkgs.swaylock-effects}/bin/swaylock --grace 2"
           "$mod, O, exec, run-as-service wl-ocr"
 
           ", Print, exec, ${screenshotarea}"

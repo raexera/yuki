@@ -32,4 +32,10 @@
   services = {
     playerctld.enable = true;
   };
+
+  xdg.mimeApps.defaultApplications = {
+    "audio/*" = "mpv.desktop";
+    "video/*" = "mpv.desktop";
+    "image/*" = "imv.desktop";
+  };
 }

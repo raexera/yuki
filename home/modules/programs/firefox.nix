@@ -5,7 +5,16 @@
 }: let
   firefox-gnome-theme = inputs.self.packages.${pkgs.system}.firefox-gnome-theme;
 in {
-  home.sessionVariables = {BROWSER = "firefox";};
+  home.sessionVariables.BROWSER = "firefox";
+
+  xdg.mimeApps.defaultApplications = {
+    "application/json" = ["firefox.desktop"];
+    "application/pdf" = ["firefox.desktop"];
+    "text/html" = ["firefox.desktop"];
+    "text/xml" = ["firefox.desktop"];
+    "x-scheme-handler/http" = ["firefox.desktop"];
+    "x-scheme-handler/https" = ["firefox.desktop"];
+  };
 
   programs.firefox = {
     enable = true;

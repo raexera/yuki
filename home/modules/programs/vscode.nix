@@ -1,4 +1,44 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  mimeTypes = [
+    "application/javascript"
+    "application/sql"
+    "application/toml"
+    "application/x-shellscript"
+    "application/yaml"
+    "text/css"
+    "text/english"
+    "text/html"
+    "text/javascript"
+    "text/markdown"
+    "text/plain"
+    "text/rust"
+    "text/x-c"
+    "text/x-c++"
+    "text/x-c++hdr"
+    "text/x-c++src"
+    "text/x-chdr"
+    "text/x-cmake"
+    "text/x-csrc"
+    "text/x-go"
+    "text/x-java"
+    "text/x-kotlin"
+    "text/x-lua"
+    "text/x-makefile"
+    "text/x-python"
+    "text/x-scss"
+  ];
+in {
+  home.sessionVariables = {
+    EDITOR = "code";
+    VISUAL = "code";
+  };
+
+  xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
+      name = mimeType;
+      value = "code.desktop";
+    })
+    mimeTypes);
+
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
