@@ -8,13 +8,10 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
-    theme = "Nord";
+    theme = "Everforest Dark Hard";
 
-    settings = let
-      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
-    in {
+    settings = {
       active_tab_font_style = "bold";
-      background = xcolors.base00;
       background_opacity = "0.2";
       bold_font = "auto";
       bold_italic_font = "auto";

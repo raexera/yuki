@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   mimeTypes = [
     "application/javascript"
     "application/sql"
@@ -27,6 +31,10 @@
     "text/x-python"
     "text/x-scss"
   ];
+
+  marketplace-extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
+    sainnhe.everforest
+  ];
 in {
   home.sessionVariables = {
     EDITOR = "code";
@@ -42,47 +50,48 @@ in {
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
-    extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
-      christian-kohler.path-intellisense
-      dbaeumer.vscode-eslint
-      eamodio.gitlens
-      editorconfig.editorconfig
-      esbenp.prettier-vscode
-      formulahendry.auto-close-tag
-      formulahendry.auto-rename-tag
-      formulahendry.code-runner
-      foxundermoon.shell-format
-      github.copilot
-      github.copilot-chat
-      github.vscode-github-actions
-      github.vscode-pull-request-github
-      golang.go
-      ibm.output-colorizer
-      kamadorueda.alejandra
-      mechatroner.rainbow-csv
-      mkhl.direnv
-      ms-azuretools.vscode-docker
-      ms-python.black-formatter
-      ms-python.isort
-      ms-python.python
-      ms-python.vscode-pylance
-      ms-vscode.cmake-tools
-      ms-vscode.cpptools
-      naumovs.color-highlight
-      oderwat.indent-rainbow
-      pkief.material-icon-theme
-      pkief.material-product-icons
-      redhat.vscode-yaml
-      shardulm94.trailing-spaces
-      timonwong.shellcheck
-      twxs.cmake
-      usernamehw.errorlens
-      vadimcn.vscode-lldb
-      xaver.clang-format
-      yzhang.markdown-all-in-one
-      zhuangtongfa.material-theme
-    ];
+    extensions = with pkgs.vscode-extensions;
+      [
+        bbenoist.nix
+        christian-kohler.path-intellisense
+        dbaeumer.vscode-eslint
+        eamodio.gitlens
+        editorconfig.editorconfig
+        esbenp.prettier-vscode
+        formulahendry.auto-close-tag
+        formulahendry.auto-rename-tag
+        formulahendry.code-runner
+        foxundermoon.shell-format
+        github.copilot
+        github.copilot-chat
+        github.vscode-github-actions
+        github.vscode-pull-request-github
+        golang.go
+        ibm.output-colorizer
+        kamadorueda.alejandra
+        mechatroner.rainbow-csv
+        mkhl.direnv
+        ms-azuretools.vscode-docker
+        ms-python.black-formatter
+        ms-python.isort
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-vscode.cmake-tools
+        ms-vscode.cpptools
+        naumovs.color-highlight
+        oderwat.indent-rainbow
+        pkief.material-icon-theme
+        pkief.material-product-icons
+        redhat.vscode-yaml
+        shardulm94.trailing-spaces
+        timonwong.shellcheck
+        twxs.cmake
+        usernamehw.errorlens
+        vadimcn.vscode-lldb
+        xaver.clang-format
+        yzhang.markdown-all-in-one
+      ]
+      ++ marketplace-extensions;
 
     userSettings = {
       "[c]".editor.defaultFormatter = "xaver.clang-format";
@@ -172,7 +181,7 @@ in {
       };
 
       workbench = {
-        colorTheme = "One Dark Pro Darker";
+        colorTheme = "Everforest Dark";
         iconTheme = "material-icon-theme";
         panel.defaultLocation = "right";
         productIconTheme = "material-product-icons";
