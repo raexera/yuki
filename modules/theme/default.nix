@@ -4,7 +4,7 @@
     ./wallpaper.nix
   ];
 
-  colorscheme = import ./colorschemes/yoru.nix;
+  colorscheme = import ./base16-schemes/everforest.nix;
 
   wallpaper = builtins.fetchurl rec {
     name = "wallpaper-${sha256}.png";
