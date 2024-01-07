@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-colors.url = "github:misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nur.url = "github:nix-community/NUR";
 
@@ -66,14 +67,12 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        inputs.flake-parts.flakeModules.easyOverlay
-        inputs.pre-commit-hooks.flakeModule
-
+        ./home/profiles
+        ./hosts
         ./lib
         ./modules
         ./pkgs
-        ./hosts
-        ./home/profiles
+        ./pre-commit-hooks.nix
       ];
 
       perSystem = {
@@ -81,34 +80,20 @@
         pkgs,
         ...
       }: {
-        formatter = pkgs.alejandra;
-
-        pre-commit = {
-          settings.excludes = ["flake.lock"];
-
-          settings.hooks = {
-            alejandra.enable = true;
-            prettier = {
-              enable = true;
-              excludes = [".js" ".md" ".ts"];
-            };
-          };
-        };
-
         devShells.default = pkgs.mkShell {
+          packages = [
+            pkgs.alejandra
+            pkgs.git
+            pkgs.nodePackages.prettier
+          ];
           name = "yuki";
           DIRENV_LOG_FORMAT = "";
-          packages = with pkgs; [
-            alejandra
-            deadnix
-            git
-            nodePackages.prettier
-            statix
-          ];
           shellHook = ''
             ${config.pre-commit.installationScript}
           '';
         };
+
+        formatter = pkgs.alejandra;
       };
     };
 }
