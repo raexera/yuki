@@ -1,6 +1,6 @@
 {
   author = "Catppuccin (https://github.com/catppuccin)";
-  name = "catppuccin-frappe";
+  name = "Catppuccin Frappe";
   colors = {
     background = "303446";
     foreground = "C6D0F5";

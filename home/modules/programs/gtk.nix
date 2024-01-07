@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -31,26 +32,36 @@
       size = 11;
     };
 
-    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    gtk2.extraConfig = ''
+      gtk-xft-antialias=1
+      gtk-xft-hinting=1
+      gtk-xft-hintstyle="hintslight"
+      gtk-xft-rgba="rgb"
+    '';
 
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-      gtk-decoration-layout = "menu:maximize,minimize,close";
+      gtk-xft-antialias = 1;
+      gtk-xft-hinting = 1;
+      gtk-xft-hintstyle = "hintslight";
+      gtk-xft-rgba = "rgb";
+      gtk-application-prefer-dark-theme = 1;
     };
 
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-      gtk-decoration-layout = "menu:maximize,minimize,close";
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["pink"];
+        tweaks = ["rimless"];
+        size = "compact";
+        variant = "mocha";
+      };
     };
 
     iconTheme = {
-      name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
-    };
-
-    theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
+      name = "Papirus";
+      package = pkgs.catppuccin-papirus-folders;
     };
   };
 
