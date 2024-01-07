@@ -96,7 +96,7 @@
       key_press_enables_dpms = true;
       mouse_move_enables_dpms = true;
       vfr = true;
-      vrr = 1;
+      vrr = 0;
     };
 
     monitor = ",highres,auto,2";
