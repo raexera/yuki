@@ -8,7 +8,7 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
-    theme = "Everforest Dark Hard";
+    theme = "Catppuccin-Mocha";
 
     settings = {
       active_tab_font_style = "bold";

@@ -33,7 +33,7 @@
   ];
 
   marketplace-extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
-    sainnhe.everforest
+    catppuccin.catppuccin-vsc
   ];
 in {
   home.sessionVariables = {
@@ -181,7 +181,7 @@ in {
       };
 
       workbench = {
-        colorTheme = "Everforest Dark";
+        colorTheme = "Catppuccin Mocha";
         iconTheme = "material-icon-theme";
         panel.defaultLocation = "right";
         productIconTheme = "material-product-icons";
