@@ -234,7 +234,7 @@ in {
       }
 
       #workspaces {
-        background-color: alpha(${xcolors.background}, 0.4);
+        background-color: alpha(${xcolors.background}, 0.6);
         border-radius: 4px;
         margin: 0.41em 0.21em;
         padding: 0.41em 0.82em;
@@ -286,7 +286,7 @@ in {
       #tray,
       #user {
         color: alpha(${xcolors.foreground}, 0.8);
-        background-color: alpha(${xcolors.background}, 0.4);
+        background-color: alpha(${xcolors.background}, 0.6);
         border-radius: 4px;
         margin: 0.41em 0.21em;
         padding: 0.41em 0.82em;
@@ -308,7 +308,7 @@ in {
         min-height: 0.68em;
         min-width: 5.47em;
         border-radius: 8px;
-        background-color: alpha(${xcolors.background}, 0.4);
+        background-color: alpha(${xcolors.background}, 0.6);
       }
 
       #backlight-slider highlight,
@@ -337,7 +337,7 @@ in {
 
       tooltip {
         color: alpha(${xcolors.foreground}, 0.8);
-        background-color: alpha(${xcolors.background}, 0.4);
+        background-color: alpha(${xcolors.background}, 0.6);
         font-family: "Dosis", sans-serif;
         border-radius: 8px;
         padding: 1.37em;
