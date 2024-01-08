@@ -1,4 +1,4 @@
-{...}: {
+{
   home.sessionVariables.TERMINAL = "kitty";
 
   programs.kitty = {

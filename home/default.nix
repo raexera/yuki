@@ -1,9 +1,9 @@
-{...}: {
+{
   home = {
     username = "rxyhn";
     homeDirectory = "/home/rxyhn";
-    stateVersion = "23.11";
     extraOutputsToInstall = ["doc" "devdoc"];
+    stateVersion = "23.11";
   };
 
   manual = {
