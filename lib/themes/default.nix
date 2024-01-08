@@ -28,7 +28,7 @@ _lib: {
 
   wallpaper = builtins.fetchurl rec {
     name = "wallpaper-${sha256}.png";
-    url = "https://media.githubusercontent.com/media/rxyhn/wallpapers/main/catppuccin/exodus.png";
-    sha256 = "0gzhl5b7j07jcy7qn602ji8frp1skwhanm2j2a8sp80qq8d7bhh9";
+    url = "https://media.githubusercontent.com/media/rxyhn/wallpapers/main/OS/NixOS/nix-gradient.png";
+    sha256 = "1rqn1gagpdrcviyirxaqz3dz4s9adl22wap3m5664vrl35hgsir4";
   };
 }
