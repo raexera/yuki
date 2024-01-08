@@ -8,7 +8,6 @@
 
     settings.hooks = {
       alejandra.enable = true;
-      actionlint.enable = true;
       prettier.enable = true;
       treefmt.enable = true;
     };
