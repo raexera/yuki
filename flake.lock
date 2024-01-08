@@ -706,11 +706,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1704656673,
-        "narHash": "sha256-AdwWgssYf88cgxU6OvXuLY2QIs/OhUAyM3UckeLxR2I=",
+        "lastModified": 1704675837,
+        "narHash": "sha256-yQlSTrIp3BYy8SzIdA9KItObGpF0IMRSCLGSP/y42tI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "50c8484371ff46d77678e88c1f78cc5495d7190d",
+        "rev": "b8fd5ed94c22502cf037679bd3b7f6f971c9a102",
         "type": "github"
       },
       "original": {
@@ -760,7 +760,8 @@
         "nixpkgs": "nixpkgs_6",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
-        "pre-commit-hooks": "pre-commit-hooks"
+        "pre-commit-hooks": "pre-commit-hooks",
+        "treefmt-nix": "treefmt-nix_2"
       }
     },
     "systems": {
@@ -837,6 +838,26 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "rev": "2961375283668d867e64129c22af532de8e77734",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1704649711,
+        "narHash": "sha256-+qxqJrZwvZGilGiLQj3QbYssPdYCwl7ejwMImgH7VBQ=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "04f25d7bec9fb29d2c3bacaa48a3304840000d36",
         "type": "github"
       },
       "original": {

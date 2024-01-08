@@ -60,6 +60,11 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -73,6 +78,7 @@
         ./modules
         ./pkgs
         ./pre-commit-hooks.nix
+        ./treefmt.nix
       ];
 
       perSystem = {
@@ -80,20 +86,31 @@
         pkgs,
         ...
       }: {
+        formatter = pkgs.alejandra;
+
         devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.alejandra
-            pkgs.git
-            pkgs.nodePackages.prettier
-          ];
           name = "yuki";
-          DIRENV_LOG_FORMAT = "";
+
           shellHook = ''
             ${config.pre-commit.installationScript}
           '';
-        };
 
-        formatter = pkgs.alejandra;
+          DIRENV_LOG_FORMAT = "";
+
+          packages = with pkgs; [
+            config.treefmt.build.wrapper
+
+            alejandra
+            deadnix
+            git
+            glow
+            nil
+            nodejs
+            statix
+          ];
+
+          inputsFrom = [config.treefmt.build.devShell];
+        };
       };
     };
 }
