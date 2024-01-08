@@ -3,7 +3,7 @@
 <h1>雪 - Yuki</h1>
 
 <a href="#">
-<img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="750" height="300" alt="banner"/>
+  <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="750" height="300" alt="banner"/>
 </a>
 
 <br>
@@ -37,6 +37,7 @@ nix flake show github:rxyhn/yuki
 
 ## :package: Repository Contents
 
+- **[Flake](./flake):** configurations for code formatting, and pre-commit hooks.
 - **[Modules](./modules):** Shared system-wide modules.
 - **[Lib](./lib):** Personal library and utilities.
 - **[Hosts](./hosts):** Configurations specific to individual hosts.
