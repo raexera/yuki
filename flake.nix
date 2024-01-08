@@ -72,12 +72,14 @@
       systems = ["x86_64-linux"];
 
       imports = [
+        ./flake/pre-commit-hooks.nix
+        ./flake/treefmt.nix
+
         ./home/profiles
         ./hosts
         ./lib
         ./modules
         ./pkgs
-        ./pre-commit-hooks.nix
         ./treefmt.nix
       ];
 

@@ -6,11 +6,13 @@
 
     programs = {
       alejandra.enable = true;
-      black.enable = true;
       deadnix.enable = true;
       prettier.enable = true;
       shellcheck.enable = true;
-      shfmt.enable = true;
+      shfmt = {
+        enable = true;
+        indent_size = 2;
+      };
     };
   };
 }
