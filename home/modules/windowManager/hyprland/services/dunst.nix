@@ -122,23 +122,23 @@ in {
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "${xcolors.base00}33";
-        foreground = "${xcolors.base05}CC";
-        highlight = "${xcolors.base0C}CC";
+        background = "${xcolors.black0}";
+        foreground = "${xcolors.white}";
+        highlight = "${xcolors.mauve}";
         timeout = 2;
       };
 
       urgency_normal = {
-        background = "${xcolors.base00}33";
-        foreground = "${xcolors.base05}CC";
-        highlight = "${xcolors.base0C}CC";
+        background = "${xcolors.black0}";
+        foreground = "${xcolors.white}";
+        highlight = "${xcolors.mauve}";
         timeout = 2;
       };
 
       urgency_critical = {
-        background = "${xcolors.base08}33";
-        foreground = "${xcolors.base05}CC";
-        highlight = "${xcolors.base0C}CC";
+        background = "${xcolors.red}";
+        foreground = "${xcolors.white}";
+        highlight = "${xcolors.mauve}";
         timeout = 10;
       };
     };

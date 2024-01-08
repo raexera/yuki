@@ -32,14 +32,14 @@
       }
 
       #window {
-        background: alpha(${xcolors.base00}, 0.2);
+        background: ${xcolors.black0};
         border-radius: 12px;
       }
 
       #input {
         border-radius: 12px;
-        border: 1px solid alpha(${xcolors.base0C}, 0.8);
-        background: alpha(${xcolors.base00}, 0.2);
+        border: 1px solid ${xcolors.mauve};
+        background: ${xcolors.black3};
         padding: 0.75em;
         margin-bottom: 1.5em;
       }
@@ -50,7 +50,7 @@
 
       #text {
         margin: 0.25em;
-        color: alpha(${xcolors.base05}, 0.8);
+        color: ${xcolors.white};
       }
 
       #img {
@@ -64,7 +64,7 @@
       }
 
       #entry:selected {
-        background: alpha(${xcolors.base00}, 0.2);
+        background: ${xcolors.black3};
         font-weight: bold;
       }
     '';
