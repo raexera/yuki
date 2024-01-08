@@ -36,7 +36,7 @@
     };
 
     iconTheme = {
-      name = "Papirus";
+      name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders;
     };
 

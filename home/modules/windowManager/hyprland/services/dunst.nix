@@ -87,7 +87,7 @@ in {
         horizontal_padding = 15;
         icon_corner_radius = 0;
         icon_position = "left";
-        icon_theme = "Adwaita";
+        icon_theme = "Papirus-Dark";
         ignore_newline = false;
         indicate_hidden = true;
         layer = "top";
