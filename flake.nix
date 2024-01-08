@@ -80,7 +80,6 @@
         ./lib
         ./modules
         ./pkgs
-        ./treefmt.nix
       ];
 
       perSystem = {
