@@ -181,7 +181,7 @@ in {
       };
 
       workbench = {
-        colorTheme = "Catppuccin Mocha";
+        colorTheme = "Catppuccin Macchiato";
         iconTheme = "material-icon-theme";
         panel.defaultLocation = "right";
         productIconTheme = "material-product-icons";

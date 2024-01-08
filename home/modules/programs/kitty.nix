@@ -1,14 +1,20 @@
-_: {
+{
+  default,
+  pkgs,
+  ...
+}: {
   home.sessionVariables.TERMINAL = "kitty";
 
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
-    theme = "Catppuccin-Mocha";
+    theme = "Catppuccin-Macchiato";
 
-    settings = {
+    settings = let
+      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+    in {
       active_tab_font_style = "bold";
-      background_opacity = "0.2";
+      background_opacity = "1.0";
       bold_font = "auto";
       bold_italic_font = "auto";
       confirm_os_window_close = 0;
@@ -36,6 +42,11 @@ _: {
       wheel_scroll_multiplier = "5.0";
       window_margin_width = 0;
       window_padding_width = 15;
+
+      background = xcolors.black2;
+      selection_foreground = xcolors.black2;
+      cursor_text_color = xcolors.black2;
+      tab_bar_background = xcolors.black1;
     };
 
     keybindings = {
