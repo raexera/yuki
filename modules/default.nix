@@ -1,11 +1,10 @@
 {
   self,
   inputs,
-  default,
   ...
 }: let
   module_args._module.args = {
-    inherit default inputs self;
+    inherit inputs self;
   };
 in {
   _module.args = {

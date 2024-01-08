@@ -17,8 +17,7 @@
 
 </div>
 
-> [!NOTE]
-> **System Information:**
+> [!NOTE] > **System Information:**
 >
 > - **OS:** NixOS
 > - **Window Manager:** Hyprland
@@ -55,4 +54,3 @@ Special thanks to the following individuals for their insights, feedback, and in
     <a href="https://github.com/moni-dz">moni-dz</a> •
     <a href="https://github.com/paulhersch">paulhersch</a>
 </div>
-
