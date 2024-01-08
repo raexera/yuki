@@ -25,10 +25,12 @@ in {
     {_module.args = {inherit homeImports;};}
   ];
 
-  flake.homeConfigurations = withSystem "x86_64-linux" ({pkgs, ...}: {
-    "rxyhn@hiru" = homeManagerConfiguration {
-      modules = homeImports."rxyhn@hiru";
-      inherit pkgs;
-    };
-  });
+  flake = {
+    homeConfigurations = withSystem "x86_64-linux" ({pkgs, ...}: {
+      "rxyhn@hiru" = homeManagerConfiguration {
+        modules = homeImports."rxyhn@hiru";
+        inherit pkgs;
+      };
+    });
+  };
 }

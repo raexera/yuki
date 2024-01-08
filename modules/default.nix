@@ -21,7 +21,7 @@ in {
       inputs.home-manager.nixosModule
       inputs.nh.nixosModules.default
       module_args
-      ../settings.nix
+      ./system
       ./theme
     ];
   };
