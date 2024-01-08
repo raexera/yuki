@@ -1,10 +1,11 @@
 {
   self,
   inputs,
+  default,
   ...
 }: let
   module_args._module.args = {
-    inherit inputs self;
+    inherit default inputs self;
   };
 in {
   _module.args = {
@@ -19,10 +20,15 @@ in {
       }
 
       inputs.home-manager.nixosModule
+      inputs.hyprland.nixosModules.default
       inputs.nh.nixosModules.default
       module_args
-      ./system
-      ./theme
+
+      self.nixosModules.system
     ];
+  };
+
+  flake.nixosModules = {
+    system = import ./system;
   };
 }

@@ -1,5 +1,6 @@
 {
   config,
+  default,
   lib,
   pkgs,
   ...
@@ -71,7 +72,7 @@ in {
     enable = true;
     inherit (config.gtk) iconTheme;
     settings = let
-      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
+      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
     in {
       global = {
         alignment = "left";
@@ -121,23 +122,23 @@ in {
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "${xcolors.background}33";
-        foreground = "${xcolors.foreground}CC";
-        highlight = "${xcolors.color4}CC";
+        background = "${xcolors.base00}33";
+        foreground = "${xcolors.base05}CC";
+        highlight = "${xcolors.base0C}CC";
         timeout = 2;
       };
 
       urgency_normal = {
-        background = "${xcolors.background}33";
-        foreground = "${xcolors.foreground}CC";
-        highlight = "${xcolors.color4}CC";
+        background = "${xcolors.base00}33";
+        foreground = "${xcolors.base05}CC";
+        highlight = "${xcolors.base0C}CC";
         timeout = 2;
       };
 
       urgency_critical = {
-        background = "${xcolors.color1}33";
-        foreground = "${xcolors.foreground}CC";
-        highlight = "${xcolors.color4}CC";
+        background = "${xcolors.base08}33";
+        foreground = "${xcolors.base05}CC";
+        highlight = "${xcolors.base0C}CC";
         timeout = 10;
       };
     };

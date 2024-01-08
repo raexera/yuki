@@ -1,5 +1,5 @@
 {
-  config,
+  default,
   pkgs,
   ...
 }: {
@@ -7,7 +7,7 @@
     enable = true;
     package = pkgs.swaylock-effects;
     settings = let
-      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
+      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
     in {
       clock = true;
       indicator = true;
@@ -23,25 +23,25 @@
       fade-in = "0.1";
       effect-blur = "20x5";
 
-      ring-color = "${xcolors.background}33";
-      line-color = "${xcolors.background}66";
-      inside-color = "${xcolors.background}66";
-      inside-ver-color = "${xcolors.background}66";
-      inside-wrong-color = "${xcolors.background}66";
-      inside-clear-color = "${xcolors.background}66";
-      line-clear-color = "${xcolors.background}66";
-      line-wrong-color = "${xcolors.background}66";
-      text-color = "${xcolors.foreground}CC";
-      text-caps-lock-color = "${xcolors.foreground}CC";
-      text-ver-color = "${xcolors.foreground}CC";
-      text-clear-color = "${xcolors.foreground}CC";
-      text-wrong-color = "${xcolors.color1}CC";
-      ring-wrong-color = "${xcolors.color1}CC";
-      key-hl-color = "${xcolors.color4}CC";
-      line-ver-color = "${xcolors.color4}CC";
-      ring-ver-color = "${xcolors.color4}CC";
-      ring-clear-color = "${xcolors.color4}CC";
-      bs-hl-color = "${xcolors.color4}CC";
+      ring-color = "${xcolors.base00}33";
+      line-color = "${xcolors.base00}66";
+      inside-color = "${xcolors.base00}66";
+      inside-ver-color = "${xcolors.base00}66";
+      inside-wrong-color = "${xcolors.base00}66";
+      inside-clear-color = "${xcolors.base00}66";
+      line-clear-color = "${xcolors.base00}66";
+      line-wrong-color = "${xcolors.base00}66";
+      text-color = "${xcolors.base05}CC";
+      text-caps-lock-color = "${xcolors.base05}CC";
+      text-ver-color = "${xcolors.base05}CC";
+      text-clear-color = "${xcolors.base05}CC";
+      text-wrong-color = "${xcolors.base08}CC";
+      ring-wrong-color = "${xcolors.base08}CC";
+      key-hl-color = "${xcolors.base0C}CC";
+      line-ver-color = "${xcolors.base0C}CC";
+      ring-ver-color = "${xcolors.base0C}CC";
+      ring-clear-color = "${xcolors.base0C}CC";
+      bs-hl-color = "${xcolors.base0C}CC";
     };
   };
 }

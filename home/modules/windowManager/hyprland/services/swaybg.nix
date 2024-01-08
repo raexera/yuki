@@ -1,7 +1,7 @@
 {
+  default,
   lib,
   pkgs,
-  config,
   ...
 }: {
   systemd.user.services.swaybg = {
@@ -12,7 +12,7 @@
     };
 
     Service = {
-      ExecStart = "${lib.getExe pkgs.swaybg} --mode fill --image ${config.wallpaper}";
+      ExecStart = "${lib.getExe pkgs.swaybg} --mode fill --image ${default.wallpaper}";
       Restart = "on-failure";
     };
 

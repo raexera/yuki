@@ -1,5 +1,5 @@
 {
-  config,
+  default,
   pkgs,
   ...
 }: {
@@ -22,7 +22,7 @@
       layer = "top";
     };
     style = let
-      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
+      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
     in ''
       * {
         all: initial;
@@ -32,14 +32,14 @@
       }
 
       #window {
-        background: alpha(${xcolors.background}, 0.2);
+        background: alpha(${xcolors.base00}, 0.2);
         border-radius: 12px;
       }
 
       #input {
         border-radius: 12px;
-        border: 1px solid alpha(${xcolors.color4}, 0.8);
-        background: alpha(${xcolors.background}, 0.2);
+        border: 1px solid alpha(${xcolors.base0C}, 0.8);
+        background: alpha(${xcolors.base00}, 0.2);
         padding: 0.75em;
         margin-bottom: 1.5em;
       }
@@ -50,7 +50,7 @@
 
       #text {
         margin: 0.25em;
-        color: alpha(${xcolors.foreground}, 0.8);
+        color: alpha(${xcolors.base05}, 0.8);
       }
 
       #img {
@@ -64,7 +64,7 @@
       }
 
       #entry:selected {
-        background: alpha(${xcolors.background}, 0.2);
+        background: alpha(${xcolors.base00}, 0.2);
         font-weight: bold;
       }
     '';
