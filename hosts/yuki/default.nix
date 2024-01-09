@@ -59,6 +59,11 @@
 
   networking.hostName = "yuki";
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   services = {
     fstrim.enable = true;
     thermald.enable = true;

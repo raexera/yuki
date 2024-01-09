@@ -62,7 +62,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
+
     systemd = {
       enable = true;
       extraCommands = lib.mkBefore [

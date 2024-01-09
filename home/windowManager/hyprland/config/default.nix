@@ -69,6 +69,7 @@
       accel_profile = "flat";
       touchpad = {
         natural_scroll = true;
+        disable_while_typing = true;
       };
     };
 
@@ -99,7 +100,9 @@
       vrr = 0;
     };
 
-    monitor = ",highres,auto,2";
+    monitor = [
+      ",highres,auto,2"
+    ];
 
     xwayland.force_zero_scaling = true;
     debug.disable_logs = false;
