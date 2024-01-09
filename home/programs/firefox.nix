@@ -2,7 +2,25 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  mimeTypes = [
+    "application/json"
+    "application/pdf"
+    "application/x-extension-htm"
+    "application/x-extension-html"
+    "application/x-extension-shtml"
+    "application/x-extension-xhtml"
+    "application/x-extension-xht"
+    "application/xhtml+xml"
+    "text/html"
+    "text/xml"
+    "x-scheme-handler/about"
+    "x-scheme-handler/ftp"
+    "x-scheme-handler/http"
+    "x-scheme-handler/unknown"
+    "x-scheme-handler/https"
+  ];
+in {
   home = {
     sessionVariables.BROWSER = "firefox";
 
@@ -12,14 +30,11 @@
     };
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "application/pdf" = ["firefox.desktop"];
-    "application/xhtml+xml" = ["firefox.desktop"];
-    "text/html" = ["firefox.desktop"];
-    "text/xml" = ["firefox.desktop"];
-    "x-scheme-handler/http" = ["firefox.desktop"];
-    "x-scheme-handler/https" = ["firefox.desktop"];
-  };
+  xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
+      name = mimeType;
+      value = ["firefox.desktop"];
+    })
+    mimeTypes);
 
   programs.firefox = {
     enable = true;

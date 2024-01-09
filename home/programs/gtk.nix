@@ -20,6 +20,11 @@
       gtk.enable = true;
       x11.enable = true;
     };
+
+    sessionVariables = {
+      XCURSOR_SIZE = "24";
+      GTK_USE_PORTAL = "1";
+    };
   };
 
   gtk = {

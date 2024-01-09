@@ -36,11 +36,6 @@
     catppuccin.catppuccin-vsc
   ];
 in {
-  home.sessionVariables = {
-    EDITOR = "code";
-    VISUAL = "code";
-  };
-
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
       value = ["code.desktop"];
@@ -119,7 +114,7 @@ in {
         find.addExtraSpaceOnTop = false;
         fontFamily = "'monospace', monospace, 'Material Design Icons'";
         fontLigatures = true;
-        fontSize = 16;
+        fontSize = 13;
         formatOnPaste = true;
         formatOnSave = true;
         formatOnType = true;

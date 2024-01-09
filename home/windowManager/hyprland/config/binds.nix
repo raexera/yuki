@@ -28,9 +28,13 @@
     )
     10);
 
+  gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";
+  xdg-mime = "${pkgs.xdg-utils}/bin/xdg-mime";
+  defaultApp = type: "${gtk-launch} $(${xdg-mime} query default ${type})";
+
   terminal = config.home.sessionVariables.TERMINAL;
-  browser = config.home.sessionVariables.BROWSER;
-  editor = config.home.sessionVariables.EDITOR;
+  browser = defaultApp "x-scheme-handler/https";
+  editor = defaultApp "text/plain";
 in {
   home.packages = [ocrScript];
 
