@@ -6,7 +6,7 @@
 }: let
   sharedModules = [
     ../.
-    ../modules/shell
+    ../shell
 
     module_args
     inputs.ags.homeManagerModules.default

@@ -1,4 +1,4 @@
-_: {
+{
   home = {
     username = "rxyhn";
     homeDirectory = "/home/rxyhn";
