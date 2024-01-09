@@ -1,9 +1,7 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  environment.systemPackages = with pkgs; [speedtest-cli bandwhich];
+{lib, ...}: {
+  imports = [
+    ./ssh.nix
+  ];
 
   networking = {
     extraHosts = builtins.readFile (

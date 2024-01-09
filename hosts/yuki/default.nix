@@ -6,10 +6,6 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../modules/core
-    ../modules/core/network.nix
-    ../modules/core/ssh.nix
-
     ../modules/desktop
     ../modules/desktop/fonts.nix
     ../modules/desktop/greetd.nix
