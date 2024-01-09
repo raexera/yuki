@@ -1,39 +1,31 @@
 {
-  pkgs,
   inputs,
+  pkgs,
   ...
-}: let
-  firefox-gnome-theme = inputs.self.packages.${pkgs.system}.firefox-gnome-theme;
+}: {
+  home = {
+    sessionVariables.BROWSER = "firefox";
 
-  mimeTypes = [
-    "application/json"
-    "application/pdf"
-    "application/x-extension-htm"
-    "application/x-extension-html"
-    "application/x-extension-shtml"
-    "application/x-extension-xhtml"
-    "application/x-extension-xht"
-    "application/xhtml+xml"
-    "text/html"
-    "text/xml"
-    "x-scheme-handler/about"
-    "x-scheme-handler/ftp"
-    "x-scheme-handler/http"
-    "x-scheme-handler/unknown"
-    "x-scheme-handler/https"
-  ];
-in {
-  home.sessionVariables.BROWSER = "firefox";
+    file."firefox-gnome-theme" = {
+      target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
+      source = inputs.firefox-gnome-theme;
+    };
+  };
 
-  xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
-      name = mimeType;
-      value = "firefox.desktop";
-    })
-    mimeTypes);
+  xdg.mimeApps.defaultApplications = {
+    "application/pdf" = ["firefox.desktop"];
+    "application/xhtml+xml" = ["firefox.desktop"];
+    "text/html" = ["firefox.desktop"];
+    "text/xml" = ["firefox.desktop"];
+    "x-scheme-handler/http" = ["firefox.desktop"];
+    "x-scheme-handler/https" = ["firefox.desktop"];
+  };
 
   programs.firefox = {
     enable = true;
-    profiles.rxyhn = {
+    profiles.default = {
+      name = "Default";
+
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         octotree
         refined-github
@@ -41,6 +33,7 @@ in {
       ];
 
       settings = {
+        "browser.tabs.loadInBackground" = true;
         "gfx.canvas.accelerated" = true;
         "gfx.webrender.enabled" = true;
         "gfx.x11-egl.force-enabled" = true;
@@ -50,17 +43,21 @@ in {
         "media.hardware-video-decoding.force-enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
         "widget.dmabuf.force-enabled" = true;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "svg.context-properties.content.enabled" = true;
+        "gnomeTheme.hideSingleTab" = true;
+        "gnomeTheme.bookmarksToolbarUnderTabs" = true;
+        "gnomeTheme.normalWidthTabs" = false;
+        "gnomeTheme.tabsAsHeaderbar" = false;
       };
 
       userChrome = ''
-        @import "${firefox-gnome-theme}/share/firefox-gnome-theme/userChrome.css";
+        @import "firefox-gnome-theme/userChrome.css";
       '';
 
       userContent = ''
-        @import "${firefox-gnome-theme}/share/firefox-gnome-theme/userContent.css";
+        @import "firefox-gnome-theme/userContent.css";
       '';
-
-      extraConfig = builtins.readFile "${firefox-gnome-theme}/share/firefox-gnome-theme/configuration/user.js";
     };
   };
 }

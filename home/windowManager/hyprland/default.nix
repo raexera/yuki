@@ -46,6 +46,7 @@
     ];
 
     sessionVariables = {
+      _JAVA_AWT_WM_NONREPARENTING = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
@@ -69,6 +70,8 @@
         "systemctl --user start hyprland-session.target"
       ];
     };
+
+    xwayland.enable = true;
   };
 
   systemd.user.targets.tray = {

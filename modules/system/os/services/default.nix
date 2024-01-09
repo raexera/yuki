@@ -7,6 +7,7 @@
 
   services = {
     geoclue2.enable = true;
+    gnome.glib-networking.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
