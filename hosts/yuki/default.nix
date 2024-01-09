@@ -3,19 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-
-    ../modules/desktop
-    ../modules/desktop/fonts.nix
-    ../modules/desktop/greetd.nix
-    ../modules/desktop/wayland.nix
-
-    ../modules/programs/java.nix
-    ../modules/programs/packages.nix
-
-    ../modules/services/pipewire.nix
-  ];
+  imports = [./hardware-configuration.nix];
 
   boot = {
     kernelModules = ["acpi_call"];

@@ -1,9 +1,12 @@
 {lib, ...}: {
   imports = [
+    ./display
     ./environment
+    ./misc
     ./networking
     ./programs
     ./security
+    ./services
     ./users
   ];
 

@@ -24,11 +24,13 @@ in {
       inputs.nh.nixosModules.default
       module_args
 
+      self.nixosModules.hardware
       self.nixosModules.system
     ];
   };
 
   flake.nixosModules = {
+    hardware = import ./hardware;
     system = import ./system;
   };
 }
