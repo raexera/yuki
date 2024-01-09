@@ -7,11 +7,10 @@
   imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = ["i915" "nvidia"];
+  boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
-  boot.blacklistedKernelModules = ["nouveau"];
-  boot.kernelParams = ["iommu=pt" "i915.enable_psr=0" "i8042.direct" "i8042.dumbkbd"];
+  boot.kernelParams = ["module_blacklist=nouveau" "iommu=pt" "i915.enable_psr=0" "i8042.direct" "i8042.dumbkbd"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NixOS-ROOT";

@@ -44,40 +44,16 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
 
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = true;
-
-      prime = {
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-
-        reverseSync.enable = true;
-      };
+    nvidia.prime = {
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
 
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        intel-ocl
-        libvdpau-va-gl
-        vaapiVdpau
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        intel-media-driver
-        libvdpau-va-gl
-        vaapiVdpau
-        glxinfo
-        vdpauinfo
-      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [glxinfo vdpauinfo];
     };
   };
 
@@ -94,8 +70,6 @@
       percentageAction = 10;
       criticalPowerAction = "Hibernate";
     };
-
-    xserver.videoDrivers = ["nvidia"];
   };
 
   zramSwap.enable = true;

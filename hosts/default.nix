@@ -12,6 +12,8 @@
       modules =
         [
           ./yuki
+          ../modules/hardware/gpu/intel.nix
+          ../modules/hardware/gpu/nvidia.nix
           {home-manager.users.rxyhn.imports = homeImports."rxyhn@hiru";}
         ]
         ++ sharedModules;
