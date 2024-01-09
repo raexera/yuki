@@ -7,7 +7,7 @@
     sessionVariables.BROWSER = "firefox";
 
     file."firefox-gnome-theme" = {
-      target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
+      target = ".mozilla/firefox/rxyhn/chrome/firefox-gnome-theme";
       source = inputs.firefox-gnome-theme;
     };
   };
@@ -23,9 +23,7 @@
 
   programs.firefox = {
     enable = true;
-    profiles.default = {
-      name = "Default";
-
+    profiles.rxyhn = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         octotree
         refined-github

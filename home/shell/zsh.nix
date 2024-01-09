@@ -29,7 +29,6 @@
     sessionVariables = {
       LC_ALL = "en_US.UTF-8";
       ZSH_AUTOSUGGEST_USE_ASYNC = "true";
-      SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/keyring/ssh";
     };
 
     initExtra = ''

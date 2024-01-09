@@ -1,11 +1,5 @@
 {lib, ...}: {
-  programs = {
-    ssh.startAgent = false;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-  };
+  programs.ssh.startAgent = true;
 
   services.openssh = {
     enable = true;
