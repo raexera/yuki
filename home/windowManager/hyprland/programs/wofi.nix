@@ -28,18 +28,18 @@
         all: initial;
         font-family: Dosis;
         font-size: 1rem;
-        background: transparent;
+        background-color: transparent;
       }
 
       #window {
-        background: ${xcolors.black0};
+        background-color: ${xcolors.black0};
         border-radius: 12px;
       }
 
       #input {
         border-radius: 12px;
         border: 1px solid ${xcolors.mauve};
-        background: ${xcolors.black3};
+        background-color: ${xcolors.black3};
         padding: 0.75em;
         margin-bottom: 1.5em;
       }
@@ -54,17 +54,17 @@
       }
 
       #img {
-        background: transparent;
+        background-color: transparent;
         margin: 0.5em;
       }
 
       #entry {
         border-radius: 12px;
-        background: transparent;
+        background-color: transparent;
       }
 
       #entry:selected {
-        background: ${xcolors.black3};
+        background-color: ${xcolors.black3};
         font-weight: bold;
       }
     '';

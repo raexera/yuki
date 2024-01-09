@@ -207,7 +207,7 @@ in {
         min-height: 0;
         min-width: 0;
         font-family: "Material Design Icons", monospace;
-        font-size: 1rem;
+        font-size: 11pt;
       }
 
       window#waybar {
@@ -247,7 +247,7 @@ in {
       }
 
       #user {
-        color: ${xcolors.mauve};
+        color: ${xcolors.gray1};
       }
 
       #workspaces {
@@ -271,7 +271,7 @@ in {
       }
 
       #workspaces button.empty label {
-        color: alpha(${xcolors.white}, 0.5);
+        color: ${xcolors.gray1};
       }
 
       #workspaces button.urgent label {
@@ -320,8 +320,8 @@ in {
       }
 
       tooltip {
-        color: ${xcolors.black0};
-        background-color: ${xcolors.white};
+        color: ${xcolors.white};
+        background-color: ${xcolors.black0};
         font-family: "Dosis", sans-serif;
         border-radius: 8px;
         padding: 1.37em;
