@@ -19,7 +19,10 @@ in {
     boot.blacklistedKernelModules = ["nouveau"];
 
     environment = {
-      sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+      sessionVariables = {
+        NVD_BACKEND = "direct";
+        WLR_NO_HARDWARE_CURSORS = "1";
+      };
 
       systemPackages = with pkgs; [
         libva
