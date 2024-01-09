@@ -4,7 +4,6 @@
   ];
 
   environment = {
-    loginShellInit = "dbus-update-activation-environment --systemd DISPLAY";
     pathsToLink = ["/share/zsh"];
 
     systemPackages = with pkgs;
