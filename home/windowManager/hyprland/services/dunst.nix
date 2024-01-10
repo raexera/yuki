@@ -124,21 +124,21 @@ in {
       urgency_low = {
         background = "${xcolors.black0}";
         foreground = "${xcolors.white}";
-        highlight = "${xcolors.mauve}";
+        highlight = "${xcolors.blue}";
         timeout = 2;
       };
 
       urgency_normal = {
         background = "${xcolors.black0}";
         foreground = "${xcolors.white}";
-        highlight = "${xcolors.mauve}";
+        highlight = "${xcolors.blue}";
         timeout = 2;
       };
 
       urgency_critical = {
         background = "${xcolors.red}";
         foreground = "${xcolors.white}";
-        highlight = "${xcolors.mauve}";
+        highlight = "${xcolors.blue}";
         timeout = 10;
       };
     };

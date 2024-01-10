@@ -38,7 +38,7 @@
 
       #input {
         border-radius: 12px;
-        border: 1px solid ${xcolors.mauve};
+        border: 1px solid ${xcolors.blue};
         background-color: ${xcolors.black3};
         padding: 0.75em;
         margin-bottom: 1.5em;

@@ -9,18 +9,21 @@
     enable = true;
 
     theme = {
-      name = "Catppuccin-Macchiato-Compact-Mauve-Dark";
+      name = "Catppuccin-Macchiato-Standard-Blue-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = ["mauve"];
-        tweaks = ["rimless"];
-        size = "compact";
+        accents = ["blue"];
+        size = "standard";
+        tweaks = ["normal"];
         variant = "macchiato";
       };
     };
 
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders;
+      package = pkgs.catppuccin-papirus-folders.override {
+        accent = "blue";
+        flavor = "macchiato";
+      };
     };
 
     font = {

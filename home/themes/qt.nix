@@ -1,21 +1,18 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     packages = with pkgs; [
-      libsForQt5.qt5ct
-      libsForQt5.qtstyleplugin-kvantum
-      libsForQt5.qt5.qttools
-      qt6Packages.qtstyleplugin-kvantum
       breeze-icons
+      libsForQt5.qt5ct
+      libsForQt5.qt5.qttools
+      libsForQt5.qtstyleplugin-kvantum
+      qt6Packages.qtstyleplugin-kvantum
     ];
 
     sessionVariables = {
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      DISABLE_QT_COMPAT = "0";
     };
   };
 
@@ -26,30 +23,28 @@
       name = "Catppuccin-Macchiato-Dark";
       package = pkgs.catppuccin-kde.override {
         flavour = ["macchiato"];
-        accents = ["mauve"];
+        accents = ["blue"];
         winDecStyles = ["modern"];
       };
     };
   };
 
   xdg.configFile = {
-    "kdeglobals".source = "${config.qt.style.package}" + "/share/color-schemes/CatppuccinMacchiatoMauve.colors";
-
     "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
       General.theme = "catppuccin";
       Applications.catppuccin = ''
-        qt5ct, org.kde.dolphin, org.kde.kalendar, org.qbittorrent.qBittorrent, hyprland-share-picker
+        qt5ct, org.kde.dolphin, org.qbittorrent.qBittorrent, hyprland-share-picker
       '';
     };
 
     "Kvantum/catppuccin/catppuccin.kvconfig".source = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Macchiato-Mauve/Catppuccin-Macchiato-Mauve.kvconfig";
-      sha256 = "0k2icaybydqp65cic2saxvgrn039bk7kq7rqm75ffxgpmv04jakp";
+      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Macchiato-Blue/Catppuccin-Macchiato-Blue.kvconfig";
+      sha256 = "0v29wflyskb34nqsjy4y67cxy46rg3r9wnivwff96dwh39rl61qd";
     };
 
     "Kvantum/catppuccin/catppuccin.svg".source = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Macchiato-Mauve/Catppuccin-Macchiato-Mauve.svg";
-      sha256 = "1qcca56f1452qriclxwlkw5p17k9n99fw34hwp4s8v24r0azcwv5";
+      url = "https://raw.githubusercontent.com/catppuccin/Kvantum/main/src/Catppuccin-Macchiato-Blue/Catppuccin-Macchiato-Blue.svg";
+      sha256 = "1gqxrcq65nfsvplv3n6srsl054hn26mkqjnx6snnkryj98s2abd5";
     };
   };
 }

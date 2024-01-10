@@ -43,10 +43,15 @@
       window_margin_width = 0;
       window_padding_width = 15;
 
+      foreground = xcolors.white;
       background = xcolors.black2;
       selection_foreground = xcolors.black2;
       cursor_text_color = xcolors.black2;
       tab_bar_background = xcolors.black1;
+      active_tab_foreground = xcolors.black1;
+      active_tab_background = xcolors.blue;
+      inactive_tab_foreground = xcolors.white;
+      inactive_tab_background = xcolors.black2;
     };
 
     keybindings = {

@@ -79,7 +79,7 @@ in {
         "pulseaudio#microphone" = {
           tooltip = false;
           format = "{format_source}";
-          format-source = formatIcons "${xcolors.teal}CC" "󰍬" + " {volume}%";
+          format-source = formatIcons "${xcolors.sapphire}CC" "󰍬" + " {volume}%";
           format-source-muted = formatIcons "${xcolors.red}CC" "󰍭";
           on-click = "${_ pamixer} --default-source -t";
           on-scroll-up = "${_ pamixer} --default-source -d 1";
@@ -130,7 +130,7 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = formatIcons "${xcolors.blue}CC" "{icon}" + " {percent}%";
+          format = formatIcons "${xcolors.teal}CC" "{icon}" + " {percent}%";
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
@@ -153,8 +153,8 @@ in {
             <tt><small>{calendar}</small></tt>'';
         };
         clock = {
-          format = formatIcons "${xcolors.peach}CC" "󱑎" + " {:%I:%M %p}";
-          format-alt = formatIcons "${xcolors.peach}CC" "󱑎" + " {:%H:%M}";
+          format = formatIcons "${xcolors.mauve}CC" "󱑎" + " {:%I:%M %p}";
+          format-alt = formatIcons "${xcolors.mauve}CC" "󱑎" + " {:%H:%M}";
         };
         "group/group-power" = {
           orientation = "inherit";
@@ -172,7 +172,7 @@ in {
           ];
         };
         "custom/quit" = {
-          format = formatIcons "${xcolors.blue}CC" "󰍃";
+          format = formatIcons "${xcolors.teal}CC" "󰍃";
           onclick = "loginctl terminate-user $USER";
           tooltip = false;
         };
@@ -254,11 +254,12 @@ in {
         background-color: ${xcolors.black3};
         border-radius: 4px;
         margin: 0.41em 0.21em;
-        padding: 0.41em 0.82em;
       }
 
       #workspaces button {
-        margin: 0 0.82em;
+        padding: 0 0.82em;
+        border-radius: 4px;
+        transition: all 0.1s ease-in-out;
       }
 
       #workspaces button:hover {
@@ -282,8 +283,13 @@ in {
         color: ${xcolors.yellow};
       }
 
+      #workspaces button.active {
+        background-color: ${xcolors.blue};
+      }
+
       #workspaces button.active label {
-        color: ${xcolors.mauve};
+        color: ${xcolors.black3};
+        font-weight: bold;
       }
 
       #backlight-slider slider,
@@ -312,7 +318,7 @@ in {
       }
 
       #backlight-slider highlight {
-        background-color: ${xcolors.blue};
+        background-color: ${xcolors.teal};
       }
 
       #pulseaudio-slider highlight {

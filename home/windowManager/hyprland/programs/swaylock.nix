@@ -37,12 +37,12 @@
       text-clear-color = "${xcolors.white}";
       text-wrong-color = "${xcolors.red}";
       ring-wrong-color = "${xcolors.red}";
-      key-hl-color = "${xcolors.mauve}";
-      line-ver-color = "${xcolors.mauve}";
-      ring-ver-color = "${xcolors.mauve}";
-      ring-clear-color = "${xcolors.mauve}";
-      bs-hl-color = "${xcolors.mauve}";
-      separator-color = "${xcolors.mauve}";
+      key-hl-color = "${xcolors.blue}";
+      line-ver-color = "${xcolors.blue}";
+      ring-ver-color = "${xcolors.blue}";
+      ring-clear-color = "${xcolors.blue}";
+      bs-hl-color = "${xcolors.blue}";
+      separator-color = "${xcolors.blue}";
     };
   };
 }
