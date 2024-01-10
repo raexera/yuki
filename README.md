@@ -25,7 +25,8 @@
 
 </div>
 
-> [!NOTE] > **System Information:**
+> [!NOTE]
+> **System Information:**
 >
 > - **OS:** NixOS
 > - **Window Manager:** Hyprland
