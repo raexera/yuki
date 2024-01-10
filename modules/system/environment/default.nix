@@ -5,8 +5,6 @@
   ];
 
   environment = {
-    pathsToLink = ["/share/zsh"];
-
     systemPackages = with pkgs;
       [
         git

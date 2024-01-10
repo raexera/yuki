@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs = {
-    bash.promptInit = ''eval "$(${pkgs.starship}/bin/starship init bash)"'';
+    bash.promptInit = ''eval "$(${lib.getExe pkgs.starship} init bash)"'';
 
     java = {
       enable = true;
@@ -9,12 +13,12 @@
 
     zsh = {
       enable = true;
+      enableCompletion = true;
       autosuggestions.enable = true;
-      syntaxHighlighting = {
-        enable = true;
-        styles = {"alias" = "fg=magenta";};
-        highlighters = ["main" "brackets" "pattern"];
-      };
+      syntaxHighlighting.enable = true;
+      promptInit = ''
+        eval "$(${lib.getExe pkgs.starship} init zsh)"
+      '';
     };
 
     dconf.enable = true;
