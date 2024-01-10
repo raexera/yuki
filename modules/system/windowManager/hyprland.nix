@@ -45,19 +45,8 @@
 
   security = {
     pam.services = {
-      greetd = {
-        gnupg.enable = true;
-        enableGnomeKeyring = true;
-      };
-
-      login = {
-        enableGnomeKeyring = true;
-        gnupg = {
-          enable = true;
-          noAutostart = true;
-          storeOnly = true;
-        };
-      };
+      greetd.enableGnomeKeyring = true;
+      login.enableGnomeKeyring = true;
 
       swaylock.text = "auth include login";
     };
