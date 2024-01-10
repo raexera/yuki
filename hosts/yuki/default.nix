@@ -38,6 +38,7 @@
   hardware = {
     bluetooth = {
       enable = true;
+      powerOnBoot = false;
       package = pkgs.bluez5-experimental;
     };
 
@@ -53,16 +54,10 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages32 = with pkgs.pkgsi686Linux; [glxinfo vdpauinfo];
     };
   };
 
   networking.hostName = "yuki";
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   services = {
     fstrim.enable = true;

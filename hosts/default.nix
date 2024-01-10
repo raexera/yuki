@@ -1,4 +1,5 @@
 {
+  self,
   inputs,
   homeImports,
   sharedModules,
@@ -12,8 +13,10 @@
       modules =
         [
           ./yuki
+          ../modules/hardware/audio
           ../modules/hardware/gpu/intel.nix
           ../modules/hardware/gpu/nvidia.nix
+          self.nixosModules.hyprland
           {home-manager.users.rxyhn.imports = homeImports."rxyhn@hiru";}
         ]
         ++ sharedModules;

@@ -4,6 +4,7 @@
     shell = pkgs.zsh;
     extraGroups = [
       "adbusers"
+      "audio"
       "docker"
       "input"
       "libvirtd"

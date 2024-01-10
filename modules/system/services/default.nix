@@ -6,6 +6,7 @@
   location.provider = "geoclue2";
 
   services = {
+    devmon.enable = true;
     geoclue2.enable = true;
     gnome.glib-networking.enable = true;
     gnome.gnome-keyring.enable = true;

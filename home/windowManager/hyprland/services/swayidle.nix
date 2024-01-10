@@ -1,7 +1,8 @@
 {
-  default,
-  pkgs,
   config,
+  default,
+  lib,
+  pkgs,
   ...
 }: let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
@@ -36,4 +37,6 @@ in {
       }
     ];
   };
+
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
 }

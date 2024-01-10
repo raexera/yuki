@@ -64,7 +64,6 @@
     };
 
     overlays = [
-      inputs.nixpkgs-wayland.overlay
       inputs.nur.overlay
 
       (_final: prev: {
