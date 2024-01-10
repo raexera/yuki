@@ -1,9 +1,17 @@
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+
 <div align="center">
 
 <h1>雪 - Yuki</h1>
 
 <a href="#">
-  <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="750" height="300" alt="banner"/>
+  <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="750" height="300" alt="Banner"/>
+</a>
+
+<br>
+
+<a href="#">
+  <img src="https://github.com/rxyhn/yuki/assets/93292023/4154dc84-439d-4385-80bd-1bf3266b880e" width="800" alt="Desktop Preview"/>
 </a>
 
 <br>
