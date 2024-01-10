@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home = {
     packages = with pkgs; [
       libsForQt5.qt5ct
@@ -29,10 +33,12 @@
   };
 
   xdg.configFile = {
+    "kdeglobals".source = "${config.qt.style.package}" + "/share/color-schemes/CatppuccinMacchiatoMauve.colors";
+
     "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
       General.theme = "catppuccin";
       Applications.catppuccin = ''
-        qt5ct, org.kde.dolphin, org.kde.kalendar, org.qbittorrent.qBittorrent, hyprland-share-picker, dolphin-emu
+        qt5ct, org.kde.dolphin, org.kde.kalendar, org.qbittorrent.qBittorrent, hyprland-share-picker
       '';
     };
 
