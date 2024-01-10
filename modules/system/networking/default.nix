@@ -7,7 +7,7 @@
     extraHosts = builtins.readFile (
       builtins.fetchurl {
         url = "https://raw.githubusercontent.com/bebasid/bebasid/master/releases/hosts";
-        sha256 = "18a1q92jg5558hviw3wxp9z6k9zpmr6k5kk1mzfiwm6pnyrg8bp5";
+        sha256 = "0993ms2lk7n3h82ccj2iabkaf9bzalrkmw9dg70jsfa7cc8309km";
       }
     );
 

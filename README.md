@@ -26,8 +26,8 @@
 </div>
 
 > [!NOTE]
-> **System Information:**
 >
+> **System Information:**
 > - **OS:** NixOS
 > - **Window Manager:** Hyprland
 > - **Shell:** ZSH
