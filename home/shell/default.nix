@@ -1,6 +1,6 @@
 {
-  pkgs,
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -62,9 +62,13 @@
   programs = {
     btop.enable = true;
     eza.enable = true;
-    gpg.enable = true;
     man.enable = true;
     ssh.enable = true;
+
+    gpg = {
+      homedir = "${config.xdg.dataHome}/gnupg";
+      enable = true;
+    };
 
     bat = {
       enable = true;

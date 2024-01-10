@@ -1,5 +1,7 @@
 {
+  config,
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -42,8 +44,46 @@
   };
 
   security = {
-    pam.services.swaylock.text = "auth include login";
+    pam.services = {
+      greetd = {
+        gnupg.enable = true;
+        enableGnomeKeyring = true;
+      };
+
+      login = {
+        enableGnomeKeyring = true;
+        gnupg = {
+          enable = true;
+          noAutostart = true;
+          storeOnly = true;
+        };
+      };
+
+      swaylock.text = "auth include login";
+    };
+
     polkit.enable = true;
+  };
+
+  services = {
+    gnome = {
+      gnome-keyring.enable = true;
+      glib-networking.enable = true;
+    };
+
+    greetd = let
+      session = {
+        command = "${lib.getExe config.programs.hyprland.package}";
+        user = "rxyhn";
+      };
+    in {
+      enable = true;
+      settings = {
+        terminal.vt = 1;
+        default_session = session;
+        initial_session = session;
+      };
+    };
   };
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {

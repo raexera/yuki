@@ -20,5 +20,6 @@
     dconf.enable = true;
     kdeconnect.enable = true;
     seahorse.enable = true;
+    nm-applet.enable = true;
   };
 }

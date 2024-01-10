@@ -1,15 +1,9 @@
 {pkgs, ...}: {
-  imports = [
-    ./greetd.nix
-  ];
-
   location.provider = "geoclue2";
 
   services = {
     devmon.enable = true;
     geoclue2.enable = true;
-    gnome.glib-networking.enable = true;
-    gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
     power-profiles-daemon.enable = true;
