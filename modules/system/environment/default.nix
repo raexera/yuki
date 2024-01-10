@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./locale.nix
+    ./variables.nix
   ];
 
   environment = {

@@ -3,6 +3,8 @@
   pkgs,
   ...
 }: let
+  firefox-gnome-theme = inputs.self.packages.${pkgs.system}.firefox-gnome-theme;
+
   mimeTypes = [
     "application/json"
     "application/pdf"
@@ -21,14 +23,7 @@
     "x-scheme-handler/https"
   ];
 in {
-  home = {
-    sessionVariables.BROWSER = "firefox";
-
-    file."firefox-gnome-theme" = {
-      target = ".mozilla/firefox/rxyhn/chrome/firefox-gnome-theme";
-      source = inputs.firefox-gnome-theme;
-    };
-  };
+  home.sessionVariables.BROWSER = "firefox";
 
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
@@ -65,12 +60,14 @@ in {
       };
 
       userChrome = ''
-        @import "firefox-gnome-theme/userChrome.css";
+        @import "${firefox-gnome-theme}/share/firefox-gnome-theme/userChrome.css";
       '';
 
       userContent = ''
-        @import "firefox-gnome-theme/userContent.css";
+        @import "${firefox-gnome-theme}/share/firefox-gnome-theme/userContent.css";
       '';
+
+      extraConfig = builtins.readFile "${firefox-gnome-theme}/share/firefox-gnome-theme/configuration/user.js";
     };
   };
 }

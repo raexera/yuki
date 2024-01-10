@@ -125,7 +125,5 @@
       enableSshSupport = true;
       enableZshIntegration = true;
     };
-
-    ssh-agent.enable = true;
   };
 }

@@ -13,8 +13,6 @@
       alejandra
       statix
     ];
-
-    variables.FLAKE = "/home/rxyhn/Documents/code/yuki";
   };
 
   nh = {
