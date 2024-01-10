@@ -33,8 +33,9 @@
 
     completionInit = ''
       # Load Zsh modules
+      autoload -Uz colors
       autoload -U compinit
-      zmodload zsh/complist
+      colors
 
       # General completion behavior
       zstyle ':completion:*' menu yes select # search
@@ -125,9 +126,6 @@
       _comp_options+=(globdots)
       compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
-      # Colors configuration
-      autoload -Uz colors && colors
-
       # Autosuggestion and syntax highlighting settings
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
       ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
@@ -149,25 +147,7 @@
       cat = "${getExe bat} --style=plain";
       du = getExe du-dust;
       fzf = getExe skim;
-      ga = "forgit_add";
-      gbd = "forgit_branch_delete";
-      gbl = "forgit_blame";
-      gcb = "forgit_checkout_branch";
-      gcf = "forgit_checkout_file";
-      gclean = "forgit_clean";
-      gco = "forgit_checkout_commit";
-      gcp = "forgit_cherry_pick";
-      gct = "forgit_checkout_tag";
-      gd = "forgit_diff";
-      gfu = "forgit_fixup";
-      gi = "forgit_ignore";
-      glo = "forgit_log";
-      grb = "forgit_rebase";
-      grc = "forgit_revert_commit";
       grep = getExe ripgrep;
-      grh = "forgit_reset_head";
-      gsp = "forgit_stash_push";
-      gss = "forgit_stash_show";
       la = "${getExe eza} -lah --tree";
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       ps = getExe procs;
@@ -177,6 +157,9 @@
       tree = "${getExe eza} --tree --icons --tree";
       untar = "tar -xvf";
       untargz = "tar -xzf";
+      ytmp3 = ''
+        ${lib.getExe yt-dlp} -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"
+      '';
     };
 
     plugins = with pkgs; [

@@ -49,6 +49,7 @@
       util-linux
       wget
       xarchiver
+      yt-dlp
       zathura
       zip
     ];
