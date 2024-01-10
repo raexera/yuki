@@ -6,50 +6,39 @@
   ...
 }: {
   imports = [
-    ../../programs/gtk.nix
-
     ./config
     ./programs/swaylock.nix
     ./programs/waybar.nix
     ./programs/wofi.nix
-
     ./services/cliphist.nix
     ./services/dunst.nix
     ./services/swaybg.nix
     ./services/swayidle.nix
   ];
 
-  home = {
-    packages = with pkgs; [
-      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-      config.wayland.windowManager.hyprland.package
+  home.packages = with pkgs; [
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    config.wayland.windowManager.hyprland.package
 
-      cliphist
-      dbus
-      libnotify
-      libcanberra-gtk3
-      wf-recorder
-      brightnessctl
-      pamixer
-      slurp
-      glib
-      grim
-      gtk3
-      hyprpicker
-      swappy
-      wl-clipboard
-      wl-screenrec
-      wlr-randr
-      xdg-utils
-      ydotool
-    ];
-
-    sessionVariables = {
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      QT_QPA_PLATFORM = "wayland;xcb";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    };
-  };
+    cliphist
+    dbus
+    libnotify
+    libcanberra-gtk3
+    wf-recorder
+    brightnessctl
+    pamixer
+    slurp
+    glib
+    grim
+    gtk3
+    hyprpicker
+    swappy
+    wl-clipboard
+    wl-screenrec
+    wlr-randr
+    xdg-utils
+    ydotool
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;

@@ -53,5 +53,6 @@ Special thanks to the following individuals for their insights, feedback, and in
     <a href="https://github.com/sioodmy">sioodmy</a> •
     <a href="https://github.com/Misterio77">Misterio77</a> •
     <a href="https://github.com/moni-dz">moni-dz</a> •
-    <a href="https://github.com/paulhersch">paulhersch</a>
+    <a href="https://github.com/paulhersch">paulhersch</a> •
+    <a href="https://github.com/NotAShelf">NotAShelf</a>
 </div>
