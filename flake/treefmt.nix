@@ -7,7 +7,12 @@
     programs = {
       alejandra.enable = true;
       deadnix.enable = true;
-      prettier.enable = true;
+
+      prettier = {
+        enable = true;
+        excludes = [".js" ".md" ".ts"];
+      };
+
       shellcheck.enable = true;
       shfmt = {
         enable = true;

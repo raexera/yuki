@@ -8,8 +8,10 @@
 
     settings.hooks = {
       alejandra.enable = true;
-      prettier.enable = true;
-      treefmt.enable = true;
+      prettier = {
+        enable = true;
+        excludes = [".js" ".md" ".ts"];
+      };
     };
   };
 }
