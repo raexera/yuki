@@ -22,6 +22,11 @@
         gfxmodeEfi = "1920x1080";
       };
     };
+
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
   };
 
   environment = {
