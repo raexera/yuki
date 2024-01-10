@@ -154,9 +154,6 @@
       la = "${getExe eza} -lah --tree";
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       ps = getExe procs;
-      run = "nix run $@";
-      search = "nix search $@";
-      shell = "nix shell $@";
       tree = "${getExe eza} --tree --icons --tree";
       untar = "tar -xvf";
       untargz = "tar -xzf";
