@@ -69,8 +69,8 @@ in {
           };
         };
         network = {
-          format-wifi = formatIcons "${xcolors.lavender}CC" "󰖩" + " {essid}";
-          format-ethernet = formatIcons "${xcolors.lavender}CC" "󰈀" + " {ipaddr}/{cidr}";
+          format-wifi = formatIcons "${xcolors.mauve}CC" "󰖩" + " {essid}";
+          format-ethernet = formatIcons "${xcolors.mauve}CC" "󰈀" + " {ipaddr}/{cidr}";
           format-disconnected = formatIcons "${xcolors.red}CC" "󰖪";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
@@ -153,8 +153,8 @@ in {
             <tt><small>{calendar}</small></tt>'';
         };
         clock = {
-          format = formatIcons "${xcolors.mauve}CC" "󱑎" + " {:%I:%M %p}";
-          format-alt = formatIcons "${xcolors.mauve}CC" "󱑎" + " {:%H:%M}";
+          format = formatIcons "${xcolors.peach}CC" "󱑎" + " {:%I:%M %p}";
+          format-alt = formatIcons "${xcolors.peach}CC" "󱑎" + " {:%H:%M}";
         };
         "group/group-power" = {
           orientation = "inherit";
