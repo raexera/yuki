@@ -1,6 +1,6 @@
 _lib: {
   colorscheme = {
-    name = "Catppuccin Macchiato";
+    name = "Darker Catppuccin Macchiato";
     colors = {
       rosewater = "f4dbd6";
       flamingo = "f0c6c6";
@@ -22,9 +22,9 @@ _lib: {
       black2 = "131a1c";
       black3 = "192022";
       black4 = "202729";
-      gray0 = "363D3E";
-      gray1 = "4A5051";
-      gray2 = "5C6262";
+      gray0 = "363d3e";
+      gray1 = "4a5051";
+      gray2 = "5c6262";
     };
   };
 
