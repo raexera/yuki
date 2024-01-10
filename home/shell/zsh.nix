@@ -18,7 +18,11 @@
 
     enableAutosuggestions = true;
     enableCompletion = true;
-    syntaxHighlighting.enable = true;
+
+    syntaxHighlighting = {
+      enable = true;
+      highlighters = ["main" "brackets" "pattern" "cursor" "regexp" "root" "line"];
+    };
 
     history = {
       expireDuplicatesFirst = true;
@@ -36,6 +40,19 @@
       autoload -Uz colors
       autoload -U compinit
       colors
+
+      zmodload zsh/zle
+      zmodload zsh/zpty
+      zmodload zsh/complist
+
+      # Initialize completion system
+      compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+      _comp_options+=(globdots)
+
+      # Load edit-command-line for ZLE
+      autoload -z edit-command-line
+      zle -N edit-command-line
+      bindkey "^e" edit-command-line
 
       # General completion behavior
       zstyle ':completion:*' menu yes select # search
@@ -116,20 +133,6 @@
       HIST_BEEP
       MENU_COMPLETE
       EOF
-
-      # Load Zsh modules
-      zmodload zsh/zle
-      zmodload zsh/zpty
-      zmodload zsh/complist
-
-      # Initialize completion system
-      _comp_options+=(globdots)
-      compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-
-      # Autosuggestion and syntax highlighting settings
-      ZSH_AUTOSUGGEST_USE_ASYNC="true"
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
-      ZSH_HIGHLIGHT_MAXLENGTH=512
 
       # Vi mode key bindings
       bindkey -v
