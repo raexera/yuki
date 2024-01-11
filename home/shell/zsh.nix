@@ -127,17 +127,14 @@
       EXTENDED_GLOB
       EXTENDED_HISTORY
       HIST_EXPIRE_DUPS_FIRST
-      HIST_FIND_NO_DUPS
       HIST_IGNORE_ALL_DUPS
       HIST_IGNORE_SPACE
       HIST_REDUCE_BLANKS
       HIST_SAVE_NO_DUPS
-      HIST_VERIFY
       INC_APPEND_HISTORY
       INTERACTIVE_COMMENTS
       MENU_COMPLETE
       NO_BEEP
-      NO_NOMATCH
       NOTIFY
       PATH_DIRS
       PUSHD_IGNORE_DUPS
@@ -152,9 +149,7 @@
       done <<-EOF
       CASE_GLOB
       CORRECT
-      EQUALS
       FLOW_CONTROL
-      NOMATCH
       EOF
 
       # Vi mode key bindings
@@ -189,8 +184,7 @@
 
     shellAliases = with lib;
     with pkgs; {
-      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-      cat = "${getExe bat} --style=plain";
+      cat = "${getExe bat} --theme=base16 --number --color=always --paging=never --tabs=2 --wrap=never";
       cp = "cp -iv";
       du = getExe du-dust;
       g = "git";
