@@ -37,59 +37,47 @@
 
     completionInit = ''
       # Load Zsh modules
-      autoload -Uz colors
-      autoload -U compinit
-      colors
-
       zmodload zsh/zle
       zmodload zsh/zpty
       zmodload zsh/complist
 
       # Initialize completion system
-      compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-      _comp_options+=(globdots)
+      autoload -U compinit
+      compinit
+      _comp_options+=(globdots) # With hidden files
 
       # Load edit-command-line for ZLE
-      autoload -z edit-command-line
+      autoload -Uz edit-command-line
       zle -N edit-command-line
       bindkey "^e" edit-command-line
 
       # General completion behavior
-      zstyle ':completion:*' menu yes select # search
-      zstyle ':completion:*' sort false
+      zstyle ':completion:*' completer _extensions _complete _approximate
       zstyle ':completion:*' use-cache on
       zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
-      zstyle ':completion:*' verbose yes
-      zstyle ':completion:*' special-dirs true
-      zstyle ':completion:*' rehash true
-      zstyle ':completion:*' list-grouped false
-      zstyle ':completion:*' list-separator '''
-      zstyle ':completion:*' group-name '''
-
-      # Matcher and completer configurations
-      zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'l:|=* r:|=*'
-      zstyle ':completion:*' completer _complete _match _approximate
-      zstyle ':completion:*:match:*' original only
-      zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-      # Formatting and colors
-      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-      zstyle ':completion:*:matches' group 'yes'
-      zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
-      zstyle ':completion:*:messages' format '%d'
-      zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-      zstyle ':completion:*:descriptions' format '[%d]'
-
-      # Specific behaviors for types of completions
-      zstyle ':completion:complete:*:options' sort false
-      zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
-      zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
-      zstyle ':completion:*:jobs' numbers true
-      zstyle ':completion:*:jobs' verbose true
-      zstyle ":completion:*:git-checkout:*" sort false
+      zstyle ':completion:*' complete true
+      zstyle ':completion:*' menu select
+      zstyle ':completion:*' complete-options true
       zstyle ':completion:*' file-sort modification
-      zstyle ':completion:*:eza' sort false
-      zstyle ':completion:files' sort false
+      zstyle ':completion:*:matches' group 'yes'
+      zstyle ':completion:*:options' description 'yes'
+      zstyle ':completion:*:options' auto-description '%d'
+      zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+      zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+      zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+      zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+      zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+      zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
+      zstyle ':completion:*' group-name '''
+      zstyle ':completion:*' verbose yes
+      zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+      zstyle ':completion:*' keep-prefix true
+      zstyle ':completion:*' list-grouped false
+      zstyle ':completion:*:default' list-colors ''${(s.:.)LS_COLORS}
+      zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
+      zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+      zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+      zstyle ':completion:*' squeeze-slashes true
     '';
 
     initExtra = ''
@@ -97,6 +85,7 @@
       while read -r option; do
         setopt $option
       done <<-EOF
+      ALWAYS_TO_END
       AUTO_CD
       AUTO_LIST
       AUTO_MENU
@@ -104,13 +93,14 @@
       AUTO_PUSHD
       APPEND_HISTORY
       ALWAYS_TO_END
+      CDABLE_VARS
       COMPLETE_IN_WORD
       CORRECT
+      EXTENDED_GLOB
       EXTENDED_HISTORY
       HIST_EXPIRE_DUPS_FIRST
-      HIST_FCNTL_LOCK
+      HIST_FIND_NO_DUPS
       HIST_IGNORE_ALL_DUPS
-      HIST_IGNORE_DUPS
       HIST_IGNORE_SPACE
       HIST_REDUCE_BLANKS
       HIST_SAVE_NO_DUPS
@@ -119,6 +109,7 @@
       INTERACTIVE_COMMENTS
       MENU_COMPLETE
       NO_NOMATCH
+      PATH_DIRS
       PUSHD_IGNORE_DUPS
       PUSHD_TO_HOME
       PUSHD_SILENT
@@ -129,9 +120,8 @@
       while read -r option; do
         unsetopt $option
       done <<-EOF
-      CORRECT_ALL
-      HIST_BEEP
       MENU_COMPLETE
+      FLOW_CONTROL
       EOF
 
       # Vi mode key bindings
