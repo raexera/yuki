@@ -1,5 +1,6 @@
 {
   config,
+  default,
   lib,
   pkgs,
   ...
@@ -106,6 +107,12 @@
       zstyle ':completion:*:history-words' list false
       zstyle ':completion:*:history-words' menu yes
 
+      # Sort
+      zstyle ":completion:*:git-checkout:*" sort false
+      zstyle ':completion:*' file-sort modification
+      zstyle ':completion:*:eza' sort false
+      zstyle ':completion:files' sort false
+
       # fzf-tab
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
       zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
@@ -113,13 +120,7 @@
       zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
       zstyle ':fzf-tab:complete:cd:*' fzf-preview '${lib.getExe pkgs.eza} -1 --color=always $realpath'
       zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
-      zstyle ":fzf-tab:*" fzf-flags --color=bg+:23
-      zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
       zstyle ':fzf-tab:*' switch-group ',' '.'
-      zstyle ":completion:*:git-checkout:*" sort false
-      zstyle ':completion:*' file-sort modification
-      zstyle ':completion:*:eza' sort false
-      zstyle ':completion:files' sort false
     '';
 
     initExtra = ''
@@ -177,27 +178,19 @@
       bindkey "^E" vi-end-of-line
     '';
 
-    envExtra = ''
+    envExtra = let
+      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+    in ''
       # Set fzf options
-      FZF_COLORS="gutter:-1,\
-      bg:-1,\
-      bg+:-1,\
-      fg:gray,\
-      fg+:white,\
-      border:black,\
-      spinner:0,\
-      hl:yellow,\
-      header:blue,\
-      info:green,\
-      pointer:red,\
-      marker:blue,\
-      prompt:gray,\
-      hl+:red"
-
-      export FZF_DEFAULT_OPTS="-m --bind ctrl-space:toggle,pgup:preview-up,pgdn:preview-down \
+      export FZF_DEFAULT_OPTS=" \
+      --multi \
+      --bind='ctrl-space:toggle,pgup:preview-up,pgdn:preview-down' \
+      --reverse \
       --ansi \
-      --layout reverse \
-      --color '$FZF_COLORS' \
+      --color='fg:${xcolors.gray1},bg:${xcolors.black0},gutter:${xcolors.black3}' \
+      --color='fg+:${xcolors.white},bg+:${xcolors.black3},hl:${xcolors.red},hl+:${xcolors.blue}' \
+      --color='info:${xcolors.green},border:${xcolors.gray1},prompt:${xcolors.blue},pointer:${xcolors.mauve}' \
+      --color='marker:${xcolors.blue},spinner:${xcolors.mauve},header:${xcolors.green}' \
       --prompt ' ' \
       --pointer '' \
       --marker ''
