@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./ssh.nix
+    ./warp.nix
   ];
 
   networking = {

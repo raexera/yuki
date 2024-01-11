@@ -13,9 +13,9 @@
       modules =
         [
           ./yuki
-          ../modules/hardware/audio
-          ../modules/hardware/gpu/intel.nix
-          ../modules/hardware/gpu/nvidia.nix
+          ../modules/nixos/hardware/audio
+          ../modules/nixos/hardware/gpu/intel.nix
+          ../modules/nixos/hardware/gpu/nvidia.nix
           self.nixosModules.hyprland
           {home-manager.users.rxyhn.imports = homeImports."rxyhn@hiru";}
         ]
