@@ -114,15 +114,12 @@
       zstyle ':fzf-tab:complete:cd:*' fzf-preview '${lib.getExe pkgs.eza} -1 --color=always $realpath'
       zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
       zstyle ":fzf-tab:*" fzf-flags --color=bg+:23
+      zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
       zstyle ':fzf-tab:*' switch-group ',' '.'
       zstyle ":completion:*:git-checkout:*" sort false
       zstyle ':completion:*' file-sort modification
       zstyle ':completion:*:eza' sort false
       zstyle ':completion:files' sort false
-
-      if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
-        zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-      fi
     '';
 
     initExtra = ''
@@ -234,34 +231,19 @@
 
     plugins = with pkgs; [
       {
-        name = "forgit";
-        file = "share/forgit/forgit.plugin.zsh";
-        src = fetchFromGitHub {
-          owner = "wfxr";
-          repo = "forgit";
-          rev = "d7f88d75b6cb3b2bd95f5a2351a3ee79d35a35f9";
-          sha256 = "sha256-WHhyllOr/PgR+vlrfMQs/3/d3xpmDylT6BlLCu50a2g=";
-        };
+        name = "zsh-forgit";
+        src = pkgs.zsh-forgit;
+        file = "share/zsh/zsh-forgit/forgit.plugin.zsh";
       }
       {
-        name = "fzf-tab";
-        file = "fzf-tab.plugin.zsh";
-        src = fetchFromGitHub {
-          owner = "Aloxaf";
-          repo = "fzf-tab";
-          rev = "c2b4aa5ad2532cca91f23908ac7f00efb7ff09c9";
-          sha256 = "sha256-gvZp8P3quOtcy1Xtt1LAW1cfZ/zCtnAmnWqcwrKel6w=";
-        };
+        name = "zsh-fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
       }
       {
-        name = "zsh-autopair";
-        file = "zsh-autopair.plugin.zsh";
-        src = fetchFromGitHub {
-          owner = "hlissner";
-          repo = "zsh-autopair";
-          rev = "396c38a7468458ba29011f2ad4112e4fd35f78e6";
-          sha256 = "sha256-PXHxPxFeoYXYMOC29YQKDdMnqTO0toyA7eJTSCV6PGE=";
-        };
+        name = "zsh-you-should-use";
+        src = pkgs.zsh-you-should-use;
+        file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
       }
       {
         name = "zsh-nix-shell";
