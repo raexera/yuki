@@ -49,7 +49,7 @@
       # Initialize completion system
       autoload -U compinit
       compinit
-      _comp_options+=(globdots) # With hidden files
+      _comp_options+=(globdots)
 
       # Load edit-command-line for ZLE
       autoload -Uz edit-command-line
@@ -75,42 +75,33 @@
 
       # Group matches and describe
       zstyle ':completion:*' menu select
-      zstyle ':completion:*:matches' group 'yes'
-      zstyle ':completion:*:options' description 'yes'
-      zstyle ':completion:*:options' auto-description '%d'
-      zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
-      zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
-      zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-      zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
-      zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-      zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
+      zstyle ':completion:*' list-grouped false
+      zstyle ':completion:*' list-separator '''
       zstyle ':completion:*' group-name '''
       zstyle ':completion:*' verbose yes
+      zstyle ':completion:*:matches' group 'yes'
+      zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
+      zstyle ':completion:*:messages' format '%d'
+      zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+      zstyle ':completion:*:descriptions' format '[%d]'
 
-      # Don't complete unavailable commands
-      zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
-
-      # Array completion element sorting
-      zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+      # Colors
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
       # Directories
-      zstyle ':completion:*:default' list-colors ''${(s.:.)LS_COLORS}
       zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
       zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
       zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+      zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
       zstyle ':completion:*' special-dirs true
       zstyle ':completion:*' squeeze-slashes true
 
-      # History
-      zstyle ':completion:*:history-words' stop yes
-      zstyle ':completion:*:history-words' remove-all-dups yes
-      zstyle ':completion:*:history-words' list false
-      zstyle ':completion:*:history-words' menu yes
-
       # Sort
+      zstyle ':completion:*' sort false
       zstyle ":completion:*:git-checkout:*" sort false
       zstyle ':completion:*' file-sort modification
       zstyle ':completion:*:eza' sort false
+      zstyle ':completion:complete:*:options' sort false
       zstyle ':completion:files' sort false
 
       # fzf-tab
@@ -151,6 +142,7 @@
       INC_APPEND_HISTORY
       INTERACTIVE_COMMENTS
       MENU_COMPLETE
+      NO_BEEP
       NO_NOMATCH
       PATH_DIRS
       PUSHD_IGNORE_DUPS
