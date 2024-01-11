@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   imports = [
     ./environment
     ./misc
@@ -9,6 +9,4 @@
     ./services
     ./users
   ];
-
-  system.stateVersion = lib.mkDefault "23.11";
 }

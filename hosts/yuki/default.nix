@@ -1,6 +1,7 @@
 {
-  config,
+  lib,
   pkgs,
+  config,
   ...
 }: {
   imports = [./hardware-configuration.nix];
@@ -78,4 +79,6 @@
   };
 
   zramSwap.enable = true;
+
+  system.stateVersion = lib.mkDefault "23.11";
 }

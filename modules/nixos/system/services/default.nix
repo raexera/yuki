@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./pipewire.nix
+  ];
+
   location.provider = "geoclue2";
 
   services = {

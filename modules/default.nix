@@ -8,6 +8,10 @@
     inherit default inputs self;
   };
 in {
+  imports = [
+    ./nixos
+  ];
+
   _module.args = {
     inherit module_args;
 
@@ -23,13 +27,6 @@ in {
       inputs.hyprland.nixosModules.default
       inputs.nh.nixosModules.default
       module_args
-
-      self.nixosModules.system
     ];
-  };
-
-  flake.nixosModules = {
-    system = import ./nixos/system;
-    hyprland = import ./nixos/system/windowManager/hyprland.nix;
   };
 }

@@ -1,11 +1,12 @@
 {
-  self,
   inputs,
+  config,
   homeImports,
   sharedModules,
   ...
 }: {
   flake.nixosConfigurations = let
+    inherit (config.flake) nixosModules;
     inherit (inputs.nixpkgs.lib) nixosSystem;
   in {
     # Lenovo Yoga Slim 7i Pro X
@@ -13,10 +14,10 @@
       modules =
         [
           ./yuki
-          ../modules/nixos/hardware/audio
-          ../modules/nixos/hardware/gpu/intel.nix
-          ../modules/nixos/hardware/gpu/nvidia.nix
-          self.nixosModules.hyprland
+          nixosModules.system
+          nixosModules.intel
+          nixosModules.nvidia
+          nixosModules.hyprland
           {home-manager.users.rxyhn.imports = homeImports."rxyhn@hiru";}
         ]
         ++ sharedModules;
