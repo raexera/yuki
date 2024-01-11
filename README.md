@@ -47,12 +47,12 @@ nix flake show github:rxyhn/yuki
 
 ## :package: Repository Contents
 
-- **[Flake](./flake):** configurations for code formatting, and pre-commit hooks.
+- **[Flake](./flake):** Core flake scaffolding.
 - **[Home](./home):** [Home-Manager](https://github.com/nix-community/home-manager) configurations.
-- **[Hosts](./hosts):** Configurations specific to individual hosts.
-- **[Lib](./lib):** Personal library and utilities.
-- **[Modules](./modules):** Shared system-wide modules.
-- **[pkgs](./pkgs):** Customized and additional packages.
+- **[Hosts](./hosts):** Host-specific configurations.
+- **[Lib](./lib):** Utility scripts and personal library.
+- **[Modules](./modules):** System-wide shared modules.
+- **[pkgs](./pkgs):**  Custom and additional packages.
 
 ## :bulb: Acknowledgments
 
@@ -60,9 +60,8 @@ Special thanks to the following individuals for their insights, feedback, and in
 
 <div align="center">
     <a href="https://github.com/fufexan">fufexan</a> •
-    <a href="https://github.com/sioodmy">sioodmy</a> •
+    <a href="https://github.com/viperml">viperML </a> •
     <a href="https://github.com/Misterio77">Misterio77</a> •
-    <a href="https://github.com/moni-dz">moni-dz</a> •
-    <a href="https://github.com/paulhersch">paulhersch</a> •
+    <a href="https://github.com/sioodmy">sioodmy</a> •
     <a href="https://github.com/NotAShelf">NotAShelf</a>
 </div>

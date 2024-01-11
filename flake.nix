@@ -1,9 +1,10 @@
 {
   description = "rxyhn's dotfiles";
 
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./flake];};
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nix-colors.url = "github:misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nur.url = "github:nix-community/NUR";
 
@@ -66,52 +67,4 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-
-      imports = [
-        ./flake/pre-commit-hooks.nix
-        ./flake/treefmt.nix
-
-        ./home/profiles
-        ./hosts
-        ./lib
-        ./modules
-        ./pkgs
-      ];
-
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
-        formatter = pkgs.alejandra;
-
-        devShells.default = pkgs.mkShell {
-          name = "yuki";
-
-          shellHook = ''
-            ${config.pre-commit.installationScript}
-          '';
-
-          DIRENV_LOG_FORMAT = "";
-
-          packages = with pkgs; [
-            config.treefmt.build.wrapper
-
-            alejandra
-            deadnix
-            git
-            glow
-            nil
-            nodejs
-            statix
-          ];
-
-          inputsFrom = [config.treefmt.build.devShell];
-        };
-      };
-    };
 }
