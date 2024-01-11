@@ -105,12 +105,7 @@
       zstyle ':completion:files' sort false
 
       # fzf-tab
-      zstyle ':fzf-tab:complete:_zlua:*' query-string input
-      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
-      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
-      zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview '${lib.getExe pkgs.eza} -1 --color=always $realpath'
-      zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
       zstyle ':fzf-tab:*' switch-group ',' '.'
     '';
 
@@ -176,8 +171,9 @@
       # Set fzf options
       export FZF_DEFAULT_OPTS=" \
       --multi \
-      --bind='ctrl-space:toggle,pgup:preview-up,pgdn:preview-down' \
+      --cycle \
       --reverse \
+      --bind='ctrl-space:toggle,pgup:preview-up,pgdn:preview-down' \
       --ansi \
       --color='fg:${xcolors.gray1},bg:${xcolors.black0},gutter:${xcolors.black3}' \
       --color='fg+:${xcolors.white},bg+:${xcolors.black3},hl:${xcolors.red},hl+:${xcolors.blue}' \

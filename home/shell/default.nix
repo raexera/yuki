@@ -13,17 +13,22 @@
 
   home = {
     packages = with pkgs; [
+      atool
       bc
       catimg
+      chafa
       coreutils
       curl
       du-dust
       duf
       editorconfig-core-c
+      elinks
+      exiftool
       fd
       file
       findutils
       gawk
+      glow
       gnused
       hyperfine
       imagemagick
