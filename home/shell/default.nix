@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./scripts/preview.nix
     ./scripts/run-as-service.nix
