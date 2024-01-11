@@ -124,7 +124,6 @@
       ALWAYS_TO_END
       CDABLE_VARS
       COMPLETE_IN_WORD
-      CORRECT
       EXTENDED_GLOB
       EXTENDED_HISTORY
       HIST_EXPIRE_DUPS_FIRST
@@ -139,6 +138,7 @@
       MENU_COMPLETE
       NO_BEEP
       NO_NOMATCH
+      NOTIFY
       PATH_DIRS
       PUSHD_IGNORE_DUPS
       PUSHD_TO_HOME
@@ -151,8 +151,10 @@
         unsetopt $option
       done <<-EOF
       CASE_GLOB
-      MENU_COMPLETE
+      CORRECT
+      EQUALS
       FLOW_CONTROL
+      NOMATCH
       EOF
 
       # Vi mode key bindings
