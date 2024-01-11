@@ -214,6 +214,14 @@ in {
         background-color: ${xcolors.black0};
       }
 
+      .modules-left {
+        margin-left: 0.21em;
+      }
+
+      .modules-right {
+        margin-right: 0.21em;
+      }
+
       #backlight,
       #backlight-slider,
       #battery,
@@ -238,7 +246,7 @@ in {
       }
 
       #custom-search {
-        margin: 0 0.41em;
+        margin: 0.41em 0.21em;
         padding: 0.41em 0.82em;
         background-image: url("${snowflake}");
         background-size: 80%;
