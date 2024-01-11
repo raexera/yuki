@@ -52,7 +52,7 @@ nix flake show github:rxyhn/yuki
 - **[Hosts](./hosts):** Host-specific configurations.
 - **[Lib](./lib):** Utility scripts and personal library.
 - **[Modules](./modules):** System-wide shared modules.
-- **[pkgs](./pkgs):**  Custom and additional packages.
+- **[pkgs](./pkgs):** Custom and additional packages.
 
 ## :bulb: Acknowledgments
 

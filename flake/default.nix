@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{
   imports = [
     ./pre-commit-hooks.nix
     ./treefmt.nix
