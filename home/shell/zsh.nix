@@ -28,12 +28,16 @@
       expireDuplicatesFirst = true;
       ignoreDups = true;
       ignoreSpace = true;
-      path = "${config.xdg.dataHome}/zsh_history";
+      path = "${config.xdg.dataHome}/zsh/zsh_history";
     };
 
     sessionVariables = {
       LC_ALL = "en_US.UTF-8";
     };
+
+    initExtraBeforeCompInit = ''
+      fpath+=(${pkgs.zsh-completions}/share/zsh/site-functions)
+    '';
 
     completionInit = ''
       # Load Zsh modules
@@ -53,12 +57,23 @@
 
       # General completion behavior
       zstyle ':completion:*' completer _extensions _complete _approximate
+
+      # Use cache
       zstyle ':completion:*' use-cache on
       zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+
+      # Complete the alias
       zstyle ':completion:*' complete true
-      zstyle ':completion:*' menu select
+
+      # Autocomplete options
       zstyle ':completion:*' complete-options true
-      zstyle ':completion:*' file-sort modification
+
+      # Completion matching control
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+      zstyle ':completion:*' keep-prefix true
+
+      # Group matches and describe
+      zstyle ':completion:*' menu select
       zstyle ':completion:*:matches' group 'yes'
       zstyle ':completion:*:options' description 'yes'
       zstyle ':completion:*:options' auto-description '%d'
@@ -70,14 +85,44 @@
       zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
       zstyle ':completion:*' group-name '''
       zstyle ':completion:*' verbose yes
-      zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-      zstyle ':completion:*' keep-prefix true
-      zstyle ':completion:*' list-grouped false
+
+      # Don't complete unavailable commands
+      zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
+
+      # Array completion element sorting
+      zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+
+      # Directories
       zstyle ':completion:*:default' list-colors ''${(s.:.)LS_COLORS}
       zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
       zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
       zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+      zstyle ':completion:*' special-dirs true
       zstyle ':completion:*' squeeze-slashes true
+
+      # History
+      zstyle ':completion:*:history-words' stop yes
+      zstyle ':completion:*:history-words' remove-all-dups yes
+      zstyle ':completion:*:history-words' list false
+      zstyle ':completion:*:history-words' menu yes
+
+      # fzf-tab
+      zstyle ':fzf-tab:complete:_zlua:*' query-string input
+      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
+      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
+      zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview '${lib.getExe pkgs.eza} -1 --color=always $realpath'
+      zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+      zstyle ":fzf-tab:*" fzf-flags --color=bg+:23
+      zstyle ':fzf-tab:*' switch-group ',' '.'
+      zstyle ":completion:*:git-checkout:*" sort false
+      zstyle ':completion:*' file-sort modification
+      zstyle ':completion:*:eza' sort false
+      zstyle ':completion:files' sort false
+
+      if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
+        zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+      fi
     '';
 
     initExtra = ''
@@ -120,6 +165,7 @@
       while read -r option; do
         unsetopt $option
       done <<-EOF
+      CASE_GLOB
       MENU_COMPLETE
       FLOW_CONTROL
       EOF
@@ -134,16 +180,50 @@
       bindkey "^E" vi-end-of-line
     '';
 
+    envExtra = ''
+      # Set fzf options
+      FZF_COLORS="gutter:-1,\
+      bg:-1,\
+      bg+:-1,\
+      fg:gray,\
+      fg+:white,\
+      border:black,\
+      spinner:0,\
+      hl:yellow,\
+      header:blue,\
+      info:green,\
+      pointer:red,\
+      marker:blue,\
+      prompt:gray,\
+      hl+:red"
+
+      export FZF_DEFAULT_OPTS="-m --bind ctrl-space:toggle,pgup:preview-up,pgdn:preview-down \
+      --ansi \
+      --layout reverse \
+      --color '$FZF_COLORS' \
+      --prompt ' ' \
+      --pointer '' \
+      --marker ''
+      "
+    '';
+
     shellAliases = with lib;
     with pkgs; {
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
       cat = "${getExe bat} --style=plain";
+      cp = "cp -iv";
       du = getExe du-dust;
-      fzf = getExe skim;
+      g = "git";
+      ga = "git add";
+      gc = "git commit";
+      gp = "git push";
+      gs = "git status";
       grep = getExe ripgrep;
       la = "${getExe eza} -lah --tree";
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
+      mv = "mv -iv";
       ps = getExe procs;
+      rm = "rm -iv";
       tree = "${getExe eza} --tree --icons --tree";
       untar = "tar -xvf";
       untargz = "tar -xzf";
@@ -161,6 +241,16 @@
           repo = "forgit";
           rev = "d7f88d75b6cb3b2bd95f5a2351a3ee79d35a35f9";
           sha256 = "sha256-WHhyllOr/PgR+vlrfMQs/3/d3xpmDylT6BlLCu50a2g=";
+        };
+      }
+      {
+        name = "fzf-tab";
+        file = "fzf-tab.plugin.zsh";
+        src = fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "c2b4aa5ad2532cca91f23908ac7f00efb7ff09c9";
+          sha256 = "sha256-gvZp8P3quOtcy1Xtt1LAW1cfZ/zCtnAmnWqcwrKel6w=";
         };
       }
       {

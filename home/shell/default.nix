@@ -66,6 +66,7 @@
     gpg.enable = true;
     man.enable = true;
     ssh.enable = true;
+    tmux.enable = true;
 
     bat = {
       enable = true;
@@ -97,14 +98,9 @@
       enableZshIntegration = true;
     };
 
-    skim = {
+    fzf = {
       enable = true;
       enableZshIntegration = true;
-      defaultCommand = "rg --files --hidden";
-      changeDirWidgetOptions = [
-        "--preview 'eza --icons --git --color always -T -L 3 {} | head -200'"
-        "--exact"
-      ];
     };
 
     thefuck = {
