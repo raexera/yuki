@@ -37,6 +37,7 @@ in {
           "custom/search"
           "user"
           "hyprland/workspaces"
+          "tray"
         ];
         modules-center = [];
         modules-right = [
@@ -67,6 +68,11 @@ in {
           persistent-workspaces = {
             "*" = 5;
           };
+        };
+        tray = {
+          icon-size = 16;
+          spacing = 8;
+          show-passive-items = true;
         };
         network = {
           format-wifi = formatIcons "${xcolors.mauve}CC" "󰖩" + " {essid}";
@@ -206,6 +212,8 @@ in {
         border-radius: 0;
         min-height: 0;
         min-width: 0;
+        color: ${xcolors.white};
+        background-color: transparent;
         font-family: "Material Design Icons", monospace;
         font-size: 11pt;
       }
@@ -238,7 +246,6 @@ in {
       #pulseaudio.microphone,
       #tray,
       #user {
-        color: ${xcolors.white};
         background-color: ${xcolors.black3};
         border-radius: 4px;
         margin: 0.41em 0.21em;
@@ -275,10 +282,6 @@ in {
         text-shadow: inherit;
       }
 
-      #workspaces button label {
-        color: ${xcolors.white};
-      }
-
       #workspaces button.empty label {
         color: ${xcolors.gray1};
       }
@@ -298,6 +301,24 @@ in {
       #workspaces button.active label {
         color: ${xcolors.black3};
         font-weight: bold;
+      }
+
+      #tray menuitem,
+      #tray window {
+        border-radius: 4px;
+        padding: 0.41em;
+      }
+
+      #tray menuitem:hover {
+        background-color: ${xcolors.blue};
+      }
+
+      #tray > .passive {
+        -gtk-icon-effect: dim;
+      }
+
+      #tray > .needs-attention {
+        -gtk-icon-effect: highlight;
       }
 
       #backlight-slider slider,
@@ -333,18 +354,16 @@ in {
         background-color: ${xcolors.sky};
       }
 
+      menu,
       tooltip {
-        color: ${xcolors.white};
-        background-color: ${xcolors.black0};
-        font-family: "Dosis", sans-serif;
         border-radius: 8px;
-        padding: 1.37em;
-        margin: 2.05em;
+        padding: 0.41em;
+        background-color: ${xcolors.black0};
       }
 
       tooltip label {
+        padding: 0.41em;
         font-family: "Dosis", sans-serif;
-        padding: 1.37em;
       }
     '';
 

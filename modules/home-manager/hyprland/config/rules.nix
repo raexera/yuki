@@ -1,18 +1,11 @@
 {
   wayland.windowManager.hyprland.settings = {
     layerrule = [
-      "blur, ^(gtk-layer-shell)$"
-      "blur, bar"
-      "blur, launcher"
-      "blur, lockscreen"
-      "blur, notifications"
-      "blur, wofi"
       "ignorezero, ^(gtk-layer-shell)$"
       "ignorezero, bar"
       "ignorezero, launcher"
       "ignorezero, lockscreen"
       "ignorezero, notifications"
-      "ignorezero, wofi"
     ];
 
     windowrulev2 = [
