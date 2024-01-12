@@ -116,103 +116,92 @@ in {
       ];
 
     userSettings = {
-      "[c]".editor.defaultFormatter = "xaver.clang-format";
-      "[cpp]".editor.defaultFormatter = "xaver.clang-format";
-      "[css]".editor.defaultFormatter = "esbenp.prettier-vscode";
-      "[html]".editor.defaultFormatter = "esbenp.prettier-vscode";
-      "[javascript]".editor.defaultFormatter = "esbenp.prettier-vscode";
-      "[json]".editor.defaultFormatter = "esbenp.prettier-vscode";
-      "[jsonc]".editor.defaultFormatter = "esbenp.prettier-vscode";
-      "[lua]".editor.defaultFormatter = "johnnymorganz.stylua";
-      "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
-      "[python]".editor.defaultFormatter = "ms-python.black-formatter";
-      "[scss]".editor.defaultFormatter = "esbenp.prettier-vscode";
-      "[typescript]".editor.defaultFormatter = "esbenp.prettier-vscode";
+      "[c]"."editor.defaultFormatter" = "xaver.clang-format";
+      "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
+      "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[less]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[nix]"."editor.defaultFormatter" = "kamadorueda.alejandra";
+      "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
+      "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
 
-      editor = {
-        bracketPairColorization = {
-          enabled = true;
-          independentColorPoolPerBracketType = true;
-        };
-        cursorBlinking = "smooth";
-        cursorSmoothCaretAnimation = "on";
-        fontFamily = "'monospace', monospace, 'Material Design Icons'";
-        fontLigatures = true;
-        fontSize = 13;
-        formatOnPaste = true;
-        formatOnSave = true;
-        formatOnType = true;
-        guides = {
-          bracketPairs = true;
-          indentation = true;
-        };
-        inlayHints.enabled = "off";
-        inlineSuggest.enabled = true;
-        largeFileOptimizations = false;
-        lineNumbers = "on";
-        linkedEditing = true;
-        maxTokenizationLineLength = 60000;
-        minimap.enabled = false;
-        overviewRulerBorder = false;
-        quickSuggestions.strings = true;
-        renderLineHighlight = "all";
-        renderWhitespace = "none";
-        semanticHighlighting.enabled = true;
-        smoothScrolling = true;
-        suggest.showStatusBar = true;
-        suggestSelection = "first";
-      };
+      "breadcrumbs.enabled" = true;
+      "breadcrumbs.symbolPath" = "last";
 
-      explorer = {
-        confirmDelete = true;
-        confirmDragAndDrop = false;
-      };
+      "editor.acceptSuggestionOnEnter" = "smart";
+      "editor.autoIndent" = true;
+      "editor.bracketPairColorization.enabled" = true;
+      "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
+      "editor.cursorBlinking" = "smooth";
+      "editor.cursorSmoothCaretAnimation" = "on";
+      "editor.fontFamily" = "'monospace', monospace, 'Material Design Icons'";
+      "editor.fontLigatures" = true;
+      "editor.fontSize" = 13;
+      "editor.formatOnPaste" = true;
+      "editor.formatOnSave" = true;
+      "editor.formatOnType" = true;
+      "editor.guides.bracketPairs" = true;
+      "editor.guides.indentation" = true;
+      "editor.inlayHints.enabled" = "onUnlessPressed";
+      "editor.inlayHints.fontSize" = 9;
+      "editor.inlayHints.padding" = true;
+      "editor.inlineSuggest.enabled" = true;
+      "editor.linkedEditing" = true;
+      "editor.lineHeight" = 22;
+      "editor.lineNumbers" = "on";
+      "editor.minimap.enabled" = false;
+      "editor.renderWhitespace" = "none";
+      "editor.renderControlCharacters" = false;
+      "editor.semanticHighlighting.enabled" = true;
+      "editor.showUnused" = true;
+      "editor.smoothScrolling" = true;
+      "editor.tabCompletion" = "on";
+      "editor.tabSize" = 2;
+      "editor.trimAutoWhitespace" = true;
+      "editor.wordWrap" = "on";
 
-      files = {
-        eol = "\n";
-        insertFinalNewline = true;
-        trimTrailingWhitespace = true;
-      };
+      "files.autoSave" = "onFocusChange";
+      "files.insertFinalNewline" = true;
+      "files.trimTrailingWhitespace" = true;
 
-      git = {
-        autofetch = true;
-        confirmSync = false;
-        enableSmartCommit = true;
-      };
+      "git.autofetch" = true;
+      "git.confirmSync" = false;
+      "git.enableSmartCommit" = true;
+      "gitlens.views.repositories.files.layout" = "tree";
 
-      gopls = {
-        ui.semanticTokens = true;
-      };
+      "gopls.ui.semanticTokens" = true;
 
-      github.copilot.enable."*" = true;
-      githubPullRequests.pullBranch = "always";
-      security.workspace.trust.enabled = false;
+      "github.copilot.enable.*" = true;
+      "githubPullRequests.pullBranch" = "always";
 
-      terminal.integrated = {
-        cursorBlinking = true;
-        cursorStyle = "line";
-        cursorWidth = 2;
-        fontFamily = "'monospace'";
-        fontSize = 13;
-        minimumContrastRatio = 1;
-        smoothScrolling = true;
-      };
+      "security.workspace.trust.enabled" = false;
 
-      window = {
-        autoDetectColorScheme = true;
-        menuBarVisibility = "toggle";
-        nativeTabs = true;
-        titleBarStyle = "custom";
-        zoomLevel = 1;
-      };
+      "terminal.integrated.cursorBlinking" = true;
+      "terminal.integrated.cursorStyle" = "line";
+      "terminal.integrated.cursorWidth" = 2;
+      "terminal.integrated.fontFamily" = "'monospace'";
+      "terminal.integrated.fontSize" = 13;
+      "terminal.integrated.minimumContrastRatio" = 1;
+      "terminal.integrated.smoothScrolling" = true;
 
-      workbench = {
-        colorTheme = "Catppuccin Macchiato";
-        iconTheme = "catppuccin-macchiato";
-        productIconTheme = "icons-carbon";
-        panel.defaultLocation = "right";
-        sideBar.location = "right";
-      };
+      "window.autoDetectColorScheme" = true;
+      "window.menuBarVisibility" = "toggle";
+      "window.nativeTabs" = true;
+      "window.titleBarStyle" = "custom";
+      "window.zoomLevel" = 1;
+
+      "workbench.colorTheme" = "Catppuccin Macchiato";
+      "workbench.editor.enablePreview" = false;
+      "workbench.editor.enablePreviewFromQuickOpen" = false;
+      "workbench.iconTheme" = "catppuccin-macchiato";
+      "workbench.panel.defaultLocation" = "right";
+      "workbench.productIconTheme" = "icons-carbon";
+      "workbench.sideBar.location" = "right";
+      "workbench.startupEditor" = "none";
     };
   };
 }
