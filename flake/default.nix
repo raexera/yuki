@@ -1,7 +1,6 @@
 {
   imports = [
     ./pre-commit-hooks.nix
-    ./treefmt.nix
 
     ../home/rxyhn
     ../hosts
@@ -32,18 +31,12 @@
       DIRENV_LOG_FORMAT = "";
 
       packages = with pkgs; [
-        config.treefmt.build.wrapper
-
         alejandra
         deadnix
         git
-        glow
         nil
-        nodejs
         statix
       ];
-
-      inputsFrom = [config.treefmt.build.devShell];
     };
   };
 }

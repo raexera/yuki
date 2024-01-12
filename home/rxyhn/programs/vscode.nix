@@ -157,6 +157,7 @@ in {
         quickSuggestions.strings = true;
         renderLineHighlight = "all";
         renderWhitespace = "none";
+        semanticHighlighting.enabled = true;
         smoothScrolling = true;
         suggest.showStatusBar = true;
         suggestSelection = "first";
@@ -179,6 +180,10 @@ in {
         enableSmartCommit = true;
       };
 
+      gopls = {
+        ui.semanticTokens = true;
+      };
+
       github.copilot.enable."*" = true;
       githubPullRequests.pullBranch = "always";
       security.workspace.trust.enabled = false;
@@ -189,6 +194,7 @@ in {
         cursorWidth = 2;
         fontFamily = "'monospace'";
         fontSize = 13;
+        minimumContrastRatio = 1;
         smoothScrolling = true;
       };
 

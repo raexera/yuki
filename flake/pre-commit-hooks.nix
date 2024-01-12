@@ -8,10 +8,8 @@
 
     settings.hooks = {
       alejandra.enable = true;
-      prettier = {
-        enable = true;
-        excludes = [".js" ".md" ".ts"];
-      };
+      commitizen.enable = true;
+      nil.enable = true;
     };
   };
 }
