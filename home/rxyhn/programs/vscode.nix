@@ -131,7 +131,7 @@ in {
       "breadcrumbs.symbolPath" = "last";
 
       "editor.acceptSuggestionOnEnter" = "smart";
-      "editor.autoIndent" = true;
+      "editor.autoIndent" = "full";
       "editor.bracketPairColorization.enabled" = true;
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "editor.cursorBlinking" = "smooth";
@@ -153,10 +153,8 @@ in {
       "editor.lineNumbers" = "on";
       "editor.minimap.enabled" = false;
       "editor.minimap.renderCharacters" = false;
-      "editor.renderIndentGuides" = false;
       "editor.renderLineHighlight" = "all";
       "editor.renderWhitespace" = "none";
-
       "editor.semanticHighlighting.enabled" = true;
       "editor.showUnused" = true;
       "editor.smoothScrolling" = true;
@@ -170,20 +168,18 @@ in {
       "files.trimTrailingWhitespace" = true;
 
       "git.autofetch" = true;
-      "git.confirmSync" = false;
       "git.enableSmartCommit" = true;
-      "gitlens.views.repositories.files.layout" = "tree";
-
-      "gopls" = {
-        "ui.semanticTokens" = true;
-      };
 
       "github.copilot.enable" = {
         "*" = true;
       };
       "githubPullRequests.pullBranch" = "always";
 
-      "security.workspace.trust.enabled" = false;
+      "gitlens.views.repositories.files.layout" = "tree";
+
+      "gopls" = {
+        "ui.semanticTokens" = true;
+      };
 
       "terminal.integrated.cursorBlinking" = true;
       "terminal.integrated.cursorStyle" = "line";
@@ -204,6 +200,7 @@ in {
       "workbench.iconTheme" = "catppuccin-macchiato";
       "workbench.panel.defaultLocation" = "right";
       "workbench.productIconTheme" = "icons-carbon";
+      "workbench.tree.renderIndentGuides" = "always";
       "workbench.sideBar.location" = "right";
       "workbench.startupEditor" = "none";
     };
