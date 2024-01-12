@@ -141,21 +141,24 @@ in {
       "editor.fontFamily" = "'monospace', monospace, 'Material Design Icons'";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 13;
+      "editor.fontWeight" = "500";
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = true;
       "editor.guides.bracketPairs" = true;
       "editor.guides.indentation" = true;
       "editor.inlayHints.enabled" = "onUnlessPressed";
-      "editor.inlayHints.fontSize" = 9;
       "editor.inlayHints.padding" = true;
       "editor.inlineSuggest.enabled" = true;
       "editor.linkedEditing" = true;
       "editor.lineHeight" = 22;
       "editor.lineNumbers" = "on";
       "editor.minimap.enabled" = false;
+      "editor.minimap.renderCharacters" = false;
+      "editor.renderIndentGuides" = false;
+      "editor.renderLineHighlight" = "all";
       "editor.renderWhitespace" = "none";
-      "editor.renderControlCharacters" = false;
+
       "editor.semanticHighlighting.enabled" = true;
       "editor.showUnused" = true;
       "editor.smoothScrolling" = true;
@@ -173,9 +176,13 @@ in {
       "git.enableSmartCommit" = true;
       "gitlens.views.repositories.files.layout" = "tree";
 
-      "gopls.ui.semanticTokens" = true;
+      "gopls" = {
+        "ui.semanticTokens" = true;
+      };
 
-      "github.copilot.enable.*" = true;
+      "github.copilot.enable" = {
+        "*" = true;
+      };
       "githubPullRequests.pullBranch" = "always";
 
       "security.workspace.trust.enabled" = false;
@@ -190,7 +197,6 @@ in {
 
       "window.autoDetectColorScheme" = true;
       "window.menuBarVisibility" = "toggle";
-      "window.nativeTabs" = true;
       "window.titleBarStyle" = "custom";
       "window.zoomLevel" = 1;
 
