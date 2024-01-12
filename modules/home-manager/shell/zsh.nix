@@ -216,7 +216,7 @@
       untar = "tar -xvf";
       untargz = "tar -xzf";
       ytmp3 = ''
-        ${lib.getExe yt-dlp} --ignore-errors --continue --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --output "%(title)s.%(ext)s"'';
+        ${lib.getExe yt-dlp} --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata --output "%(title)s.%(ext)s"'';
     };
 
     plugins = with pkgs; [
