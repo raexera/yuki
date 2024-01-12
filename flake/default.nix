@@ -3,7 +3,7 @@
     ./pre-commit-hooks.nix
     ./treefmt.nix
 
-    ../home/profiles
+    ../home/rxyhn
     ../hosts
     ../lib
     ../modules

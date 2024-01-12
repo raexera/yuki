@@ -5,8 +5,8 @@
   ...
 }: let
   sharedModules = [
-    ../.
-    ../shell
+    ./home.nix
+    ./shell
 
     module_args
     inputs.ags.homeManagerModules.default
@@ -15,7 +15,7 @@
   ];
 
   homeImports = {
-    "rxyhn@hiru" = [./hiru] ++ sharedModules;
+    "rxyhn@hiru" = [./hiru.nix] ++ sharedModules;
   };
 
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
@@ -24,12 +24,10 @@ in {
     {_module.args = {inherit homeImports;};}
   ];
 
-  flake = {
-    homeConfigurations = withSystem "x86_64-linux" ({pkgs, ...}: {
-      "rxyhn@hiru" = homeManagerConfiguration {
-        modules = homeImports."rxyhn@hiru";
-        inherit pkgs;
-      };
-    });
-  };
+  flake.homeConfigurations = withSystem "x86_64-linux" ({pkgs, ...}: {
+    "rxyhn@hiru" = homeManagerConfiguration {
+      modules = homeImports."rxyhn@hiru";
+      inherit pkgs;
+    };
+  });
 }
