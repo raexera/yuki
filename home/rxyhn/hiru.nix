@@ -7,7 +7,5 @@
     ./programs/tools.nix
     ./programs/vscode.nix
     ./services/kdeconnect.nix
-    ./shell
-    ./themes
   ];
 }

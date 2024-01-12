@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./config
+    ../themes
 
     ./swaylock.nix
     ./waybar.nix

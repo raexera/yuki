@@ -46,6 +46,10 @@
       zmodload zsh/zpty
       zmodload zsh/complist
 
+      # Initialize colors
+      autoload -Uz colors
+      colors
+
       # Initialize completion system
       autoload -U compinit
       compinit
@@ -106,6 +110,11 @@
 
       # fzf-tab
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
+      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
+      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
+      zstyle ':fzf-tab:*' fzf-command fzf
+      zstyle ':fzf-tab:*' fzf-pad 4
+      zstyle ':fzf-tab:*' fzf-min-height 100
       zstyle ':fzf-tab:*' switch-group ',' '.'
     '';
 
@@ -127,7 +136,9 @@
       EXTENDED_GLOB
       EXTENDED_HISTORY
       HIST_EXPIRE_DUPS_FIRST
+      HIST_FIND_NO_DUPS
       HIST_IGNORE_ALL_DUPS
+      HIST_IGNORE_DUPS
       HIST_IGNORE_SPACE
       HIST_REDUCE_BLANKS
       HIST_SAVE_NO_DUPS
@@ -138,7 +149,6 @@
       NOTIFY
       PATH_DIRS
       PUSHD_IGNORE_DUPS
-      PUSHD_TO_HOME
       PUSHD_SILENT
       SHARE_HISTORY
       EOF
@@ -149,7 +159,9 @@
       done <<-EOF
       CASE_GLOB
       CORRECT
-      FLOW_CONTROL
+      EQUALS
+      FLOWCONTROL
+      NOMATCH
       EOF
 
       # Vi mode key bindings
