@@ -1,8 +1,8 @@
 {
-  config,
-  inputs,
   lib,
   pkgs,
+  config,
+  inputs,
   ...
 }: {
   environment.variables = {
@@ -15,8 +15,8 @@
     CLUTTER_BACKEND = "wayland";
   };
 
-  nixpkgs.overlays = with inputs; [
-    nixpkgs-wayland.overlay
+  nixpkgs.overlays = [
+    inputs.nixpkgs-wayland.overlay
   ];
 
   nix.settings = {
@@ -33,6 +33,12 @@
     enable = true;
     xwayland.enable = true;
   };
+
+  home-manager.sharedModules = [
+    inputs.self.homeModules.hyprland
+    inputs.ags.homeManagerModules.default
+    inputs.hyprland.homeManagerModules.default
+  ];
 
   xdg.portal = {
     enable = true;

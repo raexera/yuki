@@ -7,13 +7,14 @@
 }: {
   imports = [
     ./config
-    ./programs/swaylock.nix
-    ./programs/waybar.nix
-    ./programs/wofi.nix
-    ./services/cliphist.nix
-    ./services/dunst.nix
-    ./services/swaybg.nix
-    ./services/swayidle.nix
+
+    ./swaylock.nix
+    ./waybar.nix
+    ./wofi.nix
+    ./cliphist.nix
+    ./dunst.nix
+    ./swaybg.nix
+    ./swayidle.nix
   ];
 
   home.packages = with pkgs; [

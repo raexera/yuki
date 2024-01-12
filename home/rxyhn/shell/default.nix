@@ -5,7 +5,7 @@
 
     ./starship.nix
     ./zsh.nix
-    ../programs/git.nix
+    ./git.nix
   ];
 
   home = {

@@ -10,6 +10,7 @@
 in {
   imports = [
     ./nixos
+    ./home-manager
   ];
 
   _module.args = {

@@ -6,11 +6,8 @@
 }: let
   sharedModules = [
     ./home.nix
-    ./shell
 
     module_args
-    inputs.ags.homeManagerModules.default
-    inputs.hyprland.homeManagerModules.default
     inputs.nix-index-db.hmModules.nix-index
   ];
 
