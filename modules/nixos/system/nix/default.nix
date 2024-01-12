@@ -63,6 +63,8 @@
 
     overlays = [
       inputs.nur.overlay
+      inputs.nix-vscode-extensions.overlays.default
+      inputs.catppuccin-vsc.overlays.default
 
       (_final: prev: {
         lib =

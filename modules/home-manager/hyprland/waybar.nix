@@ -19,8 +19,8 @@
 in {
   programs.waybar = {
     enable = true;
-    settings = {
-      mainBar = {
+    settings = [
+      {
         layer = "top";
         position = "top";
         mode = "dock";
@@ -179,31 +179,31 @@ in {
         };
         "custom/quit" = {
           format = formatIcons "${xcolors.teal}CC" "󰍃";
-          onclick = "loginctl terminate-user $USER";
+          on-click = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
           tooltip = false;
         };
         "custom/lock" = {
           format = formatIcons "${xcolors.green}CC" "󰌾";
-          onclick = "loginctl lock-session";
+          on-click = "${pkgs.swaylock-effects}/bin/swaylock -S --daemonize";
           tooltip = false;
         };
         "custom/suspend" = {
           format = formatIcons "${xcolors.yellow}CC" "󰒲";
-          onclick = "systemctl suspend";
+          on-click = "${pkgs.systemd}/bin/systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
           format = formatIcons "${xcolors.peach}CC" "󰜉";
-          on-click = "systemctl reboot";
+          on-click = "${pkgs.systemd}/bin/systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
           format = formatIcons "${xcolors.red}CC" "󰐥";
-          on-click = "systemctl poweroff";
+          on-click = "${pkgs.systemd}/bin/systemctl poweroff";
           tooltip = false;
         };
-      };
-    };
+      }
+    ];
 
     style = ''
       * {

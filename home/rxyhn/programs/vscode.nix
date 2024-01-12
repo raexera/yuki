@@ -1,6 +1,8 @@
 {
-  inputs,
   pkgs,
+  inputs,
+  config,
+  default,
   ...
 }: let
   mimeTypes = [
@@ -31,10 +33,6 @@
     "text/x-python"
     "text/x-scss"
   ];
-
-  marketplace-extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
-    catppuccin.catppuccin-vsc
-  ];
 in {
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
@@ -42,19 +40,28 @@ in {
     })
     mimeTypes);
 
-  programs.vscode = {
+  programs.vscode = let
+    xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+  in {
     enable = true;
     mutableExtensionsDir = true;
-    extensions = with pkgs.vscode-extensions;
-      [
+    extensions =
+      (with pkgs.vscode-extensions; [
+        ms-vscode.cpptools
+      ])
+      ++ (with pkgs.vscode-marketplace-release; [
+        eamodio.gitlens
+        vadimcn.vscode-lldb
+      ])
+      ++ (with pkgs.vscode-marketplace; [
+        antfu.icons-carbon
         bbenoist.nix
+        catppuccin.catppuccin-vsc-icons
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
-        eamodio.gitlens
+        denoland.vscode-deno
         editorconfig.editorconfig
         esbenp.prettier-vscode
-        formulahendry.auto-close-tag
-        formulahendry.auto-rename-tag
         formulahendry.code-runner
         foxundermoon.shell-format
         github.copilot
@@ -62,9 +69,9 @@ in {
         github.vscode-github-actions
         github.vscode-pull-request-github
         golang.go
-        ibm.output-colorizer
         kamadorueda.alejandra
         mechatroner.rainbow-csv
+        mikestead.dotenv
         mkhl.direnv
         ms-azuretools.vscode-docker
         ms-python.black-formatter
@@ -72,37 +79,56 @@ in {
         ms-python.python
         ms-python.vscode-pylance
         ms-vscode.cmake-tools
-        ms-vscode.cpptools
         naumovs.color-highlight
         oderwat.indent-rainbow
-        pkief.material-icon-theme
-        pkief.material-product-icons
         redhat.vscode-yaml
         shardulm94.trailing-spaces
         timonwong.shellcheck
         twxs.cmake
         usernamehw.errorlens
-        vadimcn.vscode-lldb
         xaver.clang-format
         yzhang.markdown-all-in-one
-      ]
-      ++ marketplace-extensions;
+      ])
+      ++ [
+        (pkgs.catppuccin-vsc.override {
+          accent = "blue";
+          boldKeywords = true;
+          italicComments = true;
+          italicKeywords = true;
+          extraBordersEnabled = true;
+          workbenchMode = "default";
+          bracketMode = "rainbow";
+          colorOverrides = {
+            all = {
+              text = "${xcolors.white}";
+              base = "${xcolors.black2}";
+              mantle = "${xcolors.black1}";
+              crust = "${xcolors.black0}";
+            };
+          };
+          customUIColors = {
+            all = {
+              statusBar.foreground = "accent";
+              statusBar.noFolderForeground = "accent";
+            };
+          };
+        })
+      ];
 
     userSettings = {
       "[c]".editor.defaultFormatter = "xaver.clang-format";
       "[cpp]".editor.defaultFormatter = "xaver.clang-format";
       "[css]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[html]".editor.defaultFormatter = "esbenp.prettier-vscode";
-      "[javascript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
+      "[javascript]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[json]".editor.defaultFormatter = "esbenp.prettier-vscode";
-      "[jsonc]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
+      "[jsonc]".editor.defaultFormatter = "esbenp.prettier-vscode";
       "[lua]".editor.defaultFormatter = "johnnymorganz.stylua";
       "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
       "[python]".editor.defaultFormatter = "ms-python.black-formatter";
-      "[scss]".editor.defaultFormatter = "sibiraj-s.vscode-scss-formatter";
-      "[typescript]".editor.defaultFormatter = "rvest.vs-code-prettier-eslint";
+      "[scss]".editor.defaultFormatter = "esbenp.prettier-vscode";
+      "[typescript]".editor.defaultFormatter = "esbenp.prettier-vscode";
 
-      breadcrumbs.enabled = false;
       editor = {
         bracketPairColorization = {
           enabled = true;
@@ -110,8 +136,6 @@ in {
         };
         cursorBlinking = "smooth";
         cursorSmoothCaretAnimation = "on";
-        cursorWidth = 2;
-        find.addExtraSpaceOnTop = false;
         fontFamily = "'monospace', monospace, 'Material Design Icons'";
         fontLigatures = true;
         fontSize = 13;
@@ -138,7 +162,6 @@ in {
         suggestSelection = "first";
       };
 
-      emmet.useInlineCompletions = true;
       explorer = {
         confirmDelete = true;
         confirmDragAndDrop = false;
@@ -157,6 +180,7 @@ in {
       };
 
       github.copilot.enable."*" = true;
+      githubPullRequests.pullBranch = "always";
       security.workspace.trust.enabled = false;
 
       terminal.integrated = {
@@ -169,6 +193,7 @@ in {
       };
 
       window = {
+        autoDetectColorScheme = true;
         menuBarVisibility = "toggle";
         nativeTabs = true;
         titleBarStyle = "custom";
@@ -177,9 +202,9 @@ in {
 
       workbench = {
         colorTheme = "Catppuccin Macchiato";
-        iconTheme = "material-icon-theme";
+        iconTheme = "catppuccin-macchiato";
+        productIconTheme = "icons-carbon";
         panel.defaultLocation = "right";
-        productIconTheme = "material-product-icons";
         sideBar.location = "right";
       };
     };
