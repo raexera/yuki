@@ -21,7 +21,7 @@ in {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          sharedModules = [self.homeModules.shell];
+          sharedModules = [inputs.self.homeModules.shell];
         };
       }
 

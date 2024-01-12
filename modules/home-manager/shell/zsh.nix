@@ -199,6 +199,7 @@
       cat = "${getExe bat} --theme=base16 --number --color=always --paging=never --tabs=2 --wrap=never";
       cp = "cp -iv";
       du = getExe du-dust;
+      fcd = "cd $(find -type d | fzf)";
       g = "git";
       ga = "git add";
       gc = "git commit";
@@ -209,13 +210,13 @@
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       mv = "mv -iv";
       ps = getExe procs;
+      rebuild = "sudo nixos-rebuild switch --flake .#";
       rm = "rm -iv";
       tree = "${getExe eza} --tree --icons --tree";
       untar = "tar -xvf";
       untargz = "tar -xzf";
       ytmp3 = ''
-        ${lib.getExe yt-dlp} -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"
-      '';
+        ${lib.getExe yt-dlp} --ignore-errors --continue --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --output "%(title)s.%(ext)s"'';
     };
 
     plugins = with pkgs; [
