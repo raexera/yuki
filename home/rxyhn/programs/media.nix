@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    amberol
+    celluloid
     imv
-    mpg123
-    mpc_cli
+    loupe
     pavucontrol
     playerctl
     pulsemixer
@@ -12,14 +13,6 @@
     mpv = {
       enable = true;
       defaultProfiles = ["gpu-hq"];
-      bindings = {
-        UP = "add volume +2";
-        DOWN = "add volume -2";
-      };
-      config = {
-        hwdec = "auto";
-        border = false;
-      };
       scripts = with pkgs.mpvScripts; [mpris thumbnail sponsorblock];
     };
 
@@ -34,8 +27,8 @@
   };
 
   xdg.mimeApps.defaultApplications = {
-    "audio/*" = "mpv.desktop";
-    "video/*" = "mpv.desktop";
-    "image/*" = "imv.desktop";
+    "audio/*" = "io.bassi.Amberol";
+    "image/*" = "org.gnome.Loupe";
+    "video/*" = "io.github.celluloid_player.Celluloid";
   };
 }
