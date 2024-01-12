@@ -108,8 +108,8 @@ in {
           };
           customUIColors = {
             all = {
-              statusBar.foreground = "accent";
-              statusBar.noFolderForeground = "accent";
+              "statusBar.foreground" = "accent";
+              "statusBar.noFolderForeground" = "accent";
             };
           };
         })
