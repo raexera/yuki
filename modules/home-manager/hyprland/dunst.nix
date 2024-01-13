@@ -76,7 +76,7 @@ in {
     in {
       global = {
         alignment = "left";
-        corner_radius = 8;
+        corner_radius = 12;
         ellipsize = "middle";
         enable_recursive_icon_lookup = true;
         follow = "mouse";

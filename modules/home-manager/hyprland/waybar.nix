@@ -217,7 +217,7 @@ in {
       }
 
       window#waybar {
-        background-color: ${xcolors.black0};
+        background: ${xcolors.black0};
       }
 
       .modules-left {
@@ -244,7 +244,7 @@ in {
       #pulseaudio.microphone,
       #tray,
       #user {
-        background-color: ${xcolors.black3};
+        background: ${xcolors.black3};
         border-radius: 8px;
         margin: 0.41em 0.21em;
         padding: 0.41em 0.82em;
@@ -264,7 +264,7 @@ in {
       }
 
       #workspaces {
-        background-color: ${xcolors.black3};
+        background: ${xcolors.black3};
         border-radius: 8px;
         margin: 0.41em 0.21em;
       }
@@ -293,7 +293,7 @@ in {
       }
 
       #workspaces button.active {
-        background-color: ${xcolors.blue};
+        background: ${xcolors.blue};
       }
 
       #workspaces button.active label {
@@ -308,7 +308,7 @@ in {
       }
 
       #tray menuitem:hover {
-        background-color: ${xcolors.blue};
+        background: ${xcolors.blue};
       }
 
       #tray > .passive {
@@ -335,7 +335,7 @@ in {
         min-height: 0.68em;
         min-width: 5.47em;
         border-radius: 8px;
-        background-color: ${xcolors.black0};
+        background: ${xcolors.black0};
       }
 
       #backlight-slider highlight,
@@ -345,18 +345,18 @@ in {
       }
 
       #backlight-slider highlight {
-        background-color: ${xcolors.teal};
+        background: ${xcolors.teal};
       }
 
       #pulseaudio-slider highlight {
-        background-color: ${xcolors.sky};
+        background: ${xcolors.sky};
       }
 
       menu,
       tooltip {
         border-radius: 8px;
         padding: 0.41em;
-        background-color: ${xcolors.black0};
+        background: ${xcolors.black0};
       }
 
       tooltip label {

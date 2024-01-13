@@ -21,7 +21,7 @@
       hideIcons = false;
       ignoreExclusiveZones = false;
       layer = "overlay";
-      hidePluginInfo = true;
+      hidePluginInfo = false;
       closeOnClick = false;
       showResultsImmediately = false;
       maxEntries = 10;
