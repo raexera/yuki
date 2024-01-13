@@ -10,7 +10,6 @@
     config = {
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
         applications
-        randr
         rink
         shell
         symbols
@@ -22,7 +21,7 @@
       hideIcons = false;
       ignoreExclusiveZones = false;
       layer = "overlay";
-      hidePluginInfo = false;
+      hidePluginInfo = true;
       closeOnClick = false;
       showResultsImmediately = false;
       maxEntries = 10;
@@ -85,12 +84,22 @@
       }
     '';
 
-    extraConfigFiles."applications.ron".text = ''
-      Config(
-        desktop_actions: true,
-        max_entries: 10,
-        terminal: Some("kitty"),
-      )
-    '';
+    extraConfigFiles = {
+      "applications.ron".text = ''
+        Config(
+          desktop_actions: true,
+          max_entries: 10,
+          terminal: Some("kitty"),
+        )
+      '';
+
+      "translate.ron".text = ''
+        Config(
+          prefix: ":tr",
+          language_delimiter: ">",
+          max_entries: 5,
+        )
+      '';
+    };
   };
 }
