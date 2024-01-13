@@ -9,13 +9,13 @@
     ./config
     ../themes
 
-    ./swaylock.nix
-    ./waybar.nix
-    ./wofi.nix
+    ./anyrun.nix
     ./cliphist.nix
     ./dunst.nix
     ./swaybg.nix
     ./swayidle.nix
+    ./swaylock.nix
+    ./waybar.nix
   ];
 
   home.packages = with pkgs; [

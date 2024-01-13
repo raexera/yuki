@@ -207,13 +207,11 @@ in {
 
     style = ''
       * {
-        all: initial;
+        all: unset;
         border: none;
         border-radius: 0;
         min-height: 0;
         min-width: 0;
-        color: ${xcolors.white};
-        background-color: transparent;
         font-family: "Material Design Icons", monospace;
         font-size: 11pt;
       }
@@ -247,7 +245,7 @@ in {
       #tray,
       #user {
         background-color: ${xcolors.black3};
-        border-radius: 4px;
+        border-radius: 8px;
         margin: 0.41em 0.21em;
         padding: 0.41em 0.82em;
       }
@@ -267,13 +265,13 @@ in {
 
       #workspaces {
         background-color: ${xcolors.black3};
-        border-radius: 4px;
+        border-radius: 8px;
         margin: 0.41em 0.21em;
       }
 
       #workspaces button {
         padding: 0 0.82em;
-        border-radius: 4px;
+        border-radius: 8px;
         transition: all 0.1s ease-in-out;
       }
 
@@ -305,7 +303,7 @@ in {
 
       #tray menuitem,
       #tray window {
-        border-radius: 4px;
+        border-radius: 8px;
         padding: 0.41em;
       }
 

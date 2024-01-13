@@ -16,15 +16,15 @@
     colors.blue
     colors.mauve
     colors.teal
-    colors.gray1
-    colors.black4
+    colors.white
+    colors.black2
     colors.red
     colors.green
     colors.yellow
     colors.blue
     colors.mauve
     colors.teal
-    colors.gray2
+    colors.white
   ];
 
   environment = {
@@ -63,10 +63,12 @@
   nix.settings = {
     substituters = [
       "https://hyprland.cachix.org"
+      "https://anyrun.cachix.org"
     ];
 
     trusted-public-keys = [
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
     ];
   };
 
@@ -76,9 +78,10 @@
   };
 
   home-manager.sharedModules = [
-    inputs.self.homeModules.hyprland
     inputs.ags.homeManagerModules.default
+    inputs.anyrun.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
+    inputs.self.homeModules.hyprland
   ];
 
   xdg.portal = {
