@@ -72,8 +72,8 @@ in {
           show-passive-items = true;
         };
         network = {
-          format-wifi = formatIcons "${xcolors.mauve}" "󰖩" + " {essid}";
-          format-ethernet = formatIcons "${xcolors.mauve}" "󰈀" + " {ipaddr}/{cidr}";
+          format-wifi = formatIcons "${xcolors.flamingo}" "󰖩" + " {essid}";
+          format-ethernet = formatIcons "${xcolors.flamingo}" "󰈀" + " {ipaddr}/{cidr}";
           format-disconnected = formatIcons "${xcolors.red}" "󰖪";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
@@ -98,7 +98,7 @@ in {
         };
         pulseaudio = {
           tooltip = false;
-          format = formatIcons "${xcolors.sky}" "{icon}" + " {volume}%";
+          format = formatIcons "${xcolors.mauve}" "{icon}" + " {volume}%";
           format-muted = formatIcons "${xcolors.red}" "󰖁";
           format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
           on-click = "${_ pamixer} -t";
@@ -115,7 +115,7 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = formatIcons "${xcolors.teal}" "{icon}" + " {percent}%";
+          format = formatIcons "${xcolors.sky}" "{icon}" + " {percent}%";
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
@@ -140,10 +140,8 @@ in {
           format-alt = formatIcons "${xcolors.yellow}" "󰃶" + " {:%a %d %b}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
-            mode = "year";
-            mode-mon-col = 3;
+            mode = "month";
             on-scroll = 1;
-            on-click-right = "mode";
             format = {
               months = "<span color='${xcolors.white}'><b>{}</b></span>";
               days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
@@ -152,9 +150,6 @@ in {
             };
           };
           actions = {
-            on-click-right = "mode";
-            on-click-forward = "tz_up";
-            on-click-backward = "tz_down";
             on-scroll-up = "shift_up";
             on-scroll-down = "shift_down";
           };
@@ -335,7 +330,7 @@ in {
       }
 
       #pulseaudio-slider highlight {
-        background: ${xcolors.sky};
+        background: ${xcolors.mauve};
       }
 
       menu,
