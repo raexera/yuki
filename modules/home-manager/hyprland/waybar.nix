@@ -7,7 +7,7 @@
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
 
-  formatIcons = color: text: "<span color='${color}'>${text}</span>";
+  formatIcons = color: text: "<span font_size='larger' color='${color}'>${text}</span>";
 
   snowflake = builtins.fetchurl rec {
     name = "Logo-${sha256}.svg";
