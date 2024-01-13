@@ -19,14 +19,9 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        configurationLimit = 3;
+        configurationLimit = 5;
         gfxmodeEfi = "1920x1080";
       };
-    };
-
-    plymouth = {
-      enable = true;
-      theme = "bgrt";
     };
   };
 

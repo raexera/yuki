@@ -3,8 +3,30 @@
   pkgs,
   config,
   inputs,
+  default,
   ...
 }: {
+  console.colors = let
+    inherit (default.colorscheme) colors;
+  in [
+    colors.black2
+    colors.red
+    colors.green
+    colors.yellow
+    colors.blue
+    colors.mauve
+    colors.teal
+    colors.gray1
+    colors.black4
+    colors.red
+    colors.green
+    colors.yellow
+    colors.blue
+    colors.mauve
+    colors.teal
+    colors.gray2
+  ];
+
   environment = {
     variables = {
       NIXOS_OZONE_WL = "1";
@@ -95,17 +117,23 @@
       glib-networking.enable = true;
     };
 
-    greetd = let
-      session = {
-        command = "${lib.getExe config.programs.hyprland.package}";
-        user = "rxyhn";
-      };
-    in {
+    greetd = {
       enable = true;
       settings = {
         terminal.vt = 1;
-        default_session = session;
-        initial_session = session;
+        default_session = let
+          base = config.services.xserver.displayManager.sessionData.desktops;
+        in {
+          command = lib.concatStringsSep " " [
+            (lib.getExe pkgs.greetd.tuigreet)
+            "--time"
+            "--remember"
+            "--remember-user-session"
+            "--asterisks"
+            "--sessions '${base}/share/wayland-sessions:${base}/share/xsessions'"
+          ];
+          user = "greeter";
+        };
       };
     };
   };
