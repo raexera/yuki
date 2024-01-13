@@ -3,8 +3,6 @@
   pkgs,
   ...
 }: {
-  home.sessionVariables.GTK_USE_PORTAL = "1";
-
   gtk = {
     enable = true;
 

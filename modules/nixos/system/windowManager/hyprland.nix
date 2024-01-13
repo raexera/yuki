@@ -5,14 +5,33 @@
   inputs,
   ...
 }: {
-  environment.variables = {
-    NIXOS_OZONE_WL = "1";
-    _JAVA_AWT_WM_NONEREPARENTING = "1";
-    GDK_BACKEND = "wayland,x11";
-    MOZ_ENABLE_WAYLAND = "1";
-    XDG_SESSION_TYPE = "wayland";
-    SDL_VIDEODRIVER = "wayland";
-    CLUTTER_BACKEND = "wayland";
+  environment = {
+    variables = {
+      NIXOS_OZONE_WL = "1";
+      _JAVA_AWT_WM_NONEREPARENTING = "1";
+      GDK_BACKEND = "wayland,x11";
+      GTK_USE_PORTAL = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+      XDG_SESSION_TYPE = "wayland";
+      SDL_VIDEODRIVER = "wayland";
+      CLUTTER_BACKEND = "wayland";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    };
+
+    systemPackages = with pkgs; [
+      libsForQt5.dolphin
+      libsForQt5.ark
+      libsForQt5.gwenview
+      libsForQt5.dolphin-plugins
+      libsForQt5.ffmpegthumbs
+      libsForQt5.kdegraphics-thumbnailers
+      libsForQt5.kimageformats
+      libsForQt5.kio
+      libsForQt5.kio-extras
+      libsForQt5.qtwayland
+      libsForQt5.okular
+    ];
   };
 
   nixpkgs.overlays = [

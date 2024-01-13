@@ -4,6 +4,7 @@
   perSystem = {pkgs, ...}: {
     packages = {
       firefox-gnome-theme = pkgs.callPackage ./firefox-gnome-theme {};
+      sddm-catppuccin = pkgs.libsForQt5.callPackage ./sddm-catppuccin {};
     };
   };
 }
