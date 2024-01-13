@@ -42,13 +42,10 @@ in {
         modules-center = [];
         modules-right = [
           "network"
-          "pulseaudio#microphone"
-          "group/group-pulseaudio"
-          "group/group-backlight"
-          "battery"
-          "clock#date"
+          "group/volume"
+          "group/backlight-battery"
           "clock"
-          "group/group-power"
+          "group/power"
         ];
         "custom/search" = {
           format = " ";
@@ -82,16 +79,7 @@ in {
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
         };
-        "pulseaudio#microphone" = {
-          tooltip = false;
-          format = "{format_source}";
-          format-source = formatIcons "${xcolors.sapphire}" "󰍬" + " {volume}%";
-          format-source-muted = formatIcons "${xcolors.red}" "󰍭";
-          on-click = "${_ pamixer} --default-source -t";
-          on-scroll-up = "${_ pamixer} --default-source -d 1";
-          on-scroll-down = "${_ pamixer} --default-source -i 1";
-        };
-        "group/group-pulseaudio" = {
+        "group/volume" = {
           orientation = "inherit";
           drawer = {
             transition-duration = 300;
@@ -117,22 +105,13 @@ in {
           on-scroll-up = "${_ pamixer} -d 1";
           on-scroll-down = "${_ pamixer} -i 1";
         };
-        "group/group-backlight" = {
-          orientation = "inherit";
-          drawer = {
-            transition-duration = 300;
-            children-class = "backlight-child";
-            transition-left-to-right = false;
-          };
+        "group/backlight-battery" = {
           modules = [
             "backlight"
-            "backlight/slider"
+            "custom/separator"
+            "battery"
           ];
-        };
-        "backlight/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "horizontal";
+          orientation = "inherit";
         };
         backlight = {
           tooltip = false;
@@ -140,6 +119,10 @@ in {
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
+        };
+        "custom/separator" = {
+          format = formatIcons "${xcolors.gray1}" " | ";
+          tooltip = false;
         };
         battery = {
           states = {
@@ -152,17 +135,31 @@ in {
           format-plugged = formatIcons "${xcolors.green}" "󰚥" + " {capacity}%";
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
-        "clock#date" = {
-          format = formatIcons "${xcolors.yellow}" "󰃶" + " {:%a %d %b}";
-          tooltip-format = ''
-            <big>{:%Y %B}</big>
-            <tt><small>{calendar}</small></tt>'';
-        };
         clock = {
           format = formatIcons "${xcolors.peach}" "󱑎" + " {:%I:%M %p}";
-          format-alt = formatIcons "${xcolors.peach}" "󱑎" + " {:%H:%M}";
+          format-alt = formatIcons "${xcolors.yellow}" "󰃶" + " {:%a %d %b}";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            on-scroll = 1;
+            on-click-right = "mode";
+            format = {
+              months = "<span color='${xcolors.white}'><b>{}</b></span>";
+              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
+              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
+              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
+            };
+          };
+          actions = {
+            on-click-right = "mode";
+            on-click-forward = "tz_up";
+            on-click-backward = "tz_down";
+            on-scroll-up = "shift_up";
+            on-scroll-down = "shift_down";
+          };
         };
-        "group/group-power" = {
+        "group/power" = {
           orientation = "inherit";
           drawer = {
             transition-duration = 300;
@@ -228,11 +225,8 @@ in {
         margin-right: 0.25rem;
       }
 
-      #backlight,
-      #backlight-slider,
-      #battery,
+      #backlight-battery,
       #clock,
-      #clock.date,
       #custom-lock,
       #custom-power,
       #custom-reboot,
@@ -241,7 +235,6 @@ in {
       #network,
       #pulseaudio,
       #pulseaudio-slider,
-      #pulseaudio.microphone,
       #tray,
       #user {
         background: ${xcolors.black3};
@@ -319,7 +312,6 @@ in {
         -gtk-icon-effect: highlight;
       }
 
-      #backlight-slider slider,
       #pulseaudio-slider slider {
         min-height: 0px;
         min-width: 0px;
@@ -330,7 +322,6 @@ in {
         margin: 0 0.625rem;
       }
 
-      #backlight-slider trough,
       #pulseaudio-slider trough {
         min-height: 0.625rem;
         min-width: 5rem;
@@ -338,14 +329,9 @@ in {
         background: ${xcolors.black0};
       }
 
-      #backlight-slider highlight,
       #pulseaudio-slider highlight {
         min-width: 0.625rem;
         border-radius: 8px;
-      }
-
-      #backlight-slider highlight {
-        background: ${xcolors.teal};
       }
 
       #pulseaudio-slider highlight {
