@@ -7,7 +7,7 @@
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
 
-  formatIcons = color: text: "<span color='${color}' font_size='13pt'>${text}</span>";
+  formatIcons = color: text: "<span color='${color}'>${text}</span>";
 
   snowflake = builtins.fetchurl rec {
     name = "Logo-${sha256}.svg";
@@ -75,9 +75,9 @@ in {
           show-passive-items = true;
         };
         network = {
-          format-wifi = formatIcons "${xcolors.mauve}CC" "󰖩" + " {essid}";
-          format-ethernet = formatIcons "${xcolors.mauve}CC" "󰈀" + " {ipaddr}/{cidr}";
-          format-disconnected = formatIcons "${xcolors.red}CC" "󰖪";
+          format-wifi = formatIcons "${xcolors.mauve}" "󰖩" + " {essid}";
+          format-ethernet = formatIcons "${xcolors.mauve}" "󰈀" + " {ipaddr}/{cidr}";
+          format-disconnected = formatIcons "${xcolors.red}" "󰖪";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
@@ -85,8 +85,8 @@ in {
         "pulseaudio#microphone" = {
           tooltip = false;
           format = "{format_source}";
-          format-source = formatIcons "${xcolors.sapphire}CC" "󰍬" + " {volume}%";
-          format-source-muted = formatIcons "${xcolors.red}CC" "󰍭";
+          format-source = formatIcons "${xcolors.sapphire}" "󰍬" + " {volume}%";
+          format-source-muted = formatIcons "${xcolors.red}" "󰍭";
           on-click = "${_ pamixer} --default-source -t";
           on-scroll-up = "${_ pamixer} --default-source -d 1";
           on-scroll-down = "${_ pamixer} --default-source -i 1";
@@ -110,8 +110,8 @@ in {
         };
         pulseaudio = {
           tooltip = false;
-          format = formatIcons "${xcolors.sky}CC" "{icon}" + " {volume}%";
-          format-muted = formatIcons "${xcolors.red}CC" "󰖁";
+          format = formatIcons "${xcolors.sky}" "{icon}" + " {volume}%";
+          format-muted = formatIcons "${xcolors.red}" "󰖁";
           format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
           on-click = "${_ pamixer} -t";
           on-scroll-up = "${_ pamixer} -d 1";
@@ -136,7 +136,7 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = formatIcons "${xcolors.teal}CC" "{icon}" + " {percent}%";
+          format = formatIcons "${xcolors.teal}" "{icon}" + " {percent}%";
           format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
@@ -147,20 +147,20 @@ in {
             critical = 15;
           };
           tooltip-format = "{timeTo}, {capacity}%";
-          format = formatIcons "${xcolors.green}CC" "{icon}" + " {capacity}%";
-          format-charging = formatIcons "${xcolors.green}CC" "󰂄" + " {capacity}%";
-          format-plugged = formatIcons "${xcolors.green}CC" "󰚥" + " {capacity}%";
+          format = formatIcons "${xcolors.green}" "{icon}" + " {capacity}%";
+          format-charging = formatIcons "${xcolors.green}" "󰂄" + " {capacity}%";
+          format-plugged = formatIcons "${xcolors.green}" "󰚥" + " {capacity}%";
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         "clock#date" = {
-          format = formatIcons "${xcolors.yellow}CC" "󰃶" + " {:%a %d %b}";
+          format = formatIcons "${xcolors.yellow}" "󰃶" + " {:%a %d %b}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
         };
         clock = {
-          format = formatIcons "${xcolors.peach}CC" "󱑎" + " {:%I:%M %p}";
-          format-alt = formatIcons "${xcolors.peach}CC" "󱑎" + " {:%H:%M}";
+          format = formatIcons "${xcolors.peach}" "󱑎" + " {:%I:%M %p}";
+          format-alt = formatIcons "${xcolors.peach}" "󱑎" + " {:%H:%M}";
         };
         "group/group-power" = {
           orientation = "inherit";
@@ -178,27 +178,27 @@ in {
           ];
         };
         "custom/quit" = {
-          format = formatIcons "${xcolors.teal}CC" "󰍃";
+          format = formatIcons "${xcolors.teal}" "󰍃";
           on-click = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
           tooltip = false;
         };
         "custom/lock" = {
-          format = formatIcons "${xcolors.green}CC" "󰌾";
+          format = formatIcons "${xcolors.green}" "󰌾";
           on-click = "${pkgs.swaylock-effects}/bin/swaylock -S --daemonize";
           tooltip = false;
         };
         "custom/suspend" = {
-          format = formatIcons "${xcolors.yellow}CC" "󰒲";
+          format = formatIcons "${xcolors.yellow}" "󰒲";
           on-click = "${pkgs.systemd}/bin/systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
-          format = formatIcons "${xcolors.peach}CC" "󰜉";
+          format = formatIcons "${xcolors.peach}" "󰜉";
           on-click = "${pkgs.systemd}/bin/systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
-          format = formatIcons "${xcolors.red}CC" "󰐥";
+          format = formatIcons "${xcolors.red}" "󰐥";
           on-click = "${pkgs.systemd}/bin/systemctl poweroff";
           tooltip = false;
         };
@@ -213,7 +213,7 @@ in {
         min-height: 0;
         min-width: 0;
         font-family: "Material Design Icons", monospace;
-        font-size: 11pt;
+        font-size: 1rem;
       }
 
       window#waybar {
@@ -221,11 +221,11 @@ in {
       }
 
       .modules-left {
-        margin-left: 0.21em;
+        margin-left: 0.25rem;
       }
 
       .modules-right {
-        margin-right: 0.21em;
+        margin-right: 0.25rem;
       }
 
       #backlight,
@@ -246,17 +246,17 @@ in {
       #user {
         background: ${xcolors.black3};
         border-radius: 8px;
-        margin: 0.41em 0.21em;
-        padding: 0.41em 0.82em;
+        margin: 0.5rem 0.25rem;
+        padding: 0.375rem 0.75rem;
       }
 
       #custom-search {
-        margin: 0.41em 0.21em;
-        padding: 0.41em 0.82em;
         background-image: url("${snowflake}");
         background-size: 80%;
         background-position: center;
         background-repeat: no-repeat;
+        margin: 0.5rem 0.25rem;
+        padding: 0.375rem 0.75rem;
       }
 
       #user {
@@ -266,11 +266,11 @@ in {
       #workspaces {
         background: ${xcolors.black3};
         border-radius: 8px;
-        margin: 0.41em 0.21em;
+        margin: 0.5rem 0.25rem;
       }
 
       #workspaces button {
-        padding: 0 0.82em;
+        padding: 0 0.75rem;
         border-radius: 8px;
         transition: all 0.1s ease-in-out;
       }
@@ -304,7 +304,7 @@ in {
       #tray menuitem,
       #tray window {
         border-radius: 8px;
-        padding: 0.41em;
+        padding: 0.375rem;
       }
 
       #tray menuitem:hover {
@@ -327,20 +327,20 @@ in {
         background-image: none;
         border: none;
         box-shadow: none;
-        margin: 0 0.68em;
+        margin: 0 0.625rem;
       }
 
       #backlight-slider trough,
       #pulseaudio-slider trough {
-        min-height: 0.68em;
-        min-width: 5.47em;
+        min-height: 0.625rem;
+        min-width: 5rem;
         border-radius: 8px;
         background: ${xcolors.black0};
       }
 
       #backlight-slider highlight,
       #pulseaudio-slider highlight {
-        min-width: 0.68em;
+        min-width: 0.625rem;
         border-radius: 8px;
       }
 
@@ -355,12 +355,12 @@ in {
       menu,
       tooltip {
         border-radius: 8px;
-        padding: 0.41em;
+        padding: 0.375rem;
         background: ${xcolors.black0};
       }
 
       tooltip label {
-        padding: 0.41em;
+        padding: 0.375rem;
         font-family: "Dosis", sans-serif;
       }
     '';
