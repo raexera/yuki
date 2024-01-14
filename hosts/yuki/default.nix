@@ -8,8 +8,19 @@
   boot = {
     kernelModules = ["acpi_call"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["quiet" "splash"];
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
+    kernelParams = [
+      "quiet"
+      "loglevel=3"
+      "systemd.show_status=auto"
+      "rd.udev.log_level=3"
+    ];
+
+    initrd = {
+      systemd.enable = true;
+      supportedFilesystems = ["ext4"];
+    };
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -22,6 +33,8 @@
         gfxmodeEfi = "1920x1080";
       };
     };
+
+    plymouth.enable = true;
   };
 
   environment = {
