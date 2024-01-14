@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home = {
     packages = with pkgs; [
       breeze-icons
@@ -28,6 +32,8 @@
   };
 
   xdg.configFile = {
+    "kdeglobals".source = "${config.qt.style.package}/share/color-schemes/CatppuccinMacchiatoBlue.colors";
+
     "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
       General.theme = "catppuccin";
       Applications.catppuccin = ''

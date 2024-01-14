@@ -3,44 +3,20 @@
   lib,
   inputs,
   pkgs,
-  self,
   ...
 }: {
   imports = [
-    inputs.home-manager.nixosModules.default
-    inputs.nh.nixosModules.default
+    ./nh.nix
+    ./nixpkgs.nix
+    ./substituters.nix
   ];
 
-  environment = {
-    systemPackages = with pkgs; [
-      git
-      deadnix
-      alejandra
-      statix
-    ];
-
-    variables = {
-      FLAKE = "/home/rxyhn/Documents/code/yuki";
-    };
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    verbose = true;
-    sharedModules = [
-      inputs.self.homeModules.shell
-      {home.stateVersion = lib.mkForce config.system.stateVersion;}
-    ];
-  };
-
-  nh = {
-    enable = true;
-    clean = {
-      enable = true;
-      extraArgs = "--keep-since 30d";
-    };
-  };
+  environment.systemPackages = with pkgs; [
+    git
+    deadnix
+    alejandra
+    statix
+  ];
 
   nix = {
     registry = lib.mapAttrs (_: v: {flake = v;}) inputs;
@@ -53,38 +29,8 @@
       flake-registry = "/etc/nix/registry.json";
       keep-derivations = true;
       keep-outputs = true;
-
-      substituters = [
-        "https://cache.nixos.org"
-        "https://nix-community.cachix.org"
-        "https://nixpkgs-unfree.cachix.org"
-      ];
-
-      trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "nixpkgs-unfree.cachix.org-1:hqvoInulhbV4nJ9yJOEr+4wxhDV4xq2d1DK7S6Nj6rs="
-      ];
-
       trusted-users = ["root" "@wheel"];
     };
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowBroken = true;
-      permittedInsecurePackages = [
-        "openssl-1.1.1u"
-        "electron-25.9.0"
-      ];
-    };
-
-    overlays = [
-      inputs.nur.overlay
-      inputs.nix-vscode-extensions.overlays.default
-      inputs.catppuccin-vsc.overlays.default
-    ];
   };
 
   system.stateVersion = lib.mkDefault "23.11";
