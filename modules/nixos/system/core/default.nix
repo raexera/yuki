@@ -6,6 +6,11 @@
   lib,
   ...
 }: {
+  imports = [
+    inputs.home-manager.nixosModules.default
+    inputs.nh.nixosModules.default
+  ];
+
   environment = {
     systemPackages = with pkgs; [
       git
@@ -74,5 +79,12 @@
           };
       })
     ];
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    verbose = true;
+    sharedModules = [inputs.self.homeModules.shell];
   };
 }

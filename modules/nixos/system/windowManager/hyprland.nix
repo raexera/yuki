@@ -6,6 +6,10 @@
   themes,
   ...
 }: {
+  imports = [
+    inputs.hyprland.nixosModules.default
+  ];
+
   console.colors = let
     inherit (themes.colorscheme) colors;
   in [

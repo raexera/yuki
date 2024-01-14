@@ -6,7 +6,7 @@
   ...
 }: {
   flake.nixosConfigurations = let
-    inherit (inputs.self) nixosModules homeModules;
+    inherit (inputs.self) nixosModules;
     inherit (inputs.nixpkgs.lib) nixosSystem;
 
     specialArgs = {inherit inputs self themes;};
@@ -20,15 +20,9 @@
         nixosModules.intel
         nixosModules.nvidia
         nixosModules.hyprland
-        inputs.home-manager.nixosModule
-        inputs.hyprland.nixosModules.default
-        inputs.nh.nixosModules.default
 
         {
           home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            sharedModules = [homeModules.shell];
             users.rxyhn.imports = homeImports."rxyhn@hiru";
             extraSpecialArgs = specialArgs;
           };
