@@ -39,7 +39,6 @@
       perl
       procs
       psmisc
-      ranger
       ripgrep
       rsync
       sd

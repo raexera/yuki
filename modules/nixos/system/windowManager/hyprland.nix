@@ -41,22 +41,16 @@
       XDG_SESSION_TYPE = "wayland";
       SDL_VIDEODRIVER = "wayland";
       CLUTTER_BACKEND = "wayland";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     };
 
     systemPackages = with pkgs; [
-      libsForQt5.dolphin
-      libsForQt5.ark
-      libsForQt5.gwenview
-      libsForQt5.dolphin-plugins
-      libsForQt5.ffmpegthumbs
-      libsForQt5.kdegraphics-thumbnailers
-      libsForQt5.kimageformats
-      libsForQt5.kio
-      libsForQt5.kio-extras
-      libsForQt5.qtwayland
-      libsForQt5.okular
+      xfce.thunar
+      xfce.thunar-archive-plugin
+      xfce.thunar-media-tags-plugin
+      xfce.thunar-volman
     ];
   };
 
