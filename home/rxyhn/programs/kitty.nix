@@ -1,6 +1,6 @@
 {
-  default,
   pkgs,
+  themes,
   ...
 }: {
   home.sessionVariables.TERMINAL = "kitty -1";
@@ -11,7 +11,7 @@
     theme = "Catppuccin-Macchiato";
 
     settings = let
-      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
     in {
       active_tab_font_style = "bold";
       background_opacity = "1.0";

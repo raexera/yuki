@@ -1,13 +1,13 @@
 {
-  default,
   pkgs,
+  themes,
   ...
 }: {
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
     settings = let
-      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
     in {
       clock = true;
       indicator = true;

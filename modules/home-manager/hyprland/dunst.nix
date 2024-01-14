@@ -1,8 +1,8 @@
 {
-  config,
-  default,
   lib,
   pkgs,
+  config,
+  themes,
   ...
 }: let
   volumectl = let
@@ -72,7 +72,7 @@ in {
     enable = true;
     inherit (config.gtk) iconTheme;
     settings = let
-      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
     in {
       global = {
         alignment = "left";

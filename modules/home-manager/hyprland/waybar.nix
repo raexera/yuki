@@ -1,25 +1,18 @@
 {
   lib,
   pkgs,
-  default,
+  themes,
   ...
 }: let
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
-
-  formatIcons = color: text: "<span font_size='larger' color='${color}'>${text}</span>";
-
-  snowflake = builtins.fetchurl rec {
-    name = "Logo-${sha256}.svg";
-    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
-    sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
-  };
-
-  xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+  xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
 in {
   programs.waybar = {
     enable = true;
-    settings = [
+    settings = let
+      formatIcons = color: text: "<span font_size='larger' color='${color}'>${text}</span>";
+    in [
       {
         layer = "top";
         position = "top";
@@ -197,7 +190,13 @@ in {
       }
     ];
 
-    style = ''
+    style = let
+      snowflake = builtins.fetchurl rec {
+        name = "Logo-${sha256}.svg";
+        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
+        sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
+      };
+    in ''
       * {
         all: unset;
         border: none;

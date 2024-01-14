@@ -1,8 +1,8 @@
 {
-  config,
-  default,
   lib,
   pkgs,
+  config,
+  themes,
   ...
 }: {
   programs.zsh = {
@@ -175,7 +175,7 @@
     '';
 
     envExtra = let
-      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
     in ''
       # Set fzf options
       export FZF_DEFAULT_OPTS=" \

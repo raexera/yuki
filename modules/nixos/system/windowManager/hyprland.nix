@@ -3,11 +3,11 @@
   pkgs,
   config,
   inputs,
-  default,
+  themes,
   ...
 }: {
   console.colors = let
-    inherit (default.colorscheme) colors;
+    inherit (themes.colorscheme) colors;
   in [
     colors.black2
     colors.red

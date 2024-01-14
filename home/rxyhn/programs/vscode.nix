@@ -1,6 +1,6 @@
 {
   pkgs,
-  default,
+  themes,
   ...
 }: let
   mimeTypes = [
@@ -39,7 +39,7 @@ in {
     mimeTypes);
 
   programs.vscode = let
-    xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+    xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
   in {
     enable = true;
     mutableExtensionsDir = true;

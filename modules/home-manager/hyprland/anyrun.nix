@@ -2,7 +2,7 @@
   pkgs,
   config,
   inputs,
-  default,
+  themes,
   ...
 }: {
   programs.anyrun = {
@@ -28,7 +28,7 @@
     };
 
     extraCss = let
-      xcolors = pkgs.lib.colors.xcolors default.colorscheme.colors;
+      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
     in ''
       * {
         all: unset;
