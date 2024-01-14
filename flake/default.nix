@@ -16,16 +16,10 @@
     pkgs,
     ...
   }: {
-    formatter = pkgs.alejandra;
-
     devShells.default = pkgs.mkShell {
-      name = "yuki";
-
-      shellHook = ''
-        ${config.pre-commit.installationScript}
-      '';
-
       DIRENV_LOG_FORMAT = "";
+
+      name = "yuki";
 
       packages = with pkgs; [
         alejandra
@@ -34,6 +28,12 @@
         nil
         statix
       ];
+
+      shellHook = ''
+        ${config.pre-commit.installationScript}
+      '';
     };
+
+    formatter = pkgs.alejandra;
   };
 }

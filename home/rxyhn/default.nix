@@ -1,6 +1,6 @@
 {
-  self,
   inputs,
+  self,
   themes,
   ...
 }: let

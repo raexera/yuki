@@ -1,8 +1,8 @@
 {
-  self,
-  inputs,
-  themes,
   homeImports,
+  inputs,
+  self,
+  themes,
   ...
 }: {
   flake.nixosConfigurations = let

@@ -1,9 +1,9 @@
 {
   config,
+  lib,
+  inputs,
   pkgs,
   self,
-  inputs,
-  lib,
   ...
 }: {
   imports = [
@@ -18,6 +18,10 @@
       alejandra
       statix
     ];
+
+    variables = {
+      FLAKE = "/home/rxyhn/Documents/code/yuki";
+    };
   };
 
   home-manager = {

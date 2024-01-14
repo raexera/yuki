@@ -6,6 +6,5 @@
     ./programs/packages.nix
     ./programs/tools.nix
     ./programs/vscode.nix
-    ./services/kdeconnect.nix
   ];
 }
