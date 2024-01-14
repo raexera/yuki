@@ -1,30 +1,29 @@
 {
+  self,
   inputs,
-  withSystem,
-  module_args,
+  themes,
   ...
 }: let
-  sharedModules = [
-    ./home.nix
-
-    module_args
-    inputs.nix-index-db.hmModules.nix-index
-  ];
+  extraSpecialArgs = {inherit inputs self themes;};
 
   homeImports = {
-    "rxyhn@hiru" = [./hiru.nix] ++ sharedModules;
+    "rxyhn@hiru" = [
+      ./home.nix
+      ./hiru.nix
+    ];
   };
 
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
+  pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 in {
-  imports = [
-    {_module.args = {inherit homeImports;};}
-  ];
+  _module.args = {inherit homeImports;};
 
-  flake.homeConfigurations = withSystem "x86_64-linux" ({pkgs, ...}: {
-    "rxyhn@hiru" = homeManagerConfiguration {
-      modules = homeImports."rxyhn@hiru";
-      inherit pkgs;
+  flake = {
+    homeConfigurations = {
+      "rxyhn@hiru" = homeManagerConfiguration {
+        modules = homeImports."rxyhn@hiru";
+        inherit pkgs extraSpecialArgs;
+      };
     };
-  });
+  };
 }

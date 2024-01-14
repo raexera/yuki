@@ -1,8 +1,8 @@
 {
-  config,
-  default,
   lib,
   pkgs,
+  config,
+  themes,
   ...
 }: let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
@@ -22,7 +22,7 @@ in {
       }
       {
         event = "lock";
-        command = "${pkgs.swaylock-effects}/bin/swaylock -i ${default.wallpaper} --daemonize --grace 15";
+        command = "${pkgs.swaylock-effects}/bin/swaylock -i ${themes.wallpaper} --daemonize --grace 15";
       }
     ];
     timeouts = [

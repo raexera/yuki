@@ -3,11 +3,15 @@
   pkgs,
   config,
   inputs,
-  default,
+  themes,
   ...
 }: {
+  imports = [
+    inputs.hyprland.nixosModules.default
+  ];
+
   console.colors = let
-    inherit (default.colorscheme) colors;
+    inherit (themes.colorscheme) colors;
   in [
     colors.black2
     colors.red

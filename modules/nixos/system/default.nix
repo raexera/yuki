@@ -1,9 +1,9 @@
 {
   imports = [
+    ./core
     ./environment
     ./misc
     ./networking
-    ./nix
     ./programs
     ./security
     ./services
