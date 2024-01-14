@@ -3,7 +3,6 @@
     username = "rxyhn";
     homeDirectory = "/home/rxyhn";
     extraOutputsToInstall = ["doc" "devdoc"];
-    stateVersion = "23.11";
   };
 
   manual = {

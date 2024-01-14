@@ -1,6 +1,5 @@
-_lib: {
-  colorscheme = {
-    name = "Darker Catppuccin Macchiato";
+lib: {
+  colorscheme = rec {
     colors = {
       rosewater = "f4dbd6";
       flamingo = "f0c6c6";
@@ -26,6 +25,8 @@ _lib: {
       gray1 = "4a5051";
       gray2 = "5c6262";
     };
+
+    xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;
   };
 
   wallpaper = builtins.fetchurl rec {

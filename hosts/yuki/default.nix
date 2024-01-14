@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   config,
   ...
@@ -74,6 +73,4 @@
   };
 
   zramSwap.enable = true;
-
-  system.stateVersion = lib.mkDefault "23.11";
 }

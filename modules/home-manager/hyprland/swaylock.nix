@@ -7,7 +7,7 @@
     enable = true;
     package = pkgs.swaylock-effects;
     settings = let
-      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
+      inherit (themes.colorscheme) xcolors;
     in {
       clock = true;
       indicator = true;

@@ -39,12 +39,14 @@ in {
     mimeTypes);
 
   programs.vscode = let
-    xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
+    inherit (themes.colorscheme) xcolors;
   in {
     enable = true;
     mutableExtensionsDir = true;
     extensions =
       (with pkgs.vscode-extensions; [
+        github.copilot
+        github.copilot-chat
         ms-vscode.cpptools
       ])
       ++ (with pkgs.vscode-marketplace-release; [
@@ -62,8 +64,6 @@ in {
         esbenp.prettier-vscode
         formulahendry.code-runner
         foxundermoon.shell-format
-        github.copilot
-        github.copilot-chat
         github.vscode-github-actions
         github.vscode-pull-request-github
         golang.go

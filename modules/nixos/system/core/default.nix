@@ -20,6 +20,16 @@
     ];
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    verbose = true;
+    sharedModules = [
+      inputs.self.homeModules.shell
+      {home.stateVersion = lib.mkForce config.system.stateVersion;}
+    ];
+  };
+
   nh = {
     enable = true;
     clean = {
@@ -70,21 +80,8 @@
       inputs.nur.overlay
       inputs.nix-vscode-extensions.overlays.default
       inputs.catppuccin-vsc.overlays.default
-
-      (_final: prev: {
-        lib =
-          prev.lib
-          // {
-            colors = import "${self}/lib/colors" prev.lib;
-          };
-      })
     ];
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    verbose = true;
-    sharedModules = [inputs.self.homeModules.shell];
-  };
+  system.stateVersion = lib.mkDefault "23.11";
 }

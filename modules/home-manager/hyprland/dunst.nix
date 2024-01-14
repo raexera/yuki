@@ -72,7 +72,7 @@ in {
     enable = true;
     inherit (config.gtk) iconTheme;
     settings = let
-      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
+      inherit (themes.colorscheme) xcolors;
     in {
       global = {
         alignment = "left";

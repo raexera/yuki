@@ -6,7 +6,7 @@
 }: let
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
-  xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
+  inherit (themes.colorscheme) xcolors;
 in {
   programs.waybar = {
     enable = true;

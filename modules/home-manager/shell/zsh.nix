@@ -175,7 +175,7 @@
     '';
 
     envExtra = let
-      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
+      inherit (themes.colorscheme) xcolors;
     in ''
       # Set fzf options
       export FZF_DEFAULT_OPTS=" \

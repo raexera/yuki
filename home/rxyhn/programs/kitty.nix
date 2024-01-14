@@ -1,8 +1,4 @@
-{
-  pkgs,
-  themes,
-  ...
-}: {
+{themes, ...}: {
   home.sessionVariables.TERMINAL = "kitty -1";
 
   programs.kitty = {
@@ -11,7 +7,7 @@
     theme = "Catppuccin-Macchiato";
 
     settings = let
-      xcolors = pkgs.lib.colors.xcolors themes.colorscheme.colors;
+      inherit (themes.colorscheme) xcolors;
     in {
       active_tab_font_style = "bold";
       background_opacity = "1.0";
