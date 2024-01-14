@@ -27,7 +27,7 @@ in {
         margin-bottom = 0;
         margin-left = 0;
         modules-left = [
-          "custom/search"
+          "custom/logo"
           "user"
           "hyprland/workspaces"
           "tray"
@@ -40,10 +40,9 @@ in {
           "clock"
           "group/power"
         ];
-        "custom/search" = {
+        "custom/logo" = {
           format = " ";
           tooltip = false;
-          on-click = "sh -c 'run-as-service $(wofi -S drun)'";
         };
         user = {
           format = "{user}";
@@ -237,7 +236,7 @@ in {
         padding: 0.375rem 0.75rem;
       }
 
-      #custom-search {
+      #custom-logo {
         background-image: url("${snowflake}");
         background-size: 80%;
         background-position: center;
