@@ -21,7 +21,7 @@
       hideIcons = false;
       ignoreExclusiveZones = false;
       layer = "overlay";
-      hidePluginInfo = false;
+      hidePluginInfo = true;
       closeOnClick = false;
       showResultsImmediately = false;
       maxEntries = 10;
@@ -36,7 +36,7 @@
         border-radius: 0;
         min-height: 0;
         min-width: 0;
-        font-family: Dosis, sans-serif;
+        font-family: Inter, sans-serif;
         font-size: 1.3rem;
       }
 

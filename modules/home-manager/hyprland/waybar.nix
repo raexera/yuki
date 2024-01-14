@@ -203,7 +203,7 @@ in {
         border-radius: 0;
         min-height: 0;
         min-width: 0;
-        font-family: "Material Design Icons", monospace;
+        font-family: "Material Design Icons", Inter, sans-serif;
         font-size: 1rem;
       }
 
@@ -341,7 +341,6 @@ in {
 
       tooltip label {
         padding: 0.375rem;
-        font-family: "Dosis", sans-serif;
       }
     '';
 

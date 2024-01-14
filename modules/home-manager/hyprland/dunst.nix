@@ -80,7 +80,7 @@ in {
         ellipsize = "middle";
         enable_recursive_icon_lookup = true;
         follow = "mouse";
-        font = "Dosis 11";
+        font = "Inter 11";
         format = "<b>%a</b>\\n<i>%s</i>%p\\n%b";
         frame_width = 0;
         gap_size = 5;

@@ -17,7 +17,7 @@
       line-uses-ring = false;
       ignore-empty-password = true;
       show-failed-attempts = false;
-      font = "Dosis";
+      font = "Inter";
       timestr = "%I:%M %p";
       datestr = "%d / %m / %y";
       fade-in = "0.1";

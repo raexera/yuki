@@ -25,8 +25,8 @@
     };
 
     font = {
-      name = "Dosis";
-      package = pkgs.dosis;
+      name = "Inter";
+      package = pkgs.google-fonts.override {fonts = ["Inter"];};
       size = 11;
     };
 

@@ -11,7 +11,7 @@
 <br>
 
 <a href="#">
-  <img src="https://github.com/rxyhn/yuki/assets/93292023/d6cddf80-a783-48d5-b674-e596c6df3c5d" width="800" alt="Desktop Preview"/>
+  <img src="https://github.com/rxyhn/yuki/assets/93292023/4a91b237-87b1-4088-8a8f-56ba5bacb0a8" width="800" alt="Desktop Preview"/>
 </a>
 
 <br>
