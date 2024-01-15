@@ -50,7 +50,6 @@
       ark
       ffmpegthumbnailer
       libgsf
-      xfce.tumbler
     ];
   };
 
