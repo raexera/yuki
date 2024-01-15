@@ -6,20 +6,33 @@
 }: {
   imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
-  boot.kernelParams = ["module_blacklist=nouveau" "iommu=pt" "i915.enable_psr=0" "i8042.direct" "i8042.dumbkbd"];
+  boot = {
+    initrd = {
+      availableKernelModules = ["xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod"];
+      kernelModules = [];
+    };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/NixOS-ROOT";
-    fsType = "ext4";
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
+
+    extraModprobeConfig = ''
+      blacklist nouveau
+      options nouveau modeset=0
+    '';
+
+    kernelParams = ["module_blacklist=nouveau" "iommu=pt" "i915.enable_psr=0" "i8042.direct" "i8042.dumbkbd"];
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/NixOS-BOOT";
-    fsType = "vfat";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/NixOS-ROOT";
+      fsType = "ext4";
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-label/NixOS-BOOT";
+      fsType = "vfat";
+    };
   };
 
   swapDevices = [{device = "/dev/disk/by-label/NixOS-SWAP";}];
