@@ -4,10 +4,8 @@
     package = pkgs.bluez5-experimental;
     settings = {
       General = {
-        ControllerMode = "bredr";
         Experimental = true;
         FastConnectable = true;
-        JustWorksRepairing = "always";
       };
     };
   };

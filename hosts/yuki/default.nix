@@ -72,6 +72,7 @@
   networking.hostName = "yuki";
 
   services = {
+    auto-cpufreq.enable = true;
     fstrim.enable = true;
     hardware.bolt.enable = true;
 
@@ -86,9 +87,9 @@
 
     upower = {
       enable = true;
-      percentageLow = 20;
-      percentageCritical = 15;
-      percentageAction = 10;
+      percentageLow = 25;
+      percentageCritical = 20;
+      percentageAction = 15;
       criticalPowerAction = "Hibernate";
     };
   };

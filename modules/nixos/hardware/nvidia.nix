@@ -5,14 +5,6 @@
   ...
 }: let
   inherit (lib) mkDefault versionOlder;
-
-  nvStable = config.boot.kernelPackages.nvidiaPackages.stable.version;
-  nvBeta = config.boot.kernelPackages.nvidiaPackages.beta.version;
-
-  nvidiaPackage =
-    if (versionOlder nvBeta nvStable)
-    then config.boot.kernelPackages.nvidiaPackages.stable
-    else config.boot.kernelPackages.nvidiaPackages.beta;
 in {
   config = {
     boot.blacklistedKernelModules = ["nouveau"];
@@ -38,11 +30,8 @@ in {
       nvidia = {
         modesetting.enable = mkDefault true;
 
-        nvidiaSettings = true;
-        nvidiaPersistenced = true;
-
         open = mkDefault false;
-        package = mkDefault nvidiaPackage;
+        package = mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
 
         powerManagement = {
           enable = mkDefault true;

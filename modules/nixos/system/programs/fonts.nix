@@ -25,6 +25,9 @@
 
     packages = with pkgs; [
       iosevka-bin
+      fira
+      fira-code
+      fira-code-symbols
       material-icons
       material-design-icons
       monaspace
@@ -34,7 +37,7 @@
       roboto
 
       (google-fonts.override {fonts = ["Inter"];})
-      (nerdfonts.override {fonts = ["FiraCode" "Iosevka"];})
+      (nerdfonts.override {fonts = ["Iosevka"];})
     ];
   };
 }
