@@ -49,10 +49,6 @@ in {
           finegrained = mkDefault true;
         };
       };
-
-      opengl = {
-        extraPackages = with pkgs; [nvidia-vaapi-driver];
-      };
     };
 
     services.xserver.videoDrivers = ["nvidia"];
