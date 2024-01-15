@@ -1,16 +1,12 @@
 {
   wayland.windowManager.hyprland.settings = {
-    layerrule = [
-      "ignorezero, ^(gtk-layer-shell)$"
-      "ignorezero, bar"
-      "ignorezero, launcher"
-      "ignorezero, lockscreen"
-      "ignorezero, notifications"
-    ];
-
     windowrulev2 = [
       "float, class:^(imv)$"
-      "float, class:^(wofi)$"
+      "float, class:^(nm-connection-editor)$"
+      "float, class:^(org.gnome.Nautilus)$"
+      "float, class:^(pavucontrol)$"
+      "float, class:^(xdg-desktop-portal)$"
+      "float, class:^(xdg-desktop-portal-gtk)$"
       "float, title:^(com.github.Aylur.ags)$"
       "float, title:^(Media viewer)$"
       "float, title:^(Picture-in-Picture)$"

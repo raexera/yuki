@@ -47,20 +47,11 @@
     };
 
     systemPackages = with pkgs; [
-      xfce.thunar
-      xfce.thunar-archive-plugin
-      xfce.thunar-media-tags-plugin
-      xfce.thunar-volman
+      gnome.adwaita-icon-theme
+      gnome.nautilus
+      gnome.sushi
+      nautilus-open-any-terminal
     ];
-  };
-
-  nixpkgs.overlays = [
-    inputs.nixpkgs-wayland.overlay
-  ];
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
   };
 
   home-manager.sharedModules = [
@@ -70,12 +61,13 @@
     inputs.self.homeModules.hyprland
   ];
 
-  xdg.portal = {
+  nixpkgs.overlays = [
+    inputs.nixpkgs-wayland.overlay
+  ];
+
+  programs.hyprland = {
     enable = true;
-    config.common.default = "*";
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    xwayland.enable = true;
   };
 
   security = {
@@ -139,5 +131,13 @@
       RestartSec = 1;
       TimeoutStopSec = 10;
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 }

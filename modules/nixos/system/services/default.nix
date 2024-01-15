@@ -6,16 +6,11 @@
   location.provider = "geoclue2";
 
   services = {
+    accounts-daemon.enable = true;
     devmon.enable = true;
     geoclue2.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
-    power-profiles-daemon.enable = true;
-
-    psd = {
-      enable = true;
-      resyncTimer = "10m";
-    };
 
     dbus = {
       enable = true;

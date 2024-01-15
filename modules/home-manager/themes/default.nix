@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./gtk.nix
     ./qt.nix
@@ -13,6 +17,10 @@
       x11.enable = true;
     };
 
-    sessionVariables.XCURSOR_SIZE = "24";
+    sessionVariables = {
+      GTK_THEME = config.gtk.theme.name;
+      XCURSOR_SIZE = "24";
+      XCURSOR_THEME = config.home.pointerCursor.name;
+    };
   };
 }

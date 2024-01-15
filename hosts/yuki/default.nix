@@ -81,6 +81,13 @@
     fstrim.enable = true;
     thermald.enable = true;
 
+    power-profiles-daemon.enable = true;
+
+    psd = {
+      enable = true;
+      resyncTimer = "10m";
+    };
+
     upower = {
       enable = true;
       percentageLow = 20;
