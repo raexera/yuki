@@ -2,7 +2,10 @@
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
       "float, class:^(imv)$"
+      "float, class:^(io.bassi.Amberol)$"
+      "float, class:^(io.github.celluloid_player.Celluloid)$"
       "float, class:^(nm-connection-editor)$"
+      "float, class:^(org.gnome.Loupe)$"
       "float, class:^(pavucontrol)$"
       "float, class:^(thunar)$"
       "float, class:^(xdg-desktop-portal)$"
