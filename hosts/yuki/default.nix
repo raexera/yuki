@@ -73,7 +73,7 @@
 
   services = {
     fstrim.enable = true;
-    thermald.enable = true;
+    hardware.bolt.enable = true;
 
     power-profiles-daemon.enable = true;
 
@@ -81,6 +81,8 @@
       enable = true;
       resyncTimer = "10m";
     };
+
+    thermald.enable = true;
 
     upower = {
       enable = true;

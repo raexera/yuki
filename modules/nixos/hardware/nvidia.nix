@@ -37,16 +37,22 @@ in {
     hardware = {
       nvidia = {
         modesetting.enable = mkDefault true;
+
+        nvidiaSettings = false;
+        nvidiaPersistenced = true;
+
         open = mkDefault false;
         package = mkDefault nvidiaPackage;
 
         powerManagement = {
           enable = mkDefault true;
-          finegrained = mkDefault false;
+          finegrained = mkDefault true;
         };
       };
 
-      opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+      opengl = {
+        extraPackages = with pkgs; [nvidia-vaapi-driver];
+      };
     };
 
     services.xserver.videoDrivers = ["nvidia"];
