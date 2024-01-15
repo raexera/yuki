@@ -57,7 +57,7 @@
     inputs.ags.homeManagerModules.default
     inputs.anyrun.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
-    inputs.self.homeModules.hyprland
+    inputs.self.homeManagerModules.hyprland
   ];
 
   nixpkgs.overlays = [

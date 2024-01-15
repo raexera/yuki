@@ -1,5 +1,5 @@
 {
-  flake.homeModules = {
+  flake.homeManagerModules = {
     hyprland = import ./hyprland;
     shell = import ./shell;
   };

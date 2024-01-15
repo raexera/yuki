@@ -14,7 +14,7 @@
 in {
   services.swayidle = {
     enable = true;
-    systemdTarget = "graphical-session.target";
+
     events = [
       {
         event = "before-sleep";
@@ -25,15 +25,16 @@ in {
         command = "${pkgs.swaylock-effects}/bin/swaylock -i ${themes.wallpaper} --daemonize --grace 15";
       }
     ];
+
     timeouts = [
       {
-        timeout = 300;
-        command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
+        timeout = 900;
+        command = suspendScript.outPath;
       }
       {
-        timeout = 330;
-        command = suspendScript.outPath;
+        timeout = 1200;
+        command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+        resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
       }
     ];
   };
