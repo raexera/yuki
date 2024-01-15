@@ -4,8 +4,11 @@
 
     hardware = {
       opengl = {
-        extraPackages = with pkgs; [libvdpau-va-gl intel-media-driver intel-compute-runtime];
-        extraPackages32 = with pkgs.pkgsi686Linux; [libvdpau-va-gl intel-media-driver];
+        extraPackages = with pkgs; [
+          intel-compute-runtime
+          intel-media-driver
+          libvdpau-va-gl
+        ];
       };
     };
   };
