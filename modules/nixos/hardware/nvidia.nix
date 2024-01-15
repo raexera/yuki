@@ -8,12 +8,7 @@
     boot.blacklistedKernelModules = ["nouveau"];
 
     environment = {
-      sessionVariables = {
-        NVD_BACKEND = "direct";
-        GBM_BACKEND = "nvidia-drm";
-        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        LIBVA_DRIVER_NAME = "nvidia";
-      };
+      sessionVariables.NVD_BACKEND = "direct";
 
       systemPackages = with pkgs; [
         libva
