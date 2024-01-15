@@ -38,7 +38,7 @@ in {
       nvidia = {
         modesetting.enable = mkDefault true;
 
-        nvidiaSettings = false;
+        nvidiaSettings = true;
         nvidiaPersistenced = true;
 
         open = mkDefault false;
