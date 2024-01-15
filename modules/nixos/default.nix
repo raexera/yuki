@@ -1,8 +1,9 @@
 {
   flake.nixosModules = {
-    system = import ./system;
+    bluetooth = import ./hardware/bluetooth.nix;
+    hyprland = import ./system/windowManager/hyprland.nix;
     intel = import ./hardware/intel.nix;
     nvidia = import ./hardware/nvidia.nix;
-    hyprland = import ./system/windowManager/hyprland.nix;
+    system = import ./system;
   };
 }

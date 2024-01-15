@@ -16,10 +16,11 @@
       inherit specialArgs;
       modules = [
         ./yuki
-        nixosModules.system
+        nixosModules.bluetooth
+        nixosModules.hyprland
         nixosModules.intel
         nixosModules.nvidia
-        nixosModules.hyprland
+        nixosModules.system
 
         {
           home-manager = {
