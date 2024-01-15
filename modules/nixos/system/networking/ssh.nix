@@ -13,7 +13,6 @@
       KbdInteractiveAuthentication = false;
       PasswordAuthentication = false;
       PermitRootLogin = "no";
-      UseDns = false;
       X11Forwarding = false;
     };
   };
