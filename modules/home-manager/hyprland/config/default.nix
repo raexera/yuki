@@ -30,7 +30,7 @@
       shadow_render_power = 3;
       "col.shadow" = "rgba(00000055)";
       blur = {
-        enabled = true;
+        enabled = false;
         brightness = 1.0;
         contrast = 1.0;
         size = 10;

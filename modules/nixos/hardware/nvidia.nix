@@ -3,16 +3,16 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (lib) mkDefault versionOlder;
-in {
+}: {
   config = {
     boot.blacklistedKernelModules = ["nouveau"];
 
     environment = {
       sessionVariables = {
         NVD_BACKEND = "direct";
-        WLR_NO_HARDWARE_CURSORS = "1";
+        GBM_BACKEND = "nvidia-drm";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        LIBVA_DRIVER_NAME = "nvidia";
       };
 
       systemPackages = with pkgs; [
@@ -28,14 +28,14 @@ in {
 
     hardware = {
       nvidia = {
-        modesetting.enable = mkDefault true;
+        modesetting.enable = lib.mkDefault true;
 
-        open = mkDefault false;
-        package = mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
+        open = lib.mkDefault false;
+        package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
 
         powerManagement = {
-          enable = mkDefault true;
-          finegrained = mkDefault true;
+          enable = lib.mkDefault true;
+          finegrained = lib.mkDefault true;
         };
       };
     };
