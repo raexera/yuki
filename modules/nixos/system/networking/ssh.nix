@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   programs = {
     ssh.startAgent = false;
     gnupg.agent = {
@@ -10,8 +10,11 @@
   services.openssh = {
     enable = true;
     settings = {
-      PermitRootLogin = lib.mkForce "yes";
-      PasswordAuthentication = lib.mkForce false;
+      KbdInteractiveAuthentication = false;
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+      UseDns = false;
+      X11Forwarding = false;
     };
   };
 }
