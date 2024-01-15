@@ -34,7 +34,7 @@
       roboto
 
       (google-fonts.override {fonts = ["Inter"];})
-      (nerdfonts.override {fonts = ["Iosevka"];})
+      (nerdfonts.override {fonts = ["FiraCode" "Iosevka"];})
     ];
   };
 }

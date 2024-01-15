@@ -3,8 +3,8 @@
     windowrulev2 = [
       "float, class:^(imv)$"
       "float, class:^(nm-connection-editor)$"
-      "float, class:^(org.gnome.Nautilus)$"
       "float, class:^(pavucontrol)$"
+      "float, class:^(thunar)$"
       "float, class:^(xdg-desktop-portal)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
       "float, title:^(com.github.Aylur.ags)$"

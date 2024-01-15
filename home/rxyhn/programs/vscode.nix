@@ -136,7 +136,7 @@ in {
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "editor.cursorBlinking" = "smooth";
       "editor.cursorSmoothCaretAnimation" = "on";
-      "editor.fontFamily" = "'monospace', monospace, 'Material Design Icons'";
+      "editor.fontFamily" = "'FiraCode Nerd Font', 'monospace', monospace, 'Material Design Icons'";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 13;
       "editor.fontWeight" = "500";
@@ -184,7 +184,7 @@ in {
       "terminal.integrated.cursorBlinking" = true;
       "terminal.integrated.cursorStyle" = "line";
       "terminal.integrated.cursorWidth" = 2;
-      "terminal.integrated.fontFamily" = "'monospace'";
+      "terminal.integrated.fontFamily" = "'FiraCode Nerd Font', 'monospace', monospace";
       "terminal.integrated.fontSize" = 13;
       "terminal.integrated.minimumContrastRatio" = 1;
       "terminal.integrated.smoothScrolling" = true;

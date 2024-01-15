@@ -47,10 +47,10 @@
     };
 
     systemPackages = with pkgs; [
-      gnome.adwaita-icon-theme
-      gnome.nautilus
-      gnome.sushi
-      nautilus-open-any-terminal
+      ark
+      ffmpegthumbnailer
+      libgsf
+      xfce.tumbler
     ];
   };
 
@@ -65,9 +65,21 @@
     inputs.nixpkgs-wayland.overlay
   ];
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-dropbox-plugin
+        thunar-media-tags-plugin
+        thunar-volman
+      ];
+    };
   };
 
   security = {
