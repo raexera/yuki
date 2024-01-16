@@ -65,22 +65,22 @@
       inactive_tab_background = xcolors.black2;
 
       # The 16 terminal colors
-      color_0 = xcolors.gray0;
-      color_8 = xcolors.gray1;
-      color_1 = xcolors.red;
-      color_9 = xcolors.red;
-      color_2 = xcolors.green;
-      color_10 = xcolors.green;
-      color_3 = xcolors.yellow;
-      color_11 = xcolors.yellow;
-      color_4 = xcolors.blue;
-      color_12 = xcolors.blue;
-      color_5 = xcolors.pink;
-      color_13 = xcolors.pink;
-      color_6 = xcolors.sky;
-      color_14 = xcolors.sky;
-      color_7 = xcolors.white;
-      color_15 = xcolors.white;
+      color0 = xcolors.gray0;
+      color8 = xcolors.gray1;
+      color1 = xcolors.red;
+      color9 = xcolors.red;
+      color2 = xcolors.green;
+      color10 = xcolors.green;
+      color3 = xcolors.yellow;
+      color11 = xcolors.yellow;
+      color4 = xcolors.blue;
+      color12 = xcolors.blue;
+      color5 = xcolors.pink;
+      color13 = xcolors.pink;
+      color6 = xcolors.sky;
+      color14 = xcolors.sky;
+      color7 = xcolors.white;
+      color15 = xcolors.white;
     };
 
     keybindings = {
