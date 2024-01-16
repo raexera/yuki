@@ -12,15 +12,15 @@
       colors.green
       colors.yellow
       colors.blue
-      colors.mauve
+      colors.pink
       colors.teal
       colors.white
-      colors.black2
+      colors.gray1
       colors.red
       colors.green
       colors.yellow
       colors.blue
-      colors.mauve
+      colors.pink
       colors.teal
       colors.white
     ];

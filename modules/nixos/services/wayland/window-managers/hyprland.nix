@@ -3,7 +3,6 @@
   inputs,
   lib,
   pkgs,
-  themes,
   ...
 }: {
   imports = [
