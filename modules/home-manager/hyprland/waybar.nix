@@ -221,6 +221,7 @@ in {
       #backlight-battery,
       #clock,
       #custom-lock,
+      #custom-logo,
       #custom-power,
       #custom-reboot,
       #custom-suspend,
@@ -232,19 +233,17 @@ in {
       #user {
         background: ${xcolors.black3};
         border-radius: 8px;
-        min-width: 1rem;
+        min-width: 0.75rem;
         margin: 0.5rem 0.25rem;
-        padding: 0.375rem 0.75rem;
+        padding: 0.5rem 0.75rem;
       }
 
       #custom-logo {
+        background-color: transparent;
         background-image: url("${snowflake}");
-        background-size: 80%;
         background-position: center;
         background-repeat: no-repeat;
-        min-width: 1rem;
-        margin: 0.5rem 0.25rem;
-        padding: 0.375rem 0.75rem;
+        background-size: 80%;
       }
 
       #user {
@@ -262,8 +261,8 @@ in {
 
       #workspaces button {
         border-radius: 8px;
-        min-width: 1rem;
-        padding: 0.375rem 0.75rem;
+        min-width: 0.75rem;
+        padding: 0.5rem 0.75rem;
         transition: all 0.1s ease-in-out;
       }
 
@@ -296,7 +295,7 @@ in {
       #tray menuitem,
       #tray window {
         border-radius: 8px;
-        padding: 0.375rem;
+        padding: 0.5rem;
       }
 
       #tray menuitem:hover {
@@ -340,12 +339,12 @@ in {
       menu,
       tooltip {
         border-radius: 8px;
-        padding: 0.375rem;
+        padding: 0.5rem;
         background: ${xcolors.black0};
       }
 
       tooltip label {
-        padding: 0.375rem;
+        padding: 0.5rem;
       }
     '';
 
