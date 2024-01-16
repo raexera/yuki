@@ -43,10 +43,6 @@
       pciutils
     ];
 
-    variables = {
-      GDK_SCALE = "2";
-    };
-
     sessionVariables = {
       WLR_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
       WLR_NO_HARDWARE_CURSORS = "1";

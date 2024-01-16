@@ -108,7 +108,6 @@ in {
         progress_bar_height = 10;
         progress_bar_max_width = 300;
         progress_bar_min_width = 150;
-        scale = 0;
         separator_color = "auto";
         separator_height = 2;
         show_indicators = true;

@@ -7,6 +7,10 @@
   wayland.windowManager.hyprland.settings = let
     pointer = config.home.pointerCursor;
   in {
+    env = [
+      "GDK_SCALE,2"
+    ];
+
     exec-once = [
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
     ];
@@ -101,7 +105,8 @@
     };
 
     monitor = [
-      ",highres,auto,2"
+      # name, resolution, position, scale
+      "eDP-1, highres, auto, 2"
     ];
 
     xwayland.force_zero_scaling = true;
