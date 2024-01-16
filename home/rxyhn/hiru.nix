@@ -7,8 +7,7 @@
     ./programs/firefox.nix
     ./programs/kitty.nix
     ./programs/media.nix
-    ./programs/packages.nix
-    ./programs/tools.nix
+    ./programs/nix-index-db.nix
     ./programs/vscode.nix
   ];
 
@@ -104,11 +103,6 @@
         tdesktop
         obsidian
         ;
-    };
-
-    sessionVariables = {
-      DIRENV_LOG_FORMAT = "";
-      NIX_AUTO_RUN = "1";
     };
   };
 }
