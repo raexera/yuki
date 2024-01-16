@@ -14,15 +14,15 @@ lib: {
       sky = "89DCEB";
       blue = "96CDFB";
       lavender = "C9CBFF";
-      white = "C5C8C9";
-      black0 = "0D1416";
-      black1 = "111719";
-      black2 = "131A1C";
-      black3 = "192022";
-      black4 = "202729";
-      gray0 = "363D3E";
-      gray1 = "4A5051";
-      gray2 = "5C6262";
+      white = "C5C8C9"; # Text
+      gray2 = "5C6262"; # Subtext 1
+      gray1 = "4A5051"; # Subtext 0
+      gray0 = "363D3E"; # Surface 2
+      black4 = "202729"; # Surface 1
+      black3 = "192022"; # Surface 0
+      black2 = "131A1C"; # Base
+      black1 = "111719"; # Mantle
+      black0 = "0D1416"; # Crust
     };
 
     base16 = {
