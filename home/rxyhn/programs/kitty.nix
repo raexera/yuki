@@ -39,37 +39,48 @@
       window_margin_width = 0;
       window_padding_width = 15;
 
+      # The basic colors
       foreground = xcolors.white;
       background = xcolors.black2;
       selection_foreground = xcolors.black2;
       selection_background = xcolors.rosewater;
+
+      # Cursor colors
       cursor = xcolors.rosewater;
       cursor_text_color = xcolors.black2;
+
+      # URL underline color
       url_color = xcolors.rosewater;
+
+      # Kitty window border colors
       active_border_color = xcolors.lavender;
       inactive_border_color = xcolors.black1;
       bell_border_color = xcolors.yellow;
+
+      # Tab bar colors
       tab_bar_background = xcolors.black1;
       active_tab_foreground = xcolors.black1;
       active_tab_background = xcolors.blue;
       inactive_tab_foreground = xcolors.white;
       inactive_tab_background = xcolors.black2;
-      color0 = xcolors.black4;
-      color8 = xcolors.gray0;
-      color1 = xcolors.red;
-      color9 = xcolors.red;
-      color2 = xcolors.green;
-      color10 = xcolors.green;
-      color3 = xcolors.yellow;
-      color11 = xcolors.yellow;
-      color4 = xcolors.blue;
-      color12 = xcolors.blue;
-      color5 = xcolors.pink;
-      color13 = xcolors.pink;
-      color6 = xcolors.teal;
-      color14 = xcolors.teal;
-      color7 = xcolors.gray1;
-      color15 = xcolors.gray2;
+
+      # The 16 terminal colors
+      color_0 = xcolors.gray0;
+      color_8 = xcolors.gray1;
+      color_1 = xcolors.red;
+      color_9 = xcolors.red;
+      color_2 = xcolors.green;
+      color_10 = xcolors.green;
+      color_3 = xcolors.yellow;
+      color_11 = xcolors.yellow;
+      color_4 = xcolors.blue;
+      color_12 = xcolors.blue;
+      color_5 = xcolors.pink;
+      color_13 = xcolors.pink;
+      color_6 = xcolors.sky;
+      color_14 = xcolors.sky;
+      color_7 = xcolors.white;
+      color_15 = xcolors.white;
     };
 
     keybindings = {
