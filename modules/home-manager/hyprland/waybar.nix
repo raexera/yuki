@@ -249,6 +249,9 @@ in {
 
       #user {
         color: ${xcolors.gray1};
+        font-family: monospace, "monospace";
+        font-weight: bold;
+        letter-spacing: 0.25rem;
       }
 
       #workspaces {
