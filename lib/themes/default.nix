@@ -25,6 +25,25 @@ lib: {
       gray2 = "5C6262";
     };
 
+    base16 = {
+      base00 = colors.black2; # base
+      base01 = colors.black1; # mantle
+      base02 = colors.black3; # surface0
+      base03 = colors.black4; # surface1
+      base04 = colors.gray0; # surface2
+      base05 = colors.white; # text
+      base06 = colors.rosewater; # rosewater
+      base07 = colors.lavender; # lavender
+      base08 = colors.red; # red
+      base09 = colors.peach; # peach
+      base0A = colors.yellow; # yellow
+      base0B = colors.green; # green
+      base0C = colors.teal; # teal
+      base0D = colors.blue; # blue
+      base0E = colors.mauve; # mauve
+      base0F = colors.flamingo; # flamingo
+    };
+
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;
   };
 

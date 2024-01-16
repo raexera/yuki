@@ -49,7 +49,7 @@
         yarn
         ;
 
-      # utilities
+      # Utilities
       inherit
         (pkgs)
         atool
