@@ -5,6 +5,8 @@
     fontconfig = {
       enable = true;
 
+      antialias = true;
+
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
         monospace = [
@@ -15,6 +17,17 @@
         ];
         serif = ["Noto Serif" "Noto Color Emoji"];
         sansSerif = ["Inter" "Noto Color Emoji"];
+      };
+
+      hinting = {
+        enable = true;
+        autohint = false;
+        style = "full";
+      };
+
+      subpixel = {
+        lcdfilter = "default";
+        rgba = "rgb";
       };
     };
 
