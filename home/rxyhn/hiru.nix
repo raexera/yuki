@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./programs/firefox.nix
     ./programs/kitty.nix
@@ -9,51 +13,98 @@
   ];
 
   home = {
-    packages = with pkgs; [
-      atool
-      bc
-      catimg
-      chafa
-      coreutils
-      curl
-      du-dust
-      duf
-      editorconfig-core-c
-      elinks
-      exiftool
-      fd
-      file
-      findutils
-      gawk
-      glow
-      gnused
-      hyperfine
-      imagemagick
-      jaq
-      joshuto
-      jq
-      killall
-      lz4
-      neofetch
-      p7zip
-      perl
-      procs
-      psmisc
-      ripgrep
-      rsync
-      sd
-      socat
-      trash-cli
-      tree
-      unrar
-      unzip
-      util-linux
-      wget
-      xarchiver
-      yt-dlp
-      zathura
-      zip
-    ];
+    packages = lib.attrValues {
+      # DEV Tools
+      inherit
+        (pkgs)
+        black
+        bun
+        ccls
+        clang
+        clang-tools
+        cmake
+        delve
+        go
+        gopls
+        grex
+        java-language-server
+        jre8
+        lldb
+        nodejs
+        shellcheck
+        shfmt
+        typescript
+        uncrustify
+        zig
+        zls
+        ;
+
+      inherit
+        (pkgs.nodePackages_latest)
+        jsonlint
+        prettier
+        typescript-language-server
+        vls
+        vscode-langservers-extracted
+        yaml-language-server
+        yarn
+        ;
+
+      # utilities
+      inherit
+        (pkgs)
+        atool
+        bc
+        catimg
+        chafa
+        coreutils
+        curl
+        du-dust
+        duf
+        editorconfig-core-c
+        elinks
+        exiftool
+        fd
+        file
+        findutils
+        gawk
+        glow
+        gnused
+        hyperfine
+        imagemagick
+        jaq
+        jq
+        killall
+        lz4
+        neofetch
+        p7zip
+        procs
+        psmisc
+        ripgrep
+        rsync
+        sd
+        socat
+        trash-cli
+        unrar
+        unzip
+        util-linux
+        wget
+        xarchiver
+        yt-dlp
+        zathura
+        zip
+        ;
+
+      # GUI
+      inherit
+        (pkgs)
+        discord
+        gimp
+        keepassxc
+        tdesktop
+        obsidian
+        ;
+    };
 
     sessionVariables = {
       DIRENV_LOG_FORMAT = "";
