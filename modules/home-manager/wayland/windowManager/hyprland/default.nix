@@ -7,7 +7,6 @@
 }: {
   imports = [
     ./config
-    ../themes
 
     ./anyrun.nix
     ./cliphist.nix
@@ -16,6 +15,9 @@
     ./swayidle.nix
     ./swaylock.nix
     ./waybar.nix
+
+    inputs.self.homeManagerModules.misc.gtk
+    inputs.self.homeManagerModules.misc.home-cursor
   ];
 
   home.packages = with pkgs; [

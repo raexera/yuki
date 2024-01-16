@@ -3,11 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./gtk.nix
-    ./qt.nix
-  ];
-
   home = {
     pointerCursor = {
       package = pkgs.bibata-cursors;
