@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   imports = [
-    ./location.nix
+    ./networking.nix
     ./pipewire.nix
+    ./ssh.nix
   ];
 
   services = {

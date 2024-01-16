@@ -1,8 +1,4 @@
-{lib, ...}: {
-  imports = [
-    ./ssh.nix
-  ];
-
+{
   networking = {
     networkmanager = {
       enable = true;

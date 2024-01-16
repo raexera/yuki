@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./locale.nix
-  ];
-
   environment = {
     systemPackages = with pkgs;
       [

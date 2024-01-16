@@ -1,7 +1,6 @@
 {
   imports = [
     ./bash.nix
-    ./fonts.nix
     ./home-manager.nix
     ./java.nix
     ./zsh.nix

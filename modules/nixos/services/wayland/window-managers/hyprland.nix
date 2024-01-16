@@ -10,27 +10,6 @@
     inputs.hyprland.nixosModules.default
   ];
 
-  console.colors = let
-    inherit (themes.colorscheme) colors;
-  in [
-    colors.black2
-    colors.red
-    colors.green
-    colors.yellow
-    colors.blue
-    colors.mauve
-    colors.teal
-    colors.white
-    colors.black2
-    colors.red
-    colors.green
-    colors.yellow
-    colors.blue
-    colors.mauve
-    colors.teal
-    colors.white
-  ];
-
   environment = {
     variables = {
       NIXOS_OZONE_WL = "1";
