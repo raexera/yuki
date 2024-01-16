@@ -52,13 +52,13 @@
         border: 1px solid ${xcolors.black3};
         border-radius: 8px;
         margin: 0.5rem;
-        padding: 0.3rem 1rem;
+        padding: 0.5rem 1rem;
       }
 
       #plugin,
       #match.activatable {
         border-radius: 8px;
-        padding: 0.3rem;
+        padding: 0.5rem;
       }
 
       #match.activatable:first-child {
@@ -80,7 +80,7 @@
       box#main {
         background: ${xcolors.black0};
         border-radius: 12px;
-        padding: 0.3rem;
+        padding: 0.5rem;
       }
     '';
 

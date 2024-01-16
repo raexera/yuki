@@ -233,7 +233,7 @@ in {
       #user {
         background: ${xcolors.black3};
         border-radius: 8px;
-        min-width: 0.75rem;
+        min-width: 1rem;
         margin: 0.5rem 0.25rem;
         padding: 0.5rem 0.75rem;
       }
@@ -261,7 +261,7 @@ in {
 
       #workspaces button {
         border-radius: 8px;
-        min-width: 0.75rem;
+        min-width: 1rem;
         padding: 0.5rem 0.75rem;
         transition: all 0.1s ease-in-out;
       }
