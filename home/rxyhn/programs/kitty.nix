@@ -42,12 +42,34 @@
       foreground = xcolors.white;
       background = xcolors.black2;
       selection_foreground = xcolors.black2;
+      selection_background = xcolors.rosewater;
+      cursor = xcolors.rosewater;
       cursor_text_color = xcolors.black2;
+      url_color = xcolors.rosewater;
+      active_border_color = xcolors.lavender;
+      inactive_border_color = xcolors.black1;
+      bell_border_color = xcolors.yellow;
       tab_bar_background = xcolors.black1;
       active_tab_foreground = xcolors.black1;
       active_tab_background = xcolors.blue;
       inactive_tab_foreground = xcolors.white;
       inactive_tab_background = xcolors.black2;
+      color0 = xcolors.black4;
+      color8 = xcolors.gray0;
+      color1 = xcolors.red;
+      color9 = xcolors.red;
+      color2 = xcolors.green;
+      color10 = xcolors.green;
+      color3 = xcolors.yellow;
+      color11 = xcolors.yellow;
+      color4 = xcolors.blue;
+      color12 = xcolors.blue;
+      color5 = xcolors.pink;
+      color13 = xcolors.pink;
+      color6 = xcolors.teal;
+      color14 = xcolors.teal;
+      color7 = xcolors.gray1;
+      color15 = xcolors.gray2;
     };
 
     keybindings = {
