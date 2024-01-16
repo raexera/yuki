@@ -21,7 +21,7 @@
       disable_ligatures = "never";
       editor = "nvim";
       font_family = "monospace";
-      font_size = "11.0";
+      font_size = "13.0";
       hide_window_decorations = "titlebar-only";
       inactive_tab_font_style = "normal";
       inactive_text_alpha = "1.0";
