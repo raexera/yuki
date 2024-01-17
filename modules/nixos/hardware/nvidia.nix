@@ -25,6 +25,9 @@
       nvidia = {
         modesetting.enable = lib.mkDefault true;
 
+        nvidiaPersistenced = true;
+        nvidiaSettings = true;
+
         open = lib.mkDefault false;
         package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
 
