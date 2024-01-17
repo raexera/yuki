@@ -15,11 +15,11 @@ lib: {
       blue = "96CDFB";
       lavender = "C9CBFF";
       white = "C5C8C9"; # Text
-      gray2 = "5C6262"; # Subtext 1
-      gray1 = "4A5051"; # Subtext 0
-      gray0 = "363D3E"; # Surface 2
-      black4 = "202729"; # Surface 1
-      black3 = "192022"; # Surface 0
+      gray2 = "5C6262";
+      gray1 = "4A5051"; # Surface2
+      gray0 = "363D3E"; # Surface1
+      black4 = "202729";
+      black3 = "192022"; # Surface0
       black2 = "131A1C"; # Base
       black1 = "111719"; # Mantle
       black0 = "0D1416"; # Crust
@@ -29,8 +29,8 @@ lib: {
       base00 = colors.black2; # base
       base01 = colors.black1; # mantle
       base02 = colors.black3; # surface0
-      base03 = colors.black4; # surface1
-      base04 = colors.gray0; # surface2
+      base03 = colors.gray0; # surface1
+      base04 = colors.gray1; # surface2
       base05 = colors.white; # text
       base06 = colors.rosewater; # rosewater
       base07 = colors.lavender; # lavender

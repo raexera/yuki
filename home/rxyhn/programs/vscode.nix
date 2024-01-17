@@ -112,6 +112,9 @@ in {
               blue = "${xcolors.blue}";
               lavender = "${xcolors.lavender}";
               text = "${xcolors.white}";
+              surface2 = "${xcolors.gray1}";
+              surface1 = "${xcolors.gray0}";
+              surface0 = "${xcolors.black3}";
               base = "${xcolors.black2}";
               mantle = "${xcolors.black1}";
               crust = "${xcolors.black0}";
