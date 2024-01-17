@@ -14,7 +14,7 @@
 
     sessionVariables = {
       GTK_THEME = config.gtk.theme.name;
-      XCURSOR_SIZE = "24";
+      XCURSOR_SIZE = config.home.pointerCursor.size;
       XCURSOR_THEME = config.home.pointerCursor.name;
     };
   };
