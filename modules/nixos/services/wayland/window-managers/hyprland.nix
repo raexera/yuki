@@ -6,7 +6,7 @@
 }: {
   imports = [
     inputs.hyprland.nixosModules.default
-    inputs.self.nixosModules.gdm
+    inputs.self.nixosModules.greetd
   ];
 
   environment = {
