@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkDefault versionOlder;
+  inherit (lib) mkDefault mkIf versionOlder;
 
   nvStable = config.boot.kernelPackages.nvidiaPackages.stable.version;
   nvBeta = config.boot.kernelPackages.nvidiaPackages.beta.version;
@@ -13,6 +13,8 @@
     if (versionOlder nvBeta nvStable)
     then config.boot.kernelPackages.nvidiaPackages.stable
     else config.boot.kernelPackages.nvidiaPackages.beta;
+
+  pCfg = config.hardware.nvidia.prime;
 in {
   config = {
     boot.blacklistedKernelModules = ["nouveau"];
@@ -44,6 +46,11 @@ in {
         powerManagement = {
           enable = mkDefault true;
           finegrained = mkDefault true;
+        };
+
+        prime.offload = {
+          enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
+          enableOffloadCmd = mkIf pCfg.offload.enable true;
         };
       };
     };
