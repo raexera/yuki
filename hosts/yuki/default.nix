@@ -1,8 +1,11 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit (lib) mkDefault;
+in {
   imports = [./hardware-configuration.nix];
 
   boot = {
@@ -50,18 +53,18 @@
   };
 
   hardware = {
-    enableAllFirmware = true;
-    enableRedistributableFirmware = true;
+    enableAllFirmware = mkDefault true;
+    enableRedistributableFirmware = mkDefault true;
 
     nvidia.prime = {
-      nvidiaBusId = "PCI:1:0:0";
-      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = mkDefault "PCI:1:0:0";
+      intelBusId = mkDefault "PCI:0:2:0";
     };
 
     opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable = mkDefault true;
+      driSupport = mkDefault true;
+      driSupport32Bit = mkDefault true;
     };
   };
 

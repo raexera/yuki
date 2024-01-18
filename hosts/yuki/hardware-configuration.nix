@@ -12,7 +12,7 @@
   ];
 
   boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = ["ideapad_laptop"];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
   boot.kernelParams = ["module_blacklist=nouveau" "iommu=pt" "i915.enable_psr=0" "i8042.direct" "i8042.dumbkbd"];

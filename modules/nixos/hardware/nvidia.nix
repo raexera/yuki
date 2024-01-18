@@ -17,20 +17,12 @@
   pCfg = config.hardware.nvidia.prime;
 in {
   config = {
-    boot.blacklistedKernelModules = ["nouveau"];
+    boot.blacklistedKernelModules = mkDefault ["nouveau"];
 
     environment = {
-      sessionVariables.NVD_BACKEND = "direct";
-
-      systemPackages = with pkgs; [
-        libva
-        libva-utils
-        mesa
-        vulkan-tools
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-extension-layer
-      ];
+      sessionVariables = {
+        NVD_BACKEND = "direct";
+      };
     };
 
     hardware = {
@@ -48,14 +40,14 @@ in {
           enableOffloadCmd = mkIf pCfg.offload.enable true;
         };
 
-        nvidiaSettings = false;
-        nvidiaPersistenced = true;
+        nvidiaSettings = mkDefault false;
+        nvidiaPersistenced = mkDefault true;
 
         package = mkDefault nvidiaPackage;
         open = mkDefault false;
       };
     };
 
-    services.xserver.videoDrivers = ["nvidia"];
+    services.xserver.videoDrivers = mkDefault ["nvidia"];
   };
 }
