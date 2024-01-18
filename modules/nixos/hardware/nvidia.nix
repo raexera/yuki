@@ -35,23 +35,24 @@ in {
 
     hardware = {
       nvidia = {
-        modesetting.enable = mkDefault true;
-
-        nvidiaPersistenced = true;
-        nvidiaSettings = false;
-
-        open = mkDefault false;
-        package = mkDefault nvidiaPackage;
-
         powerManagement = {
           enable = mkDefault true;
           finegrained = mkDefault true;
         };
 
+        dynamicBoost.enable = mkDefault true;
+        modesetting.enable = mkDefault true;
+
         prime.offload = {
           enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
           enableOffloadCmd = mkIf pCfg.offload.enable true;
         };
+
+        nvidiaSettings = false;
+        nvidiaPersistenced = true;
+
+        package = mkDefault nvidiaPackage;
+        open = mkDefault false;
       };
     };
 
