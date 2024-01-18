@@ -10,7 +10,6 @@
       "float, class:^(thunar)$"
       "float, class:^(xdg-desktop-portal)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
-      "float, title:^(com.github.Aylur.ags)$"
       "float, title:^(Media viewer)$"
       "float, title:^(Picture-in-Picture)$"
       "idleinhibit fullscreen, class:^(firefox)$"
