@@ -37,7 +37,7 @@
         min-height: 0;
         min-width: 0;
         font-family: Inter, sans-serif;
-        font-size: 1rem;
+        font-size: 11pt;
       }
 
       #entry,

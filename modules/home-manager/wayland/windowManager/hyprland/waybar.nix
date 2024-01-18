@@ -203,7 +203,7 @@ in {
         min-height: 0;
         min-width: 0;
         font-family: "Material Design Icons", Inter, sans-serif;
-        font-size: 1rem;
+        font-size: 11pt;
       }
 
       window#waybar {
