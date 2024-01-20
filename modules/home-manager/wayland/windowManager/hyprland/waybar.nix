@@ -74,8 +74,8 @@ in {
           format-wifi = "󰖩";
           format-ethernet = "󰈀";
           format-disconnected = "󰖪";
-          tooltip-format-wifi = "{essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
-          tooltip-format-ethernet = "{ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
+          tooltip-format-wifi = "WiFi: {essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
+          tooltip-format-ethernet = "Ethernet: {ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-disconnected = "Disconnected";
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
