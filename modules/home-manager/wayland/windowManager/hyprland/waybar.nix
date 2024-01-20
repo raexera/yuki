@@ -182,7 +182,7 @@ in {
         background: ${xcolors.black0};
         border-radius: 0.5rem;
         color: ${xcolors.white};
-        transition-property: background;
+        transition-property: background-color;
         transition-duration: 0.5s;
       }
 

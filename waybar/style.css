@@ -34,15 +34,15 @@ button:hover {
 #clock,
 #custom-lock,
 #custom-logo,
-#custom-logout,
+#custom-exit,
 #custom-power,
 #custom-reboot,
 #custom-suspend,
 #network-pulseaudio-backlight-battery,
 #workspaces {
-  color: #c5c8c9;
-  background-color: #888888;
+  background: #192022;
   border-radius: 1rem;
+  color: #c5c8c9;
   margin: 0.25rem 0.5rem;
   padding: 1rem 0.5rem;
 }
@@ -97,11 +97,11 @@ button:hover {
 
 #battery.charging,
 #battery.plugged {
-  color: green;
+  color: #abe9b3;
 }
 
 #battery.critical:not(.charging) {
-  color: red;
+  color: #f28fad;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -109,7 +109,7 @@ button:hover {
   animation-direction: alternate;
 }
 
-#custom-logout,
+#custom-exit,
 #custom-lock,
 #custom-suspend,
 #custom-reboot,
@@ -120,23 +120,23 @@ button:hover {
 }
 
 #custom-power {
-  color: red;
+  color: #f28fad;
 }
 
 #custom-reboot {
-  color: orange;
+  color: #f8bd96;
 }
 
 #custom-suspend {
-  color: yellow;
+  color: #fae3b0;
 }
 
 #custom-lock {
-  color: green;
+  color: #abe9b3;
 }
 
-#custom-logout {
-  color: blue;
+#custom-exit {
+  color: #96cdfb;
 }
 
 menu,
@@ -154,6 +154,6 @@ tooltip label {
 
 @keyframes blink {
   to {
-    color: white;
+    color: #c5c8c9;
   }
 }
