@@ -55,8 +55,17 @@ button:hover {
   background-size: 2rem;
 }
 
+#network-pulseaudio-backlight-battery,
+#workspaces {
+  padding: 1rem 0;
+}
+
+#network,
+#pulseaudio,
+#backlight,
+#battery,
 #workspaces button {
-  margin-bottom: 0.5rem;
+  padding: 0.5rem;
 }
 
 #workspaces button:last-child {
@@ -77,17 +86,6 @@ button:hover {
 
 #workspaces button.active label {
   color: #96cdfb;
-}
-
-#network,
-#pulseaudio,
-#backlight,
-#battery {
-  margin-bottom: 0.5rem;
-}
-
-#battery {
-  margin-bottom: 0;
 }
 
 #network.disconnected,

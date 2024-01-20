@@ -228,12 +228,17 @@ in {
         background-size: 2rem;
       }
 
-      #workspaces button {
-        margin-bottom: 0.5rem;
+      #network-pulseaudio-backlight-battery,
+      #workspaces {
+        padding: 1rem 0;
       }
 
-      #workspaces button:last-child {
-        margin-bottom: 0;
+      #network,
+      #pulseaudio,
+      #backlight,
+      #battery,
+      #workspaces button {
+        padding: 0.5rem;
       }
 
       #workspaces button.empty label {
@@ -250,17 +255,6 @@ in {
 
       #workspaces button.active label {
         color: ${xcolors.blue};
-      }
-
-      #network,
-      #pulseaudio,
-      #backlight,
-      #battery {
-        margin-bottom: 0.5rem;
-      }
-
-      #battery {
-        margin-bottom: 0;
       }
 
       #network.disconnected,
