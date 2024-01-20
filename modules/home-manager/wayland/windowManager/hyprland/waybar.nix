@@ -238,7 +238,7 @@ in {
       #backlight,
       #battery,
       #workspaces button {
-        padding: 0.5rem;
+        padding: 0.375rem 0.5rem;
       }
 
       #workspaces button.empty label {
