@@ -21,7 +21,6 @@ in {
       mainBar = {
         layer = "top";
         position = "left";
-        mode = "dock";
         exclusive = true;
         fixed-center = true;
         gtk-layer-shell = true;
@@ -309,9 +308,10 @@ in {
 
       menu,
       tooltip {
+        background: ${xcolors.black0};
+        border: 1px solid ${xcolors.gray1};
         border-radius: 0.5rem;
         padding: 0.5rem;
-        background: ${xcolors.black0};
       }
 
       menu label,

@@ -139,9 +139,10 @@ button:hover {
 
 menu,
 tooltip {
+  background: #0d1416;
+  border: 1px solid #4a5051;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  background: #0d1416;
 }
 
 menu label,
