@@ -100,7 +100,7 @@ in {
         mouse_right_click = "close_current";
         notification_limit = 20;
         offset = "5x5";
-        origin = "top-center";
+        origin = "top-right";
         padding = 15;
         progress_bar = true;
         progress_bar_corner_radius = 8;

@@ -17,7 +17,7 @@
       ];
 
       width.fraction = 0.5;
-      y.absolute = 15;
+      y.absolute = 5;
       hideIcons = false;
       ignoreExclusiveZones = false;
       layer = "overlay";
@@ -32,55 +32,54 @@
     in ''
       * {
         all: unset;
-        border: none;
-        border-radius: 0;
-        min-height: 0;
-        min-width: 0;
         font-family: Inter, sans-serif;
-        font-size: 11pt;
+        font-size: 1rem;
       }
 
-      #entry,
       #window,
-      #main,
+      #match,
+      #entry,
       #plugin,
-      #match {
+      #main {
         background: transparent;
       }
 
       #entry {
-        border: 1px solid ${xcolors.black3};
-        border-radius: 8px;
+        background: ${xcolors.black3};
+        border-radius: 0.5rem;
         margin: 0.5rem;
-        padding: 0.5rem 1rem;
+        padding: 1rem;
       }
 
-      #plugin,
       #match.activatable {
-        border-radius: 8px;
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: ${xcolors.black3};
       }
 
       #match.activatable:first-child {
-        margin-top: 0.5rem;
+        border-radius: 0.5rem 0.5rem 0 0;
       }
 
       #match.activatable:last-child {
-        margin-bottom: 0.5rem;
+        border-radius: 0 0 0.5rem 0.5rem;
       }
 
       #match:selected,
       #match:hover,
       #plugin:hover {
-        background: alpha(${xcolors.blue}, 0.5);
-        border: 1px solid ${xcolors.blue};
-        color: ${xcolors.blue};
+        border-radius: 0.5rem;
+        background: ${xcolors.blue};
       }
 
       box#main {
         background: ${xcolors.black0};
-        border-radius: 12px;
+        border-radius: 0.5rem;
         padding: 0.5rem;
+      }
+
+      list > #plugin {
+        border-radius: 0.5rem;
+        margin: 0.5rem;
       }
     '';
 
@@ -89,7 +88,7 @@
         Config(
           desktop_actions: true,
           max_entries: 10,
-          terminal: Some("kitty"),
+          terminal: Some("${config.home.sessionVariables.TERMINAL}"),
         )
       '';
 

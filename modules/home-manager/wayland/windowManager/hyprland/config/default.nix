@@ -26,7 +26,7 @@
     };
 
     decoration = {
-      rounding = 12;
+      rounding = 8;
       drop_shadow = true;
       shadow_ignore_window = true;
       shadow_offset = "0 2";
@@ -61,7 +61,7 @@
 
         "fade, 1, 10, smoothIn"
         "fadeDim, 1, 10, smoothIn"
-        "workspaces,1, 4, overshot,slide"
+        "workspaces,1, 4, overshot,slidevert"
       ];
     };
 
