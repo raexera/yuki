@@ -9,7 +9,6 @@
   programs = {
     dconf.enable = true;
     kdeconnect.enable = true;
-    nm-applet.enable = true;
     seahorse.enable = true;
     xfconf.enable = true;
   };

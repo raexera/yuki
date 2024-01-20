@@ -78,6 +78,7 @@ in {
           tooltip-format-wifi = "{essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-ethernet = "{ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-disconnected = "Disconnected";
+          on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
         pulseaudio = {
           format = "{icon}";
