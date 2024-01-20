@@ -41,13 +41,10 @@
       fira
       fira-code
       fira-code-symbols
-      material-icons
       material-design-icons
-      monaspace
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      roboto
 
       (google-fonts.override {fonts = ["Inter"];})
       (nerdfonts.override {fonts = ["Iosevka"];})

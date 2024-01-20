@@ -6,269 +6,234 @@
 }: let
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
+
+  snowflake = builtins.fetchurl rec {
+    name = "Logo-${sha256}.svg";
+    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
+    sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
+  };
+
   inherit (themes.colorscheme) xcolors;
 in {
   programs.waybar = {
     enable = true;
-    settings = let
-      formatIcons = color: text: "<span font_size='larger' color='${color}'>${text}</span>";
-    in [
-      {
+    settings = {
+      mainBar = {
         layer = "top";
-        position = "top";
+        position = "left";
         mode = "dock";
         exclusive = true;
-        passthrough = false;
         fixed-center = true;
         gtk-layer-shell = true;
         spacing = 0;
-        margin-top = 0;
+        margin-top = 5;
+        margin-bottom = 5;
+        margin-left = 5;
         margin-right = 0;
-        margin-bottom = 0;
-        margin-left = 0;
         modules-left = [
           "custom/logo"
-          "user"
           "hyprland/workspaces"
-          "tray"
         ];
         modules-center = [];
         modules-right = [
-          "network"
-          "group/volume"
-          "group/backlight-battery"
+          "group/network-pulseaudio-backlight-battery"
           "clock"
-          "group/power"
+          "group/powermenu"
         ];
         "custom/logo" = {
           format = " ";
           tooltip = false;
-        };
-        user = {
-          format = "{user}";
-          icon = false;
         };
         "hyprland/workspaces" = {
           active-only = false;
           all-outputs = true;
           disable-scroll = true;
           on-click = "activate";
-          format = "{name}";
+          format = "{icon}";
+          format-icons = {
+            active = "󰋘";
+            default = "󰋙";
+            empty = "󰋙";
+            persistent = "󰋙";
+            special = "󰋙";
+            urgent = "󰋙";
+          };
           persistent-workspaces = {
             "*" = 5;
           };
         };
-        tray = {
-          icon-size = 16;
-          spacing = 8;
-          show-passive-items = true;
-        };
-        network = {
-          format-wifi = formatIcons "${xcolors.flamingo}" "󰖩" + " {essid}";
-          format-ethernet = formatIcons "${xcolors.flamingo}" "󰈀" + " {ipaddr}/{cidr}";
-          format-disconnected = formatIcons "${xcolors.red}" "󰖪";
-          tooltip-format = ''
-            󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
-            {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
-        };
-        "group/volume" = {
-          orientation = "inherit";
-          drawer = {
-            transition-duration = 300;
-            children-class = "pulseaudio-child";
-            transition-left-to-right = false;
-          };
+        "group/network-pulseaudio-backlight-battery" = {
           modules = [
+            "network"
             "pulseaudio"
-            "pulseaudio/slider"
-          ];
-        };
-        "pulseaudio/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "horizontal";
-        };
-        pulseaudio = {
-          tooltip = false;
-          format = formatIcons "${xcolors.mauve}" "{icon}" + " {volume}%";
-          format-muted = formatIcons "${xcolors.red}" "󰖁";
-          format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
-          on-click = "${_ pamixer} -t";
-          on-scroll-up = "${_ pamixer} -d 1";
-          on-scroll-down = "${_ pamixer} -i 1";
-        };
-        "group/backlight-battery" = {
-          modules = [
             "backlight"
-            "custom/separator"
             "battery"
           ];
           orientation = "inherit";
         };
+        network = {
+          format-wifi = "󰖩";
+          format-ethernet = "󰈀";
+          format-disconnected = "󰖪";
+          tooltip-format-wifi = "{essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
+          tooltip-format-ethernet = "{ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
+          tooltip-format-disconnected = "Disconnected";
+        };
+        pulseaudio = {
+          format = "{icon}";
+          format-bluetooth = "󰂯";
+          format-muted = "󰖁";
+          format-icons = {
+            default = ["󰕿" "󰖀" "󰕾"];
+          };
+          tooltip-format = "Volume: {volume}%";
+          on-click = "${_ pamixer} -t";
+          on-scroll-up = "${_ pamixer} -d 1";
+          on-scroll-down = "${_ pamixer} -i 1";
+        };
         backlight = {
-          tooltip = false;
-          format = formatIcons "${xcolors.sky}" "{icon}" + " {percent}%";
-          format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
+          format = "{icon}";
+          format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+          tooltip-format = "Backlight: {percent}%";
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
         };
-        "custom/separator" = {
-          format = formatIcons "${xcolors.gray1}" " | ";
-          tooltip = false;
-        };
         battery = {
+          format = "{icon}";
+          format-charging = "󱐋";
+          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format-plugged = "󰚥";
           states = {
             warning = 30;
             critical = 15;
           };
           tooltip-format = "{timeTo}, {capacity}%";
-          format = formatIcons "${xcolors.green}" "{icon}" + " {capacity}%";
-          format-charging = formatIcons "${xcolors.green}" "󰂄" + " {capacity}%";
-          format-plugged = formatIcons "${xcolors.green}" "󰚥" + " {capacity}%";
-          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         clock = {
-          format = formatIcons "${xcolors.peach}" "󱑎" + " {:%I:%M %p}";
-          format-alt = formatIcons "${xcolors.yellow}" "󰃶" + " {:%a %d %b}";
+          format = "{:%H\n%M}";
+          actions = {
+            on-scroll-down = "shift_down";
+            on-scroll-up = "shift_up";
+          };
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
+            format = {
+              days = "<span color='#4A5051'><b>{}</b></span>";
+              months = "<span color='#C5C8C9'><b>{}</b></span>";
+              today = "<span color='#C5C8C9'><b><u>{}</u></b></span>";
+              weekdays = "<span color='#96CDFB'><b>{}</b></span>";
+            };
             mode = "month";
             on-scroll = 1;
-            format = {
-              months = "<span color='${xcolors.white}'><b>{}</b></span>";
-              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
-              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
-              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
-            };
-          };
-          actions = {
-            on-scroll-up = "shift_up";
-            on-scroll-down = "shift_down";
           };
         };
-        "group/power" = {
-          orientation = "inherit";
+        "group/powermenu" = {
           drawer = {
+            children-class = "power-child";
             transition-duration = 300;
             transition-left-to-right = false;
-            children-class = "power-child";
           };
           modules = [
             "custom/power"
-            "custom/quit"
+            "custom/exit"
             "custom/lock"
             "custom/suspend"
             "custom/reboot"
           ];
+          orientation = "inherit";
         };
-        "custom/quit" = {
-          format = formatIcons "${xcolors.teal}" "󰍃";
+        "custom/exit" = {
+          format = "󰈆";
           on-click = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
           tooltip = false;
         };
         "custom/lock" = {
-          format = formatIcons "${xcolors.green}" "󰌾";
+          format = "󰌾";
           on-click = "${pkgs.swaylock-effects}/bin/swaylock -S --daemonize";
           tooltip = false;
         };
         "custom/suspend" = {
-          format = formatIcons "${xcolors.yellow}" "󰒲";
+          format = "󰤄";
           on-click = "${pkgs.systemd}/bin/systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
-          format = formatIcons "${xcolors.peach}" "󰜉";
+          format = "󰜉";
           on-click = "${pkgs.systemd}/bin/systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
-          format = formatIcons "${xcolors.red}" "󰐥";
+          format = "󰐥";
           on-click = "${pkgs.systemd}/bin/systemctl poweroff";
           tooltip = false;
         };
-      }
-    ];
-
-    style = let
-      snowflake = builtins.fetchurl rec {
-        name = "Logo-${sha256}.svg";
-        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
-        sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
       };
-    in ''
+    };
+
+    style = ''
       * {
         all: unset;
-        border: none;
-        border-radius: 0;
-        min-height: 0;
-        min-width: 0;
-        font-family: "Material Design Icons", Inter, sans-serif;
-        font-size: 11pt;
+        font-family: "Material Design Icons", "Iosevka Fixed", sans-serif;
+        font-size: 13pt;
+        font-weight: bold;
       }
 
       window#waybar {
         background: ${xcolors.black0};
+        border-radius: 0.5rem;
+        color: ${xcolors.white};
+        transition-property: background;
+        transition-duration: 0.5s;
+      }
+
+      button {
+        box-shadow: inset 0 -3px transparent;
+        border: none;
+      }
+
+      button:hover {
+        box-shadow: inherit;
+        text-shadow: inherit;
       }
 
       .modules-left {
-        margin-left: 0.25rem;
+        padding-top: 0.5rem;
       }
 
       .modules-right {
-        margin-right: 0.25rem;
+        padding-bottom: 0.5rem;
       }
 
-      #backlight-battery,
       #clock,
       #custom-lock,
       #custom-logo,
+      #custom-exit,
       #custom-power,
       #custom-reboot,
       #custom-suspend,
-      #custom-quit,
-      #network,
-      #pulseaudio,
-      #pulseaudio-slider,
-      #tray,
-      #user {
+      #network-pulseaudio-backlight-battery,
+      #workspaces {
         background: ${xcolors.black3};
-        border-radius: 8px;
-        min-width: 1rem;
-        margin: 0.5rem 0.25rem;
-        padding: 0.5rem 0.75rem;
+        border-radius: 1rem;
+        color: ${xcolors.white};
+        margin: 0.25rem 0.5rem;
+        padding: 1rem 0.5rem;
       }
 
       #custom-logo {
-        background-color: transparent;
+        background: transparent;
         background-image: url("${snowflake}");
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 80%;
-      }
-
-      #user {
-        color: ${xcolors.gray1};
-        font-family: monospace, "monospace";
-        font-weight: bold;
-        letter-spacing: 0.25rem;
-      }
-
-      #workspaces {
-        background: ${xcolors.black3};
-        border-radius: 8px;
-        margin: 0.5rem 0.25rem;
+        background-size: 2rem;
       }
 
       #workspaces button {
-        border-radius: 8px;
-        min-width: 1rem;
-        padding: 0.5rem 0.75rem;
-        transition: all 0.1s ease-in-out;
+        margin-bottom: 0.5rem;
       }
 
-      #workspaces button:hover {
-        box-shadow: inherit;
-        text-shadow: inherit;
+      #workspaces button:last-child {
+        margin-bottom: 0;
       }
 
       #workspaces button.empty label {
@@ -283,68 +248,87 @@ in {
         color: ${xcolors.yellow};
       }
 
-      #workspaces button.active {
-        background: ${xcolors.blue};
-      }
-
       #workspaces button.active label {
-        color: ${xcolors.black3};
-        font-weight: bold;
+        color: ${xcolors.blue};
       }
 
-      #tray menuitem,
-      #tray window {
-        border-radius: 8px;
+      #network,
+      #pulseaudio,
+      #backlight,
+      #battery {
+        margin-bottom: 0.5rem;
+      }
+
+      #battery {
+        margin-bottom: 0;
+      }
+
+      #network.disconnected,
+      #pulseaudio.muted {
+        color: ${xcolors.red};
+      }
+
+      #battery.charging,
+      #battery.plugged {
+        color: ${xcolors.green};
+      }
+
+      #battery.critical:not(.charging) {
+        color: ${xcolors.red};
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      #custom-exit,
+      #custom-lock,
+      #custom-suspend,
+      #custom-reboot,
+      #custom-power {
+        font-size: larger;
         padding: 0.5rem;
+        background: transparent;
       }
 
-      #tray menuitem:hover {
-        background: ${xcolors.blue};
+      #custom-power {
+        color: ${xcolors.red};
       }
 
-      #tray > .passive {
-        -gtk-icon-effect: dim;
+      #custom-reboot {
+        color: ${xcolors.peach};
       }
 
-      #tray > .needs-attention {
-        -gtk-icon-effect: highlight;
+      #custom-suspend {
+        color: ${xcolors.yellow};
       }
 
-      #pulseaudio-slider slider {
-        min-height: 0px;
-        min-width: 0px;
-        opacity: 0;
-        background-image: none;
-        border: none;
-        box-shadow: none;
-        margin: 0 0.625rem;
+      #custom-lock {
+        color: ${xcolors.green};
       }
 
-      #pulseaudio-slider trough {
-        min-height: 0.625rem;
-        min-width: 5rem;
-        border-radius: 8px;
-        background: ${xcolors.black0};
-      }
-
-      #pulseaudio-slider highlight {
-        min-width: 0.625rem;
-        border-radius: 8px;
-      }
-
-      #pulseaudio-slider highlight {
-        background: ${xcolors.mauve};
+      #custom-exit {
+        color: ${xcolors.blue};
       }
 
       menu,
       tooltip {
-        border-radius: 8px;
+        border-radius: 0.5rem;
         padding: 0.5rem;
         background: ${xcolors.black0};
       }
 
+      menu label,
       tooltip label {
-        padding: 0.5rem;
+        font-weight: normal;
+        padding: 1rem;
+      }
+
+      @keyframes blink {
+        to {
+          color: ${xcolors.white};
+        }
       }
     '';
 
