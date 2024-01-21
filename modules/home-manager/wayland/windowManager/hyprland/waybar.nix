@@ -219,8 +219,7 @@ in {
     style = ''
       * {
         all: unset;
-        font-family: "Material Design Icons", "Iosevka Fixed", sans-serif;
-        font-size: 1rem;
+        font: 1rem "Material Design Icons", "Iosevka Fixed", sans-serif;
         min-height: 0;
         min-width: 0;
       }
@@ -229,8 +228,6 @@ in {
         background: ${xcolors.black0};
         border-radius: 0.5rem;
         color: ${xcolors.white};
-        transition-property: background-color;
-        transition-duration: 0.5s;
       }
 
       button {
@@ -271,11 +268,9 @@ in {
       }
 
       #custom-logo {
-        background: transparent;
-        background-image: url("${snowflake}");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 2rem;
+        background: transparent
+          url("${snowflake}")
+          center/2rem no-repeat;
         padding: 0.5rem;
       }
 
@@ -327,11 +322,7 @@ in {
 
       #battery.critical:not(.charging) {
         color: ${xcolors.red};
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
+        animation: blink 0.5s linear infinite alternate;
       }
 
       #clock {
@@ -344,7 +335,6 @@ in {
       #custom-reboot,
       #custom-power {
         background: transparent;
-        font-size: larger;
         padding: 0.5rem;
       }
 

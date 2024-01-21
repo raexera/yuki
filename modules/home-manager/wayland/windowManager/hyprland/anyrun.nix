@@ -32,8 +32,7 @@
     in ''
       * {
         all: unset;
-        font-family: Inter, sans-serif;
-        font-size: 1rem;
+        font: 1rem Inter, sans-serif;
       }
 
       #window,
