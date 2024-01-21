@@ -1,6 +1,10 @@
 {
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
+      "dimaround, class:^(gcr-prompter)$"
+      "dimaround, class:^(xdg-desktop-portal)$"
+      "dimaround, class:^(xdg-desktop-portal-gtk)$"
+      "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
       "float, class:^(imv)$"
       "float, class:^(io.bassi.Amberol)$"
       "float, class:^(io.github.celluloid_player.Celluloid)$"
@@ -12,9 +16,9 @@
       "float, class:^(xdg-desktop-portal-gtk)$"
       "float, title:^(Media viewer)$"
       "float, title:^(Picture-in-Picture)$"
-      "idleinhibit fullscreen, class:^(firefox)$"
+      "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
-      "idleinhibit focus, class:^(mpv)$"
+      "idleinhibit fullscreen, class:^(firefox)$"
       "pin, title:^(Picture-in-Picture)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
