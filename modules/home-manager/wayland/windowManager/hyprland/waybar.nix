@@ -220,8 +220,9 @@ in {
       * {
         all: unset;
         font-family: "Material Design Icons", "Iosevka Fixed", sans-serif;
-        font-size: 13pt;
-        font-weight: bold;
+        font-size: 1rem;
+        min-height: 0;
+        min-width: 0;
       }
 
       window#waybar {
@@ -250,6 +251,10 @@ in {
         padding-bottom: 0.5rem;
       }
 
+      label {
+        color: ${xcolors.white};
+      }
+
       #clock,
       #custom-lock,
       #custom-logo,
@@ -261,7 +266,6 @@ in {
       #workspaces {
         background: ${xcolors.black3};
         border-radius: 1rem;
-        color: ${xcolors.white};
         margin: 0.25rem 0.5rem;
         padding: 1rem 0.5rem;
       }
@@ -330,6 +334,10 @@ in {
         animation-direction: alternate;
       }
 
+      #clock {
+        font-weight: bold;
+      }
+
       #custom-exit,
       #custom-lock,
       #custom-suspend,
@@ -361,8 +369,6 @@ in {
       }
 
       slider {
-        min-height: 0;
-        min-width: 0;
         opacity: 0;
         background-image: none;
         border: none;
@@ -391,7 +397,6 @@ in {
 
       menu label,
       tooltip label {
-        font-weight: normal;
         padding: 1rem;
       }
 
