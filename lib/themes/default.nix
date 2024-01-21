@@ -30,7 +30,7 @@ lib: {
 
   wallpaper = builtins.fetchurl rec {
     name = "wallpaper-${sha256}.png";
-    url = "https://media.githubusercontent.com/media/rxyhn/wallpapers/main/OS/NixOS/nixos-nineish.png";
-    sha256 = "0p4d88z0g487c6l4z1z27xj5k773nzhh7s2wddn976lqsnldsqs1";
+    url = "https://media.githubusercontent.com/media/rxyhn/wallpapers/main/OS/NixOS/nixos-nineish-gradient.png";
+    sha256 = "12qw0w2jhmwlx615q8yxciz8yqklypi2cdi02bz29jigbfmvfk64";
   };
 }

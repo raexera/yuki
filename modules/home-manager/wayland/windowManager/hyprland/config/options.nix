@@ -4,6 +4,7 @@
   in {
     env = [
       "GDK_SCALE,2"
+      "WLR_DRM_NO_ATOMIC,1"
     ];
 
     exec-once = [
