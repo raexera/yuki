@@ -39,10 +39,14 @@ in {
           "clock"
           "group/powermenu"
         ];
+
+        # Distro Logo
         "custom/logo" = {
           format = " ";
           tooltip = false;
         };
+
+        # Workspaces
         "hyprland/workspaces" = {
           active-only = false;
           all-outputs = true;
@@ -61,15 +65,19 @@ in {
             "*" = 5;
           };
         };
+
+        # Group
         "group/network-pulseaudio-backlight-battery" = {
           modules = [
             "network"
-            "pulseaudio"
-            "backlight"
+            "group/audio-slider"
+            "group/light-slider"
             "battery"
           ];
           orientation = "inherit";
         };
+
+        # Network
         network = {
           format-wifi = "󰖩";
           format-ethernet = "󰈀";
@@ -78,6 +86,22 @@ in {
           tooltip-format-ethernet = "Ethernet: {ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-disconnected = "Disconnected";
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+        };
+
+        # Pulseaudio
+        "group/audio-slider" = {
+          orientation = "inherit";
+          drawer = {
+            transition-duration = 300;
+            children-class = "audio-slider-child";
+            transition-left-to-right = false;
+          };
+          modules = ["pulseaudio" "pulseaudio/slider"];
+        };
+        "pulseaudio/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "vertical";
         };
         pulseaudio = {
           format = "{icon}";
@@ -91,6 +115,22 @@ in {
           on-scroll-up = "${_ pamixer} -d 1";
           on-scroll-down = "${_ pamixer} -i 1";
         };
+
+        # Backlight
+        "group/light-slider" = {
+          orientation = "inherit";
+          drawer = {
+            transition-duration = 300;
+            children-class = "light-slider-child";
+            transition-left-to-right = false;
+          };
+          modules = ["backlight" "backlight/slider"];
+        };
+        "backlight/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "vertical";
+        };
         backlight = {
           format = "{icon}";
           format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
@@ -98,6 +138,8 @@ in {
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
         };
+
+        # Battery
         battery = {
           format = "{icon}";
           format-charging = "󱐋";
@@ -109,6 +151,8 @@ in {
           };
           tooltip-format = "{timeTo}, {capacity}%";
         };
+
+        # Clock & Calendar
         clock = {
           format = "{:%H\n%M}";
           actions = {
@@ -127,6 +171,8 @@ in {
             on-scroll = 1;
           };
         };
+
+        # Powermenu
         "group/powermenu" = {
           drawer = {
             children-class = "power-child";
@@ -236,7 +282,9 @@ in {
 
       #network,
       #pulseaudio,
+      #pulseaudio-slider,
       #backlight,
+      #backlight-slider,
       #battery,
       #workspaces button {
         padding: 0.375rem 0.5rem;
@@ -261,6 +309,11 @@ in {
       #network.disconnected,
       #pulseaudio.muted {
         color: ${xcolors.red};
+      }
+
+      #backlight-slider highlight,
+      #pulseaudio-slider highlight {
+        background-color: ${xcolors.white};
       }
 
       #battery.charging,
@@ -305,6 +358,27 @@ in {
 
       #custom-exit {
         color: ${xcolors.blue};
+      }
+
+      slider {
+        min-height: 0;
+        min-width: 0;
+        opacity: 0;
+        background-image: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      trough {
+        min-height: 5rem;
+        min-width: 0.625rem;
+        border-radius: 0.5rem;
+        background-color: ${xcolors.black0};
+      }
+
+      highlight {
+        min-width: 0.625rem;
+        border-radius: 0.5rem;
       }
 
       menu,
