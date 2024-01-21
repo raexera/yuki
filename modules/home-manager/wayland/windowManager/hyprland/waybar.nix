@@ -226,6 +226,7 @@ in {
         background-position: center;
         background-repeat: no-repeat;
         background-size: 2rem;
+        padding: 0.5rem;
       }
 
       #network-pulseaudio-backlight-battery,
@@ -281,9 +282,9 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
+        background: transparent;
         font-size: larger;
         padding: 0.5rem;
-        background: transparent;
       }
 
       #custom-power {
