@@ -224,10 +224,21 @@ in {
         min-width: 0;
       }
 
-      window#waybar {
-        background: ${xcolors.black0};
-        border-radius: 0.5rem;
+      label {
         color: ${xcolors.white};
+      }
+
+      menu,
+      tooltip {
+        background: ${xcolors.black0};
+        border: 1px solid ${xcolors.gray1};
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+      }
+
+      menu label,
+      tooltip label {
+        padding: 1rem;
       }
 
       button {
@@ -240,16 +251,37 @@ in {
         text-shadow: inherit;
       }
 
+      slider {
+        opacity: 0;
+        background-image: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      trough {
+        min-height: 5rem;
+        min-width: 0.625rem;
+        border-radius: 0.5rem;
+        background-color: ${xcolors.black0};
+      }
+
+      highlight {
+        min-width: 0.625rem;
+        border-radius: 0.5rem;
+      }
+
+      window#waybar {
+        background: ${xcolors.black0};
+        border-radius: 0.5rem;
+        color: ${xcolors.white};
+      }
+
       .modules-left {
         padding-top: 0.5rem;
       }
 
       .modules-right {
         padding-bottom: 0.5rem;
-      }
-
-      label {
-        color: ${xcolors.white};
       }
 
       #clock,
@@ -356,38 +388,6 @@ in {
 
       #custom-exit {
         color: ${xcolors.blue};
-      }
-
-      slider {
-        opacity: 0;
-        background-image: none;
-        border: none;
-        box-shadow: none;
-      }
-
-      trough {
-        min-height: 5rem;
-        min-width: 0.625rem;
-        border-radius: 0.5rem;
-        background-color: ${xcolors.black0};
-      }
-
-      highlight {
-        min-width: 0.625rem;
-        border-radius: 0.5rem;
-      }
-
-      menu,
-      tooltip {
-        background: ${xcolors.black0};
-        border: 1px solid ${xcolors.gray1};
-        border-radius: 0.5rem;
-        padding: 0.5rem;
-      }
-
-      menu label,
-      tooltip label {
-        padding: 1rem;
       }
 
       @keyframes blink {
