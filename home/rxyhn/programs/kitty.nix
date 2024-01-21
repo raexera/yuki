@@ -4,7 +4,6 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
-    theme = "Catppuccin-Macchiato";
 
     settings = let
       inherit (themes.colorscheme) xcolors;
@@ -51,11 +50,6 @@
 
       # URL underline color
       url_color = xcolors.rosewater;
-
-      # Kitty window border colors
-      active_border_color = xcolors.lavender;
-      inactive_border_color = xcolors.black1;
-      bell_border_color = xcolors.yellow;
 
       # Tab bar colors
       tab_bar_background = xcolors.black1;
