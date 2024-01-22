@@ -21,7 +21,7 @@
     };
 
     general = {
-      gaps_in = 5;
+      gaps_in = 4;
       gaps_out = 5;
       border_size = 1;
       "col.active_border" = "rgba(88888888)";
@@ -92,6 +92,7 @@
       disable_autoreload = true;
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
+      focus_on_activate = true;
       force_hypr_chan = true;
       force_default_wallpaper = 0;
       key_press_enables_dpms = true;
