@@ -334,6 +334,10 @@ in {
           center/2rem no-repeat;
       }
 
+      #workspaces button label {
+        transition: color 0.25s linear;
+      }
+
       #workspaces button.empty label {
         color: ${xcolors.gray1};
       }
