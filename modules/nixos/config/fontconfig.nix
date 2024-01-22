@@ -9,12 +9,7 @@
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = [
-          "Iosevka Term"
-          "Iosevka Term Nerd Font Complete Mono"
-          "Iosevka Nerd Font"
-          "Noto Color Emoji"
-        ];
+        monospace = ["Iosevka" "Noto Color Emoji"];
         serif = ["Noto Serif" "Noto Color Emoji"];
         sansSerif = ["Inter" "Noto Color Emoji"];
       };
@@ -38,7 +33,6 @@
 
     packages = with pkgs; [
       iosevka-bin
-      fira
       fira-code
       fira-code-symbols
       material-design-icons
@@ -47,7 +41,7 @@
       noto-fonts-emoji
 
       (google-fonts.override {fonts = ["Inter"];})
-      (nerdfonts.override {fonts = ["Iosevka"];})
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
   };
 }
