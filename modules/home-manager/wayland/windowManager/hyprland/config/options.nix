@@ -38,7 +38,7 @@
       shadow_ignore_window = true;
       shadow_offset = "0 2";
       shadow_range = 20;
-      shadow_render_power = 3;
+      shadow_render_power = 5;
       "col.shadow" = "rgba(00000055)";
 
       blur = {
@@ -57,18 +57,14 @@
       enabled = true;
 
       bezier = [
-        "smoothOut, 0.36, 0, 0.66, -0.56"
-        "smoothIn, 0.25, 1, 0.5, 1"
-        "overshot, 0.4, 0.8, 0.2, 1.2"
+        "md3_decel, 0.05, 0.7, 0.1, 1"
       ];
 
       animation = [
-        "border, 1, 10, default"
-        "fade, 1, 10, smoothIn"
-        "fadeDim, 1, 10, smoothIn"
-        "windows, 1, 4, overshot, slide"
-        "windowsOut, 1, 4, smoothOut, slide"
-        "workspaces,1, 4, overshot,slidevert"
+        "border, 1, 2, default"
+        "fade, 1, 4, md3_decel"
+        "windows, 1, 3, md3_decel, popin 60%"
+        "workspaces, 1, 3, md3_decel, slidevert"
       ];
     };
 
@@ -82,7 +78,7 @@
       touchpad = {
         disable_while_typing = true;
         natural_scroll = true;
-        scroll_factor = 0.1;
+        scroll_factor = 0.5;
       };
     };
 
