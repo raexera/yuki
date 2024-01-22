@@ -62,9 +62,9 @@
 
       animation = [
         "border, 1, 2, default"
-        "fade, 1, 4, md3_decel"
-        "windows, 1, 3, md3_decel, popin 60%"
-        "workspaces, 1, 3, md3_decel, slidevert"
+        "fade, 1, 2, md3_decel"
+        "windows, 1, 4, md3_decel, popin 60%"
+        "workspaces, 1, 4, md3_decel, slidevert"
       ];
     };
 
