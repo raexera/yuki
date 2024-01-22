@@ -175,12 +175,23 @@ in {
         # Powermenu
         "group/powermenu" = {
           drawer = {
-            children-class = "power-child";
+            children-class = "powermenu-child";
             transition-duration = 300;
             transition-left-to-right = false;
           };
           modules = [
             "custom/power"
+            "group/exit-lock-suspend-reboot"
+          ];
+          orientation = "inherit";
+        };
+        "custom/power" = {
+          format = "󰐥";
+          on-click = "${pkgs.systemd}/bin/systemctl poweroff";
+          tooltip = false;
+        };
+        "group/exit-lock-suspend-reboot" = {
+          modules = [
             "custom/exit"
             "custom/lock"
             "custom/suspend"
@@ -206,11 +217,6 @@ in {
         "custom/reboot" = {
           format = "󰜉";
           on-click = "${pkgs.systemd}/bin/systemctl reboot";
-          tooltip = false;
-        };
-        "custom/power" = {
-          format = "󰐥";
-          on-click = "${pkgs.systemd}/bin/systemctl poweroff";
           tooltip = false;
         };
       };
@@ -277,38 +283,29 @@ in {
       }
 
       .modules-left {
-        padding-top: 0.25rem;
+        padding-top: 0.5rem;
       }
 
       .modules-right {
-        padding-bottom: 0.25rem;
+        padding-bottom: 0.5rem;
       }
 
-      #clock,
-      #custom-lock,
       #custom-logo,
-      #custom-exit,
-      #custom-power,
-      #custom-reboot,
-      #custom-suspend,
+      #workspaces,
       #network-pulseaudio-backlight-battery,
-      #workspaces {
+      #clock,
+      #exit-lock-suspend-reboot,
+      #custom-power {
         background: ${xcolors.black3};
         border-radius: 1.5rem;
         min-width: 0.75rem;
         margin: 0.25rem 0.5rem;
       }
 
-      #custom-logo {
-        background: transparent
-          url("${snowflake}")
-          center/2rem no-repeat;
-        padding: 0.5rem;
-      }
-
       #workspaces,
       #network-pulseaudio-backlight-battery,
-      #clock {
+      #clock,
+      #exit-lock-suspend-reboot {
         padding: 0.75rem 0;
       }
 
@@ -322,10 +319,20 @@ in {
       #custom-exit,
       #custom-lock,
       #custom-suspend,
-      #custom-reboot,
-      #custom-power {
+      #custom-reboot {
         background: transparent;
         padding: 0.25rem 0.5rem;
+      }
+
+      #custom-logo,
+      #custom-power {
+        padding: 0.5rem;
+      }
+
+      #custom-logo {
+        background: transparent
+          url("${snowflake}")
+          center/2rem no-repeat;
       }
 
       #workspaces button.empty label {
