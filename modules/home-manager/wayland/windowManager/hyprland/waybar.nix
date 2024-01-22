@@ -181,7 +181,10 @@ in {
           };
           modules = [
             "custom/power"
-            "group/exit-lock-suspend-reboot"
+            "custom/exit"
+            "custom/lock"
+            "custom/suspend"
+            "custom/reboot"
           ];
           orientation = "inherit";
         };
@@ -189,15 +192,6 @@ in {
           format = "󰐥";
           on-click = "${pkgs.systemd}/bin/systemctl poweroff";
           tooltip = false;
-        };
-        "group/exit-lock-suspend-reboot" = {
-          modules = [
-            "custom/exit"
-            "custom/lock"
-            "custom/suspend"
-            "custom/reboot"
-          ];
-          orientation = "inherit";
         };
         "custom/exit" = {
           format = "󰈆";
@@ -225,7 +219,10 @@ in {
     style = ''
       * {
         all: unset;
-        font: 11pt "Material Design Icons", "Iosevka Fixed", sans-serif;
+        font:
+          11pt "Material Design Icons",
+          "Iosevka Fixed",
+          sans-serif;
         min-height: 0;
         min-width: 0;
       }
@@ -294,7 +291,10 @@ in {
       #workspaces,
       #network-pulseaudio-backlight-battery,
       #clock,
-      #exit-lock-suspend-reboot,
+      #custom-exit,
+      #custom-lock,
+      #custom-suspend,
+      #custom-reboot,
       #custom-power {
         background: ${xcolors.black3};
         border-radius: 1.5rem;
@@ -304,8 +304,7 @@ in {
 
       #workspaces,
       #network-pulseaudio-backlight-battery,
-      #clock,
-      #exit-lock-suspend-reboot {
+      #clock {
         padding: 0.75rem 0;
       }
 
@@ -315,16 +314,16 @@ in {
       #pulseaudio-slider,
       #backlight,
       #backlight-slider,
-      #battery,
-      #custom-exit,
-      #custom-lock,
-      #custom-suspend,
-      #custom-reboot {
+      #battery {
         background: transparent;
         padding: 0.25rem 0.5rem;
       }
 
       #custom-logo,
+      #custom-exit,
+      #custom-lock,
+      #custom-suspend,
+      #custom-reboot,
       #custom-power {
         padding: 0.5rem;
       }
