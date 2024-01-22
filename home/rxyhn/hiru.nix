@@ -27,9 +27,9 @@
         gopls
         grex
         java-language-server
-        jre8
         lldb
         nodejs
+        revive
         shellcheck
         shfmt
         typescript
@@ -39,9 +39,9 @@
         ;
 
       inherit
-        (pkgs.nodePackages_latest)
+        (pkgs.nodePackages)
         jsonlint
-        prettier
+        pnpm
         typescript-language-server
         vls
         vscode-langservers-extracted
