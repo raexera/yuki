@@ -5,7 +5,13 @@
 <h1>雪 - Yuki</h1>
 
 <a href="#">
-  <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos.svg" width="750" height="300" alt="Banner"/>
+  <img src="https://github.com/rxyhn/yuki/assets/93292023/e824bea9-5049-409e-8762-59c9c5f382ce" width="800" alt="Banner"/>
+</a>
+
+<br>
+
+<a href="#">
+  <img src="https://github.com/rxyhn/yuki/assets/93292023/72fd3bac-2c15-4e84-b38d-f4bd3e6dd6cc" width="800" alt="Preview"/>
 </a>
 
 <br>
