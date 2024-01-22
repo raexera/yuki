@@ -32,7 +32,7 @@
     in ''
       * {
         all: unset;
-        font: 1rem Inter, sans-serif;
+        font: 11pt Inter, sans-serif;
       }
 
       #window,

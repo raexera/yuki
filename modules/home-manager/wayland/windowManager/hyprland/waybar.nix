@@ -219,7 +219,7 @@ in {
     style = ''
       * {
         all: unset;
-        font: 1rem "Material Design Icons", "Iosevka Fixed", sans-serif;
+        font: 11pt "Material Design Icons", "Iosevka Fixed", sans-serif;
         min-height: 0;
         min-width: 0;
       }
@@ -238,11 +238,11 @@ in {
 
       menu label,
       tooltip label {
-        padding: 1rem;
+        padding: 0.5rem;
       }
 
       button {
-        box-shadow: inset 0 -3px transparent;
+        box-shadow: inset 0 -0.25rem transparent;
         border: none;
       }
 
@@ -277,11 +277,11 @@ in {
       }
 
       .modules-left {
-        padding-top: 0.5rem;
+        padding-top: 0.25rem;
       }
 
       .modules-right {
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.25rem;
       }
 
       #clock,
@@ -294,9 +294,9 @@ in {
       #network-pulseaudio-backlight-battery,
       #workspaces {
         background: ${xcolors.black3};
-        border-radius: 1rem;
+        border-radius: 1.5rem;
+        min-width: 0.75rem;
         margin: 0.25rem 0.5rem;
-        padding: 1rem 0.5rem;
       }
 
       #custom-logo {
@@ -306,19 +306,26 @@ in {
         padding: 0.5rem;
       }
 
+      #workspaces,
       #network-pulseaudio-backlight-battery,
-      #workspaces {
-        padding: 1rem 0;
+      #clock {
+        padding: 0.75rem 0;
       }
 
+      #workspaces button,
       #network,
       #pulseaudio,
       #pulseaudio-slider,
       #backlight,
       #backlight-slider,
       #battery,
-      #workspaces button {
-        padding: 0.375rem 0.5rem;
+      #custom-exit,
+      #custom-lock,
+      #custom-suspend,
+      #custom-reboot,
+      #custom-power {
+        background: transparent;
+        padding: 0.25rem 0.5rem;
       }
 
       #workspaces button.empty label {
@@ -361,33 +368,24 @@ in {
         font-weight: bold;
       }
 
-      #custom-exit,
-      #custom-lock,
-      #custom-suspend,
-      #custom-reboot,
-      #custom-power {
-        background: transparent;
-        padding: 0.5rem;
-      }
-
-      #custom-power {
-        color: ${xcolors.red};
-      }
-
-      #custom-reboot {
-        color: ${xcolors.peach};
-      }
-
-      #custom-suspend {
-        color: ${xcolors.yellow};
+      #custom-exit {
+        color: ${xcolors.blue};
       }
 
       #custom-lock {
         color: ${xcolors.green};
       }
 
-      #custom-exit {
-        color: ${xcolors.blue};
+      #custom-suspend {
+        color: ${xcolors.yellow};
+      }
+
+      #custom-reboot {
+        color: ${xcolors.peach};
+      }
+
+      #custom-power {
+        color: ${xcolors.red};
       }
 
       @keyframes blink {
