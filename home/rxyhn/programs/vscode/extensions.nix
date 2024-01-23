@@ -11,6 +11,37 @@
         vadimcn.vscode-lldb
       ])
       ++ (with pkgs.vscode-marketplace; [
+        antfu.icons-carbon
+        bradlc.vscode-tailwindcss
+        catppuccin.catppuccin-vsc-icons
+        christian-kohler.path-intellisense
+        dbaeumer.vscode-eslint
+        denoland.vscode-deno
+        editorconfig.editorconfig
+        esbenp.prettier-vscode
+        github.copilot
+        github.vscode-github-actions
+        github.vscode-pull-request-github
+        golang.go
+        johnnymorganz.stylua
+        mikestead.dotenv
+        mkhl.direnv
+        ms-pyright.pyright
+        ms-python.black-formatter
+        ms-python.isort
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-vscode.cmake-tools
+        ms-vscode.cpptools
+        naumovs.color-highlight
+        oderwat.indent-rainbow
+        redhat.java
+        redhat.vscode-yaml
+        sumneko.lua
+        usernamehw.errorlens
+        yzhang.markdown-all-in-one
+      ])
+      ++ (with pkgs.vscode-marketplace; [
         (jnoortheen.nix-ide.overrideAttrs (prev: {
           nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
           postInstall = ''
@@ -27,36 +58,6 @@
             ' < package.json | sponge package.json
           '';
         }))
-      ])
-      ++ (with pkgs.vscode-marketplace; [
-        antfu.icons-carbon
-        bradlc.vscode-tailwindcss
-        catppuccin.catppuccin-vsc-icons
-        christian-kohler.path-intellisense
-        dbaeumer.vscode-eslint
-        denoland.vscode-deno
-        editorconfig.editorconfig
-        esbenp.prettier-vscode
-        formulahendry.code-runner
-        github.copilot
-        github.vscode-github-actions
-        github.vscode-pull-request-github
-        golang.go
-        mikestead.dotenv
-        mkhl.direnv
-        mkhl.shfmt
-        ms-python.python
-        ms-python.vscode-pylance
-        ms-pyright.pyright
-        ms-vscode.cmake-tools
-        ms-vscode.cpptools
-        naumovs.color-highlight
-        oderwat.indent-rainbow
-        redhat.java
-        redhat.vscode-yaml
-        sumneko.lua
-        usernamehw.errorlens
-        yzhang.markdown-all-in-one
       ])
       ++ [
         (pkgs.catppuccin-vsc.override {

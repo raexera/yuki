@@ -17,9 +17,7 @@
     "editor.fontLigatures" = true;
     "editor.fontSize" = 13;
     "editor.fontWeight" = "500";
-    "editor.formatOnPaste" = true;
     "editor.formatOnSave" = true;
-    "editor.formatOnType" = true;
     "editor.guides.bracketPairs" = true;
     "editor.guides.indentation" = true;
     "editor.inlayHints.enabled" = "onUnlessPressed";
@@ -82,8 +80,9 @@
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[less]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[lua]"."editor.defaultFormatter" = "johnnymorganz.stylua";
     "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
+    "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
     "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
@@ -120,7 +119,13 @@
     "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
   };
 
+  luaSettings = {
+    "Lua.misc.executablePath" = "${pkgs.sumneko-lua-language-server}/bin/lua-language-server";
+    "stylua.styluaPath" = "${pkgs.stylua}/bin/stylua";
+  };
+
   pythonSettings = {
+    "black-formatter.path" = ["${pkgs.black}/bin/black"];
     "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
     "python.languageServer" = "Pylance";
   };
@@ -132,6 +137,7 @@ in {
     githubSettings
     goSettings
     javaSettings
+    luaSettings
     pythonSettings
   ];
 }
