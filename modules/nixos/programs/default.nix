@@ -2,7 +2,6 @@
   imports = [
     ./bash.nix
     ./home-manager.nix
-    ./java.nix
     ./zsh.nix
   ];
 

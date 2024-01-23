@@ -23,10 +23,8 @@
 
       packages = with pkgs; [
         alejandra
-        deadnix
         git
         nil
-        statix
       ];
 
       shellHook = ''

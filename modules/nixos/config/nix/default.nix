@@ -13,9 +13,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    deadnix
-    alejandra
-    statix
   ];
 
   nix = {

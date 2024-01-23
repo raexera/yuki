@@ -8,7 +8,7 @@
     ./programs/kitty.nix
     ./programs/media.nix
     ./programs/nix-index-db.nix
-    ./programs/vscode.nix
+    ./programs/vscode
   ];
 
   home = {
@@ -30,7 +30,6 @@
         lldb
         nodejs
         revive
-        shellcheck
         shfmt
         typescript
         uncrustify
