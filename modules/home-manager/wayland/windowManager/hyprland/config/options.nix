@@ -1,6 +1,12 @@
-{config, ...}: {
+{
+  config,
+  themes,
+  ...
+}: {
   wayland.windowManager.hyprland.settings = let
     pointer = config.home.pointerCursor;
+
+    inherit (themes.colorscheme) colors;
   in {
     env = [
       "GDK_SCALE,2"
@@ -21,11 +27,11 @@
     };
 
     general = {
-      gaps_in = 4;
-      gaps_out = 5;
-      border_size = 1;
-      "col.active_border" = "rgba(88888888)";
-      "col.inactive_border" = "rgba(00000088)";
+      gaps_in = 2;
+      gaps_out = 4;
+      border_size = 2;
+
+      "col.active_border" = "rgb(${colors.pink}) rgb(${colors.blue}) 45deg";
 
       allow_tearing = true;
       resize_on_border = true;
