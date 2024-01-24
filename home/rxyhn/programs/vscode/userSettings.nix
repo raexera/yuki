@@ -101,6 +101,18 @@
     "githubPullRequests.pullBranch" = "always";
   };
 
+  path-intellisenseSettings = {
+    "path-intellisense.autoSlashAfterDirectory" = true;
+    "path-intellisense.autoTriggerNextSuggestion" = true;
+    "path-intellisense.extensionOnImport" = true;
+    "path-intellisense.showHiddenFiles" = true;
+  };
+
+  C_CppSettings = {
+    "C_Cpp.clang_format_path" = "${pkgs.clang-tools}/bin/clang-format";
+    "C_Cpp.codeAnalysis.clangTidy.path" = "${pkgs.clang-tools}/bin/clang-tidy";
+  };
+
   goSettings = {
     "gopls" = {
       "ui.semanticTokens" = true;
@@ -135,6 +147,9 @@ in {
     formatterSettings
     gitSettings
     githubSettings
+    path-intellisenseSettings
+
+    C_CppSettings
     goSettings
     javaSettings
     luaSettings

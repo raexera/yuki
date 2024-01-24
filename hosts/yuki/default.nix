@@ -86,9 +86,9 @@ in {
 
     upower = {
       enable = true;
-      percentageLow = 25;
+      percentageLow = 30;
       percentageCritical = 20;
-      percentageAction = 15;
+      percentageAction = 10;
       criticalPowerAction = "Hibernate";
     };
   };

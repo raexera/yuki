@@ -147,7 +147,7 @@ in {
           format-plugged = "󰚥";
           states = {
             warning = 30;
-            critical = 15;
+            critical = 20;
           };
           tooltip-format = "{timeTo}, {capacity}%";
         };
@@ -335,7 +335,7 @@ in {
       }
 
       #workspaces button label {
-        transition: color 0.25s linear;
+        transition: color 0.5s linear;
       }
 
       #workspaces button.empty label {
