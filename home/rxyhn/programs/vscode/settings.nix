@@ -147,16 +147,10 @@
   };
 
   pythonSettings = {
-    "black-formatter.path" = ["${pkgs.black}/bin/black"];
-    "black-formatter.interpreter" = ["${pkgs.python3}/bin/python"];
-
     "pylint.enabled" = true;
-    "pylint.interpreter" = ["${pkgs.python3}/bin/python"];
-
     "python.analysis.autoImportCompletions" = true;
     "python.analysis.completeFunctionParens" = true;
     "python.analysis.typeCheckingMode" = "strict";
-    "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
     "python.diagnostics.sourceMapsEnabled" = true;
     "python.languageServer" = "Pylance";
   };
