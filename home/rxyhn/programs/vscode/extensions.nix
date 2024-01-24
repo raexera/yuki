@@ -23,6 +23,7 @@
         github.vscode-github-actions
         github.vscode-pull-request-github
         golang.go
+        jnoortheen.nix-ide
         johnnymorganz.stylua
         mikestead.dotenv
         mkhl.direnv
@@ -40,24 +41,6 @@
         sumneko.lua
         usernamehw.errorlens
         yzhang.markdown-all-in-one
-      ])
-      ++ (with pkgs.vscode-marketplace; [
-        (jnoortheen.nix-ide.overrideAttrs (prev: {
-          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
-          postInstall = ''
-            cd "$out/$installPrefix"
-            jq -e '
-              .contributes.configuration.properties."nix.formatterPath".default =
-                "${pkgs.alejandra}/bin/alejandra" |
-              .contributes.configuration.properties."nix.enableLanguageServer".default =
-                "true" |
-              .contributes.configuration.properties."nix.serverPath".default =
-                "${pkgs.nil}/bin/nil" |
-              .contributes.configuration.properties."nix.serverSettings".default.nil.formatting.command[0] =
-                "${pkgs.alejandra}/bin/alejandra"
-            ' < package.json | sponge package.json
-          '';
-        }))
       ])
       ++ [
         (pkgs.catppuccin-vsc.override {

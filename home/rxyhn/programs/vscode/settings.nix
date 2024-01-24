@@ -108,7 +108,7 @@
     "path-intellisense.showHiddenFiles" = true;
   };
 
-  C_CppSettings = {
+  cppSettings = {
     "C_Cpp.autocompleteAddParentheses" = true;
     "C_Cpp.clang_format_path" = "${pkgs.clang-tools}/bin/clang-format";
     "C_Cpp.codeAnalysis.clangTidy.enabled" = true;
@@ -139,6 +139,13 @@
     "stylua.styluaPath" = "${pkgs.stylua}/bin/stylua";
   };
 
+  nixSettings = {
+    "nix.enableLanguageServer" = true;
+    "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
+    "nix.serverPath" = "${pkgs.nil}/bin/nil";
+    "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
+  };
+
   pythonSettings = {
     "black-formatter.path" = ["${pkgs.black}/bin/black"];
     "black-formatter.interpreter" = ["${pkgs.python3}/bin/python"];
@@ -161,10 +168,11 @@ in {
     githubSettings
     path-intellisenseSettings
 
-    C_CppSettings
+    cppSettings
     goSettings
     javaSettings
     luaSettings
+    nixSettings
     pythonSettings
   ];
 }
