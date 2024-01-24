@@ -25,9 +25,9 @@ in {
         fixed-center = true;
         gtk-layer-shell = true;
         spacing = 0;
-        margin-top = 5;
-        margin-bottom = 5;
-        margin-left = 5;
+        margin-top = 4;
+        margin-bottom = 4;
+        margin-left = 4;
         margin-right = 0;
         modules-left = [
           "custom/logo"
