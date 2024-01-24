@@ -26,9 +26,9 @@
         johnnymorganz.stylua
         mikestead.dotenv
         mkhl.direnv
-        ms-pyright.pyright
         ms-python.black-formatter
         ms-python.isort
+        ms-python.pylint
         ms-python.python
         ms-python.vscode-pylance
         ms-vscode.cmake-tools

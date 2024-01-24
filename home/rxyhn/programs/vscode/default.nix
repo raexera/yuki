@@ -1,7 +1,7 @@
 {
   imports = [
     ./extensions.nix
-    ./userSettings.nix
+    ./settings.nix
   ];
 
   programs.vscode.enable = true;

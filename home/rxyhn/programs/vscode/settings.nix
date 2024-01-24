@@ -109,8 +109,11 @@
   };
 
   C_CppSettings = {
+    "C_Cpp.autocompleteAddParentheses" = true;
     "C_Cpp.clang_format_path" = "${pkgs.clang-tools}/bin/clang-format";
+    "C_Cpp.codeAnalysis.clangTidy.enabled" = true;
     "C_Cpp.codeAnalysis.clangTidy.path" = "${pkgs.clang-tools}/bin/clang-tidy";
+    "C_Cpp.codeAnalysis.runAutomatically" = true;
   };
 
   goSettings = {
@@ -138,7 +141,13 @@
 
   pythonSettings = {
     "black-formatter.path" = ["${pkgs.black}/bin/black"];
+    "pylint.enabled" = true;
+    "pylint.interpreter" = ["${pkgs.python3}/bin/python"];
+    "python.analysis.autoImportCompletions" = true;
+    "python.analysis.completeFunctionParens" = true;
+    "python.analysis.typeCheckingMode" = "strict";
     "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
+    "python.diagnostics.sourceMapsEnabled" = true;
     "python.languageServer" = "Pylance";
   };
 in {
