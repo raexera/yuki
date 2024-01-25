@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   ...
@@ -37,9 +36,7 @@
     inputs.self.homeManagerModules.hyprland
   ];
 
-  nixpkgs.overlays = [
-    inputs.nixpkgs-wayland.overlay
-  ];
+  nixpkgs.overlays = [inputs.nixpkgs-wayland.overlay];
 
   programs = {
     hyprland = {
