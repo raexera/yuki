@@ -17,16 +17,17 @@
     ...
   }: {
     devShells.default = pkgs.mkShell {
-      DIRENV_LOG_FORMAT = "";
-
-      name = "yuki";
-
       packages = with pkgs; [
         alejandra
+        deadnix
         git
         nil
       ];
 
+      name = "yuki";
+      meta.description = "The default development shell";
+
+      DIRENV_LOG_FORMAT = "";
       shellHook = ''
         ${config.pre-commit.installationScript}
       '';
