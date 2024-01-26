@@ -59,9 +59,10 @@ nix flake show github:rxyhn/yuki
 Special thanks to the following individuals for their insights, feedback, and inspiration in this endeavor to develop this configuration:
 
 <div align="center">
-    <a href="https://github.com/fufexan">fufexan</a> •
-    <a href="https://github.com/viperml">viperML </a> •
+    <a href="https://github.com/fufexan">Fufexan</a> •
     <a href="https://github.com/Misterio77">Misterio77</a> •
-    <a href="https://github.com/sioodmy">sioodmy</a> •
-    <a href="https://github.com/NotAShelf">NotAShelf</a>
+    <a href="https://github.com/moni-dz">Moni-dz</a> •
+    <a href="https://github.com/NotAShelf">NotAShelf</a> •
+    <a href="https://github.com/sioodmy">Sioodmy</a> •
+    <a href="https://github.com/viperml">ViperML </a>
 </div>
