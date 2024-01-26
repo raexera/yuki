@@ -52,15 +52,7 @@ in {
           all-outputs = true;
           disable-scroll = true;
           on-click = "activate";
-          format = "{icon}";
-          format-icons = {
-            active = "󰋘";
-            default = "󰋙";
-            empty = "󰋙";
-            persistent = "󰋙";
-            special = "󰋙";
-            urgent = "󰋙";
-          };
+          format = "";
           persistent-workspaces = {
             "*" = 5;
           };
@@ -221,7 +213,7 @@ in {
         all: unset;
         font:
           11pt "Material Design Icons",
-          "Iosevka Fixed",
+          "Iosevka Matsuri",
           sans-serif;
         min-height: 0;
         min-width: 0;
@@ -302,13 +294,11 @@ in {
         margin: 0.25rem 0.5rem;
       }
 
-      #workspaces,
       #network-pulseaudio-backlight-battery,
       #clock {
         padding: 0.75rem 0;
       }
 
-      #workspaces button,
       #network,
       #pulseaudio,
       #pulseaudio-slider,
@@ -334,24 +324,36 @@ in {
           center/2rem no-repeat;
       }
 
-      #workspaces button label {
-        transition: color 0.5s linear;
+      #workspaces {
+        padding: 0.75rem 0.5rem;
       }
 
-      #workspaces button.empty label {
-        color: ${xcolors.gray1};
+      #workspaces button {
+        background: ${xcolors.white};
+        border-radius: 1rem;
+        margin-bottom: 0.75rem;
+        padding: 0;
+        transition: all 0.5s linear;
       }
 
-      #workspaces button.urgent label {
-        color: ${xcolors.red};
+      #workspaces button:last-child {
+        margin-bottom: 0;
       }
 
-      #workspaces button.special label {
-        color: ${xcolors.yellow};
+      #workspaces button.empty {
+        background: ${xcolors.gray1};
       }
 
-      #workspaces button.active label {
-        color: ${xcolors.blue};
+      #workspaces button.urgent {
+        background: ${xcolors.red};
+      }
+
+      #workspaces button.special {
+        background: ${xcolors.yellow};
+      }
+
+      #workspaces button.active {
+        background: ${xcolors.blue};
       }
 
       #network.disconnected,
