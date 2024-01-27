@@ -5,6 +5,8 @@
 <p align="center">
   <a href="#">
     <img src="https://github.com/rxyhn/yuki/assets/93292023/3c2eaed6-b0cf-48eb-b9f9-54a2ef412282#gh-light-mode-only" title="Banner"/>
+  </a>
+  <a href="#">
     <img src="https://github.com/rxyhn/yuki/assets/93292023/ae457d12-b503-436b-9c59-5bf6efea98b1#gh-dark-mode-only" title="Banner"/>
   </a>
 </p>
@@ -12,8 +14,8 @@
 <br>
 
 <p align="center">
-  <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check.yml/badge.svg" alt="workflow" height="20"/>
-  <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="Badge License"  height="20"/>
+  <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check.yml/badge.svg" alt="Workflow Badge" height="20"/>
+  <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="License Badge"  height="20"/>
 </p>
 
 <br>
