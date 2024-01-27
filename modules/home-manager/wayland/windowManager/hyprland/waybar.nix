@@ -239,15 +239,23 @@ in {
         padding: 0.5rem;
       }
 
+      menu {
+        padding: 0;
+      }
+
       menu label,
       tooltip label {
         padding: 0.5rem;
       }
 
+      menu menuitem {
+        border-radius: 0.5rem;
+        padding: 0.25rem;
+      }
+
       menu menuitem:hover,
       menu menuitem:hover label {
         background: ${xcolors.blue};
-        border-radius: 0.5rem;
         color: ${xcolors.black0};
       }
 
