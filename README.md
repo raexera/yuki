@@ -3,12 +3,8 @@
 <h1 style="text-align: center;">雪 - Yuki</h1>
 
 <p align="center">
-  <a href="#">
-    <img src="https://github.com/rxyhn/yuki/assets/93292023/3c2eaed6-b0cf-48eb-b9f9-54a2ef412282#gh-light-mode-only" title="Banner"/>
-  </a>
-  <a href="#">
-    <img src="https://github.com/rxyhn/yuki/assets/93292023/ae457d12-b503-436b-9c59-5bf6efea98b1#gh-dark-mode-only" title="Banner"/>
-  </a>
+  <img src="https://github.com/rxyhn/yuki/assets/93292023/3c2eaed6-b0cf-48eb-b9f9-54a2ef412282#gh-light-mode-only" title="Banner"/>
+  <img src="https://github.com/rxyhn/yuki/assets/93292023/ae457d12-b503-436b-9c59-5bf6efea98b1#gh-dark-mode-only" title="Banner"/>
 </p>
 
 <br>
