@@ -14,6 +14,7 @@
     ./swayidle.nix
     ./swaylock.nix
     ./swaync.nix
+    ./swayosd.nix
     ./waybar.nix
 
     inputs.self.homeManagerModules.misc.gtk

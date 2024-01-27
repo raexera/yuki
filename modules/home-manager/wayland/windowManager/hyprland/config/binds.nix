@@ -86,9 +86,10 @@ in {
       ];
 
       binde = [
-        ",XF86AudioRaiseVolume, exec, volumectl up 5"
-        ",XF86AudioLowerVolume, exec, volumectl down 5"
-        ",XF86AudioMute, exec, volumectl toggle-mute"
+        ",XF86AudioRaiseVolume, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume raise"
+        ",XF86AudioLowerVolume, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume lower"
+        ",XF86AudioMute, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume mute-toggle"
+        ",XF86AudioMicMute, exec, ${pkgs.swayosd}/bin/swayosd-client --input-volume mute-toggle"
 
         ",XF86MonBrightnessUp, exec, lightctl up 5"
         ",XF86MonBrightnessDown, exec, lightctl down 5"
