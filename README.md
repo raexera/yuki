@@ -3,15 +3,20 @@
 <h1 style="text-align: center;">雪 - Yuki</h1>
 
 <p align="center">
-  <img src="https://github.com/rxyhn/yuki/assets/93292023/3c2eaed6-b0cf-48eb-b9f9-54a2ef412282#gh-light-mode-only" title="Banner"/>
-  <img src="https://github.com/rxyhn/yuki/assets/93292023/ae457d12-b503-436b-9c59-5bf6efea98b1#gh-dark-mode-only" title="Banner"/>
+  <a href="#">
+    <img src="https://github.com/rxyhn/yuki/assets/93292023/948087b4-57cc-46ec-ae75-3ba596b773e2" title="Banner"/>
+  </a>
 </p>
 
 <br>
 
 <p align="center">
-  <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check.yml/badge.svg" alt="Workflow Badge" height="20"/>
-  <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="License Badge"  height="20"/>
+  <a href="#">
+    <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check.yml/badge.svg" alt="Workflow Badge" height="20"/>
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="License Badge"  height="20"/>
+  </a>
 </p>
 
 <br>
