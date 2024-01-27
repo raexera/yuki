@@ -1,18 +1,13 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-<div align="center">
+<h1 style="text-align: center;">雪 - Yuki</h1>
 
-<h1>雪 - Yuki</h1>
-
-<a href="#">
-  <img src="https://github.com/rxyhn/yuki/assets/93292023/e824bea9-5049-409e-8762-59c9c5f382ce" width="800" alt="Banner"/>
-</a>
-
-<br>
-
-<a href="#">
-  <img src="https://github.com/rxyhn/yuki/assets/93292023/49b0777e-7fe3-4341-8242-e83fd5048f9d" width="800" alt="Preview"/>
-</a>
+<p align="center">
+  <a href="#">
+    <img src="https://github.com/rxyhn/yuki/assets/93292023/3c2eaed6-b0cf-48eb-b9f9-54a2ef412282#gh-light-mode-only" title="Banner"/>
+    <img src="https://github.com/rxyhn/yuki/assets/93292023/ae457d12-b503-436b-9c59-5bf6efea98b1#gh-dark-mode-only" title="Banner"/>
+  </a>
+</p>
 
 <br>
 
@@ -22,8 +17,6 @@
 </p>
 
 <br>
-
-</div>
 
 > [!NOTE]
 >
@@ -58,11 +51,11 @@ nix flake show github:rxyhn/yuki
 
 Special thanks to the following individuals for their insights, feedback, and inspiration in this endeavor to develop this configuration:
 
-<div align="center">
-    <a href="https://github.com/fufexan">Fufexan</a> •
-    <a href="https://github.com/Misterio77">Misterio77</a> •
-    <a href="https://github.com/moni-dz">Moni-dz</a> •
-    <a href="https://github.com/NotAShelf">NotAShelf</a> •
-    <a href="https://github.com/sioodmy">Sioodmy</a> •
-    <a href="https://github.com/viperml">ViperML </a>
-</div>
+<p align="center">
+  <a href="https://github.com/fufexan">Fufexan</a> •
+  <a href="https://github.com/Misterio77">Misterio77</a> •
+  <a href="https://github.com/moni-dz">Moni-dz</a> •
+  <a href="https://github.com/NotAShelf">NotAShelf</a> •
+  <a href="https://github.com/sioodmy">Sioodmy</a> •
+  <a href="https://github.com/viperml">ViperML </a>
+</p>
