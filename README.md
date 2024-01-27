@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="#">
-    <img src="https://github.com/rxyhn/yuki/assets/93292023/948087b4-57cc-46ec-ae75-3ba596b773e2" title="Banner"/>
+    <img src="https://github.com/rxyhn/yuki/assets/93292023/be163e9a-69d8-4b5a-a5a7-d1f5215972d1" title="Banner"/>
   </a>
 </p>
 
