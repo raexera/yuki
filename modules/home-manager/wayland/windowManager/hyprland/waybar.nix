@@ -36,6 +36,7 @@ in {
         modules-center = [];
         modules-right = [
           "tray"
+          "custom/notification"
           "group/network-pulseaudio-backlight-battery"
           "clock"
           "group/powermenu"
@@ -64,6 +65,24 @@ in {
           icon-size = 16;
           show-passive-items = true;
           spacing = 8;
+        };
+
+        # Notifications
+        "custom/notification" = {
+          tooltip = false;
+          format = "{icon}";
+          format-icons = {
+            notification = "󱅫";
+            none = "󰂚";
+            dndNotification = "󰂛";
+            dndNone = "󰂛";
+          };
+          return-type = "json";
+          exec-if = "${pkgs.swaynotificationcenter}/bin/swaync-client";
+          exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+          on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+          on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+          escape = true;
         };
 
         # Group
@@ -162,10 +181,10 @@ in {
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             format = {
-              days = "<span color='#4A5051'><b>{}</b></span>";
-              months = "<span color='#C5C8C9'><b>{}</b></span>";
-              today = "<span color='#C5C8C9'><b><u>{}</u></b></span>";
-              weekdays = "<span color='#96CDFB'><b>{}</b></span>";
+              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
+              months = "<span color='${xcolors.white}'><b>{}</b></span>";
+              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
+              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
             };
             mode = "month";
             on-scroll = 1;
@@ -290,6 +309,7 @@ in {
       #custom-logo,
       #workspaces,
       #tray,
+      #custom-notification,
       #network-pulseaudio-backlight-battery,
       #clock,
       #custom-exit,
@@ -304,6 +324,7 @@ in {
       }
 
       #tray,
+      #custom-notification,
       #network-pulseaudio-backlight-battery,
       #clock {
         padding: 0.5rem 0;
@@ -403,6 +424,10 @@ in {
       #tray menu menuitem:hover {
         background: ${xcolors.blue};
         color: ${xcolors.black0};
+      }
+
+      #custom-notification {
+        color: ${xcolors.yellow};
       }
 
       #network.disconnected,
