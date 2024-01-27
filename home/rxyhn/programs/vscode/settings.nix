@@ -13,7 +13,7 @@
     "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
     "editor.cursorBlinking" = "smooth";
     "editor.cursorSmoothCaretAnimation" = "on";
-    "editor.fontFamily" = "'Iosevka Matsuri', 'Material Design Icons'";
+    "editor.fontFamily" = "'Fira Code', 'Material Design Icons'";
     "editor.fontLigatures" = true;
     "editor.fontSize" = 13;
     "editor.fontWeight" = "500";
@@ -50,7 +50,7 @@
     "terminal.integrated.cursorBlinking" = true;
     "terminal.integrated.cursorStyle" = "line";
     "terminal.integrated.cursorWidth" = 2;
-    "terminal.integrated.fontFamily" = "'Iosevka Matsuri Term'";
+    "terminal.integrated.fontFamily" = "'Fira Code'";
     "terminal.integrated.fontSize" = 13;
     "terminal.integrated.minimumContrastRatio" = 1;
     "terminal.integrated.smoothScrolling" = true;

@@ -213,7 +213,7 @@ in {
         all: unset;
         font:
           11pt "Material Design Icons",
-          "Iosevka Matsuri",
+          "Fira Code",
           sans-serif;
         min-height: 0;
         min-width: 0;
@@ -340,20 +340,40 @@ in {
         margin-bottom: 0;
       }
 
+      #workspaces button:hover {
+        background: alpha(${xcolors.white}, 0.5);
+      }
+
       #workspaces button.empty {
         background: ${xcolors.gray1};
+      }
+
+      #workspaces button.empty:hover {
+        background: alpha(${xcolors.gray1}, 0.5);
       }
 
       #workspaces button.urgent {
         background: ${xcolors.red};
       }
 
+      #workspaces button.urgent:hover {
+        background: alpha(${xcolors.red}, 0.5);
+      }
+
       #workspaces button.special {
         background: ${xcolors.yellow};
       }
 
+      #workspaces button.special:hover {
+        background: alpha(${xcolors.yellow}, 0.5);
+      }
+
       #workspaces button.active {
         background: ${xcolors.blue};
+      }
+
+      #workspaces button.active:hover {
+        background: alpha(${xcolors.blue}, 0.5);
       }
 
       #network.disconnected,

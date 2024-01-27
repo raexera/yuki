@@ -9,7 +9,7 @@
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = ["Iosevka" "Noto Color Emoji"];
+        monospace = ["Fira Code" "Noto Color Emoji"];
         serif = ["Noto Serif" "Noto Color Emoji"];
         sansSerif = ["Inter" "Noto Color Emoji"];
       };
@@ -32,7 +32,6 @@
     };
 
     packages = with pkgs; [
-      iosevka-bin
       fira-code
       fira-code-symbols
       material-design-icons
