@@ -135,8 +135,8 @@ in {
           format = "{icon}";
           format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
           tooltip-format = "Backlight: {percent}%";
-          on-scroll-up = "${_ brightnessctl} -q s 1%-";
-          on-scroll-down = "${_ brightnessctl} -q s +1%";
+          on-scroll-up = "${_ brightnessctl} set 1%-";
+          on-scroll-down = "${_ brightnessctl} set +1%";
         };
 
         # Battery

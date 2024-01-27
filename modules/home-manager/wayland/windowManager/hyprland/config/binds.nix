@@ -91,8 +91,8 @@ in {
         ",XF86AudioMute, exec, ${pkgs.swayosd}/bin/swayosd-client --output-volume mute-toggle"
         ",XF86AudioMicMute, exec, ${pkgs.swayosd}/bin/swayosd-client --input-volume mute-toggle"
 
-        ",XF86MonBrightnessUp, exec, lightctl up 5"
-        ",XF86MonBrightnessDown, exec, lightctl down 5"
+        ",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
+        ",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%-"
       ];
 
       bindm = [

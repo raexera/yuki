@@ -25,13 +25,9 @@
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     config.wayland.windowManager.hyprland.package
 
-    cliphist
     dbus
     libnotify
-    libcanberra-gtk3
     wf-recorder
-    brightnessctl
-    pamixer
     slurp
     glib
     grim
