@@ -57,7 +57,8 @@
 
     # Window
     "window.autoDetectColorScheme" = true;
-    "window.menuBarVisibility" = "toggle";
+    "window.dialogStyle" = "native";
+    "window.menuBarVisibility" = "compact";
     "window.titleBarStyle" = "custom";
     "window.zoomLevel" = 1;
 
@@ -74,7 +75,10 @@
   };
 
   formatterSettings = {
+    "[c]"."editor.defaultFormatter" = "xaver.clang-format";
+    "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[go][go.mod][go.sum]"."editor.defaultFormatter" = "golang.go";
     "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[java]"."editor.defaultFormatter" = "redhat.java";
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -109,11 +113,11 @@
   };
 
   cppSettings = {
-    "C_Cpp.autocompleteAddParentheses" = true;
-    "C_Cpp.clang_format_path" = "${pkgs.clang-tools}/bin/clang-format";
-    "C_Cpp.codeAnalysis.clangTidy.enabled" = true;
-    "C_Cpp.codeAnalysis.clangTidy.path" = "${pkgs.clang-tools}/bin/clang-tidy";
-    "C_Cpp.codeAnalysis.runAutomatically" = true;
+    "C_Cpp.intelliSenseEngine" = "disabled";
+    "clangd.path" = "${pkgs.clang-tools}/bin/clangd";
+    "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
+    "cmake.cmakePath" = "${pkgs.cmake}/bin/cmake";
+    "makefile.makePath" = "${pkgs.gnumake}/bin/make";
   };
 
   goSettings = {
@@ -148,10 +152,6 @@
 
   pythonSettings = {
     "pylint.enabled" = true;
-    "python.analysis.autoImportCompletions" = true;
-    "python.analysis.completeFunctionParens" = true;
-    "python.analysis.typeCheckingMode" = "strict";
-    "python.diagnostics.sourceMapsEnabled" = true;
     "python.languageServer" = "Pylance";
   };
 in {

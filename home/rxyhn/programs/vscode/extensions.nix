@@ -25,6 +25,7 @@
         golang.go
         jnoortheen.nix-ide
         johnnymorganz.stylua
+        llvm-vs-code-extensions.vscode-clangd
         mikestead.dotenv
         mkhl.direnv
         ms-python.black-formatter
@@ -34,12 +35,14 @@
         ms-python.vscode-pylance
         ms-vscode.cmake-tools
         ms-vscode.cpptools
+        ms-vscode.makefile-tools
         naumovs.color-highlight
         oderwat.indent-rainbow
         redhat.java
         redhat.vscode-yaml
         sumneko.lua
         usernamehw.errorlens
+        xaver.clang-format
         yzhang.markdown-all-in-one
       ])
       ++ [
