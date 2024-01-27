@@ -35,6 +35,7 @@ in {
         ];
         modules-center = [];
         modules-right = [
+          "tray"
           "group/network-pulseaudio-backlight-battery"
           "clock"
           "group/powermenu"
@@ -56,6 +57,13 @@ in {
           persistent-workspaces = {
             "*" = 5;
           };
+        };
+
+        # Tray
+        tray = {
+          icon-size = 16;
+          show-passive-items = true;
+          spacing = 8;
         };
 
         # Group
@@ -236,6 +244,13 @@ in {
         padding: 0.5rem;
       }
 
+      menu menuitem:hover,
+      menu menuitem:hover label {
+        background: ${xcolors.blue};
+        border-radius: 0.5rem;
+        color: ${xcolors.black0};
+      }
+
       button {
         box-shadow: inset 0 -0.25rem transparent;
         border: none;
@@ -281,6 +296,7 @@ in {
 
       #custom-logo,
       #workspaces,
+      #tray,
       #network-pulseaudio-backlight-battery,
       #clock,
       #custom-exit,
@@ -294,9 +310,10 @@ in {
         margin: 0.25rem 0.5rem;
       }
 
+      #tray,
       #network-pulseaudio-backlight-battery,
       #clock {
-        padding: 0.75rem 0;
+        padding: 0.5rem 0;
       }
 
       #network,
@@ -332,8 +349,7 @@ in {
         background: ${xcolors.white};
         border-radius: 1rem;
         margin-bottom: 0.75rem;
-        padding: 0;
-        transition: all 0.5s linear;
+        transition: all 0.5s steps(12);
       }
 
       #workspaces button:last-child {
@@ -376,6 +392,15 @@ in {
         background: alpha(${xcolors.blue}, 0.5);
       }
 
+      #tray > .passive {
+        -gtk-icon-effect: dim;
+      }
+
+      #tray > .needs-attention {
+        -gtk-icon-effect: highlight;
+        background-color: ${xcolors.red};
+      }
+
       #network.disconnected,
       #pulseaudio.muted {
         color: ${xcolors.red};
@@ -393,11 +418,7 @@ in {
 
       #battery.critical:not(.charging) {
         color: ${xcolors.red};
-        animation: blink 0.5s linear infinite alternate;
-      }
-
-      #clock {
-        font-weight: bold;
+        animation: blink 0.5s steps(12) infinite alternate;
       }
 
       #custom-exit {
