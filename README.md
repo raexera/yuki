@@ -11,12 +11,8 @@
 <br>
 
 <p align="center">
-  <a href="#">
-    <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check.yml/badge.svg" alt="Workflow Badge" height="20"/>
-  </a>
-  <a href="#">
-    <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="License Badge"  height="20"/>
-  </a>
+  <img src="https://github.com/rxyhn/yuki/actions/workflows/flake-check.yml/badge.svg" alt="Workflow Badge" height="20"/>
+  <img src="https://img.shields.io/github/license/rxyhn/yuki" alt="License Badge"  height="20"/>
 </p>
 
 <br>
