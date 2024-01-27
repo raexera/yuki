@@ -227,10 +227,6 @@ in {
         min-width: 0;
       }
 
-      label {
-        color: ${xcolors.white};
-      }
-
       menu,
       tooltip {
         background: ${xcolors.black0};
@@ -246,17 +242,6 @@ in {
       menu label,
       tooltip label {
         padding: 0.5rem;
-      }
-
-      menu menuitem {
-        border-radius: 0.5rem;
-        padding: 0.25rem;
-      }
-
-      menu menuitem:hover,
-      menu menuitem:hover label {
-        background: ${xcolors.blue};
-        color: ${xcolors.black0};
       }
 
       button {
@@ -407,6 +392,17 @@ in {
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
         background-color: ${xcolors.red};
+      }
+
+      #tray menu menuitem {
+        border-radius: 0.5rem;
+        color: ${xcolors.white};
+        padding: 0.25rem;
+      }
+
+      #tray menu menuitem:hover {
+        background: ${xcolors.blue};
+        color: ${xcolors.black0};
       }
 
       #network.disconnected,
