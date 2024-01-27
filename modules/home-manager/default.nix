@@ -1,6 +1,11 @@
 {
   flake.homeManagerModules = {
-    hyprland = import ./wayland/windowManager/hyprland;
+    hyprland = {
+      imports = [
+        ./services/swaync.nix
+        ./wayland/windowManager/hyprland
+      ];
+    };
 
     misc = {
       gtk = import ./misc/gtk.nix;

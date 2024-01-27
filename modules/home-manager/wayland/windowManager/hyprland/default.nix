@@ -10,10 +10,10 @@
 
     ./anyrun.nix
     ./cliphist.nix
-    ./dunst.nix
     ./swaybg.nix
     ./swayidle.nix
     ./swaylock.nix
+    ./swaync.nix
     ./waybar.nix
 
     inputs.self.homeManagerModules.misc.gtk
