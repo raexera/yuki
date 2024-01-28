@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   editor = {
     "breadcrumbs.enabled" = true;
     "breadcrumbs.symbolPath" = "last";
@@ -41,11 +37,6 @@
   explorer = {
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
-  };
-
-  extensions = {
-    "extensions.autoCheckUpdates" = false;
-    "update.mode" = "none";
   };
 
   files = {
@@ -158,24 +149,24 @@
     "python.languageServer" = "Pylance";
   };
 in {
-  xdg.configFile = {
-    "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink ((pkgs.formats.json {}).generate "vscode-user-settings" (
-      editor
-      // explorer
-      // extensions
-      // files
-      // terminal
-      // window
-      // workbench
-      // defaultFormatter
-      // git
-      // github
-      // path-intellisense
-      // telemetry
-      // cpp
-      // java
-      // nix
-      // python
-    ));
-  };
+  programs.vscode.userSettings =
+    {
+      "extensions.autoCheckUpdates" = false;
+      "update.mode" = "none";
+    }
+    // editor
+    // explorer
+    // files
+    // terminal
+    // window
+    // workbench
+    // defaultFormatter
+    // git
+    // github
+    // path-intellisense
+    // telemetry
+    // cpp
+    // java
+    // nix
+    // python;
 }
