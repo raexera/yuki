@@ -155,17 +155,15 @@
   };
 in {
   xdg.configFile = {
-    "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink (pkgs.formats.json {}).generate "vscode-user-settings" lib.mkMerge [
-      cppSettings
-      generalSettings
-      formatterSettings
-      gitSettings
-      githubSettings
-      javaSettings
-      nixSettings
-      path-intellisenseSettings
-      pythonSettings
-      telemetrySettings
-    ];
+    "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink ((pkgs.formats.json {}).generate "vscode-user-settings" (cppSettings
+      // generalSettings
+      // formatterSettings
+      // gitSettings
+      // githubSettings
+      // javaSettings
+      // nixSettings
+      // path-intellisenseSettings
+      // pythonSettings
+      // telemetrySettings));
   };
 }
