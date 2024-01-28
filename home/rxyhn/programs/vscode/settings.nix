@@ -84,7 +84,6 @@
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[lua]"."editor.defaultFormatter" = "johnnymorganz.stylua";
     "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
     "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
     "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -138,11 +137,6 @@
     "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
   };
 
-  luaSettings = {
-    "Lua.misc.executablePath" = "${pkgs.sumneko-lua-language-server}/bin/lua-language-server";
-    "stylua.styluaPath" = "${pkgs.stylua}/bin/stylua";
-  };
-
   nixSettings = {
     "nix.enableLanguageServer" = true;
     "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
@@ -165,7 +159,6 @@ in {
     cppSettings
     goSettings
     javaSettings
-    luaSettings
     nixSettings
     pythonSettings
   ];

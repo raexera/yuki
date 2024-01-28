@@ -6,9 +6,9 @@
     ];
 
     overlays = [
-      inputs.nur.overlay
-      inputs.nix-vscode-extensions.overlays.default
       inputs.catppuccin-vsc.overlays.default
+      inputs.nix-vscode-extensions.overlays.default
+      inputs.nur.overlay
     ];
   };
 }

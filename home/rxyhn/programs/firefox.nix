@@ -35,6 +35,7 @@ in {
     enable = true;
     profiles.rxyhn = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        darkreader
         octotree
         refined-github
         ublock-origin

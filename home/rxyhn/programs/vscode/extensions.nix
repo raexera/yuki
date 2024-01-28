@@ -24,7 +24,6 @@
         github.vscode-pull-request-github
         golang.go
         jnoortheen.nix-ide
-        johnnymorganz.stylua
         llvm-vs-code-extensions.vscode-clangd
         mikestead.dotenv
         mkhl.direnv
@@ -40,7 +39,6 @@
         oderwat.indent-rainbow
         redhat.java
         redhat.vscode-yaml
-        sumneko.lua
         usernamehw.errorlens
         xaver.clang-format
         yzhang.markdown-all-in-one
