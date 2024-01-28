@@ -35,8 +35,10 @@
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
     nh.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-db.inputs.nixpkgs.follows = "nixpkgs";
+    nix-vscode-extensions.inputs.flake-utils.follows = "flake-utils";
+    nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
-    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
     pre-commit-hooks.inputs.flake-utils.follows = "flake-utils";
+    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
