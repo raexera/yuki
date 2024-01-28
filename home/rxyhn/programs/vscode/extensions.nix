@@ -48,7 +48,7 @@
           boldKeywords = true;
           italicComments = true;
           italicKeywords = true;
-          extraBordersEnabled = true;
+          extraBordersEnabled = false;
           workbenchMode = "default";
           bracketMode = "rainbow";
           colorOverrides = {
