@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -42,6 +43,10 @@
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
 
+    # Extensions
+    "extensions.autoCheckUpdates" = false;
+    "update.mode" = "none";
+
     # Files
     "files.insertFinalNewline" = true;
     "files.trimTrailingWhitespace" = true;
@@ -57,16 +62,17 @@
 
     # Window
     "window.autoDetectColorScheme" = true;
+    "window.commandCenter" = false;
     "window.dialogStyle" = "native";
     "window.menuBarVisibility" = "compact";
     "window.titleBarStyle" = "custom";
-    "window.zoomLevel" = 1;
 
     # Workbench
     "workbench.colorTheme" = "Catppuccin Macchiato";
     "workbench.editor.enablePreview" = false;
     "workbench.editor.enablePreviewFromQuickOpen" = false;
     "workbench.iconTheme" = "catppuccin-macchiato";
+    "workbench.layoutControl.enabled" = false;
     "workbench.panel.defaultLocation" = "right";
     "workbench.productIconTheme" = "icons-carbon";
     "workbench.tree.renderIndentGuides" = "always";
@@ -110,6 +116,11 @@
     "path-intellisense.showHiddenFiles" = true;
   };
 
+  telemetrySettings = {
+    "redhat.telemetry.enabled" = false;
+    "telemetry.telemetryLevel" = "off";
+  };
+
   cppSettings = {
     "C_Cpp.intelliSenseEngine" = "disabled";
     "clangd.path" = "${pkgs.clang-tools}/bin/clangd";
@@ -143,16 +154,18 @@
     "python.languageServer" = "Pylance";
   };
 in {
-  programs.vscode.userSettings = lib.mkMerge [
-    generalSettings
-    formatterSettings
-    gitSettings
-    githubSettings
-    path-intellisenseSettings
-
-    cppSettings
-    javaSettings
-    nixSettings
-    pythonSettings
-  ];
+  xdg.configFile = {
+    "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink (pkgs.formats.json {}).generate "vscode-user-settings" lib.mkMerge [
+      cppSettings
+      generalSettings
+      formatterSettings
+      gitSettings
+      githubSettings
+      javaSettings
+      nixSettings
+      path-intellisenseSettings
+      pythonSettings
+      telemetrySettings
+    ];
+  };
 }

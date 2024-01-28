@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./programs/discord.nix
     ./programs/firefox.nix
     ./programs/kitty.nix
     ./programs/media.nix
@@ -102,7 +103,6 @@
       # GUI
       inherit
         (pkgs)
-        discord
         gimp
         keepassxc
         tdesktop
