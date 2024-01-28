@@ -36,8 +36,6 @@
     inputs.self.homeManagerModules.hyprland
   ];
 
-  nixpkgs.overlays = [inputs.nixpkgs-wayland.overlay];
-
   programs = {
     hyprland = {
       enable = true;
