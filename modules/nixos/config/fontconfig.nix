@@ -9,7 +9,7 @@
 
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
-        monospace = ["Fira Code" "Symbols Nerd Font Mono" "Noto Color Emoji"];
+        monospace = ["Fira Code" "Noto Color Emoji" "Symbols Nerd Font"];
         serif = ["Noto Serif" "Noto Color Emoji"];
         sansSerif = ["Inter" "Noto Color Emoji"];
       };
