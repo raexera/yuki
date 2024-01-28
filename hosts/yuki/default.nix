@@ -43,7 +43,14 @@ in {
   environment = {
     systemPackages = with pkgs; [
       acpi
+      libva
+      libva-utils
+      mesa
       pciutils
+      vulkan-tools
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
     ];
 
     sessionVariables = {

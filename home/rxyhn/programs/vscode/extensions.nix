@@ -22,7 +22,6 @@
         github.copilot
         github.vscode-github-actions
         github.vscode-pull-request-github
-        golang.go
         jnoortheen.nix-ide
         llvm-vs-code-extensions.vscode-clangd
         mikestead.dotenv

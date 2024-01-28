@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     amberol
     celluloid
+    ffmpeg-full
     imv
     loupe
     pavucontrol

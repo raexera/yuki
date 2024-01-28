@@ -78,7 +78,6 @@
     "[c]"."editor.defaultFormatter" = "xaver.clang-format";
     "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[go][go.mod][go.sum]"."editor.defaultFormatter" = "golang.go";
     "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[java]"."editor.defaultFormatter" = "redhat.java";
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -119,12 +118,6 @@
     "makefile.makePath" = "${pkgs.gnumake}/bin/make";
   };
 
-  goSettings = {
-    "gopls" = {
-      "ui.semanticTokens" = true;
-    };
-  };
-
   javaSettings = {
     "java.configuration.runtimes" = [
       {
@@ -146,6 +139,7 @@
 
   pythonSettings = {
     "pylint.enabled" = true;
+    "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
     "python.languageServer" = "Pylance";
   };
 in {
@@ -157,7 +151,6 @@ in {
     path-intellisenseSettings
 
     cppSettings
-    goSettings
     javaSettings
     nixSettings
     pythonSettings

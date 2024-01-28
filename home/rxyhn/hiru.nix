@@ -16,20 +16,26 @@
       # DEV Tools
       inherit
         (pkgs)
+        alejandra
         black
         bun
         ccls
         clang
         clang-tools
         cmake
+        comma
         delve
+        deno
         go
         gopls
         grex
         java-language-server
+        just
+        kotlin-language-server
         lldb
         nodejs
         revive
+        shellcheck
         shfmt
         typescript
         uncrustify
@@ -75,6 +81,7 @@
         killall
         lz4
         neofetch
+        nvd
         p7zip
         procs
         psmisc
@@ -83,6 +90,7 @@
         sd
         socat
         trash-cli
+        ttyper
         unrar
         unzip
         util-linux
