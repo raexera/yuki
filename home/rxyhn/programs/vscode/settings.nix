@@ -3,8 +3,7 @@
   pkgs,
   ...
 }: let
-  generalSettings = {
-    # Editor
+  editor = {
     "breadcrumbs.enabled" = true;
     "breadcrumbs.symbolPath" = "last";
     "editor.acceptSuggestionOnEnter" = "smart";
@@ -37,20 +36,24 @@
     "editor.tabSize" = 2;
     "editor.trimAutoWhitespace" = true;
     "editor.wordWrap" = "on";
+  };
 
-    # Explorer
+  explorer = {
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
+  };
 
-    # Extensions
+  extensions = {
     "extensions.autoCheckUpdates" = false;
     "update.mode" = "none";
+  };
 
-    # Files
+  files = {
     "files.insertFinalNewline" = true;
     "files.trimTrailingWhitespace" = true;
+  };
 
-    # Terminal
+  terminal = {
     "terminal.integrated.cursorBlinking" = true;
     "terminal.integrated.cursorStyle" = "line";
     "terminal.integrated.cursorWidth" = 2;
@@ -58,15 +61,17 @@
     "terminal.integrated.fontSize" = 13;
     "terminal.integrated.minimumContrastRatio" = 1;
     "terminal.integrated.smoothScrolling" = true;
+  };
 
-    # Window
+  window = {
     "window.autoDetectColorScheme" = true;
     "window.commandCenter" = false;
     "window.dialogStyle" = "native";
     "window.menuBarVisibility" = "compact";
     "window.titleBarStyle" = "custom";
+  };
 
-    # Workbench
+  workbench = {
     "workbench.colorTheme" = "Catppuccin Macchiato";
     "workbench.editor.enablePreview" = false;
     "workbench.editor.enablePreviewFromQuickOpen" = false;
@@ -79,7 +84,7 @@
     "workbench.startupEditor" = "none";
   };
 
-  formatterSettings = {
+  defaultFormatter = {
     "[c]"."editor.defaultFormatter" = "xaver.clang-format";
     "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -94,13 +99,13 @@
     "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
-  gitSettings = {
+  git = {
     "git.autofetch" = true;
     "git.enableSmartCommit" = true;
     "gitlens.views.repositories.files.layout" = "tree";
   };
 
-  githubSettings = {
+  github = {
     "github.copilot.enable" = {
       "*" = true;
     };
@@ -108,19 +113,19 @@
     "githubPullRequests.pullBranch" = "always";
   };
 
-  path-intellisenseSettings = {
+  path-intellisense = {
     "path-intellisense.autoSlashAfterDirectory" = true;
     "path-intellisense.autoTriggerNextSuggestion" = true;
     "path-intellisense.extensionOnImport" = true;
     "path-intellisense.showHiddenFiles" = true;
   };
 
-  telemetrySettings = {
+  telemetry = {
     "redhat.telemetry.enabled" = false;
     "telemetry.telemetryLevel" = "off";
   };
 
-  cppSettings = {
+  cpp = {
     "C_Cpp.intelliSenseEngine" = "disabled";
     "clangd.path" = "${pkgs.clang-tools}/bin/clangd";
     "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
@@ -128,7 +133,7 @@
     "makefile.makePath" = "${pkgs.gnumake}/bin/make";
   };
 
-  javaSettings = {
+  java = {
     "java.configuration.runtimes" = [
       {
         name = "JavaSE-17";
@@ -140,29 +145,37 @@
     "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
   };
 
-  nixSettings = {
+  nix = {
     "nix.enableLanguageServer" = true;
     "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
     "nix.serverPath" = "${pkgs.nil}/bin/nil";
     "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
   };
 
-  pythonSettings = {
+  python = {
     "pylint.enabled" = true;
     "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
     "python.languageServer" = "Pylance";
   };
 in {
   xdg.configFile = {
-    "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink ((pkgs.formats.json {}).generate "vscode-user-settings" (cppSettings
-      // generalSettings
-      // formatterSettings
-      // gitSettings
-      // githubSettings
-      // javaSettings
-      // nixSettings
-      // path-intellisenseSettings
-      // pythonSettings
-      // telemetrySettings));
+    "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink ((pkgs.formats.json {}).generate "vscode-user-settings" (
+      editor
+      // explorer
+      // extensions
+      // files
+      // terminal
+      // window
+      // workbench
+      // defaultFormatter
+      // git
+      // github
+      // path-intellisense
+      // telemetry
+      // cpp
+      // java
+      // nix
+      // python
+    ));
   };
 }
