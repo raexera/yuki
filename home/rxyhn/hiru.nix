@@ -23,7 +23,6 @@
         clang
         clang-tools
         cmake
-        comma
         delve
         deno
         go
@@ -31,7 +30,6 @@
         grex
         java-language-server
         just
-        kotlin-language-server
         lldb
         nodejs
         revive
