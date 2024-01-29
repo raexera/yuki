@@ -6,9 +6,9 @@
   programs.vscode = {
     mutableExtensionsDir = true;
     extensions =
-      (with pkgs.vscode-marketplace-release; [
-        eamodio.gitlens
-        vadimcn.vscode-lldb
+      (with pkgs.vscode-extensions; [
+        github.vscode-github-actions
+        github.vscode-pull-request-github
       ])
       ++ (with pkgs.vscode-marketplace; [
         antfu.icons-carbon
@@ -20,8 +20,7 @@
         editorconfig.editorconfig
         esbenp.prettier-vscode
         github.copilot
-        github.vscode-github-actions
-        github.vscode-pull-request-github
+        github.copilot-chat
         jnoortheen.nix-ide
         llvm-vs-code-extensions.vscode-clangd
         mikestead.dotenv
@@ -34,6 +33,11 @@
         ms-vscode.cmake-tools
         ms-vscode.cpptools
         ms-vscode.makefile-tools
+        ms-toolsai.jupyter
+        ms-toolsai.jupyter-renderers
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
         naumovs.color-highlight
         oderwat.indent-rainbow
         redhat.java
@@ -41,6 +45,10 @@
         usernamehw.errorlens
         xaver.clang-format
         yzhang.markdown-all-in-one
+      ])
+      ++ (with pkgs.vscode-marketplace-release; [
+        eamodio.gitlens
+        vadimcn.vscode-lldb
       ])
       ++ [
         (pkgs.catppuccin-vsc.override {

@@ -17,6 +17,8 @@
     "editor.lineNumbers" = "relative";
     "editor.minimap.enabled" = false;
     "editor.renderLineHighlight" = "all";
+    "editor.scrollbar.horizontal" = "hidden";
+    "editor.scrollbar.vertical" = "hidden";
     "editor.semanticHighlighting.enabled" = true;
     "editor.showUnused" = true;
     "editor.smoothScrolling" = true;
@@ -44,7 +46,7 @@
     "window.autoDetectColorScheme" = true;
     "window.commandCenter" = false;
     "window.dialogStyle" = "native";
-    "window.menuBarVisibility" = "compact";
+    "window.menuBarVisibility" = "toggle";
     "window.titleBarStyle" = "custom";
   };
 
