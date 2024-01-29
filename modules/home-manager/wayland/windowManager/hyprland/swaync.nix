@@ -1,10 +1,13 @@
-{
+{pkgs, ...}: {
   services.swaync = {
     enable = true;
     systemd.enable = true;
+    schema = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
     settings = {
       positionX = "right";
       positionY = "top";
+      control-center-positionX = "left";
+      control-center-positionY = "top";
       layer = "overlay";
       control-center-layer = "top";
       layer-shell = true;
@@ -13,6 +16,7 @@
       control-center-margin-bottom = 4;
       control-center-margin-right = 4;
       control-center-margin-left = 0;
+      control-center-exclusive-zone = true;
       notification-2fa-action = true;
       notification-inline-replies = false;
       notification-icon-size = 64;
@@ -24,7 +28,6 @@
       fit-to-screen = true;
       relative-timestamps = true;
       control-center-width = 500;
-      control-center-height = 600;
       notification-window-width = 500;
       keyboard-shortcuts = true;
       image-visibility = "when-available";
