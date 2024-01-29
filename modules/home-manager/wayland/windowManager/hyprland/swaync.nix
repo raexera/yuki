@@ -73,7 +73,7 @@
       inherit (themes.colorscheme) xcolors;
     in ''
       * {
-        font-family: "Inter", sans-serif;
+        font-family: "Material Design Icons", Inter, sans-serif;
       }
 
       .blank-window {

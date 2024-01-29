@@ -69,19 +69,22 @@ in {
 
         # Notifications
         "custom/notification" = {
-          tooltip = false;
+          exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+          return-type = "json";
           format = "{icon}";
           format-icons = {
-            notification = "󱅫";
-            none = "󰂚";
-            dndNotification = "󰂛";
-            dndNone = "󰂛";
+            notification = "󰂚";
+            none = "󰂜";
+            dnd-notification = "󰂛";
+            dnd-none = "󰪑";
+            inhibited-notification = "󰂛";
+            inhibited-none = "󰪑";
+            dnd-inhibited-notification = "󰂛";
+            dnd-inhibited-none = "󰪑";
           };
-          return-type = "json";
-          exec-if = "${pkgs.swaynotificationcenter}/bin/swaync-client";
-          exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
           on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
           on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+          tooltip = true;
           escape = true;
         };
 
