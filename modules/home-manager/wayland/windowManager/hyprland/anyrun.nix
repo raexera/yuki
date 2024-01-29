@@ -32,9 +32,7 @@
     in ''
       * {
         all: unset;
-        font:
-          11pt Inter,
-          sans-serif;
+        font: 11pt Inter, sans-serif;
       }
 
       #window,

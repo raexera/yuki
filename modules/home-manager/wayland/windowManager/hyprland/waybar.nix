@@ -241,10 +241,7 @@ in {
     style = ''
       * {
         all: unset;
-        font:
-          11pt "Material Design Icons",
-          "Fira Code",
-          sans-serif;
+        font: 11pt "Material Design Icons", Inter, sans-serif;
         min-height: 0;
         min-width: 0;
       }

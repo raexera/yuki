@@ -73,7 +73,7 @@
       inherit (themes.colorscheme) xcolors;
     in ''
       * {
-        font-family: "Material Design Icons", Inter, sans-serif;
+        font: 11pt "Material Design Icons", Inter, sans-serif;
       }
 
       .blank-window {
@@ -92,6 +92,10 @@
 
       .control-center .control-center-list {
         background: transparent;
+      }
+
+      .notification-row {
+        transition: all 0.5s steps(12);
       }
     '';
   };
