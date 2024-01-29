@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  themes,
+  ...
+}: {
   services.swaync = {
     enable = true;
     systemd.enable = true;
@@ -65,5 +69,30 @@
         };
       };
     };
+    style = let
+      inherit (themes.colorscheme) xcolors;
+    in ''
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      .blank-window {
+        background: transparent;
+      }
+
+      .control-center {
+        background: ${xcolors.black0};
+        border-radius: 0.5rem;
+        color: ${xcolors.white};
+      }
+
+      .control-center .control-center-list-placeholder {
+        opacity: 0.5;
+      }
+
+      .control-center .control-center-list {
+        background: transparent;
+      }
+    '';
   };
 }
