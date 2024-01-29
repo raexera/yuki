@@ -3,34 +3,34 @@
     enable = true;
     systemd.enable = true;
     settings = {
-      positionX = "left";
+      positionX = "right";
       positionY = "top";
       layer = "overlay";
-      controlCenterLayer = "top";
-      layerShell = true;
+      control-center-layer = "top";
+      layer-shell = true;
       cssPriority = "application";
-      controlCenterMarginTop = 0;
-      controlCenterMarginBottom = 0;
-      controlCenterMarginRight = 0;
-      controlCenterMarginLeft = 0;
-      notification2faAction = true;
-      notificationInlineReplies = false;
-      notificationIconSize = 64;
-      notificationBodyImageHeight = 100;
-      notificationBodyImageWidth = 200;
+      control-center-margin-top = 4;
+      control-center-margin-bottom = 4;
+      control-center-margin-right = 4;
+      control-center-margin-left = 0;
+      notification-2fa-action = true;
+      notification-inline-replies = false;
+      notification-icon-size = 64;
+      notification-body-image-height = 100;
+      notification-body-image-width = 200;
       timeout = 10;
-      timeoutLow = 5;
-      timeoutCritical = 0;
-      fitToScreen = true;
-      relativeTimestamps = true;
-      controlCenterWidth = 500;
-      controlCenterHeight = 600;
-      notificationWindowWidth = 500;
-      keyboardShortcuts = true;
-      imageVisibility = "when-available";
-      transitionTime = 200;
-      hideOnClear = false;
-      hideOnAction = true;
+      timeout-low = 5;
+      timeout-critical = 0;
+      fit-to-screen = true;
+      relative-timestamps = true;
+      control-center-width = 500;
+      control-center-height = 600;
+      notification-window-width = 500;
+      keyboard-shortcuts = true;
+      image-visibility = "when-available";
+      transition-time = 200;
+      hide-on-clear = false;
+      hide-on-action = true;
       widgets = [
         "inhibitors"
         "title"
@@ -38,27 +38,27 @@
         "notifications"
         "mpris"
       ];
-      widgetConfig = {
+      widget-config = {
         inhibitors = {
           text = "Inhibitors";
-          buttonText = "Clear All";
-          clearAllButton = true;
+          button-text = "Clear All";
+          clear-all-button = true;
         };
         title = {
           text = "Notifications";
-          clearAllButton = true;
-          buttonText = "Clear All";
+          clear-all-button = true;
+          button-text = "Clear All";
         };
         dnd = {
           text = "Do Not Disturb";
         };
         label = {
-          maxLines = 5;
+          max-lines = 5;
           text = "Label Text";
         };
         mpris = {
-          imageSize = 96;
-          imageRadius = 12;
+          image-size = 96;
+          image-radius = 12;
         };
       };
     };
