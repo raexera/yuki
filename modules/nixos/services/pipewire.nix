@@ -13,9 +13,4 @@
     wireplumber.enable = true;
     jack.enable = true;
   };
-
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
 }

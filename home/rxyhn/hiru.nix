@@ -7,8 +7,8 @@
     ./programs/discord.nix
     ./programs/firefox.nix
     ./programs/kitty.nix
-    ./programs/media.nix
     ./programs/nix-index-db.nix
+    ./programs/media
     ./programs/vscode
   ];
 

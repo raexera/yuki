@@ -1,0 +1,5 @@
+{
+  services = {
+    playerctld.enable = true;
+  };
+}
