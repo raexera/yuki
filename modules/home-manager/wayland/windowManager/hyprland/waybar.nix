@@ -20,8 +20,8 @@ in {
     systemd.enable = true;
     systemd.target = "graphical-session.target";
 
-    settings = {
-      mainBar = {
+    settings = [
+      {
         layer = "top";
         position = "left";
         exclusive = true;
@@ -32,18 +32,8 @@ in {
         margin-bottom = 4;
         margin-left = 4;
         margin-right = 0;
-        modules-left = [
-          "custom/logo"
-          "hyprland/workspaces"
-        ];
-        modules-center = [];
-        modules-right = [
-          "tray"
-          "custom/notification"
-          "group/network-pulseaudio-backlight-battery"
-          "clock"
-          "group/powermenu"
-        ];
+        modules-left = ["custom/logo" "hyprland/workspaces"];
+        modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "clock" "group/powermenu"];
 
         # Distro Logo
         "custom/logo" = {
@@ -238,8 +228,8 @@ in {
           on-click = "${pkgs.systemd}/bin/systemctl reboot";
           tooltip = false;
         };
-      };
-    };
+      }
+    ];
 
     style = ''
       * {
