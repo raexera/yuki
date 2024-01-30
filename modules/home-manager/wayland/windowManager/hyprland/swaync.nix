@@ -6,7 +6,9 @@
   services.swaync = {
     enable = true;
     systemd.enable = true;
+    systemd.target = "graphical-session.target";
     schema = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
+
     settings = {
       positionX = "right";
       positionY = "top";
@@ -69,6 +71,7 @@
         };
       };
     };
+
     style = let
       inherit (themes.colorscheme) xcolors;
     in ''
