@@ -1,13 +1,11 @@
 {
-  config,
+  inputs,
   pkgs,
   ...
 }: {
   imports = [./hardware-configuration.nix];
 
   boot = {
-    kernelModules = ["acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     kernelPackages = pkgs.linuxPackages_latest;
 
     extraModprobeConfig = ''
@@ -44,17 +42,17 @@
   environment = {
     systemPackages = with pkgs; [
       acpi
+      alsa-utils
+      ffmpeg-full
       libva
       libva-utils
       mesa
       pciutils
+      v4l-utils
       vulkan-tools
       vulkan-loader
       vulkan-validation-layers
       vulkan-extension-layer
-
-      alsa-utils
-      libcamera
     ];
 
     sessionVariables = {
@@ -80,12 +78,27 @@
 
   networking.hostName = "yuki";
 
+  security.tpm2.enable = true;
+
   services = {
     acpid.enable = true;
     auto-cpufreq.enable = true;
     fstrim.enable = true;
     hardware.bolt.enable = true;
     power-profiles-daemon.enable = true;
+
+    howdy = {
+      enable = true;
+      package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.howdy;
+      settings = {
+        video.device_path = "/dev/video0";
+      };
+    };
+
+    linux-enable-ir-emitter = {
+      enable = true;
+      package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
+    };
 
     psd = {
       enable = true;

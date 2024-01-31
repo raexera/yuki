@@ -530,6 +530,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-howdy": {
+      "locked": {
+        "lastModified": 1706041458,
+        "narHash": "sha256-TPmclFYHclPAu1ybBNY8rt0soSEfZiRCJ0pD1xuB9Xg=",
+        "owner": "fufexan",
+        "repo": "nixpkgs",
+        "rev": "7a3b38529196dc6ac1d6b15a2190db8d328c3ddd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fufexan",
+        "ref": "howdy",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1706402708,
@@ -698,11 +714,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1706675850,
-        "narHash": "sha256-urezy8FRe3B9j3C06Zv93N2fiX6LMm06qeaKCykqjxs=",
+        "lastModified": 1706683558,
+        "narHash": "sha256-Rz8mjD3GTVP5HQweR4GA23I9Nl+mH6GokyaOohpyfMk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "6f1371fef7cd2f64e6a9f191350649417c595e44",
+        "rev": "7f970ae3b784af7e4505ae09780a56a13300a1be",
         "type": "github"
       },
       "original": {
@@ -753,6 +769,7 @@
         "nix-index-db": "nix-index-db",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_7",
+        "nixpkgs-howdy": "nixpkgs-howdy",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks"
