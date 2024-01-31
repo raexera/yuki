@@ -103,7 +103,7 @@
       key_press_enables_dpms = true;
       mouse_move_enables_dpms = true;
       vfr = true;
-      vrr = 2;
+      vrr = 1;
     };
 
     monitor = [

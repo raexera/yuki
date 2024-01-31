@@ -2,7 +2,6 @@
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
       "dimaround, class:^(gcr-prompter)$"
-      "dimaround, class:^(xdg-desktop-portal)$"
       "dimaround, class:^(xdg-desktop-portal-gtk)$"
       "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
       "float, class:^(imv)$"
@@ -12,7 +11,6 @@
       "float, class:^(org.gnome.Loupe)$"
       "float, class:^(pavucontrol)$"
       "float, class:^(thunar)$"
-      "float, class:^(xdg-desktop-portal)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
       "float, title:^(Media viewer)$"
       "float, title:^(Picture-in-Picture)$"

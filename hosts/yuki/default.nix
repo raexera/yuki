@@ -6,24 +6,25 @@
   imports = [./hardware-configuration.nix];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    consoleLogLevel = 3;
 
     extraModprobeConfig = ''
       options i915 enable_fbc=1 enable_guc=2
       options snd_hda_intel enable=0,1 power_save=1 power_save_controller=Y
     '';
 
-    consoleLogLevel = 3;
+    initrd = {
+      systemd.enable = true;
+      supportedFilesystems = ["ext4"];
+    };
+
+    kernelPackages = pkgs.linuxPackages_latest;
+
     kernelParams = [
       "quiet"
       "systemd.show_status=auto"
       "rd.udev.log_level=3"
     ];
-
-    initrd = {
-      systemd.enable = true;
-      supportedFilesystems = ["ext4"];
-    };
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -57,19 +58,29 @@
     ];
 
     sessionVariables = {
+      __GL_GSYNC_ALLOWED = "1";
+      __GL_VRR_ALLOWED = "1";
       WLR_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
     };
   };
 
   hardware = {
+    # Enable all firmware regardless of license.
     enableAllFirmware = true;
+
+    # Enable firmware with a license allowing redistribution.
     enableRedistributableFirmware = true;
 
+    # update the CPU microcode for Intel processors.
+    cpu.intel.updateMicrocode = true;
+
+    # configure the bus IDs of the graphics cards.
     nvidia.prime = {
       nvidiaBusId = "PCI:1:0:0";
       intelBusId = "PCI:0:2:0";
     };
 
+    # Enable OpenGL drivers
     opengl = {
       enable = true;
       driSupport = true;
@@ -77,17 +88,26 @@
     };
   };
 
+  # Set the networking host name.
   networking.hostName = "yuki";
 
+  # Enable Trusted Platform Module 2 support
   security.tpm2.enable = true;
 
   services = {
+    # Enable the ACPI daemon.
     acpid.enable = true;
-    auto-cpufreq.enable = true;
-    fstrim.enable = true;
-    hardware.bolt.enable = true;
-    power-profiles-daemon.enable = true;
 
+    # Enable the auto-cpufreq daemon.
+    auto-cpufreq.enable = true;
+
+    # Enable periodic SSD TRIM of mounted partitions in background
+    fstrim.enable = true;
+
+    # Enable security levels for Thunderbolt 3 on GNU/Linux.
+    hardware.bolt.enable = true;
+
+    # Windows Hello™ style facial authentication for Linux,
     howdy = {
       enable = true;
       package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.howdy;
@@ -97,18 +117,25 @@
       };
     };
 
+    # Provides support for infrared cameras that are not directly enabled out-of-the box.
     linux-enable-ir-emitter = {
       enable = true;
       package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
     };
 
+    # Enable the Profile Sync daemon.
     psd = {
       enable = true;
       resyncTimer = "10m";
     };
 
+    # Enable power-profiles-daemon, a DBus daemon that allows changing system behavior based upon user-selected power profiles.
+    power-profiles-daemon.enable = true;
+
+    # Enable thermald, the temperature management daemon.
     thermald.enable = true;
 
+    # Enable Upower, a DBus service that provides power management support to applications.
     upower = {
       enable = true;
       percentageLow = 30;
@@ -118,5 +145,6 @@
     };
   };
 
+  # Enable in-memory compressed devices and swap space provided by the zram kernel module.
   zramSwap.enable = true;
 }

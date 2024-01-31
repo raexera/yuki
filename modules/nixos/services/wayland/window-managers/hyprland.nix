@@ -13,7 +13,6 @@
       _JAVA_AWT_WM_NONEREPARENTING = "1";
       CLUTTER_BACKEND = "wayland";
       GDK_BACKEND = "wayland,x11";
-      GTK_USE_PORTAL = "1";
       MOZ_ENABLE_WAYLAND = "1";
       NIXOS_OZONE_WL = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
@@ -84,7 +83,12 @@
 
   xdg.portal = {
     enable = true;
-    config.common.default = "*";
+
+    config = {
+      common.default = ["gtk"];
+      hyprland.default = ["gtk" "hyprland"];
+    };
+
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];
