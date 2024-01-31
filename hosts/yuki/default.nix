@@ -10,6 +10,10 @@
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
     kernelPackages = pkgs.linuxPackages_latest;
 
+    extraModprobeConfig = ''
+      options snd-intel-dspcfg dsp_driver=1
+    '';
+
     consoleLogLevel = 3;
     kernelParams = [
       "quiet"
