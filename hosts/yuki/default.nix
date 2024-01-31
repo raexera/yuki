@@ -92,6 +92,7 @@
       package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.howdy;
       settings = {
         video.device_path = "/dev/video0";
+        video.dark_threshold = 90;
       };
     };
 
