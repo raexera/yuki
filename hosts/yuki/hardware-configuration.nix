@@ -16,10 +16,6 @@
   boot.kernelModules = ["kvm-intel" "acpi_call"];
   boot.extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   boot.kernelParams = ["module_blacklist=nouveau" "iommu=pt" "i915.enable_psr=0" "i8042.direct" "i8042.dumbkbd"];
-  boot.extraModprobeConfig = ''
-    options i915 enable_fbc=1 enable_guc=2
-    options snd_hda_intel model=auto power_save=1 power_save_controller=Y
-  '';
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NixOS-ROOT";

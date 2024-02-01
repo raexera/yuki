@@ -6,7 +6,13 @@
   imports = [./hardware-configuration.nix];
 
   boot = {
+    blacklistedKernelModules = ["snd_hda_intel" "snd_soc_skl"];
+
     consoleLogLevel = 3;
+
+    extraModprobeConfig = ''
+      options i915 enable_fbc=1 enable_guc=2
+    '';
 
     initrd = {
       systemd.enable = true;
