@@ -5,11 +5,13 @@
   themes,
   ...
 }: let
-  inherit (inputs.self) nixosModules;
   inherit (inputs.nixpkgs.lib) nixosSystem;
   howdy = inputs.nixpkgs-howdy;
+
   modules = "${self}/hosts/modules";
   hardware = modules + "/hardware";
+
+  profiles = "${self}/hosts/profiles";
 
   specialArgs = {inherit inputs self themes;};
 in {
@@ -29,7 +31,7 @@ in {
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
 
-        nixosModules.hyprland
+        "${profiles}/hyprland"
 
         {
           home-manager = {
