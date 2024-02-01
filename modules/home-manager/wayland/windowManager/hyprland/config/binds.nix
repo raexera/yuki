@@ -62,7 +62,7 @@ in {
           # Grouped (tabbed) windows
           "SUPER, G, togglegroup"
           "SUPER, TAB, changegroupactive, f"
-          "SUPER, TAB, changegroupactive, b"
+          "SUPERSHIFT, TAB, changegroupactive, b"
 
           # Cycle through windows
           "ALT, Tab, cyclenext"
