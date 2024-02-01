@@ -48,26 +48,27 @@ in {
       in
         [
           # Compositor commands
-          "SUPERSHIFT, Q, exec, pkill Hyprland"
-          "SUPER, Q, killactive,"
-          "SUPER, S, togglesplit,"
-          "SUPER, F, fullscreen,"
-          "SUPER, P, pseudo,"
-          "SUPER, Space, togglefloating,"
+          "SUPERSHIFT, Q, exit"
+          "SUPER, Q, killactive"
+          "SUPER, S, togglesplit"
+          "SUPER, F, fullscreen"
+          "SUPER, P, pseudo"
+          "SUPERSHIFT, P, pin"
+          "SUPER, Space, togglefloating"
 
           # Toggle "monocle" (no_gaps_when_only)
           "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
           # Grouped (tabbed) windows
-          "SUPER, G, togglegroup,"
-          "SUPERSHIFT, N, changegroupactive, f"
-          "SUPERSHIFT, P, changegroupactive, b"
+          "SUPER, G, togglegroup"
+          "SUPER, TAB, changegroupactive, f"
+          "SUPER, TAB, changegroupactive, b"
 
           # Cycle through windows
-          "SUPER, Tab, cyclenext,"
-          "SUPER, Tab, bringactivetotop,"
-          "SUPERSHIFT, Tab, cyclenext, prev"
-          "SUPERSHIFT, Tab, bringactivetotop,"
+          "ALT, Tab, cyclenext"
+          "ALT, Tab, bringactivetotop"
+          "ALTSHIFT, Tab, cyclenext, prev"
+          "ALTSHIFT, Tab, bringactivetotop"
 
           # Move focus
           "SUPER, left, movefocus, l"
@@ -86,8 +87,8 @@ in {
           "SUPER, grave, togglespecialworkspace, eDP-1"
 
           # Cycle through workspaces
-          "SUPER, bracketleft, workspace, m-1"
-          "SUPER, bracketright, workspace, m+1"
+          "SUPERALT, up, workspace, m-1"
+          "SUPERALT, down, workspace, m+1"
 
           # Utilities
           "SUPER, Return, exec, run-as-service ${terminal}"
@@ -131,13 +132,13 @@ in {
     extraConfig = ''
       bind = SUPERSHIFT, S, submap, resize
 
-      submap=resize
-      binde=,right,resizeactive,10 0
-      binde=,left,resizeactive,-10 0
-      binde=,up,resizeactive,0 -10
-      binde=,down,resizeactive,0 10
-      bind=,escape,submap,reset
-      submap=reset
+      submap = resize
+      binde = , right, resizeactive, 10 0
+      binde = , left, resizeactive, -10 0
+      binde = , up, resizeactive, 0 -10
+      binde = , down, resizeactive, 0 10
+      bind = , escape, submap, reset
+      submap = reset
     '';
   };
 }
