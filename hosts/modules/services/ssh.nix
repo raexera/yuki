@@ -1,10 +1,6 @@
 {
   programs = {
-    ssh.startAgent = false;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
+    ssh.startAgent = true;
   };
 
   services.openssh = {
@@ -12,7 +8,7 @@
     settings = {
       KbdInteractiveAuthentication = false;
       PasswordAuthentication = false;
-      PermitRootLogin = "no";
+      PermitRootLogin = "yes";
       X11Forwarding = false;
     };
   };

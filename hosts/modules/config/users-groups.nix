@@ -1,15 +1,9 @@
-{pkgs, ...}: let
-  keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAotW1uf8vPGbr6C+Vhvn2ncMAKBWLfDazw2MBSFmr44 rxyhn.dev@gmail.com"
-  ];
-in {
-  boot.initrd.network.ssh.authorizedKeys = keys;
-
+{pkgs, ...}: {
   users.users.rxyhn = {
     isNormalUser = true;
-    shell = pkgs.zsh;
     initialPassword = "NixOS";
-    openssh.authorizedKeys.keys = keys;
+    shell = pkgs.zsh;
+
     extraGroups = [
       "adbusers"
       "audio"
@@ -20,6 +14,10 @@ in {
       "plugdev"
       "video"
       "wheel"
+    ];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAotW1uf8vPGbr6C+Vhvn2ncMAKBWLfDazw2MBSFmr44 rxyhn.dev@gmail.com"
     ];
   };
 }
