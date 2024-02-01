@@ -1,6 +1,6 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-<h1 style="text-align: center;">雪 - Yuki</h1>
+<h1 align="center">雪 - Yuki</h1>
 
 <p align="center">
   <a href="#">
