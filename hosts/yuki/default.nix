@@ -92,9 +92,6 @@
   # Set the networking host name.
   networking.hostName = "yuki";
 
-  # Enable Trusted Platform Module 2 support
-  security.tpm2.enable = true;
-
   services = {
     # Enable the ACPI daemon.
     acpid.enable = true;
@@ -107,22 +104,6 @@
 
     # Enable security levels for Thunderbolt 3 on GNU/Linux.
     hardware.bolt.enable = true;
-
-    # Windows Hello™ style facial authentication for Linux,
-    howdy = {
-      enable = true;
-      package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.howdy;
-      settings = {
-        video.device_path = "/dev/video0";
-        video.dark_threshold = 90;
-      };
-    };
-
-    # Provides support for infrared cameras that are not directly enabled out-of-the box.
-    linux-enable-ir-emitter = {
-      enable = true;
-      package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
-    };
 
     # Enable the Profile Sync daemon.
     psd = {

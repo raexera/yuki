@@ -6,11 +6,9 @@
   ...
 }: let
   inherit (inputs.nixpkgs.lib) nixosSystem;
-  howdy = inputs.nixpkgs-howdy;
 
   modules = "${self}/hosts/modules";
   hardware = modules + "/hardware";
-
   profiles = "${self}/hosts/profiles";
 
   specialArgs = {inherit inputs self themes;};
@@ -39,11 +37,6 @@ in {
             extraSpecialArgs = specialArgs;
           };
         }
-
-        {disabledModules = ["security/pam.nix"];}
-        "${howdy}/nixos/modules/security/pam.nix"
-        "${howdy}/nixos/modules/services/security/howdy"
-        "${howdy}/nixos/modules/services/misc/linux-enable-ir-emitter.nix"
       ];
     };
   };
