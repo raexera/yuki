@@ -4,12 +4,12 @@
   ...
 }: {
   imports = [
-    ./programs/discord.nix
-    ./programs/firefox.nix
-    ./programs/kitty.nix
-    ./programs/nix-index-db.nix
-    ./programs/media
-    ./programs/vscode
+    ../programs/discord.nix
+    ../programs/firefox.nix
+    ../programs/kitty.nix
+    ../programs/nix-index-db.nix
+    ../programs/media
+    ../programs/vscode
   ];
 
   home = {

@@ -7,9 +7,9 @@
   extraSpecialArgs = {inherit inputs self themes;};
 
   homeImports = {
-    "rxyhn@hiru" = [
+    "rxyhn@hyprland" = [
       ./home.nix
-      ./hiru.nix
+      ./profiles/hyprland.nix
     ];
   };
 
@@ -20,8 +20,8 @@ in {
 
   flake = {
     homeConfigurations = {
-      "rxyhn@hiru" = homeManagerConfiguration {
-        modules = homeImports."rxyhn@hiru";
+      "rxyhn@hyprland" = homeManagerConfiguration {
+        modules = homeImports."rxyhn@hyprland";
         inherit pkgs extraSpecialArgs;
       };
     };

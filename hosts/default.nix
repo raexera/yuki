@@ -4,28 +4,36 @@
   self,
   themes,
   ...
-}: {
-  flake.nixosConfigurations = let
-    inherit (inputs.self) nixosModules;
-    inherit (inputs.nixpkgs.lib) nixosSystem;
-    howdy = inputs.nixpkgs-howdy;
+}: let
+  inherit (inputs.self) nixosModules;
+  inherit (inputs.nixpkgs.lib) nixosSystem;
+  howdy = inputs.nixpkgs-howdy;
+  modules = "${self}/hosts/modules";
+  hardware = modules + "/hardware";
 
-    specialArgs = {inherit inputs self themes;};
-  in {
+  specialArgs = {inherit inputs self themes;};
+in {
+  flake.nixosConfigurations = {
     # Lenovo Yoga Slim 7i Pro X
     yuki = nixosSystem {
       inherit specialArgs;
       modules = [
         ./yuki
-        nixosModules.base
-        nixosModules.bluetooth
+
+        "${modules}/config"
+        "${modules}/programs"
+        "${modules}/security"
+        "${modules}/services"
+
+        "${hardware}/bluetooth.nix"
+        "${hardware}/intel.nix"
+        "${hardware}/nvidia.nix"
+
         nixosModules.hyprland
-        nixosModules.intel
-        nixosModules.nvidia
 
         {
           home-manager = {
-            users.rxyhn.imports = homeImports."rxyhn@hiru";
+            users.rxyhn.imports = homeImports."rxyhn@hyprland";
             extraSpecialArgs = specialArgs;
           };
         }
