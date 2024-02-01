@@ -2,7 +2,7 @@
   imports = [
     ./pre-commit-hooks.nix
 
-    ../home/rxyhn
+    ../home
     ../hosts
     ../lib
     ../modules
