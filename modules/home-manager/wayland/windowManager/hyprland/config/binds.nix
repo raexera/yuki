@@ -72,7 +72,7 @@ in {
           "SUPER, Return, exec, run-as-service ${terminal}"
           "SUPER, B, exec, ${browser}"
           "SUPER, E, exec, ${editor}"
-          "SUPER, L, exec, ${pkgs.swaylock-effects}/bin/swaylock -S --grace 2"
+          "SUPER, L, exec, ${pkgs.systemd}/bin/loginctl lock-session"
           "SUPER, O, exec, run-as-service wl-ocr"
 
           ", Print, exec, ${screenshotarea}"

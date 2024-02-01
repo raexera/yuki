@@ -210,12 +210,12 @@ in {
         };
         "custom/exit" = {
           format = "󰈆";
-          on-click = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
+          on-click = "${pkgs.systemd}/bin/loginctl terminate-user $USER";
           tooltip = false;
         };
         "custom/lock" = {
           format = "󰌾";
-          on-click = "${pkgs.swaylock-effects}/bin/swaylock -S --daemonize";
+          on-click = "${pkgs.systemd}/bin/loginctl lock-session";
           tooltip = false;
         };
         "custom/suspend" = {
