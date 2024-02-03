@@ -1,11 +1,11 @@
 {
   imports = [
     ./pre-commit-hooks.nix
+    ./modules
 
     ../home
     ../hosts
     ../lib
-    ../modules
     ../pkgs
   ];
 
