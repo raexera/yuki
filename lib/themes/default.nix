@@ -28,9 +28,14 @@ lib: {
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;
   };
 
-  wallpaper = builtins.fetchurl rec {
-    name = "wallpaper-${sha256}.png";
-    url = "https://media.githubusercontent.com/media/rxyhn/wallpapers/main/OS/NixOS/nixos-nineish-gradient.png";
-    sha256 = "1g6h95qbn74n4yhvbch61lpg2nwcmr8kaz1lx566rd58q9jmh755";
-  };
+  wallpaper = let
+    params = "?q=85&fm=jpg&crop=fit&cs=srgb&w=2560";
+    url = "https://images.unsplash.com/photo-1485470733090-0aae1788d5af${params}.jpg";
+    sha256 = "1ijl3rhjyg161b2zbg541l3f5nj8yqvr2vxnjjyyj4izs7y8vgdc";
+    ext = lib.last (lib.splitString "." url);
+  in
+    builtins.fetchurl {
+      name = "wallpaper-${sha256}.${ext}";
+      inherit url sha256;
+    };
 }
