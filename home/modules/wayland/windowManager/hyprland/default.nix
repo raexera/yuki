@@ -10,7 +10,7 @@
 
     ./anyrun.nix
     ./cliphist.nix
-    ./swaybg.nix
+    ./hyprpaper.nix
     ./swayidle.nix
     ./swaylock.nix
     ./swaync.nix
