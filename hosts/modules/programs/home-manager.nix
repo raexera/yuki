@@ -13,7 +13,6 @@
     useUserPackages = true;
     verbose = true;
     sharedModules = [
-      inputs.self.homeManagerModules.shell
       {home.stateVersion = lib.mkForce config.system.stateVersion;}
     ];
   };

@@ -1,16 +1,29 @@
 {
   inputs,
+  lib,
   self,
   themes,
   ...
 }: let
   extraSpecialArgs = {inherit inputs self themes;};
 
+  modules = ./modules;
+  shared = modules + /shared;
+  sharedModules = [
+    (shared + /git.nix)
+    (shared + /gpg.nix)
+    (shared + /starship.nix)
+    (shared + /utils.nix)
+    (shared + /zsh.nix)
+  ];
+
   homeImports = {
-    "rxyhn@hyprland" = [
-      ./home.nix
-      ./profiles/hyprland.nix
-    ];
+    "rxyhn@hyprland" =
+      [
+        ./home.nix
+        ./profiles/hyprland.nix
+      ]
+      ++ lib.concatLists [sharedModules];
   };
 
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
