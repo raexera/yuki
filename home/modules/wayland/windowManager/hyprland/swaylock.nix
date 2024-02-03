@@ -7,7 +7,7 @@
     enable = true;
     package = pkgs.swaylock-effects;
     settings = let
-      inherit (themes.colorscheme) UI xcolors;
+      inherit (themes.colorscheme) UI;
     in {
       clock = true;
       indicator = true;
@@ -23,7 +23,7 @@
       fade-in = "0.1";
       effect-blur = "10x5";
 
-      ring-color = "${xcolors.black3}";
+      ring-color = "${UI.secondaryBackground}";
       line-color = "${UI.background}";
       inside-color = "${UI.background}";
       inside-ver-color = "${UI.background}";

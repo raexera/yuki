@@ -29,6 +29,7 @@ lib: {
       accent = xcolors.blue;
       foreground = xcolors.white;
       background = xcolors.black0;
+      secondaryBackground = xcolors.black3;
       error = xcolors.red;
       alpha = "0.3";
     };

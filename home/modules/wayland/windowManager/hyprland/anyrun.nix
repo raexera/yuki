@@ -28,7 +28,7 @@
     };
 
     extraCss = let
-      inherit (themes.colorscheme) UI xcolors;
+      inherit (themes.colorscheme) UI;
     in ''
       * {
         all: unset;
@@ -44,7 +44,7 @@
       }
 
       #entry {
-        background: ${xcolors.black3};
+        background: ${UI.secondaryBackground};
         border-radius: 0.5rem;
         margin: 0.5rem;
         padding: 1rem;
@@ -52,7 +52,7 @@
 
       #match.activatable {
         padding: 0.5rem 1rem;
-        background: ${xcolors.black3};
+        background: ${UI.secondaryBackground};
       }
 
       #match.activatable:first-child {
@@ -71,7 +71,7 @@
       }
 
       box#main {
-        background: ${xcolors.black0};
+        background: alpha(${UI.background}, ${UI.alpha});
         border-radius: 0.5rem;
         padding: 0.5rem;
       }

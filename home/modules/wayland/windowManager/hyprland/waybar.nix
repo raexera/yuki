@@ -28,9 +28,9 @@ in {
         fixed-center = true;
         gtk-layer-shell = true;
         spacing = 0;
-        margin-top = 4;
-        margin-bottom = 4;
-        margin-left = 4;
+        margin-top = 0;
+        margin-bottom = 0;
+        margin-left = 0;
         margin-right = 0;
         modules-left = ["custom/logo" "hyprland/workspaces"];
         modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "clock" "group/powermenu"];
@@ -287,7 +287,6 @@ in {
 
       window#waybar {
         background: alpha(${UI.background}, ${UI.alpha});
-        border-radius: 0.5rem;
         color: ${UI.foreground};
       }
 
@@ -310,7 +309,7 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: ${xcolors.black3};
+        background: ${UI.secondaryBackground};
         border-radius: 1.5rem;
         min-width: 0.75rem;
         margin: 0.25rem 0.5rem;
