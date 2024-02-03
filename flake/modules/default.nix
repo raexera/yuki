@@ -1,9 +1,11 @@
-{
+{self, ...}: let
+  flakeModules = "${self}/modules/flake";
+in {
   flake = {
     nixosModules = {};
 
     homeManagerModules = {
-      swaync = import ./home-manager/swaync.nix;
+      swaync = "${flakeModules}/home-manager/swaync";
     };
   };
 }
