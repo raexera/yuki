@@ -4,6 +4,10 @@
   ...
 }: {
   imports = [
+    ../modules/wayland/windowManager/hyprland
+    ../modules/config/gtk.nix
+    ../modules/config/home-cursor.nix
+
     ../modules/programs/discord.nix
     ../modules/programs/firefox.nix
     ../modules/programs/kitty.nix

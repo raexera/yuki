@@ -17,8 +17,6 @@
     ./swayosd.nix
     ./waybar.nix
 
-    inputs.self.homeManagerModules.misc.gtk
-    inputs.self.homeManagerModules.misc.home-cursor
     inputs.self.homeManagerModules.swaync
   ];
 
