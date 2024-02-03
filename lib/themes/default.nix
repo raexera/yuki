@@ -25,6 +25,13 @@ lib: {
       black0 = "0D1416"; # crust
     };
 
+    UI = {
+      accent = xcolors.green;
+      foreground = xcolors.white;
+      background = xcolors.black0;
+      alpha = "0.3";
+    };
+
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;
   };
 

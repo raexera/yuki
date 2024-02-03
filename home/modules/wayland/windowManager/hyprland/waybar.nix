@@ -13,7 +13,7 @@
     sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
   };
 
-  inherit (themes.colorscheme) xcolors;
+  inherit (themes.colorscheme) xcolors UI;
 in {
   programs.waybar = {
     enable = true;
@@ -286,7 +286,7 @@ in {
       }
 
       window#waybar {
-        background: ${xcolors.black0};
+        background: alpha(${UI.background}, ${UI.alpha});
         border-radius: 0.5rem;
         color: ${xcolors.white};
       }

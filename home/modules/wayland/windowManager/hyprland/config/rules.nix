@@ -1,5 +1,14 @@
 {
   wayland.windowManager.hyprland.settings = {
+    # layer rules
+    layerrule = let
+      layers = "^(anyrun|waybar|gtk-layer-shell|swaync-control-center|swaync-notification-window)$";
+    in [
+      "blur, ${layers}"
+      "ignorezero, ${layers}"
+    ];
+
+    # window rules
     windowrulev2 = [
       "dimaround, class:^(gcr-prompter)$"
       "dimaround, class:^(xdg-desktop-portal-gtk)$"

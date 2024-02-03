@@ -48,7 +48,7 @@
       "col.shadow" = "rgba(00000055)";
 
       blur = {
-        enabled = false;
+        enabled = true;
         brightness = 1.0;
         contrast = 1.0;
         new_optimizations = true;
