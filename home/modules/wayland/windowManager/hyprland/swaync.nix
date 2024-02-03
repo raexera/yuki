@@ -73,7 +73,7 @@
     };
 
     style = let
-      inherit (themes.colorscheme) xcolors;
+      inherit (themes.colorscheme) UI;
     in ''
       * {
         font: 11pt "Material Design Icons", Inter, sans-serif;
@@ -84,9 +84,9 @@
       }
 
       .control-center {
-        background: ${xcolors.black0};
+        background: alpha(${UI.background}, ${UI.alpha});
         border-radius: 0.5rem;
-        color: ${xcolors.white};
+        color: ${UI.foreground};
       }
 
       .control-center .control-center-list-placeholder {

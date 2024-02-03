@@ -31,7 +31,7 @@
       gaps_out = 4;
       border_size = 2;
 
-      "col.active_border" = "rgb(${colors.blue}) rgb(${colors.pink}) 45deg";
+      "col.active_border" = "rgb(${colors.green})";
 
       allow_tearing = true;
       resize_on_border = true;

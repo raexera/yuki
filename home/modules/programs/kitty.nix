@@ -6,7 +6,7 @@
     shellIntegration.enableZshIntegration = true;
 
     settings = let
-      inherit (themes.colorscheme) xcolors;
+      inherit (themes.colorscheme) UI xcolors;
     in {
       active_tab_font_style = "bold";
       background_opacity = "1.0";
@@ -54,7 +54,7 @@
       # Tab bar colors
       tab_bar_background = xcolors.black1;
       active_tab_foreground = xcolors.black1;
-      active_tab_background = xcolors.blue;
+      active_tab_background = UI.accent;
       inactive_tab_foreground = xcolors.white;
       inactive_tab_background = xcolors.black2;
 

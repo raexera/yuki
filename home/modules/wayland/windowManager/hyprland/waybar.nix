@@ -178,9 +178,9 @@ in {
           calendar = {
             format = {
               days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
-              months = "<span color='${xcolors.white}'><b>{}</b></span>";
-              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
-              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
+              months = "<span color='${UI.foreground}'><b>{}</b></span>";
+              today = "<span color='${UI.foreground}'><b><u>{}</u></b></span>";
+              weekdays = "<span color='${UI.accent}'><b>{}</b></span>";
             };
             mode = "month";
             on-scroll = 1;
@@ -241,7 +241,7 @@ in {
 
       menu,
       tooltip {
-        background: ${xcolors.black0};
+        background: ${UI.background};
         border: 1px solid ${xcolors.gray1};
         border-radius: 0.5rem;
         padding: 0.5rem;
@@ -277,7 +277,7 @@ in {
         min-height: 5rem;
         min-width: 0.625rem;
         border-radius: 0.5rem;
-        background-color: ${xcolors.black0};
+        background-color: ${UI.background};
       }
 
       highlight {
@@ -288,7 +288,7 @@ in {
       window#waybar {
         background: alpha(${UI.background}, ${UI.alpha});
         border-radius: 0.5rem;
-        color: ${xcolors.white};
+        color: ${UI.foreground};
       }
 
       .modules-left {
@@ -353,7 +353,7 @@ in {
       }
 
       #workspaces button {
-        background: ${xcolors.white};
+        background: ${UI.foreground};
         border-radius: 1rem;
         margin-bottom: 0.75rem;
         transition: all 0.5s steps(12);
@@ -364,7 +364,7 @@ in {
       }
 
       #workspaces button:hover {
-        background: alpha(${xcolors.white}, 0.5);
+        background: alpha(${UI.foreground}, 0.5);
       }
 
       #workspaces button.empty {
@@ -392,11 +392,11 @@ in {
       }
 
       #workspaces button.active {
-        background: ${xcolors.blue};
+        background: ${UI.accent};
       }
 
       #workspaces button.active:hover {
-        background: alpha(${xcolors.blue}, 0.5);
+        background: alpha(${UI.accent}, 0.5);
       }
 
       #tray > .passive {
@@ -410,13 +410,13 @@ in {
 
       #tray menu menuitem {
         border-radius: 0.5rem;
-        color: ${xcolors.white};
+        color: ${UI.foreground};
         padding: 0.25rem;
       }
 
       #tray menu menuitem:hover {
-        background: ${xcolors.blue};
-        color: ${xcolors.black0};
+        background: ${UI.accent};
+        color: ${UI.background};
       }
 
       #custom-notification {
@@ -430,7 +430,7 @@ in {
 
       #backlight-slider highlight,
       #pulseaudio-slider highlight {
-        background-color: ${xcolors.white};
+        background-color: ${UI.foreground};
       }
 
       #battery.charging,
@@ -465,7 +465,7 @@ in {
 
       @keyframes blink {
         to {
-          color: ${xcolors.white};
+          color: ${UI.foreground};
         }
       }
     '';

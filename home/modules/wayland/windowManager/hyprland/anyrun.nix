@@ -28,7 +28,7 @@
     };
 
     extraCss = let
-      inherit (themes.colorscheme) xcolors;
+      inherit (themes.colorscheme) UI xcolors;
     in ''
       * {
         all: unset;
@@ -67,7 +67,7 @@
       #match:hover,
       #plugin:hover {
         border-radius: 0.5rem;
-        background: ${xcolors.blue};
+        background: ${UI.accent};
       }
 
       box#main {

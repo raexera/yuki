@@ -26,9 +26,10 @@ lib: {
     };
 
     UI = {
-      accent = xcolors.green;
+      accent = xcolors.blue;
       foreground = xcolors.white;
       background = xcolors.black0;
+      error = xcolors.red;
       alpha = "0.3";
     };
 
