@@ -7,7 +7,7 @@
 }: let
   inherit (inputs.nixpkgs.lib) nixosSystem;
 
-  modules = "${self}/hosts/modules";
+  modules = "${self}/modules/system";
   hardware = modules + "/hardware";
   profiles = "${self}/hosts/profiles";
 

@@ -7,14 +7,12 @@
 }: let
   extraSpecialArgs = {inherit inputs self themes;};
 
-  modules = ./modules;
-  shared = modules + /shared;
   sharedModules = [
-    (shared + /git.nix)
-    (shared + /gpg.nix)
-    (shared + /starship.nix)
-    (shared + /utils.nix)
-    (shared + /zsh.nix)
+    ./modules/shared/git.nix
+    ./modules/shared/gpg.nix
+    ./modules/shared/starship.nix
+    ./modules/shared/utils.nix
+    ./modules/shared/zsh.nix
   ];
 
   homeImports = {
