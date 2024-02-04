@@ -1,11 +1,8 @@
 {
-  lib,
   pkgs,
   themes,
   ...
 }: let
-  _ = lib.getExe;
-  inherit (pkgs) brightnessctl pamixer;
   inherit (themes.colorscheme) xcolors;
 in {
   programs.waybar = {
@@ -119,9 +116,9 @@ in {
             default = ["󰕿" "󰖀" "󰕾"];
           };
           tooltip-format = "Volume: {volume}%";
-          on-click = "${_ pamixer} -t";
-          on-scroll-up = "${_ pamixer} -d 1";
-          on-scroll-down = "${_ pamixer} -i 1";
+          on-click = "${pkgs.pamixer}/bin/pamixer --toggle-mute";
+          on-scroll-up = "${pkgs.pamixer}/bin/pamixer --decrease 1";
+          on-scroll-down = "${pkgs.pamixer}/bin/pamixer --increase 1";
         };
 
         # Backlight
@@ -143,8 +140,8 @@ in {
           format = "{icon}";
           format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
           tooltip-format = "Backlight: {percent}%";
-          on-scroll-up = "${_ brightnessctl} set 1%-";
-          on-scroll-down = "${_ brightnessctl} set +1%";
+          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
+          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
         };
 
         # Battery
