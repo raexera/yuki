@@ -84,7 +84,7 @@
       }
 
       .control-center {
-        background: alpha(${xcolors.black0}, 0.3);
+        background: alpha(#000000, 0.5);
         border-radius: 1rem;
         color: ${xcolors.white};
       }

@@ -285,7 +285,7 @@ in {
       }
 
       window#waybar {
-        background: alpha(${xcolors.black0}, 0.3);
+        background: alpha(#000000, 0.5);
         color: ${xcolors.white};
       }
 
@@ -308,7 +308,8 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: ${xcolors.black3};
+        background: alpha(#ffffff, 0.05);
+        border: 1px solid alpha(#ffffff, 0.1);
         border-radius: 1.5rem;
         min-width: 0.75rem;
         margin: 0.25rem 0.5rem;
@@ -344,6 +345,7 @@ in {
         background: transparent
           url("${snowflake}")
           center/2rem no-repeat;
+        border: none;
       }
 
       #workspaces {
