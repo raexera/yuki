@@ -1,18 +1,8 @@
 {
-  lib,
   pkgs,
   themes,
   ...
 }: let
-  _ = lib.getExe;
-  inherit (pkgs) brightnessctl pamixer;
-
-  snowflake = builtins.fetchurl rec {
-    name = "Logo-${sha256}.svg";
-    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
-    sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
-  };
-
   inherit (themes.colorscheme) xcolors;
 in {
   programs.waybar = {
@@ -28,9 +18,9 @@ in {
         fixed-center = true;
         gtk-layer-shell = true;
         spacing = 0;
-        margin-top = 4;
-        margin-bottom = 4;
-        margin-left = 4;
+        margin-top = 0;
+        margin-bottom = 0;
+        margin-left = 0;
         margin-right = 0;
         modules-left = ["custom/logo" "hyprland/workspaces"];
         modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "clock" "group/powermenu"];
@@ -126,9 +116,9 @@ in {
             default = ["󰕿" "󰖀" "󰕾"];
           };
           tooltip-format = "Volume: {volume}%";
-          on-click = "${_ pamixer} -t";
-          on-scroll-up = "${_ pamixer} -d 1";
-          on-scroll-down = "${_ pamixer} -i 1";
+          on-click = "${pkgs.pamixer}/bin/pamixer --toggle-mute";
+          on-scroll-up = "${pkgs.pamixer}/bin/pamixer --decrease 1";
+          on-scroll-down = "${pkgs.pamixer}/bin/pamixer --increase 1";
         };
 
         # Backlight
@@ -150,8 +140,8 @@ in {
           format = "{icon}";
           format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
           tooltip-format = "Backlight: {percent}%";
-          on-scroll-up = "${_ brightnessctl} set 1%-";
-          on-scroll-down = "${_ brightnessctl} set +1%";
+          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
+          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
         };
 
         # Battery
@@ -231,7 +221,13 @@ in {
       }
     ];
 
-    style = ''
+    style = let
+      snowflake = builtins.fetchurl rec {
+        name = "Logo-${sha256}.svg";
+        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
+        sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
+      };
+    in ''
       * {
         all: unset;
         font: 11pt "Material Design Icons", Inter, sans-serif;
@@ -286,8 +282,7 @@ in {
       }
 
       window#waybar {
-        background: ${xcolors.black0};
-        border-radius: 0.5rem;
+        background: alpha(#000000, 0.5);
         color: ${xcolors.white};
       }
 
@@ -310,7 +305,8 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: ${xcolors.black3};
+        background: alpha(#ffffff, 0.05);
+        border: 1px solid alpha(#ffffff, 0.1);
         border-radius: 1.5rem;
         min-width: 0.75rem;
         margin: 0.25rem 0.5rem;
@@ -346,6 +342,7 @@ in {
         background: transparent
           url("${snowflake}")
           center/2rem no-repeat;
+        border: none;
       }
 
       #workspaces {

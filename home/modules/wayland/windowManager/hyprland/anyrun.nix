@@ -2,7 +2,6 @@
   config,
   inputs,
   pkgs,
-  themes,
   ...
 }: {
   programs.anyrun = {
@@ -27,9 +26,7 @@
       maxEntries = 10;
     };
 
-    extraCss = let
-      inherit (themes.colorscheme) xcolors;
-    in ''
+    extraCss = ''
       * {
         all: unset;
         font: 11pt Inter, sans-serif;
@@ -44,40 +41,41 @@
       }
 
       #entry {
-        background: ${xcolors.black3};
-        border-radius: 0.5rem;
+        background: alpha(#ffffff, 0.05);
+        border: 1px solid alpha(#ffffff, 0.1);
+        border-radius: 1rem;
         margin: 0.5rem;
-        padding: 1rem;
+        padding: 0.5rem;
       }
 
       #match.activatable {
+        background: alpha(#ffffff, 0.05);
         padding: 0.5rem 1rem;
-        background: ${xcolors.black3};
       }
 
       #match.activatable:first-child {
-        border-radius: 0.5rem 0.5rem 0 0;
+        border-radius: 1rem 1rem 0 0;
       }
 
       #match.activatable:last-child {
-        border-radius: 0 0 0.5rem 0.5rem;
+        border-radius: 0 0 1rem 1rem;
       }
 
       #match:selected,
       #match:hover,
       #plugin:hover {
-        border-radius: 0.5rem;
-        background: ${xcolors.blue};
+        background: alpha(#ffffff, 0.1);
+        transition: all 0.3s steps(12);
       }
 
       box#main {
-        background: ${xcolors.black0};
-        border-radius: 0.5rem;
+        background: alpha(#000000, 0.5);
+        border-radius: 1rem;
         padding: 0.5rem;
       }
 
       list > #plugin {
-        border-radius: 0.5rem;
+        border-radius: 1rem;
         margin: 0.5rem;
       }
     '';

@@ -9,12 +9,10 @@
     ./config
 
     ./anyrun.nix
-    ./cliphist.nix
     ./hyprpaper.nix
     ./swayidle.nix
     ./swaylock.nix
     ./swaync.nix
-    ./swayosd.nix
     ./waybar.nix
 
     inputs.self.homeManagerModules.swaync
