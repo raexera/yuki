@@ -6,14 +6,7 @@
 }: let
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
-
-  snowflake = builtins.fetchurl rec {
-    name = "Logo-${sha256}.svg";
-    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
-    sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
-  };
-
-  inherit (themes.colorscheme) xcolors UI;
+  inherit (themes.colorscheme) xcolors;
 in {
   programs.waybar = {
     enable = true;
@@ -178,9 +171,9 @@ in {
           calendar = {
             format = {
               days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
-              months = "<span color='${UI.foreground}'><b>{}</b></span>";
-              today = "<span color='${UI.foreground}'><b><u>{}</u></b></span>";
-              weekdays = "<span color='${UI.accent}'><b>{}</b></span>";
+              months = "<span color='${xcolors.white}'><b>{}</b></span>";
+              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
+              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
             };
             mode = "month";
             on-scroll = 1;
@@ -231,7 +224,13 @@ in {
       }
     ];
 
-    style = ''
+    style = let
+      snowflake = builtins.fetchurl rec {
+        name = "Logo-${sha256}.svg";
+        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
+        sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
+      };
+    in ''
       * {
         all: unset;
         font: 11pt "Material Design Icons", Inter, sans-serif;
@@ -241,7 +240,7 @@ in {
 
       menu,
       tooltip {
-        background: ${UI.background};
+        background: ${xcolors.black0};
         border: 1px solid ${xcolors.gray1};
         border-radius: 0.5rem;
         padding: 0.5rem;
@@ -277,7 +276,7 @@ in {
         min-height: 5rem;
         min-width: 0.625rem;
         border-radius: 0.5rem;
-        background-color: ${UI.background};
+        background-color: ${xcolors.black0};
       }
 
       highlight {
@@ -286,8 +285,8 @@ in {
       }
 
       window#waybar {
-        background: alpha(${UI.background}, ${UI.alpha});
-        color: ${UI.foreground};
+        background: alpha(${xcolors.black0}, 0.3);
+        color: ${xcolors.white};
       }
 
       .modules-left {
@@ -309,7 +308,7 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: ${UI.secondaryBackground};
+        background: ${xcolors.black3};
         border-radius: 1.5rem;
         min-width: 0.75rem;
         margin: 0.25rem 0.5rem;
@@ -352,7 +351,7 @@ in {
       }
 
       #workspaces button {
-        background: ${UI.foreground};
+        background: ${xcolors.white};
         border-radius: 1rem;
         margin-bottom: 0.75rem;
         transition: all 0.5s steps(12);
@@ -363,7 +362,7 @@ in {
       }
 
       #workspaces button:hover {
-        background: alpha(${UI.foreground}, 0.5);
+        background: alpha(${xcolors.white}, 0.5);
       }
 
       #workspaces button.empty {
@@ -391,11 +390,11 @@ in {
       }
 
       #workspaces button.active {
-        background: ${UI.accent};
+        background: ${xcolors.blue};
       }
 
       #workspaces button.active:hover {
-        background: alpha(${UI.accent}, 0.5);
+        background: alpha(${xcolors.blue}, 0.5);
       }
 
       #tray > .passive {
@@ -409,13 +408,13 @@ in {
 
       #tray menu menuitem {
         border-radius: 0.5rem;
-        color: ${UI.foreground};
+        color: ${xcolors.white};
         padding: 0.25rem;
       }
 
       #tray menu menuitem:hover {
-        background: ${UI.accent};
-        color: ${UI.background};
+        background: ${xcolors.blue};
+        color: ${xcolors.black0};
       }
 
       #custom-notification {
@@ -429,7 +428,7 @@ in {
 
       #backlight-slider highlight,
       #pulseaudio-slider highlight {
-        background-color: ${UI.foreground};
+        background-color: ${xcolors.white};
       }
 
       #battery.charging,
@@ -464,7 +463,7 @@ in {
 
       @keyframes blink {
         to {
-          color: ${UI.foreground};
+          color: ${xcolors.white};
         }
       }
     '';

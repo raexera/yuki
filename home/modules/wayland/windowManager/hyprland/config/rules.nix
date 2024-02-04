@@ -2,10 +2,11 @@
   wayland.windowManager.hyprland.settings = {
     # layer rules
     layerrule = let
-      layers = "^(anyrun|waybar|gtk-layer-shell|swaync-control-center|swaync-notification-window)$";
+      layers = "^(anyrun|waybar|gtk-layer-shell|swaync-control-center|swaync-notification-window|swayosd)$";
     in [
       "blur, ${layers}"
-      "ignorezero, ${layers}"
+      "ignorealpha 0.2, ${layers}"
+      "xray 1, ^(waybar|gtk-layer-shell)$"
     ];
 
     # window rules

@@ -25,15 +25,6 @@ lib: {
       black0 = "0D1416"; # crust
     };
 
-    UI = {
-      accent = xcolors.blue;
-      foreground = xcolors.white;
-      background = xcolors.black0;
-      secondaryBackground = xcolors.black3;
-      error = xcolors.red;
-      alpha = "0.3";
-    };
-
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;
   };
 

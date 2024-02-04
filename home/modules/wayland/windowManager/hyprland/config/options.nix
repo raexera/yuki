@@ -1,12 +1,6 @@
-{
-  config,
-  themes,
-  ...
-}: {
+{config, ...}: {
   wayland.windowManager.hyprland.settings = let
     pointer = config.home.pointerCursor;
-
-    inherit (themes.colorscheme) colors;
   in {
     env = [
       "GDK_SCALE,2"
@@ -29,16 +23,26 @@
     general = {
       gaps_in = 2;
       gaps_out = 4;
-      border_size = 2;
 
-      "col.active_border" = "rgb(${colors.green})";
+      border_size = 1;
+      "col.active_border" = "rgba(88888888)";
+      "col.inactive_border" = "rgba(00000088)";
 
       allow_tearing = true;
       resize_on_border = true;
     };
 
     decoration = {
-      rounding = 8;
+      rounding = 12;
+
+      blur = {
+        enabled = true;
+        brightness = 1.0;
+        contrast = 1.0;
+        noise = 0.02;
+        passes = 4;
+        size = 10;
+      };
 
       drop_shadow = true;
       shadow_ignore_window = true;
@@ -46,17 +50,6 @@
       shadow_range = 20;
       shadow_render_power = 5;
       "col.shadow" = "rgba(00000055)";
-
-      blur = {
-        enabled = true;
-        brightness = 1.0;
-        contrast = 1.0;
-        new_optimizations = true;
-        noise = 0.02;
-        passes = 4;
-        size = 10;
-        xray = true;
-      };
     };
 
     animations = {
@@ -103,7 +96,7 @@
       key_press_enables_dpms = true;
       mouse_move_enables_dpms = true;
       vfr = true;
-      vrr = 1;
+      vrr = 0;
     };
 
     monitor = [
