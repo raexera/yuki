@@ -33,7 +33,7 @@
     };
 
     decoration = {
-      rounding = 12;
+      rounding = 16;
 
       blur = {
         enabled = true;
@@ -65,6 +65,13 @@
         "windows, 1, 4, md3_decel, popin 60%"
         "workspaces, 1, 4, md3_decel, slidevert"
       ];
+    };
+
+    group = {
+      groupbar = {
+        font_size = 16;
+        gradients = false;
+      };
     };
 
     input = {

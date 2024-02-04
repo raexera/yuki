@@ -45,7 +45,7 @@
 
       #entry {
         background: ${xcolors.black3};
-        border-radius: 0.5rem;
+        border-radius: 1rem;
         margin: 0.5rem;
         padding: 1rem;
       }
@@ -56,28 +56,28 @@
       }
 
       #match.activatable:first-child {
-        border-radius: 0.5rem 0.5rem 0 0;
+        border-radius: 1rem 1rem 0 0;
       }
 
       #match.activatable:last-child {
-        border-radius: 0 0 0.5rem 0.5rem;
+        border-radius: 0 0 1rem 1rem;
       }
 
       #match:selected,
       #match:hover,
       #plugin:hover {
-        border-radius: 0.5rem;
+        border-radius: 1rem;
         background: ${xcolors.blue};
       }
 
       box#main {
         background: alpha(${xcolors.black0}, 0.3);
-        border-radius: 0.5rem;
+        border-radius: 1rem;
         padding: 0.5rem;
       }
 
       list > #plugin {
-        border-radius: 0.5rem;
+        border-radius: 1rem;
         margin: 0.5rem;
       }
     '';
