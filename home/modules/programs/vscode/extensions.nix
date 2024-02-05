@@ -43,6 +43,9 @@
         redhat.java
         redhat.vscode-yaml
         usernamehw.errorlens
+        vscjava.vscode-java-debug
+        vscjava.vscode-java-dependency
+        vscjava.vscode-java-test
         xaver.clang-format
         yzhang.markdown-all-in-one
       ])

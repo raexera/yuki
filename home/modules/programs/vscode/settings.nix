@@ -77,6 +77,7 @@
 
   git = {
     "git.autofetch" = true;
+    "git.enableCommitSigning" = true;
     "git.enableSmartCommit" = true;
   };
 
@@ -127,9 +128,11 @@
   };
 
   python = {
-    "pylint.enabled" = true;
     "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
     "python.languageServer" = "Pylance";
+    "python.analysis.typeCheckingMode" = "strict";
+    "python.analysis.autoFormatStrings" = true;
+    "jupyter.askForKernelRestart" = false;
   };
 in {
   programs.vscode.userSettings =
