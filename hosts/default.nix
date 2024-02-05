@@ -1,9 +1,7 @@
 {
   homeImports,
   inputs,
-  inputs',
   self,
-  self',
   themes,
   ...
 }: let
@@ -13,7 +11,7 @@
   hardware = modules + "/hardware";
   profiles = "${self}/hosts/profiles";
 
-  specialArgs = {inherit inputs inputs' self self' themes;};
+  specialArgs = {inherit inputs self themes;};
 in {
   flake.nixosConfigurations = {
     # Lenovo Yoga Slim 7i Pro X
