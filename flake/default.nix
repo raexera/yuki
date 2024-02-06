@@ -1,7 +1,5 @@
-{inputs, ...}: {
+{
   imports = [
-    inputs.flake-parts.flakeModules.easyOverlay
-
     ./pre-commit-hooks.nix
     ./modules
     ../home
@@ -17,10 +15,6 @@
     pkgs,
     ...
   }: {
-    imports = [{_module.args.pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;}];
-
-    formatter = pkgs.alejandra;
-
     devShells.default = pkgs.mkShell {
       packages = with pkgs; [
         alejandra
@@ -37,5 +31,7 @@
         ${config.pre-commit.installationScript}
       '';
     };
+
+    formatter = pkgs.alejandra;
   };
 }
