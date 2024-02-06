@@ -10,7 +10,5 @@
       after = ["network-online.target" "systemd-resolved.service"];
       wantedBy = ["multi-user.target"];
     };
-
-    user.services."warp-taskbar".wantedBy = ["tray.target"];
   };
 }
