@@ -1,7 +1,13 @@
-{
+{config, ...}: {
   programs = {
-    gpg.enable = true;
-    ssh.enable = true;
+    gpg = {
+      enable = true;
+      homedir = "${config.xdg.dataHome}/gnupg";
+      settings = {
+        use-agent = true;
+        default-key = "A69A110979DF4E36";
+      };
+    };
   };
 
   services = {

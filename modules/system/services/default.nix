@@ -3,6 +3,8 @@
     ./networking.nix
     ./pipewire.nix
     ./ssh.nix
+    ./gnome/gnome-keyring.nix
+    ./gnome/polkit-gnome.nix
   ];
 
   services = {

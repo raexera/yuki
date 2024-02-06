@@ -4,11 +4,13 @@
   ...
 }: let
   sharedModules = [
+    ./modules/programs/ssh.nix
     ./modules/shared/git.nix
     ./modules/shared/gpg.nix
     ./modules/shared/starship.nix
     ./modules/shared/utils.nix
     ./modules/shared/zsh.nix
+    ./modules/services/gnome-keyring.nix
   ];
 
   homeImports = {
