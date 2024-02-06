@@ -1,0 +1,5 @@
+{
+  services = {
+    udiskie.enable = true;
+  };
+}

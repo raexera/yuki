@@ -6,8 +6,8 @@
   ...
 }: {
   imports = [
-    ./scripts/preview.nix
-    ./scripts/run-as-service.nix
+    ../scripts/preview.nix
+    ../scripts/run-as-service.nix
   ];
 
   programs.zsh = {

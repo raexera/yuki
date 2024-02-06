@@ -31,8 +31,4 @@
       enableZshIntegration = true;
     };
   };
-
-  services = {
-    udiskie.enable = true;
-  };
 }

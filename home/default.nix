@@ -4,12 +4,12 @@
   ...
 }: let
   sharedModules = [
+    ./modules/programs/git.nix
+    ./modules/programs/gpg.nix
     ./modules/programs/ssh.nix
-    ./modules/shared/git.nix
-    ./modules/shared/gpg.nix
-    ./modules/shared/starship.nix
-    ./modules/shared/utils.nix
-    ./modules/shared/zsh.nix
+    ./modules/programs/starship.nix
+    ./modules/programs/utils.nix
+    ./modules/programs/zsh.nix
     ./modules/services/gnome-keyring.nix
   ];
 

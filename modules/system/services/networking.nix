@@ -8,8 +8,6 @@
         powersave = true;
       };
     };
-
-    useDHCP = false;
   };
 
   services = {
