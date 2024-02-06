@@ -1,4 +1,6 @@
 {
+  imports = [./warp.nix];
+
   networking = {
     networkmanager = {
       enable = true;
