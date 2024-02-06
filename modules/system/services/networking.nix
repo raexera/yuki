@@ -1,19 +1,18 @@
 {
-  imports = [
-    ./warp.nix
-  ];
-
   networking = {
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
-      # dns = "systemd-resolved";
+      dns = "systemd-resolved";
+      wifi = {
+        backend = "iwd";
+        powersave = true;
+      };
     };
 
     useDHCP = false;
   };
 
-  # services.resolved = {
-  #   enable = true;
-  # };
+  services = {
+    resolved.enable = true;
+  };
 }

@@ -1,12 +1,5 @@
 {
   security = {
-    # Unlock GPG keyring on login
-    pam.services = {
-      login = {
-        enableGnomeKeyring = true;
-      };
-    };
-
     # Don't ask for password for wheel group
     sudo.wheelNeedsPassword = false;
 

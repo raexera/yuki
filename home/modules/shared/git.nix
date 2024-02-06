@@ -7,20 +7,6 @@
   ];
 
   programs = {
-    gh = {
-      enable = true;
-      gitCredentialHelper.enable = false;
-      extensions = with pkgs; [
-        gh-dash
-        gh-eco
-        gh-cal
-      ];
-      settings = {
-        git_protocol = "ssh";
-        prompt = "enabled";
-      };
-    };
-
     git = {
       enable = true;
       package = pkgs.gitAndTools.gitFull;
