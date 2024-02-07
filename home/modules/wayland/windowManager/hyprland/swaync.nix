@@ -98,67 +98,56 @@
       }
 
       .notification {
-        border-radius: 12px;
+        border-radius: 1rem;
         margin: 6px 12px;
         box-shadow:
           0 0 0 1px rgba(0, 0, 0, 0.3),
           0 1px 3px 1px rgba(0, 0, 0, 0.7),
           0 2px 6px 2px rgba(0, 0, 0, 0.3);
-        padding: 0;
       }
 
       /* Uncomment to enable specific urgency colors
       .low {
         background: yellow;
         padding: 6px;
-        border-radius: 12px;
+        border-radius: 1rem;
       }
 
       .normal {
         background: green;
         padding: 6px;
-        border-radius: 12px;
+        border-radius: 1rem;
       }
 
       .critical {
         background: red;
         padding: 6px;
-        border-radius: 12px;
+        border-radius: 1rem;
       }
       */
 
       .notification-content {
         background: transparent;
         padding: 6px;
-        border-radius: 12px;
+        border-radius: 1rem;
       }
 
       .close-button {
         background: @noti-close-bg;
         color: @noti-text-color;
-        text-shadow: none;
-        padding: 0;
         border-radius: 100%;
-        margin-top: 10px;
-        margin-right: 16px;
-        box-shadow: none;
-        border: none;
         min-width: 24px;
         min-height: 24px;
       }
 
       .close-button:hover {
-        box-shadow: none;
         background: @noti-close-bg-hover;
         transition: all 0.15s ease-in-out;
-        border: none;
       }
 
       .notification-default-action,
       .notification-action {
         padding: 4px;
-        margin: 0;
-        box-shadow: none;
         background: @noti-bg;
         border: 1px solid @noti-border-color;
         color: white;
@@ -171,7 +160,7 @@
       }
 
       .notification-default-action {
-        border-radius: 12px;
+        border-radius: 1rem;
       }
 
       .notification-default-action:not(:only-child) {
@@ -180,9 +169,7 @@
       }
 
       .notification-action {
-        border-radius: 0px;
-        border-top: none;
-        border-right: none;
+        border-radius: 0.5rem;
       }
 
       .notification-action:first-child {
@@ -195,26 +182,22 @@
       }
 
       .body-image {
-        margin-top: 6px;
         background-color: white;
-        border-radius: 12px;
+        border-radius: 1rem;
       }
 
       .summary {
         color: @noti-text-color;
-        text-shadow: none;
       }
 
       .time {
         color: @noti-text-color;
-        text-shadow: none;
         margin-right: 18px;
       }
 
       .body {
         background: transparent;
         color: @noti-text-color;
-        text-shadow: none;
       }
 
       .control-center {
@@ -224,6 +207,7 @@
       }
 
       .control-center > box {
+        padding: 0.5rem;
       }
 
       .control-center-list {
