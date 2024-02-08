@@ -78,6 +78,7 @@
         findutils
         gawk
         glow
+        gnumake
         gnused
         hyperfine
         imagemagick
