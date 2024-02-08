@@ -13,12 +13,11 @@
         "notifications"
         "swaync-control-center"
         "swaync-notification-window"
-        "system-menu"
         "waybar"
       ];
     in [
       "blur, ${toRegex layers}"
-      "ignorealpha 0.2, ${toRegex ["bar" "gtk-layer-shell" "waybar"]}"
+      "ignorealpha 0.2, ${toRegex layers}"
       "xray 1, ${toRegex ["bar" "gtk-layer-shell" "waybar"]}"
     ];
 

@@ -6,14 +6,14 @@
     schema = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
 
     settings = {
-      positionX = "right";
+      cssPriority = "application";
+      layer-shell = true;
+      layer = "overlay";
+      control-center-layer = "top";
+      positionX = "center";
       positionY = "top";
       control-center-positionX = "left";
       control-center-positionY = "top";
-      layer = "overlay";
-      control-center-layer = "top";
-      layer-shell = true;
-      cssPriority = "application";
       control-center-margin-top = 4;
       control-center-margin-bottom = 4;
       control-center-margin-left = 4;
@@ -57,10 +57,6 @@
         dnd = {
           text = "Do Not Disturb";
         };
-        label = {
-          max-lines = 5;
-          text = "Label Text";
-        };
         mpris = {
           image-size = 96;
           image-radius = 12;
@@ -69,148 +65,27 @@
     };
 
     style = ''
-      @define-color cc-bg rgba(23, 63, 79, 0.4);
-
-      @define-color noti-text-color rgba(53, 185, 171, 1);
-      @define-color noti-border-color rgba(53, 185, 171, 0.4);
-      @define-color noti-bg rgba(23, 63, 79, 0.4);
-      @define-color noti-bg-hover rgba(23, 63, 79, 1);
-      @define-color noti-bg-focus rgba(23, 63, 79, 0.6);
-      @define-color noti-close-bg rgba(255, 255, 255, 0.1);
-      @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
-
-      @define-color bg-selected rgba(33, 164, 223, 1);
-
       * {
-        all: unset;
-        font:
-          11pt Inter,
-          sans-serif;
-      }
-
-      .notification-row {
-        outline: none;
-      }
-
-      .notification-row:focus,
-      .notification-row:hover {
-        background: @noti-bg-focus;
+        font: 11pt Inter, sans-serif;
       }
 
       .notification {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 1rem;
-        margin: 6px 12px;
-        box-shadow:
-          0 0 0 1px rgba(0, 0, 0, 0.3),
-          0 1px 3px 1px rgba(0, 0, 0, 0.7),
-          0 2px 6px 2px rgba(0, 0, 0, 0.3);
-      }
-
-      /* Uncomment to enable specific urgency colors
-      .low {
-        background: yellow;
-        padding: 6px;
-        border-radius: 1rem;
-      }
-
-      .normal {
-        background: green;
-        padding: 6px;
-        border-radius: 1rem;
-      }
-
-      .critical {
-        background: red;
-        padding: 6px;
-        border-radius: 1rem;
-      }
-      */
-
-      .notification-content {
-        background: transparent;
-        padding: 6px;
-        border-radius: 1rem;
-      }
-
-      .close-button {
-        background: @noti-close-bg;
-        color: @noti-text-color;
-        border-radius: 100%;
-        min-width: 24px;
-        min-height: 24px;
-      }
-
-      .close-button:hover {
-        background: @noti-close-bg-hover;
-        transition: all 0.15s ease-in-out;
-      }
-
-      .notification-default-action,
-      .notification-action {
-        padding: 4px;
-        background: @noti-bg;
-        border: 1px solid @noti-border-color;
-        color: white;
-      }
-
-      .notification-default-action:hover,
-      .notification-action:hover {
-        -gtk-icon-effect: none;
-        background: @noti-bg-hover;
-      }
-
-      .notification-default-action {
-        border-radius: 1rem;
-      }
-
-      .notification-default-action:not(:only-child) {
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-      }
-
-      .notification-action {
-        border-radius: 0.5rem;
-      }
-
-      .notification-action:first-child {
-        border-bottom-left-radius: 10px;
-      }
-
-      .notification-action:last-child {
-        border-bottom-right-radius: 10px;
-        border-right: 1px solid @noti-border-color;
-      }
-
-      .body-image {
-        background-color: white;
-        border-radius: 1rem;
-      }
-
-      .summary {
-        color: @noti-text-color;
-      }
-
-      .time {
-        color: @noti-text-color;
-        margin-right: 18px;
-      }
-
-      .body {
-        background: transparent;
-        color: @noti-text-color;
       }
 
       .control-center {
-        background: @cc-bg;
-        border: 1px solid alpha(#ffffff, 0.1);
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 1rem;
       }
 
-      .control-center > box {
-        padding: 0.5rem;
+      .control-center .control-center-list {
+        background: transparent;
       }
 
-      .control-center-list {
+      .blank-window {
         background: transparent;
       }
 
@@ -218,8 +93,26 @@
         background: transparent;
       }
 
-      .blank-window {
-        background: transparent;
+      .widget-mpris .widget-mpris-player {
+        padding: 1rem;
+        margin: 1rem;
+        background-color: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+      }
+
+      .widget-mpris .widget-mpris-player .widget-mpris-album-art {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+      }
+
+      .widget-mpris .widget-mpris-player .widget-mpris-title {
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+
+      .widget-mpris .widget-mpris-player .widget-mpris-subtitle {
+        font-size: 1.1rem;
       }
     '';
   };
