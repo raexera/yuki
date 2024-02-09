@@ -96,7 +96,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @background-alt;
+  background-color: @background-focus;
   color: @text;
 }
 
@@ -146,6 +146,7 @@
 }
 
 .control-center .notification-row .notification-background {
+  margin-top: 0.5rem;
   border-radius: 0.5rem;
   color: @text;
   background-color: @background-alt;
@@ -220,7 +221,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @background-alt;
+  background-color: @background-focus;
   color: @text;
 }
 
@@ -313,6 +314,7 @@
 .widget-dnd > switch slider {
   background: @background-focus;
   border-radius: 0.5rem;
+  padding: 0.25rem;
 }
 
 /* Mpris widget */
