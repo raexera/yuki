@@ -64,56 +64,6 @@
       };
     };
 
-    style = ''
-      * {
-        font: 11pt Inter, sans-serif;
-      }
-
-      .notification {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1rem;
-      }
-
-      .control-center {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1rem;
-      }
-
-      .control-center .control-center-list {
-        background: transparent;
-      }
-
-      .blank-window {
-        background: transparent;
-      }
-
-      .floating-notifications {
-        background: transparent;
-      }
-
-      .widget-mpris .widget-mpris-player {
-        padding: 1rem;
-        margin: 1rem;
-        background-color: rgba(0, 0, 0, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1rem;
-      }
-
-      .widget-mpris .widget-mpris-player .widget-mpris-album-art {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1rem;
-      }
-
-      .widget-mpris .widget-mpris-player .widget-mpris-title {
-        font-weight: bold;
-        font-size: 1.25rem;
-      }
-
-      .widget-mpris .widget-mpris-player .widget-mpris-subtitle {
-        font-size: 1.1rem;
-      }
-    '';
+    style = builtins.readFile (./. + "/style.css");
   };
 }

@@ -7,12 +7,12 @@
 }: {
   imports = [
     ./config
+    ./swaync
 
     ./anyrun.nix
     ./hyprpaper.nix
     ./swayidle.nix
     ./swaylock.nix
-    ./swaync.nix
     ./waybar.nix
 
     inputs.self.homeManagerModules.swaync
