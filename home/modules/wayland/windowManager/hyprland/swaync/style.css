@@ -85,7 +85,7 @@
   .notification-action {
   border-radius: 0.5rem;
   color: @text;
-  background-color: #363a4f;
+  background-color: @background-alt;
   margin: 0.5rem;
 }
 
@@ -96,7 +96,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: #363a4f;
+  background-color: @background-alt;
   color: @text;
 }
 
@@ -118,7 +118,7 @@
   margin: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  color: @background;
+  color: @black;
   background-color: @error;
 }
 
@@ -126,8 +126,8 @@
   .notification-row
   .notification-background
   .close-button:hover {
-  background-color: #ee99a0;
-  color: @background;
+  background-color: lighter(@error);
+  color: lighter(@black);
 }
 
 .floating-notifications.background
@@ -145,31 +145,10 @@
   padding: 1rem;
 }
 
-.control-center .widget-title {
-  color: @text;
-}
-
-.control-center .widget-title button {
-  border-radius: 0.5rem;
-  color: @text;
-  background-color: #363a4f;
-  padding: 0.5rem;
-}
-
-.control-center .widget-title button:hover {
-  background-color: #5b6078;
-  color: @text;
-}
-
-.control-center .widget-title button:active {
-  background-color: @accent;
-  color: @background;
-}
-
 .control-center .notification-row .notification-background {
   border-radius: 0.5rem;
   color: @text;
-  background-color: #363a4f;
+  background-color: @background-alt;
 }
 
 .control-center .notification-row .notification-background .notification {
@@ -241,7 +220,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: #363a4f;
+  background-color: @background-alt;
   color: @text;
 }
 
@@ -260,13 +239,13 @@
   margin: 0.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  color: @background;
-  background-color: #ee99a0;
+  color: @black;
+  background-color: @error;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  background-color: @error;
-  color: @background;
+  background-color: lighter(@error);
+  color: lighter(@black);
 }
 
 .control-center
@@ -287,39 +266,101 @@
   color: @text;
 }
 
-.control-center-dnd {
-  border-radius: 0.5rem;
-  background: #363a4f;
+/*** Widgets ***/
+/* Title widget */
+.widget-title {
+  color: @text;
+  margin: 0.5rem;
+}
+
+.widget-title > button {
+  font-size: initial;
+  color: @text;
+  text-shadow: none;
+  background: @background-alt;
   border: 1px solid @border;
   box-shadow: none;
-}
-
-.control-center-dnd:checked {
-  background: #363a4f;
-}
-
-.control-center-dnd slider {
-  background: #494d64;
   border-radius: 0.5rem;
 }
 
+.widget-title > button:hover {
+  background: @background-focus;
+}
+
+/* Inhibitors widget */
+.widget-inhibitors {
+  margin: 0.5rem;
+}
+
+.widget-inhibitors > button {
+  font-size: initial;
+  color: @text;
+  text-shadow: none;
+  background: @background-alt;
+  border: 1px solid @border;
+  box-shadow: none;
+  border-radius: 0.5rem;
+}
+
+.widget-inhibitors > button:hover {
+  background: @background-focus;
+}
+
+/* DND Widget */
 .widget-dnd {
-  margin: 0;
+  color: @text;
+  margin: 0.5rem;
 }
 
 .widget-dnd > switch {
+  font-size: initial;
   border-radius: 0.5rem;
-  background: #363a4f;
+  background: @background-alt;
   border: 1px solid @border;
   box-shadow: none;
 }
 
+.widget-dnd > switch:hover {
+  background: @background-focus;
+}
+
 .widget-dnd > switch:checked {
-  background: #363a4f;
+  background: @accent;
 }
 
 .widget-dnd > switch slider {
-  background: #494d64;
+  background: @background-focus;
+  border-radius: 0.5rem;
+}
+
+/* Mpris widget */
+.widget-mpris {
+  margin: 0.5rem;
+}
+
+.widget-mpris .widget-mpris-player {
+  padding: 1rem;
+  background-color: @background-alt;
   border-radius: 0.5rem;
   border: 1px solid @border;
+}
+
+.widget-mpris .widget-mpris-player button:hover {
+  background: @background-focus;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-album-art {
+  border-radius: 0.5rem;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-title {
+  font-weight: bold;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-subtitle {
+  font-weight: lighter;
+}
+
+.widget-mpris .widget-mpris-player > box > button:hover {
+  background-color: @background-focus;
 }

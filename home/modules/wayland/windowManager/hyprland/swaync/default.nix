@@ -51,8 +51,8 @@
         };
         title = {
           text = "Notifications";
-          clear-all-button = true;
           button-text = "Clear All";
+          clear-all-button = true;
         };
         dnd = {
           text = "Do Not Disturb";
