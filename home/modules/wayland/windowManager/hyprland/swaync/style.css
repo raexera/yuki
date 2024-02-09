@@ -209,7 +209,7 @@
   .notification-action {
   border-radius: 0.5rem;
   color: @text;
-  background-color: #181926;
+  background-color: @background-alt;
   margin: 0.5rem;
 }
 
@@ -257,7 +257,7 @@
 }
 
 .control-center .notification-row .notification-background:hover {
-  background-color: #8087a2;
+  background-color: @background-focus;
   color: @text;
 }
 
