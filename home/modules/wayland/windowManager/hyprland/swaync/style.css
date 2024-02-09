@@ -17,10 +17,11 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
+  background: @background;
   border-radius: 1rem;
-  margin: 0.5rem;
-  background-color: @background;
+  border: 1px solid @border;
   color: @text;
+  margin: 0.25rem;
   padding: 0;
 }
 
@@ -73,7 +74,7 @@
   .notification
   > *:last-child
   > * {
-  min-height: 3.4em;
+  min-height: 3rem;
 }
 
 .floating-notifications.background
@@ -83,9 +84,10 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.5rem;
   color: @text;
-  background-color: @background-alt;
+  background: @background-alt;
+  border: 1px solid @border;
+  border-radius: 0.5rem;
   margin: 0.5rem;
 }
 
@@ -96,7 +98,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @background-focus;
+  background: @background-focus;
   color: @text;
 }
 
@@ -107,7 +109,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @accent;
+  background: @accent;
   color: @text;
 }
 
@@ -119,14 +121,14 @@
   padding: 0.25rem;
   border-radius: 0.5rem;
   color: @black;
-  background-color: @error;
+  background: @error;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:hover {
-  background-color: lighter(@error);
+  background: lighter(@error);
   color: lighter(@black);
 }
 
@@ -134,22 +136,24 @@
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @error;
+  background: @error;
   color: @background;
 }
 
 .control-center {
+  background: @background;
+  border: 1px solid @border;
   border-radius: 1rem;
-  background-color: @background;
   color: @text;
   padding: 1rem;
 }
 
 .control-center .notification-row .notification-background {
-  margin-top: 0.5rem;
+  background: @background-alt;
+  border: 1px solid @border;
   border-radius: 0.5rem;
   color: @text;
-  background-color: @background-alt;
+  margin: 0.5rem 0;
 }
 
 .control-center .notification-row .notification-background .notification {
@@ -198,7 +202,7 @@
   .notification
   > *:last-child
   > * {
-  min-height: 3.4em;
+  min-height: 3rem;
 }
 
 .control-center
@@ -208,9 +212,10 @@
   > *:last-child
   > *
   .notification-action {
+  background: @background-alt;
+  border: 1px solid @border;
   border-radius: 0.5rem;
   color: @text;
-  background-color: @background-alt;
   margin: 0.5rem;
 }
 
@@ -221,7 +226,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @background-focus;
+  background: @background-focus;
   color: @text;
 }
 
@@ -232,7 +237,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @accent;
+  background: @accent;
   color: @text;
 }
 
@@ -241,11 +246,11 @@
   padding: 0.25rem;
   border-radius: 0.5rem;
   color: @black;
-  background-color: @error;
+  background: @error;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  background-color: lighter(@error);
+  background: lighter(@error);
   color: lighter(@black);
 }
 
@@ -253,17 +258,17 @@
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @error;
+  background: @error;
   color: @background;
 }
 
 .control-center .notification-row .notification-background:hover {
-  background-color: @background-focus;
+  background: @background-focus;
   color: @text;
 }
 
 .control-center .notification-row .notification-background:active {
-  background-color: @accent;
+  background: @accent;
   color: @text;
 }
 
@@ -300,14 +305,13 @@
   border-radius: 0.5rem;
   background: @background-alt;
   border: 1px solid @border;
-  box-shadow: none;
 }
 
 .widget-dnd > switch:hover {
   background: @background-focus;
 }
 
-.widget-dnd > switch:checked {
+.widget-dnd > switch:checked slider {
   background: @accent;
 }
 
@@ -319,14 +323,16 @@
 
 /* Mpris widget */
 .widget-mpris {
+  background: @background-alt;
+  border: 1px solid @border;
+  border-radius: 0.5rem;
+  color: @text;
   margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 .widget-mpris .widget-mpris-player {
-  padding: 1rem;
-  background-color: @background-alt;
-  border-radius: 0.5rem;
-  border: 1px solid @border;
+  padding: 0.5rem;
 }
 
 .widget-mpris .widget-mpris-player button:hover {
@@ -342,9 +348,9 @@
 }
 
 .widget-mpris .widget-mpris-player .widget-mpris-subtitle {
-  font-weight: lighter;
+  font-weight: normal;
 }
 
 .widget-mpris .widget-mpris-player > box > button:hover {
-  background-color: @background-focus;
+  background: @background-focus;
 }

@@ -16,6 +16,7 @@
     ../modules/programs/vscode
 
     ../modules/services/udiskie.nix
+    ../modules/services/blueman-applet.nix
   ];
 
   home = {
