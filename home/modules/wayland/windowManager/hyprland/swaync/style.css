@@ -1,21 +1,41 @@
+@define-color background rgba(0, 0, 0, 0.3);
+@define-color background-alt rgba(0, 0, 0, 0.5);
+@define-color background-focus rgba(255, 255, 255, 0.1);
+@define-color border rgba(255, 255, 255, 0.1);
+@define-color text rgb(255, 255, 255);
+@define-color text-alt rgba(255, 255, 255, 0.7);
+@define-color accent rgb(10, 132, 255);
+@define-color error rgb(255, 69, 58);
+@define-color black rgb(28, 28, 30);
+
 * {
-  font: 11pt Inter, sans-serif;
+  all: unset;
+  font:
+    11pt Inter,
+    sans-serif;
   transition: 200ms;
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  background: rgba(0, 0, 0, 0.3);
-  color: rgb(255, 255, 255);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
+  background-color: @background;
+  color: @text;
+  padding: 0.5rem;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .notification {
+  padding: 0.5rem;
   border-radius: 1rem;
-  padding: 6px 12px;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification.critical {
+  border: 1px solid @error;
 }
 
 .floating-notifications.background
@@ -23,58 +43,195 @@
   .notification-background
   .notification
   .notification-content {
-  background: transparent;
+  margin: 0.5rem;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .summary {
+  color: @text;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .time {
+  color: @text-alt;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .body {
+  color: @text;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 3.4em;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  border-radius: 0.5rem;
+  color: @text;
+  background-color: @background;
+  margin: 0.5rem;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button {
+  margin: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  color: @black;
+  background-color: @error;
 }
 
 .control-center {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
+  background-color: @background;
+  color: @text;
+  padding: 1rem;
 }
 
-.control-center > box {
+.control-center .widget-title {
+  color: @text;
+  font-size: 1.3em;
+}
+
+.control-center .widget-title button {
+  border-radius: 0.5rem;
+  color: @text;
+  background-color: #363a4f;
   padding: 0.5rem;
 }
 
-.control-center .control-center-list {
-  background: transparent;
+.control-center .notification-row .notification-background {
+  border-radius: 0.5rem;
+  color: @text;
+  background-color: #363a4f;
 }
 
-.control-center .control-center-list .notification {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
-    0 2px 6px 2px rgba(0, 0, 0, 0.3);
+.control-center .notification-row .notification-background .notification {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
-.blank-window {
-  background: transparent;
+.control-center
+  .notification-row
+  .notification-background
+  .notification.critical {
+  border: 1px solid @error;
 }
 
-.floating-notifications {
-  background: transparent;
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+  margin: 0.5rem;
 }
 
-.floating-notifications .notification {
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .summary {
+  color: @text;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .time {
+  color: @text-alt;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .body {
+  color: @text;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 3.4em;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  border-radius: 0.5rem;
+  color: @text;
+  background-color: @background-alt;
+  margin: 0.5rem;
+}
+
+.control-center .notification-row .notification-background .close-button {
+  margin: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  color: @black;
+  background-color: @error;
+}
+
+.control-center-dnd {
+  border-radius: 0.5rem;
+  background: @background-alt;
+  border: 1px solid @border;
   box-shadow: none;
 }
 
-.widget-mpris .widget-mpris-player {
-  padding: 0.5rem;
-  margin: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
+.control-center-dnd:checked {
+  background: @accent;
 }
 
-.widget-mpris .widget-mpris-player .widget-mpris-album-art {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
+.widget-dnd > switch {
+  border-radius: 0.5rem;
+  background: @background-alt;
+  border: 1px solid @border;
+  box-shadow: none;
 }
 
-.widget-mpris .widget-mpris-player .widget-mpris-title {
-  font-size: 1.25rem;
-  font-weight: bold;
+.widget-dnd > switch:checked {
+  background: @accent;
 }
 
-.widget-mpris .widget-mpris-player .widget-mpris-subtitle {
-  font-size: 1.1rem;
+.widget-dnd > switch slider {
+  background: @background-alt;
+  border-radius: 0.5rem;
+  border: 1px solid @border;
 }
