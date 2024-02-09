@@ -6,7 +6,7 @@
     schema = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
 
     settings = {
-      cssPriority = "application";
+      cssPriority = "user";
       layer-shell = true;
       layer = "overlay";
       control-center-layer = "top";

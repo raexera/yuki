@@ -17,8 +17,6 @@
     "editor.lineNumbers" = "relative";
     "editor.minimap.enabled" = false;
     "editor.renderLineHighlight" = "all";
-    "editor.scrollbar.horizontal" = "hidden";
-    "editor.scrollbar.vertical" = "hidden";
     "editor.semanticHighlighting.enabled" = true;
     "editor.showUnused" = true;
     "editor.smoothScrolling" = true;
@@ -44,7 +42,6 @@
 
   window = {
     "window.autoDetectColorScheme" = true;
-    "window.commandCenter" = false;
     "window.dialogStyle" = "native";
     "window.menuBarVisibility" = "toggle";
     "window.titleBarStyle" = "custom";
@@ -53,7 +50,6 @@
   workbench = {
     "workbench.colorTheme" = "Catppuccin Macchiato";
     "workbench.iconTheme" = "catppuccin-macchiato";
-    "workbench.layoutControl.enabled" = false;
     "workbench.panel.defaultLocation" = "right";
     "workbench.productIconTheme" = "icons-carbon";
     "workbench.sideBar.location" = "right";
