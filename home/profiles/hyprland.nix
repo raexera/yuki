@@ -52,6 +52,7 @@
         (pkgs.nodePackages)
         jsonlint
         pnpm
+        prettier
         typescript-language-server
         vls
         vscode-langservers-extracted
@@ -78,6 +79,7 @@
         findutils
         gawk
         glow
+        gnumake
         gnused
         hyperfine
         imagemagick
