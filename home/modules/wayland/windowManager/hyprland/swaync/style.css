@@ -281,28 +281,10 @@
   border: 1px solid @border;
   box-shadow: none;
   border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 .widget-title > button:hover {
-  background: @background-focus;
-}
-
-/* Inhibitors widget */
-.widget-inhibitors {
-  margin: 0.5rem;
-}
-
-.widget-inhibitors > button {
-  font-size: initial;
-  color: @text;
-  text-shadow: none;
-  background: @background-alt;
-  border: 1px solid @border;
-  box-shadow: none;
-  border-radius: 0.5rem;
-}
-
-.widget-inhibitors > button:hover {
   background: @background-focus;
 }
 

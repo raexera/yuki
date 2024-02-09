@@ -37,18 +37,12 @@
       hide-on-clear = false;
       hide-on-action = true;
       widgets = [
-        "inhibitors"
         "title"
         "dnd"
         "notifications"
         "mpris"
       ];
       widget-config = {
-        inhibitors = {
-          text = "Inhibitors";
-          button-text = "Clear All";
-          clear-all-button = true;
-        };
         title = {
           text = "Notifications";
           button-text = "Clear All";
