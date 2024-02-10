@@ -1,19 +1,8 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: let
-  # OCR (Optical Character Recognition) utility
-  ocrScript = let
-    inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;
-    _ = lib.getExe;
-  in
-    pkgs.writeShellScriptBin "wl-ocr" ''
-      ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
-      ${_ libnotify} "$(${wl-clipboard}/bin/wl-paste)"
-    '';
-
   # Screenshot utility
   screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
 
@@ -39,8 +28,6 @@
   browser = defaultApp "x-scheme-handler/https";
   editor = defaultApp "text/plain";
 in {
-  home.packages = [ocrScript];
-
   wayland.windowManager.hyprland = {
     settings = {
       bind = let
@@ -111,14 +98,14 @@ in {
 
       binde = [
         # Audio
-        ",XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer --increase 5"
-        ",XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer --decrease 5"
-        ",XF86AudioMute, exec, ${pkgs.pamixer}/bin/pamixer --toggle-mute"
+        ",XF86AudioRaiseVolume, exec, volumectl up 5"
+        ",XF86AudioLowerVolume, exec, volumectl down 5"
+        ",XF86AudioMute, exec, volumectl toggle-mute"
         ",XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute"
 
         # Brightness
-        ",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +5%"
-        ",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%-"
+        ",XF86MonBrightnessUp, exec, lightctl up 5"
+        ",XF86MonBrightnessDown, exec, lightctl down 5"
       ];
 
       # Mouse bindings

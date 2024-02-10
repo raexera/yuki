@@ -48,6 +48,26 @@
         vscjava.vscode-java-test
         xaver.clang-format
         yzhang.markdown-all-in-one
+        (mads-hartmann.bash-ide-vscode.overrideAttrs (prev: {
+          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
+          postInstall = ''
+            cd "$out/$installPrefix"
+            jq -e '
+              .contributes.configuration.properties."bashIde.shellcheckPath".default =
+                "${pkgs.shellcheck}/bin/shellcheck"
+            ' < package.json | sponge package.json
+          '';
+        }))
+        (mkhl.shfmt.overrideAttrs (prev: {
+          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
+          postInstall = ''
+            cd "$out/$installPrefix"
+            jq -e '
+              .contributes.configuration.properties."shfmt.executablePath".default =
+                "${pkgs.shfmt}/bin/shfmt"
+            ' < package.json | sponge package.json
+          '';
+        }))
       ])
       ++ (with pkgs.vscode-marketplace-release; [
         eamodio.gitlens

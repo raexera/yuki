@@ -20,8 +20,8 @@
 }
 
 /*** Global ***/
-progressbar,
 progress,
+progressbar,
 trough {
   border: 1px solid @border;
   border-radius: 1rem;
@@ -230,7 +230,7 @@ trough {
 }
 
 /* Mpris widget */
-.widget-mpris {
+/* .widget-mpris {
   background: @background-alt;
   border: 1px solid @border;
   border-radius: 0.5rem;
@@ -269,4 +269,53 @@ trough {
 .widget-mpris .widget-mpris-player > box > button:hover {
   background: @background-focus;
   border: 1px solid @border;
+} */
+
+/* Mpris widget */
+@define-color mpris-album-art-overlay rgba(0, 0, 0, 0.55);
+@define-color mpris-button-hover rgba(0, 0, 0, 0.50);
+.widget-mpris {
+  /* The parent to all players */
+}
+
+.widget-mpris .widget-mpris-player {
+  padding: 8px;
+  padding: 16px;
+  margin: 16px 20px;
+  background-color: @mpris-album-art-overlay;
+  border-radius: 12px;
+}
+
+.widget-mpris .widget-mpris-player button:hover {
+  /* The media player buttons (play, pause, next, etc...) */
+  background: @noti-bg-hover;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-album-art {
+  border-radius: 12px;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-subtitle {
+  font-size: 1.1rem;
+}
+
+.widget-mpris .widget-mpris-player > box > button {
+  /* Change player control buttons */
+}
+
+.widget-mpris .widget-mpris-player > box > button:hover {
+  background-color: @mpris-button-hover;
+}
+
+.widget-mpris > box > button {
+  /* Change player side buttons */
+}
+
+.widget-mpris > box > button:disabled {
+  /* Change player side buttons insensitive */
 }
