@@ -6,16 +6,16 @@
   ...
 }: {
   imports = [
+    inputs.self.homeManagerModules.swaync
+
+    ./anyrun
     ./config
     ./swaync
+    ./waybar
 
-    ./anyrun.nix
     ./hyprpaper.nix
     ./swayidle.nix
     ./swaylock.nix
-    ./waybar.nix
-
-    inputs.self.homeManagerModules.swaync
   ];
 
   home.packages = with pkgs; [

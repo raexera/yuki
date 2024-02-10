@@ -1,12 +1,15 @@
-@define-color background rgba(0, 0, 0, 0.3);
-@define-color background-alt rgba(0, 0, 0, 0.5);
+@define-color background rgba(0, 0, 0, 0.5);
+@define-color background-alt rgba(255, 255, 255, 0.05);
 @define-color background-focus rgba(255, 255, 255, 0.1);
 @define-color border rgba(255, 255, 255, 0.1);
-@define-color text rgb(255, 255, 255);
-@define-color text-alt rgba(255, 255, 255, 0.7);
-@define-color accent rgb(10, 132, 255);
-@define-color error rgb(255, 69, 58);
+@define-color red rgb(255, 69, 58);
+@define-color orange rgb(255, 159, 10);
+@define-color yellow rgb(255, 214, 10);
+@define-color green rgb(50, 215, 75);
+@define-color blue rgb(10, 132, 255);
+@define-color gray rgb(152, 152, 157);
 @define-color black rgb(28, 28, 30);
+@define-color white rgb(255, 255, 255);
 
 * {
   all: unset;
@@ -20,7 +23,7 @@
   background: @background;
   border-radius: 1rem;
   border: 1px solid @border;
-  color: @text;
+  color: @white;
   margin: 0.25rem;
   padding: 0;
 }
@@ -47,7 +50,7 @@
   .notification
   .notification-content
   .summary {
-  color: @text;
+  color: @white;
 }
 
 .floating-notifications.background
@@ -56,7 +59,7 @@
   .notification
   .notification-content
   .time {
-  color: @text-alt;
+  color: alpha(@white, 0.7);
 }
 
 .floating-notifications.background
@@ -65,7 +68,7 @@
   .notification
   .notification-content
   .body {
-  color: @text;
+  color: @white;
 }
 
 .floating-notifications.background
@@ -84,7 +87,7 @@
   > *:last-child
   > *
   .notification-action {
-  color: @text;
+  color: @white;
   background: @background-alt;
   border: 1px solid @border;
   border-radius: 0.5rem;
@@ -99,7 +102,7 @@
   > *
   .notification-action:hover {
   background: @background-focus;
-  color: @text;
+  color: @white;
 }
 
 .floating-notifications.background
@@ -109,8 +112,8 @@
   > *:last-child
   > *
   .notification-action:active {
-  background: @accent;
-  color: @text;
+  background: @blue;
+  color: @white;
 }
 
 .floating-notifications.background
@@ -121,14 +124,14 @@
   padding: 0.25rem;
   border-radius: 0.5rem;
   color: @black;
-  background: @error;
+  background: @red;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:hover {
-  background: lighter(@error);
+  background: lighter(@red);
   color: lighter(@black);
 }
 
@@ -136,7 +139,7 @@
   .notification-row
   .notification-background
   .close-button:active {
-  background: @error;
+  background: @red;
   color: @background;
 }
 
@@ -144,7 +147,7 @@
   background: @background;
   border: 1px solid @border;
   border-radius: 1rem;
-  color: @text;
+  color: @white;
   padding: 1rem;
 }
 
@@ -152,7 +155,7 @@
   background: @background-alt;
   border: 1px solid @border;
   border-radius: 0.5rem;
-  color: @text;
+  color: @white;
   margin: 0.5rem 0;
 }
 
@@ -175,7 +178,7 @@
   .notification
   .notification-content
   .summary {
-  color: @text;
+  color: @white;
 }
 
 .control-center
@@ -184,7 +187,7 @@
   .notification
   .notification-content
   .time {
-  color: @text-alt;
+  color: alpha(@white, 0.7);
 }
 
 .control-center
@@ -193,7 +196,7 @@
   .notification
   .notification-content
   .body {
-  color: @text;
+  color: @white;
 }
 
 .control-center
@@ -215,7 +218,7 @@
   background: @background-alt;
   border: 1px solid @border;
   border-radius: 0.5rem;
-  color: @text;
+  color: @white;
   margin: 0.5rem;
 }
 
@@ -227,7 +230,7 @@
   > *
   .notification-action:hover {
   background: @background-focus;
-  color: @text;
+  color: @white;
 }
 
 .control-center
@@ -237,8 +240,8 @@
   > *:last-child
   > *
   .notification-action:active {
-  background: @accent;
-  color: @text;
+  background: @blue;
+  color: @white;
 }
 
 .control-center .notification-row .notification-background .close-button {
@@ -246,11 +249,11 @@
   padding: 0.25rem;
   border-radius: 0.5rem;
   color: @black;
-  background: @error;
+  background: @red;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  background: lighter(@error);
+  background: lighter(@red);
   color: lighter(@black);
 }
 
@@ -258,31 +261,30 @@
   .notification-row
   .notification-background
   .close-button:active {
-  background: @error;
+  background: @red;
   color: @background;
 }
 
 .control-center .notification-row .notification-background:hover {
   background: @background-focus;
-  color: @text;
+  color: @white;
 }
 
 .control-center .notification-row .notification-background:active {
-  background: @accent;
-  color: @text;
+  background: @blue;
+  color: @white;
 }
 
 /*** Widgets ***/
 /* Title widget */
 .widget-title {
-  color: @text;
+  color: @white;
   margin: 0.5rem;
 }
 
 .widget-title > button {
   font-size: initial;
-  color: @text;
-  text-shadow: none;
+  color: @white;
   background: @background-alt;
   border: 1px solid @border;
   box-shadow: none;
@@ -296,7 +298,7 @@
 
 /* DND Widget */
 .widget-dnd {
-  color: @text;
+  color: @white;
   margin: 0.5rem;
 }
 
@@ -312,7 +314,7 @@
 }
 
 .widget-dnd > switch:checked slider {
-  background: @accent;
+  background: @blue;
 }
 
 .widget-dnd > switch slider {
@@ -326,7 +328,7 @@
   background: @background-alt;
   border: 1px solid @border;
   border-radius: 0.5rem;
-  color: @text;
+  color: @white;
   margin: 0.5rem;
   padding: 0.5rem;
 }

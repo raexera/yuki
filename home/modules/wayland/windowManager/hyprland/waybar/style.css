@@ -1,0 +1,244 @@
+@define-color background rgba(0, 0, 0, 0.5);
+@define-color background-alt rgba(255, 255, 255, 0.05);
+@define-color background-focus rgba(255, 255, 255, 0.1);
+@define-color border rgba(255, 255, 255, 0.1);
+@define-color red rgb(255, 69, 58);
+@define-color orange rgb(255, 159, 10);
+@define-color yellow rgb(255, 214, 10);
+@define-color green rgb(50, 215, 75);
+@define-color blue rgb(10, 132, 255);
+@define-color gray rgb(152, 152, 157);
+@define-color black rgb(28, 28, 30);
+@define-color white rgb(255, 255, 255);
+
+* {
+  all: unset;
+  font:
+    11pt "Material Design Icons",
+    Inter,
+    sans-serif;
+  min-height: 0;
+  min-width: 0;
+}
+
+menu,
+tooltip {
+  background: @background;
+  border: 1px solid @border;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+menu {
+  padding: 0;
+}
+
+menu label,
+tooltip label {
+  padding: 0.5rem;
+}
+
+button {
+  box-shadow: inset 0 -0.25rem transparent;
+  border: none;
+}
+
+button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+slider {
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+trough {
+  min-height: 5rem;
+  min-width: 0.625rem;
+  border-radius: 0.5rem;
+  background-color: @background;
+}
+
+highlight {
+  min-width: 0.625rem;
+  border-radius: 0.5rem;
+}
+
+window#waybar {
+  background: @background;
+  color: @white;
+}
+
+.modules-left {
+  padding-top: 0.5rem;
+}
+
+.modules-right {
+  padding-bottom: 0.5rem;
+}
+
+#workspaces,
+#tray,
+#custom-notification,
+#network-pulseaudio-backlight-battery,
+#clock,
+#custom-exit,
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-power {
+  background: @background-alt;
+  border: 1px solid @border;
+  border-radius: 1.5rem;
+  min-width: 0.75rem;
+  margin: 0.25rem 0.5rem;
+}
+
+#tray,
+#custom-notification,
+#network-pulseaudio-backlight-battery,
+#clock {
+  padding: 0.5rem 0;
+}
+
+#network,
+#pulseaudio,
+#pulseaudio-slider,
+#backlight,
+#backlight-slider,
+#battery {
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+}
+
+#custom-exit,
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-power {
+  padding: 0.5rem;
+}
+
+#workspaces {
+  padding: 0.75rem 0.5rem;
+}
+
+#workspaces button {
+  background: @white;
+  border-radius: 1rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.5s steps(12);
+}
+
+#workspaces button:last-child {
+  margin-bottom: 0;
+}
+
+#workspaces button:hover {
+  background: lighter(@white);
+}
+
+#workspaces button.empty {
+  background: @gray;
+}
+
+#workspaces button.empty:hover {
+  background: lighter(@gray);
+}
+
+#workspaces button.urgent {
+  background: @red;
+}
+
+#workspaces button.urgent:hover {
+  background: lighter(@red);
+}
+
+#workspaces button.special {
+  background: @yellow;
+}
+
+#workspaces button.special:hover {
+  background: lighter(@yellow);
+}
+
+#workspaces button.active {
+  background: @blue;
+}
+
+#workspaces button.active:hover {
+  background: lighter(@blue);
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}
+
+#tray menu menuitem {
+  border-radius: 0.5rem;
+  color: @white;
+  padding: 0.25rem;
+}
+
+#tray menu menuitem:hover {
+  background: @blue;
+  color: @background;
+}
+
+#custom-notification {
+  color: @yellow;
+}
+
+#network.disconnected,
+#pulseaudio.muted {
+  color: @red;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+  background-color: @white;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @green;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+#custom-exit {
+  color: @blue;
+}
+
+#custom-lock {
+  color: @green;
+}
+
+#custom-suspend {
+  color: @yellow;
+}
+
+#custom-reboot {
+  color: @orange;
+}
+
+#custom-power {
+  color: @red;
+}
+
+@keyframes blink {
+  to {
+    color: @white;
+  }
+}
