@@ -94,15 +94,6 @@
   margin: 0.5rem;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > * {
-  min-height: 3rem;
-}
-
 /*** Control Center ***/
 .control-center {
   background: @background;
@@ -112,17 +103,21 @@
   padding: 1rem;
 }
 
+.control-center-list {
+  background: transparent;
+}
+
 .control-center .notification-row .notification-background {
   background: @background-alt;
   border: 1px solid @border;
   border-radius: 0.5rem;
   color: @white;
-  margin: 0.5rem 0;
+  margin: 0.5rem;
 }
 
 .control-center .notification-row .notification-background .notification {
-  padding: 0.5rem;
   border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 .control-center
@@ -131,15 +126,6 @@
   .notification
   .notification-content {
   margin: 0.5rem;
-}
-
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > * {
-  min-height: 3rem;
 }
 
 .control-center .notification-row .notification-background:hover {
@@ -159,13 +145,15 @@
   margin: 0.5rem;
 }
 
+.widget-title > label {
+  font-weight: bold;
+}
+
 .widget-title > button {
-  font-size: initial;
-  color: @white;
   background: @background-alt;
   border: 1px solid @border;
-  box-shadow: none;
   border-radius: 0.5rem;
+  color: @white;
   padding: 0.5rem;
 }
 
@@ -179,18 +167,21 @@
   margin: 0.5rem;
 }
 
+.widget-dnd > label {
+  font-weight: bold;
+}
+
 .widget-dnd > switch {
-  font-size: initial;
-  border-radius: 0.5rem;
   background: @background-alt;
   border: 1px solid @border;
+  border-radius: 0.5rem;
 }
 
 .widget-dnd > switch:hover {
   background: @background-focus;
 }
 
-.widget-dnd > switch:checked slider {
+.widget-dnd > switch:checked {
   background: @blue;
 }
 
@@ -219,6 +210,7 @@
 }
 
 .widget-mpris .widget-mpris-player .widget-mpris-album-art {
+  border: 1px solid @border;
   border-radius: 0.5rem;
 }
 
@@ -230,6 +222,13 @@
   font-weight: normal;
 }
 
+.widget-mpris .widget-mpris-player > box > button {
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
 .widget-mpris .widget-mpris-player > box > button:hover {
   background: @background-focus;
+  border: 1px solid @border;
 }
