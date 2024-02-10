@@ -6,42 +6,54 @@
     schema = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
 
     settings = {
+      # General settings
       cssPriority = "user";
+      image-visibility = "when-available";
+      keyboard-shortcut = true;
+      relative-timestamps = true;
+      timeout = 10;
+      timeout-low = 5;
+      timeout-critical = 0;
+      script-fail-notify = true;
+      transition-time = 200;
+
+      # Layer settings
       layer-shell = true;
       layer = "overlay";
-      control-center-layer = "top";
+      control-center-layer = "overlay";
+
+      # Notification settings
       positionX = "center";
       positionY = "top";
+      notification-2fa-action = true;
+      notification-inline-replies = false;
+      notification-icon-size = 64;
+      notification-body-image-height = 100;
+      notification-body-image-width = 200;
+      notification-window-width = 300;
+
+      # Control center settings
       control-center-positionX = "left";
       control-center-positionY = "top";
       control-center-margin-top = 4;
       control-center-margin-bottom = 4;
       control-center-margin-left = 4;
       control-center-margin-right = 0;
-      control-center-exclusive-zone = true;
-      notification-2fa-action = true;
-      notification-inline-replies = false;
-      notification-icon-size = 64;
-      notification-body-image-height = 100;
-      notification-body-image-width = 200;
-      timeout = 10;
-      timeout-low = 5;
-      timeout-critical = 0;
-      fit-to-screen = true;
-      relative-timestamps = true;
       control-center-width = 500;
-      notification-window-width = 500;
-      keyboard-shortcuts = true;
-      image-visibility = "when-available";
-      transition-time = 200;
-      hide-on-clear = false;
+      control-center-exclusive-zone = true;
+      fit-to-screen = true;
       hide-on-action = true;
+      hide-on-clear = false;
+
+      # Widget settings
       widgets = [
         "title"
         "dnd"
         "notifications"
         "mpris"
       ];
+
+      # Widget config
       widget-config = {
         title = {
           text = "Notifications";
@@ -59,6 +71,7 @@
       };
     };
 
+    # Custom style
     style = builtins.readFile (./. + "/style.css");
   };
 }
