@@ -41,6 +41,7 @@
         contrast = 1.0;
         noise = 0.02;
         passes = 4;
+        popups = true;
         size = 10;
       };
 
