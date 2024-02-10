@@ -20,6 +20,35 @@
 }
 
 /*** Global ***/
+progressbar,
+progress,
+trough {
+  border: 1px solid @border;
+  border-radius: 1rem;
+}
+
+trough {
+  background: @background-alt;
+}
+
+.notification.low,
+.notification.normal {
+  border: 1px solid @border;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background: @blue;
+}
+
+.notification.critical {
+  border: 1px solid @red;
+}
+
+.notification.critical progress {
+  background: @red;
+}
+
 .summary {
   color: @white;
 }
@@ -126,6 +155,15 @@
   .notification
   .notification-content {
   margin: 0.5rem;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .time {
+  margin-right: 0.75rem;
 }
 
 .control-center .notification-row .notification-background:hover {
