@@ -142,7 +142,6 @@
     "python.languageServer" = "Pylance";
     "python.analysis.typeCheckingMode" = "strict";
     "python.analysis.autoFormatStrings" = true;
-    "jupyter.askForKernelRestart" = false;
   };
 in {
   programs.vscode.userSettings =
