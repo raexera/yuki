@@ -43,7 +43,7 @@
           -u normal \
           -a "VOLUMECTL" \
           -i audio-volume-muted-symbolic \
-          "Volume Muted"
+          "VOLUMECTL" "Volume Muted"
       else
         ${libnotify}/bin/notify-send --transient \
           -u normal \
@@ -51,7 +51,7 @@
           -h string:x-canonical-private-synchronous:volumectl \
           -h int:value:"$volume_percentage" \
           -i audio-volume-high-symbolic \
-          "Volume: $volume_percentage%"
+          "VOLUMECTL" "Volume: $volume_percentage%"
 
         ${libcanberra-gtk3}/bin/canberra-gtk-play -i audio-volume-change -d "volumectl"
       fi
@@ -78,7 +78,7 @@
         -h string:x-canonical-private-synchronous:lightctl \
         -h int:value:"$brightness_percentage" \
         -i display-brightness-symbolic \
-        "Brightness: $brightness_percentage%"
+        "LIGHTCTL" "Brightness: $brightness_percentage%"
     '';
 in {
   imports = [
