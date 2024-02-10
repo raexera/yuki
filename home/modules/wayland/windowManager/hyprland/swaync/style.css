@@ -130,6 +130,53 @@ trough {
 }
 
 /*** Notifications Group ***/
+.notification-group {
+  /* Styling only for Grouped Notifications */
+}
+
+.notification-group.low {
+  /* Low Priority Group */
+}
+
+.notification-group.normal {
+  /* Low Priority Group */
+}
+
+.notification-group.critical {
+  /* Low Priority Group */
+}
+
+.notification-group .notification-group-buttons,
+.notification-group .notification-group-headers {
+  margin: 0.5rem;
+  color: @white;
+}
+
+.notification-group .notification-group-headers {
+  /* Notification Group Headers */
+}
+
+.notification-group .notification-group-headers .notification-group-icon {
+  color: @white;
+}
+
+.notification-group .notification-group-headers .notification-group-header {
+  color: @white;
+}
+
+.notification-group .notification-group-buttons {
+  /* Notification Group Buttons */
+}
+
+.notification-group.collapsed .notification-row .notification {
+  background: @background-alt;
+}
+
+.notification-group.collapsed .notification-row:not(:last-child) {
+  /* Top notification in stack */
+  /* Set lower stacked notifications opacity to 0 */
+}
+
 .notification-group.collapsed
   .notification-row:not(:last-child)
   .notification-action,
@@ -287,7 +334,7 @@ trough {
 }
 
 .widget-mpris .widget-mpris-player > box > button:hover {
-  background-color: @background-focus;
+  background: @background-focus;
   border: 1px solid @border;
 }
 
