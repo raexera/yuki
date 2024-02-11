@@ -8,17 +8,14 @@
 
       layers = [
         "anyrun"
-        "bar"
         "gtk-layer-shell"
-        "notifications"
         "swaync-control-center"
         "swaync-notification-window"
         "waybar"
       ];
     in [
       "blur, ${toRegex layers}"
-      "ignorealpha 0.2, ${toRegex layers}"
-      "xray 1, ${toRegex ["bar" "gtk-layer-shell" "waybar"]}"
+      "ignorealpha 0.5, ${toRegex layers}"
     ];
 
     # window rules
