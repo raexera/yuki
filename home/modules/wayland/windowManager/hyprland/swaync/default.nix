@@ -33,12 +33,12 @@
       notification-window-width = 300;
 
       # Control center settings
-      control-center-positionX = "left";
+      control-center-positionX = "right";
       control-center-positionY = "top";
       control-center-margin-top = 4;
       control-center-margin-bottom = 4;
-      control-center-margin-left = 4;
-      control-center-margin-right = 0;
+      control-center-margin-left = 0;
+      control-center-margin-right = 4;
       control-center-width = 500;
       control-center-exclusive-zone = true;
       fit-to-screen = true;
