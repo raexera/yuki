@@ -80,6 +80,7 @@ window#waybar {
   padding-bottom: 0.5rem;
 }
 
+#custom-ghost,
 #workspaces,
 #tray,
 #custom-notification,
@@ -97,6 +98,7 @@ window#waybar {
   margin: 0.25rem 0.5rem;
 }
 
+#custom-ghost,
 #tray,
 #custom-notification,
 #network-pulseaudio-backlight-battery,
@@ -120,6 +122,10 @@ window#waybar {
 #custom-reboot,
 #custom-power {
   padding: 0.5rem;
+}
+
+#custom-ghost {
+  color: @white;
 }
 
 #workspaces {

@@ -22,8 +22,14 @@ in {
         margin-bottom = 0;
         margin-left = 0;
         margin-right = 0;
-        modules-left = ["hyprland/workspaces"];
+        modules-left = ["custom/ghost" "hyprland/workspaces"];
         modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "clock" "group/powermenu"];
+
+        # Ghost
+        "custom/ghost" = {
+          format = "󱙝";
+          tooltip = false;
+        };
 
         # Workspaces
         "hyprland/workspaces" = {
