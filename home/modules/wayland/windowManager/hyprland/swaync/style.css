@@ -107,7 +107,6 @@ trough {
 .floating-notifications.background .notification-row .notification-background {
   background: @background;
   border-radius: 1rem;
-  border: 1px solid @border;
   color: @white;
   margin: 0.25rem;
   padding: 0;
@@ -207,7 +206,6 @@ trough {
 
 .control-center .notification-row .notification-background {
   background: @background-alt;
-  border: 1px solid @border;
   border-radius: 0.5rem;
   color: @white;
   margin: 0.5rem;
