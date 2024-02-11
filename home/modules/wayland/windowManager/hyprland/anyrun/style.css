@@ -23,7 +23,7 @@
 #entry {
   background: @background-alt;
   border: 1px solid @border;
-  border-radius: 1rem;
+  border-radius: 16px;
   margin: 0.5rem;
   padding: 0.5rem;
 }
@@ -34,11 +34,11 @@
 }
 
 #match.activatable:first-child {
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 16px 16px 0 0;
 }
 
 #match.activatable:last-child {
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 0 0 16px 16px;
 }
 
 #match:selected,
@@ -50,11 +50,11 @@
 
 box#main {
   background: @background;
-  border-radius: 1rem;
+  border-radius: 16px;
   padding: 0.5rem;
 }
 
 list > #plugin {
-  border-radius: 1rem;
+  border-radius: 16px;
   margin: 0.5rem;
 }

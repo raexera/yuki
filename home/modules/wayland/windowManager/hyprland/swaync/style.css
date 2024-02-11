@@ -24,7 +24,7 @@ progress,
 progressbar,
 trough {
   border: 1px solid @border;
-  border-radius: 1rem;
+  border-radius: 16px;
 }
 
 trough {
@@ -71,7 +71,7 @@ trough {
   color: @white;
   background: @background-alt;
   border: 1px solid @border;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   margin: 0.5rem;
 }
 
@@ -88,7 +88,7 @@ trough {
 .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   color: @black;
   background: @red;
 }
@@ -106,7 +106,7 @@ trough {
 /*** Notifications ***/
 .floating-notifications.background .notification-row .notification-background {
   background: @background;
-  border-radius: 1rem;
+  border-radius: 16px;
   color: @white;
   margin: 0.25rem;
   padding: 0;
@@ -117,7 +117,7 @@ trough {
   .notification-background
   .notification {
   padding: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 16px;
 }
 
 .floating-notifications.background
@@ -195,7 +195,7 @@ trough {
 .control-center {
   background: @background;
   border: 1px solid @border;
-  border-radius: 1rem;
+  border-radius: 16px;
   color: @white;
   padding: 1rem;
 }
@@ -206,13 +206,13 @@ trough {
 
 .control-center .notification-row .notification-background {
   background: @background-alt;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   color: @white;
   margin: 0.5rem;
 }
 
 .control-center .notification-row .notification-background .notification {
-  border-radius: 0.5rem;
+  border-radius: 8px;
   padding: 0.5rem;
 }
 
@@ -257,7 +257,7 @@ trough {
 .widget-title > button {
   background: @background-alt;
   border: 1px solid @border;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   color: @white;
   padding: 0.5rem;
 }
@@ -279,7 +279,7 @@ trough {
 .widget-dnd > switch {
   background: @background-alt;
   border: 1px solid @border;
-  border-radius: 0.5rem;
+  border-radius: 8px;
 }
 
 .widget-dnd > switch:hover {
@@ -292,7 +292,7 @@ trough {
 
 .widget-dnd > switch slider {
   background: @background-focus;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   padding: 0.25rem;
 }
 
@@ -304,7 +304,7 @@ trough {
 .widget-mpris .widget-mpris-player {
   background: @background-alt;
   border: 1px solid @border;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   margin: 0.5rem;
   padding: 0.5rem;
 }
@@ -314,7 +314,7 @@ trough {
 }
 
 .widget-mpris .widget-mpris-player .widget-mpris-album-art {
-  border-radius: 1rem;
+  border-radius: 16px;
 }
 
 .widget-mpris .widget-mpris-player .widget-mpris-title {
@@ -327,7 +327,7 @@ trough {
 
 .widget-mpris .widget-mpris-player > box > button {
   border: 1px solid transparent;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   padding: 0.25rem;
 }
 
