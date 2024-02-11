@@ -15,8 +15,7 @@
   all: unset;
   font:
     11pt "Material Design Icons",
-    Inter,
-    sans-serif;
+    monospace;
   min-height: 0;
   min-width: 0;
 }
@@ -56,14 +55,14 @@ slider {
 }
 
 trough {
-  min-height: 5rem;
-  min-width: 0.625rem;
+  min-height: 0.625rem;
+  min-width: 5rem;
   border-radius: 16px;
   background-color: @background;
 }
 
 highlight {
-  min-width: 0.625rem;
+  min-height: 0.625rem;
   border-radius: 16px;
 }
 
@@ -73,16 +72,17 @@ window#waybar {
 }
 
 .modules-left {
-  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .modules-right {
-  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 #custom-ghost,
 #workspaces,
 #tray,
+#custom-weather,
 #custom-notification,
 #network-pulseaudio-backlight-battery,
 #clock,
@@ -94,15 +94,16 @@ window#waybar {
   background: @background-alt;
   border: 1px solid @border;
   border-radius: 100px;
-  margin: 0.25rem 0.5rem;
+  margin: 0.5rem 0.25rem;
 }
 
 #custom-ghost,
+#custom-weather,
 #tray,
 #custom-notification,
 #network-pulseaudio-backlight-battery,
 #clock {
-  padding: 0.5rem 0;
+  padding: 0 0.5rem;
 }
 
 #network,
@@ -112,7 +113,7 @@ window#waybar {
 #backlight-slider,
 #battery {
   background: transparent;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.25rem;
 }
 
 #custom-exit,
@@ -128,18 +129,19 @@ window#waybar {
 }
 
 #workspaces {
-  padding: 0.75rem 0.5rem;
+  padding: 0.5rem 0.75rem;
 }
 
 #workspaces button {
   background: @white;
   border-radius: 100%;
-  margin-bottom: 0.75rem;
+  min-width: 1rem;
+  margin-right: 0.75rem;
   transition: all 0.5s steps(12);
 }
 
 #workspaces button:last-child {
-  margin-bottom: 0;
+  margin-right: 0;
 }
 
 #workspaces button:hover {

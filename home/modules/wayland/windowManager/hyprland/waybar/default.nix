@@ -13,7 +13,7 @@ in {
     settings = [
       {
         layer = "top";
-        position = "left";
+        position = "bottom";
         exclusive = true;
         fixed-center = true;
         gtk-layer-shell = true;
@@ -23,7 +23,8 @@ in {
         margin-left = 0;
         margin-right = 0;
         modules-left = ["custom/ghost" "hyprland/workspaces"];
-        modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "clock" "group/powermenu"];
+        modules-center = ["custom/weather" "clock"];
+        modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "group/powermenu"];
 
         # Ghost
         "custom/ghost" = {
@@ -41,6 +42,15 @@ in {
           persistent-workspaces = {
             "*" = 5;
           };
+        };
+
+        # Weather
+        "custom/weather" = {
+          format = "{}°";
+          tooltip = true;
+          interval = 3600;
+          exec = "${pkgs.wttrbar}/bin/wttrbar --location 'Jakarta' --hide-conditions";
+          return-type = "json";
         };
 
         # Tray
@@ -159,7 +169,7 @@ in {
 
         # Clock & Calendar
         clock = {
-          format = "{:%H\n%M}";
+          format = "{:%b %d %H:%M}";
           actions = {
             on-scroll-down = "shift_down";
             on-scroll-up = "shift_up";

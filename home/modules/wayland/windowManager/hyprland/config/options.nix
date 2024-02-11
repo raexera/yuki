@@ -21,7 +21,7 @@
       rounding = 16;
 
       active_opacity = 1.0;
-      inactive_opacity = 0.7;
+      inactive_opacity = 1.0;
       fullscreen_opacity = 1.0;
 
       drop_shadow = true;
@@ -96,6 +96,8 @@
 
     misc = {
       disable_autoreload = true;
+      disable_hyprland_logo = true;
+      disable_splash_rendering = true;
       focus_on_activate = true;
       force_default_wallpaper = 0;
       key_press_enables_dpms = true;
