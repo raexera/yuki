@@ -15,7 +15,8 @@
   all: unset;
   font:
     11pt "Material Design Icons",
-    monospace;
+    Inter,
+    sans-serif;
   min-height: 0;
   min-width: 0;
 }

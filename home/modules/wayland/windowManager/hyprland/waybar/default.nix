@@ -94,9 +94,9 @@ in {
 
         # Network
         network = {
-          format-wifi = "󰖩";
+          format-wifi = "󰤨";
           format-ethernet = "󰈀";
-          format-disconnected = "󰖪";
+          format-disconnected = "";
           tooltip-format-wifi = "WiFi: {essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-ethernet = "Ethernet: {ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-disconnected = "Disconnected";
@@ -118,6 +118,9 @@ in {
           format-bluetooth = "󰂯";
           format-muted = "󰖁";
           format-icons = {
+            hands-free = "󱡏";
+            headphone = "󰋋";
+            headset = "󰋎";
             default = ["󰕿" "󰖀" "󰕾"];
           };
           tooltip-format = "Volume: {volume}%";
