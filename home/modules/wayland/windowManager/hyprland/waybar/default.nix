@@ -109,14 +109,9 @@ in {
           drawer = {
             transition-duration = 300;
             children-class = "audio-slider-child";
-            transition-left-to-right = false;
+            transition-left-to-right = true;
           };
           modules = ["pulseaudio" "pulseaudio/slider"];
-        };
-        "pulseaudio/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "vertical";
         };
         pulseaudio = {
           format = "{icon}";
@@ -130,6 +125,11 @@ in {
           on-scroll-up = "${pkgs.pamixer}/bin/pamixer --decrease 1";
           on-scroll-down = "${pkgs.pamixer}/bin/pamixer --increase 1";
         };
+        "pulseaudio/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "horizontal";
+        };
 
         # Backlight
         "group/light-slider" = {
@@ -137,14 +137,9 @@ in {
           drawer = {
             transition-duration = 300;
             children-class = "light-slider-child";
-            transition-left-to-right = false;
+            transition-left-to-right = true;
           };
           modules = ["backlight" "backlight/slider"];
-        };
-        "backlight/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "vertical";
         };
         backlight = {
           format = "{icon}";
@@ -152,6 +147,11 @@ in {
           tooltip-format = "Backlight: {percent}%";
           on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
           on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
+        };
+        "backlight/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "horizontal";
         };
 
         # Battery
