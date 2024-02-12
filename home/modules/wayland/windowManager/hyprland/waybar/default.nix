@@ -1,10 +1,4 @@
-{
-  pkgs,
-  themes,
-  ...
-}: let
-  inherit (themes.colorscheme) xcolors;
-in {
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -34,11 +28,11 @@ in {
 
         # Workspaces
         "hyprland/workspaces" = {
-          active-only = false;
-          all-outputs = true;
-          disable-scroll = true;
-          on-click = "activate";
           format = "";
+          on-click = "activate";
+          disable-scroll = true;
+          all-outputs = true;
+          show-special = true;
           persistent-workspaces = {
             "*" = 5;
           };
@@ -57,6 +51,26 @@ in {
           interval = 3600;
           exec = "${pkgs.wttrbar}/bin/wttrbar --location 'Jakarta' --hide-conditions";
           return-type = "json";
+        };
+
+        # Clock & Calendar
+        clock = {
+          format = "{:%b %d %H:%M}";
+          actions = {
+            on-scroll-down = "shift_down";
+            on-scroll-up = "shift_up";
+          };
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            format = {
+              days = "<span color='#98989d'><b>{}</b></span>";
+              months = "<span color='#ffffff'><b>{}</b></span>";
+              today = "<span color='#ffffff'><b><u>{}</u></b></span>";
+              weekdays = "<span color='#0a84ff'><b>{}</b></span>";
+            };
+            mode = "month";
+            on-scroll = 1;
+          };
         };
 
         # Tray
@@ -174,26 +188,6 @@ in {
             critical = 20;
           };
           tooltip-format = "{timeTo}, {capacity}%";
-        };
-
-        # Clock & Calendar
-        clock = {
-          format = "{:%b %d %H:%M}";
-          actions = {
-            on-scroll-down = "shift_down";
-            on-scroll-up = "shift_up";
-          };
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
-          calendar = {
-            format = {
-              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
-              months = "<span color='${xcolors.white}'><b>{}</b></span>";
-              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
-              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
-            };
-            mode = "month";
-            on-scroll = 1;
-          };
         };
 
         # Powermenu

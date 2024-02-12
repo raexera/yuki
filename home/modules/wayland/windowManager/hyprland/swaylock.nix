@@ -1,14 +1,8 @@
-{
-  pkgs,
-  themes,
-  ...
-}: {
+{pkgs, ...}: {
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
-    settings = let
-      inherit (themes.colorscheme) xcolors;
-    in {
+    settings = {
       clock = true;
       indicator = true;
       indicator-radius = 200;
@@ -23,26 +17,26 @@
       fade-in = "0.1";
       effect-blur = "10x5";
 
-      ring-color = "${xcolors.black3}";
-      line-color = "${xcolors.black0}";
-      inside-color = "${xcolors.black0}";
-      inside-ver-color = "${xcolors.black0}";
-      inside-wrong-color = "${xcolors.black0}";
-      inside-clear-color = "${xcolors.black0}";
-      line-clear-color = "${xcolors.black0}";
-      line-wrong-color = "${xcolors.black0}";
-      text-color = "${xcolors.white}";
-      text-caps-lock-color = "${xcolors.white}";
-      text-ver-color = "${xcolors.white}";
-      text-clear-color = "${xcolors.white}";
-      text-wrong-color = "${xcolors.red}";
-      ring-wrong-color = "${xcolors.red}";
-      key-hl-color = "${xcolors.blue}";
-      line-ver-color = "${xcolors.blue}";
-      ring-ver-color = "${xcolors.blue}";
-      ring-clear-color = "${xcolors.blue}";
-      bs-hl-color = "${xcolors.blue}";
-      separator-color = "${xcolors.blue}";
+      ring-color = "#00000080";
+      line-color = "#00000080";
+      inside-color = "#00000080";
+      inside-ver-color = "#00000080";
+      inside-wrong-color = "#00000080";
+      inside-clear-color = "#00000080";
+      line-clear-color = "#00000080";
+      line-wrong-color = "#00000080";
+      text-color = "#ffffff";
+      text-caps-lock-color = "#ffffff";
+      text-ver-color = "#ffffff";
+      text-clear-color = "#ffffff";
+      text-wrong-color = "#ff443a";
+      ring-wrong-color = "#ff443a";
+      key-hl-color = "#0a84ff";
+      line-ver-color = "#0a84ff";
+      ring-ver-color = "#0a84ff";
+      ring-clear-color = "#0a84ff";
+      bs-hl-color = "#0a84ff";
+      separator-color = "#0a84ff";
     };
   };
 }
