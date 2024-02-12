@@ -28,7 +28,7 @@
       shadow_ignore_window = true;
       shadow_offset = "0 2";
       shadow_range = 20;
-      shadow_render_power = 4;
+      shadow_render_power = 3;
       "col.shadow" = "rgba(00000055)";
 
       blur = {
@@ -36,9 +36,9 @@
         brightness = 1.0;
         contrast = 1.0;
         noise = 0.02;
-        passes = 4;
+        passes = 3;
         popups = true;
-        size = 8;
+        size = 10;
       };
     };
 

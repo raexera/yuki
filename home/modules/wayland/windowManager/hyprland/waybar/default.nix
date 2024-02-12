@@ -49,7 +49,7 @@
           format = "{}°";
           tooltip = true;
           interval = 3600;
-          exec = "${pkgs.wttrbar}/bin/wttrbar --location 'Jakarta' --hide-conditions";
+          exec = "${pkgs.wttrbar}/bin/wttrbar --location 'Bandung' --hide-conditions";
           return-type = "json";
         };
 
