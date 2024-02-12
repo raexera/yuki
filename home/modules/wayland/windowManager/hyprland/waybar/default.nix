@@ -22,7 +22,7 @@ in {
         margin-bottom = 0;
         margin-left = 0;
         margin-right = 0;
-        modules-left = ["custom/ghost" "hyprland/workspaces"];
+        modules-left = ["custom/ghost" "hyprland/workspaces" "hyprland/window"];
         modules-center = ["custom/weather" "clock"];
         modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "group/powermenu"];
 
@@ -42,6 +42,12 @@ in {
           persistent-workspaces = {
             "*" = 5;
           };
+        };
+
+        # Window
+        "hyprland/window" = {
+          format = "{}";
+          separate-outputs = true;
         };
 
         # Weather

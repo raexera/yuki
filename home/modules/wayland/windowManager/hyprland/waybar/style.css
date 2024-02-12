@@ -82,6 +82,7 @@ window#waybar {
 
 #custom-ghost,
 #workspaces,
+#window,
 #tray,
 #custom-weather,
 #custom-notification,
@@ -99,6 +100,7 @@ window#waybar {
 }
 
 #custom-ghost,
+#window,
 #custom-weather,
 #tray,
 #custom-notification,
@@ -122,11 +124,13 @@ window#waybar {
 #custom-suspend,
 #custom-reboot,
 #custom-power {
+  min-width: 1rem;
   padding: 0.5rem;
 }
 
 #custom-ghost {
   color: @white;
+  min-width: 1rem;
 }
 
 #workspaces {
@@ -179,6 +183,16 @@ window#waybar {
 
 #workspaces button.active:hover {
   background: lighter(@blue);
+}
+
+#window {
+  color: @white;
+  min-width: 1rem;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+  border: none;
 }
 
 #tray > .passive {
