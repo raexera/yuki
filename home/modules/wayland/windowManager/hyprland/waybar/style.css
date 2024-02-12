@@ -128,11 +128,13 @@ window#waybar {
   padding: 0.5rem;
 }
 
+/* Ghost */
 #custom-ghost {
   color: @white;
   min-width: 1rem;
 }
 
+/* Hyprland workspaces */
 #workspaces {
   padding: 0.5rem 0.75rem;
 }
@@ -185,6 +187,7 @@ window#waybar {
   background: lighter(@blue);
 }
 
+/* Hyprland window */
 #window {
   color: @white;
   min-width: 1rem;
@@ -195,6 +198,7 @@ window#waybar.empty #window {
   border: none;
 }
 
+/* Tray */
 #tray > .passive {
   -gtk-icon-effect: dim;
 }
@@ -215,18 +219,47 @@ window#waybar.empty #window {
   color: @background;
 }
 
+/* Notification */
 #custom-notification {
   color: @yellow;
 }
 
-#network.disconnected,
+/* Network */
+#network {
+  color: @white;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+/* Pulseaudio  */
+#pulseaudio {
+  color: @white;
+}
+
 #pulseaudio.muted {
   color: @red;
 }
 
-#backlight-slider highlight,
 #pulseaudio-slider highlight {
   background-color: @white;
+  border: 1px solid @border;
+}
+
+/* Backlight */
+#backlight {
+  color: @white;
+}
+
+#backlight-slider highlight {
+  background-color: @white;
+  border: 1px solid @border;
+}
+
+/* Battery */
+#battery {
+  color: @white;
 }
 
 #battery.charging,
@@ -239,6 +272,7 @@ window#waybar.empty #window {
   animation: blink 0.5s steps(12) infinite alternate;
 }
 
+/* Powermenu */
 #custom-exit {
   color: @blue;
 }
@@ -259,6 +293,7 @@ window#waybar.empty #window {
   color: @red;
 }
 
+/* Keyframes */
 @keyframes blink {
   to {
     color: @white;
