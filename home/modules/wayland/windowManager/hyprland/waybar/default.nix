@@ -7,7 +7,7 @@
     settings = [
       {
         layer = "top";
-        position = "bottom";
+        position = "top";
         exclusive = true;
         fixed-center = true;
         gtk-layer-shell = true;
