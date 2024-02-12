@@ -14,6 +14,7 @@
 in {
   services.swayidle = {
     enable = true;
+    extraArgs = ["-w"];
 
     events = [
       {
@@ -22,17 +23,17 @@ in {
       }
       {
         event = "lock";
-        command = "${pkgs.swaylock-effects}/bin/swaylock -i ${themes.wallpaper}";
+        command = "${pkgs.swaylock-effects}/bin/swaylock --daemonize --image ${themes.wallpaper}";
       }
     ];
 
     timeouts = [
       {
-        timeout = 900;
+        timeout = 600;
         command = suspendScript.outPath;
       }
       {
-        timeout = 1200;
+        timeout = 900;
         command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
         resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
       }

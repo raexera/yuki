@@ -9,8 +9,7 @@
       indicator-thickness = 20;
       line-uses-inside = true;
       line-uses-ring = false;
-      ignore-empty-password = false;
-      show-failed-attempts = false;
+
       font = "Inter";
       timestr = "%I:%M %p";
       datestr = "%d / %m / %y";
