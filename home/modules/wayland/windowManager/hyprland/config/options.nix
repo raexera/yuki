@@ -21,14 +21,14 @@
       rounding = 16;
 
       active_opacity = 1.0;
-      inactive_opacity = 0.7;
+      inactive_opacity = 1.0;
       fullscreen_opacity = 1.0;
 
       drop_shadow = true;
       shadow_ignore_window = true;
       shadow_offset = "0 2";
       shadow_range = 20;
-      shadow_render_power = 4;
+      shadow_render_power = 3;
       "col.shadow" = "rgba(00000055)";
 
       blur = {
@@ -36,9 +36,9 @@
         brightness = 1.0;
         contrast = 1.0;
         noise = 0.02;
-        passes = 4;
+        passes = 3;
         popups = true;
-        size = 8;
+        size = 10;
       };
     };
 
@@ -96,6 +96,8 @@
 
     misc = {
       disable_autoreload = true;
+      disable_hyprland_logo = true;
+      disable_splash_rendering = true;
       focus_on_activate = true;
       force_default_wallpaper = 0;
       key_press_enables_dpms = true;

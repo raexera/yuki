@@ -13,31 +13,21 @@
 
 * {
   all: unset;
+  color: @white;
   font:
     11pt "Material Design Icons",
     Inter,
     sans-serif;
-  min-height: 0;
-  min-width: 0;
 }
 
-menu,
+/* Tooltip */
 tooltip {
   background: @background;
   border: 1px solid @border;
   border-radius: 16px;
-  padding: 0.5rem;
 }
 
-menu {
-  padding: 0;
-}
-
-menu label,
-tooltip label {
-  padding: 0.5rem;
-}
-
+/* Button */
 button {
   box-shadow: inset 0 -0.25rem transparent;
   border: none;
@@ -48,41 +38,40 @@ button:hover {
   text-shadow: inherit;
 }
 
-slider {
-  opacity: 0;
-  background-image: none;
-  border: none;
-  box-shadow: none;
+/* Scales & progress bars */
+scale trough,
+progressbar trough {
+  background: @background;
+  border-radius: 16px;
+  min-width: 5rem;
 }
 
-trough {
-  min-height: 5rem;
-  min-width: 0.625rem;
+scale highlight,
+scale progress,
+progressbar highlight,
+progressbar progress {
+  background: @background-alt;
   border-radius: 16px;
-  background-color: @background;
-}
-
-highlight {
-  min-width: 0.625rem;
-  border-radius: 16px;
+  min-height: 0.5rem;
 }
 
 window#waybar {
   background: @background;
-  color: @white;
 }
 
 .modules-left {
-  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .modules-right {
-  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 #custom-ghost,
 #workspaces,
+#window,
 #tray,
+#custom-weather,
 #custom-notification,
 #network-pulseaudio-backlight-battery,
 #clock,
@@ -94,15 +83,17 @@ window#waybar {
   background: @background-alt;
   border: 1px solid @border;
   border-radius: 100px;
-  margin: 0.25rem 0.5rem;
+  margin: 0.5rem 0.25rem;
 }
 
 #custom-ghost,
+#window,
+#custom-weather,
 #tray,
 #custom-notification,
 #network-pulseaudio-backlight-battery,
 #clock {
-  padding: 0.5rem 0;
+  padding: 0 0.5rem;
 }
 
 #network,
@@ -112,7 +103,7 @@ window#waybar {
 #backlight-slider,
 #battery {
   background: transparent;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.25rem;
 }
 
 #custom-exit,
@@ -120,26 +111,30 @@ window#waybar {
 #custom-suspend,
 #custom-reboot,
 #custom-power {
+  min-width: 1rem;
   padding: 0.5rem;
 }
 
+/* Ghost */
 #custom-ghost {
-  color: @white;
+  min-width: 1rem;
 }
 
+/* Hyprland workspaces */
 #workspaces {
-  padding: 0.75rem 0.5rem;
+  padding: 0.5rem 0.75rem;
 }
 
 #workspaces button {
   background: @white;
   border-radius: 100%;
-  margin-bottom: 0.75rem;
-  transition: all 0.5s steps(12);
+  min-width: 1rem;
+  margin-right: 0.75rem;
+  transition: 200ms linear;
 }
 
 #workspaces button:last-child {
-  margin-bottom: 0;
+  margin-right: 0;
 }
 
 #workspaces button:hover {
@@ -178,6 +173,17 @@ window#waybar {
   background: lighter(@blue);
 }
 
+/* Hyprland window */
+#window {
+  min-width: 1rem;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+  border: none;
+}
+
+/* Systray */
 #tray > .passive {
   -gtk-icon-effect: dim;
 }
@@ -187,31 +193,66 @@ window#waybar {
   background-color: @red;
 }
 
-#tray menu menuitem {
-  border-radius: 16px;
-  color: @white;
-  padding: 0.25rem;
+menu {
+  background: @background;
+  border: 1px solid @border;
+  border-radius: 8px;
 }
 
-#tray menu menuitem:hover {
-  background: @blue;
-  color: @background;
+menu separator {
+  background-color: @background-alt;
 }
 
+menu menuitem {
+  background: @background-alt;
+  padding: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  transition: 200ms;
+}
+
+menu menuitem:hover {
+  background: @background-focus;
+}
+
+menu menuitem:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+menu menuitem:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+menu menuitem:only-child {
+  border-radius: 8px;
+}
+
+/* Notification */
 #custom-notification {
   color: @yellow;
 }
 
-#network.disconnected,
+/* Network */
+#network.disconnected {
+  color: @red;
+}
+
+/* Pulseaudio  */
 #pulseaudio.muted {
   color: @red;
 }
 
-#backlight-slider highlight,
 #pulseaudio-slider highlight {
-  background-color: @white;
+  background: @white;
+  border: 1px solid @border;
 }
 
+/* Backlight */
+#backlight-slider highlight {
+  background: @white;
+  border: 1px solid @border;
+}
+
+/* Battery */
 #battery.charging,
 #battery.plugged {
   color: @green;
@@ -222,6 +263,7 @@ window#waybar {
   animation: blink 0.5s steps(12) infinite alternate;
 }
 
+/* Powermenu */
 #custom-exit {
   color: @blue;
 }
@@ -242,6 +284,7 @@ window#waybar {
   color: @red;
 }
 
+/* Keyframes */
 @keyframes blink {
   to {
     color: @white;

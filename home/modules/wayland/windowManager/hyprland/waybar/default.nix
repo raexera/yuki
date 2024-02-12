@@ -1,10 +1,4 @@
-{
-  pkgs,
-  themes,
-  ...
-}: let
-  inherit (themes.colorscheme) xcolors;
-in {
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -13,7 +7,7 @@ in {
     settings = [
       {
         layer = "top";
-        position = "left";
+        position = "top";
         exclusive = true;
         fixed-center = true;
         gtk-layer-shell = true;
@@ -22,8 +16,9 @@ in {
         margin-bottom = 0;
         margin-left = 0;
         margin-right = 0;
-        modules-left = ["custom/ghost" "hyprland/workspaces"];
-        modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "clock" "group/powermenu"];
+        modules-left = ["custom/ghost" "hyprland/workspaces" "hyprland/window"];
+        modules-center = ["custom/weather" "clock"];
+        modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "group/powermenu"];
 
         # Ghost
         "custom/ghost" = {
@@ -33,13 +28,48 @@ in {
 
         # Workspaces
         "hyprland/workspaces" = {
-          active-only = false;
-          all-outputs = true;
-          disable-scroll = true;
-          on-click = "activate";
           format = "";
+          on-click = "activate";
+          disable-scroll = true;
+          all-outputs = true;
+          show-special = true;
           persistent-workspaces = {
             "*" = 5;
+          };
+        };
+
+        # Window
+        "hyprland/window" = {
+          format = "{}";
+          separate-outputs = true;
+        };
+
+        # Weather
+        "custom/weather" = {
+          format = "{}°";
+          tooltip = true;
+          interval = 3600;
+          exec = "${pkgs.wttrbar}/bin/wttrbar --location 'Bandung' --hide-conditions";
+          return-type = "json";
+        };
+
+        # Clock & Calendar
+        clock = {
+          format = "{:%b %d %H:%M}";
+          actions = {
+            on-scroll-down = "shift_down";
+            on-scroll-up = "shift_up";
+          };
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            format = {
+              days = "<span color='#98989d'><b>{}</b></span>";
+              months = "<span color='#ffffff'><b>{}</b></span>";
+              today = "<span color='#ffffff'><b><u>{}</u></b></span>";
+              weekdays = "<span color='#0a84ff'><b>{}</b></span>";
+            };
+            mode = "month";
+            on-scroll = 1;
           };
         };
 
@@ -84,9 +114,9 @@ in {
 
         # Network
         network = {
-          format-wifi = "󰖩";
+          format-wifi = "󰤨";
           format-ethernet = "󰈀";
-          format-disconnected = "󰖪";
+          format-disconnected = "";
           tooltip-format-wifi = "WiFi: {essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-ethernet = "Ethernet: {ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-disconnected = "Disconnected";
@@ -99,26 +129,29 @@ in {
           drawer = {
             transition-duration = 300;
             children-class = "audio-slider-child";
-            transition-left-to-right = false;
+            transition-left-to-right = true;
           };
           modules = ["pulseaudio" "pulseaudio/slider"];
-        };
-        "pulseaudio/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "vertical";
         };
         pulseaudio = {
           format = "{icon}";
           format-bluetooth = "󰂯";
           format-muted = "󰖁";
           format-icons = {
+            hands-free = "󱡏";
+            headphone = "󰋋";
+            headset = "󰋎";
             default = ["󰕿" "󰖀" "󰕾"];
           };
           tooltip-format = "Volume: {volume}%";
           on-click = "${pkgs.pamixer}/bin/pamixer --toggle-mute";
           on-scroll-up = "${pkgs.pamixer}/bin/pamixer --decrease 1";
           on-scroll-down = "${pkgs.pamixer}/bin/pamixer --increase 1";
+        };
+        "pulseaudio/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "horizontal";
         };
 
         # Backlight
@@ -127,14 +160,9 @@ in {
           drawer = {
             transition-duration = 300;
             children-class = "light-slider-child";
-            transition-left-to-right = false;
+            transition-left-to-right = true;
           };
           modules = ["backlight" "backlight/slider"];
-        };
-        "backlight/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "vertical";
         };
         backlight = {
           format = "{icon}";
@@ -142,6 +170,11 @@ in {
           tooltip-format = "Backlight: {percent}%";
           on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
           on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
+        };
+        "backlight/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "horizontal";
         };
 
         # Battery
@@ -155,26 +188,6 @@ in {
             critical = 20;
           };
           tooltip-format = "{timeTo}, {capacity}%";
-        };
-
-        # Clock & Calendar
-        clock = {
-          format = "{:%H\n%M}";
-          actions = {
-            on-scroll-down = "shift_down";
-            on-scroll-up = "shift_up";
-          };
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
-          calendar = {
-            format = {
-              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
-              months = "<span color='${xcolors.white}'><b>{}</b></span>";
-              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
-              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
-            };
-            mode = "month";
-            on-scroll = 1;
-          };
         };
 
         # Powermenu
