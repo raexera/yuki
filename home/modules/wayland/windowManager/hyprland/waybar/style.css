@@ -200,11 +200,11 @@ menu {
 }
 
 menu separator {
-  background-color: @background-alt;
+  background-color: @background;
 }
 
 menu menuitem {
-  background: @background-alt;
+  background: @background;
   padding: 0.5rem;
   padding: 0.5rem 0.75rem;
   transition: 200ms;

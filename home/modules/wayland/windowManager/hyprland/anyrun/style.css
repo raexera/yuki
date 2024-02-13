@@ -10,6 +10,7 @@
   font:
     11pt Inter,
     sans-serif;
+  transition: 200ms;
 }
 
 #window,
@@ -41,11 +42,14 @@
   border-radius: 0 0 16px 16px;
 }
 
+#match.activatable:only-child {
+  border-radius: 16px;
+}
+
 #match:selected,
 #match:hover,
 #plugin:hover {
   background: @background-focus;
-  transition: all 0.3s steps(12);
 }
 
 box#main {
