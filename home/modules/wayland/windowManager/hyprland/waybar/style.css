@@ -20,13 +20,6 @@
     sans-serif;
 }
 
-/* Tooltip */
-tooltip {
-  background: @background;
-  border: 1px solid @border;
-  border-radius: 16px;
-}
-
 /* Button */
 button {
   box-shadow: inset 0 -0.25rem transparent;
@@ -55,18 +48,33 @@ progressbar progress {
   min-height: 0.5rem;
 }
 
+/* Tooltip */
+tooltip {
+  background: @background;
+  border: 1px solid @border;
+  border-radius: 16px;
+}
+
+tooltip label {
+  margin: 0.5rem;
+}
+
+/*  Waybar window */
 window#waybar {
   background: @background;
 }
 
+/* Left Modules */
 .modules-left {
   padding-left: 0.5rem;
 }
 
+/* Right Modules */
 .modules-right {
   padding-right: 0.5rem;
 }
 
+/* Modules */
 #custom-ghost,
 #workspaces,
 #window,
@@ -190,7 +198,7 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: @red;
+  background: @red;
 }
 
 menu {
@@ -200,13 +208,12 @@ menu {
 }
 
 menu separator {
-  background-color: @background;
+  background: @border;
 }
 
 menu menuitem {
-  background: @background;
+  background: transparent;
   padding: 0.5rem;
-  padding: 0.5rem 0.75rem;
   transition: 200ms;
 }
 
