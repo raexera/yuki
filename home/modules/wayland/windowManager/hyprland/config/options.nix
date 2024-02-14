@@ -109,7 +109,7 @@
 
     monitor = [
       # name, resolution, position, scale
-      "eDP-1, highres, auto, 2"
+      "eDP-1, highres, 0x0, 1.5"
     ];
 
     xwayland.force_zero_scaling = true;
