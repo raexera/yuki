@@ -112,7 +112,6 @@
       # GUI
       inherit
         (pkgs)
-        gimp
         keepassxc
         tdesktop
         obsidian

@@ -89,6 +89,7 @@ in {
     ./swaync
     ./waybar
 
+    ./clipboard.nix
     ./hyprpaper.nix
     ./swayidle.nix
     ./swaylock.nix
