@@ -32,7 +32,6 @@
         ms-python.pylint
         ms-python.python
         ms-python.vscode-pylance
-        ms-vscode.cmake-tools
         ms-vscode.cpptools
         ms-vscode.makefile-tools
         ms-toolsai.jupyter
