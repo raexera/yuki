@@ -18,8 +18,7 @@ in {
 
   services.hypridle = {
     enable = true;
-    beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
-    lockCmd = lib.meta.getExe config.programs.hyprlock.package;
+
     listeners = [
       {
         timeout = 600;
@@ -31,5 +30,8 @@ in {
         onTimeout = suspendScript.outPath;
       }
     ];
+
+    lockCmd = lib.meta.getExe config.programs.hyprlock.package;
+    beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
   };
 }
