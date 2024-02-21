@@ -17,6 +17,8 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
     hyprland.url = "github:hyprwm/hyprland";
+    hypridle.url = "github:hyprwm/hypridle";
+    hyprlock.url = "github:hyprwm/hyprlock";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprpaper.url = "github:hyprwm/hyprpaper";

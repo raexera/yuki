@@ -90,9 +90,9 @@ in {
     ./waybar
 
     ./clipboard.nix
+    ./hypridle.nix
+    ./hyprlock.nix
     ./hyprpaper.nix
-    ./swayidle.nix
-    ./swaylock.nix
   ];
 
   home.packages = with pkgs; [
