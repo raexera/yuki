@@ -5,6 +5,8 @@
   pkgs,
   ...
 }: let
+  inherit (lib.meta) getExe;
+
   suspendScript = pkgs.writeShellScript "suspend-script" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
     if [ $? == 1 ]; then
@@ -21,6 +23,10 @@ in {
 
     listeners = [
       {
+        timeout = 300;
+        onTimeout = "${getExe config.programs.hyprlock.package}";
+      }
+      {
         timeout = 600;
         onTimeout = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
         onResume = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
@@ -31,7 +37,7 @@ in {
       }
     ];
 
-    lockCmd = lib.meta.getExe config.programs.hyprlock.package;
+    lockCmd = "${getExe config.programs.hyprlock.package}";
     beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
   };
 }
