@@ -67,6 +67,17 @@
         valign = "top";
       }
       {
+        text = ''cmd[update:1000] echo "$(date "+%a %d %b")"'';
+        color = "rgb(255, 255, 255)";
+        font_size = 24;
+        position = {
+          x = 0;
+          y = -150;
+        };
+        halign = "center";
+        valign = "top";
+      }
+      {
         text = "Hi there, <i>$USER</i>!";
         color = "rgb(255, 255, 255)";
         font_size = 32;
