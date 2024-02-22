@@ -33,7 +33,6 @@
         ms-python.python
         ms-python.vscode-pylance
         ms-vscode.cpptools
-        ms-vscode.makefile-tools
         ms-toolsai.jupyter
         ms-toolsai.jupyter-renderers
         ms-toolsai.jupyter-keymap

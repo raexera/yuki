@@ -9,10 +9,14 @@
     general = {
       disable_loading_bar = false;
       hide_cursor = true;
+      grace = 2;
     };
 
     backgrounds = [
-      {color = "rgba(0, 0, 0, 0.5)";}
+      {
+        path = "";
+        color = "rgba(0, 0, 0, 0.5)";
+      }
     ];
 
     input-fields = [
@@ -24,6 +28,7 @@
         outline_thickness = 3;
         dots_size = 0.33;
         dots_spacing = 0.15;
+        dots_center = false;
         outer_color = "rgba(255, 255, 255, 0.1)";
         inner_color = "rgba(255, 255, 255, 0.1)";
         font_color = "rgb(255, 255, 255)";
@@ -52,7 +57,7 @@
         valign = "center";
       }
       {
-        text = "Hey, <i>$USER!</i>";
+        text = "Hi there, <i>$USER</i>!";
         color = "rgb(255, 255, 255)";
         font_size = 36;
         position = {
