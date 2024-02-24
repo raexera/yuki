@@ -32,13 +32,13 @@
     input-fields = [
       {
         size = {
-          width = 200;
+          width = 300;
           height = 50;
         };
         outline_thickness = 3;
         dots_size = 0.33;
         dots_spacing = 0.15;
-        dots_center = false;
+        dots_center = true;
         outer_color = "rgba(255, 255, 255, 0.1)";
         inner_color = "rgba(255, 255, 255, 0.1)";
         font_color = "rgb(255, 255, 255)";

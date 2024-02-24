@@ -17,10 +17,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager";
     hyprland.url = "github:hyprwm/hyprland";
-    hypridle.url = "github:hyprwm/hypridle";
-    hyprlock.url = "github:hyprwm/hyprlock";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hypridle.url = "github:hyprwm/hypridle";
+    hyprlock.url = "github:hyprwm/hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprpicker.url = "github:hyprwm/hyprpicker";
     nh.url = "github:viperML/nh";
@@ -35,6 +35,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    hypridle.inputs.nixpkgs.follows = "nixpkgs";
+    hyprlock.inputs.nixpkgs.follows = "nixpkgs";
     nh.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-db.inputs.nixpkgs.follows = "nixpkgs";
     nix-vscode-extensions.inputs.flake-utils.follows = "flake-utils";

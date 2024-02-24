@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib.meta) getExe;
+  inherit (lib) getExe;
 
   suspendScript = pkgs.writeShellScript "suspend-script" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
@@ -20,6 +20,8 @@ in {
 
   services.hypridle = {
     enable = true;
+    beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
+    lockCmd = "${getExe config.programs.hyprlock.package}";
 
     listeners = [
       {
@@ -36,8 +38,5 @@ in {
         onTimeout = suspendScript.outPath;
       }
     ];
-
-    lockCmd = "${getExe config.programs.hyprlock.package}";
-    beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
   };
 }
