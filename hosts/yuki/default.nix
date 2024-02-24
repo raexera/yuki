@@ -85,14 +85,6 @@
     };
   };
 
-  logind = {
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "lock";
-    extraConfig = ''
-      HandlePowerKey=suspend
-    '';
-  };
-
   # Set the networking host name.
   networking.hostName = "yuki";
 
@@ -108,6 +100,13 @@
 
     # Enable security levels for Thunderbolt 3 on GNU/Linux.
     hardware.bolt.enable = true;
+
+    # Extra config options for systemd-logind.
+    logind = {
+      powerKey = "suspend";
+      lidSwitch = "suspend";
+      lidSwitchExternalPower = "lock";
+    };
 
     # Enable the Profile Sync daemon.
     psd = {
