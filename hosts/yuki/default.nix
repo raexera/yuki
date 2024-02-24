@@ -85,6 +85,14 @@
     };
   };
 
+  logind = {
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "lock";
+    extraConfig = ''
+      HandlePowerKey=suspend
+    '';
+  };
+
   # Set the networking host name.
   networking.hostName = "yuki";
 
@@ -124,5 +132,8 @@
   };
 
   # Enable in-memory compressed devices and swap space provided by the zram kernel module.
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
 }

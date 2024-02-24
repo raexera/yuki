@@ -100,8 +100,6 @@
       disable_splash_rendering = true;
       focus_on_activate = true;
       force_default_wallpaper = 0;
-      key_press_enables_dpms = true;
-      mouse_move_enables_dpms = true;
       no_direct_scanout = false;
       vfr = true;
       vrr = 1;
