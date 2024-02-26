@@ -118,8 +118,16 @@
 
   # Golang
   go = {
-    "gopls"."ui.semanticTokens" = true;
-    "gopls"."formatting.gofumpt" = true;
+    "go.formatTool" = "goimports";
+    "go.lintOnSave" = "package";
+    "go.lintTool" = "golangci-lint";
+    "go.toolsManagement.autoUpdate" = true;
+    "go.useLanguageServer" = true;
+    "gopls" = {
+      "completeUnimported" = true;
+      "usePlaceholders" = true;
+      "ui.semanticTokens" = true;
+    };
   };
 
   # Java
