@@ -89,6 +89,7 @@
     "[c]"."editor.defaultFormatter" = "xaver.clang-format";
     "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[go]"."editor.defaultFormatter" = "golang.go";
     "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[java]"."editor.defaultFormatter" = "redhat.java";
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -113,6 +114,12 @@
     "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
     "cmake.cmakePath" = "${pkgs.cmake}/bin/cmake";
     "makefile.makePath" = "${pkgs.gnumake}/bin/make";
+  };
+
+  # Golang
+  go = {
+    "gopls"."ui.semanticTokens" = true;
+    "gopls"."formatting.gofumpt" = true;
   };
 
   # Java
@@ -166,6 +173,7 @@ in {
     // formatter
     // bash
     // cpp
+    // go
     // java
     // nix
     // python;

@@ -21,6 +21,7 @@
         esbenp.prettier-vscode
         github.copilot
         github.copilot-chat
+        golang.go
         jnoortheen.nix-ide
         llvm-vs-code-extensions.vscode-clangd
         mads-hartmann.bash-ide-vscode

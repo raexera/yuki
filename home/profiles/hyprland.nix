@@ -4,6 +4,8 @@
   ...
 }: {
   imports = [
+    ../modules/dev
+
     ../modules/wayland/windowManager/hyprland
     ../modules/config/gtk.nix
     ../modules/config/home-cursor.nix
@@ -21,46 +23,6 @@
 
   home = {
     packages = lib.attrValues {
-      # DEV Tools
-      inherit
-        (pkgs)
-        alejandra
-        black
-        bun
-        ccls
-        clang
-        clang-tools
-        cmake
-        delve
-        deno
-        go
-        gopls
-        grex
-        java-language-server
-        just
-        lldb
-        nodejs
-        revive
-        shellcheck
-        shfmt
-        typescript
-        uncrustify
-        zig
-        zls
-        ;
-
-      inherit
-        (pkgs.nodePackages)
-        jsonlint
-        pnpm
-        prettier
-        typescript-language-server
-        vls
-        vscode-langservers-extracted
-        yaml-language-server
-        yarn
-        ;
-
       # Utilities
       inherit
         (pkgs)
