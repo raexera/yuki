@@ -35,8 +35,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
-    hypridle.inputs.nixpkgs.follows = "nixpkgs";
-    hyprlock.inputs.nixpkgs.follows = "nixpkgs";
     nh.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-db.inputs.nixpkgs.follows = "nixpkgs";
     nix-vscode-extensions.inputs.flake-utils.follows = "flake-utils";

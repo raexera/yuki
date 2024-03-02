@@ -2,9 +2,10 @@
   environment = {
     systemPackages = with pkgs; [
       git
+      neovim
       starship
       vim
-      neovim
+      warp-terminal
     ];
   };
 }
