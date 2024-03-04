@@ -89,7 +89,6 @@
     "[c]"."editor.defaultFormatter" = "xaver.clang-format";
     "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[go]"."editor.defaultFormatter" = "golang.go";
     "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[java]"."editor.defaultFormatter" = "redhat.java";
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -118,14 +117,29 @@
 
   # Golang
   go = {
+    "[go]" = {
+      "editor.defaultFormatter" = "golang.go";
+      "editor.codeActionsOnSave" = {
+        "source.organizeImports" = true;
+        "source.fixAll" = true;
+      };
+    };
+
     "go.formatTool" = "goimports";
-    "go.lintOnSave" = "package";
+    "go.formatFlags" = [
+      "-local"
+      "github.com/takt-corp/"
+    ];
+
     "go.lintTool" = "golangci-lint";
-    "go.toolsManagement.autoUpdate" = true;
+    "go.lintOnSave" = "workspace";
+    "go.lintFlags" = [
+      "--fast"
+    ];
+
     "go.useLanguageServer" = true;
     "gopls" = {
-      "completeUnimported" = true;
-      "usePlaceholders" = true;
+      "ui.completion.usePlaceholders" = true;
       "ui.semanticTokens" = true;
     };
   };
