@@ -19,6 +19,7 @@
         denoland.vscode-deno
         editorconfig.editorconfig
         esbenp.prettier-vscode
+        formulahendry.docker-explorer
         github.copilot
         github.copilot-chat
         golang.go
@@ -28,6 +29,7 @@
         mikestead.dotenv
         mkhl.direnv
         mkhl.shfmt
+        ms-azuretools.vscode-docker
         ms-python.black-formatter
         ms-python.isort
         ms-python.pylint

@@ -25,6 +25,7 @@ in {
         "${modules}/programs"
         "${modules}/security"
         "${modules}/services"
+        "${modules}/virtualisation/docker.nix"
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
