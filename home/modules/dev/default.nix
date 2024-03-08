@@ -43,6 +43,12 @@
         yaml-language-server
         yarn
         ;
+
+      # IDE
+      inherit
+        (pkgs.jetbrains)
+        rider
+        ;
     };
   };
 }
