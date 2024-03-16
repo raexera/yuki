@@ -5,7 +5,6 @@
       neovim
       starship
       vim
-      warp-terminal
     ];
   };
 }
