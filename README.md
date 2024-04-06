@@ -22,7 +22,7 @@
 > **System Information:**
 >
 > - **OS:** NixOS
-> - **Window Manager:** Hyprland
+> - **Desktop Environment:** Gnome
 > - **Shell:** ZSH
 > - **Terminal:** Kitty
 > - **Editor:** Visual Studio Code

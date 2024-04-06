@@ -17,11 +17,11 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
 
-    kernelParams = [
-      "quiet"
-      "systemd.show_status=auto"
-      "rd.udev.log_level=3"
-    ];
+    # kernelParams = [
+    #   "quiet"
+    #   "systemd.show_status=auto"
+    #   "rd.udev.log_level=3"
+    # ];
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -35,7 +35,7 @@
       };
     };
 
-    plymouth.enable = true;
+    # plymouth.enable = true;
   };
 
   environment = {
@@ -53,12 +53,6 @@
       vulkan-validation-layers
       vulkan-extension-layer
     ];
-
-    sessionVariables = {
-      __GL_GSYNC_ALLOWED = "1";
-      __GL_VRR_ALLOWED = "1";
-      WLR_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
-    };
   };
 
   hardware = {

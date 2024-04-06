@@ -29,11 +29,11 @@ in {
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
-        "${profiles}/hyprland"
+        "${profiles}/gnome"
 
         {
           home-manager = {
-            users.rxyhn.imports = homeImports."rxyhn@hyprland";
+            users.rxyhn.imports = homeImports."rxyhn@gnome";
             extraSpecialArgs = specialArgs;
           };
         }

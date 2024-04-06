@@ -14,10 +14,10 @@
   ];
 
   homeImports = {
-    "rxyhn@hyprland" =
+    "rxyhn@gnome" =
       [
         ./home.nix
-        ./profiles/hyprland.nix
+        ./profiles/gnome.nix
       ]
       ++ lib.concatLists [sharedModules];
   };
@@ -29,9 +29,9 @@ in {
 
   flake = {
     homeConfigurations = {
-      "rxyhn@hyprland" = homeManagerConfiguration {
+      "rxyhn@gnome" = homeManagerConfiguration {
         inherit pkgs;
-        modules = homeImports."rxyhn@hyprland";
+        modules = homeImports."rxyhn@gnome";
       };
     };
   };
