@@ -20,6 +20,13 @@
         ./profiles/hyprland.nix
       ]
       ++ lib.concatLists [sharedModules];
+
+    "rxyhn@gnome" =
+      [
+        ./home.nix
+        ./profiles/gnome.nix
+      ]
+      ++ lib.concatLists [sharedModules];
   };
 
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
@@ -32,6 +39,11 @@ in {
       "rxyhn@hyprland" = homeManagerConfiguration {
         inherit pkgs;
         modules = homeImports."rxyhn@hyprland";
+      };
+
+      "rxyhn@gnome" = homeManagerConfiguration {
+        inherit pkgs;
+        modules = homeImports."rxyhn@gnome";
       };
     };
   };
