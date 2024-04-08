@@ -14,7 +14,9 @@
 
     systemPackages = with pkgs; [
       ffmpegthumbnailer
-      gnome-extension-manager
+      gnome.adwaita-icon-theme
+      gnome.dconf-editor
+      gnome.gnome-tweaks
       gnome.nautilus-python
       nautilus-open-any-terminal
       wl-clipboard
@@ -61,6 +63,8 @@
       ];
     };
   };
+
+  services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 
   programs.dconf.profiles = {
     gdm.databases = [

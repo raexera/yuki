@@ -1,7 +1,21 @@
-{lib, ...}: {
+{
+  lib,
+  themes,
+  ...
+}: {
   dconf.settings = with lib.hm.gvariant; {
     "org/gnome/desktop/input-sources" = {
       sources = [(mkTuple ["xkb" "us"])];
+    };
+
+    "org/gnome/desktop/background" = {
+      picture-uri = "file://${themes.wallpaper}";
+      picture-uri-dark = "file://${themes.wallpaper}";
+    };
+
+    "org/gnome/desktop/screensaver" = {
+      picture-uri = "file://${themes.wallpaper}";
+      picture-uri-dark = "file://${themes.wallpaper}";
     };
 
     "org/gnome/desktop/interface" = {
@@ -20,6 +34,13 @@
       idle-delay = mkUint32 0;
     };
 
+    "org/gnome/desktop/wm/preferences" = {
+      mouse-button-modifier = "<Super>";
+      num-workspaces = 5;
+      resize-with-right-button = true;
+      focus-mode = "sloppy";
+    };
+
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q"];
       move-to-workspace-1 = ["<Shift><Super>1"];
@@ -36,21 +57,21 @@
     };
 
     "org/gnome/shell/keybindings" = {
+      # Remove the default hotkeys for opening favorited applications.
       switch-to-application-1 = [];
       switch-to-application-2 = [];
       switch-to-application-3 = [];
       switch-to-application-4 = [];
       switch-to-application-5 = [];
-    };
-
-    "org/gnome/desktop/wm/preferences" = {
-      mouse-button-modifier = "<Super>";
-      num-workspaces = 5;
-      resize-with-right-button = true;
-      focus-mode = "sloppy";
+      switch-to-application-6 = [];
+      switch-to-application-7 = [];
+      switch-to-application-8 = [];
+      switch-to-application-9 = [];
+      switch-to-application-10 = [];
     };
 
     "org/gnome/mutter" = {
+      center-new-windows = true;
       dynamic-workspaces = false;
       edge-tiling = true;
       experimental-features = ["scale-monitor-framebuffer"];
@@ -67,7 +88,6 @@
       stop = ["AudioStop"];
       volume-down = ["AudioLowerVolume"];
       volume-up = ["AudioRaiseVolume"];
-
       home = ["<Super>e"];
       www = ["<Super>w"];
     };
@@ -94,8 +114,10 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       favorite-apps = [
-        "firefox.desktop"
         "org.gnome.Nautilus.desktop"
+        "kitty.desktop"
+        "firefox.desktop"
+        "code.desktop"
         "obsidian.desktop"
         "discord.desktop"
       ];
