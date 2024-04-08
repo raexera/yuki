@@ -17,7 +17,7 @@
     "rxyhn@gnome" =
       [
         ./home.nix
-        ./profiles/gnome.nix
+        ./profiles/gnome
       ]
       ++ lib.concatLists [sharedModules];
   };

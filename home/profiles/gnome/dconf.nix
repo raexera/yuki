@@ -1,116 +1,27 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ../modules/dev
-
-    ../modules/config/gtk.nix
-    ../modules/config/home-cursor.nix
-
-    ../modules/programs/discord.nix
-    ../modules/programs/firefox.nix
-    ../modules/programs/kitty.nix
-    ../modules/programs/nix-index-db.nix
-    ../modules/programs/media
-    ../modules/programs/vscode
-
-    ../modules/services/udiskie.nix
-    ../modules/services/blueman-applet.nix
-  ];
-
-  home = {
-    packages = lib.attrValues {
-      # Utilities
-      inherit
-        (pkgs)
-        atool
-        bc
-        catimg
-        chafa
-        coreutils
-        curl
-        du-dust
-        duf
-        editorconfig-core-c
-        elinks
-        exiftool
-        fd
-        file
-        findutils
-        gawk
-        glow
-        gnumake
-        gnused
-        hyperfine
-        imagemagick
-        jaq
-        jq
-        killall
-        lz4
-        neofetch
-        nvd
-        p7zip
-        procs
-        psmisc
-        ripgrep
-        rsync
-        sd
-        socat
-        trash-cli
-        ttyper
-        unrar
-        unzip
-        util-linux
-        wget
-        xarchiver
-        yt-dlp
-        zathura
-        zip
-        ;
-
-      # GUI
-      inherit
-        (pkgs)
-        keepassxc
-        tdesktop
-        obsidian
-        ;
+{lib, ...}: {
+  dconf.settings = with lib.hm.gvariant; {
+    "org/gnome/desktop/input-sources" = {
+      sources = [(mkTuple ["xkb" "us"])];
     };
-  };
 
-  dconf.settings = {
     "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-enable-primary-paste = false;
       show-battery-percentage = true;
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
+      click-method = "areas";
       tap-to-click = true;
       two-finger-scrolling-enabled = true;
     };
 
-    "org/gnome/desktop/search-providers" = {
-      disabled = ["org.gnome.Boxes.desktop"];
-      enabled = ["org.gnome.Weather.desktop"];
-      sort-order = [
-        "org.gnome.Contacts.desktop"
-        "org.gnome.Documents.desktop"
-        "org.gnome.Nautilus.desktop"
-        "org.gnome.Calendar.desktop"
-        "org.gnome.Calculator.desktop"
-        "org.gnome.Software.desktop"
-        "org.gnome.Settings.desktop"
-        "org.gnome.clocks.desktop"
-        "org.gnome.design.IconLibrary.desktop"
-        "org.gnome.seahorse.Application.desktop"
-        "org.gnome.Weather.desktop"
-        "org.gnome.Boxes.desktop"
-      ];
+    "org/gnome/desktop/session" = {
+      idle-delay = mkUint32 0;
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      close = ["<Alt>q"];
+      close = ["<Super>q"];
       move-to-workspace-1 = ["<Shift><Super>1"];
       move-to-workspace-2 = ["<Shift><Super>2"];
       move-to-workspace-3 = ["<Shift><Super>3"];
@@ -142,6 +53,7 @@
     "org/gnome/mutter" = {
       dynamic-workspaces = false;
       edge-tiling = true;
+      experimental-features = ["scale-monitor-framebuffer"];
       num-workspaces = 5;
       workspaces-only-on-primary = true;
     };
@@ -155,14 +67,21 @@
       stop = ["AudioStop"];
       volume-down = ["AudioLowerVolume"];
       volume-up = ["AudioRaiseVolume"];
+
       home = ["<Super>e"];
       www = ["<Super>w"];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>Return";
-      command = "xterm";
-      name = "term";
+      command = "/usr/bin/env kitty";
+      name = "Terminal";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Super>e";
+      command = "/usr/bin/env nautilus";
+      name = "File Manager";
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
@@ -173,12 +92,12 @@
     };
 
     "org/gnome/shell" = {
+      disable-user-extensions = false;
       favorite-apps = [
         "firefox.desktop"
         "org.gnome.Nautilus.desktop"
         "obsidian.desktop"
         "discord.desktop"
-        "org.gnome.Software.desktop"
       ];
     };
 
@@ -187,7 +106,21 @@
     };
 
     "org/gnome/shell/keybindings" = {
-      toggle-application-view = ["<Super>r"];
+      toggle-application-view = ["<Super>a"];
+    };
+
+    "org/gtk/gtk4/settings/file-chooser" = {
+      show-hidden = true;
+      sort-directories-first = true;
+      view-type = "list";
+    };
+
+    "system/locale" = {
+      region = "en_US.UTF-8";
+    };
+
+    "com/github/stunkymonkey/nautilus-open-any-terminal" = {
+      terminal = "kitty";
     };
 
     "org/gnome/TextEditor" = {
