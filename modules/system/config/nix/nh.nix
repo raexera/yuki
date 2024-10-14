@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{
   environment.variables.FLAKE = "/home/raexera/DEV/NixOS/yuki";
 
   programs.nh = {
