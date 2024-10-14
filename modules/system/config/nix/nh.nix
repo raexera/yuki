@@ -1,7 +1,7 @@
 {inputs, ...}: {
   environment.variables.FLAKE = "/home/raexera/DEV/NixOS/yuki";
 
-  nh = {
+  programs.nh = {
     enable = true;
     clean = {
       enable = true;
