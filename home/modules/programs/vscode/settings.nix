@@ -54,6 +54,8 @@
   };
 
   workbench = {
+    "workbench.colorTheme" = "GitHub Dark Default";
+    "workbench.preferredLightColorTheme" = "GitHub Dark Default";
     "workbench.panel.defaultLocation" = "right";
     "workbench.productIconTheme" = "icons-carbon";
     "workbench.sideBar.location" = "right";
@@ -67,13 +69,6 @@
     "git.enableSmartCommit" = true;
   };
 
-  github = {
-    "github.copilot.enable" = {
-      "*" = true;
-    };
-    "github.copilot.editor.enableAutoCompletions" = true;
-  };
-
   path-intellisense = {
     "path-intellisense.autoSlashAfterDirectory" = true;
     "path-intellisense.autoTriggerNextSuggestion" = true;
@@ -84,8 +79,6 @@
   # Language specific settings
   # Formatter
   formatter = {
-    "[c]"."editor.defaultFormatter" = "xaver.clang-format";
-    "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[java]"."editor.defaultFormatter" = "redhat.java";
@@ -102,15 +95,6 @@
   bash = {
     "bashIde.shellcheckPath" = "${pkgs.shellcheck}/bin/shellcheck";
     "shfmt.executablePath" = "${pkgs.shfmt}/bin/shfmt";
-  };
-
-  # C/C++
-  cpp = {
-    "C_Cpp.intelliSenseEngine" = "disabled";
-    "clangd.path" = "${pkgs.clang-tools}/bin/clangd";
-    "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
-    "cmake.cmakePath" = "${pkgs.cmake}/bin/cmake";
-    "makefile.makePath" = "${pkgs.gnumake}/bin/make";
   };
 
   # Golang
@@ -187,12 +171,10 @@ in {
     // workbench
     # Extension specific settings
     // git
-    // github
     // path-intellisense
     # Language specific settings
     // formatter
     // bash
-    // cpp
     // go
     // java
     // nix

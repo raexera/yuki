@@ -15,12 +15,10 @@
         bradlc.vscode-tailwindcss
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
-        denoland.vscode-deno
         editorconfig.editorconfig
         esbenp.prettier-vscode
         formulahendry.docker-explorer
-        github.copilot
-        github.copilot-chat
+        github.github-vscode-theme
         golang.go
         jnoortheen.nix-ide
         llvm-vs-code-extensions.vscode-clangd

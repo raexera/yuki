@@ -86,10 +86,9 @@ in {
     ./config
     ./waybar
 
-    ./clipboard.nix
     # ./hypridle.nix
     # ./hyprlock.nix
-    # ./hyprpaper.nix
+    ./hyprpaper.nix
   ];
 
   home.packages = with pkgs; [
@@ -120,21 +119,14 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
 
+    package = inputs.hyprland.packages.${pkgs.system}.default;
+
     systemd = {
-      enable = true;
-      extraCommands = lib.mkBefore [
+      variables = ["--all"];
+      extraCommands = [
         "systemctl --user stop graphical-session.target"
         "systemctl --user start hyprland-session.target"
       ];
-    };
-
-    xwayland.enable = true;
-  };
-
-  systemd.user.targets.tray = {
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = ["graphical-session-pre.target"];
     };
   };
 

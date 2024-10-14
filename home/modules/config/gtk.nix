@@ -34,6 +34,7 @@
 
     gtk3 = {
       bookmarks = [
+        "file://${config.home.homeDirectory}/Dev"
         "file://${config.home.homeDirectory}/Documents"
         "file://${config.home.homeDirectory}/Downloads"
         "file://${config.home.homeDirectory}/Music"

@@ -1,10 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  firefox-gnome-theme = inputs.self.packages.${pkgs.system}.firefox-gnome-theme;
-
+{pkgs, ...}: let
   mimeTypes = [
     "application/json"
     "application/pdf"
@@ -54,21 +48,7 @@ in {
         "widget.dmabuf.force-enabled" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "svg.context-properties.content.enabled" = true;
-        "gnomeTheme.hideSingleTab" = true;
-        "gnomeTheme.bookmarksToolbarUnderTabs" = true;
-        "gnomeTheme.normalWidthTabs" = false;
-        "gnomeTheme.tabsAsHeaderbar" = false;
       };
-
-      userChrome = ''
-        @import "${firefox-gnome-theme}/share/firefox-gnome-theme/userChrome.css";
-      '';
-
-      userContent = ''
-        @import "${firefox-gnome-theme}/share/firefox-gnome-theme/userContent.css";
-      '';
-
-      extraConfig = builtins.readFile "${firefox-gnome-theme}/share/firefox-gnome-theme/configuration/user.js";
     };
   };
 }

@@ -15,8 +15,7 @@
     dirHashes = {
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
-      code = "$HOME/Documents/code";
-      dots = "$HOME/Documents/code/yuki";
+      dev = "$HOME/Dev";
       pics = "$HOME/Pictures";
       vids = "$HOME/Videos";
     };

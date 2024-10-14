@@ -8,6 +8,7 @@
 
     ../modules/wayland/windowManager/hyprland
     ../modules/config/gtk.nix
+    ../modules/programs/qt.nix
     ../modules/config/home-cursor.nix
 
     ../modules/programs/discord.nix
@@ -15,7 +16,7 @@
     ../modules/programs/kitty.nix
     ../modules/programs/nix-index-db.nix
     ../modules/programs/media
-    # ../modules/programs/vscode
+    ../modules/programs/vscode
 
     ../modules/services/udiskie.nix
     ../modules/services/blueman-applet.nix

@@ -49,7 +49,6 @@
 
     env = [
       "GDK_SCALE,2"
-      "WLR_DRM_NO_ATOMIC,1"
     ];
 
     exec-once = [
@@ -100,7 +99,6 @@
       disable_splash_rendering = true;
       focus_on_activate = true;
       force_default_wallpaper = 0;
-      no_direct_scanout = false;
       vfr = true;
       vrr = 1;
     };
@@ -110,6 +108,7 @@
       ", highres, auto, auto"
     ];
 
+    cursor.no_hardware_cursors = true;
     xwayland.force_zero_scaling = true;
   };
 }

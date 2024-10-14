@@ -15,12 +15,14 @@
   pCfg = config.hardware.nvidia.prime;
 
   extraEnv = {
+    LIBVA_DRIVER_NAME = "nvidia";
     NVD_BACKEND = "direct";
-    WLR_NO_HARDWARE_CURSORS = "1";
   };
 in {
   config = {
     boot.blacklistedKernelModules = ["nouveau"];
+    boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
+
     environment.variables = extraEnv;
     environment.sessionVariables = extraEnv;
 
