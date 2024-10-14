@@ -54,8 +54,6 @@
   };
 
   workbench = {
-    "workbench.colorTheme" = "Catppuccin Macchiato";
-    "workbench.iconTheme" = "catppuccin-macchiato";
     "workbench.panel.defaultLocation" = "right";
     "workbench.productIconTheme" = "icons-carbon";
     "workbench.sideBar.location" = "right";

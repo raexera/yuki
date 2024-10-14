@@ -15,7 +15,7 @@
     ../modules/programs/kitty.nix
     ../modules/programs/nix-index-db.nix
     ../modules/programs/media
-    ../modules/programs/vscode
+    # ../modules/programs/vscode
 
     ../modules/services/udiskie.nix
     ../modules/services/blueman-applet.nix

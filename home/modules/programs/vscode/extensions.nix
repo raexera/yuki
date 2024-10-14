@@ -13,7 +13,6 @@
       ++ (with pkgs.vscode-marketplace; [
         antfu.icons-carbon
         bradlc.vscode-tailwindcss
-        catppuccin.catppuccin-vsc-icons
         christian-kohler.path-intellisense
         dbaeumer.vscode-eslint
         denoland.vscode-deno
@@ -54,49 +53,6 @@
       ++ (with pkgs.vscode-marketplace-release; [
         eamodio.gitlens
         vadimcn.vscode-lldb
-      ])
-      ++ [
-        (pkgs.catppuccin-vsc.override {
-          accent = "blue";
-          boldKeywords = true;
-          italicComments = true;
-          italicKeywords = true;
-          extraBordersEnabled = false;
-          workbenchMode = "default";
-          bracketMode = "rainbow";
-          colorOverrides = {
-            all = let
-              inherit (themes.colorscheme) xcolors;
-            in {
-              rosewater = "${xcolors.rosewater}";
-              flamingo = "${xcolors.flamingo}";
-              pink = "${xcolors.pink}";
-              mauve = "${xcolors.mauve}";
-              red = "${xcolors.red}";
-              maroon = "${xcolors.maroon}";
-              peach = "${xcolors.peach}";
-              yellow = "${xcolors.yellow}";
-              green = "${xcolors.green}";
-              teal = "${xcolors.teal}";
-              sky = "${xcolors.sky}";
-              blue = "${xcolors.blue}";
-              lavender = "${xcolors.lavender}";
-              text = "${xcolors.white}";
-              surface2 = "${xcolors.gray1}";
-              surface1 = "${xcolors.gray0}";
-              surface0 = "${xcolors.black3}";
-              base = "${xcolors.black2}";
-              mantle = "${xcolors.black1}";
-              crust = "${xcolors.black0}";
-            };
-          };
-          customUIColors = {
-            all = {
-              "statusBar.foreground" = "accent";
-              "statusBar.noFolderForeground" = "accent";
-            };
-          };
-        })
-      ];
+      ]);
   };
 }
