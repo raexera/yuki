@@ -35,7 +35,6 @@
         ms-python.pylint
         ms-python.python
         ms-python.vscode-pylance
-        ms-vscode.cpptools
         ms-toolsai.jupyter
         ms-toolsai.jupyter-renderers
         ms-toolsai.jupyter-keymap

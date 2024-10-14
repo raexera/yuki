@@ -3,7 +3,7 @@
     boot.initrd.kernelModules = ["i915"];
 
     hardware = {
-      opengl = {
+      graphics = {
         extraPackages = with pkgs; [
           intel-compute-runtime
           intel-media-driver

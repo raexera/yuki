@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    ../scripts/preview.nix
     ../scripts/run-as-service.nix
   ];
 
@@ -22,7 +21,7 @@
       vids = "$HOME/Videos";
     };
 
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
 
     syntaxHighlighting = {

@@ -87,9 +87,9 @@ in {
     ./waybar
 
     ./clipboard.nix
-    ./hypridle.nix
-    ./hyprlock.nix
-    ./hyprpaper.nix
+    # ./hypridle.nix
+    # ./hyprlock.nix
+    # ./hyprpaper.nix
   ];
 
   home.packages = with pkgs; [

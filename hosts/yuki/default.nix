@@ -78,10 +78,9 @@
     };
 
     # Enable OpenGL drivers
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
   };
 
@@ -91,9 +90,6 @@
   services = {
     # Enable the ACPI daemon.
     acpid.enable = true;
-
-    # Enable the auto-cpufreq daemon.
-    auto-cpufreq.enable = true;
 
     # Enable periodic SSD TRIM of mounted partitions in background
     fstrim.enable = true;

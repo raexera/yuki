@@ -20,6 +20,6 @@
       packages = with pkgs; [dconf gcr udisks2];
     };
 
-    udev.packages = with pkgs; [gnome.gnome-settings-daemon android-udev-rules];
+    udev.packages = with pkgs; [gnome-settings-daemon android-udev-rules];
   };
 }

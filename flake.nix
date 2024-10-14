@@ -16,8 +16,6 @@
     hyprland.url = "github:hyprwm/hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    hypridle.url = "github:hyprwm/hypridle";
-    hyprlock.url = "github:hyprwm/hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprpicker.url = "github:hyprwm/hyprpicker";
     nix-index-db.url = "github:Mic92/nix-index-database";
