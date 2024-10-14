@@ -61,8 +61,10 @@
     cpu.intel.updateMicrocode = true;
 
     nvidia.prime = {
-      nvidiaBusId = "PCI:1:0:0";
+      reverseSync.enable = true;
+      allowExternalGpu = false;
       intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
 
     graphics = {
@@ -99,5 +101,10 @@
       percentageAction = 10;
       criticalPowerAction = "Hibernate";
     };
+
+    xserver.videoDrivers = [
+      "i915"
+      "nvidia"
+    ];
   };
 }
