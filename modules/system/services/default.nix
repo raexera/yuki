@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./gnome/gnome-keyring.nix
-    ./gnome/polkit-gnome.nix
+    ./gnome-keyring.nix
     ./networking.nix
     ./openssh.nix
     ./pipewire.nix

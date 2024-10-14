@@ -1,28 +1,49 @@
 {
+  pkgs,
+  lib,
   config,
   inputs,
-  lib,
-  pkgs,
   ...
-}: let
-  suspendScript = pkgs.writeShellScript "suspend-script" ''
-    ${pkgs.pipewire}/bin/pw-cli i all 2>&1 | ${pkgs.ripgrep}/bin/rg running -q
-    # only suspend if audio isn't running
-    if [ $? == 1 ]; then
-      ${pkgs.systemd}/bin/systemctl suspend
-    fi
-  '';
-in {
+}: {
   services.hypridle = {
     enable = true;
-    beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
-    lockCmd = lib.getExe config.programs.hyprlock.package;
 
-    listeners = [
-      {
-        timeout = 300;
-        onTimeout = suspendScript.outPath;
-      }
-    ];
+    package = inputs.hypridle.packages.${pkgs.system}.hypridle;
+
+    settings = {
+      general = {
+        lock_cmd = lib.getExe config.programs.hyprlock.package;
+        before_sleep_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+
+      listener = let
+        brightnessctl = lib.getExe pkgs.brightnessctl;
+      in [
+        {
+          timeout = 150;
+          on-timeout = "${brightnessctl} -s set 10";
+          on-resume = "${brightnessctl} -r";
+        }
+        {
+          timeout = 150;
+          on-timeout = "${brightnessctl} -sd rgb:kbd_backlight set 0";
+          on-resume = "${brightnessctl} -rd rgb:kbd_backlight";
+        }
+        {
+          timeout = 300;
+          on-timeout = "${pkgs.systemd}/bin/loginctl lock-session";
+        }
+        {
+          timeout = 330;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+        {
+          timeout = 1800;
+          on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
+        }
+      ];
+    };
   };
 }

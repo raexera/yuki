@@ -86,8 +86,8 @@ in {
     ./config
     ./waybar
 
-    # ./hypridle.nix
-    # ./hyprlock.nix
+    ./hypridle.nix
+    ./hyprlock.nix
     ./hyprpaper.nix
   ];
 

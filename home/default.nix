@@ -10,7 +10,6 @@
     ./modules/programs/starship.nix
     ./modules/programs/utils.nix
     ./modules/programs/zsh.nix
-    ./modules/services/gnome-keyring.nix
   ];
 
   homeImports = {

@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     act
+    gh
     gist
     gitflow
     zsh-forgit
@@ -9,12 +10,19 @@
   programs = {
     git = {
       enable = true;
+
       package = pkgs.gitAndTools.gitFull;
+
       lfs.enable = true;
-      delta.enable = true;
+
+      delta = {
+        enable = true;
+        options.dark = true;
+      };
 
       userName = "raexera";
       userEmail = "raexera@gmail.com";
+
       signing = {
         key = "19DB39247AEE0092";
         signByDefault = true;

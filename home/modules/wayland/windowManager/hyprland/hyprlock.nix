@@ -1,101 +1,67 @@
-{inputs, ...}: {
+{
+  themes,
+  inputs,
+  pkgs,
+  ...
+}: let
+  font_family = "Inter";
+in {
   programs.hyprlock = {
     enable = true;
 
-    general = {
-      disable_loading_bar = false;
-      hide_cursor = true;
-      grace = 2;
-      no_fade_in = false;
+    package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
+
+    settings = {
+      general = {
+        disable_loading_bar = true;
+        hide_cursor = false;
+        no_fade_in = true;
+      };
+
+      background = [
+        {
+          monitor = "";
+          path = themes.wallpaper;
+        }
+      ];
+
+      input-field = [
+        {
+          monitor = "";
+          size = "300, 50";
+          outline_thickness = 1;
+          outer_color = "rgba(255, 255, 255, 0.1)";
+          inner_color = "rgba(0, 0, 0, 0.5)";
+          font_color = "rgb(255, 255, 255)";
+          fade_on_empty = false;
+          placeholder_text = ''<span font_family="${font_family}">Password...</span>'';
+          dots_spacing = 0.2;
+          dots_center = true;
+        }
+      ];
+
+      label = [
+        {
+          monitor = "";
+          text = "$TIME";
+          inherit font_family;
+          font_size = 96;
+          color = "rgb(255, 255, 255)";
+          position = "0, 150";
+          valign = "center";
+          halign = "center";
+        }
+        {
+          monitor = "";
+          text = "cmd[update:3600000] date +'%a %b %d'";
+          inherit font_family;
+          font_size = 24;
+          color = "rgb(255, 255, 255)";
+          position = "0, 50";
+          valign = "center";
+          halign = "center";
+        }
+      ];
     };
-
-    backgrounds = [
-      {
-        path = "";
-        color = "rgba(0, 0, 0, 0.5)";
-
-        # Blur
-        blur_passes = 3; # 0 disables blurring
-        blur_size = 10;
-        noise = 0.0117;
-        contrast = 0.8916;
-        brightness = 0.8172;
-        vibrancy = 0.1696;
-        vibrancy_darkness = 0.0;
-      }
-    ];
-
-    input-fields = [
-      {
-        size = {
-          width = 300;
-          height = 50;
-        };
-        outline_thickness = 3;
-        dots_size = 0.33;
-        dots_spacing = 0.15;
-        dots_center = true;
-        outer_color = "rgba(255, 255, 255, 0.1)";
-        inner_color = "rgba(255, 255, 255, 0.1)";
-        font_color = "rgb(255, 255, 255)";
-        fade_on_empty = true;
-        placeholder_text = "<i>Input Password...</i>";
-        hide_input = false;
-        position = {
-          x = 0;
-          y = -90;
-        };
-        halign = "center";
-        valign = "center";
-      }
-    ];
-
-    labels = [
-      {
-        text = "<b>$TIME</b>";
-        color = "rgb(255, 255, 255)";
-        font_size = 96;
-        position = {
-          x = 0;
-          y = 0;
-        };
-        halign = "center";
-        valign = "top";
-      }
-      {
-        text = ''cmd[update:1000] echo "$(date "+%a %d %b")"'';
-        color = "rgb(255, 255, 255)";
-        font_size = 24;
-        position = {
-          x = 0;
-          y = -150;
-        };
-        halign = "center";
-        valign = "top";
-      }
-      {
-        text = "Hi there, <i>$USER</i>!";
-        color = "rgb(255, 255, 255)";
-        font_size = 32;
-        position = {
-          x = 0;
-          y = 0;
-        };
-        halign = "center";
-        valign = "center";
-      }
-      {
-        text = "";
-        color = "rgb(255, 255, 255)";
-        font_family = "monospace";
-        font_size = 32;
-        position = {
-          x = 0;
-          y = 0;
-        };
-        halign = "center";
-        valign = "bottom";
-      }
-    ];
   };
 }
