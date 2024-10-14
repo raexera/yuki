@@ -14,7 +14,7 @@
   ];
 
   homeImports = {
-    "rxyhn@hyprland" =
+    "raexera@hyprland" =
       [
         ./home.nix
         ./profiles/hyprland.nix
@@ -29,9 +29,9 @@ in {
 
   flake = {
     homeConfigurations = {
-      "rxyhn@hyprland" = homeManagerConfiguration {
+      "raexera@hyprland" = homeManagerConfiguration {
         inherit pkgs;
-        modules = homeImports."rxyhn@hyprland";
+        modules = homeImports."raexera@hyprland";
       };
     };
   };

@@ -4,8 +4,6 @@ in {
   flake = {
     nixosModules = {};
 
-    homeManagerModules = {
-      swaync = "${flakeModules}/home-manager/swaync";
-    };
+    homeManagerModules = {};
   };
 }

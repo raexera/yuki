@@ -18,7 +18,7 @@
         margin-right = 0;
         modules-left = ["custom/ghost" "hyprland/workspaces" "hyprland/window"];
         modules-center = ["custom/weather" "clock"];
-        modules-right = ["tray" "custom/notification" "group/network-pulseaudio-backlight-battery" "group/powermenu"];
+        modules-right = ["tray" "group/network-pulseaudio-backlight-battery" "group/powermenu"];
 
         # Ghost
         "custom/ghost" = {
@@ -78,27 +78,6 @@
           icon-size = 16;
           show-passive-items = true;
           spacing = 8;
-        };
-
-        # Notifications
-        "custom/notification" = {
-          exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
-          return-type = "json";
-          format = "{icon}";
-          format-icons = {
-            notification = "󰂚";
-            none = "󰂜";
-            dnd-notification = "󰂛";
-            dnd-none = "󰪑";
-            inhibited-notification = "󰂛";
-            inhibited-none = "󰪑";
-            dnd-inhibited-notification = "󰂛";
-            dnd-inhibited-none = "󰪑";
-          };
-          on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-          on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
-          tooltip = true;
-          escape = true;
         };
 
         # Group

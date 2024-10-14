@@ -33,7 +33,7 @@ in {
 
   programs.firefox = {
     enable = true;
-    profiles.rxyhn = {
+    profiles.raexera = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         darkreader
         octotree

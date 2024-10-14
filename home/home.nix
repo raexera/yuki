@@ -1,7 +1,7 @@
 {
   home = {
-    username = "rxyhn";
-    homeDirectory = "/home/rxyhn";
+    username = "raexera";
+    homeDirectory = "/home/raexera";
     extraOutputsToInstall = ["doc" "devdoc"];
   };
 

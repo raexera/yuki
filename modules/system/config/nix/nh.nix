@@ -1,9 +1,5 @@
 {inputs, ...}: {
-  imports = [
-    inputs.nh.nixosModules.default
-  ];
-
-  environment.variables.FLAKE = "/home/rxyhn/Documents/code/yuki";
+  environment.variables.FLAKE = "/home/raexera/DEV/NixOS/yuki";
 
   nh = {
     enable = true;

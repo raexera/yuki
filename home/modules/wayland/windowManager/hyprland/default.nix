@@ -82,11 +82,8 @@
     '';
 in {
   imports = [
-    inputs.self.homeManagerModules.swaync
-
     ./anyrun
     ./config
-    ./swaync
     ./waybar
 
     ./clipboard.nix

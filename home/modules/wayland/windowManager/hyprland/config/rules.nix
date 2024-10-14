@@ -9,8 +9,6 @@
       layers = [
         "anyrun"
         "gtk-layer-shell"
-        "swaync-control-center"
-        "swaync-notification-window"
         "waybar"
       ];
     in [

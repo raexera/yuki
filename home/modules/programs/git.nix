@@ -13,8 +13,8 @@
       lfs.enable = true;
       delta.enable = true;
 
-      userName = "rxyhn";
-      userEmail = "rxyhn.dev@gmail.com";
+      userName = "raexera";
+      userEmail = "raexera@gmail.com";
       signing = {
         key = "A69A110979DF4E36";
         signByDefault = true;
