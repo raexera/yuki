@@ -12,7 +12,13 @@
 
     initrd = {
       systemd.enable = true;
-      supportedFilesystems = ["ext4"];
+      luks.devices = {
+        crypted = {
+          device = "/dev/disk/by-uuid/482c1bf8-9441-4fc4-979b-7daf22649451";
+          preLVM = true;
+          allowDiscards = true;
+        };
+      };
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
