@@ -18,7 +18,7 @@
       cursor_underline_thickness = "1.5";
       disable_ligatures = "never";
       editor = "nvim";
-      font_family = "Fira Code";
+      font_family = "JetBrains Mono";
       font_size = "11.0";
       hide_window_decorations = "titlebar-only";
       inactive_tab_font_style = "normal";

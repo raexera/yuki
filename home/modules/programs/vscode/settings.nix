@@ -5,7 +5,7 @@
     "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
     "editor.cursorBlinking" = "smooth";
     "editor.cursorSmoothCaretAnimation" = "on";
-    "editor.fontFamily" = "'Fira Code', 'Material Design Icons'";
+    "editor.fontFamily" = "JetBrains Mono";
     "editor.fontLigatures" = true;
     "editor.fontSize" = 13;
     "editor.fontWeight" = "500";

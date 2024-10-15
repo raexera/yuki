@@ -13,7 +13,7 @@
         addAll {
           serif = ["Noto Serif"];
           sansSerif = ["Inter"];
-          monospace = ["Fira Code"];
+          monospace = ["JetBrains Mono"];
           emoji = [];
         };
 
@@ -35,15 +35,11 @@
     };
 
     packages = with pkgs; [
-      fira-code
-      fira-code-symbols
       jetbrains-mono
       material-design-icons
-      material-symbols
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      roboto
       (google-fonts.override {fonts = ["Inter"];})
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
