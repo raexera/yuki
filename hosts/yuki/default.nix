@@ -1,11 +1,17 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [./hardware-configuration.nix];
 
   boot = {
     consoleLogLevel = 3;
 
     initrd = {
+      kernelModules = ["ideapad_laptop"];
       systemd.enable = true;
+
       luks.devices = {
         crypted = {
           device = "/dev/disk/by-uuid/482c1bf8-9441-4fc4-979b-7daf22649451";
@@ -22,7 +28,12 @@
       "splash"
       "systemd.show_status=auto"
       "rd.udev.log_level=3"
+      "module_blacklist=nouveau"
+      "iommu=pt"
     ];
+
+    kernelModules = ["acpi_call"];
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
 
     loader = {
       efi.canTouchEfiVariables = true;
