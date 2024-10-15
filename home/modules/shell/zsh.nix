@@ -5,10 +5,6 @@
   themes,
   ...
 }: {
-  imports = [
-    ../scripts/run-as-service.nix
-  ];
-
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";

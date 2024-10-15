@@ -4,12 +4,8 @@
   ...
 }: let
   sharedModules = [
+    ./modules/shell
     ./modules/programs/git.nix
-    ./modules/programs/gpg.nix
-    ./modules/programs/ssh.nix
-    ./modules/programs/starship.nix
-    ./modules/programs/utils.nix
-    ./modules/programs/zsh.nix
   ];
 
   homeImports = {
