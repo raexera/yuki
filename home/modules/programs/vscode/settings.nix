@@ -47,7 +47,7 @@
   };
 
   window = {
-    "window.autoDetectColorScheme" = true;
+    "window.commandCenter" = false;
     "window.dialogStyle" = "native";
     "window.menuBarVisibility" = "toggle";
     "window.titleBarStyle" = "custom";
@@ -55,11 +55,10 @@
 
   workbench = {
     "workbench.colorTheme" = "GitHub Dark Default";
-    "workbench.preferredLightColorTheme" = "GitHub Dark Default";
+    "workbench.layoutControl.enabled" = false;
     "workbench.panel.defaultLocation" = "right";
     "workbench.productIconTheme" = "icons-carbon";
     "workbench.sideBar.location" = "right";
-    "workbench.startupEditor" = "none";
   };
 
   # Extension specific settings
@@ -80,6 +79,7 @@
   # Formatter
   formatter = {
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[go]"."editor.defaultFormatter" = "golang.go";
     "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[java]"."editor.defaultFormatter" = "redhat.java";
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -99,19 +99,7 @@
 
   # Golang
   go = {
-    "[go]" = {
-      "editor.defaultFormatter" = "golang.go";
-      "editor.codeActionsOnSave" = {
-        "source.organizeImports" = true;
-        "source.fixAll" = true;
-      };
-    };
-
     "go.formatTool" = "goimports";
-    "go.formatFlags" = [
-      "-local"
-      "github.com/takt-corp/"
-    ];
 
     "go.lintTool" = "golangci-lint";
     "go.lintOnSave" = "workspace";
@@ -158,7 +146,6 @@ in {
   programs.vscode.userSettings =
     {
       "extensions.autoCheckUpdates" = false;
-      "extensions.ignoreRecommendations" = true;
       "update.mode" = "none";
     }
     # General settings

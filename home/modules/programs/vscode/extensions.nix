@@ -1,8 +1,4 @@
-{
-  pkgs,
-  themes,
-  ...
-}: {
+{pkgs, ...}: {
   programs.vscode = {
     mutableExtensionsDir = true;
     extensions =
