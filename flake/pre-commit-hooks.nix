@@ -10,10 +10,6 @@
       alejandra.enable = true;
       commitizen.enable = true;
       nil.enable = true;
-      prettier = {
-        enable = true;
-        excludes = [".js" ".md" ".ts"];
-      };
     };
   };
 }
