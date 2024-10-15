@@ -8,17 +8,18 @@
   cursorPackage = inputs.self.packages.${pkgs.system}.bibata-hyprcursor;
 in {
   imports = [
-    ./anyrun
     ./config
-    ./waybar
+
+    ./programs/anyrun
+    ./programs/waybar
 
     # notifications daemon
-    ./dunst.nix
+    ./services/dunst.nix
 
     # hypr utils
-    ./hypridle.nix
-    ./hyprlock.nix
-    ./hyprpaper.nix
+    ./services/hypridle.nix
+    ./services/hyprlock.nix
+    ./services/hyprpaper.nix
   ];
 
   home.packages = with pkgs; [
