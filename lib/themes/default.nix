@@ -1,8 +1,12 @@
 lib: {
   colorscheme = rec {
     colors = {
-      background = "2E3440";
       foreground = "D8DEE9";
+
+      background = "2E3440";
+      background_focus = "373E4C";
+      background_dark = "242933";
+
       cursor = "D8DEE9";
       cursor_text = "2E3440";
 

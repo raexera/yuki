@@ -185,7 +185,7 @@
       --reverse \
       --bind='ctrl-space:toggle,pgup:preview-up,pgdn:preview-down' \
       --ansi \
-      --color='fg:${normal.black},bg:${xcolors.background},gutter:${bright.black}' \
+      --color='fg:${normal.black},bg:${xcolors.background_dark},gutter:${bright.black}' \
       --color='fg+:${xcolors.foreground},bg+:${bright.black},hl:${normal.red},hl+:${normal.blue}' \
       --color='info:${normal.green},border:${normal.black},prompt:${normal.blue},pointer:${normal.magenta}' \
       --color='marker:${normal.blue},spinner:${normal.magenta},header:${normal.green}' \
