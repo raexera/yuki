@@ -8,7 +8,7 @@
       inherit (themes.colorscheme.xcolors) normal bright;
     in {
       active_tab_font_style = "bold";
-      background_opacity = "1.0";
+      background_opacity = "0.9";
       bold_font = "auto";
       bold_italic_font = "auto";
       confirm_os_window_close = 0;
