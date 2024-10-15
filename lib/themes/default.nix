@@ -25,8 +25,8 @@ lib: {
         black = "4C566A";
         red = "BF616A";
         green = "A3BE8C";
-        yellow = "EBCB8B";
-        blue = "81A1C1";
+        yellow = "D08770";
+        blue = "5E81AC";
         magenta = "B48EAD";
         cyan = "8FBCBB";
         white = "ECEFF4";

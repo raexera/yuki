@@ -37,42 +37,72 @@
       window_margin_width = 0;
       window_padding_width = 15;
 
-      # basic colors
+      # Basic colors
       foreground = xcolors.foreground;
       background = xcolors.background;
-      selection_foreground = xcolors.background;
+      selection_foreground = xcolors.foreground;
       selection_background = normal.blue;
 
-      # cursor colors
+      # Cursor colors
       cursor = xcolors.cursor;
       cursor_text_color = xcolors.cursor_text;
 
-      # URL underline color
+      # URL underline color when hovering with mouse
       url_color = normal.blue;
 
-      # tab bar colors
-      tab_bar_background = normal.black;
-      active_tab_foreground = normal.black;
-      active_tab_background = normal.blue;
-      inactive_tab_foreground = normal.white;
-      inactive_tab_background = bright.black;
+      # Window border colors and terminal bell colors
+      active_border_color = normal.blue;
+      inactive_border_color = bright.white;
+      bell_border_color = normal.cyan;
+      visual_bell_color = "none";
 
-      # terminal colors
+      # Tab bar colors
+      active_tab_foreground = normal.black;
+      active_tab_background = normal.cyan;
+      inactive_tab_foreground = normal.white;
+      inactive_tab_background = bright.white;
+      tab_bar_background = normal.black;
+      tab_bar_margin_color = "none";
+
+      # Mark colors (marked text in the terminal)
+      mark1_foreground = normal.black;
+      mark1_background = normal.cyan;
+      mark2_foreground = normal.black;
+      mark2_background = normal.red;
+      mark3_foreground = normal.black;
+      mark3_background = normal.yellow;
+
+      # The basic 16 colors
+      # black
       color0 = normal.black;
+      color8 = bright.white;
+
+      # red
       color1 = normal.red;
+      color9 = normal.red;
+
+      # green
       color2 = normal.green;
+      color10 = normal.green;
+
+      # yellow
       color3 = normal.yellow;
-      color4 = normal.blue;
-      color5 = normal.magenta;
-      color6 = normal.cyan;
-      color7 = normal.white;
-      color8 = bright.black;
-      color9 = bright.red;
-      color10 = bright.green;
       color11 = bright.yellow;
+
+      # blue
+      color4 = normal.blue;
       color12 = bright.blue;
-      color13 = bright.magenta;
+
+      # magenta
+      color5 = normal.magenta;
+      color13 = normal.magenta;
+
+      # cyan
+      color6 = normal.cyan;
       color14 = bright.cyan;
+
+      # white
+      color7 = normal.white;
       color15 = bright.white;
     };
 
