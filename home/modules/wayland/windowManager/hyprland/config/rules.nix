@@ -8,12 +8,16 @@
 
       layers = [
         "anyrun"
+        "bar"
+        "calendar"
         "gtk-layer-shell"
+        "notifications"
+        "system-menu"
         "waybar"
       ];
     in [
       "blur, ${toRegex layers}"
-      "ignorealpha 0.5, ${toRegex layers}"
+      "ignorezero, ${toRegex layers}"
     ];
 
     # window rules
