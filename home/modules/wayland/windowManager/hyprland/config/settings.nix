@@ -11,7 +11,6 @@ in {
 
     exec-once = [
       "hyprctl setcursor ${cursorName} ${toString pointer.size}"
-      "hyprlock"
     ];
 
     general = {
