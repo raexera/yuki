@@ -7,12 +7,15 @@
 
       antialias = true;
 
-      defaultFonts = {
-        emoji = ["Noto Color Emoji"];
-        monospace = ["Fira Code" "Noto Color Emoji" "Symbols Nerd Font"];
-        serif = ["Noto Serif" "Noto Color Emoji"];
-        sansSerif = ["Inter" "Noto Color Emoji"];
-      };
+      defaultFonts = let
+        addAll = builtins.mapAttrs (_: v: ["Symbols Nerd Font"] ++ v ++ ["Noto Color Emoji"]);
+      in
+        addAll {
+          serif = ["Noto Serif"];
+          sansSerif = ["Inter"];
+          monospace = ["Fira Code"];
+          emoji = [];
+        };
 
       hinting = {
         enable = true;
@@ -34,11 +37,13 @@
     packages = with pkgs; [
       fira-code
       fira-code-symbols
+      jetbrains-mono
       material-design-icons
+      material-symbols
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-
+      roboto
       (google-fonts.override {fonts = ["Inter"];})
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
