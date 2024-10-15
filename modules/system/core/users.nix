@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   users.users.raexera = {
     isNormalUser = true;
-    initialPassword = "NixOS";
+    initialPassword = "yuki";
     shell = pkgs.zsh;
+    uid = 1000;
 
     extraGroups = [
       "adbusers"
