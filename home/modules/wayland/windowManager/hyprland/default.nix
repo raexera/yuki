@@ -10,8 +10,11 @@ in {
   imports = [
     ./config
 
-    ./programs/anyrun
-    ./programs/waybar
+    # launcher
+    ./programs/anyrun.nix
+
+    # bar
+    ./programs/waybar.nix
 
     # notifications daemon
     ./services/dunst.nix
