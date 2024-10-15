@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     atool
-    binutils
     coreutils
     curl
     du-dust
