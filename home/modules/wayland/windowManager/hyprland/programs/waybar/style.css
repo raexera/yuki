@@ -1,6 +1,7 @@
-@define-color background rgba(0, 0, 0, 0.5);
-@define-color background-alt rgba(255, 255, 255, 0.05);
-@define-color background-focus rgba(255, 255, 255, 0.1);
+@define-color foreground #D8DEE9;
+@define-color background #242933;
+@define-color background-alt #2E3440;
+@define-color background-focus #373E4C;
 @define-color border rgba(255, 255, 255, 0.1);
 @define-color accent #89C1D1;
 @define-color red #BF616A;
@@ -9,12 +10,10 @@
 @define-color orange #D08770;
 @define-color blue #81A1C1;
 @define-color gray #4C566A;
-@define-color black #2E3440;
-@define-color white #D8DEE9;
 
 * {
   all: unset;
-  color: @white;
+  color: @foreground;
   font:
     11pt "Material Design Icons",
     Inter,
@@ -135,7 +134,7 @@ window#waybar {
 }
 
 #workspaces button {
-  background: @white;
+  background: @foreground;
   border-radius: 100%;
   min-width: 1rem;
   margin-right: 0.75rem;
@@ -147,7 +146,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  background: lighter(@white);
+  background: lighter(@foreground);
 }
 
 #workspaces button.empty {
@@ -250,13 +249,13 @@ menu menuitem:only-child {
 }
 
 #pulseaudio-slider highlight {
-  background: @white;
+  background: @foreground;
   border: 1px solid @border;
 }
 
 /* Backlight */
 #backlight-slider highlight {
-  background: @white;
+  background: @foreground;
   border: 1px solid @border;
 }
 
@@ -295,6 +294,6 @@ menu menuitem:only-child {
 /* Keyframes */
 @keyframes blink {
   to {
-    color: @white;
+    color: @foreground;
   }
 }

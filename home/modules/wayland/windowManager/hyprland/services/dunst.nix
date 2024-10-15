@@ -122,7 +122,7 @@ in {
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "${xcolors.background}";
+        background = "${xcolors.background_dark}";
         foreground = "${xcolors.foreground}";
         highlight = "${normal.blue}";
         frame_color = "${bright.black}";
@@ -130,7 +130,7 @@ in {
       };
 
       urgency_normal = {
-        background = "${xcolors.background}";
+        background = "${xcolors.background_dark}";
         foreground = "${xcolors.foreground}";
         highlight = "${normal.blue}";
         frame_color = "${bright.black}";
@@ -138,7 +138,7 @@ in {
       };
 
       urgency_critical = {
-        background = "${xcolors.background}";
+        background = "${xcolors.background_dark}";
         foreground = "${xcolors.foreground}";
         highlight = "${normal.blue}";
         frame_color = "${bright.red}";
