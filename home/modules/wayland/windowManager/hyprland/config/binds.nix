@@ -1,12 +1,10 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: let
-  # Screenshot utility
-  screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
-
-  # Binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+  # binds SUPER + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -15,33 +13,38 @@
           builtins.toString (x + 1 - (c * 10));
       in [
         "SUPER, ${ws}, workspace, ${toString (x + 1)}"
-        "SUPERSHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        "SUPER SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
       ]
     )
     10);
 
-  # Get default application
-  gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";
-  xdg-mime = "${pkgs.xdg-utils}/bin/xdg-mime";
-  defaultApp = type: "${gtk-launch} $(${xdg-mime} query default ${type})";
-  terminal = config.home.sessionVariables.TERMINAL;
-  browser = defaultApp "x-scheme-handler/https";
-  editor = defaultApp "text/plain";
+  toggle = program: service: let
+    prog = builtins.substring 0 14 program;
+    runserv = lib.optionalString service "run-as-service";
+  in "pkill ${prog} || ${runserv} ${program}";
+
+  runOnce = program: "pgrep ${program} || ${program}";
 in {
   wayland.windowManager.hyprland = {
     settings = {
       bind = let
         monocle = "dwindle:no_gaps_when_only";
+
+        # Get default application
+        defaultApp = type: "${pkgs.gtk3}/bin/gtk-launch $(${pkgs.xdg-utils}/bin/xdg-mime query default ${type})";
+        browser = defaultApp "x-scheme-handler/https";
+        editor = defaultApp "text/plain";
       in
         [
           # Compositor commands
-          "SUPERSHIFT, Q, exit"
+          "SUPERSHIFT, E, exec, pkill Hyprland"
           "SUPER, Q, killactive"
           "SUPER, S, togglesplit"
           "SUPER, F, fullscreen"
           "SUPER, P, pseudo"
           "SUPERSHIFT, P, pin"
           "SUPER, Space, togglefloating"
+          "SUPERALT, ,resizeactive,"
 
           # Toggle "monocle" (no_gaps_when_only)
           "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
@@ -73,30 +76,38 @@ in {
           "SUPERSHIFT, grave, movetoworkspace, special"
           "SUPER, grave, togglespecialworkspace, eDP-1"
 
-          # Cycle through workspaces
-          "SUPERALT, up, workspace, m-1"
-          "SUPERALT, down, workspace, m+1"
+          # Cycle workspaces
+          "SUPER, bracketleft, workspace, m-1"
+          "SUPER, bracketright, workspace, m+1"
+
+          # Cycle monitors
+          "SUPERSHIFT, bracketleft, focusmonitor, l"
+          "SUPERSHIFT, bracketright, focusmonitor, r"
+
+          # send focused workspace to left/right monitors
+          "SUPERSHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
+          "SUPERSHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
 
           # Utilities
-          "SUPER, Return, exec, run-as-service ${terminal}"
+          "SUPER, Return, exec, run-as-service kitty"
           "SUPER, B, exec, ${browser}"
           "SUPER, E, exec, ${editor}"
-          "SUPER, L, exec, ${pkgs.systemd}/bin/loginctl lock-session"
-          "SUPER, O, exec, run-as-service wl-ocr"
+          "SUPER, O, exec, ${runOnce "wl-ocr"}"
+          "SUPER, L, exec, pgrep hyprlock || hyprlock"
 
           # Screenshot
-          ", Print, exec, ${screenshotarea}"
-          "CTRL, Print, exec, grimblast --notify --cursor copysave output"
-          "ALT, Print, exec, grimblast --notify --cursor copysave screen"
+          ", Print, exec, ${runOnce "grimblast"} --notify copysave area"
+          "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
+          "ALT, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
         ]
         ++ workspaces;
 
       bindr = [
-        # Launchers
-        "SUPER, SUPER_L, exec, pkill .anyrun-wrapped || run-as-service anyrun"
+        # launcher
+        "SUPER, SUPER_L, exec, ${toggle "anyrun" true}"
       ];
 
-      binde = [
+      bindle = [
         # Audio
         ",XF86AudioRaiseVolume, exec, volumectl up 5"
         ",XF86AudioLowerVolume, exec, volumectl down 5"
@@ -112,6 +123,7 @@ in {
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
+        "SUPER ALT, mouse:272, resizewindow"
       ];
     };
 
