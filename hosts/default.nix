@@ -7,9 +7,11 @@
 }: let
   inherit (inputs.nixpkgs.lib) nixosSystem;
 
-  modules = "${self}/modules/system";
-  hardware = modules + "/hardware";
-  profiles = "${self}/hosts/profiles";
+  modules = "${self}/modules";
+
+  system = modules + "/system";
+  hardware = system + "/hardware";
+  profiles = modules + "/profiles";
 
   specialArgs = {inherit inputs self themes;};
 in {
@@ -21,14 +23,16 @@ in {
       modules = [
         ./yuki
 
-        "${modules}/config"
-        "${modules}/programs"
-        "${modules}/security"
-        "${modules}/services"
-        "${modules}/virtualisation/docker.nix"
+        "${system}/config"
+        "${system}/programs"
+        "${system}/security"
+        "${system}/services"
+        "${system}/virtualisation/docker.nix"
+
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
+
         "${profiles}/hyprland"
 
         {

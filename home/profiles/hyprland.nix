@@ -7,19 +7,18 @@
     ../modules/dev
 
     ../modules/wayland/windowManager/hyprland
-    ../modules/config/gtk.nix
-    ../modules/programs/qt.nix
-    ../modules/config/home-cursor.nix
 
     ../modules/programs/firefox.nix
+    ../modules/programs/gtk.nix
     ../modules/programs/kitty.nix
-    ../modules/programs/nix-index-db.nix
     ../modules/programs/media
+    ../modules/programs/nix-index-db.nix
+    ../modules/programs/qt.nix
     ../modules/programs/vscode
 
-    ../modules/services/udiskie.nix
     ../modules/services/blueman-applet.nix
     ../modules/services/polkit-agent.nix
+    ../modules/services/udiskie.nix
   ];
 
   home = {

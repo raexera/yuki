@@ -1,7 +1,19 @@
-{config, ...}: {
-  wayland.windowManager.hyprland.settings = let
-    pointer = config.home.pointerCursor;
-  in {
+{config, ...}: let
+  pointer = config.home.pointerCursor;
+  cursorName = "Bibata-Modern-Classic-Hyprcursor";
+in {
+  wayland.windowManager.hyprland.settings = {
+    env = [
+      "GDK_SCALE,2"
+      "HYPRCURSOR_THEME,${cursorName}"
+      "HYPRCURSOR_SIZE,${toString pointer.size}"
+    ];
+
+    exec-once = [
+      "hyprctl setcursor ${cursorName} ${toString pointer.size}"
+      "hyprlock"
+    ];
+
     animations = {
       enabled = true;
 
@@ -46,14 +58,6 @@
       pseudotile = true;
       preserve_split = true;
     };
-
-    env = [
-      "GDK_SCALE,2"
-    ];
-
-    exec-once = [
-      "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-    ];
 
     general = {
       gaps_in = 2;

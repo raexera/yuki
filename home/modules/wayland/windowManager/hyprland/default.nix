@@ -80,6 +80,9 @@
         -i display-brightness-symbolic \
         "LIGHTCTL" "Brightness: $brightness_percentage%"
     '';
+
+  cursor = "Bibata-Modern-Classic-Hyprcursor";
+  cursorPackage = inputs.self.packages.${pkgs.system}.bibata-hyprcursor;
 in {
   imports = [
     ./anyrun
@@ -159,4 +162,6 @@ in {
       createDirectories = true;
     };
   };
+
+  xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 }
