@@ -61,6 +61,16 @@ in {
           valign = "center";
           halign = "center";
         }
+        {
+          monitor = "";
+          text = "$USER";
+          inherit font_family;
+          font_size = 18;
+          color = "rgb(255, 255, 255)";
+          position = "0, 50";
+          valign = "bottom";
+          halign = "center";
+        }
       ];
     };
   };
