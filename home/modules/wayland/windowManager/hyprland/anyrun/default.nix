@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   ...
@@ -16,7 +15,6 @@
         rink
         shell
         symbols
-        translate
       ];
 
       width.fraction = 0.5;
@@ -37,15 +35,7 @@
         Config(
           desktop_actions: true,
           max_entries: 10,
-          terminal: Some("${config.home.sessionVariables.TERMINAL}"),
-        )
-      '';
-
-      "translate.ron".text = ''
-        Config(
-          prefix: ":tr",
-          language_delimiter: ">",
-          max_entries: 5,
+          terminal: Some("kitty"),
         )
       '';
     };
