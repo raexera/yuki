@@ -29,9 +29,8 @@ lib: {
   };
 
   wallpaper = let
-    params = "?q=85&fm=jpg&crop=fit&cs=srgb&w=2560";
-    url = "https://images.unsplash.com/photo-1485470733090-0aae1788d5af${params}.jpg";
-    sha256 = "1ijl3rhjyg161b2zbg541l3f5nj8yqvr2vxnjjyyj4izs7y8vgdc";
+    url = "https://static.zerochan.net/Chifuri.full.2733257.jpg";
+    sha256 = "17pjryknzb2wsj9ilq4bkk6x2ybxr2dsc8frdib0wv2qm5j15rvk";
     ext = lib.last (lib.splitString "." url);
   in
     builtins.fetchurl {
