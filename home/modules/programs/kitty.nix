@@ -5,6 +5,7 @@
 
     settings = let
       inherit (themes.colorscheme) xcolors;
+      inherit (themes.colorscheme.xcolors) normal bright;
     in {
       active_tab_font_style = "bold";
       background_opacity = "1.0";
@@ -37,42 +38,42 @@
       window_padding_width = 15;
 
       # The basic colors
-      foreground = xcolors.white;
-      background = xcolors.black2;
-      selection_foreground = xcolors.black2;
-      selection_background = xcolors.rosewater;
+      foreground = xcolors.foreground;
+      background = xcolors.background;
+      selection_foreground = xcolors.background;
+      selection_background = normal.blue;
 
       # Cursor colors
-      cursor = xcolors.rosewater;
-      cursor_text_color = xcolors.black2;
+      cursor = xcolors.cursor;
+      cursor_text_color = xcolors.cursor_text;
 
       # URL underline color
-      url_color = xcolors.rosewater;
+      url_color = normal.blue;
 
       # Tab bar colors
-      tab_bar_background = xcolors.black1;
-      active_tab_foreground = xcolors.black1;
-      active_tab_background = xcolors.blue;
-      inactive_tab_foreground = xcolors.white;
-      inactive_tab_background = xcolors.black2;
+      tab_bar_background = normal.black;
+      active_tab_foreground = normal.black;
+      active_tab_background = normal.blue;
+      inactive_tab_foreground = normal.white;
+      inactive_tab_background = bright.black;
 
       # The 16 terminal colors
-      color0 = xcolors.gray0;
-      color8 = xcolors.gray1;
-      color1 = xcolors.red;
-      color9 = xcolors.red;
-      color2 = xcolors.green;
-      color10 = xcolors.green;
-      color3 = xcolors.yellow;
-      color11 = xcolors.yellow;
-      color4 = xcolors.blue;
-      color12 = xcolors.blue;
-      color5 = xcolors.pink;
-      color13 = xcolors.pink;
-      color6 = xcolors.sky;
-      color14 = xcolors.sky;
-      color7 = xcolors.white;
-      color15 = xcolors.white;
+      color0 = normal.black;
+      color1 = normal.red;
+      color2 = normal.green;
+      color3 = normal.yellow;
+      color4 = normal.blue;
+      color5 = normal.magenta;
+      color6 = normal.cyan;
+      color7 = normal.white;
+      color8 = bright.black;
+      color9 = bright.red;
+      color10 = bright.green;
+      color11 = bright.yellow;
+      color12 = bright.blue;
+      color13 = bright.magenta;
+      color14 = bright.cyan;
+      color15 = bright.white;
     };
 
     keybindings = {

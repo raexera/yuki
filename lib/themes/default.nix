@@ -1,28 +1,43 @@
 lib: {
   colorscheme = rec {
     colors = {
-      rosewater = "F5E0DC";
-      flamingo = "F2CDCD";
-      pink = "F5C2E7";
-      mauve = "DDB6F2";
-      red = "F28FAD";
-      maroon = "E8A2AF";
-      peach = "F8BD96";
-      yellow = "FAE3B0";
-      green = "ABE9B3";
-      teal = "B5E8E0";
-      sky = "89DCEB";
-      blue = "96CDFB";
-      lavender = "C9CBFF";
-      white = "C5C8C9"; # text
-      gray2 = "5C6262";
-      gray1 = "4A5051"; # surface2
-      gray0 = "363D3E"; # surface1
-      black4 = "202729";
-      black3 = "192022"; # surface0
-      black2 = "131A1C"; # base
-      black1 = "111719"; # mantle
-      black0 = "0D1416"; # crust
+      background = "2E3440";
+      foreground = "D8DEE9";
+      cursor = "D8DEE9";
+      cursor_text = "2E3440";
+
+      normal = {
+        black = "3B4252";
+        red = "BF616A";
+        green = "A3BE8C";
+        yellow = "EBCB8B";
+        blue = "81A1C1";
+        magenta = "B48EAD";
+        cyan = "88C0D0";
+        white = "E5E9F0";
+      };
+
+      bright = {
+        black = "4C566A";
+        red = "BF616A";
+        green = "A3BE8C";
+        yellow = "EBCB8B";
+        blue = "81A1C1";
+        magenta = "B48EAD";
+        cyan = "8FBCBB";
+        white = "ECEFF4";
+      };
+
+      dim = {
+        black = "373E4D";
+        red = "94545D";
+        green = "809575";
+        yellow = "B29E75";
+        blue = "68809A";
+        magenta = "8C738C";
+        cyan = "6D96A5";
+        white = "AEB3BB";
+      };
     };
 
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;

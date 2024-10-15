@@ -2,14 +2,15 @@
 @define-color background-alt rgba(255, 255, 255, 0.05);
 @define-color background-focus rgba(255, 255, 255, 0.1);
 @define-color border rgba(255, 255, 255, 0.1);
-@define-color red rgb(255, 69, 58);
-@define-color orange rgb(255, 159, 10);
-@define-color yellow rgb(255, 214, 10);
-@define-color green rgb(50, 215, 75);
-@define-color blue rgb(10, 132, 255);
-@define-color gray rgb(152, 152, 157);
-@define-color black rgb(28, 28, 30);
-@define-color white rgb(255, 255, 255);
+@define-color accent #89C1D1;
+@define-color red #BF616A;
+@define-color green #A3BE8C;
+@define-color yellow #EBCB8B;
+@define-color orange #D08770;
+@define-color blue #81A1C1;
+@define-color gray #4C566A;
+@define-color black #2E3440;
+@define-color white #D8DEE9;
 
 * {
   all: unset;
@@ -174,11 +175,11 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: @blue;
+  background: @accent;
 }
 
 #workspaces button.active:hover {
-  background: lighter(@blue);
+  background: lighter(@accent);
 }
 
 /* Hyprland window */

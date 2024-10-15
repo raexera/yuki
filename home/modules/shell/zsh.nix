@@ -176,6 +176,7 @@
 
     envExtra = let
       inherit (themes.colorscheme) xcolors;
+      inherit (themes.colorscheme.xcolors) normal bright;
     in ''
       # Set fzf options
       export FZF_DEFAULT_OPTS=" \
@@ -184,10 +185,10 @@
       --reverse \
       --bind='ctrl-space:toggle,pgup:preview-up,pgdn:preview-down' \
       --ansi \
-      --color='fg:${xcolors.gray1},bg:${xcolors.black0},gutter:${xcolors.black3}' \
-      --color='fg+:${xcolors.white},bg+:${xcolors.black3},hl:${xcolors.red},hl+:${xcolors.blue}' \
-      --color='info:${xcolors.green},border:${xcolors.gray1},prompt:${xcolors.blue},pointer:${xcolors.mauve}' \
-      --color='marker:${xcolors.blue},spinner:${xcolors.mauve},header:${xcolors.green}' \
+      --color='fg:${normal.black},bg:${xcolors.background},gutter:${bright.black}' \
+      --color='fg+:${xcolors.foreground},bg+:${bright.black},hl:${normal.red},hl+:${normal.blue}' \
+      --color='info:${normal.green},border:${normal.black},prompt:${normal.blue},pointer:${normal.magenta}' \
+      --color='marker:${normal.blue},spinner:${normal.magenta},header:${normal.green}' \
       --prompt ' ' \
       --pointer '' \
       --marker ''

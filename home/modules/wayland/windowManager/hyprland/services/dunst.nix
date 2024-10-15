@@ -72,6 +72,7 @@ in {
     inherit (config.gtk) iconTheme;
     settings = let
       inherit (themes.colorscheme) xcolors;
+      inherit (themes.colorscheme.xcolors) normal bright;
     in {
       global = {
         alignment = "left";
@@ -81,7 +82,8 @@ in {
         follow = "mouse";
         font = "Inter 11";
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
-        frame_width = 0;
+        frame_color = "${bright.black}";
+        frame_width = 2;
         gap_size = 5;
         horizontal_padding = 12;
         icon_corner_radius = 0;
@@ -120,23 +122,26 @@ in {
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "${xcolors.black0}";
-        foreground = "${xcolors.white}";
-        highlight = "${xcolors.blue}";
+        background = "${xcolors.background}";
+        foreground = "${xcolors.foreground}";
+        highlight = "${normal.blue}";
+        frame_color = "${bright.black}";
         timeout = 2;
       };
 
       urgency_normal = {
-        background = "${xcolors.black0}";
-        foreground = "${xcolors.white}";
-        highlight = "${xcolors.blue}";
+        background = "${xcolors.background}";
+        foreground = "${xcolors.foreground}";
+        highlight = "${normal.blue}";
+        frame_color = "${bright.black}";
         timeout = 2;
       };
 
       urgency_critical = {
-        background = "${xcolors.red}";
-        foreground = "${xcolors.white}";
-        highlight = "${xcolors.blue}";
+        background = "${xcolors.background}";
+        foreground = "${xcolors.foreground}";
+        highlight = "${normal.blue}";
+        frame_color = "${bright.red}";
         timeout = 10;
       };
     };
