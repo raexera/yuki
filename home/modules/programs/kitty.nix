@@ -37,27 +37,27 @@
       window_margin_width = 0;
       window_padding_width = 15;
 
-      # The basic colors
+      # basic colors
       foreground = xcolors.foreground;
       background = xcolors.background;
       selection_foreground = xcolors.background;
       selection_background = normal.blue;
 
-      # Cursor colors
+      # cursor colors
       cursor = xcolors.cursor;
       cursor_text_color = xcolors.cursor_text;
 
       # URL underline color
       url_color = normal.blue;
 
-      # Tab bar colors
+      # tab bar colors
       tab_bar_background = normal.black;
       active_tab_foreground = normal.black;
       active_tab_background = normal.blue;
       inactive_tab_foreground = normal.white;
       inactive_tab_background = bright.black;
 
-      # The 16 terminal colors
+      # terminal colors
       color0 = normal.black;
       color1 = normal.red;
       color2 = normal.green;

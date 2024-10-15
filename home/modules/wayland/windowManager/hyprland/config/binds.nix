@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -30,13 +29,13 @@ in {
       bind = let
         monocle = "dwindle:no_gaps_when_only";
 
-        # Get default application
+        # default application
         defaultApp = type: "${pkgs.gtk3}/bin/gtk-launch $(${pkgs.xdg-utils}/bin/xdg-mime query default ${type})";
         browser = defaultApp "x-scheme-handler/https";
         editor = defaultApp "text/plain";
       in
         [
-          # Compositor commands
+          # compositor commands
           "SUPERSHIFT, E, exec, pkill Hyprland"
           "SUPER, Q, killactive"
           "SUPER, S, togglesplit"
@@ -46,41 +45,41 @@ in {
           "SUPER, Space, togglefloating"
           "SUPERALT, ,resizeactive,"
 
-          # Toggle "monocle" (no_gaps_when_only)
+          # toggle "monocle" (no_gaps_when_only)
           "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
-          # Grouped (tabbed) windows
+          # grouped (tabbed) windows
           "SUPER, G, togglegroup"
           "SUPER, TAB, changegroupactive, f"
           "SUPERSHIFT, TAB, changegroupactive, b"
 
-          # Cycle through windows
+          # cycle through windows
           "ALT, Tab, cyclenext"
           "ALT, Tab, bringactivetotop"
           "ALTSHIFT, Tab, cyclenext, prev"
           "ALTSHIFT, Tab, bringactivetotop"
 
-          # Move focus
+          # move focus
           "SUPER, left, movefocus, l"
           "SUPER, right, movefocus, r"
           "SUPER, up, movefocus, u"
           "SUPER, down, movefocus, d"
 
-          # Move windows
+          # move windows
           "SUPERSHIFT, left, movewindow, l"
           "SUPERSHIFT, right, movewindow, r"
           "SUPERSHIFT, up, movewindow, u"
           "SUPERSHIFT, down, movewindow, d"
 
-          # Special workspaces
+          # special workspaces
           "SUPERSHIFT, grave, movetoworkspace, special"
           "SUPER, grave, togglespecialworkspace, eDP-1"
 
-          # Cycle workspaces
+          # cycle workspaces
           "SUPER, bracketleft, workspace, m-1"
           "SUPER, bracketright, workspace, m+1"
 
-          # Cycle monitors
+          # cycle monitors
           "SUPERSHIFT, bracketleft, focusmonitor, l"
           "SUPERSHIFT, bracketright, focusmonitor, r"
 
@@ -88,14 +87,14 @@ in {
           "SUPERSHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
           "SUPERSHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
 
-          # Utilities
+          # utilities
           "SUPER, Return, exec, run-as-service kitty"
           "SUPER, B, exec, ${browser}"
           "SUPER, E, exec, ${editor}"
           "SUPER, O, exec, ${runOnce "wl-ocr"}"
           "SUPER, L, exec, pgrep hyprlock || hyprlock"
 
-          # Screenshot
+          # screenshot
           ", Print, exec, ${runOnce "grimblast"} --notify copysave area"
           "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
           "ALT, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
@@ -108,18 +107,18 @@ in {
       ];
 
       bindle = [
-        # Audio
+        # audio
         ",XF86AudioRaiseVolume, exec, volumectl up 5"
         ",XF86AudioLowerVolume, exec, volumectl down 5"
         ",XF86AudioMute, exec, volumectl toggle-mute"
         ",XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute"
 
-        # Brightness
+        # brightness
         ",XF86MonBrightnessUp, exec, lightctl up 5"
         ",XF86MonBrightnessDown, exec, lightctl down 5"
       ];
 
-      # Mouse bindings
+      # mouse bindings
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
@@ -127,7 +126,7 @@ in {
       ];
     };
 
-    # Configure submaps
+    # configure submaps
     extraConfig = ''
       bind = SUPERSHIFT, S, submap, resize
 

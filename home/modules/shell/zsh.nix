@@ -41,43 +41,43 @@
     '';
 
     completionInit = ''
-      # Load Zsh modules
+      # load zsh modules
       zmodload zsh/zle
       zmodload zsh/zpty
       zmodload zsh/complist
 
-      # Initialize colors
+      # initialize colors
       autoload -Uz colors
       colors
 
-      # Initialize completion system
+      # initialize completion system
       autoload -U compinit
       compinit
       _comp_options+=(globdots)
 
-      # Load edit-command-line for ZLE
+      # load edit-command-line for ZLE
       autoload -Uz edit-command-line
       zle -N edit-command-line
       bindkey "^e" edit-command-line
 
-      # General completion behavior
+      # general completion behavior
       zstyle ':completion:*' completer _extensions _complete _approximate
 
-      # Use cache
+      # use cache
       zstyle ':completion:*' use-cache on
       zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
-      # Complete the alias
+      # complete the alias
       zstyle ':completion:*' complete true
 
-      # Autocomplete options
+      # autocomplete options
       zstyle ':completion:*' complete-options true
 
-      # Completion matching control
+      # completion matching control
       zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
       zstyle ':completion:*' keep-prefix true
 
-      # Group matches and describe
+      # group matches and describe
       zstyle ':completion:*' menu select
       zstyle ':completion:*' list-grouped false
       zstyle ':completion:*' list-separator '''
@@ -89,10 +89,10 @@
       zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
       zstyle ':completion:*:descriptions' format '[%d]'
 
-      # Colors
+      # colors
       zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
-      # Directories
+      # directories
       zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
       zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
       zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
@@ -100,7 +100,7 @@
       zstyle ':completion:*' special-dirs true
       zstyle ':completion:*' squeeze-slashes true
 
-      # Sort
+      # sort
       zstyle ':completion:*' sort false
       zstyle ":completion:*:git-checkout:*" sort false
       zstyle ':completion:*' file-sort modification
@@ -119,7 +119,7 @@
     '';
 
     initExtra = ''
-      # Set options
+      # set options
       while read -r option; do
         setopt $option
       done <<-EOF
@@ -153,7 +153,7 @@
       SHARE_HISTORY
       EOF
 
-      # Unset options
+      # unset options
       while read -r option; do
         unsetopt $option
       done <<-EOF
@@ -164,7 +164,7 @@
       NOMATCH
       EOF
 
-      # Vi mode key bindings
+      # vi mode key bindings
       bindkey -v
       bindkey -M menuselect 'h' vi-backward-char
       bindkey -M menuselect 'k' vi-up-line-or-history
@@ -178,7 +178,6 @@
       inherit (themes.colorscheme) xcolors;
       inherit (themes.colorscheme.xcolors) normal bright;
     in ''
-      # Set fzf options
       export FZF_DEFAULT_OPTS=" \
       --multi \
       --cycle \

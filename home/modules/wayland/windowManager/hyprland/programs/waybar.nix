@@ -20,13 +20,11 @@
         modules-center = ["custom/weather" "clock"];
         modules-right = ["tray" "group/network-pulseaudio-backlight-battery" "group/powermenu"];
 
-        # Logo
         "custom/logo" = {
           format = " ";
           tooltip = false;
         };
 
-        # Workspaces
         "hyprland/workspaces" = {
           format = "";
           on-click = "activate";
@@ -38,13 +36,11 @@
           };
         };
 
-        # Window
         "hyprland/window" = {
           format = "{}";
           separate-outputs = true;
         };
 
-        # Weather
         "custom/weather" = {
           format = "{}°";
           tooltip = true;
@@ -53,7 +49,6 @@
           return-type = "json";
         };
 
-        # Clock & Calendar
         clock = {
           format = "{:%b %d %H:%M}";
           actions = {
@@ -73,14 +68,12 @@
           };
         };
 
-        # Tray
         tray = {
           icon-size = 16;
           show-passive-items = true;
           spacing = 8;
         };
 
-        # Group
         "group/network-pulseaudio-backlight-battery" = {
           modules = [
             "network"
@@ -91,7 +84,6 @@
           orientation = "inherit";
         };
 
-        # Network
         network = {
           format-wifi = "󰤨";
           format-ethernet = "󰈀";
@@ -102,7 +94,6 @@
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
 
-        # Pulseaudio
         "group/audio-slider" = {
           orientation = "inherit";
           drawer = {
@@ -133,7 +124,6 @@
           orientation = "horizontal";
         };
 
-        # Backlight
         "group/light-slider" = {
           orientation = "inherit";
           drawer = {
@@ -156,7 +146,6 @@
           orientation = "horizontal";
         };
 
-        # Battery
         battery = {
           format = "{icon}";
           format-charging = "󱐋";
@@ -169,7 +158,6 @@
           tooltip-format = "{timeTo}, {capacity}%";
         };
 
-        # Powermenu
         "group/powermenu" = {
           drawer = {
             children-class = "powermenu-child";

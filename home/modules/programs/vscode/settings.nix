@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  # General settings
+  # general
   editor = {
     "editor.bracketPairColorization.enabled" = true;
     "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
@@ -61,7 +61,7 @@
     "workbench.sideBar.location" = "right";
   };
 
-  # Extension specific settings
+  # extension specific
   git = {
     "git.autofetch" = true;
     "git.enableCommitSigning" = true;
@@ -75,8 +75,7 @@
     "path-intellisense.showHiddenFiles" = true;
   };
 
-  # Language specific settings
-  # Formatter
+  # language specific
   formatter = {
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[go]"."editor.defaultFormatter" = "golang.go";
@@ -91,13 +90,11 @@
     "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
-  # Shell
   bash = {
     "bashIde.shellcheckPath" = "${pkgs.shellcheck}/bin/shellcheck";
     "shfmt.executablePath" = "${pkgs.shfmt}/bin/shfmt";
   };
 
-  # Golang
   go = {
     "go.formatTool" = "goimports";
 
@@ -114,7 +111,6 @@
     };
   };
 
-  # Java
   java = {
     "java.configuration.runtimes" = [
       {
@@ -127,7 +123,6 @@
     "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
   };
 
-  # Nix
   nix = {
     "nix.enableLanguageServer" = true;
     "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
@@ -135,7 +130,6 @@
     "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
   };
 
-  # Python
   python = {
     "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
     "python.languageServer" = "Pylance";
@@ -148,7 +142,7 @@ in {
       "extensions.autoCheckUpdates" = false;
       "update.mode" = "none";
     }
-    # General settings
+    # general
     // editor
     // explorer
     // files
@@ -156,10 +150,10 @@ in {
     // terminal
     // window
     // workbench
-    # Extension specific settings
+    # extension specific
     // git
     // path-intellisense
-    # Language specific settings
+    # language specific
     // formatter
     // bash
     // go

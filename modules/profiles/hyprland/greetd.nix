@@ -3,7 +3,6 @@
   lib,
   ...
 }: {
-  # greetd display manager
   services.greetd = let
     session = {
       command = "${lib.getExe config.programs.hyprland.package}";
@@ -18,6 +17,6 @@
     };
   };
 
-  # unlock GPG keyring on login
+  # Unlock GPG keyring on login
   security.pam.services.greetd.enableGnomeKeyring = true;
 }

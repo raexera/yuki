@@ -1,6 +1,5 @@
 {lib, ...}: {
   wayland.windowManager.hyprland.settings = {
-    # layer rules
     layerrule = let
       toRegex = list: let
         elements = lib.concatStringsSep "|" list;
@@ -20,7 +19,6 @@
       "ignorezero, ${toRegex layers}"
     ];
 
-    # window rules
     windowrulev2 = [
       "dimaround, class:^(gcr-prompter)$"
       "dimaround, class:^(xdg-desktop-portal-gtk)$"
@@ -42,7 +40,7 @@
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
 
-      # don't render hyprbars on tiling windows
+      # Don't render hyprbars on tiling windows
       "plugin:hyprbars:nobar, floating:0"
     ];
   };

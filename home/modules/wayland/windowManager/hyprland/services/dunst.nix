@@ -7,7 +7,6 @@
 }: let
   _ = lib.getExe;
 
-  # Volume control utility
   volumectl = let
     inherit (pkgs) libnotify pamixer libcanberra-gtk3;
   in
@@ -41,7 +40,6 @@
       fi
     '';
 
-  # Brightness control utility
   lightctl = let
     inherit (pkgs) libnotify brightnessctl;
   in

@@ -126,7 +126,7 @@ in {
         bar_height = 20;
         bar_precedence_over_border = true;
 
-        # order is right-to-left
+        # Order is right-to-left
         hyprbars-button = [
           # close
           "rgb(${normal.red}), 15, 󰖭, hyprctl dispatch killactive"

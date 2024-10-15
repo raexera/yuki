@@ -10,7 +10,7 @@
 
   home = {
     packages = lib.attrValues {
-      # DEV Tools
+      # Dev Tools
       inherit
         (pkgs)
         bun
