@@ -2,7 +2,6 @@
 @define-color background #242933;
 @define-color background-alt #2E3440;
 @define-color background-focus #373E4C;
-@define-color border rgba(255, 255, 255, 0.1);
 @define-color accent #89C1D1;
 @define-color red #BF616A;
 @define-color green #A3BE8C;
@@ -51,7 +50,6 @@ progressbar progress {
 /* Tooltip */
 tooltip {
   background: @background;
-  border: 1px solid @border;
   border-radius: 16px;
 }
 
@@ -89,7 +87,6 @@ window#waybar {
 #custom-reboot,
 #custom-power {
   background: @background-alt;
-  border: 1px solid @border;
   border-radius: 100px;
   margin: 0.5rem 0.25rem;
 }
@@ -203,12 +200,11 @@ window#waybar.empty #window {
 
 menu {
   background: @background;
-  border: 1px solid @border;
   border-radius: 8px;
 }
 
 menu separator {
-  background: @border;
+  background: @background-alt;
 }
 
 menu menuitem {
@@ -250,13 +246,11 @@ menu menuitem:only-child {
 
 #pulseaudio-slider highlight {
   background: @foreground;
-  border: 1px solid @border;
 }
 
 /* Backlight */
 #backlight-slider highlight {
   background: @foreground;
-  border: 1px solid @border;
 }
 
 /* Battery */
