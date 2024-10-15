@@ -19,6 +19,11 @@ in {
     boot.initrd.kernelModules = ["nvidia"];
     boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
 
+    environment.sessionVariables = {
+      GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    };
+
     hardware = {
       nvidia = {
         modesetting.enable = true;

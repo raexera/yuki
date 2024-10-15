@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   config = {
-    boot.initrd.kernelModules = ["i915" "xe"];
+    boot.initrd.kernelModules = ["xe"];
+
+    environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Force intel-media-driver
 
     hardware.graphics = {
       extraPackages = with pkgs; [

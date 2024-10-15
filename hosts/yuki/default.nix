@@ -28,7 +28,6 @@
       "splash"
       "systemd.show_status=auto"
       "rd.udev.log_level=3"
-      "module_blacklist=nouveau"
       "iommu=pt"
     ];
 
@@ -70,7 +69,6 @@
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
-    cpu.intel.updateMicrocode = true;
 
     nvidia.prime = {
       reverseSync.enable = true;
@@ -115,7 +113,7 @@
     };
 
     xserver.videoDrivers = [
-      "i915"
+      "intel"
       "nvidia"
     ];
   };
