@@ -232,6 +232,7 @@
       @define-color blue #81A1C1;
       @define-color gray #4C566A;
 
+      /* Global */
       * {
         all: unset;
         color: @foreground;
@@ -252,7 +253,39 @@
         text-shadow: inherit;
       }
 
-      /* Scales & progress bars */
+      /* Menu */
+      menu {
+        background: @background;
+        border-radius: 8px;
+      }
+
+      menu separator {
+        background: @background-alt;
+      }
+
+      menu menuitem {
+        background: transparent;
+        padding: 0.5rem;
+        transition: 200ms;
+      }
+
+      menu menuitem:hover {
+        background: @background-focus;
+      }
+
+      menu menuitem:first-child {
+        border-radius: 8px 8px 0 0;
+      }
+
+      menu menuitem:last-child {
+        border-radius: 0 0 8px 8px;
+      }
+
+      menu menuitem:only-child {
+        border-radius: 8px;
+      }
+
+      /* Scale and Progress Bars */
       scale trough,
       progressbar trough {
         background: @background;
@@ -279,17 +312,20 @@
         margin: 0.5rem;
       }
 
-      /*  Waybar window */
+      /* Waybar */
       window#waybar {
         background: @background;
       }
 
-      /* Left Modules */
+      window#waybar.empty #window {
+        background: transparent;
+        border: none;
+      }
+
       .modules-left {
         padding-left: 0.5rem;
       }
 
-      /* Right Modules */
       .modules-right {
         padding-right: 0.5rem;
       }
@@ -342,7 +378,7 @@
         padding: 0.5rem;
       }
 
-      /* Logo */
+      /* Custom Logo */
       #custom-logo {
         background: transparent
           url("${snowflake}")
@@ -350,7 +386,7 @@
         min-width: 2rem;
       }
 
-      /* Hyprland workspaces */
+      /* Hyprland Workspaces */
       #workspaces {
         padding: 0.5rem 0.75rem;
       }
@@ -403,14 +439,9 @@
         background: lighter(@accent);
       }
 
-      /* Hyprland window */
+      /* Hyprland Window */
       #window {
         min-width: 1rem;
-      }
-
-      window#waybar.empty #window {
-        background: transparent;
-        border: none;
       }
 
       /* Systray */
@@ -423,38 +454,7 @@
         background: @red;
       }
 
-      menu {
-        background: @background;
-        border-radius: 8px;
-      }
-
-      menu separator {
-        background: @background-alt;
-      }
-
-      menu menuitem {
-        background: transparent;
-        padding: 0.5rem;
-        transition: 200ms;
-      }
-
-      menu menuitem:hover {
-        background: @background-focus;
-      }
-
-      menu menuitem:first-child {
-        border-radius: 8px 8px 0 0;
-      }
-
-      menu menuitem:last-child {
-        border-radius: 0 0 8px 8px;
-      }
-
-      menu menuitem:only-child {
-        border-radius: 8px;
-      }
-
-      /* Notification */
+      /* Notifications */
       #custom-notification {
         color: @yellow;
       }
@@ -464,16 +464,12 @@
         color: @red;
       }
 
-      /* Pulseaudio  */
+      /* Pulseaudio */
       #pulseaudio.muted {
         color: @red;
       }
 
-      #pulseaudio-slider highlight {
-        background: @foreground;
-      }
-
-      /* Backlight */
+      #pulseaudio-slider highlight,
       #backlight-slider highlight {
         background: @foreground;
       }

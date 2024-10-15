@@ -44,6 +44,7 @@
       @define-color background-alt #2E3440;
       @define-color background-focus #373E4C;
 
+      /* Global */
       * {
         all: unset;
         font:
@@ -52,6 +53,7 @@
         transition: 200ms;
       }
 
+      /* Modules */
       #window,
       #match,
       #entry,
@@ -60,6 +62,7 @@
         background: transparent;
       }
 
+      /* Entry */
       #entry {
         background: @background-alt;
         border-radius: 100px;
@@ -67,6 +70,7 @@
         padding: 0.5rem;
       }
 
+      /* Match  */
       #match.activatable {
         background: @background-alt;
         padding: 0.5rem 1rem;
@@ -84,18 +88,21 @@
         border-radius: 16px;
       }
 
+      /* Hover and selected states */
       #match:selected,
       #match:hover,
       #plugin:hover {
         background: @background-focus;
       }
 
+      /* Main container */
       box#main {
         background: @background;
         border-radius: 16px;
         padding: 0.5rem;
       }
 
+      /* Plugin within list */
       list > #plugin {
         border-radius: 16px;
         margin: 0.5rem;
