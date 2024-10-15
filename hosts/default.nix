@@ -37,7 +37,7 @@ in {
 
         {
           home-manager = {
-            users.raexera.imports = homeImports."raexera@hyprland";
+            users.raexera.imports = homeImports."raexera@yuki";
             extraSpecialArgs = specialArgs;
           };
         }

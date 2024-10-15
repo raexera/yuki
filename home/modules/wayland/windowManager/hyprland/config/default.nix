@@ -1,7 +1,7 @@
 {
   imports = [
     ./binds.nix
-    ./options.nix
     ./rules.nix
+    ./settings.nix
   ];
 }

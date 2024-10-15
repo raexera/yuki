@@ -13,10 +13,10 @@
   ];
 
   homeImports = {
-    "raexera@hyprland" =
+    "raexera@yuki" =
       [
         ./home.nix
-        ./profiles/hyprland.nix
+        ./profiles/yuki.nix
       ]
       ++ lib.concatLists [sharedModules];
   };
@@ -28,9 +28,9 @@ in {
 
   flake = {
     homeConfigurations = {
-      "raexera@hyprland" = homeManagerConfiguration {
+      "raexera@yuki" = homeManagerConfiguration {
         inherit pkgs;
-        modules = homeImports."raexera@hyprland";
+        modules = homeImports."raexera@yuki";
       };
     };
   };
