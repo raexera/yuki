@@ -24,7 +24,7 @@
   in {
     monitor = [
       # name, resolution, position, scale
-      ", highres, auto, 1.600000"
+      "eDP-1, preferred, auto, 1.600000"
     ];
 
     device = {
