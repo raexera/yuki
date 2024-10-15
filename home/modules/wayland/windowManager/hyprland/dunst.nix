@@ -30,19 +30,12 @@
       isMuted="$(${_ pamixer} --get-mute)"
 
       if [ "$isMuted" = "true" ]; then
-        ${libnotify}/bin/notify-send --transient \
-          -u normal \
-          -a "VOLUMECTL" \
-          -i audio-volume-muted-symbolic \
-          "VOLUMECTL" "Volume Muted"
+        ${libnotify}/bin/notify-send -u normal -a "VOLUMECTL" "Volume Muted" -i audio-volume-muted-symbolic
       else
-        ${libnotify}/bin/notify-send --transient \
-          -u normal \
-          -a "VOLUMECTL" \
+        ${libnotify}/bin/notify-send -u normal -a "VOLUMECTL" "Volume: $volume_percentage%" \
           -h string:x-canonical-private-synchronous:volumectl \
           -h int:value:"$volume_percentage" \
-          -i audio-volume-high-symbolic \
-          "VOLUMECTL" "Volume: $volume_percentage%"
+          -i audio-volume-high-symbolic
 
         ${libcanberra-gtk3}/bin/canberra-gtk-play -i audio-volume-change -d "volumectl"
       fi
@@ -63,13 +56,10 @@
       esac
 
       brightness_percentage=$((($(${_ brightnessctl} g) * 100) / $(${_ brightnessctl} m)))
-      ${libnotify}/bin/notify-send --transient \
-        -u normal \
-        -a "LIGHTCTL" \
+      ${libnotify}/bin/notify-send -u normal -a "LIGHTCTL" "Brightness: $brightness_percentage%"  \
         -h string:x-canonical-private-synchronous:lightctl \
         -h int:value:"$brightness_percentage" \
-        -i display-brightness-symbolic \
-        "LIGHTCTL" "Brightness: $brightness_percentage%"
+        -i display-brightness-symbolic
     '';
 in {
   home.packages = [
@@ -90,10 +80,10 @@ in {
         enable_recursive_icon_lookup = true;
         follow = "mouse";
         font = "Inter 11";
-        format = "<b>%a</b>\\n<i>%s</i>%p\\n%b";
+        format = "<b>%a</b>\\n<i>%s</i>\\n%b";
         frame_width = 0;
         gap_size = 5;
-        horizontal_padding = 15;
+        horizontal_padding = 12;
         icon_corner_radius = 0;
         icon_position = "left";
         icon_theme = "Papirus-Dark";
@@ -109,19 +99,19 @@ in {
         mouse_right_click = "close_current";
         notification_limit = 20;
         offset = "5x5";
-        origin = "top-right";
-        padding = 15;
+        origin = "top-center";
+        padding = 12;
         progress_bar = true;
-        progress_bar_corner_radius = 8;
+        progress_bar_corner_radius = 12;
         progress_bar_frame_width = 0;
-        progress_bar_height = 10;
+        progress_bar_height = 12;
         progress_bar_max_width = 300;
         progress_bar_min_width = 150;
         separator_color = "auto";
         separator_height = 2;
         show_indicators = true;
         sort = true;
-        text_icon_padding = 15;
+        text_icon_padding = 12;
         vertical_alignment = "center";
         width = 300;
         word_wrap = true;
