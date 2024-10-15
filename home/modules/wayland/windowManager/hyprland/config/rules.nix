@@ -41,6 +41,9 @@
       "pin, title:^(Picture-in-Picture)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
+
+      # don't render hyprbars on tiling windows
+      "plugin:hyprbars:nobar, floating:0"
     ];
   };
 }
