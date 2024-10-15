@@ -3,7 +3,6 @@
     isNormalUser = true;
     initialPassword = "NixOS";
     shell = pkgs.zsh;
-    uid = 1000;
 
     extraGroups = [
       "adbusers"

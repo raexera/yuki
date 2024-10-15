@@ -6,11 +6,8 @@
   imports = [./hardware-configuration.nix];
 
   boot = {
-    consoleLogLevel = 3;
-
     initrd = {
       kernelModules = ["ideapad_laptop"];
-      systemd.enable = true;
 
       luks.devices = {
         crypted = {
@@ -21,32 +18,10 @@
       };
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
-
-    kernelParams = [
-      "quiet"
-      "splash"
-      "systemd.show_status=auto"
-      "rd.udev.log_level=3"
-      "iommu=pt"
-    ];
+    kernelParams = ["iommu=pt"];
 
     kernelModules = ["acpi_call"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
-
-    loader = {
-      efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = true;
-        configurationLimit = 5;
-        gfxmodeEfi = "1920x1080";
-      };
-    };
-
-    plymouth.enable = true;
   };
 
   environment = {
@@ -88,6 +63,7 @@
   services = {
     acpid.enable = true;
     fstrim.enable = true;
+    fwupd.enable = true;
     hardware.bolt.enable = true;
 
     logind = {

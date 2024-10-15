@@ -23,10 +23,12 @@ in {
       modules = [
         ./yuki
 
+        "${system}/core"
         "${system}/config"
         "${system}/programs"
         "${system}/security"
         "${system}/services"
+
         "${system}/virtualisation/docker.nix"
 
         "${hardware}/bluetooth.nix"
