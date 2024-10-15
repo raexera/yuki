@@ -1,16 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     atool
-    bc
-    catimg
-    chafa
+    binutils
     coreutils
     curl
     du-dust
     duf
     editorconfig-core-c
     elinks
-    exiftool
     fd
     file
     findutils
@@ -18,23 +15,15 @@
     glow
     gnumake
     gnused
-    hyperfine
     imagemagick
     jaq
     jq
     killall
-    lz4
-    neofetch
-    nvd
     p7zip
     procs
     psmisc
     ripgrep
     rsync
-    sd
-    socat
-    trash-cli
-    ttyper
     unrar
     unzip
     util-linux

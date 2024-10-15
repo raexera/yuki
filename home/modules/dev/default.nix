@@ -13,7 +13,6 @@
       # DEV Tools
       inherit
         (pkgs)
-        alejandra
         bun
         ccls
         clang
@@ -28,8 +27,6 @@
         shfmt
         typescript
         uncrustify
-        zig
-        zls
         ;
 
       inherit
