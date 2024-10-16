@@ -88,9 +88,16 @@ in {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";
     mimeApps.enable = true;
+
     userDirs = {
       enable = true;
       createDirectories = true;
+
+      extraConfig = {
+        XDG_DEV_DIR = "${config.home.homeDirectory}/Dev";
+        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+        XDG_WALLPAPERS_DIR = "${config.xdg.userDirs.pictures}/Wallpapers";
+      };
     };
   };
 
