@@ -29,6 +29,4 @@
       trusted-users = ["root" "@wheel"];
     };
   };
-
-  system.stateVersion = lib.mkDefault "23.11";
 }

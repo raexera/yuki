@@ -24,7 +24,7 @@
       userEmail = "raexera@gmail.com";
 
       signing = {
-        key = "19DB39247AEE0092";
+        key = "7B9B669ED2C51A62";
         signByDefault = true;
       };
 

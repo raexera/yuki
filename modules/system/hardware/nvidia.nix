@@ -15,9 +15,14 @@
   pCfg = config.hardware.nvidia.prime;
 in {
   config = {
-    boot.blacklistedKernelModules = ["nouveau"];
-    boot.initrd.kernelModules = ["nvidia"];
-    boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
+    boot = {
+      blacklistedKernelModules = ["nouveau"];
+      initrd.kernelModules = ["nvidia"];
+
+      extraModprobeConfig = ''
+        options nvidia NVreg_PreserveVideoMemoryAllocations=1
+      '';
+    };
 
     environment.sessionVariables = {
       GBM_BACKEND = "nvidia-drm";
