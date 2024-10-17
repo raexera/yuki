@@ -8,7 +8,6 @@
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
       inputs.nixpkgs-wayland.overlay
-      inputs.nur.overlay
     ];
   };
 }

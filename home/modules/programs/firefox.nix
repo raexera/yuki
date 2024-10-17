@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+let
   mimeTypes = [
     "application/json"
     "application/pdf"
@@ -27,14 +27,8 @@ in {
 
   programs.firefox = {
     enable = true;
-    profiles.raexera = {
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        darkreader
-        octotree
-        refined-github
-        ublock-origin
-      ];
 
+    profiles.raexera = {
       settings = {
         "browser.tabs.loadInBackground" = true;
         "gfx.canvas.accelerated" = true;

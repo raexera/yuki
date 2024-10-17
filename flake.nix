@@ -40,9 +40,6 @@
     nix-vscode-extensions.inputs.flake-utils.follows = "flake-utils";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nur
-    nur.url = "github:nix-community/NUR";
-
     # hyprwm
     hyprland.url = "github:hyprwm/hyprland";
 
