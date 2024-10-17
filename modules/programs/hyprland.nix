@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./greetd.nix
+    ../services/greetd.nix
   ];
 
   programs.hyprland = {

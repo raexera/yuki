@@ -1,5 +1,8 @@
 {
   security = {
+    # Enable the RealtimeKit system service,
+    rtkit.enable = true;
+
     # Don't ask for password for wheel group
     sudo.wheelNeedsPassword = false;
 

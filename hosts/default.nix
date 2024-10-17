@@ -9,9 +9,7 @@
 
   modules = "${self}/modules";
 
-  system = modules + "/system";
-  hardware = system + "/hardware";
-  profiles = modules + "/profiles";
+  hardware = modules + "/hardware";
 
   specialArgs = {inherit inputs self themes;};
 in {
@@ -23,19 +21,18 @@ in {
       modules = [
         ./yuki
 
-        "${system}/core"
-        "${system}/config"
-        "${system}/programs"
-        "${system}/security"
-        "${system}/services"
-
-        "${system}/virtualisation/docker.nix"
-
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
 
-        "${profiles}/hyprland"
+        "${modules}/core"
+        "${modules}/config"
+        "${modules}/programs"
+        "${modules}/services"
+
+        "${modules}/programs/hyprland.nix"
+
+        "${modules}/virtualisation/docker.nix"
 
         {
           home-manager = {
