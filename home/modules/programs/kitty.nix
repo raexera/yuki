@@ -60,7 +60,7 @@
       active_tab_foreground = normal.black;
       active_tab_background = normal.cyan;
       inactive_tab_foreground = normal.white;
-      inactive_tab_background = bright.white;
+      inactive_tab_background = normal.black;
       tab_bar_background = normal.black;
       tab_bar_margin_color = "none";
 

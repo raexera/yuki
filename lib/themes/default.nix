@@ -7,7 +7,7 @@ lib: {
       background_focus = "373E4C";
       background_dark = "242933";
 
-      cursor = "D8DEE9";
+      cursor = "81A1C1";
       cursor_text = "2E3440";
 
       normal = {
