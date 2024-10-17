@@ -16,12 +16,8 @@
 in {
   config = {
     boot = {
+      kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
       blacklistedKernelModules = ["nouveau"];
-      initrd.kernelModules = ["nvidia"];
-
-      extraModprobeConfig = ''
-        options nvidia NVreg_PreserveVideoMemoryAllocations=1
-      '';
     };
 
     environment.sessionVariables = {
@@ -31,14 +27,11 @@ in {
 
     hardware = {
       nvidia = {
-        modesetting.enable = true;
         open = false;
         package = nvidiaPackage;
 
-        powerManagement = {
-          enable = true;
-          finegrained = true;
-        };
+        modesetting.enable = true;
+        powerManagement.enable = true;
 
         prime.offload = {
           enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
