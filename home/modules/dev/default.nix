@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./devops.nix
     ./go.nix
     ./python.nix
   ];
