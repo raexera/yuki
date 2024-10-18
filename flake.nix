@@ -29,15 +29,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    anyrun.url = "github:fufexan/anyrun";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-index-db = {
-      url = "github:Mic92/nix-index-database";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -50,6 +48,11 @@
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
