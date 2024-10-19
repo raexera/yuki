@@ -43,7 +43,6 @@
 
   hardware = {
     enableAllFirmware = true;
-    enableRedistributableFirmware = true;
 
     nvidia.prime = {
       reverseSync.enable = true;

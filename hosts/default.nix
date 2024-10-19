@@ -14,7 +14,7 @@
   specialArgs = {inherit inputs self themes;};
 in {
   flake.nixosConfigurations = {
-    # Lenovo Yoga Slim 7i Pro X
+    # Lenovo Yoga Slim 7 Pro X (14IAH7)
     yuki = nixosSystem {
       inherit specialArgs;
 
