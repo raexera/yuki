@@ -333,7 +333,7 @@
       #custom-reboot,
       #custom-power {
         background: @background-alt;
-        border-radius: 100px;
+        border-radius: 8px;
         margin: 0.5rem 0.25rem;
       }
 
@@ -344,7 +344,7 @@
       #custom-notification,
       #network-pulseaudio-backlight-battery,
       #clock {
-        padding: 0 0.5rem;
+        padding: 0 0.75rem;
       }
 
       #network,
@@ -354,7 +354,7 @@
       #backlight-slider,
       #battery {
         background: transparent;
-        padding: 0.5rem 0.25rem;
+        padding: 0.5rem;
       }
 
       #custom-exit,
@@ -362,7 +362,6 @@
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        min-width: 1rem;
         padding: 0.5rem;
       }
 
