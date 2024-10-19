@@ -1,6 +1,6 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-<h1 align="center">雪 - Yuki</h1>
+<h1 align="center">Yuki</h1>
 
 <p align="center">
   <a href="#">
@@ -16,6 +16,12 @@
 </p>
 
 <br>
+
+<a href="#yuki">
+  <picture>
+    <img alt="Showcase" align="right" width="400px" src="https://github.com/user-attachments/assets/d40fa0b2-b78b-4051-a0ef-7f2de0923e19"/>
+  </picture>
+</a>
 
 > [!NOTE]
 >
