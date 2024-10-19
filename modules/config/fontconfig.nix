@@ -35,11 +35,22 @@
     };
 
     packages = with pkgs; [
-      jetbrains-mono
-      material-design-icons
+      # System Fonts
+      corefonts
+      vistafonts
+      open-sans
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+
+      # Monospace
+      jetbrains-mono
+
+      # Icon Fonts
+      material-design-icons
+      material-symbols
+
+      # Custom Fonts
       (google-fonts.override {fonts = ["Inter"];})
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
