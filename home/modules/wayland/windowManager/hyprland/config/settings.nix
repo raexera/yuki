@@ -4,7 +4,7 @@
   ...
 }: let
   pointer = config.home.pointerCursor;
-  cursorName = "Bibata-Modern-Classic-Hyprcursor";
+  cursorName = "Bibata-Modern-Ice-Hyprcursor";
 in {
   wayland.windowManager.hyprland.settings = {
     env = [
