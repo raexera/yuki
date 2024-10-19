@@ -19,21 +19,29 @@ in {
       inherit specialArgs;
 
       modules = [
-        ./yuki
+        # Device-specific configuration
+        ./yuki/configuration.nix
 
+        # Hardware modules
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
 
+        # Core configuration
         "${modules}/core"
         "${modules}/config"
-        "${modules}/programs"
-        "${modules}/services"
 
+        # Programs
+        "${modules}/programs"
         "${modules}/programs/hyprland.nix"
 
+        # Services
+        "${modules}/services"
+
+        # Virtualization
         "${modules}/virtualisation/docker.nix"
 
+        # Home Manager configuration
         {
           home-manager = {
             users.raexera.imports = homeImports."raexera@yuki";
