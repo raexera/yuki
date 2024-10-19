@@ -1,6 +1,9 @@
 {
   security = {
-    # Enable the RealtimeKit system service,
+    # Enable polkit
+    polkit.enable = true;
+
+    # Enable the RealtimeKit system service
     rtkit.enable = true;
 
     # Don't ask for password for wheel group
