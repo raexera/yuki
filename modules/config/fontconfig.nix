@@ -38,7 +38,10 @@
       # System Fonts
       corefonts
       vistafonts
+      dm-sans
       open-sans
+      work-sans
+      roboto
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
