@@ -19,7 +19,7 @@
 
 <a href="#yuki">
   <picture>
-    <img alt="Showcase" align="right" width="400px" src="https://github.com/user-attachments/assets/49229c66-a82d-497c-8502-9c2192936868"/>
+    <img alt="Showcase" align="right" width="400px" src="https://github.com/user-attachments/assets/7616e08e-4a32-46ea-8ab2-eaa3e0432169"/>
   </picture>
 </a>
 
