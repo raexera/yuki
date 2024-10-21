@@ -74,11 +74,10 @@ in {
       ];
 
       animation = [
-        "border, 1, 6, quart"
-        "borderangle, 1, 6, quart"
-        "fade, 1, 6, quart"
-        "windows, 1, 6, quart, slide"
-        "workspaces, 1, 6, quart"
+        "windows, 1, 5, quart, slide"
+        "fade, 1, 5, quart"
+        "border, 1, 5, quart"
+        "workspaces, 1, 5, quart, slide"
       ];
     };
 
