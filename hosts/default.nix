@@ -31,6 +31,9 @@ in {
         "${modules}/core"
         "${modules}/config"
 
+        # Environment
+        "${modules}/environment"
+
         # Programs
         "${modules}/programs"
         "${modules}/programs/hyprland.nix"
