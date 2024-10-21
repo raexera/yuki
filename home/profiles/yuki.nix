@@ -11,6 +11,7 @@
     ../modules/programs/nix-index-db.nix
     ../modules/programs/qt.nix
     ../modules/programs/vscode
+    ../modules/programs/xdg.nix
 
     ../modules/services/blueman-applet.nix
     ../modules/services/gnome-keyring.nix
