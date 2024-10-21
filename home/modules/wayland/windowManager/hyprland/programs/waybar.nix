@@ -215,8 +215,6 @@
       @define-color accent #89C1D1;
       @define-color red #BF616A;
       @define-color green #A3BE8C;
-      @define-color yellow #EBCB8B;
-      @define-color orange #D08770;
       @define-color blue #81A1C1;
       @define-color gray #4C566A;
 
@@ -324,7 +322,6 @@
       #window,
       #tray,
       #custom-weather,
-      #custom-notification,
       #network-pulseaudio-backlight-battery,
       #clock,
       #custom-exit,
@@ -341,7 +338,6 @@
       #window,
       #custom-weather,
       #tray,
-      #custom-notification,
       #network-pulseaudio-backlight-battery,
       #clock {
         padding: 0 0.75rem;
@@ -362,6 +358,8 @@
       #custom-suspend,
       #custom-reboot,
       #custom-power {
+        background: @accent;
+        color: @background-alt;
         padding: 0.5rem;
       }
 
@@ -411,11 +409,11 @@
       }
 
       #workspaces button.special {
-        background: @yellow;
+        background: @blue;
       }
 
       #workspaces button.special:hover {
-        background: lighter(@yellow);
+        background: lighter(@blue);
       }
 
       #workspaces button.active {
@@ -439,11 +437,6 @@
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
         background: @red;
-      }
-
-      /* Notifications */
-      #custom-notification {
-        color: @yellow;
       }
 
       /* Network */
@@ -470,27 +463,6 @@
       #battery.critical:not(.charging) {
         color: @red;
         animation: blink 0.5s steps(12) infinite alternate;
-      }
-
-      /* Powermenu */
-      #custom-exit {
-        color: @blue;
-      }
-
-      #custom-lock {
-        color: @green;
-      }
-
-      #custom-suspend {
-        color: @yellow;
-      }
-
-      #custom-reboot {
-        color: @orange;
-      }
-
-      #custom-power {
-        color: @red;
       }
 
       /* Keyframes */

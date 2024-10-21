@@ -5,15 +5,15 @@
 }: {
   home = {
     packages = with pkgs; [
-      delve
       go
-      go-tools # staticcheck
       gofumpt
       golangci-lint
       gomodifytags
       gopls
       gotests
+      go-tools # staticcheck
       gotools # goimports
+      delve
       impl
       revive
     ];

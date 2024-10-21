@@ -52,7 +52,7 @@
 
       # Window border colors and terminal bell colors
       active_border_color = normal.blue;
-      inactive_border_color = bright.white;
+      inactive_border_color = bright.black;
       bell_border_color = normal.cyan;
       visual_bell_color = "none";
 
@@ -60,7 +60,7 @@
       active_tab_foreground = normal.black;
       active_tab_background = normal.cyan;
       inactive_tab_foreground = normal.white;
-      inactive_tab_background = normal.black;
+      inactive_tab_background = bright.black;
       tab_bar_background = normal.black;
       tab_bar_margin_color = "none";
 
@@ -75,7 +75,7 @@
       # The basic 16 colors
       # black
       color0 = normal.black;
-      color8 = bright.white;
+      color8 = bright.black;
 
       # red
       color1 = normal.red;

@@ -9,11 +9,12 @@
     enable = true;
     dotDir = ".config/zsh";
     dirHashes = {
+      dev = "$HOME/Dev";
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
-      dev = "$HOME/Dev";
       pics = "$HOME/Pictures";
       vids = "$HOME/Videos";
+      yuki = "$HOME/Dev/yuki";
     };
 
     autosuggestion.enable = true;
