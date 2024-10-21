@@ -70,14 +70,15 @@ in {
       enabled = true;
 
       bezier = [
-        "md3_decel, 0.05, 0.7, 0.1, 1"
+        "quart, 0.25, 1, 0.5, 1"
       ];
 
       animation = [
-        "border, 1, 2, default"
-        "fade, 1, 2, md3_decel"
-        "windows, 1, 4, md3_decel, popin 80%"
-        "workspaces, 1, 4, md3_decel, slide"
+        "border, 1, 6, quart"
+        "borderangle, 1, 6, quart"
+        "fade, 1, 6, quart"
+        "windows, 1, 6, quart, slide"
+        "workspaces, 1, 6, quart"
       ];
     };
 

@@ -83,6 +83,7 @@ in {
         frame_color = "${bright.black}";
         frame_width = 2;
         gap_size = 5;
+        hide_duplicate_count = false;
         horizontal_padding = 12;
         icon_corner_radius = 0;
         icon_position = "left";
@@ -111,6 +112,7 @@ in {
         separator_height = 2;
         show_indicators = true;
         sort = true;
+        stack_duplicates = true;
         text_icon_padding = 12;
         vertical_alignment = "center";
         width = 300;

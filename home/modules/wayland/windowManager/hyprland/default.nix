@@ -42,7 +42,6 @@ in {
     wl-clipboard
     wl-screenrec
     wlr-randr
-    xdg-utils
     ydotool
   ];
 
@@ -71,9 +70,9 @@ in {
 
     package = inputs.hyprland.packages.${pkgs.system}.default;
 
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-      hyprbars
-    ];
+    # plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+    #   hyprbars
+    # ];
 
     systemd = {
       variables = ["--all"];
@@ -81,23 +80,6 @@ in {
         "systemctl --user stop graphical-session.target"
         "systemctl --user start hyprland-session.target"
       ];
-    };
-  };
-
-  xdg = {
-    enable = true;
-    cacheHome = config.home.homeDirectory + "/.local/cache";
-    mimeApps.enable = true;
-
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-
-      extraConfig = {
-        XDG_DEV_DIR = "${config.home.homeDirectory}/Dev";
-        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
-        XDG_WALLPAPERS_DIR = "${config.xdg.userDirs.pictures}/Wallpapers";
-      };
     };
   };
 
