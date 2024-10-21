@@ -51,7 +51,6 @@
 
       # Icon Fonts
       material-design-icons
-      material-symbols
 
       # Custom Fonts
       (google-fonts.override {fonts = ["Inter"];})
