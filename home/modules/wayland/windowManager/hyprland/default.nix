@@ -70,9 +70,9 @@ in {
 
     package = inputs.hyprland.packages.${pkgs.system}.default;
 
-    # plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-    #   hyprbars
-    # ];
+    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+      hyprbars
+    ];
 
     systemd = {
       variables = ["--all"];
