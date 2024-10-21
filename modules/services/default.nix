@@ -5,6 +5,7 @@
     ./networking.nix
     ./openssh.nix
     ./pipewire.nix
+    ./postgresql.nix
   ];
 
   services = {
