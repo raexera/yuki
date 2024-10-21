@@ -1,5 +1,5 @@
 {
-  environment.variables.FLAKE = "/home/raexera/Dev/NixOS/yuki";
+  environment.variables.FLAKE = "/home/raexera/Dev/yuki";
 
   programs.nh = {
     enable = true;
