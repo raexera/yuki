@@ -118,22 +118,5 @@ in {
     debug.disable_logs = false;
     render.direct_scanout = true;
     xwayland.force_zero_scaling = true;
-
-    plugin = {
-      hyprbars = let
-        inherit (themes.colorscheme.colors) normal;
-      in {
-        bar_height = 20;
-        bar_precedence_over_border = true;
-
-        # Order is right-to-left
-        hyprbars-button = [
-          # close
-          "rgb(${normal.red}), 15, 󰖭, hyprctl dispatch killactive"
-          # maximize
-          "rgb(${normal.blue}), 15, 󰖯, hyprctl dispatch fullscreen 1"
-        ];
-      };
-    };
   };
 }
