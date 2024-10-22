@@ -1,0 +1,5 @@
+{
+  programs.dconf = {
+    enable = true;
+  };
+}

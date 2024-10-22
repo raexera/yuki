@@ -71,12 +71,6 @@
       lidSwitchExternalPower = "lock";
     };
 
-    psd = {
-      enable = true;
-      resyncTimer = "10m";
-    };
-
-    power-profiles-daemon.enable = true;
     thermald.enable = true;
 
     upower = {
