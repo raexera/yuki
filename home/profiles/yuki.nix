@@ -5,6 +5,7 @@
     ../modules/wayland/windowManager/hyprland
 
     ../modules/programs/firefox.nix
+    ../modules/programs/gpg.nix
     ../modules/programs/gtk.nix
     ../modules/programs/kitty.nix
     ../modules/programs/media
@@ -15,6 +16,7 @@
 
     ../modules/services/blueman-applet.nix
     ../modules/services/gnome-keyring.nix
+    ../modules/services/gpg-agent.nix
     ../modules/services/polkit-agent.nix
     ../modules/services/udiskie.nix
   ];

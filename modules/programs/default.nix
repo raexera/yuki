@@ -1,7 +1,6 @@
 {
   imports = [
     ./bash.nix
-    ./gnupg.nix
     ./home-manager.nix
     ./npm.nix
     ./thunar.nix

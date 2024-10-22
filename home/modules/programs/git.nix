@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     act
     gh
@@ -24,7 +28,7 @@
       userEmail = "raexera@gmail.com";
 
       signing = {
-        key = "A987FE77C066A909";
+        key = config.programs.gpg.settings.default-key;
         signByDefault = true;
       };
 
