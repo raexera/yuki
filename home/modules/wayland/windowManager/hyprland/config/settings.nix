@@ -1,8 +1,4 @@
-{
-  config,
-  themes,
-  ...
-}: let
+{config, ...}: let
   pointer = config.home.pointerCursor;
   cursorName = "Bibata-Modern-Ice-Hyprcursor";
 in {

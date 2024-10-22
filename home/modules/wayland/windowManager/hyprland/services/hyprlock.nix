@@ -14,8 +14,7 @@ in {
     settings = {
       general = {
         disable_loading_bar = true;
-        hide_cursor = false;
-        no_fade_in = true;
+        hide_cursor = true;
       };
 
       background = [
@@ -34,7 +33,7 @@ in {
           inner_color = "rgba(0, 0, 0, 0.5)";
           font_color = "rgb(255, 255, 255)";
           fade_on_empty = false;
-          placeholder_text = ''<span font_family="${font_family}">Password...</span>'';
+          placeholder_text = ''<span font_family="${font_family}"><i>Input Password...</i></span>'';
           dots_spacing = 0.2;
           dots_center = true;
         }
