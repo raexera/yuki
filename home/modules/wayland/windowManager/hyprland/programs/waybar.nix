@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  snowflake = builtins.fetchurl rec {
+    name = "Logo-${sha256}.svg";
+    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake-colours.svg";
+    sha256 = "1cifj774r4z4m856fva1mamnpnhsjl44kw3asklrc57824f5lyz3";
+  };
+in {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -16,12 +22,13 @@
         margin-bottom = 0;
         margin-left = 0;
         margin-right = 0;
-        modules-left = ["custom/logo" "hyprland/workspaces" "hyprland/window"];
+        modules-left = ["image" "hyprland/workspaces" "hyprland/window"];
         modules-center = ["custom/weather" "clock"];
         modules-right = ["tray" "group/network-pulseaudio-backlight-battery" "group/powermenu"];
 
-        "custom/logo" = {
-          format = " ";
+        "image" = {
+          path = snowflake;
+          size = 32;
           tooltip = false;
         };
 
@@ -201,13 +208,7 @@
       }
     ];
 
-    style = let
-      snowflake = builtins.fetchurl rec {
-        name = "Logo-${sha256}.svg";
-        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake-colours.svg";
-        sha256 = "1cifj774r4z4m856fva1mamnpnhsjl44kw3asklrc57824f5lyz3";
-      };
-    in ''
+    style = ''
       @define-color foreground #D8DEE9;
       @define-color background #242933;
       @define-color background-alt #2E3440;
@@ -317,7 +318,6 @@
       }
 
       /* Modules */
-      #custom-logo,
       #workspaces,
       #window,
       #tray,
@@ -334,7 +334,7 @@
         margin: 0.5rem 0.25rem;
       }
 
-      #custom-logo,
+      #image,
       #window,
       #custom-weather,
       #tray,
@@ -361,14 +361,6 @@
         background: @accent;
         color: @background-alt;
         padding: 0.5rem;
-      }
-
-      /* Custom Logo */
-      #custom-logo {
-        background: transparent
-          url("${snowflake}")
-          center/2rem no-repeat;
-        min-width: 2rem;
       }
 
       /* Hyprland Workspaces */
