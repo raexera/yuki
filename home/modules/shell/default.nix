@@ -12,7 +12,7 @@
 
     ./services/ssh.nix
 
-    ./packages.nix.nix
+    ./packages.nix
     ./zsh.nix
   ];
 }
