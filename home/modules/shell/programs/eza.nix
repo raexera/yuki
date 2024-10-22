@@ -1,7 +1,8 @@
 {
   programs.eza = {
     enable = true;
-    icons = true;
     enableZshIntegration = true;
+    icons = "always";
+    git = true;
   };
 }
