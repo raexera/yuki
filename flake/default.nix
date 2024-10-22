@@ -1,11 +1,10 @@
 {
   imports = [
-    ./pre-commit-hooks.nix
-
-    ../home
     ../hosts
+    ../home
     ../lib
     ../pkgs
+    ./pre-commit-hooks.nix
   ];
 
   systems = ["x86_64-linux"];
@@ -24,8 +23,6 @@
       ];
 
       name = "yuki";
-      meta.description = "The default development shell";
-
       DIRENV_LOG_FORMAT = "";
       shellHook = ''
         ${config.pre-commit.installationScript}

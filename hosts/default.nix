@@ -8,7 +8,6 @@
   inherit (inputs.nixpkgs.lib) nixosSystem;
 
   modules = "${self}/modules";
-
   hardware = modules + "/hardware";
 
   specialArgs = {inherit inputs self themes;};
