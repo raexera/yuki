@@ -1,0 +1,42 @@
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    atac
+    atool
+    coreutils
+    curl
+    du-dust
+    duf
+    editorconfig-core-c
+    elinks
+    fd
+    file
+    findutils
+    gawk
+    glow
+    gnumake
+    gnused
+    imagemagick
+    jaq
+    jq
+    kaniko
+    killall
+    kubeshark
+    p7zip
+    pre-commit
+    procs
+    psmisc
+    ripgrep
+    rsync
+    skaffold
+    termshark
+    unrar
+    unzip
+    util-linux
+    wget
+    xarchiver
+    yt-dlp
+    yq
+    zathura
+    zip
+  ];
+}
