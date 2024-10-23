@@ -38,28 +38,8 @@ in {
 
     decoration = {
       rounding = 16;
-
-      blur = {
-        enabled = true;
-        brightness = 1.0;
-        contrast = 1.0;
-        noise = 0.02;
-        passes = 3;
-        popups = true;
-        size = 10;
-      };
-
-      active_opacity = 1.0;
-      inactive_opacity = 1.0;
-      fullscreen_opacity = 1.0;
-
-      drop_shadow = true;
-      shadow_ignore_window = true;
-      shadow_offset = "0 15";
-      shadow_range = 100;
-      shadow_render_power = 2;
-      shadow_scale = 0.97;
-      "col.shadow" = "rgba(00000055)";
+      blur.enabled = false;
+      drop_shadow = false;
     };
 
     animations = {

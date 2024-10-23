@@ -1,24 +1,5 @@
-{lib, ...}: {
+{
   wayland.windowManager.hyprland.settings = {
-    layerrule = let
-      toRegex = list: let
-        elements = lib.concatStringsSep "|" list;
-      in "^(${elements})$";
-
-      layers = [
-        "anyrun"
-        "bar"
-        "calendar"
-        "gtk-layer-shell"
-        "notifications"
-        "system-menu"
-        "waybar"
-      ];
-    in [
-      "blur, ${toRegex layers}"
-      "ignorezero, ${toRegex layers}"
-    ];
-
     windowrulev2 = [
       "dimaround, class:^(gcr-prompter)$"
       "dimaround, class:^(xdg-desktop-portal-gtk)$"
@@ -39,9 +20,6 @@
       "pin, title:^(Picture-in-Picture)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
-
-      # Don't render hyprbars on tiling windows
-      "plugin:hyprbars:nobar, floating:0"
     ];
   };
 }

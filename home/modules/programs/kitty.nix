@@ -56,7 +56,7 @@
       tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
 
       # Color scheme
-      background_opacity = "0.8";
+      background_opacity = "1.0";
       foreground = xcolors.foreground;
       background = xcolors.background;
       selection_foreground = xcolors.foreground;
