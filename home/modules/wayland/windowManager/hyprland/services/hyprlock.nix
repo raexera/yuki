@@ -4,7 +4,6 @@
   pkgs,
   ...
 }: let
-  font_family = "Inter";
   inherit (themes.colorscheme) colors;
 in {
   programs.hyprlock = {
@@ -21,7 +20,11 @@ in {
       background = [
         {
           monitor = "";
-          path = themes.wallpaper;
+          path = "screenshot";
+          blur_passes = 2;
+          blur_size = 2;
+          new_optimizations = true;
+          ignore_opacity = false;
         }
       ];
 
@@ -35,7 +38,8 @@ in {
           font_color = "rgb(${colors.foreground})";
           check_color = "rgb(${colors.accent})";
           fail_color = "rgb(${colors.normal.red})";
-          placeholder_text = ''<span font_family="${font_family}"><i>Input Password...</i></span>'';
+          fade_on_empty = false;
+          placeholder_text = "<i>Input Password...</i>";
           dots_spacing = 0.2;
           dots_center = true;
         }
@@ -45,7 +49,7 @@ in {
         {
           monitor = "";
           text = "$TIME";
-          inherit font_family;
+          font_family = "Inter Display Bold";
           font_size = 96;
           color = "rgb(${colors.foreground})";
           position = "0, 150";
@@ -55,7 +59,7 @@ in {
         {
           monitor = "";
           text = "cmd[update:3600000] date +'%a %b %d'";
-          inherit font_family;
+          font_family = "Inter Display";
           font_size = 24;
           color = "rgb(${colors.foreground})";
           position = "0, 50";
@@ -64,8 +68,8 @@ in {
         }
         {
           monitor = "";
-          text = "$USER";
-          inherit font_family;
+          text = "   $USER";
+          font_family = "Inter Display Medium";
           font_size = 18;
           color = "rgb(${colors.foreground})";
           position = "0, 50";
