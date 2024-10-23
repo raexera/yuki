@@ -5,6 +5,7 @@
   ...
 }: let
   font_family = "Inter";
+  inherit (themes.colorscheme) colors;
 in {
   programs.hyprlock = {
     enable = true;
@@ -29,10 +30,11 @@ in {
           monitor = "";
           size = "300, 50";
           outline_thickness = 1;
-          outer_color = "rgba(255, 255, 255, 0.1)";
-          inner_color = "rgba(0, 0, 0, 0.5)";
-          font_color = "rgb(255, 255, 255)";
-          fade_on_empty = false;
+          outer_color = "rgb(${colors.background_dark})";
+          inner_color = "rgb(${colors.background})";
+          font_color = "rgb(${colors.foreground})";
+          check_color = "rgb(${colors.accent})";
+          fail_color = "rgb(${colors.normal.red})";
           placeholder_text = ''<span font_family="${font_family}"><i>Input Password...</i></span>'';
           dots_spacing = 0.2;
           dots_center = true;
@@ -45,7 +47,7 @@ in {
           text = "$TIME";
           inherit font_family;
           font_size = 96;
-          color = "rgb(255, 255, 255)";
+          color = "rgb(${colors.foreground})";
           position = "0, 150";
           valign = "center";
           halign = "center";
@@ -55,7 +57,7 @@ in {
           text = "cmd[update:3600000] date +'%a %b %d'";
           inherit font_family;
           font_size = 24;
-          color = "rgb(255, 255, 255)";
+          color = "rgb(${colors.foreground})";
           position = "0, 50";
           valign = "center";
           halign = "center";
@@ -65,7 +67,7 @@ in {
           text = "$USER";
           inherit font_family;
           font_size = 18;
-          color = "rgb(255, 255, 255)";
+          color = "rgb(${colors.foreground})";
           position = "0, 50";
           valign = "bottom";
           halign = "center";

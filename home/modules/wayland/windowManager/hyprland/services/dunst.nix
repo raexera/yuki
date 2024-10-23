@@ -70,7 +70,6 @@ in {
     inherit (config.gtk) iconTheme;
     settings = let
       inherit (themes.colorscheme) xcolors;
-      inherit (themes.colorscheme.xcolors) normal bright;
     in {
       global = {
         alignment = "left";
@@ -80,7 +79,7 @@ in {
         follow = "mouse";
         font = "Inter 11";
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
-        frame_color = "${bright.black}";
+        frame_color = "${xcolors.bright.black}";
         frame_width = 2;
         gap_size = 5;
         hide_duplicate_count = false;
@@ -124,24 +123,24 @@ in {
       urgency_low = {
         background = "${xcolors.background_dark}";
         foreground = "${xcolors.foreground}";
-        highlight = "${normal.blue}";
-        frame_color = "${bright.black}";
+        highlight = "${xcolors.normal.blue}";
+        frame_color = "${xcolors.bright.black}";
         timeout = 2;
       };
 
       urgency_normal = {
         background = "${xcolors.background_dark}";
         foreground = "${xcolors.foreground}";
-        highlight = "${normal.blue}";
-        frame_color = "${bright.black}";
+        highlight = "${xcolors.normal.blue}";
+        frame_color = "${xcolors.bright.black}";
         timeout = 2;
       };
 
       urgency_critical = {
         background = "${xcolors.background_dark}";
         foreground = "${xcolors.foreground}";
-        highlight = "${normal.blue}";
-        frame_color = "${bright.red}";
+        highlight = "${xcolors.normal.blue}";
+        frame_color = "${xcolors.bright.red}";
         timeout = 10;
       };
     };

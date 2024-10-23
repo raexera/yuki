@@ -10,6 +10,8 @@ lib: {
       cursor = "81A1C1";
       cursor_text = "2E3440";
 
+      accent = "89C1D1";
+
       normal = {
         black = "3B4252";
         red = "BF616A";

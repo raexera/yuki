@@ -1,6 +1,11 @@
-{config, ...}: let
+{
+  config,
+  themes,
+  ...
+}: let
   pointer = config.home.pointerCursor;
   cursorName = "Bibata-Modern-Ice-Hyprcursor";
+  inherit (themes.colorscheme) colors;
 in {
   wayland.windowManager.hyprland.settings = {
     env = [
@@ -17,9 +22,9 @@ in {
       gaps_in = 2;
       gaps_out = 4;
 
-      border_size = 1;
-      "col.active_border" = "rgba(88888888)";
-      "col.inactive_border" = "rgba(00000088)";
+      border_size = 3;
+      "col.active_border" = "rgb(${colors.accent})";
+      "col.inactive_border" = "rgb(${colors.background_dark})";
 
       resize_on_border = true;
       allow_tearing = true;

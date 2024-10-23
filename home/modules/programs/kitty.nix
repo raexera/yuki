@@ -5,7 +5,6 @@
 
     settings = let
       inherit (themes.colorscheme) xcolors;
-      inherit (themes.colorscheme.xcolors) normal bright;
     in {
       # Fonts
       font_family = "JetBrains Mono";
@@ -60,69 +59,69 @@
       foreground = xcolors.foreground;
       background = xcolors.background;
       selection_foreground = xcolors.foreground;
-      selection_background = normal.blue;
+      selection_background = xcolors.normal.blue;
 
       # Cursor colors
       cursor = xcolors.cursor;
       cursor_text_color = xcolors.cursor_text;
 
       # URL underline color when hovering with mouse
-      url_color = normal.blue;
+      url_color = xcolors.normal.blue;
 
       # Window border colors and terminal bell colors
-      active_border_color = normal.blue;
-      inactive_border_color = bright.black;
-      bell_border_color = normal.cyan;
+      active_border_color = xcolors.normal.blue;
+      inactive_border_color = xcolors.bright.black;
+      bell_border_color = xcolors.normal.cyan;
       visual_bell_color = "none";
 
       # Tab bar colors
-      active_tab_foreground = normal.black;
-      active_tab_background = normal.cyan;
-      inactive_tab_foreground = normal.white;
-      inactive_tab_background = bright.black;
-      tab_bar_background = normal.black;
+      active_tab_foreground = xcolors.normal.black;
+      active_tab_background = xcolors.normal.cyan;
+      inactive_tab_foreground = xcolors.normal.white;
+      inactive_tab_background = xcolors.bright.black;
+      tab_bar_background = xcolors.normal.black;
       tab_bar_margin_color = "none";
 
       # Mark colors (marked text in the terminal)
-      mark1_foreground = normal.black;
-      mark1_background = normal.cyan;
-      mark2_foreground = normal.black;
-      mark2_background = normal.red;
-      mark3_foreground = normal.black;
-      mark3_background = normal.yellow;
+      mark1_foreground = xcolors.normal.black;
+      mark1_background = xcolors.normal.cyan;
+      mark2_foreground = xcolors.normal.black;
+      mark2_background = xcolors.normal.red;
+      mark3_foreground = xcolors.normal.black;
+      mark3_background = xcolors.normal.yellow;
 
       # The basic 16 colors
       # black
-      color0 = normal.black;
-      color8 = bright.black;
+      color0 = xcolors.normal.black;
+      color8 = xcolors.bright.black;
 
       # red
-      color1 = normal.red;
-      color9 = normal.red;
+      color1 = xcolors.normal.red;
+      color9 = xcolors.normal.red;
 
       # green
-      color2 = normal.green;
-      color10 = normal.green;
+      color2 = xcolors.normal.green;
+      color10 = xcolors.normal.green;
 
       # yellow
-      color3 = normal.yellow;
-      color11 = bright.yellow;
+      color3 = xcolors.normal.yellow;
+      color11 = xcolors.bright.yellow;
 
       # blue
-      color4 = normal.blue;
-      color12 = bright.blue;
+      color4 = xcolors.normal.blue;
+      color12 = xcolors.bright.blue;
 
       # magenta
-      color5 = normal.magenta;
-      color13 = normal.magenta;
+      color5 = xcolors.normal.magenta;
+      color13 = xcolors.normal.magenta;
 
       # cyan
-      color6 = normal.cyan;
-      color14 = bright.cyan;
+      color6 = xcolors.normal.cyan;
+      color14 = xcolors.bright.cyan;
 
       # white
-      color7 = normal.white;
-      color15 = bright.white;
+      color7 = xcolors.normal.white;
+      color15 = xcolors.bright.white;
     };
 
     keybindings = {

@@ -142,7 +142,6 @@
 
     envExtra = let
       inherit (themes.colorscheme) xcolors;
-      inherit (themes.colorscheme.xcolors) normal bright;
     in ''
       export FZF_DEFAULT_OPTS=" \
       --multi \
@@ -150,10 +149,10 @@
       --reverse \
       --bind='ctrl-space:toggle,pgup:preview-up,pgdn:preview-down' \
       --ansi \
-      --color='fg:${normal.black},bg:${xcolors.background_dark},gutter:${bright.black}' \
-      --color='fg+:${xcolors.foreground},bg+:${bright.black},hl:${normal.red},hl+:${normal.blue}' \
-      --color='info:${normal.green},border:${normal.black},prompt:${normal.blue},pointer:${normal.magenta}' \
-      --color='marker:${normal.blue},spinner:${normal.magenta},header:${normal.green}' \
+      --color='fg:${xcolors.normal.black},bg:${xcolors.background_dark},gutter:${xcolors.bright.black}' \
+      --color='fg+:${xcolors.foreground},bg+:${xcolors.bright.black},hl:${xcolors.normal.red},hl+:${xcolors.normal.blue}' \
+      --color='info:${xcolors.normal.green},border:${xcolors.normal.black},prompt:${xcolors.normal.blue},pointer:${xcolors.normal.magenta}' \
+      --color='marker:${xcolors.normal.blue},spinner:${xcolors.normal.magenta},header:${xcolors.normal.green}' \
       --prompt ' ' \
       --pointer '' \
       --marker ''

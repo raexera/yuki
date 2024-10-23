@@ -1,4 +1,10 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  themes,
+  ...
+}: let
+  inherit (themes.colorscheme) xcolors;
+
   snowflake = builtins.fetchurl rec {
     name = "Logo-${sha256}.svg";
     url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake-colours.svg";
@@ -65,10 +71,10 @@ in {
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             format = {
-              days = "<span color='#98989d'><b>{}</b></span>";
-              months = "<span color='#ffffff'><b>{}</b></span>";
-              today = "<span color='#ffffff'><b><u>{}</u></b></span>";
-              weekdays = "<span color='#0a84ff'><b>{}</b></span>";
+              days = "<span color='${xcolors.bright.black}'><b>{}</b></span>";
+              months = "<span color='${xcolors.foreground}'><b>{}</b></span>";
+              today = "<span color='${xcolors.foreground}'><b><u>{}</u></b></span>";
+              weekdays = "<span color='${xcolors.accent}'><b>{}</b></span>";
             };
             mode = "month";
             on-scroll = 1;
@@ -209,20 +215,10 @@ in {
     ];
 
     style = ''
-      @define-color foreground #D8DEE9;
-      @define-color background #242933;
-      @define-color background-alt #2E3440;
-      @define-color background-focus #373E4C;
-      @define-color accent #89C1D1;
-      @define-color red #BF616A;
-      @define-color green #A3BE8C;
-      @define-color blue #81A1C1;
-      @define-color gray #4C566A;
-
       /* Global */
       * {
         all: unset;
-        color: @foreground;
+        color: ${xcolors.foreground};
         font:
           11pt "Material Design Icons",
           Inter,
@@ -242,12 +238,12 @@ in {
 
       /* Menu */
       menu {
-        background: @background;
+        background: ${xcolors.background_dark};
         border-radius: 8px;
       }
 
       menu separator {
-        background: @background-alt;
+        background: ${xcolors.background};
       }
 
       menu menuitem {
@@ -257,7 +253,7 @@ in {
       }
 
       menu menuitem:hover {
-        background: @background-focus;
+        background: ${xcolors.background_focus};
       }
 
       menu menuitem:first-child {
@@ -275,7 +271,7 @@ in {
       /* Scale and Progress Bars */
       scale trough,
       progressbar trough {
-        background: @background;
+        background: ${xcolors.background_dark};
         border-radius: 16px;
         min-width: 5rem;
       }
@@ -284,14 +280,14 @@ in {
       scale progress,
       progressbar highlight,
       progressbar progress {
-        background: @background-alt;
+        background: ${xcolors.background};
         border-radius: 16px;
         min-height: 0.5rem;
       }
 
       /* Tooltip */
       tooltip {
-        background: @background;
+        background: ${xcolors.background_dark};
         border-radius: 16px;
       }
 
@@ -301,7 +297,7 @@ in {
 
       /* Waybar */
       window#waybar {
-        background: @background;
+        background: ${xcolors.background_dark};
       }
 
       window#waybar.empty #window {
@@ -329,7 +325,7 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: @background-alt;
+        background: ${xcolors.background};
         border-radius: 8px;
         margin: 0.5rem 0.25rem;
       }
@@ -358,8 +354,8 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: @accent;
-        color: @background-alt;
+        background: ${xcolors.accent};
+        color: ${xcolors.background};
         padding: 0.5rem;
       }
 
@@ -369,7 +365,7 @@ in {
       }
 
       #workspaces button {
-        background: @foreground;
+        background: ${xcolors.foreground};
         border-radius: 100%;
         min-width: 1rem;
         margin-right: 0.75rem;
@@ -381,39 +377,39 @@ in {
       }
 
       #workspaces button:hover {
-        background: lighter(@foreground);
+        background: lighter(${xcolors.foreground});
       }
 
       #workspaces button.empty {
-        background: @gray;
+        background: ${xcolors.bright.black};
       }
 
       #workspaces button.empty:hover {
-        background: lighter(@gray);
+        background: lighter(${xcolors.bright.black});
       }
 
       #workspaces button.urgent {
-        background: @red;
+        background: ${xcolors.normal.red};
       }
 
       #workspaces button.urgent:hover {
-        background: lighter(@red);
+        background: lighter(${xcolors.normal.red});
       }
 
       #workspaces button.special {
-        background: @blue;
+        background: ${xcolors.normal.blue};
       }
 
       #workspaces button.special:hover {
-        background: lighter(@blue);
+        background: lighter(${xcolors.normal.blue});
       }
 
       #workspaces button.active {
-        background: @accent;
+        background: ${xcolors.accent};
       }
 
       #workspaces button.active:hover {
-        background: lighter(@accent);
+        background: lighter(${xcolors.accent});
       }
 
       /* Hyprland Window */
@@ -428,39 +424,39 @@ in {
 
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
-        background: @red;
+        background: ${xcolors.normal.red};
       }
 
       /* Network */
       #network.disconnected {
-        color: @red;
+        color: ${xcolors.normal.red};
       }
 
       /* Pulseaudio */
       #pulseaudio.muted {
-        color: @red;
+        color: ${xcolors.normal.red};
       }
 
       #pulseaudio-slider highlight,
       #backlight-slider highlight {
-        background: @foreground;
+        background: ${xcolors.foreground};
       }
 
       /* Battery */
       #battery.charging,
       #battery.plugged {
-        color: @green;
+        color: ${xcolors.normal.green};
       }
 
       #battery.critical:not(.charging) {
-        color: @red;
+        color: ${xcolors.normal.red};
         animation: blink 0.5s steps(12) infinite alternate;
       }
 
       /* Keyframes */
       @keyframes blink {
         to {
-          color: @foreground;
+          color: ${xcolors.foreground};
         }
       }
     '';
