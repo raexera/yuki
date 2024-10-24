@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     gofumpt
     goimports-reviser
@@ -20,7 +16,7 @@
 
   programs.go = {
     enable = true;
-    goPath = "${config.home.homeDirectory}/.go";
-    goBin = "${config.home.homeDirectory}/.local/bin";
+    goPath = ".go";
+    goBin = ".local/bin";
   };
 }

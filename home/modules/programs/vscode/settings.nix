@@ -157,8 +157,6 @@
       "impl" = "${pkgs.impl}/bin/impl";
       "staticcheck" = "${pkgs.go-tools}/bin/staticcheck";
     };
-    "go.gopath" = "${config.programs.go.goPath}";
-    "go.goroot" = "${pkgs.go}/share/go";
     "go.inlayHints.assignVariableTypes" = true;
     "go.inlayHints.compositeLiteralFields" = true;
     "go.inlayHints.compositeLiteralTypes" = true;
