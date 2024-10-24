@@ -1,38 +1,32 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  home.packages = lib.attrValues {
-    # Dev Tools
-    inherit
-      (pkgs)
-      bun
-      ccls
-      clang
-      clang-tools
-      cmake
-      grex
-      java-language-server
-      just
-      lldb
-      nodejs
-      shellcheck
-      shfmt
-      typescript
-      uncrustify
-      ;
-
-    inherit
-      (pkgs.nodePackages)
-      jsonlint
-      pnpm
-      prettier
-      typescript-language-server
-      vls
-      vscode-langservers-extracted
-      yaml-language-server
-      yarn
-      ;
-  };
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    beekeeper-studio
+    bun
+    ccls
+    clang
+    clang-tools
+    cmake
+    dbmate
+    gnumake
+    grex
+    java-language-server
+    just
+    lldb
+    nodejs
+    pm2
+    pnpm
+    pocketbase
+    podman-compose
+    postman
+    prettierd
+    redis
+    scc
+    sea-orm-cli
+    shellcheck
+    shfmt
+    slack
+    turso-cli
+    typescript
+    uncrustify
+  ];
 }

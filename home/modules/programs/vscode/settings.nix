@@ -12,18 +12,33 @@
     "editor.formatOnSave" = true;
     "editor.guides.bracketPairs" = true;
     "editor.guides.indentation" = true;
+    "editor.inlayHints.fontSize" = 11;
+    "editor.inlayHints.padding" = true;
     "editor.inlineSuggest.enabled" = true;
     "editor.linkedEditing" = true;
     "editor.lineHeight" = 22;
-    "editor.lineNumbers" = "relative";
     "editor.minimap.enabled" = false;
     "editor.renderLineHighlight" = "all";
     "editor.semanticHighlighting.enabled" = true;
     "editor.showUnused" = true;
-    "editor.smoothScrolling" = true;
+    "editor.stickyScroll.enabled" = true;
     "editor.tabCompletion" = "on";
     "editor.tabSize" = 2;
     "editor.trimAutoWhitespace" = true;
+    "editor.wordWrap" = "on";
+    "editor.wrappingIndent" = "indent";
+    "editor.quickSuggestionsDelay" = 300;
+    "editor.quickSuggestions"."strings" = "on";
+    "editor.codeActionsOnSave" = {
+      "source.fixAll" = "always";
+      "source.organizeImports" = "always";
+    };
+  };
+
+  breadcrumbs = {
+    "breadcrumbs.enabled" = false;
+    "breadcrumbs.symbolPath" = "off";
+    "breadcrumbs.filePath" = "on";
   };
 
   explorer = {
@@ -43,7 +58,7 @@
 
   terminal = {
     "terminal.integrated.fontSize" = 13;
-    "terminal.integrated.smoothScrolling" = true;
+    "terminal.integrated.gpuAcceleration" = "on";
   };
 
   window = {
@@ -55,10 +70,14 @@
 
   workbench = {
     "workbench.colorTheme" = "GitHub Dark Default";
-    "workbench.layoutControl.enabled" = false;
-    "workbench.panel.defaultLocation" = "right";
+    "workbench.iconTheme" = "material-icon-theme";
     "workbench.productIconTheme" = "icons-carbon";
+    "workbench.layoutControl.enabled" = false;
+    "workbench.startupEditor" = "none";
+    "workbench.activityBar.location" = "top";
     "workbench.sideBar.location" = "right";
+    "workbench.tree.indent" = 16;
+    "workbench.editor.empty.hint" = "hidden";
   };
 
   # extension specific
@@ -66,6 +85,14 @@
     "git.autofetch" = true;
     "git.enableCommitSigning" = true;
     "git.enableSmartCommit" = true;
+    "git.openRepositoryInParentFolders" = "always";
+    "gitblame.inlineMessageEnabled" = true;
+    "gitblame.inlineMessageFormat" = "\${author.name} (\${time.ago}) - \${commit.summary}";
+  };
+
+  error-lens = {
+    "errorLens.gutterIconsEnabled" = true;
+    "errorLens.gutterIconSet" = "defaultOutline";
   };
 
   path-intellisense = {
@@ -77,37 +104,54 @@
 
   # language specific
   formatter = {
+    "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[go]"."editor.defaultFormatter" = "golang.go";
     "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[java]"."editor.defaultFormatter" = "redhat.java";
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[markdown]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
     "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
     "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
-  bash = {
-    "bashIde.shellcheckPath" = "${pkgs.shellcheck}/bin/shellcheck";
-    "shfmt.executablePath" = "${pkgs.shfmt}/bin/shfmt";
-  };
-
   go = {
-    "go.formatTool" = "goimports";
+    "go.inlayHints.assignVariableTypes" = true;
+    "go.inlayHints.constantValues" = true;
+    "go.inlayHints.parameterNames" = true;
+    "go.inlayHints.rangeVariableTypes" = true;
+
+    "go.alternateTools" = {
+      "gofumpt" = "${pkgs.gofumpt}/bin/gofumpt";
+      "golangci-lint" = "${pkgs.golangci-lint}/bin/golangci-lint";
+      "gomodifytags" = "${pkgs.gomodifytags}/bin/gomodifytags";
+      "gopls" = "${pkgs.gopls}/bin/gopls";
+      "impl" = "${pkgs.impl}/bin/impl";
+      "staticcheck" = "${pkgs.go-tools}/bin/staticcheck";
+      "delve" = "${pkgs.delve}/bin/dlv";
+    };
 
     "go.lintTool" = "golangci-lint";
-    "go.lintOnSave" = "workspace";
-    "go.lintFlags" = [
-      "--fast"
-    ];
 
-    "go.useLanguageServer" = true;
     "gopls" = {
-      "ui.completion.usePlaceholders" = true;
+      "formatting.gofumpt" = true;
       "ui.semanticTokens" = true;
+    };
+
+    "emeraldwalk.runonsave" = {
+      "commands" = [
+        {
+          "cmd" = "${pkgs.goimports-reviser}/bin/goimports-reviser -rm-unused -set-alias -format -use-cache -output write \${file}";
+          "match" = "\\.go$";
+        }
+        {
+          "cmd" = "${pkgs.golines}/bin/golines \${file} -w";
+          "match" = "\\.go$";
+        }
+      ];
     };
   };
 
@@ -139,11 +183,28 @@
 in {
   programs.vscode.userSettings =
     {
-      "extensions.autoCheckUpdates" = false;
-      "update.mode" = "none";
+      "diffEditor.hideUnchangedRegions.enabled" = true;
+
+      "search.exclude" = {
+        "**/bower_components" = true;
+        "**/env" = true;
+        "**/node_modules" = true;
+        "**/pnpm-lock.yaml" = true;
+        "**/venv" = true;
+      };
+
+      "files.watcherExclude" = {
+        "**/.git/objects/**" = true;
+        "**/.git/subtree-cache/**" = true;
+        "**/node_modules/**" = true;
+        "**/env/**" = true;
+        "**/venv/**" = true;
+        "env-*" = true;
+      };
     }
     # general
     // editor
+    // breadcrumbs
     // explorer
     // files
     // telemetry
@@ -152,10 +213,10 @@ in {
     // workbench
     # extension specific
     // git
+    // error-lens
     // path-intellisense
     # language specific
     // formatter
-    // bash
     // go
     // java
     // nix

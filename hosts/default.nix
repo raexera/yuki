@@ -41,7 +41,7 @@ in {
         "${modules}/services"
 
         # Virtualization
-        "${modules}/virtualisation/docker.nix"
+        "${modules}/virtualisation"
 
         # Home Manager configuration
         {

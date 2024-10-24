@@ -8,7 +8,6 @@
     extraGroups = [
       "adbusers"
       "audio"
-      "docker"
       "input"
       "libvirtd"
       "networkmanager"

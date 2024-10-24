@@ -1,26 +1,22 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home = {
-    packages = with pkgs; [
-      go
-      gofumpt
-      golangci-lint
-      gomodifytags
-      gopls
-      gotests
-      go-tools # staticcheck
-      gotools # goimports
-      delve
-      impl
-      revive
-    ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    gofumpt
+    goimports-reviser
+    golangci-lint
+    golines
+    gomodifytags
+    gopls
+    gotests
+    go-tools # staticcheck
+    gotools # goimports
+    delve
+    impl
+    revive
+  ];
 
-    sessionVariables = rec {
-      GOPATH = "${config.xdg.dataHome}/go";
-      GOBIN = "${GOPATH}/bin";
-    };
+  programs.go = {
+    enable = true;
+    goPath = ".go";
+    goBin = ".local/bin/";
   };
 }

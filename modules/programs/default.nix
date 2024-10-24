@@ -3,9 +3,8 @@
     ./bash.nix
     ./dconf.nix
     ./home-manager.nix
-    ./npm.nix
     ./thunar.nix
-    ./java.nix
+    ./neovim.nix
     ./zsh.nix
   ];
 }

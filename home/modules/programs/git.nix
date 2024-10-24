@@ -8,6 +8,7 @@
     gh
     gist
     gitflow
+    lefthook
     zsh-forgit
   ];
 

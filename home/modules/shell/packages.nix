@@ -29,11 +29,15 @@
     rsync
     skaffold
     termshark
+    trash-cli
     unrar
     unzip
     util-linux
+    watchexec
     wget
+    wrk
     xarchiver
+    xh
     yt-dlp
     yq
     zathura

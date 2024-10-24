@@ -1,52 +1,53 @@
 {pkgs, ...}: {
   programs.vscode = {
     mutableExtensionsDir = true;
-    extensions =
-      (with pkgs.vscode-extensions; [
-        github.vscode-github-actions
-        github.vscode-pull-request-github
-      ])
-      ++ (with pkgs.vscode-marketplace; [
-        antfu.icons-carbon
-        bradlc.vscode-tailwindcss
-        christian-kohler.path-intellisense
-        dbaeumer.vscode-eslint
-        editorconfig.editorconfig
-        esbenp.prettier-vscode
-        formulahendry.docker-explorer
-        github.github-vscode-theme
-        golang.go
-        jnoortheen.nix-ide
-        llvm-vs-code-extensions.vscode-clangd
-        mads-hartmann.bash-ide-vscode
-        mikestead.dotenv
-        mkhl.direnv
-        mkhl.shfmt
-        ms-azuretools.vscode-docker
-        ms-python.black-formatter
-        ms-python.isort
-        ms-python.pylint
-        ms-python.python
-        ms-python.vscode-pylance
-        ms-toolsai.jupyter
-        ms-toolsai.jupyter-renderers
-        ms-toolsai.jupyter-keymap
-        ms-toolsai.vscode-jupyter-cell-tags
-        ms-toolsai.vscode-jupyter-slideshow
-        naumovs.color-highlight
-        oderwat.indent-rainbow
-        redhat.java
-        redhat.vscode-yaml
-        usernamehw.errorlens
-        vscjava.vscode-java-debug
-        vscjava.vscode-java-dependency
-        vscjava.vscode-java-test
-        xaver.clang-format
-        yzhang.markdown-all-in-one
-      ])
-      ++ (with pkgs.vscode-marketplace-release; [
-        eamodio.gitlens
-        vadimcn.vscode-lldb
-      ]);
+    extensions = with pkgs.vscode-marketplace; [
+      alefragnani.project-manager
+      astro-build.astro-vscode
+      antfu.icons-carbon
+      bradlc.vscode-tailwindcss
+      cardinal90.multi-cursor-case-preserve
+      christian-kohler.npm-intellisense
+      christian-kohler.path-intellisense
+      dbaeumer.vscode-eslint
+      editorconfig.editorconfig
+      emeraldwalk.runonsave
+      esbenp.prettier-vscode
+      formulahendry.auto-complete-tag
+      github.github-vscode-theme
+      golang.go
+      jnoortheen.nix-ide
+      mikestead.dotenv
+      mkhl.direnv
+      mkhl.shfmt
+      moalamri.inline-fold
+      ms-azuretools.vscode-docker
+      ms-python.black-formatter
+      ms-python.isort
+      ms-python.pylint
+      ms-python.python
+      ms-python.vscode-pylance
+      ms-toolsai.jupyter
+      ms-toolsai.jupyter-renderers
+      ms-toolsai.jupyter-keymap
+      ms-toolsai.vscode-jupyter-cell-tags
+      ms-toolsai.vscode-jupyter-slideshow
+      naumovs.color-highlight
+      oderwat.indent-rainbow
+      pkief.material-icon-theme
+      redhat.java
+      redhat.vscode-yaml
+      renesaarsoo.sql-formatter-vsc
+      rust-lang.rust-analyzer
+      svelte.svelte-vscode
+      tamasfe.even-better-toml
+      thoughtsdump.custom-xml-formatter
+      usernamehw.errorlens
+      vscjava.vscode-java-debug
+      vscjava.vscode-java-dependency
+      vscjava.vscode-java-test
+      waderyan.gitblame
+      yzhang.markdown-all-in-one
+    ];
   };
 }
