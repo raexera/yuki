@@ -106,7 +106,7 @@
     "path-intellisense.showHiddenFiles" = true;
   };
 
-  # language specific
+  # Formatter settings
   formatter = {
     "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -122,67 +122,80 @@
     "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
-  go = {
-    "go.inlayHints.assignVariableTypes" = true;
-    "go.inlayHints.constantValues" = true;
-    "go.inlayHints.parameterNames" = true;
-    "go.inlayHints.rangeVariableTypes" = true;
+  # Language specific settings
+  language = {
+    # Go
+    go = {
+      alternateTools = {
+        gofumpt = "${pkgs.gofumpt}/bin/gofumpt";
+        golangci-lint = "${pkgs.golangci-lint}/bin/golangci-lint";
+        gomodifytags = "${pkgs.gomodifytags}/bin/gomodifytags";
+        gopls = "${pkgs.gopls}/bin/gopls";
+        impl = "${pkgs.impl}/bin/impl";
+        staticcheck = "${pkgs.go-tools}/bin/staticcheck";
+        delve = "${pkgs.delve}/bin/dlv";
+      };
 
-    "go.alternateTools" = {
-      "gofumpt" = "${pkgs.gofumpt}/bin/gofumpt";
-      "golangci-lint" = "${pkgs.golangci-lint}/bin/golangci-lint";
-      "gomodifytags" = "${pkgs.gomodifytags}/bin/gomodifytags";
-      "gopls" = "${pkgs.gopls}/bin/gopls";
-      "impl" = "${pkgs.impl}/bin/impl";
-      "staticcheck" = "${pkgs.go-tools}/bin/staticcheck";
-      "delve" = "${pkgs.delve}/bin/dlv";
+      inlayHints = {
+        assignVariableTypes = true;
+        compositeLiteralFields = true;
+        compositeLiteralTypes = true;
+        constantValues = true;
+        functionTypeParameters = true;
+        parameterNames = true;
+        rangeVariableTypes = true;
+      };
+
+      lintTool = "golangci-lint";
     };
 
-    "go.lintTool" = "golangci-lint";
-
-    "gopls" = {
+    gopls = {
       "formatting.gofumpt" = true;
       "ui.semanticTokens" = true;
     };
 
-    "emeraldwalk.runonsave" = {
-      "commands" = [
+    emeraldwalk.runonsave = {
+      commands = [
         {
-          "cmd" = "${pkgs.goimports-reviser}/bin/goimports-reviser -rm-unused -set-alias -format -use-cache -output write \${file}";
-          "match" = "\\.go$";
+          cmd = "${pkgs.goimports-reviser}/bin/goimports-reviser -rm-unused -set-alias -format -use-cache -output write \${file}";
+          match = "\\.go$";
         }
         {
-          "cmd" = "${pkgs.golines}/bin/golines \${file} -w";
-          "match" = "\\.go$";
+          cmd = "${pkgs.golines}/bin/golines \${file} -w";
+          match = "\\.go$";
         }
       ];
     };
-  };
 
-  java = {
-    "java.configuration.runtimes" = [
-      {
-        name = "JavaSE-17";
-        path = "${pkgs.jdk17}/lib/openjdk";
-        default = true;
-      }
-    ];
-    "java.format.settings.profile" = "GoogleStyle";
-    "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
-  };
+    # Java
+    java = {
+      configuration.runtimes = [
+        {
+          name = "JavaSE-17";
+          path = "${pkgs.jdk17}/lib/openjdk";
+          default = true;
+        }
+      ];
 
-  nix = {
-    "nix.enableLanguageServer" = true;
-    "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
-    "nix.serverPath" = "${pkgs.nil}/bin/nil";
-    "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
-  };
+      format.settings.profile = "GoogleStyle";
+      jdt.ls.java.home = "${pkgs.jdk17}/lib/openjdk";
+    };
 
-  python = {
-    "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
-    "python.languageServer" = "Pylance";
-    "python.analysis.typeCheckingMode" = "strict";
-    "python.analysis.autoFormatStrings" = true;
+    # Nix
+    nix = {
+      enableLanguageServer = true;
+      formatterPath = "${pkgs.alejandra}/bin/alejandra";
+      serverPath = "${pkgs.nil}/bin/nil";
+      serverSettings.nil.formatting.command = ["${pkgs.alejandra}/bin/alejandra"];
+    };
+
+    # Python
+    python = {
+      defaultInterpreterPath = "${pkgs.python3}/bin/python";
+      languageServer = "Pylance";
+      analysis.typeCheckingMode = "strict";
+      analysis.autoFormatStrings = true;
+    };
   };
 in {
   programs.vscode.userSettings =
@@ -221,8 +234,5 @@ in {
     // path-intellisense
     # language specific
     // formatter
-    // go
-    // java
-    // nix
-    // python;
+    // language;
 }
