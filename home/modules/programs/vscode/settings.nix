@@ -5,6 +5,7 @@
     "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
     "editor.cursorBlinking" = "smooth";
     "editor.cursorSmoothCaretAnimation" = "on";
+    "editor.folding" = true;
     "editor.fontFamily" = "JetBrains Mono";
     "editor.fontLigatures" = true;
     "editor.fontSize" = 13;
@@ -17,8 +18,10 @@
     "editor.inlineSuggest.enabled" = true;
     "editor.linkedEditing" = true;
     "editor.lineHeight" = 22;
+    "editor.lineNumbers" = "on";
     "editor.minimap.enabled" = false;
     "editor.renderLineHighlight" = "all";
+    "editor.scrollbar.horizontal" = "hidden";
     "editor.semanticHighlighting.enabled" = true;
     "editor.showUnused" = true;
     "editor.stickyScroll.enabled" = true;
@@ -69,15 +72,16 @@
   };
 
   workbench = {
-    "workbench.colorTheme" = "GitHub Dark Default";
-    "workbench.iconTheme" = "material-icon-theme";
-    "workbench.productIconTheme" = "icons-carbon";
-    "workbench.layoutControl.enabled" = false;
-    "workbench.startupEditor" = "none";
     "workbench.activityBar.location" = "top";
-    "workbench.sideBar.location" = "right";
-    "workbench.tree.indent" = 16;
+    "workbench.colorTheme" = "GitHub Dark Default";
     "workbench.editor.empty.hint" = "hidden";
+    "workbench.iconTheme" = "material-icon-theme";
+    "workbench.layoutControl.enabled" = false;
+    "workbench.panel.defaultLocation" = "bottom";
+    "workbench.productIconTheme" = "icons-carbon";
+    "workbench.sideBar.location" = "right";
+    "workbench.startupEditor" = "none";
+    "workbench.tree.indent" = 16;
   };
 
   # extension specific
