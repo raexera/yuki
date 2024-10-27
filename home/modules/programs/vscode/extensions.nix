@@ -10,18 +10,23 @@
       christian-kohler.npm-intellisense
       christian-kohler.path-intellisense
       dbaeumer.vscode-eslint
+      eamodio.gitlens
       editorconfig.editorconfig
       emeraldwalk.runonsave
       esbenp.prettier-vscode
-      formulahendry.auto-complete-tag
+      formulahendry.code-runner
+      github.codespaces
+      github.copilot
+      github.copilot-chat
       github.github-vscode-theme
+      github.vscode-github-actions
+      github.vscode-pull-request-github
       golang.go
       jnoortheen.nix-ide
       mikestead.dotenv
       mkhl.direnv
-      mkhl.shfmt
-      moalamri.inline-fold
       ms-azuretools.vscode-docker
+      ms-kubernetes-tools.vscode-kubernetes-tools
       ms-python.black-formatter
       ms-python.isort
       ms-python.pylint
@@ -41,12 +46,10 @@
       rust-lang.rust-analyzer
       svelte.svelte-vscode
       tamasfe.even-better-toml
-      thoughtsdump.custom-xml-formatter
       usernamehw.errorlens
       vscjava.vscode-java-debug
       vscjava.vscode-java-dependency
       vscjava.vscode-java-test
-      waderyan.gitblame
       yzhang.markdown-all-in-one
     ];
   };

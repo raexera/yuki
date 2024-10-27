@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   general = {
     "extensions.ignoreRecommendations" = true;
     "extensions.autoCheckUpdates" = false;
@@ -115,8 +110,12 @@
     "git.enableCommitSigning" = true;
     "git.enableSmartCommit" = true;
     "git.openRepositoryInParentFolders" = "always";
-    "gitblame.inlineMessageEnabled" = true;
-    "gitblame.inlineMessageFormat" = "\${author.name} (\${time.ago}) - \${commit.summary}";
+
+    # github
+    "github.copilot.editor.enableAutoCompletions" = true;
+    "github.copilot.enable" = {
+      "*" = true;
+    };
 
     # errorLens
     "errorLens.gutterIconsEnabled" = true;
