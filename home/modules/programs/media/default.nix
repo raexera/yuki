@@ -14,5 +14,6 @@
     pavucontrol
     playerctl
     pulsemixer
+    foliate
   ];
 }

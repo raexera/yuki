@@ -111,12 +111,6 @@
     "git.enableSmartCommit" = true;
     "git.openRepositoryInParentFolders" = "always";
 
-    # github
-    "github.copilot.editor.enableAutoCompletions" = true;
-    "github.copilot.enable" = {
-      "*" = true;
-    };
-
     # errorLens
     "errorLens.gutterIconsEnabled" = true;
     "errorLens.gutterIconSet" = "defaultOutline";
