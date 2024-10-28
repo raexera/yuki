@@ -39,8 +39,15 @@
       LC_ALL = "en_US.UTF-8";
     };
 
-    initExtra = ''
-      # options
+    completionInit = ''
+      # Load zsh modules
+      zmodload zsh/complist
+
+      # Enabling the Zsh Completion System
+      autoload -U compinit; compinit
+      _comp_options+=(globdots) # With hidden file-sort
+
+      # Set Options
       while read -r option; do
         setopt $option
       done <<-EOF
@@ -83,47 +90,47 @@
       FLOW_CONTROL
       EOF
 
-      # general
+      # General
       zstyle ':completion:*' file-sort modification
       zstyle ':completion:*' rehash true
       zstyle ':completion:*' special-dirs true
 
-      # cache
+      # Cache
       zstyle ':completion:*' use-cache on
       zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 
-      # completers
+      # Completers
       zstyle ':completion:*' completer _complete _match _approximate
       zstyle ':completion:*:match:*' original only
       zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-      # complete the alias
+      # Complete the alias
       zstyle ':completion:*' complete true
 
-      # autocomplete options
+      # Autocomplete options
       zstyle ':completion:*' complete-options true
 
-      # completion matching control
-      zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+      # Completion matching control
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
       zstyle ':completion:*' keep-prefix true
 
-      # group matches
+      # Group matches
       zstyle ':completion:*' menu select
       zstyle ':completion:*' group-name '''
       zstyle ':completion:*' verbose yes
       zstyle ':completion:*:matches' group 'yes'
       zstyle ':completion:*:options' description 'yes'
 
-      # colors
+      # Colors
       zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
-      # format
-      zstyle ':completion:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
-      zstyle ':completion:*:descriptions' format '%F{blue}-- %D %d --%f'
-      zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-      zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+      # Format
+      zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+      zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %D %d --%f'
+      zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
+      zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
 
-      # sort
+      # Sort
       zstyle ':completion:*' sort false
       zstyle ':completion:*:eza' sort false
       zstyle ':completion:*:git-checkout:*' sort false
