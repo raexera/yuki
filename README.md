@@ -33,17 +33,11 @@
 > - **Terminal:** Kitty
 > - **Editor:** Visual Studio Code
 
-## :snowflake: About Yuki
+## About
 
-These configs are crafted for NixOS and Home-Manager, utilizing the power of [flakes](https://nixos.wiki/wiki/Flakes) and [flake-parts](https://github.com/hercules-ci/flake-parts) for optimal organization and efficiency.
+Yuki is a set of configurations crafted for NixOS and Home-Manager, utilizing the power of [flakes](https://nixos.wiki/wiki/Flakes) and [flake-parts](https://github.com/hercules-ci/flake-parts) for optimal organization and efficiency.
 
-To explore the flake outputs and their functionalities, run:
-
-```sh
-nix flake show github:raexera/yuki
-```
-
-## :bulb: Acknowledgments
+## Credits
 
 Special thanks to the following individuals for their insights, feedback, and inspiration in this endeavor to develop this configuration:
 
