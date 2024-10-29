@@ -19,8 +19,8 @@ in {
     ];
 
     general = {
-      gaps_in = 2;
-      gaps_out = 4;
+      gaps_in = 5;
+      gaps_out = 10;
 
       border_size = 3;
       "col.active_border" = "rgb(${colors.accent})";

@@ -2,7 +2,7 @@
   imports = [
     ./extensions.nix
     ./keybindings.nix
-    ./settings.nix
+    ./usersettings.nix
   ];
 
   programs.vscode = {
