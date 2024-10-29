@@ -55,10 +55,14 @@ in {
       ];
 
       animation = [
-        "windows, 1, 5, quart, slide"
+        "windows, 1, 5, quart, popin 75%"
+        "windowsIn, 1, 5, quart, popin 75%"
+        "windowsOut, 1, 5, quart, popin 75%"
+        "windowsMove, 1, 5, default"
+        "border, 1, 10, default"
         "fade, 1, 5, quart"
-        "border, 1, 5, quart"
         "workspaces, 1, 5, quart, slide"
+        "specialWorkspace, 1, 5, quart, slidevert"
       ];
     };
 
