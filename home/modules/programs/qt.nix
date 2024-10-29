@@ -28,11 +28,11 @@ in {
     platformTheme.name = "qtct";
   };
 
-  home.packages = [
-    pkgs.qt6Packages.qtstyleplugin-kvantum
-    pkgs.qt6Packages.qt6ct
-    pkgs.libsForQt5.qtstyleplugin-kvantum
-    pkgs.libsForQt5.qt5ct
+  home.packages = with pkgs; [
+    qt6Packages.qtstyleplugin-kvantum
+    qt6Packages.qt6ct
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
   ];
 
   xdg.configFile = {
