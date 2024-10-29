@@ -3,6 +3,7 @@
     systemPackages = with pkgs; [
       onlyoffice-bin
       vim
+      git
       gtk3
       gdk-pixbuf
       librsvg
