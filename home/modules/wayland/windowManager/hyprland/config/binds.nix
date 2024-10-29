@@ -110,6 +110,16 @@ in {
       "SUPER_CTRL, K, resizeactive,  0 -20"
       "SUPER_CTRL, down, resizeactive,  0 20"
       "SUPER_CTRL, J, resizeactive,  0 20"
+
+      # Move windows
+      "SUPER_ALT, left, moveactive, -20 0"
+      "SUPER_ALT, H, moveactive, -20 0"
+      "SUPER_ALT, right, moveactive,  20 0"
+      "SUPER_ALT, L, moveactive,  20 0"
+      "SUPER_ALT, up, moveactive,  0 -20"
+      "SUPER_ALT, K, moveactive,  0 -20"
+      "SUPER_ALT, down, moveactive,  0 20"
+      "SUPER_ALT, J, moveactive,  0 20"
     ];
 
     bindr = [
