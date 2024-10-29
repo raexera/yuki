@@ -39,6 +39,7 @@ in {
 
         # Services
         "${modules}/services"
+        "${modules}/services/greetd.nix"
 
         # Virtualization
         "${modules}/virtualisation"

@@ -1,5 +1,8 @@
 {
   security = {
+    # Allow hyprlock to unlock the screen
+    pam.services.hyprlock = {};
+
     # Enable polkit
     polkit.enable = true;
 
