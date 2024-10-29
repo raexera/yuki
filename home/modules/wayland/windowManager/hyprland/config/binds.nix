@@ -117,14 +117,21 @@ in {
       "SUPER, SUPER_L, exec, ${toggle "anyrun" true}"
     ];
 
-    bindle = [
-      # Audio
-      ",XF86AudioRaiseVolume, exec, volumectl up 5"
-      ",XF86AudioLowerVolume, exec, volumectl down 5"
+    bindl = [
+      # Toggle mute
       ",XF86AudioMute, exec, volumectl toggle-mute"
       ",XF86AudioMicMute, exec, volumectl toggle-mic-mute"
 
-      # Brightness
+      # Toggle airplane mode
+      ",XF86RFKill, exec, networkctl toggle-network"
+    ];
+
+    bindle = [
+      # Audio control
+      ",XF86AudioRaiseVolume, exec, volumectl up 5"
+      ",XF86AudioLowerVolume, exec, volumectl down 5"
+
+      # Brightness control
       ",XF86MonBrightnessUp, exec, lightctl up 5"
       ",XF86MonBrightnessDown, exec, lightctl down 5"
     ];

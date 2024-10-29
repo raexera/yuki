@@ -9,6 +9,7 @@
 in {
   imports = [
     ./config
+    ./scripts
 
     # launcher
     ./programs/anyrun.nix
