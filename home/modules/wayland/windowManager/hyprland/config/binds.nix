@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: let
-  # binds SUPER + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -12,7 +11,8 @@
           builtins.toString (x + 1 - (c * 10));
       in [
         "SUPER, ${ws}, workspace, ${toString (x + 1)}"
-        "SUPER SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        "SUPER_SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        "ALT_SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
       ]
     )
     10);
@@ -23,120 +23,117 @@
   in "pkill ${prog} || ${runserv} ${program}";
 
   runOnce = program: "pgrep ${program} || ${program}";
+
+  defaultApp = type: "${pkgs.gtk3}/bin/gtk-launch $(${pkgs.xdg-utils}/bin/xdg-mime query default ${type})";
+  browser = defaultApp "x-scheme-handler/https";
+  editor = defaultApp "text/plain";
+  fileManager = defaultApp "inode/directory";
 in {
-  wayland.windowManager.hyprland = {
-    settings = {
-      bind = let
-        monocle = "dwindle:no_gaps_when_only";
+  wayland.windowManager.hyprland.settings = {
+    bind =
+      [
+        # Compositor commands
+        "SUPER, P, pseudo"
+        "SUPER, S, togglesplit"
+        "SUPER, Space, togglefloating"
+        "SUPER, Q, killactive"
+        "SUPER, F, fullscreen"
+        "SUPER, C, centerwindow"
+        "SUPER_SHIFT, P, pin"
 
-        # default application
-        defaultApp = type: "${pkgs.gtk3}/bin/gtk-launch $(${pkgs.xdg-utils}/bin/xdg-mime query default ${type})";
-        browser = defaultApp "x-scheme-handler/https";
-        editor = defaultApp "text/plain";
-      in
-        [
-          # compositor commands
-          "SUPERSHIFT, E, exec, pkill Hyprland"
-          "SUPER, Q, killactive"
-          "SUPER, S, togglesplit"
-          "SUPER, F, fullscreen"
-          "SUPER, P, pseudo"
-          "SUPERSHIFT, P, pin"
-          "SUPER, Space, togglefloating"
-          "SUPERALT, ,resizeactive,"
+        # Grouped (tabbed) windows
+        "SUPER, G, togglegroup"
+        "SUPER, Tab, changegroupactive, f"
+        "SUPER_SHIFT, Tab, changegroupactive, b"
 
-          # toggle "monocle" (no_gaps_when_only)
-          "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
+        # Cycle through windows
+        "ALT, Tab, cyclenext"
+        "ALT, Tab, bringactivetotop"
 
-          # grouped (tabbed) windows
-          "SUPER, G, togglegroup"
-          "SUPER, TAB, changegroupactive, f"
-          "SUPERSHIFT, TAB, changegroupactive, b"
+        # Move focus
+        "SUPER, left, movefocus, l"
+        "SUPER, H, movefocus, l"
+        "SUPER, right, movefocus, r"
+        "SUPER, L, movefocus, r"
+        "SUPER, up, movefocus, u"
+        "SUPER, K, movefocus, u"
+        "SUPER, down, movefocus, d"
+        "SUPER, J, movefocus, d"
 
-          # cycle through windows
-          "ALT, Tab, cyclenext"
-          "ALT, Tab, bringactivetotop"
-          "ALTSHIFT, Tab, cyclenext, prev"
-          "ALTSHIFT, Tab, bringactivetotop"
+        # Move windows
+        "SUPER_SHIFT, left, movewindow, l"
+        "SUPER_SHIFT, H, movewindow, l"
+        "SUPER_SHIFT, right, movewindow, r"
+        "SUPER_SHIFT, L, movewindow, r"
+        "SUPER_SHIFT, up, movewindow, u"
+        "SUPER_SHIFT, K, movewindow, u"
+        "SUPER_SHIFT, down, movewindow, d"
+        "SUPER_SHIFT, J, movewindow, d"
 
-          # move focus
-          "SUPER, left, movefocus, l"
-          "SUPER, right, movefocus, r"
-          "SUPER, up, movefocus, u"
-          "SUPER, down, movefocus, d"
+        # Special workspaces
+        "SUPER_SHIFT, grave, movetoworkspace, special"
+        "SUPER, grave, togglespecialworkspace, eDP-1"
 
-          # move windows
-          "SUPERSHIFT, left, movewindow, l"
-          "SUPERSHIFT, right, movewindow, r"
-          "SUPERSHIFT, up, movewindow, u"
-          "SUPERSHIFT, down, movewindow, d"
+        # Cycle workspaces
+        "SUPER, bracketleft, workspace, m-1"
+        "SUPER, bracketright, workspace, m+1"
 
-          # special workspaces
-          "SUPERSHIFT, grave, movetoworkspace, special"
-          "SUPER, grave, togglespecialworkspace, eDP-1"
+        # Cycle monitors
+        "SUPER_SHIFT, bracketleft, focusmonitor, l"
+        "SUPER_SHIFT, bracketright, focusmonitor, r"
 
-          # cycle workspaces
-          "SUPER, bracketleft, workspace, m-1"
-          "SUPER, bracketright, workspace, m+1"
+        # Send focused workspace to left/right monitors
+        "SUPER_SHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
+        "SUPER_SHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
 
-          # cycle monitors
-          "SUPERSHIFT, bracketleft, focusmonitor, l"
-          "SUPERSHIFT, bracketright, focusmonitor, r"
+        # Application Shortcuts
+        "SUPER, Return, exec, run-as-service kitty"
+        "SUPER, B, exec, ${browser}"
+        "SUPER, E, exec, ${editor}"
+        "SUPER, N, exec, ${fileManager}"
+        "CTRL_ALT, L, exec, pgrep hyprlock || hyprlock"
 
-          # send focused workspace to left/right monitors
-          "SUPERSHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
-          "SUPERSHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
+        # Screenshot
+        ", Print, exec, ${runOnce "grimblast"} --notify copysave area"
+        "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
+        "ALT, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
+      ]
+      ++ workspaces;
 
-          # utilities
-          "SUPER, Return, exec, run-as-service kitty"
-          "SUPER, B, exec, ${browser}"
-          "SUPER, E, exec, ${editor}"
-          "SUPER, O, exec, ${runOnce "wl-ocr"}"
-          "SUPER, L, exec, pgrep hyprlock || hyprlock"
+    binde = [
+      # Resize windows
+      "SUPER_CTRL, left, resizeactive, -20 0"
+      "SUPER_CTRL, H, resizeactive, -20 0"
+      "SUPER_CTRL, right, resizeactive,  20 0"
+      "SUPER_CTRL, L, resizeactive,  20 0"
+      "SUPER_CTRL, up, resizeactive,  0 -20"
+      "SUPER_CTRL, K, resizeactive,  0 -20"
+      "SUPER_CTRL, down, resizeactive,  0 20"
+      "SUPER_CTRL, J, resizeactive,  0 20"
+    ];
 
-          # screenshot
-          ", Print, exec, ${runOnce "grimblast"} --notify copysave area"
-          "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
-          "ALT, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
-        ]
-        ++ workspaces;
+    bindr = [
+      # Launcher
+      "SUPER, SUPER_L, exec, ${toggle "anyrun" true}"
+    ];
 
-      bindr = [
-        # launcher
-        "SUPER, SUPER_L, exec, ${toggle "anyrun" true}"
-      ];
+    bindle = [
+      # Audio
+      ",XF86AudioRaiseVolume, exec, volumectl up 5"
+      ",XF86AudioLowerVolume, exec, volumectl down 5"
+      ",XF86AudioMute, exec, volumectl toggle-mute"
+      ",XF86AudioMicMute, exec, volumectl toggle-mic-mute"
 
-      bindle = [
-        # audio
-        ",XF86AudioRaiseVolume, exec, volumectl up 5"
-        ",XF86AudioLowerVolume, exec, volumectl down 5"
-        ",XF86AudioMute, exec, volumectl toggle-mute"
-        ",XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute"
+      # Brightness
+      ",XF86MonBrightnessUp, exec, lightctl up 5"
+      ",XF86MonBrightnessDown, exec, lightctl down 5"
+    ];
 
-        # brightness
-        ",XF86MonBrightnessUp, exec, lightctl up 5"
-        ",XF86MonBrightnessDown, exec, lightctl down 5"
-      ];
-
-      # mouse bindings
-      bindm = [
-        "SUPER, mouse:272, movewindow"
-        "SUPER, mouse:273, resizewindow"
-        "SUPER ALT, mouse:272, resizewindow"
-      ];
-    };
-
-    # configure submaps
-    extraConfig = ''
-      bind = SUPERSHIFT, S, submap, resize
-
-      submap = resize
-      binde = , right, resizeactive, 10 0
-      binde = , left, resizeactive, -10 0
-      binde = , up, resizeactive, 0 -10
-      binde = , down, resizeactive, 0 10
-      bind = , escape, submap, reset
-      submap = reset
-    '';
+    # Mouse bindings
+    bindm = [
+      "SUPER, mouse:272, movewindow"
+      "SUPER, mouse:273, resizewindow"
+      "SUPER ALT, mouse:272, resizewindow"
+    ];
   };
 }

@@ -27,7 +27,6 @@ in {
 
   home.packages = with pkgs; [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-    inputs.self.packages.${pkgs.system}.wl-ocr
     config.wayland.windowManager.hyprland.package
 
     dbus
