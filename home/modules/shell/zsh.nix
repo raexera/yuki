@@ -150,6 +150,7 @@
     envExtra = let
       inherit (themes.colorscheme) xcolors;
     in ''
+      # Set fzf options
       export FZF_DEFAULT_OPTS=" \
       --multi \
       --cycle \
@@ -158,7 +159,7 @@
       --ansi \
       --color='fg:${xcolors.gray1},bg:${xcolors.black0},gutter:${xcolors.black3}' \
       --color='fg+:${xcolors.white},bg+:${xcolors.black3},hl:${xcolors.red},hl+:${xcolors.blue}' \
-      --color='info:${xcolors.green},border:${xcolors.gray0},prompt:${xcolors.blue},pointer:${xcolors.mauve}' \
+      --color='info:${xcolors.green},border:${xcolors.gray1},prompt:${xcolors.blue},pointer:${xcolors.mauve}' \
       --color='marker:${xcolors.blue},spinner:${xcolors.mauve},header:${xcolors.green}' \
       --prompt ' ' \
       --pointer '' \

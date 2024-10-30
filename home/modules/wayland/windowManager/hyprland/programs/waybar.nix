@@ -381,11 +381,11 @@ in {
       }
 
       #workspaces button.empty {
-        background: ${xcolors.gray1};
+        background: ${xcolors.gray0};
       }
 
       #workspaces button.empty:hover {
-        background: lighter(${xcolors.gray1});
+        background: lighter(${xcolors.gray0});
       }
 
       #workspaces button.urgent {
@@ -397,11 +397,11 @@ in {
       }
 
       #workspaces button.special {
-        background: ${xcolors.blue};
+        background: ${xcolors.mauve};
       }
 
       #workspaces button.special:hover {
-        background: lighter(${xcolors.blue});
+        background: lighter(${xcolors.mauve});
       }
 
       #workspaces button.active {

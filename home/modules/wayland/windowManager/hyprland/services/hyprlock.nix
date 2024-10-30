@@ -33,8 +33,8 @@ in {
           monitor = "";
           size = "300, 50";
           outline_thickness = 1;
-          outer_color = "rgb(${colors.black0})";
-          inner_color = "rgb(${colors.black2})";
+          outer_color = "rgb(${colors.gray0})";
+          inner_color = "rgb(${colors.black0})";
           font_color = "rgb(${colors.white})";
           check_color = "rgb(${colors.blue})";
           fail_color = "rgb(${colors.red})";

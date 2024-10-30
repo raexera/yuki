@@ -1,6 +1,7 @@
 {
-  inputs,
   pkgs,
+  inputs,
+  themes,
   ...
 }: {
   imports = [
@@ -38,12 +39,9 @@
       '';
     };
 
-    extraCss = ''
-      @define-color foreground #D8DEE9;
-      @define-color background #242933;
-      @define-color background-alt #2E3440;
-      @define-color background-focus #373E4C;
-
+    extraCss = let
+      inherit (themes.colorscheme) xcolors;
+    in ''
       /* Global */
       * {
         all: unset;
@@ -64,7 +62,7 @@
 
       /* Entry */
       #entry {
-        background: @background-alt;
+        background: ${xcolors.black3};
         border-radius: 100px;
         margin: 0.5rem;
         padding: 0.5rem;
@@ -72,7 +70,7 @@
 
       /* Match  */
       #match.activatable {
-        background: @background-alt;
+        background: ${xcolors.black3};
         padding: 0.5rem 1rem;
       }
 
@@ -92,12 +90,12 @@
       #match:selected,
       #match:hover,
       #plugin:hover {
-        background: @background-focus;
+        background: lighter(${xcolors.black3});
       }
 
       /* Main container */
       box#main {
-        background: @background;
+        background: ${xcolors.black0};
         border-radius: 16px;
         padding: 0.5rem;
       }
