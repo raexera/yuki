@@ -18,7 +18,7 @@
         follow = "mouse";
         font = "Inter 11";
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
-        frame_color = "${xcolors.bright.black}";
+        frame_color = "${xcolors.gray0}";
         frame_width = 2;
         gap_size = 5;
         hide_duplicate_count = false;
@@ -60,26 +60,26 @@
       fullscreen_delay_everything.fullscreen = "delay";
 
       urgency_low = {
-        background = "${xcolors.background_dark}";
-        foreground = "${xcolors.foreground}";
-        highlight = "${xcolors.normal.blue}";
-        frame_color = "${xcolors.bright.black}";
+        background = "${xcolors.black0}";
+        foreground = "${xcolors.white}";
+        highlight = "${xcolors.blue}";
+        frame_color = "${xcolors.gray0}";
         timeout = 2;
       };
 
       urgency_normal = {
-        background = "${xcolors.background_dark}";
-        foreground = "${xcolors.foreground}";
-        highlight = "${xcolors.normal.blue}";
-        frame_color = "${xcolors.bright.black}";
+        background = "${xcolors.black0}";
+        foreground = "${xcolors.white}";
+        highlight = "${xcolors.blue}";
+        frame_color = "${xcolors.gray0}";
         timeout = 2;
       };
 
       urgency_critical = {
-        background = "${xcolors.background_dark}";
-        foreground = "${xcolors.foreground}";
-        highlight = "${xcolors.normal.blue}";
-        frame_color = "${xcolors.bright.red}";
+        background = "${xcolors.black0}";
+        foreground = "${xcolors.white}";
+        highlight = "${xcolors.blue}";
+        frame_color = "${xcolors.red}";
         timeout = 10;
       };
     };

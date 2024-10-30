@@ -56,72 +56,63 @@
 
       # Color scheme
       background_opacity = "1.0";
-      foreground = xcolors.foreground;
-      background = xcolors.background;
-      selection_foreground = xcolors.foreground;
-      selection_background = xcolors.normal.blue;
+      foreground = xcolors.white;
+      background = xcolors.black2;
+      selection_foreground = xcolors.black2;
+      selection_background = xcolors.rosewater;
 
       # Cursor colors
-      cursor = xcolors.cursor;
-      cursor_text_color = xcolors.cursor_text;
+      cursor = xcolors.rosewater;
+      cursor_text_color = xcolors.black2;
 
       # URL underline color when hovering with mouse
-      url_color = xcolors.normal.blue;
+      url_color = xcolors.rosewater;
 
       # Window border colors and terminal bell colors
-      active_border_color = xcolors.normal.blue;
-      inactive_border_color = xcolors.bright.black;
-      bell_border_color = xcolors.normal.cyan;
+      active_border_color = xcolors.blue;
+      inactive_border_color = xcolors.gray0;
+      bell_border_color = xcolors.sky;
       visual_bell_color = "none";
 
       # Tab bar colors
-      active_tab_foreground = xcolors.normal.black;
-      active_tab_background = xcolors.normal.cyan;
-      inactive_tab_foreground = xcolors.normal.white;
-      inactive_tab_background = xcolors.bright.black;
-      tab_bar_background = xcolors.normal.black;
-      tab_bar_margin_color = "none";
-
-      # Mark colors (marked text in the terminal)
-      mark1_foreground = xcolors.normal.black;
-      mark1_background = xcolors.normal.cyan;
-      mark2_foreground = xcolors.normal.black;
-      mark2_background = xcolors.normal.red;
-      mark3_foreground = xcolors.normal.black;
-      mark3_background = xcolors.normal.yellow;
+      active_tab_foreground = xcolors.black1;
+      active_tab_background = xcolors.blue;
+      inactive_tab_foreground = xcolors.white;
+      inactive_tab_background = xcolors.black2;
+      tab_bar_background = xcolors.black1;
 
       # The basic 16 colors
       # black
-      color0 = xcolors.normal.black;
-      color8 = xcolors.bright.black;
+      color0 = xcolors.gray0;
+      color8 = xcolors.gray1;
 
       # red
-      color1 = xcolors.normal.red;
-      color9 = xcolors.normal.red;
+      color1 = xcolors.red;
+      color9 = xcolors.red;
 
       # green
-      color2 = xcolors.normal.green;
-      color10 = xcolors.normal.green;
+      color2 = xcolors.green;
+      color10 = xcolors.green;
 
       # yellow
-      color3 = xcolors.normal.yellow;
-      color11 = xcolors.bright.yellow;
+      color3 = xcolors.yellow;
+      color11 = xcolors.yellow;
 
       # blue
-      color4 = xcolors.normal.blue;
-      color12 = xcolors.bright.blue;
+      color4 = xcolors.blue;
+      color12 = xcolors.blue;
 
       # magenta
-      color5 = xcolors.normal.magenta;
-      color13 = xcolors.normal.magenta;
+      color5 = xcolors.pink;
+      color13 = xcolors.pink;
 
       # cyan
-      color6 = xcolors.normal.cyan;
-      color14 = xcolors.bright.cyan;
+      color6 = xcolors.sky;
+      color14 = xcolors.sky;
 
       # white
-      color7 = xcolors.normal.white;
-      color15 = xcolors.bright.white;
+      color7 = xcolors.white;
+      color15 = xcolors.white;
     };
 
     keybindings = {

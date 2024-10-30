@@ -156,10 +156,10 @@
       --reverse \
       --bind='ctrl-space:toggle,pgup:preview-up,pgdn:preview-down' \
       --ansi \
-      --color='fg:${xcolors.normal.black},bg:${xcolors.background_dark},gutter:${xcolors.bright.black}' \
-      --color='fg+:${xcolors.foreground},bg+:${xcolors.bright.black},hl:${xcolors.normal.red},hl+:${xcolors.normal.blue}' \
-      --color='info:${xcolors.normal.green},border:${xcolors.normal.black},prompt:${xcolors.normal.blue},pointer:${xcolors.normal.magenta}' \
-      --color='marker:${xcolors.normal.blue},spinner:${xcolors.normal.magenta},header:${xcolors.normal.green}' \
+      --color='fg:${xcolors.gray1},bg:${xcolors.black0},gutter:${xcolors.black3}' \
+      --color='fg+:${xcolors.white},bg+:${xcolors.black3},hl:${xcolors.red},hl+:${xcolors.blue}' \
+      --color='info:${xcolors.green},border:${xcolors.gray0},prompt:${xcolors.blue},pointer:${xcolors.mauve}' \
+      --color='marker:${xcolors.blue},spinner:${xcolors.mauve},header:${xcolors.green}' \
       --prompt ' ' \
       --pointer '' \
       --marker ''

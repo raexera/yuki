@@ -56,6 +56,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin-vsc.url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
+
     # hyprwm
     hyprland.url = "github:hyprwm/hyprland";
 

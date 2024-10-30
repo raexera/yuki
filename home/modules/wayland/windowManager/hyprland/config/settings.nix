@@ -22,9 +22,9 @@ in {
       gaps_in = 5;
       gaps_out = 10;
 
-      border_size = 3;
-      "col.active_border" = "rgb(${colors.accent})";
-      "col.inactive_border" = "rgb(${colors.background_dark})";
+      border_size = 2;
+      "col.active_border" = "rgb(${colors.blue})";
+      "col.inactive_border" = "rgb(${colors.gray0})";
 
       resize_on_border = true;
       allow_tearing = true;

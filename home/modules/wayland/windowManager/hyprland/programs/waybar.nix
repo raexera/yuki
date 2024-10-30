@@ -71,10 +71,10 @@ in {
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             format = {
-              days = "<span color='${xcolors.bright.black}'><b>{}</b></span>";
-              months = "<span color='${xcolors.foreground}'><b>{}</b></span>";
-              today = "<span color='${xcolors.foreground}'><b><u>{}</u></b></span>";
-              weekdays = "<span color='${xcolors.accent}'><b>{}</b></span>";
+              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
+              months = "<span color='${xcolors.white}'><b>{}</b></span>";
+              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
+              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
             };
             mode = "month";
             on-scroll = 1;
@@ -218,7 +218,7 @@ in {
       /* Global */
       * {
         all: unset;
-        color: ${xcolors.foreground};
+        color: ${xcolors.white};
         font:
           11pt "Material Design Icons",
           Inter,
@@ -238,12 +238,12 @@ in {
 
       /* Menu */
       menu {
-        background: ${xcolors.background_dark};
+        background: ${xcolors.black0};
         border-radius: 8px;
       }
 
       menu separator {
-        background: ${xcolors.background};
+        background: ${xcolors.black3};
       }
 
       menu menuitem {
@@ -253,7 +253,7 @@ in {
       }
 
       menu menuitem:hover {
-        background: ${xcolors.background_focus};
+        background: lighter(${xcolors.black3});
       }
 
       menu menuitem:first-child {
@@ -271,7 +271,7 @@ in {
       /* Scale and Progress Bars */
       scale trough,
       progressbar trough {
-        background: ${xcolors.background_dark};
+        background: ${xcolors.black0};
         border-radius: 16px;
         min-width: 5rem;
       }
@@ -280,14 +280,14 @@ in {
       scale progress,
       progressbar highlight,
       progressbar progress {
-        background: ${xcolors.background};
+        background: ${xcolors.black3};
         border-radius: 16px;
         min-height: 0.5rem;
       }
 
       /* Tooltip */
       tooltip {
-        background: ${xcolors.background_dark};
+        background: ${xcolors.black0};
         border-radius: 16px;
       }
 
@@ -297,7 +297,7 @@ in {
 
       /* Waybar */
       window#waybar {
-        background: ${xcolors.background_dark};
+        background: ${xcolors.black0};
       }
 
       window#waybar.empty #window {
@@ -325,7 +325,7 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: ${xcolors.background};
+        background: ${xcolors.black3};
         border-radius: 8px;
         margin: 0.5rem 0.25rem;
       }
@@ -354,8 +354,8 @@ in {
       #custom-suspend,
       #custom-reboot,
       #custom-power {
-        background: ${xcolors.accent};
-        color: ${xcolors.background};
+        background: ${xcolors.blue};
+        color: ${xcolors.black3};
         padding: 0.5rem;
       }
 
@@ -365,7 +365,7 @@ in {
       }
 
       #workspaces button {
-        background: ${xcolors.foreground};
+        background: ${xcolors.white};
         border-radius: 100%;
         min-width: 1rem;
         margin-right: 0.75rem;
@@ -377,39 +377,39 @@ in {
       }
 
       #workspaces button:hover {
-        background: lighter(${xcolors.foreground});
+        background: lighter(${xcolors.white});
       }
 
       #workspaces button.empty {
-        background: ${xcolors.bright.black};
+        background: ${xcolors.gray1};
       }
 
       #workspaces button.empty:hover {
-        background: lighter(${xcolors.bright.black});
+        background: lighter(${xcolors.gray1});
       }
 
       #workspaces button.urgent {
-        background: ${xcolors.normal.red};
+        background: ${xcolors.red};
       }
 
       #workspaces button.urgent:hover {
-        background: lighter(${xcolors.normal.red});
+        background: lighter(${xcolors.red});
       }
 
       #workspaces button.special {
-        background: ${xcolors.normal.blue};
+        background: ${xcolors.blue};
       }
 
       #workspaces button.special:hover {
-        background: lighter(${xcolors.normal.blue});
+        background: lighter(${xcolors.blue});
       }
 
       #workspaces button.active {
-        background: ${xcolors.accent};
+        background: ${xcolors.blue};
       }
 
       #workspaces button.active:hover {
-        background: lighter(${xcolors.accent});
+        background: lighter(${xcolors.blue});
       }
 
       /* Hyprland Window */
@@ -424,39 +424,39 @@ in {
 
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
-        background: ${xcolors.normal.red};
+        background: ${xcolors.red};
       }
 
       /* Network */
       #network.disconnected {
-        color: ${xcolors.normal.red};
+        color: ${xcolors.red};
       }
 
       /* Pulseaudio */
       #pulseaudio.muted {
-        color: ${xcolors.normal.red};
+        color: ${xcolors.red};
       }
 
       #pulseaudio-slider highlight,
       #backlight-slider highlight {
-        background: ${xcolors.foreground};
+        background: ${xcolors.white};
       }
 
       /* Battery */
       #battery.charging,
       #battery.plugged {
-        color: ${xcolors.normal.green};
+        color: ${xcolors.green};
       }
 
       #battery.critical:not(.charging) {
-        color: ${xcolors.normal.red};
+        color: ${xcolors.red};
         animation: blink 0.5s steps(12) infinite alternate;
       }
 
       /* Keyframes */
       @keyframes blink {
         to {
-          color: ${xcolors.foreground};
+          color: ${xcolors.white};
         }
       }
     '';

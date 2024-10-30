@@ -5,6 +5,8 @@
     "extensions.autoUpdate" = false;
     "update.mode" = "none";
     "update.showReleaseNotes" = false;
+    "redhat.telemetry.enabled" = false;
+    "telemetry.telemetryLevel" = "off";
   };
 
   editor = {
@@ -72,15 +74,11 @@
     };
   };
 
-  telemetry = {
-    "redhat.telemetry.enabled" = false;
-    "telemetry.telemetryLevel" = "off";
-  };
-
   terminal = {
     "terminal.integrated.fontFamily" = "JetBrains Mono";
     "terminal.integrated.fontSize" = 13;
     "terminal.integrated.gpuAcceleration" = "on";
+    "terminal.integrated.minimumContrastRatio" = 1;
   };
 
   window = {
@@ -93,11 +91,10 @@
 
   workbench = {
     "workbench.activityBar.location" = "top";
-    "workbench.colorTheme" = "GitHub Dark Default";
-    "workbench.iconTheme" = "material-icon-theme";
+    "workbench.colorTheme" = "Catppuccin Macchiato";
+    "workbench.iconTheme" = "catppuccin-macchiato";
     "workbench.layoutControl.enabled" = false;
     "workbench.panel.defaultLocation" = "bottom";
-    "workbench.productIconTheme" = "icons-carbon";
     "workbench.sideBar.location" = "right";
     "workbench.startupEditor" = "none";
     "workbench.tree.indent" = 16;
@@ -115,11 +112,23 @@
     "errorLens.gutterIconsEnabled" = true;
     "errorLens.gutterIconSet" = "defaultOutline";
 
-    # path-intellisense
-    "path-intellisense.autoSlashAfterDirectory" = true;
-    "path-intellisense.autoTriggerNextSuggestion" = true;
-    "path-intellisense.extensionOnImport" = true;
-    "path-intellisense.showHiddenFiles" = true;
+    # eslint
+    "eslint.format.enable" = true;
+    "eslint.problems.shortenToSingleLine" = true;
+    "eslint.validate" = [
+      "javascript"
+      "typescript"
+      "javascriptreact"
+      "typescriptreact"
+      "astro"
+      "svelte"
+    ];
+
+    # prettier
+    "prettier.jsxSingleQuote" = true;
+
+    # svelte
+    "svelte.enable-ts-plugin" = true;
   };
 
   # Formatter settings
@@ -133,14 +142,15 @@
     "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[markdown]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
-    "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
     "[scss]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
     "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+    "[typescriptreact]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
   # Language specific settings
   language = {
-    # Go
+    # go
     "go.alternateTools" = {
       "delve" = "${pkgs.delve}/bin/dlv";
       "gofumpt" = "${pkgs.gofumpt}/bin/gofumpt";
@@ -176,7 +186,23 @@
       ];
     };
 
-    # Java
+    # typescript
+    "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
+    "typescript.inlayHints.parameterNames.enabled" = "all";
+    "typescript.inlayHints.parameterTypes.enabled" = true;
+    "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
+    "typescript.preferGoToSourceDefinition" = true;
+    "typescript.suggest.completeFunctionCalls" = true;
+
+    # javascript
+    "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
+    "javascript.inlayHints.parameterNames.enabled" = "all";
+    "javascript.inlayHints.parameterTypes.enabled" = true;
+    "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
+    "javascript.preferGoToSourceDefinition" = true;
+    "javascript.suggest.completeFunctionCalls" = true;
+
+    # java
     "java.configuration.runtimes" = [
       {
         name = "JavaSE-17";
@@ -187,17 +213,11 @@
     "java.format.settings.profile" = "GoogleStyle";
     "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
 
-    # Nix
+    # nix
     "nix.enableLanguageServer" = true;
     "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
     "nix.serverPath" = "${pkgs.nil}/bin/nil";
     "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
-
-    # Python
-    "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
-    "python.languageServer" = "Pylance";
-    "python.analysis.typeCheckingMode" = "strict";
-    "python.analysis.autoFormatStrings" = true;
   };
 in {
   programs.vscode.userSettings =
@@ -206,7 +226,6 @@ in {
     // breadcrumbs
     // explorer
     // files
-    // telemetry
     // terminal
     // window
     // workbench

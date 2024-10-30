@@ -33,11 +33,11 @@ in {
           monitor = "";
           size = "300, 50";
           outline_thickness = 1;
-          outer_color = "rgb(${colors.background_dark})";
-          inner_color = "rgb(${colors.background})";
-          font_color = "rgb(${colors.foreground})";
-          check_color = "rgb(${colors.accent})";
-          fail_color = "rgb(${colors.normal.red})";
+          outer_color = "rgb(${colors.black0})";
+          inner_color = "rgb(${colors.black2})";
+          font_color = "rgb(${colors.white})";
+          check_color = "rgb(${colors.blue})";
+          fail_color = "rgb(${colors.red})";
           fade_on_empty = false;
           placeholder_text = "<i>Input Password...</i>";
           dots_spacing = 0.2;
@@ -51,7 +51,7 @@ in {
           text = "$TIME";
           font_family = "Inter Display Bold";
           font_size = 96;
-          color = "rgb(${colors.foreground})";
+          color = "rgb(${colors.white})";
           position = "0, 150";
           valign = "center";
           halign = "center";
@@ -61,7 +61,7 @@ in {
           text = "cmd[update:3600000] date +'%a %b %d'";
           font_family = "Inter Display";
           font_size = 24;
-          color = "rgb(${colors.foreground})";
+          color = "rgb(${colors.white})";
           position = "0, 50";
           valign = "center";
           halign = "center";
@@ -71,7 +71,7 @@ in {
           text = "   $USER";
           font_family = "Inter Display Medium";
           font_size = 18;
-          color = "rgb(${colors.foreground})";
+          color = "rgb(${colors.white})";
           position = "0, 50";
           valign = "bottom";
           halign = "center";
