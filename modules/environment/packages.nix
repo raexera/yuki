@@ -11,6 +11,7 @@
       discord
       tdesktop
       zoom-us
+      brave
     ];
   };
 }
