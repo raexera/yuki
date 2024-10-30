@@ -71,7 +71,7 @@
       # Window border colors and terminal bell colors
       active_border_color = xcolors.blue;
       inactive_border_color = xcolors.gray0;
-      bell_border_color = xcolors.sky;
+      bell_border_color = xcolors.yellow;
       visual_bell_color = "none";
 
       # Tab bar colors
@@ -80,6 +80,14 @@
       inactive_tab_foreground = xcolors.white;
       inactive_tab_background = xcolors.black2;
       tab_bar_background = xcolors.black1;
+
+      # Colors for marks (marked text in the terminal)
+      mark1_foreground = xcolors.black2;
+      mark1_background = xcolors.lavender;
+      mark2_foreground = xcolors.black2;
+      mark2_background = xcolors.mauve;
+      mark3_foreground = xcolors.black2;
+      mark3_background = xcolors.sky;
 
       # The basic 16 colors
       # black

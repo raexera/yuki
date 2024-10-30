@@ -1,6 +1,7 @@
 lib: {
   colorscheme = rec {
     colors = {
+      # Catppuccin v0.1.3
       rosewater = "F5E0DC";
       flamingo = "F2CDCD";
       pink = "F5C2E7";
@@ -11,18 +12,18 @@ lib: {
       yellow = "FAE3B0";
       green = "ABE9B3";
       teal = "B5E8E0";
-      sky = "89DCEB";
       blue = "96CDFB";
+      sky = "89DCEB";
       lavender = "C9CBFF";
-      white = "C5C8C9"; # text
-      gray2 = "5C6262";
-      gray1 = "4A5051"; # surface2
-      gray0 = "363D3E"; # surface1
+      black0 = "0D1416";
+      black1 = "111719";
+      black2 = "131A1C";
+      black3 = "192022";
       black4 = "202729";
-      black3 = "192022"; # surface0
-      black2 = "131A1C"; # base
-      black1 = "111719"; # mantle
-      black0 = "0D1416"; # crust
+      gray0 = "363D3E";
+      gray1 = "4A5051";
+      gray2 = "5C6262";
+      white = "C5C8C9";
     };
 
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;

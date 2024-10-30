@@ -70,16 +70,18 @@
               yellow = "${xcolors.yellow}";
               green = "${xcolors.green}";
               teal = "${xcolors.teal}";
-              sky = "${xcolors.sky}";
               blue = "${xcolors.blue}";
+              sky = "${xcolors.sky}";
               lavender = "${xcolors.lavender}";
-              text = "${xcolors.white}";
-              surface2 = "${xcolors.gray1}";
-              surface1 = "${xcolors.gray0}";
-              surface0 = "${xcolors.black3}";
-              base = "${xcolors.black2}";
-              mantle = "${xcolors.black1}";
               crust = "${xcolors.black0}";
+              mantle = "${xcolors.black1}";
+              base = "${xcolors.black2}";
+              surface0 = "${xcolors.black3}";
+              surface1 = "${xcolors.black4}";
+              surface2 = "${xcolors.gray0}";
+              overlay0 = "${xcolors.gray1}";
+              overlay1 = "${xcolors.gray2}";
+              text = "${xcolors.white}";
             };
           };
           customUIColors = {
