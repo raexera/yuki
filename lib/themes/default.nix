@@ -15,15 +15,15 @@ lib: {
       blue = "96CDFB";
       sky = "89DCEB";
       lavender = "C9CBFF";
-      black0 = "0D1416";
-      black1 = "111719";
-      black2 = "131A1C";
-      black3 = "192022";
-      black4 = "202729";
-      gray0 = "363D3E";
-      gray1 = "4A5051";
-      gray2 = "5C6262";
-      white = "C5C8C9";
+      black0 = "0D1416"; # crust
+      black1 = "111719"; # mantle
+      black2 = "131A1C"; # base
+      black3 = "192022"; # surface0
+      black4 = "202729"; # surface1
+      gray0 = "363D3E"; # surface2
+      gray1 = "4A5051"; # overlay0
+      gray2 = "5C6262"; # overlay1
+      white = "C5C8C9"; # text
     };
 
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;
