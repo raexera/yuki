@@ -39,40 +39,43 @@ in {
           check_color = "rgb(${colors.blue})";
           fail_color = "rgb(${colors.red})";
           fade_on_empty = false;
-          placeholder_text = "<i>Input Password...</i>";
+          placeholder_text = "<i>Enter Password</i>";
           dots_spacing = 0.2;
           dots_center = true;
+          position = "0, 125";
+          valign = "bottom";
+          halign = "center";
         }
       ];
 
       label = [
         {
           monitor = "";
-          text = "$TIME";
-          font_family = "Inter Display Bold";
-          font_size = 120;
+          text = "cmd[update:3600000] date +'%A, %B %d'";
+          font_family = "Inter Display";
+          font_size = 36;
           color = "rgb(${colors.white})";
-          position = "0, 240";
-          valign = "center";
+          position = "0, -150";
+          valign = "top";
           halign = "center";
         }
         {
           monitor = "";
-          text = "cmd[update:3600000] date +'%a %b %d'";
-          font_family = "Inter Display";
-          font_size = 24;
+          text = "$TIME";
+          font_family = "Inter Display Bold";
+          font_size = 132;
           color = "rgb(${colors.white})";
-          position = "0, 120";
-          valign = "center";
+          position = "0, -200";
+          valign = "top";
           halign = "center";
         }
         {
           monitor = "";
           text = "   $USER";
           font_family = "Inter Display Medium";
-          font_size = 18;
+          font_size = 24;
           color = "rgb(${colors.white})";
-          position = "0, 48";
+          position = "0, 200";
           valign = "bottom";
           halign = "center";
         }
