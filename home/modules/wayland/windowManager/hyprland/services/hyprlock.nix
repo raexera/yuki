@@ -32,7 +32,7 @@ in {
         {
           monitor = "";
           size = "300, 50";
-          outline_thickness = 1;
+          outline_thickness = 2;
           outer_color = "rgb(${colors.gray0})";
           inner_color = "rgb(${colors.black0})";
           font_color = "rgb(${colors.white})";
@@ -50,9 +50,9 @@ in {
           monitor = "";
           text = "$TIME";
           font_family = "Inter Display Bold";
-          font_size = 96;
+          font_size = 120;
           color = "rgb(${colors.white})";
-          position = "0, 150";
+          position = "0, 240";
           valign = "center";
           halign = "center";
         }
@@ -62,7 +62,7 @@ in {
           font_family = "Inter Display";
           font_size = 24;
           color = "rgb(${colors.white})";
-          position = "0, 50";
+          position = "0, 120";
           valign = "center";
           halign = "center";
         }
@@ -72,7 +72,7 @@ in {
           font_family = "Inter Display Medium";
           font_size = 18;
           color = "rgb(${colors.white})";
-          position = "0, 50";
+          position = "0, 48";
           valign = "bottom";
           halign = "center";
         }
