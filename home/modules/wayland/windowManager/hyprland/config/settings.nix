@@ -4,7 +4,7 @@
   ...
 }: let
   pointer = config.home.pointerCursor;
-  cursorName = "Bibata-Modern-Ice-Hyprcursor";
+  cursorName = "Bibata-Modern-Classic-Hyprcursor";
   inherit (themes.colorscheme) colors;
 in {
   wayland.windowManager.hyprland.settings = {

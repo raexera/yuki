@@ -6,10 +6,10 @@
   python3Packages,
   hyprcursor,
   variant ? "modern",
-  baseColor ? "#FFFFFF",
-  outlineColor ? "#000000",
-  watchBackgroundColor ? "#FFFFFF",
-  colorName ? "ice",
+  baseColor ? "#000000",
+  outlineColor ? "#FFFFFF",
+  watchBackgroundColor ? "#000000",
+  colorName ? "classic",
 }: let
   capitalize = str: let
     capital_letter = builtins.substring 0 1 str;

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cursor = "Bibata-Modern-Ice-Hyprcursor";
+  cursor = "Bibata-Modern-Classic-Hyprcursor";
   cursorPackage = inputs.self.packages.${pkgs.system}.bibata-hyprcursor;
 in {
   imports = [
