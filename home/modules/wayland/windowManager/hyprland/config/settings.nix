@@ -96,8 +96,11 @@ in {
     };
 
     misc = {
+      animate_manual_resizes = true;
+      animate_mouse_windowdragging = true;
       disable_autoreload = true;
       disable_hyprland_logo = true;
+      focus_on_activate = true;
       force_default_wallpaper = 0;
       vfr = true;
       vrr = 1;
