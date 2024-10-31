@@ -32,6 +32,7 @@
 
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+
       extraConfig = ''
         gtk-xft-antialias=1
         gtk-xft-hinting=1
@@ -51,8 +52,6 @@
       ];
 
       extraConfig = {
-        gtk-application-prefer-dark-theme = 1;
-
         gtk-xft-antialias = 1;
         gtk-xft-hinting = 1;
         gtk-xft-hintstyle = "hintfull";
@@ -60,6 +59,9 @@
       };
     };
 
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
+
+  home.sessionVariables.GTK_THEME = config.gtk.theme.name;
 }

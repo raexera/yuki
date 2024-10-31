@@ -8,7 +8,7 @@
     owner = "GabePoel";
     repo = "KvLibadwaita";
     rev = "87c1ef9f44ec48855fd09ddab041007277e30e37";
-    hash = "sha256-K/2FYOtX0RzwdcGyeurLXAh3j8ohxMrH2OWldqVoLwo=";
+    hash = "sha256-xBl6zmpqTAH5MIT5iNAdW6kdOcB5MY0Dtrb95hdYpwA=";
     sparseCheckout = ["src"];
   };
 
@@ -20,12 +20,11 @@
       style = "kvantum";
     };
   };
-
-  defaultFont = "${config.gtk.font.name},${builtins.toString config.gtk.font.size}";
 in {
   qt = {
     enable = true;
     platformTheme.name = "qtct";
+    style.name = "kvantum";
   };
 
   home.packages = with pkgs; [
@@ -36,42 +35,19 @@ in {
   ];
 
   xdg.configFile = {
-    # Kvantum config
     "Kvantum" = {
       source = "${KvLibadwaita}/src";
       recursive = true;
     };
 
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=KvLibadwaitaDark
-    '';
+    "Kvantum/kvantum.kvconfig".text = lib.generators.toINI {} {
+      General.theme = "KvLibadwaitaDark";
+    };
 
-    # qtct config
-    "qt5ct/qt5ct.conf".text = let
-      default = ''"${defaultFont},-1,5,50,0,0,0,0,0"'';
-    in
-      lib.generators.toINI {} (
-        qtctConf
-        // {
-          Fonts = {
-            fixed = default;
-            general = default;
-          };
-        }
-      );
+    "qt5ct/qt5ct.conf".text =
+      lib.generators.toINI {} qtctConf;
 
-    "qt6ct/qt6ct.conf".text = let
-      default = ''"${defaultFont},-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
-    in
-      lib.generators.toINI {} (
-        qtctConf
-        // {
-          Fonts = {
-            fixed = default;
-            general = default;
-          };
-        }
-      );
+    "qt6ct/qt6ct.conf".text =
+      lib.generators.toINI {} qtctConf;
   };
 }
