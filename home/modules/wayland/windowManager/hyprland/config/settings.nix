@@ -27,7 +27,9 @@ in {
       "col.inactive_border" = "rgb(${colors.gray0})";
 
       resize_on_border = true;
-      allow_tearing = true;
+
+      # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+      allow_tearing = false;
 
       layout = "dwindle";
     };
@@ -45,24 +47,26 @@ in {
       rounding = 16;
       blur.enabled = false;
       drop_shadow = false;
+      active_opacity = 1.0;
+      inactive_opacity = 1.0;
     };
 
     animations = {
       enabled = true;
 
       bezier = [
-        "quart, 0.25, 1, 0.5, 1"
+        "myBezier, 0.25, 1, 0.5, 1"
       ];
 
       animation = [
-        "windows, 1, 5, quart, popin 75%"
-        "windowsIn, 1, 5, quart, popin 75%"
-        "windowsOut, 1, 5, quart, popin 75%"
+        "windows, 1, 5, myBezier, popin 75%"
+        "windowsIn, 1, 5, myBezier, popin 75%"
+        "windowsOut, 1, 5, myBezier, popin 75%"
         "windowsMove, 1, 5, default"
         "border, 1, 10, default"
-        "fade, 1, 5, quart"
-        "workspaces, 1, 5, quart, slide"
-        "specialWorkspace, 1, 5, quart, slidevert"
+        "fade, 1, 5, myBezier"
+        "workspaces, 1, 5, myBezier, slide"
+        "specialWorkspace, 1, 5, myBezier, slidevert"
       ];
     };
 
