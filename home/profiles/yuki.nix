@@ -4,7 +4,7 @@
 
     ../modules/wayland/windowManager/hyprland
 
-    ../modules/programs/firefox.nix
+    # ../modules/programs/firefox.nix
     ../modules/programs/gpg.nix
     ../modules/programs/gtk.nix
     ../modules/programs/kitty.nix

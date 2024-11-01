@@ -13,13 +13,12 @@
       "float, class:^(thunar)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
       "float, title:^(Media viewer)$"
+      "float,title:^(Open Files?|All Files|Open Folder|Install from VSIX)$"
       "float, title:^(Picture-in-Picture)$"
       "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
-      "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
-      "idleinhibit fullscreen, class:^(firefox)$"
+      "idleinhibit focus, class:^(brave-browser)$, title:^(.*YouTube.*)$"
+      "idleinhibit fullscreen, class:^(brave-browser)$"
       "pin, title:^(Picture-in-Picture)$"
-      "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
-      "workspace special silent, title:^(Firefox — Sharing Indicator)$"
     ];
   };
 }
