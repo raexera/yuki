@@ -12,7 +12,7 @@
       italic_font = "auto";
       bold_italic_font = "auto";
       disable_ligatures = "never";
-      font_size = "11.0";
+      font_size = "13.0";
 
       # Cursor
       cursor_shape = "underline";
