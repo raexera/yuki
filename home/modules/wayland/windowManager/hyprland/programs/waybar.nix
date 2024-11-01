@@ -50,7 +50,8 @@ in {
         };
 
         "hyprland/window" = {
-          format = "{}";
+          format = "{title}";
+          icon = true;
           separate-outputs = true;
         };
 
@@ -220,7 +221,7 @@ in {
         all: unset;
         color: ${xcolors.white};
         font:
-          11pt "Material Design Icons",
+          500 11pt "Material Design Icons",
           Inter,
           sans-serif;
       }

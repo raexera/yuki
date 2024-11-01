@@ -46,7 +46,7 @@
       * {
         all: unset;
         font:
-          11pt Inter,
+          500 11pt Inter,
           sans-serif;
         transition: 200ms;
       }
