@@ -9,11 +9,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1728852607,
-        "narHash": "sha256-PhJdr8b4nZVHts5KMEsf7vCDXVpFIFCa7VlCt+oYpL4=",
+        "lastModified": 1730444665,
+        "narHash": "sha256-i3FxeHjsHw4AePx3AWVVywy92EEobx/ZER4ignWxNrE=",
         "owner": "anyrun-org",
         "repo": "anyrun",
-        "rev": "6e0385f6945d701545edc5bccfc5f544e1e12663",
+        "rev": "b3b4f2253d43af3311b3d3fc86973fc3e9559c33",
         "type": "github"
       },
       "original": {
@@ -631,11 +631,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1728593025,
-        "narHash": "sha256-j/p2ftkP8MXYEK7Vx65jH/Knr2QkEcRSVoDnVOUDe6Q=",
+        "lastModified": 1730389079,
+        "narHash": "sha256-g/CJ/KKe5MGsVx1oCBl0F9aCdcNSDeOw8H7e5QDGa2c=",
         "owner": "nix-community",
         "repo": "nix-eval-jobs",
-        "rev": "a3307ac4b38b6dae769f771c877a6f2c236ee238",
+        "rev": "7f9159a16584ee86eed077c8a73e845690b7d513",
         "type": "github"
       },
       "original": {
@@ -697,11 +697,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730339415,
-        "narHash": "sha256-3dbUPDSAteNUvaMh3mh61FBQNhhT9n3XBQH2HK0C8+I=",
+        "lastModified": 1730426202,
+        "narHash": "sha256-swwKpE3lrdvcSh6Hjyf/eSe/zPnsZgeVlSl+B4yBpeo=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "bdda106fe8c2beda62338254783c562bfb5648a2",
+        "rev": "96dcbddd24edc60ad47f41bb2a73e06099eba4af",
         "type": "github"
       },
       "original": {
@@ -783,11 +783,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730370900,
-        "narHash": "sha256-lfHnflDJmjO5lQj8lZXQZVTrAiIhqHlcUP613Ri8GbY=",
+        "lastModified": 1730425081,
+        "narHash": "sha256-c8JK1Zuc9QjfLfbnAEtB3uHz5pd+RMgMiR263TEtwAs=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "669c3662a447dcc7f8eb135dadb51a5c704b6a2d",
+        "rev": "968d7a95604a2ec252ce9912199dfa9ec6410ff0",
         "type": "github"
       },
       "original": {
