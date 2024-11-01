@@ -15,16 +15,16 @@
     "editor.cursorBlinking" = "smooth";
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.folding" = true;
-    "editor.fontFamily" = "JetBrains Mono";
+    "editor.fontFamily" = "'JetBrainsMono NFP', 'Droid Sans Mono', 'monospace', monospace";
     "editor.fontLigatures" = true;
-    "editor.fontSize" = 13;
+    "editor.fontSize" = 16;
     "editor.fontWeight" = "500";
     "editor.formatOnPaste" = true;
     "editor.formatOnSave" = true;
     "editor.formatOnType" = true;
     "editor.guides.bracketPairs" = true;
     "editor.guides.indentation" = true;
-    "editor.inlayHints.fontSize" = 11;
+    "editor.inlayHints.fontSize" = 12;
     "editor.inlayHints.padding" = true;
     "editor.inlineSuggest.enabled" = true;
     "editor.linkedEditing" = true;
@@ -75,8 +75,8 @@
   };
 
   terminal = {
-    "terminal.integrated.fontFamily" = "JetBrains Mono";
-    "terminal.integrated.fontSize" = 13;
+    "terminal.integrated.fontFamily" = "'JetBrainsMono NFP', 'Droid Sans Mono', 'monospace', monospace";
+    "terminal.integrated.fontSize" = 16;
     "terminal.integrated.gpuAcceleration" = "on";
     "terminal.integrated.minimumContrastRatio" = 1;
   };
