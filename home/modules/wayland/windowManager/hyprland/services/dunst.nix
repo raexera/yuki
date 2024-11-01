@@ -17,6 +17,7 @@
         enable_recursive_icon_lookup = true;
         follow = "mouse";
         font = "Inter 11";
+        force_xwayland = false;
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
         frame_color = "${xcolors.gray0}";
         frame_width = 2;
@@ -28,7 +29,7 @@
         icon_theme = "Papirus-Dark";
         ignore_newline = false;
         indicate_hidden = true;
-        layer = "top";
+        layer = "overlay";
         line_height = 0;
         markup = "full";
         max_icon_size = 64;
@@ -37,7 +38,7 @@
         mouse_middle_click = "close_all";
         mouse_right_click = "close_current";
         notification_limit = 20;
-        offset = "5x5";
+        offset = "(0, 10)";
         origin = "top-center";
         padding = 12;
         progress_bar = true;

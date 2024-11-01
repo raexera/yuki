@@ -9,7 +9,6 @@
 in {
   wayland.windowManager.hyprland.settings = {
     env = [
-      "GDK_SCALE,2"
       "HYPRCURSOR_THEME,${cursorName}"
       "HYPRCURSOR_SIZE,${toString pointer.size}"
     ];
@@ -55,18 +54,21 @@ in {
       enabled = true;
 
       bezier = [
-        "myBezier, 0.25, 1, 0.5, 1"
+        "quart, 0.25, 1, 0.5, 1"
       ];
 
       animation = [
-        "windows, 1, 5, myBezier, popin 75%"
-        "windowsIn, 1, 5, myBezier, popin 75%"
-        "windowsOut, 1, 5, myBezier, popin 75%"
-        "windowsMove, 1, 5, default"
+        "windows, 1, 3, quart, popin 60%"
+        "windowsIn, 1, 3, quart, popin 60%"
+        "windowsOut, 1, 3, quart, popin 60%"
+        "windowsMove, 1, 3, quart, slide"
+        "layers, 1, 3, quart, slide"
+        "layersIn, 1, 3, quart, slide"
+        "layersOut, 1, 3, quart"
+        "fade, 1, 5, quart"
         "border, 1, 10, default"
-        "fade, 1, 5, myBezier"
-        "workspaces, 1, 5, myBezier, slide"
-        "specialWorkspace, 1, 5, myBezier, slidevert"
+        "workspaces, 1, 5, quart, slide"
+        "specialWorkspace, 1, 5, quart, slidevert"
       ];
     };
 
@@ -106,9 +108,9 @@ in {
       vrr = 1;
     };
 
-    cursor.no_hardware_cursors = true;
-    debug.disable_logs = false;
-    render.direct_scanout = true;
-    xwayland.force_zero_scaling = true;
+    xwayland = {
+      enabled = true;
+      force_zero_scaling = true;
+    };
   };
 }
