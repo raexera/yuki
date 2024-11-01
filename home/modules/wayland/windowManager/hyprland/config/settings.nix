@@ -44,29 +44,37 @@ in {
 
     decoration = {
       rounding = 16;
-      blur.enabled = false;
-      drop_shadow = false;
       active_opacity = 1.0;
       inactive_opacity = 1.0;
+      fullscreen_opacity = 1.0;
+      drop_shadow = false;
+      dim_inactive = false;
+      blur.enabled = false;
     };
 
     animations = {
       enabled = true;
+      first_launch_animation = true;
 
       bezier = [
         "quart, 0.25, 1, 0.5, 1"
       ];
 
       animation = [
-        "windows, 1, 3, quart, popin 60%"
+        "global, 1, 10, default"
+        "windows, 1, 3, quart"
         "windowsIn, 1, 3, quart, popin 60%"
         "windowsOut, 1, 3, quart, popin 60%"
         "windowsMove, 1, 3, quart, slide"
-        "layers, 1, 3, quart, slide"
-        "layersIn, 1, 3, quart, slide"
-        "layersOut, 1, 3, quart"
-        "fade, 1, 5, quart"
-        "border, 1, 10, default"
+        "layers, 1, 3, quart"
+        "layersIn, 1, 3, quart, fade"
+        "layersOut, 1, 3, quart, fade"
+        "fade, 1, 3, quart"
+        "fadeIn, 1, 3, quart"
+        "fadeOut, 1, 3, quart"
+        "fadeLayersIn, 1, 3, quart"
+        "fadeLayersOut, 1, 3, quart"
+        "border, 1, 5, quart"
         "workspaces, 1, 5, quart, slide"
         "specialWorkspace, 1, 5, quart, slidevert"
       ];
