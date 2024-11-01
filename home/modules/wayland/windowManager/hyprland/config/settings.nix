@@ -57,26 +57,26 @@ in {
       first_launch_animation = true;
 
       bezier = [
-        "quart, 0.25, 1, 0.5, 1"
+        "easeOutQuart, 0.25, 1, 0.5, 1"
       ];
 
       animation = [
-        "global, 1, 10, default"
-        "windows, 1, 3, quart"
-        "windowsIn, 1, 3, quart, popin 60%"
-        "windowsOut, 1, 3, quart, popin 60%"
-        "windowsMove, 1, 3, quart, slide"
-        "layers, 1, 3, quart"
-        "layersIn, 1, 3, quart, fade"
-        "layersOut, 1, 3, quart, fade"
-        "fade, 1, 3, quart"
-        "fadeIn, 1, 3, quart"
-        "fadeOut, 1, 3, quart"
-        "fadeLayersIn, 1, 3, quart"
-        "fadeLayersOut, 1, 3, quart"
-        "border, 1, 5, quart"
-        "workspaces, 1, 5, quart, slide"
-        "specialWorkspace, 1, 5, quart, slidevert"
+        "global, 1, 5, default"
+        "border, 1, 5, easeOutQuart"
+        "windows, 1, 3, easeOutQuart"
+        "windowsIn, 1, 3, easeOutQuart, slide"
+        "windowsOut, 1, 3, easeOutQuart, slide"
+        "windowsMove, 1, 3, easeOutQuart, slide"
+        "layers, 1, 3, easeOutQuart"
+        "layersIn, 1, 3, easeOutQuart, fade"
+        "layersOut, 1, 3, easeOutQuart, fade"
+        "fade, 1, 3, easeOutQuart"
+        "fadeIn, 1, 3, easeOutQuart"
+        "fadeOut, 1, 3, easeOutQuart"
+        "fadeLayersIn, 1, 3, easeOutQuart"
+        "fadeLayersOut, 1, 3, easeOutQuart"
+        "workspaces, 1, 5, easeOutQuart, slide"
+        "specialWorkspace, 1, 5, easeOutQuart, slidevert"
       ];
     };
 
