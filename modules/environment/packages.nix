@@ -1,17 +1,22 @@
 {pkgs, ...}: {
   environment = {
     systemPackages = with pkgs; [
-      onlyoffice-bin
-      vim
-      git
-      gtk3
-      gdk-pixbuf
-      librsvg
-      youtube-music
+      # Communication
+      zoom-us
       discord
       tdesktop
-      zoom-us
-      brave
+
+      # Media & Music
+      youtube-music
+      amberol
+      celluloid
+      imv
+      loupe
+      pavucontrol
+
+      # Office & Reading
+      onlyoffice-bin
+      foliate
     ];
   };
 }

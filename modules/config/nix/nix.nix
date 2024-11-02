@@ -1,8 +1,8 @@
 {
   config,
-  pkgs,
   inputs,
   lib,
+  pkgs,
   ...
 }: {
   nix = let
@@ -26,4 +26,7 @@
       trusted-users = ["root" "@wheel"];
     };
   };
+
+  # we need git for flakes
+  environment.systemPackages = [pkgs.git];
 }

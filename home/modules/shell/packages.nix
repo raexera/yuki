@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     atac
     atool
+    brightnessctl
     coreutils
     curl
     du-dust
@@ -24,7 +25,9 @@
     p7zip
     pre-commit
     procs
+    playerctl
     psmisc
+    pulsemixer
     ripgrep
     rsync
     skaffold
@@ -33,6 +36,7 @@
     unrar
     unzip
     util-linux
+    vim
     watchexec
     wget
     wrk

@@ -1,18 +1,20 @@
 {
   imports = [
     ../modules/dev
-
+    ../modules/programs/vscode
     ../modules/wayland/windowManager/hyprland
 
-    # ../modules/programs/firefox.nix
+    ../modules/programs/firefox.nix
     ../modules/programs/gpg.nix
     ../modules/programs/gtk.nix
     ../modules/programs/kitty.nix
-    ../modules/programs/media
+    ../modules/programs/mpv.nix
     ../modules/programs/nix-index-db.nix
+    ../modules/programs/obs-studio.nix
+    ../modules/programs/playerctld.nix
     ../modules/programs/qt.nix
-    ../modules/programs/vscode
     ../modules/programs/xdg.nix
+    ../modules/programs/zen.nix
 
     ../modules/services/blueman-applet.nix
     ../modules/services/gnome-keyring.nix
