@@ -1,9 +1,5 @@
 {
-  description = ''
-    ░░░░░█░█░█░█░█░█░▀█▀░░░░
-    ░░░░░░█░░█░█░█▀▄░░█░░░░░
-    ░░░░░░▀░░▀▀▀░▀░▀░▀▀▀░░░░
-  '';
+  description = "Yuki: NixOS and Home-Manager flake";
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./flake];};
 
@@ -29,11 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-index-db = {
-      url = "github:Mic92/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,12 +34,6 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
-    };
-
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # hyprwm
@@ -97,6 +82,11 @@
 
     catppuccin-vsc = {
       url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

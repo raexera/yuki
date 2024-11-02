@@ -9,7 +9,6 @@
     ../modules/programs/gtk.nix
     ../modules/programs/kitty.nix
     ../modules/programs/mpv.nix
-    ../modules/programs/nix-index-db.nix
     ../modules/programs/obs-studio.nix
     ../modules/programs/playerctld.nix
     ../modules/programs/qt.nix
