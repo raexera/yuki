@@ -26,11 +26,6 @@
           on-resume = "${brightnessctl} -r";
         }
         {
-          timeout = 150;
-          on-timeout = "${brightnessctl} -sd rgb:kbd_backlight set 0";
-          on-resume = "${brightnessctl} -rd rgb:kbd_backlight";
-        }
-        {
           timeout = 300;
           on-timeout = "${pkgs.systemd}/bin/loginctl lock-session";
         }
