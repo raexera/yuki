@@ -61,20 +61,10 @@ in {
       ];
 
       animation = [
-        "global, 1, 5, default"
-        "border, 1, 5, easeOutQuart"
-        "windows, 1, 3, easeOutQuart"
-        "windowsIn, 1, 3, easeOutQuart, slide"
-        "windowsOut, 1, 3, easeOutQuart, slide"
-        "windowsMove, 1, 3, easeOutQuart, slide"
-        "layers, 1, 3, easeOutQuart"
-        "layersIn, 1, 3, easeOutQuart, fade"
-        "layersOut, 1, 3, easeOutQuart, fade"
+        "windows, 1, 3, easeOutQuart, slide"
+        "layers, 1, 3, easeOutQuart, fade"
         "fade, 1, 3, easeOutQuart"
-        "fadeIn, 1, 3, easeOutQuart"
-        "fadeOut, 1, 3, easeOutQuart"
-        "fadeLayersIn, 1, 3, easeOutQuart"
-        "fadeLayersOut, 1, 3, easeOutQuart"
+        "border, 1, 5, easeOutQuart"
         "workspaces, 1, 5, easeOutQuart, slide"
         "specialWorkspace, 1, 5, easeOutQuart, slidevert"
       ];
