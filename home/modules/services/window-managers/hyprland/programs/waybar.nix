@@ -34,7 +34,7 @@ in {
 
         "image" = {
           path = snowflake;
-          size = 32;
+          size = 24;
           tooltip = false;
         };
 
