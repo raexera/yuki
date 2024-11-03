@@ -1,7 +1,6 @@
 {
-  config,
-  inputs,
   pkgs,
+  inputs,
   ...
 }: let
   cursor = "Bibata-Modern-Classic-Hyprcursor";
@@ -28,21 +27,13 @@ in {
 
   home.packages = with pkgs; [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-    config.wayland.windowManager.hyprland.package
 
-    dbus
     libnotify
-    wf-recorder
     slurp
-    glib
     grim
-    gtk3
-    hyprpicker
-    swappy
     wl-clipboard
     wl-screenrec
     wlr-randr
-    ydotool
   ];
 
   home.sessionVariables = {
