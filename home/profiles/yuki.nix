@@ -2,7 +2,7 @@
   imports = [
     ../modules/dev
     ../modules/programs/vscode
-    ../modules/wayland/windowManager/hyprland
+    ../modules/services/window-managers/hyprland
 
     ../modules/programs/firefox.nix
     ../modules/programs/gpg.nix
