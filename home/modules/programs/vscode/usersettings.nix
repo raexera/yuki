@@ -46,8 +46,11 @@
     "editor.quickSuggestionsDelay" = 300;
     "editor.quickSuggestions"."strings" = "on";
     "editor.codeActionsOnSave" = {
+      "source.addMissingImports" = "always";
       "source.fixAll" = "always";
       "source.organizeImports" = "always";
+      "source.removeUnusedImports" = "always";
+      "source.sortImports" = "always";
     };
   };
 
