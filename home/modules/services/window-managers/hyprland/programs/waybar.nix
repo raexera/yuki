@@ -180,9 +180,10 @@ in {
           };
           modules = [
             "custom/power"
-            "custom/exit"
             "custom/lock"
             "custom/suspend"
+            "custom/hibernate"
+            "custom/exit"
             "custom/reboot"
           ];
           orientation = "inherit";
@@ -190,11 +191,6 @@ in {
         "custom/power" = {
           format = "󰐥";
           on-click = "${pkgs.systemd}/bin/systemctl poweroff";
-          tooltip = false;
-        };
-        "custom/exit" = {
-          format = "󰈆";
-          on-click = "${pkgs.systemd}/bin/loginctl terminate-user $USER";
           tooltip = false;
         };
         "custom/lock" = {
@@ -205,6 +201,16 @@ in {
         "custom/suspend" = {
           format = "󰤄";
           on-click = "${pkgs.systemd}/bin/systemctl suspend";
+          tooltip = false;
+        };
+        "custom/hibernate" = {
+          format = "󰜗";
+          on-click = "${pkgs.systemd}/bin/systemctl hibernate";
+          tooltip = false;
+        };
+        "custom/exit" = {
+          format = "󰍃";
+          on-click = "${pkgs.systemd}/bin/loginctl terminate-user $USER";
           tooltip = false;
         };
         "custom/reboot" = {
@@ -323,6 +329,7 @@ in {
       #clock,
       #custom-exit,
       #custom-lock,
+      #custom-hibernate,
       #custom-suspend,
       #custom-reboot,
       #custom-power {
@@ -352,6 +359,7 @@ in {
 
       #custom-exit,
       #custom-lock,
+      #custom-hibernate,
       #custom-suspend,
       #custom-reboot,
       #custom-power {
