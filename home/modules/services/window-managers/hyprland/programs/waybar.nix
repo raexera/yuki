@@ -321,8 +321,8 @@ in {
       /* Modules */
       #workspaces,
       #custom-weather,
-      #network-pulseaudio-backlight-battery,
       #clock,
+      #network-pulseaudio-backlight-battery,
       #custom-exit,
       #custom-lock,
       #custom-hibernate,
@@ -330,17 +330,18 @@ in {
       #custom-reboot,
       #custom-power {
         background: ${xcolors.black3};
-        border-radius: 8px;
+        border-radius: 4px;
         margin: 0.5rem 0.25rem;
+        padding: 0.25rem;
       }
 
       #image,
       #window,
       #custom-weather,
+      #clock,
       #tray,
-      #network-pulseaudio-backlight-battery,
-      #clock {
-        padding: 0 0.75rem;
+      #network-pulseaudio-backlight-battery {
+        padding: 0.25rem 0.75rem;
       }
 
       #network,
@@ -350,7 +351,12 @@ in {
       #backlight-slider,
       #battery {
         background: transparent;
-        padding: 0.5rem;
+        font-size: 13pt;
+        margin-right: 0.5rem;
+      }
+
+      #battery {
+        margin-right: 0;
       }
 
       #custom-exit,
@@ -361,14 +367,19 @@ in {
       #custom-power {
         background: ${xcolors.blue};
         color: ${xcolors.black3};
-        padding: 0.5rem;
+        font-size: 13pt;
+        min-width: 1.25rem;
       }
 
       /* Hyprland Workspaces */
+      #workspaces {
+        padding: 0;
+      }
+
       #workspaces button {
-        padding: 0 0.75rem;
-        border-radius: 8px;
-        transition: 200ms linear;
+        border-radius: 4px;
+        min-width: 1.75rem;
+        transition: 300ms linear;
       }
 
       #workspaces button label {
