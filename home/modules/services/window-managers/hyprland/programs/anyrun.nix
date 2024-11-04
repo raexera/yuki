@@ -47,7 +47,7 @@
       * {
         all: unset;
         font:
-          500 12pt 'JetBrainsMono NFP',
+          500 11pt 'JetBrainsMono NFP',
           sans-serif;
         transition: 200ms;
       }

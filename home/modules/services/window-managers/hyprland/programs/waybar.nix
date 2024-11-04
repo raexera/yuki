@@ -39,10 +39,8 @@ in {
         };
 
         "hyprland/workspaces" = {
-          format = "";
+          format = "{id}";
           on-click = "activate";
-          disable-scroll = true;
-          all-outputs = true;
           show-special = true;
           persistent-workspaces = {
             "*" = 5;
@@ -227,7 +225,7 @@ in {
         all: unset;
         color: ${xcolors.white};
         font:
-          500 12pt 'Material Design Icons',
+          500 11pt 'Material Design Icons',
           'JetBrainsMono NFP',
           sans-serif;
       }
@@ -322,8 +320,6 @@ in {
 
       /* Modules */
       #workspaces,
-      #window,
-      #tray,
       #custom-weather,
       #network-pulseaudio-backlight-battery,
       #clock,
@@ -369,61 +365,58 @@ in {
       }
 
       /* Hyprland Workspaces */
-      #workspaces {
-        padding: 0.5rem 0.75rem;
-      }
-
       #workspaces button {
-        background: ${xcolors.white};
-        border-radius: 100%;
-        min-width: 1rem;
-        margin-right: 0.75rem;
+        padding: 0 0.75rem;
+        border-radius: 8px;
         transition: 200ms linear;
       }
 
-      #workspaces button:last-child {
-        margin-right: 0;
+      #workspaces button label {
+        color: ${xcolors.white};
       }
 
-      #workspaces button:hover {
-        background: lighter(${xcolors.white});
+      #workspaces button:hover label {
+        color: lighter(${xcolors.white});
       }
 
-      #workspaces button.empty {
-        background: ${xcolors.gray0};
+      #workspaces button.empty label {
+        color: ${xcolors.gray0};
       }
 
-      #workspaces button.empty:hover {
-        background: lighter(${xcolors.gray0});
+      #workspaces button.empty:hover label {
+        color: lighter(${xcolors.gray0});
       }
 
-      #workspaces button.urgent {
-        background: ${xcolors.red};
+      #workspaces button.urgent label {
+        color: ${xcolors.red};
       }
 
-      #workspaces button.urgent:hover {
-        background: lighter(${xcolors.red});
+      #workspaces button.urgent:hover label {
+        color: lighter(${xcolors.red});
       }
 
-      #workspaces button.special {
-        background: ${xcolors.mauve};
+      #workspaces button.special label {
+        color: ${xcolors.mauve};
       }
 
-      #workspaces button.special:hover {
-        background: lighter(${xcolors.mauve});
+      #workspaces button.special:hover label {
+        color: lighter(${xcolors.mauve});
       }
 
       #workspaces button.active {
         background: ${xcolors.blue};
       }
 
+      #workspaces button.active label {
+        color: ${xcolors.black3};
+      }
+
       #workspaces button.active:hover {
         background: lighter(${xcolors.blue});
       }
 
-      /* Hyprland Window */
-      #window {
-        min-width: 1rem;
+      #workspaces button.active:hover label {
+        color: lighter(${xcolors.black3});
       }
 
       /* Systray */
