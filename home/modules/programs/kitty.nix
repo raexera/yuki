@@ -7,12 +7,12 @@
       inherit (themes.colorscheme) xcolors;
     in {
       # Fonts
-      font_family = "JetBrains Mono";
+      font_family = "JetBrainsMono NFM";
       bold_font = "auto";
       italic_font = "auto";
       bold_italic_font = "auto";
       disable_ligatures = "never";
-      font_size = "13.0";
+      font_size = "12.0";
 
       # Cursor
       cursor_shape = "underline";

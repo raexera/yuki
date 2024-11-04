@@ -16,7 +16,7 @@
         ellipsize = "middle";
         enable_recursive_icon_lookup = true;
         follow = "mouse";
-        font = "Inter 11";
+        font = "JetBrainsMono NFP 12";
         force_xwayland = false;
         format = "<b>%a</b>\\n<i>%s</i>\\n%b";
         frame_color = "${xcolors.gray0}";

@@ -227,8 +227,8 @@ in {
         all: unset;
         color: ${xcolors.white};
         font:
-          500 11pt "Material Design Icons",
-          Inter,
+          500 12pt 'Material Design Icons',
+          'JetBrainsMono NFP',
           sans-serif;
       }
 

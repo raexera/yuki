@@ -90,7 +90,7 @@ in {
 
     group = {
       groupbar = {
-        font_size = 16;
+        font_size = 12;
         gradients = false;
       };
     };
