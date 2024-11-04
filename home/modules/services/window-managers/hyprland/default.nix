@@ -28,11 +28,13 @@ in {
   home.packages = with pkgs; [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
 
+    kooha
     libnotify
     slurp
     grim
+    swappy
+    wf-recorder
     wl-clipboard
-    wl-screenrec
     wlr-randr
   ];
 

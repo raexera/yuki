@@ -27,6 +27,7 @@
     slack
     turso-cli
     typescript
+    typst
     uncrustify
   ];
 }
