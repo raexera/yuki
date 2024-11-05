@@ -7,10 +7,10 @@
 
       case "$1" in
       up)
-        ${wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ "$2%+"
+        ${wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ "$2%+"
         ;;
       down)
-        ${wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ "$2%-"
+        ${wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ "$2%-"
         ;;
       toggle-mute)
         ${wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
