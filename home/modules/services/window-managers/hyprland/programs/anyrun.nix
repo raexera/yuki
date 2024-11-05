@@ -46,10 +46,10 @@
       /* Global */
       * {
         all: unset;
-        font:
-          500 11pt 'JetBrainsMono NFP',
-          sans-serif;
-        transition: 200ms;
+        font-family: "JetBrainsMono NFP", sans-serif;
+        font-size: 11pt;
+        font-weight: 500;
+        transition: 300ms;
       }
 
       /* Modules */

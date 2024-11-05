@@ -223,11 +223,9 @@ in {
       /* Global */
       * {
         all: unset;
-        color: ${xcolors.white};
-        font:
-          500 11pt 'Material Design Icons',
-          'JetBrainsMono NFP',
-          sans-serif;
+        font-family: "JetBrainsMono NFP", sans-serif;
+        font-size: 11pt;
+        font-weight: 500;
       }
 
       /* Button */
@@ -320,6 +318,7 @@ in {
 
       /* Modules */
       #workspaces,
+      #workspaces button,
       #custom-weather,
       #clock,
       #network-pulseaudio-backlight-battery,
@@ -330,8 +329,8 @@ in {
       #custom-reboot,
       #custom-power {
         background: ${xcolors.black3};
-        border-radius: 4px;
-        margin: 0.5rem 0.25rem;
+        border-radius: 8px;
+        margin: 0.25rem;
         padding: 0.25rem;
       }
 
@@ -352,7 +351,7 @@ in {
       #battery {
         background: transparent;
         font-size: 13pt;
-        margin-right: 0.5rem;
+        margin-right: 0.75rem;
       }
 
       #battery {
@@ -368,7 +367,7 @@ in {
         background: ${xcolors.blue};
         color: ${xcolors.black3};
         font-size: 13pt;
-        min-width: 1.25rem;
+        min-width: 1.5rem;
       }
 
       /* Hyprland Workspaces */
@@ -377,8 +376,8 @@ in {
       }
 
       #workspaces button {
-        border-radius: 4px;
-        min-width: 1.75rem;
+        margin: 0;
+        min-width: 1.5rem;
         transition: 300ms linear;
       }
 

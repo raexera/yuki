@@ -3,24 +3,16 @@
     enableDefaultPackages = false;
 
     packages = with pkgs; [
-      # System Fonts
       corefonts
-      vistafonts
       dm-sans
-      open-sans
-      work-sans
-      roboto
+      jetbrains-mono
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-
-      # Monospace
-      jetbrains-mono
-
-      # Icon Fonts
-      material-design-icons
-
-      # Custom Fonts
+      open-sans
+      roboto
+      vistafonts
+      work-sans
       (google-fonts.override {fonts = ["Inter"];})
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "JetBrainsMono"];})
     ];
