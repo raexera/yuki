@@ -228,17 +228,6 @@ in {
         font-weight: 500;
       }
 
-      /* Button */
-      button {
-        box-shadow: inset 0 -0.25rem transparent;
-        border: none;
-      }
-
-      button:hover {
-        box-shadow: inherit;
-        text-shadow: inherit;
-      }
-
       /* Menu */
       menu {
         background: ${xcolors.black0};
@@ -301,11 +290,6 @@ in {
       /* Waybar */
       window#waybar {
         background: ${xcolors.black0};
-      }
-
-      window#waybar.empty #window {
-        background: transparent;
-        border: none;
       }
 
       .modules-left {
