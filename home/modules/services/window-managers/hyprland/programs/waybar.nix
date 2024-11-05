@@ -114,6 +114,7 @@ in {
             "󰖀"
             "󰕾"
           ];
+          on-click = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle &> /dev/null";
           on-scroll-up = "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ &> /dev/null";
           on-scroll-down = "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- &> /dev/null";
           tooltip-format = "Volume: {volume}%";
