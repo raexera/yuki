@@ -1,43 +1,37 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
-  _ = lib.getExe;
-
+{pkgs, ...}: let
   volumectl = let
-    inherit (pkgs) libnotify pamixer libcanberra-gtk3;
+    inherit (pkgs) libnotify libcanberra-gtk3 wireplumber;
   in
     pkgs.writeShellScriptBin "volumectl" ''
       #!/usr/bin/env bash
 
       case "$1" in
       up)
-        ${_ pamixer} -i "$2"
+        ${wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ "$2%+"
         ;;
       down)
-        ${_ pamixer} -d "$2"
+        ${wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ "$2%-"
         ;;
       toggle-mute)
-        ${_ pamixer} -t
+        ${wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
         ;;
       toggle-mic-mute)
-        ${_ pamixer} --default-source -t
+        ${wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
         ;;
       esac
 
-      volume_percentage="$(${_ pamixer} --get-volume)"
-      isMuted="$(${_ pamixer} --get-mute)"
-      micMuted="$(${_ pamixer} --default-source --get-mute)"
+      volume_percentage="$(${wireplumber}/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')"
+      isMuted="$(${wireplumber}/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -o 'MUTED')"
+      micMuted="$(${wireplumber}/bin/wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -o 'MUTED')"
 
       if [ "$1" = "toggle-mic-mute" ]; then
-        if [ "$micMuted" = "true" ]; then
+        if [ -n "$micMuted" ]; then
           ${libnotify}/bin/notify-send -u normal -a "VOLUMECTL" "Microphone Muted" -i microphone-sensitivity-muted-symbolic
         else
           ${libnotify}/bin/notify-send -u normal -a "VOLUMECTL" "Microphone Unmuted" -i microphone-sensitivity-high-symbolic
         fi
       else
-        if [ "$isMuted" = "true" ]; then
+        if [ -n "$isMuted" ]; then
           ${libnotify}/bin/notify-send -u normal -a "VOLUMECTL" "Volume Muted" -i audio-volume-muted-symbolic
         else
           ${libnotify}/bin/notify-send -u normal -a "VOLUMECTL" "Volume: $volume_percentage%" \

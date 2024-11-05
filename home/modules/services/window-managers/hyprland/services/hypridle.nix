@@ -17,13 +17,11 @@
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
 
-      listener = let
-        brightnessctl = lib.getExe pkgs.brightnessctl;
-      in [
+      listener = [
         {
           timeout = 150;
-          on-timeout = "${brightnessctl} -s set 10";
-          on-resume = "${brightnessctl} -r";
+          on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
+          on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r";
         }
         {
           timeout = 300;

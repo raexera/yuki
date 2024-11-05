@@ -1,10 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
-  _ = lib.getExe;
-
+{pkgs, ...}: let
   networkctl = let
     inherit (pkgs) util-linux libnotify;
   in

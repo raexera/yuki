@@ -30,7 +30,7 @@ in {
         margin-right = 0;
         modules-left = ["image" "hyprland/workspaces" "hyprland/window"];
         modules-center = ["custom/weather" "clock"];
-        modules-right = ["tray" "group/network-pulseaudio-backlight-battery" "group/powermenu"];
+        modules-right = ["tray" "group/network-wireplumber-backlight-battery" "group/powermenu"];
 
         "image" = {
           path = snowflake;
@@ -86,11 +86,11 @@ in {
           spacing = 8;
         };
 
-        "group/network-pulseaudio-backlight-battery" = {
+        "group/network-wireplumber-backlight-battery" = {
           modules = [
             "network"
-            "group/audio-slider"
-            "group/light-slider"
+            "wireplumber"
+            "backlight"
             "battery"
           ];
           orientation = "inherit";
@@ -106,56 +106,25 @@ in {
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
 
-        "group/audio-slider" = {
-          orientation = "inherit";
-          drawer = {
-            transition-duration = 300;
-            children-class = "audio-slider-child";
-            transition-left-to-right = true;
-          };
-          modules = ["pulseaudio" "pulseaudio/slider"];
-        };
-        pulseaudio = {
+        wireplumber = {
           format = "{icon}";
-          format-bluetooth = "󰂯";
           format-muted = "󰖁";
-          format-icons = {
-            hands-free = "󱡏";
-            headphone = "󰋋";
-            headset = "󰋎";
-            default = ["󰕿" "󰖀" "󰕾"];
-          };
+          format-icons = [
+            "󰕿"
+            "󰖀"
+            "󰕾"
+          ];
+          on-scroll-up = "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ &> /dev/null";
+          on-scroll-down = "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- &> /dev/null";
           tooltip-format = "Volume: {volume}%";
-          on-click = "${pkgs.pamixer}/bin/pamixer --toggle-mute";
-          on-scroll-up = "${pkgs.pamixer}/bin/pamixer --decrease 1";
-          on-scroll-down = "${pkgs.pamixer}/bin/pamixer --increase 1";
-        };
-        "pulseaudio/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "horizontal";
         };
 
-        "group/light-slider" = {
-          orientation = "inherit";
-          drawer = {
-            transition-duration = 300;
-            children-class = "light-slider-child";
-            transition-left-to-right = true;
-          };
-          modules = ["backlight" "backlight/slider"];
-        };
         backlight = {
           format = "{icon}";
           format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%+ &> /dev/null";
+          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 1%- &> /dev/null";
           tooltip-format = "Backlight: {percent}%";
-          on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
-          on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
-        };
-        "backlight/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "horizontal";
         };
 
         battery = {
@@ -305,7 +274,7 @@ in {
       #workspaces button,
       #custom-weather,
       #clock,
-      #network-pulseaudio-backlight-battery,
+      #network-wireplumber-backlight-battery,
       #custom-exit,
       #custom-lock,
       #custom-hibernate,
@@ -323,15 +292,13 @@ in {
       #custom-weather,
       #clock,
       #tray,
-      #network-pulseaudio-backlight-battery {
+      #network-wireplumber-backlight-battery {
         padding: 0.25rem 0.75rem;
       }
 
       #network,
-      #pulseaudio,
-      #pulseaudio-slider,
+      #wireplumber,
       #backlight,
-      #backlight-slider,
       #battery {
         background: transparent;
         font-size: 13pt;
@@ -428,14 +395,9 @@ in {
         color: ${xcolors.red};
       }
 
-      /* Pulseaudio */
-      #pulseaudio.muted {
+      /* Wireplumber */
+      #wireplumber.muted {
         color: ${xcolors.red};
-      }
-
-      #pulseaudio-slider highlight,
-      #backlight-slider highlight {
-        background: ${xcolors.white};
       }
 
       /* Battery */

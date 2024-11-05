@@ -27,7 +27,6 @@
     procs
     playerctl
     psmisc
-    pulsemixer
     ripgrep
     rsync
     skaffold
