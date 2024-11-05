@@ -91,7 +91,6 @@ in {
         "SUPER, B, exec, ${browser}"
         "SUPER, E, exec, ${editor}"
         "SUPER, N, exec, ${fileManager}"
-        "SUPER, O, exec, ${runOnce "wl-ocr"}"
         "CTRL_ALT, L, exec, pgrep hyprlock || hyprlock"
 
         # Screenshot

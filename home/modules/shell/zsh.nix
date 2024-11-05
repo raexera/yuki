@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   config,
   themes,
@@ -167,17 +166,16 @@
       "
     '';
 
-    shellAliases = with lib;
-    with pkgs; {
-      cat = "${getExe bat} --theme=base16 --number --color=always --paging=never --tabs=2 --wrap=never";
+    shellAliases = {
+      cat = "bat --color=always  --theme=base16";
 
-      la = "${getExe eza} -lah --tree";
-      ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
-      tree = "${getExe eza} --tree --icons --tree";
+      la = "eza -lah --tree";
+      ls = "eza -h --git --icons --color=auto --group-directories-first -s extension";
+      tree = "eza --tree --icons --tree";
 
-      du = getExe du-dust;
-      grep = getExe ripgrep;
-      ps = getExe procs;
+      du = "du-dust";
+      grep = "ripgrep";
+      ps = "procs";
 
       cp = "cp -iv";
       rm = "rm -iv";
@@ -204,9 +202,6 @@
 
       untar = "tar -xvf";
       untargz = "tar -xzf";
-
-      ytmp3 = ''
-        ${lib.getExe yt-dlp} --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata --output "%(title)s.%(ext)s"'';
     };
 
     plugins = with pkgs; [
