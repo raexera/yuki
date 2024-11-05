@@ -1,13 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     beekeeper-studio
-    bun
     ccls
     clang
     clang-tools
     cmake
     dbmate
     gnumake
+    gobang
     grex
     java-language-server
     just

@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    atac
     atool
     brightnessctl
     coreutils
@@ -19,9 +18,7 @@
     imagemagick
     jaq
     jq
-    kaniko
     killall
-    kubeshark
     p7zip
     pre-commit
     procs
@@ -29,8 +26,6 @@
     psmisc
     ripgrep
     rsync
-    skaffold
-    termshark
     trash-cli
     unrar
     unzip
