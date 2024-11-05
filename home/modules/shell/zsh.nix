@@ -173,10 +173,6 @@
       ls = "eza -h --git --icons --color=auto --group-directories-first -s extension";
       tree = "eza --tree --icons --tree";
 
-      du = "du-dust";
-      grep = "ripgrep";
-      ps = "procs";
-
       cp = "cp -iv";
       rm = "rm -iv";
       mv = "mv -iv";

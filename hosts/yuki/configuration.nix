@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   imports = [./hardware-configuration.nix];
 
   boot = {
@@ -22,23 +18,6 @@
 
     kernelModules = ["acpi_call"];
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
-  };
-
-  environment = {
-    systemPackages = with pkgs; [
-      acpi
-      alsa-utils
-      ffmpeg-full
-      libva
-      libva-utils
-      mesa
-      pciutils
-      v4l-utils
-      vulkan-tools
-      vulkan-loader
-      vulkan-validation-layers
-      vulkan-extension-layer
-    ];
   };
 
   hardware = {
