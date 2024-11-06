@@ -42,7 +42,6 @@ in {
       nvidia-container-toolkit.enable = true;
     };
 
-    # NVIDIA GeForce RTX 3050 Mobile (Ampere)
     services.xserver.videoDrivers = ["nvidia"];
   };
 }
