@@ -33,7 +33,14 @@
     fwupd.enable = true;
     hardware.bolt.enable = true;
     thermald.enable = true;
-    tlp.enable = true;
+
+    tlp = {
+      enable = true;
+      settings = {
+        START_CHARGE_THRESH_BAT0 = 0; # dummy value
+        STOP_CHARGE_THRESH_BAT0 = 1;
+      };
+    };
 
     logind = {
       powerKey = "suspend";
