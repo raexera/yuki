@@ -5,6 +5,7 @@
   boot.kernelModules = ["kvm-intel"];
   boot.kernelParams = ["i915.force_probe=46a6"];
   boot.blacklistedKernelModules = ["nouveau"];
+
   boot.initrd.luks.devices = {
     yuki = {
       device = "/dev/disk/by-uuid/dd3b871e-d7ef-40af-a1e3-d63c26c76662";
@@ -14,11 +15,17 @@
   };
 
   hardware.enableAllFirmware = true;
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
-  hardware.nvidia.prime = {
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  hardware.nvidia = {
+    prime = {
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
   services = {
