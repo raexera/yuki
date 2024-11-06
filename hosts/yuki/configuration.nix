@@ -1,40 +1,24 @@
 {
   imports = [./hardware-configuration.nix];
 
-  boot = {
-    kernelModules = ["kvm-intel"];
-
-    initrd.kernelModules = ["ideapad_laptop"];
-
-    blacklistedKernelModules = ["nouveau"];
-
-    kernelParams = [
-      "i915.force_probe=46a6"
-      "mem_sleep_default=deep"
-      "pcie_aspm.policy=powersupersave"
-    ];
-
-    initrd.luks.devices = {
-      yuki = {
-        device = "/dev/disk/by-uuid/dd3b871e-d7ef-40af-a1e3-d63c26c76662";
-        preLVM = true;
-        allowDiscards = true;
-      };
+  boot.initrd.kernelModules = ["ideapad_laptop"];
+  boot.kernelModules = ["kvm-intel"];
+  boot.kernelParams = ["i915.force_probe=46a6"];
+  boot.blacklistedKernelModules = ["nouveau"];
+  boot.initrd.luks.devices = {
+    yuki = {
+      device = "/dev/disk/by-uuid/dd3b871e-d7ef-40af-a1e3-d63c26c76662";
+      preLVM = true;
+      allowDiscards = true;
     };
   };
 
-  hardware = {
-    enableAllFirmware = true;
-
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-
-    nvidia.prime = {
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
+  hardware.enableAllFirmware = true;
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+  hardware.nvidia.prime = {
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
   };
 
   services = {
@@ -71,5 +55,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
