@@ -263,11 +263,11 @@ in {
       }
 
       .modules-left {
-        padding-left: 0.5rem;
+        padding-left: 0.25rem;
       }
 
       .modules-right {
-        padding-right: 0.5rem;
+        padding-right: 0.25rem;
       }
 
       /* Modules */
@@ -284,8 +284,8 @@ in {
       #custom-power {
         background: ${xcolors.black3};
         border-radius: 8px;
-        margin: 0.25rem;
-        padding: 0.25rem;
+        margin: 0.5rem 0.25rem;
+        padding: 0.25rem 0.5rem;
       }
 
       #image,
@@ -319,7 +319,7 @@ in {
         background: ${xcolors.blue};
         color: ${xcolors.black3};
         font-size: 13pt;
-        min-width: 1.5rem;
+        min-width: 1rem;
       }
 
       /* Hyprland Workspaces */
@@ -329,7 +329,7 @@ in {
 
       #workspaces button {
         margin: 0;
-        min-width: 1.5rem;
+        min-width: 1rem;
         transition: 300ms linear;
       }
 
