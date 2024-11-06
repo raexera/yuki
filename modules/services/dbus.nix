@@ -17,8 +17,6 @@
       resyncTimer = "10m";
     };
 
-    power-profiles-daemon.enable = true;
-
     tumbler.enable = true;
   };
 }

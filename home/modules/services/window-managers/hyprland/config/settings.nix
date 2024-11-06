@@ -25,12 +25,11 @@ in {
       "col.active_border" = "rgb(${colors.blue})";
       "col.inactive_border" = "rgb(${colors.gray0})";
 
+      layout = "dwindle";
       resize_on_border = true;
 
       # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
       allow_tearing = false;
-
-      layout = "dwindle";
     };
 
     dwindle = {
@@ -44,12 +43,15 @@ in {
 
     decoration = {
       rounding = 16;
+
       active_opacity = 1.0;
       inactive_opacity = 1.0;
       fullscreen_opacity = 1.0;
-      drop_shadow = false;
+
       dim_inactive = false;
+
       blur.enabled = false;
+      shadow.enabled = false;
     };
 
     animations = {
@@ -80,6 +82,8 @@ in {
       touchpad = {
         disable_while_typing = true;
         scroll_factor = 0.5;
+        tap-to-click = true;
+        tap-and-drag = true;
       };
     };
 

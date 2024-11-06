@@ -1,23 +1,16 @@
-{config, ...}: {
+{
   imports = [./hardware-configuration.nix];
 
-  boot = {
-    initrd = {
-      kernelModules = ["ideapad_laptop"];
+  boot.initrd = {
+    kernelModules = ["ideapad_laptop"];
 
-      luks.devices = {
-        yuki = {
-          device = "/dev/disk/by-uuid/dd3b871e-d7ef-40af-a1e3-d63c26c76662";
-          preLVM = true;
-          allowDiscards = true;
-        };
+    luks.devices = {
+      yuki = {
+        device = "/dev/disk/by-uuid/dd3b871e-d7ef-40af-a1e3-d63c26c76662";
+        preLVM = true;
+        allowDiscards = true;
       };
     };
-
-    kernelParams = ["iommu=pt"];
-
-    kernelModules = ["acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   };
 
   hardware = {
@@ -36,11 +29,8 @@
     };
   };
 
-  networking.hostName = "yuki";
-
   services = {
     acpid.enable = true;
-    fstrim.enable = true;
     fwupd.enable = true;
     hardware.bolt.enable = true;
 
@@ -51,6 +41,7 @@
     };
 
     thermald.enable = true;
+    tlp.enable = true;
 
     upower = {
       enable = true;
@@ -59,11 +50,6 @@
       percentageAction = 10;
       criticalPowerAction = "Hibernate";
     };
-
-    xserver.videoDrivers = [
-      "nvidia"
-      "modesetting"
-    ];
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

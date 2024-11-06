@@ -7,7 +7,7 @@
 
       case "$1" in
       up)
-        ${brightnessctl}/bin/brightnessctl -q s +"$2"%
+        ${brightnessctl}/bin/brightnessctl -q s "$2"%+
         ;;
       down)
         ${brightnessctl}/bin/brightnessctl -q s "$2"%-

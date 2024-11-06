@@ -10,11 +10,13 @@
       '';
     };
 
-    environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
-
     hardware.graphics = {
       extraPackages = with pkgs; [
+        intel-media-driver
         intel-compute-runtime
+        vpl-gpu-rt
+      ];
+      extraPackages32 = with pkgs.driversi686Linux; [
         intel-media-driver
       ];
     };

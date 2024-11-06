@@ -19,12 +19,15 @@ in {
 
       modules = [
         # Device-specific configuration
+        {networking.hostName = "yuki";}
         ./yuki/configuration.nix
 
         # Hardware modules
+        "${hardware}/acpi_call.nix"
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
+        "${hardware}/ssd.nix"
 
         # Core configuration
         "${modules}/core"
