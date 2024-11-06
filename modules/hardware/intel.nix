@@ -2,6 +2,8 @@
   config = {
     boot.initrd.kernelModules = ["i915"];
 
+    boot.kernelParams = ["i915.enable_guc=3"];
+
     hardware.graphics = {
       extraPackages = with pkgs; [
         intel-media-driver

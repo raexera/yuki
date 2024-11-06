@@ -9,15 +9,10 @@
     blacklistedKernelModules = ["nouveau"];
 
     kernelParams = [
+      "i915.force_probe=46a6"
       "mem_sleep_default=deep"
       "pcie_aspm.policy=powersupersave"
     ];
-
-    extraModprobeConfig = ''
-      options i915 enable_guc=3
-      options i915 enable_psr=0
-      options i915 force_probe=46a6
-    '';
 
     initrd.luks.devices = {
       yuki = {
