@@ -24,10 +24,14 @@ in {
 
     hardware.nvidia = {
       package = nvidiaPackage;
+
       open = false;
 
       modesetting.enable = true;
+
       powerManagement.enable = true;
+
+      nvidiaSettings = true;
 
       prime.offload = {
         enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
