@@ -1,10 +1,25 @@
 {
   imports = [./hardware-configuration.nix];
 
-  boot.initrd = {
-    kernelModules = ["ideapad_laptop"];
+  boot = {
+    kernelModules = ["kvm-intel"];
 
-    luks.devices = {
+    initrd.kernelModules = ["ideapad_laptop"];
+
+    blacklistedKernelModules = ["nouveau"];
+
+    kernelParams = [
+      "mem_sleep_default=deep"
+      "pcie_aspm.policy=powersupersave"
+    ];
+
+    extraModprobeConfig = ''
+      options i915 enable_guc=3
+      options i915 enable_psr=0
+      options i915 force_probe=46a6
+    '';
+
+    initrd.luks.devices = {
       yuki = {
         device = "/dev/disk/by-uuid/dd3b871e-d7ef-40af-a1e3-d63c26c76662";
         preLVM = true;
@@ -16,16 +31,16 @@
   hardware = {
     enableAllFirmware = true;
 
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
     nvidia.prime = {
       reverseSync.enable = true;
       allowExternalGpu = false;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
-    };
-
-    graphics = {
-      enable = true;
-      enable32Bit = true;
     };
   };
 
@@ -33,24 +48,18 @@
     acpid.enable = true;
     fwupd.enable = true;
     hardware.bolt.enable = true;
+    thermald.enable = true;
+    tlp.enable = true;
 
     logind = {
       powerKey = "suspend";
       lidSwitch = "suspend";
       lidSwitchExternalPower = "lock";
     };
-
-    thermald.enable = true;
-    tlp.enable = true;
-
-    upower = {
-      enable = true;
-      percentageLow = 30;
-      percentageCritical = 20;
-      percentageAction = 10;
-      criticalPowerAction = "Hibernate";
-    };
   };
+
+  # NVIDIA GeForce RTX 3050 Mobile (Ampere)
+  services.xserver.videoDrivers = ["nvidia"];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

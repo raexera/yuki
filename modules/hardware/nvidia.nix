@@ -15,33 +15,24 @@
   pCfg = config.hardware.nvidia.prime;
 in {
   config = {
-    boot = {
-      kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
-      blacklistedKernelModules = ["nouveau"];
-    };
+    boot.kernelModules = [
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_drm"
+      "nvidia_uvm"
+    ];
 
-    environment.sessionVariables = {
-      GBM_BACKEND = "nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    };
+    hardware.nvidia = {
+      package = nvidiaPackage;
+      open = false;
 
-    hardware = {
-      nvidia = {
-        open = false;
-        package = nvidiaPackage;
+      modesetting.enable = true;
+      powerManagement.enable = true;
 
-        modesetting.enable = true;
-        powerManagement.enable = true;
-
-        prime.offload = {
-          enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
-          enableOffloadCmd = mkIf pCfg.offload.enable true;
-        };
+      prime.offload = {
+        enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
+        enableOffloadCmd = mkIf pCfg.offload.enable true;
       };
-
-      nvidia-container-toolkit.enable = true;
     };
-
-    services.xserver.videoDrivers = ["nvidia"];
   };
 }
