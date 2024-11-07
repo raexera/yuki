@@ -29,13 +29,5 @@ lib: {
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;
   };
 
-  wallpaper = let
-    url = "https://static.zerochan.net/Chifuri.full.2897158.jpg";
-    sha256 = "1dhps7zzlpjdmbyl0b3a3650jpc82in6gbzzxhzrlzhbqjg9d44z";
-    ext = lib.last (lib.splitString "." url);
-  in
-    builtins.fetchurl {
-      name = "wallpaper-${sha256}.${ext}";
-      inherit url sha256;
-    };
+  wallpaper = ./assets/nix-wallpaper.png;
 }
