@@ -17,47 +17,48 @@ in {
     yuki = nixosSystem {
       inherit specialArgs;
 
-      modules =
+      modules = [
+        # nixosModules
         inputs.disko.nixosModules.default
-        ++ [
-          # Device-specific configuration
-          {networking.hostName = "yuki";}
-          ./yuki/configuration.nix
 
-          # Hardware modules
-          "${hardware}/acpi_call.nix"
-          "${hardware}/bluetooth.nix"
-          "${hardware}/intel.nix"
-          "${hardware}/nvidia.nix"
-          "${hardware}/ssd.nix"
+        # Device-specific configuration
+        {networking.hostName = "yuki";}
+        ./yuki/configuration.nix
 
-          # Core configuration
-          "${modules}/core"
-          "${modules}/config"
-          "${modules}/system"
+        # Hardware modules
+        "${hardware}/acpi_call.nix"
+        "${hardware}/bluetooth.nix"
+        "${hardware}/intel.nix"
+        "${hardware}/nvidia.nix"
+        "${hardware}/ssd.nix"
 
-          # Environment
-          "${modules}/environment"
+        # Core configuration
+        "${modules}/core"
+        "${modules}/config"
+        "${modules}/system"
 
-          # Programs
-          "${modules}/programs"
-          "${modules}/programs/hyprland.nix"
+        # Environment
+        "${modules}/environment"
 
-          # Services
-          "${modules}/services"
-          "${modules}/services/greetd.nix"
+        # Programs
+        "${modules}/programs"
+        "${modules}/programs/hyprland.nix"
 
-          # Virtualization
-          "${modules}/virtualisation"
+        # Services
+        "${modules}/services"
+        "${modules}/services/greetd.nix"
 
-          # Home Manager configuration
-          {
-            home-manager = {
-              users.raexera.imports = homeImports."raexera@yuki";
-              extraSpecialArgs = specialArgs;
-            };
-          }
-        ];
+        # Virtualization
+        "${modules}/virtualisation"
+
+        # Home Manager configuration
+        {
+          home-manager = {
+            users.raexera.imports = homeImports."raexera@yuki";
+            extraSpecialArgs = specialArgs;
+          };
+        }
+      ];
     };
   };
 }
