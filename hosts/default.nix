@@ -17,45 +17,47 @@ in {
     yuki = nixosSystem {
       inherit specialArgs;
 
-      modules = [
-        # Device-specific configuration
-        {networking.hostName = "yuki";}
-        ./yuki/configuration.nix
+      modules =
+        inputs.disko.nixosModules.default
+        ++ [
+          # Device-specific configuration
+          {networking.hostName = "yuki";}
+          ./yuki/configuration.nix
 
-        # Hardware modules
-        "${hardware}/acpi_call.nix"
-        "${hardware}/bluetooth.nix"
-        "${hardware}/intel.nix"
-        "${hardware}/nvidia.nix"
-        "${hardware}/ssd.nix"
+          # Hardware modules
+          "${hardware}/acpi_call.nix"
+          "${hardware}/bluetooth.nix"
+          "${hardware}/intel.nix"
+          "${hardware}/nvidia.nix"
+          "${hardware}/ssd.nix"
 
-        # Core configuration
-        "${modules}/core"
-        "${modules}/config"
-        "${modules}/system"
+          # Core configuration
+          "${modules}/core"
+          "${modules}/config"
+          "${modules}/system"
 
-        # Environment
-        "${modules}/environment"
+          # Environment
+          "${modules}/environment"
 
-        # Programs
-        "${modules}/programs"
-        "${modules}/programs/hyprland.nix"
+          # Programs
+          "${modules}/programs"
+          "${modules}/programs/hyprland.nix"
 
-        # Services
-        "${modules}/services"
-        "${modules}/services/greetd.nix"
+          # Services
+          "${modules}/services"
+          "${modules}/services/greetd.nix"
 
-        # Virtualization
-        "${modules}/virtualisation"
+          # Virtualization
+          "${modules}/virtualisation"
 
-        # Home Manager configuration
-        {
-          home-manager = {
-            users.raexera.imports = homeImports."raexera@yuki";
-            extraSpecialArgs = specialArgs;
-          };
-        }
-      ];
+          # Home Manager configuration
+          {
+            home-manager = {
+              users.raexera.imports = homeImports."raexera@yuki";
+              extraSpecialArgs = specialArgs;
+            };
+          }
+        ];
     };
   };
 }

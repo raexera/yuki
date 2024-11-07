@@ -1,20 +1,10 @@
 {
-  imports = [./hardware-configuration.nix];
+  imports = [
+    ./disk-configuration.nix
+    ./hardware-configuration.nix
+  ];
 
-  boot.initrd.kernelModules = ["ideapad_laptop"];
-  boot.kernelModules = ["kvm-intel"];
-  boot.kernelParams = ["i915.force_probe=46a6"];
-  boot.blacklistedKernelModules = ["nouveau"];
-
-  boot.initrd.luks.devices = {
-    yuki = {
-      device = "/dev/disk/by-uuid/dd3b871e-d7ef-40af-a1e3-d63c26c76662";
-      preLVM = true;
-      allowDiscards = true;
-    };
-  };
-
-  hardware.enableAllFirmware = true;
+  disko.devices.disk.main.device = "/dev/nvme0n1";
 
   hardware.graphics = {
     enable = true;

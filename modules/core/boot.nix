@@ -29,7 +29,6 @@
         enable = true;
         configurationLimit = 5;
         consoleMode = "max";
-        editor = false;
       };
     };
 
