@@ -12,9 +12,9 @@
       dev = "$HOME/Dev";
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
+      dots = "$HOME/.yuki";
       pics = "$HOME/Pictures";
       vids = "$HOME/Videos";
-      yuki = "$HOME/Dev/yuki";
     };
 
     enableCompletion = true;
