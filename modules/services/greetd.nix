@@ -1,19 +1,24 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
-  services.greetd = let
-    session = {
-      command = "${lib.getExe config.programs.hyprland.package}";
-      user = "raexera";
-    };
-  in {
+  services.greetd = {
     enable = true;
     settings = {
       terminal.vt = 1;
-      default_session = session;
-      initial_session = session;
+      default_session = {
+        command = lib.concatStringsSep " " [
+          (lib.getExe pkgs.greetd.tuigreet)
+          "--cmd '${lib.getExe config.programs.hyprland.package}'"
+          "--remember"
+          "--remember-session"
+          "--asterisks"
+          "--time"
+        ];
+        user = "greeter";
+      };
     };
   };
 
