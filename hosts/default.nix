@@ -32,6 +32,7 @@ in {
         # Core configuration
         "${modules}/core"
         "${modules}/config"
+        "${modules}/system"
 
         # Environment
         "${modules}/environment"
