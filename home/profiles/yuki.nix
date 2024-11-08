@@ -17,7 +17,6 @@
 
     ../modules/services/blueman-applet.nix
     ../modules/services/gnome-keyring.nix
-    ../modules/services/gpg-agent.nix
     ../modules/services/network-manager-applet.nix
     ../modules/services/polkit-agent.nix
     ../modules/services/udiskie.nix
