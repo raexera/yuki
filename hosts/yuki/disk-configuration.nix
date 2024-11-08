@@ -7,8 +7,8 @@
           type = "gpt";
           partitions = {
             ESP = {
-              type = "EF00";
               size = "1G";
+              type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -16,22 +16,20 @@
                 mountOptions = ["umask=0077"];
               };
             };
-            swap = {
-              type = "8200";
-              size = "16G";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-                resumeDevice = true;
-              };
-            };
             root = {
-              type = "8300";
-              size = "100%";
+              end = "-32G";
               content = {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
+              };
+            };
+            swap = {
+              size = "100%";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true;
               };
             };
           };
