@@ -2,10 +2,9 @@
   services.openssh = {
     enable = true;
     settings = {
-      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
       PasswordAuthentication = false;
-      PermitRootLogin = "yes";
-      UseDns = true;
+      KbdInteractiveAuthentication = false;
       X11Forwarding = false;
     };
   };
