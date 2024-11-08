@@ -15,22 +15,28 @@
   pCfg = config.hardware.nvidia.prime;
 in {
   config = {
-    boot.kernelModules = [
-      "nvidia"
-      "nvidia_modeset"
-      "nvidia_drm"
-      "nvidia_uvm"
-    ];
+    boot = {
+      kernelModules = [
+        "nvidia"
+        "nvidia_modeset"
+        "nvidia_drm"
+        "nvidia_uvm"
+      ];
+
+      blacklistedKernelModules = ["nouveau"];
+    };
+
+    environment.variables = {
+      GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    };
 
     hardware.nvidia = {
       package = nvidiaPackage;
 
       open = false;
-
       modesetting.enable = true;
-
       powerManagement.enable = true;
-
       nvidiaSettings = true;
 
       prime.offload = {

@@ -4,7 +4,9 @@
   ...
 }: {
   boot = {
+    tmp.cleanOnBoot = true;
     bootspec.enable = true;
+    plymouth.enable = true;
     consoleLogLevel = 3;
 
     initrd = {
@@ -17,22 +19,20 @@
     kernelParams = [
       "quiet"
       "splash"
-      "nowatchdog"
       "systemd.show_status=auto"
       "rd.udev.log_level=3"
     ];
 
     loader = {
+      timeout = 0; # Spam space to enter the boot menu
       efi.canTouchEfiVariables = true;
 
       systemd-boot = {
         enable = true;
         configurationLimit = 5;
-        consoleMode = "max";
+        editor = false;
       };
     };
-
-    plymouth.enable = true;
   };
 
   environment.systemPackages = [config.boot.kernelPackages.cpupower];

@@ -39,6 +39,9 @@
     };
   };
 
+  # Intel Core i7-12700H (Alder Lake)
+  boot.kernelParams = ["i915.force_probe=46a6"];
+
   # NVIDIA GeForce RTX 3050 Mobile (Ampere)
   services.xserver.videoDrivers = ["nvidia"];
 }
