@@ -33,9 +33,9 @@
     };
 
     logind = {
-      powerKey = "suspend";
-      lidSwitch = "suspend";
-      lidSwitchExternalPower = "lock";
+      lidSwitch = "suspend-then-hibernate";
+      lidSwitchDocked = "suspend-then-hibernate";
+      lidSwitchExternalPower = "suspend-then-hibernate";
     };
   };
 
