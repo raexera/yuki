@@ -1,5 +1,5 @@
 {
-  programs.bat = {
+  services.blueman = {
     enable = true;
   };
 }

@@ -3,7 +3,6 @@
     dbus = {
       enable = true;
       implementation = "broker";
-
       packages = with pkgs; [
         gcr
         gnome-settings-daemon

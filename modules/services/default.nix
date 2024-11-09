@@ -1,5 +1,6 @@
 {
   imports = [
+    ./blueman.nix
     ./dbus.nix
     ./gnome-keyring.nix
     ./location.nix

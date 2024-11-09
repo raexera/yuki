@@ -10,7 +10,6 @@
         intel-compute-runtime
         vpl-gpu-rt
       ];
-
       extraPackages32 = with pkgs.driversi686Linux; [
         intel-media-driver
       ];

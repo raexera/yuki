@@ -3,19 +3,15 @@
   pkgs,
   ...
 }: {
-  environment.pathsToLink = ["/share/zsh"];
-
-  programs = {
-    less.enable = true;
-
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-      promptInit = ''
-        eval "$(${lib.getExe pkgs.starship} init zsh)"
-      '';
-    };
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    promptInit = ''
+      eval "$(${lib.getExe pkgs.starship} init zsh)"
+    '';
   };
+
+  environment.pathsToLink = ["/share/zsh"];
 }
