@@ -241,6 +241,26 @@
     },
     "flake-utils": {
       "inputs": {
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726560853,
+        "narHash": "sha256-X6rJYSESBVr3hBoH0WbKE5KvhPU5bloyZ2L4K60/fPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "inputs": {
         "systems": "systems_3"
       },
       "locked": {
@@ -257,7 +277,7 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
+    "flake-utils_3": {
       "inputs": {
         "systems": "systems_4"
       },
@@ -646,7 +666,7 @@
     },
     "lib-aggregate": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils_3",
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
@@ -709,7 +729,7 @@
     "nix-vscode-extensions": {
       "inputs": {
         "flake-compat": "flake-compat_3",
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -903,6 +923,7 @@
         "disko": "disko",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts_2",
+        "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "hypridle": "hypridle",
         "hyprland": "hyprland",
