@@ -27,7 +27,6 @@ in {
         ./yuki/configuration.nix
 
         # Hardware modules
-        "${hardware}/acpi_call.nix"
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
