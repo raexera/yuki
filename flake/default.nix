@@ -1,7 +1,7 @@
 {
   imports = [
-    ../hosts
     ../home
+    ../hosts
     ../lib
     ../pkgs
     ./pre-commit-hooks.nix

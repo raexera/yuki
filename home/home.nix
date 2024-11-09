@@ -1,7 +1,7 @@
 {
   imports = [
-    ./modules/shell
     ./modules/programs/git.nix
+    ./modules/shell
   ];
 
   home = {

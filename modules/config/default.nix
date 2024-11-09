@@ -1,11 +1,11 @@
 {
   imports = [
-    ./fonts
-    ./nix
-    ./xdg/portal.nix
     ./console.nix
+    ./fonts
     ./i18n.nix
     ./locale.nix
+    ./nix
     ./users.nix
+    ./xdg/portal.nix
   ];
 }

@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  boot.consoleLogLevel = 3;
+
   boot.initrd.verbose = false;
   boot.initrd.systemd.enable = true;
 
