@@ -26,16 +26,17 @@ in {
         {networking.hostName = "yuki";}
         ./yuki/configuration.nix
 
+        # Core configuration
+        "${modules}/config"
+        "${modules}/security"
+        "${modules}/system"
+        "${modules}/system/boot.nix"
+
         # Hardware modules
         "${hardware}/bluetooth.nix"
         "${hardware}/intel.nix"
         "${hardware}/nvidia.nix"
         "${hardware}/ssd.nix"
-
-        # Core configuration
-        "${modules}/core"
-        "${modules}/config"
-        "${modules}/system"
 
         # Environment
         "${modules}/environment"
