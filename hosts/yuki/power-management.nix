@@ -1,12 +1,11 @@
 {config, ...}: {
+  # Loads the acpi_call kernel module
   boot = {
     kernelModules = ["acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages; [
-      acpi_call
-      cpupower
-    ];
+    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   };
 
+  # Configuration for auto-cpufreq, an automated CPU frequency scaling tool
   programs.auto-cpufreq = {
     enable = true;
     settings = {
@@ -28,20 +27,21 @@
     };
   };
 
-  services = {
-    thermald.enable = true;
+  # Enables thermald service to automatically manage CPU temperature
+  services.thermald.enable = true;
 
-    acpid = {
-      enable = true;
-      logEvents = true;
-    };
+  # Enables throttled service to help mitigate Intel CPU throttling issues
+  services.throttled.enable = true;
 
-    upower = {
-      enable = true;
-      percentageLow = 20;
-      percentageCritical = 15;
-      percentageAction = 10;
-      criticalPowerAction = "Hibernate";
-    };
+  # Enables acpid service to handle ACPI events like button presses or power events
+  services.acpid.enable = true;
+
+  # Configures upower for battery and power event handling
+  services.upower = {
+    enable = true;
+    percentageLow = 20;
+    percentageCritical = 15;
+    percentageAction = 10;
+    criticalPowerAction = "Hibernate";
   };
 }
