@@ -20,6 +20,7 @@ in {
       modules = [
         # nixosModules
         inputs.disko.nixosModules.default
+        inputs.auto-cpufreq.nixosModules.default
 
         # Device-specific configuration
         {networking.hostName = "yuki";}

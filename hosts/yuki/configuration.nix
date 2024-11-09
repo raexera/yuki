@@ -23,11 +23,29 @@
     hardware.bolt.enable = true;
     thermald.enable = true;
 
-    tlp = {
+    acpid = {
+      enable = true;
+      logEvents = true;
+    };
+
+    auto-cpufreq = {
       enable = true;
       settings = {
-        START_CHARGE_THRESH_BAT0 = 0;
-        STOP_CHARGE_THRESH_BAT0 = 1;
+        # See available governors: `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors`
+        # See available preferences: `cat /sys/devices/system/cpu/cpu0/cpufreq/energy_performance_available_preferences`
+        charger = {
+          governor = "performance";
+          energy_performance_preference = "performance";
+          turbo = "auto";
+        };
+        battery = {
+          governor = "powersave";
+          energy_performance_preference = "power";
+          turbo = "auto";
+
+          enable_thresholds = true;
+          ideapad_laptop_conservation_mode = true;
+        };
       };
     };
 
@@ -35,6 +53,14 @@
       lidSwitch = "suspend-then-hibernate";
       lidSwitchDocked = "ignore";
       lidSwitchExternalPower = "suspend-then-hibernate";
+    };
+
+    upower = {
+      enable = true;
+      percentageLow = 20;
+      percentageCritical = 15;
+      percentageAction = 10;
+      criticalPowerAction = "Hibernate";
     };
   };
 
