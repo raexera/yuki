@@ -19,7 +19,6 @@
   };
 
   services = {
-    acpid.enable = true;
     fwupd.enable = true;
     hardware.bolt.enable = true;
     thermald.enable = true;
@@ -34,7 +33,7 @@
 
     logind = {
       lidSwitch = "suspend-then-hibernate";
-      lidSwitchDocked = "suspend-then-hibernate";
+      lidSwitchDocked = "ignore";
       lidSwitchExternalPower = "suspend-then-hibernate";
     };
   };
