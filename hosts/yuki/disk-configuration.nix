@@ -17,10 +17,10 @@
               };
             };
             root = {
-              end = "-32G";
+              end = "-8G";
               content = {
                 type = "filesystem";
-                format = "ext4";
+                format = "xfs";
                 mountpoint = "/";
               };
             };
