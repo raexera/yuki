@@ -7,7 +7,7 @@
   boot.initrd.kernelModules = ["ideapad_laptop"];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
-  boot.kernelParams = ["nowatchdog" "mem_sleep_default=deep"];
+  boot.kernelParams = ["nowatchdog"];
 
   hardware.enableAllFirmware = lib.mkDefault true;
   hardware.enableRedistributableFirmware = lib.mkDefault true;

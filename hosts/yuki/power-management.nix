@@ -36,12 +36,6 @@
       logEvents = true;
     };
 
-    logind = {
-      lidSwitch = "suspend-then-hibernate";
-      lidSwitchDocked = "suspend-then-hibernate";
-      lidSwitchExternalPower = "suspend-then-hibernate";
-    };
-
     upower = {
       enable = true;
       percentageLow = 20;
