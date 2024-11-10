@@ -39,7 +39,7 @@
 
   associations = builtins.mapAttrs (_: v: (map (e: "${e}.desktop") v)) ({
       "text/html" = browser;
-      "text/plain" = ["code"];
+      "text/plain" = ["codium"];
       "inode/directory" = ["thunar"];
     }
     // image
