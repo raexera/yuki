@@ -8,6 +8,7 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
   boot.kernelParams = ["nowatchdog"];
+  boot.kernel.sysctl."vm.swappiness" = 10;
 
   hardware.enableAllFirmware = lib.mkDefault true;
   hardware.enableRedistributableFirmware = lib.mkDefault true;
