@@ -21,9 +21,6 @@
         esbenp.prettier-vscode
         formulahendry.auto-complete-tag
         formulahendry.code-runner
-        github.codespaces
-        github.vscode-github-actions
-        github.vscode-pull-request-github
         golang.go
         jnoortheen.nix-ide
         meganrogge.template-string-converter

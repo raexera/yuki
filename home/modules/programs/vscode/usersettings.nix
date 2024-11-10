@@ -218,7 +218,6 @@
 
     # nix
     "nix.enableLanguageServer" = true;
-    "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
     "nix.serverPath" = "${pkgs.nil}/bin/nil";
     "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
   };
