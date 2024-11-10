@@ -3,6 +3,20 @@
     ./disk-configuration.nix
     ./hardware-configuration.nix
     ./power-management.nix
+    ../../modules/config
+    ../../modules/security
+    ../../modules/system
+    ../../modules/system/boot.nix
+    ../../modules/hardware/bluetooth.nix
+    ../../modules/hardware/intel.nix
+    ../../modules/hardware/nvidia.nix
+    ../../modules/hardware/ssd.nix
+    ../../modules/environment
+    ../../modules/programs
+    ../../modules/programs/hyprland.nix
+    ../../modules/services
+    ../../modules/services/greetd.nix
+    ../../modules/virtualisation
   ];
 
   disko.devices.disk.main.device = "/dev/nvme0n1";
