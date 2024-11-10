@@ -10,7 +10,6 @@
   boot.kernelParams = ["nowatchdog"];
   boot.kernel.sysctl."vm.swappiness" = 10;
 
-  hardware.enableAllFirmware = lib.mkDefault true;
   hardware.enableRedistributableFirmware = lib.mkDefault true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
