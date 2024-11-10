@@ -8,7 +8,6 @@
     ./programs/starship.nix
     ./programs/zoxide.nix
     ./scripts/preview.nix
-    ./scripts/run-as-service.nix
     ./packages.nix
     ./zsh.nix
   ];

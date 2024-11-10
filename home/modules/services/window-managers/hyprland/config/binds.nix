@@ -1,36 +1,11 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
-  workspaces = builtins.concatLists (builtins.genList (
-      x: let
-        ws = let
-          c = (x + 1) / 10;
-        in
-          builtins.toString (x + 1 - (c * 10));
-      in [
-        "SUPER, ${ws}, workspace, ${toString (x + 1)}"
-        "SUPER_SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-        "ALT_SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-      ]
-    )
-    10);
-
-  toggle = program: service: let
-    prog = builtins.substring 0 14 program;
-    runserv = lib.optionalString service "run-as-service";
-  in "pkill ${prog} || ${runserv} ${program}";
-
-  runOnce = program: "pgrep ${program} || ${program}";
-
-  defaultApp = type: "${pkgs.gtk3}/bin/gtk-launch $(${pkgs.xdg-utils}/bin/xdg-mime query default ${type})";
-  browser = defaultApp "x-scheme-handler/https";
-  editor = defaultApp "text/plain";
-  fileManager = defaultApp "inode/directory";
-in {
+{pkgs, ...}: {
   wayland.windowManager.hyprland.settings = {
-    bind =
+    bind = let
+      defaultApp = type: "${pkgs.gtk3}/bin/gtk-launch $(${pkgs.xdg-utils}/bin/xdg-mime query default ${type})";
+      browser = defaultApp "x-scheme-handler/https";
+      editor = defaultApp "text/plain";
+      fileManager = defaultApp "inode/directory";
+    in
       [
         # Compositor commands
         "SUPER, P, pseudo"
@@ -87,18 +62,30 @@ in {
         "SUPER_SHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
 
         # Application Shortcuts
-        "SUPER, Return, exec, run-as-service kitty"
+        "SUPER, Return, exec, kitty"
         "SUPER, B, exec, ${browser}"
         "SUPER, E, exec, ${editor}"
         "SUPER, N, exec, ${fileManager}"
         "CTRL_ALT, L, exec, pgrep hyprlock || hyprlock"
 
         # Screenshot
-        ", Print, exec, ${runOnce "grimblast"} --notify copysave area"
-        "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
-        "ALT, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
+        ", Print, exec, grimblast --notify copysave area"
+        "CTRL, Print, exec, grimblast --notify --cursor copysave output"
+        "ALT, Print, exec, grimblast --notify --cursor copysave screen"
       ]
-      ++ workspaces;
+      ++ builtins.concatLists (builtins.genList (
+          x: let
+            ws = let
+              c = (x + 1) / 10;
+            in
+              builtins.toString (x + 1 - (c * 10));
+          in [
+            "SUPER, ${ws}, workspace, ${toString (x + 1)}"
+            "SUPER_SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+            "ALT_SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+          ]
+        )
+        10);
 
     binde = [
       # Resize windows
@@ -124,7 +111,7 @@ in {
 
     bindr = [
       # Launcher
-      "SUPER, SUPER_L, exec, ${toggle "anyrun" true}"
+      "SUPER, SUPER_L, exec, pkill anyrun || anyrun"
     ];
 
     bindl = [
