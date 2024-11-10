@@ -4,18 +4,18 @@
     ./hardware-configuration.nix
     ./power-management.nix
     ../../modules/config
-    ../../modules/security
-    ../../modules/system
-    ../../modules/system/boot.nix
+    ../../modules/environment
     ../../modules/hardware/bluetooth.nix
     ../../modules/hardware/intel.nix
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/ssd.nix
-    ../../modules/environment
     ../../modules/programs
     ../../modules/programs/hyprland.nix
+    ../../modules/security
     ../../modules/services
     ../../modules/services/greetd.nix
+    ../../modules/system
+    ../../modules/system/boot.nix
     ../../modules/virtualisation
   ];
 
