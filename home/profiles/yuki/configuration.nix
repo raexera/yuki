@@ -1,6 +1,7 @@
 {
   imports = [
     ../../modules/dev
+    ../../modules/programs/vscode
     ../../modules/programs/firefox.nix
     ../../modules/programs/gpg.nix
     ../../modules/programs/gtk.nix
@@ -9,15 +10,14 @@
     ../../modules/programs/obs-studio.nix
     ../../modules/programs/playerctld.nix
     ../../modules/programs/qt.nix
-    ../../modules/programs/vscode
     ../../modules/programs/xdg.nix
     ../../modules/programs/zen.nix
+    ../../modules/services/window-managers/hyprland
     ../../modules/services/blueman-applet.nix
     ../../modules/services/gnome-keyring.nix
     ../../modules/services/network-manager-applet.nix
     ../../modules/services/polkit-agent.nix
     ../../modules/services/udiskie.nix
-    ../../modules/services/window-managers/hyprland
   ];
 
   wayland.windowManager.hyprland.settings = let

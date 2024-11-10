@@ -4,9 +4,9 @@
     ./dconf.nix
     ./gnupg.nix
     ./home-manager.nix
+    ./neovim.nix
     ./nh.nix
     ./thunar.nix
-    ./neovim.nix
     ./zsh.nix
   ];
 }

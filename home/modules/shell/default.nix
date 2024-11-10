@@ -1,6 +1,5 @@
 {
   imports = [
-    ./packages.nix
     ./programs/bat.nix
     ./programs/direnv.nix
     ./programs/eza.nix
@@ -10,6 +9,7 @@
     ./programs/zoxide.nix
     ./scripts/preview.nix
     ./scripts/run-as-service.nix
+    ./packages.nix
     ./zsh.nix
   ];
 }
