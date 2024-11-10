@@ -6,10 +6,6 @@
   ...
 }: let
   inherit (inputs.nixpkgs.lib) nixosSystem;
-
-  modules = "${self}/modules";
-  hardware = modules + "/hardware";
-
   specialArgs = {inherit inputs self themes;};
 in {
   flake.nixosConfigurations = {
@@ -27,30 +23,30 @@ in {
         ./yuki/configuration.nix
 
         # Core configuration
-        "${modules}/config"
-        "${modules}/security"
-        "${modules}/system"
-        "${modules}/system/boot.nix"
+        ./modules/config
+        ./modules/security
+        ./modules/system
+        ./modules/system/boot.nix
 
         # Hardware modules
-        "${hardware}/bluetooth.nix"
-        "${hardware}/intel.nix"
-        "${hardware}/nvidia.nix"
-        "${hardware}/ssd.nix"
+        ./modules/hardware/bluetooth.nix
+        ./modules/hardware/intel.nix
+        ./modules/hardware/nvidia.nix
+        ./modules/hardware/ssd.nix
 
         # Environment
-        "${modules}/environment"
+        ./modules/environment
 
         # Programs
-        "${modules}/programs"
-        "${modules}/programs/hyprland.nix"
+        ./modules/programs
+        ./modules/programs/hyprland.nix
 
         # Services
-        "${modules}/services"
-        "${modules}/services/greetd.nix"
+        ./modules/services
+        ./modules/services/greetd.nix
 
         # Virtualization
-        "${modules}/virtualisation"
+        ./modules/virtualisation
 
         # Home Manager configuration
         {
