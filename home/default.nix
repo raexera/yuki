@@ -2,7 +2,7 @@
   _module.args = {
     homeImports = {
       "raexera@yuki" = [
-        ./profiles/yuki.nix
+        ./profiles/yuki/configuration.nix
         ./home.nix
       ];
     };

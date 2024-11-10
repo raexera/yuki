@@ -20,7 +20,7 @@ in {
 
         # Device-specific configuration
         {networking.hostName = "yuki";}
-        ./yuki/configuration.nix
+        ./profiles/yuki/configuration.nix
 
         # Core configuration
         ./modules/config
