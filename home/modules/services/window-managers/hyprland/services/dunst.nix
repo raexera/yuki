@@ -1,12 +1,14 @@
 {
-  config,
+  pkgs,
   themes,
   ...
 }: {
   services.dunst = {
     enable = true;
-    inherit (config.gtk) iconTheme;
-
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
     settings = let
       inherit (themes.colorscheme) xcolors;
     in {

@@ -81,12 +81,7 @@
               text = "${xcolors.white}";
             };
           };
-          customUIColors = {
-            all = {
-              "statusBar.foreground" = "accent";
-              "statusBar.noFolderForeground" = "accent";
-            };
-          };
+          customUIColors = {};
         })
       ];
   };
