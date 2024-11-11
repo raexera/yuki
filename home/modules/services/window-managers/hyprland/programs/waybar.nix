@@ -57,7 +57,7 @@ in {
           format = "{}°";
           tooltip = true;
           interval = 3600;
-          exec = "${pkgs.wttrbar}/bin/wttrbar  --hide-conditions --location Jakarta";
+          exec = "${pkgs.wttrbar}/bin/wttrbar  --hide-conditions";
           return-type = "json";
         };
 
