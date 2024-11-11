@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  flake-checks:
+  nix-flakes:
     runs-on: ubuntu-latest
 
     steps:
