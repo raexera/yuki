@@ -231,23 +231,6 @@ in {
         border-radius: 8px;
       }
 
-      /* Scale and Progress Bars */
-      scale trough,
-      progressbar trough {
-        background: ${xcolors.black0};
-        border-radius: 16px;
-        min-width: 5rem;
-      }
-
-      scale highlight,
-      scale progress,
-      progressbar highlight,
-      progressbar progress {
-        background: ${xcolors.black3};
-        border-radius: 16px;
-        min-height: 0.5rem;
-      }
-
       /* Tooltip */
       tooltip {
         background: ${xcolors.black0};

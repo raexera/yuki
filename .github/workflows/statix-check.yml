@@ -1,4 +1,4 @@
-name: Flake Check
+name: Statix Check
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  flake-check:
-    name: Nix Flake Check
+  statix-check:
+    name: Nix Statix Check
     runs-on: ubuntu-latest
 
     steps:
@@ -22,5 +22,5 @@ jobs:
             auto-optimise-store = true
             experimental-features = nix-command flakes
 
-      - name: Run Nix Flake Check
-        run: nix flake check
+      - name: Run Nix Statix Check
+        run: nix run nixpkgs#statix -- check ./

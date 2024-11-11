@@ -20,28 +20,29 @@
         governor = "powersave";
         energy_performance_preference = "power";
         turbo = "auto";
-
         enable_thresholds = true;
         ideapad_laptop_conservation_mode = true;
       };
     };
   };
 
-  # Enables thermald service to automatically manage CPU temperature
-  services.thermald.enable = true;
+  services = {
+    # Enables thermald service to automatically manage CPU temperature
+    thermald.enable = true;
 
-  # Enables throttled service to help mitigate Intel CPU throttling issues
-  services.throttled.enable = true;
+    # Enables throttled service to help mitigate Intel CPU throttling issues
+    throttled.enable = true;
 
-  # Enables acpid service to handle ACPI events like button presses or power events
-  services.acpid.enable = true;
+    # Enables acpid service to handle ACPI events like button presses or power events
+    acpid.enable = true;
 
-  # Configures upower for battery and power event handling
-  services.upower = {
-    enable = true;
-    percentageLow = 20;
-    percentageCritical = 15;
-    percentageAction = 10;
-    criticalPowerAction = "Hibernate";
+    # Configures upower for battery and power event handling
+    upower = {
+      enable = true;
+      percentageLow = 20;
+      percentageCritical = 15;
+      percentageAction = 10;
+      criticalPowerAction = "Hibernate";
+    };
   };
 }
