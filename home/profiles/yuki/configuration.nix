@@ -1,24 +1,11 @@
 {
   imports = [
-    ../../modules/config/gtk.nix
-    ../../modules/config/home-cursor.nix
-    ../../modules/config/qt.nix
+    ../../modules/config
     ../../modules/dev
-    ../../modules/programs/vscode
-    ../../modules/programs/firefox.nix
-    ../../modules/programs/gpg.nix
-    ../../modules/programs/kitty.nix
-    ../../modules/programs/mpv.nix
-    ../../modules/programs/obs-studio.nix
-    ../../modules/programs/playerctld.nix
-    ../../modules/programs/xdg.nix
-    ../../modules/programs/zen.nix
+    ../../modules/programs
+    ../../modules/services
     ../../modules/services/window-managers/hyprland
-    ../../modules/services/blueman-applet.nix
-    ../../modules/services/gnome-keyring.nix
-    ../../modules/services/network-manager-applet.nix
-    ../../modules/services/polkit-agent.nix
-    ../../modules/services/udiskie.nix
+    ../../modules/shell
   ];
 
   wayland.windowManager.hyprland.settings = let

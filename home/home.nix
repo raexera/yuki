@@ -1,9 +1,4 @@
 {
-  imports = [
-    ./modules/shell
-    ./modules/programs/git.nix
-  ];
-
   home = {
     username = "raexera";
     homeDirectory = "/home/raexera";
