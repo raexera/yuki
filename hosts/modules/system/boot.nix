@@ -16,14 +16,17 @@
   ];
 
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
+
   boot.loader.timeout = 0; # Spam space to enter the boot menu
   boot.loader.systemd-boot = {
     enable = true;
-    configurationLimit = 5;
     editor = false;
+    configurationLimit = 5;
   };
 
   boot.plymouth.enable = true;
+  boot.plymouth.theme = "bgrt";
 
   boot.tmp.cleanOnBoot = true;
 }
