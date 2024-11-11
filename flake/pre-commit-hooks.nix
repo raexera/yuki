@@ -10,6 +10,7 @@
       alejandra.enable = true;
       commitizen.enable = true;
       nil.enable = true;
+      statix.enable = true;
     };
   };
 }

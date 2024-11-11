@@ -21,7 +21,7 @@
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        efi.efiSysMountPoint = "/boot";
+        efiSysMountPoint = "/boot";
       };
 
       systemd-boot = {
