@@ -68,7 +68,7 @@ in {
             on-scroll-down = "shift_down";
             on-scroll-up = "shift_up";
           };
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          tooltip-format = "{calendar}";
           calendar = {
             format = {
               days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
