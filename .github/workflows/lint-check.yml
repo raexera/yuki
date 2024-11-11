@@ -1,4 +1,4 @@
-name: Nix Check (alejandra, deadnix, statix)
+name: Lint Check
 
 on:
   push:
