@@ -1,4 +1,4 @@
-name: Nix Check
+name: Nix Check (alejandra, deadnix, flake, statix)
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
 
 jobs:
   nix-lints:
-    name: Nix Check (alejandra, deadnix, flake, statix)
     runs-on: ubuntu-latest
 
     steps:
