@@ -12,6 +12,7 @@
 
 <p align="center">
   <img src="https://github.com/raexera/yuki/actions/workflows/nix-check.yml/badge.svg" alt="Workflow Badge" height="20"/>
+  <img src="https://github.com/raexera/yuki/actions/workflows/flake-check.yml/badge.svg" alt="Workflow Badge" height="20"/>
   <img src="https://img.shields.io/github/license/raexera/yuki" alt="License Badge"  height="20"/>
 </p>
 
