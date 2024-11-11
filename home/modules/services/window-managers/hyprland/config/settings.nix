@@ -4,17 +4,27 @@
   ...
 }: let
   pointer = config.home.pointerCursor;
-  cursorName = "Bibata-Modern-Classic-Hyprcursor";
   inherit (themes.colorscheme) colors;
 in {
   wayland.windowManager.hyprland.settings = {
     env = [
-      "HYPRCURSOR_THEME,${cursorName}"
-      "HYPRCURSOR_SIZE,${toString pointer.size}"
+      "GDK_BACKEND,wayland,x11,*"
+      "SDL_VIDEODRIVER,wayland"
+      "CLUTTER_BACKEND,wayland"
+      "XDG_CURRENT_DESKTOP,Hyprland"
+      "XDG_SESSION_TYPE,wayland"
+      "XDG_SESSION_DESKTOP,Hyprland"
+      "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+      "QT_QPA_PLATFORM,wayland;xcb"
+      "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+      "QT_QPA_PLATFORMTHEME,qt5ct"
+      "GTK_THEME,${config.gtk.theme.name}"
+      "XCURSOR_THEME,${pointer.name}"
+      "XCURSOR_SIZE,${toString pointer.size}"
     ];
 
     exec-once = [
-      "hyprctl setcursor ${cursorName} ${toString pointer.size}"
+      "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
     ];
 
     general = {
@@ -104,7 +114,6 @@ in {
       animate_mouse_windowdragging = true;
       disable_autoreload = true;
       disable_hyprland_logo = true;
-      focus_on_activate = true;
       force_default_wallpaper = 0;
       vfr = true;
       vrr = 1;

@@ -1,15 +1,16 @@
 {
   imports = [
+    ../../modules/config/gtk.nix
+    ../../modules/config/home-cursor.nix
+    ../../modules/config/qt.nix
     ../../modules/dev
     ../../modules/programs/vscode
     ../../modules/programs/firefox.nix
     ../../modules/programs/gpg.nix
-    ../../modules/programs/gtk.nix
     ../../modules/programs/kitty.nix
     ../../modules/programs/mpv.nix
     ../../modules/programs/obs-studio.nix
     ../../modules/programs/playerctld.nix
-    ../../modules/programs/qt.nix
     ../../modules/programs/xdg.nix
     ../../modules/programs/zen.nix
     ../../modules/services/window-managers/hyprland
