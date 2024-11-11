@@ -3,7 +3,6 @@
     ../home
     ../hosts
     ../lib
-    ../pkgs
     ./pre-commit-hooks.nix
   ];
 
@@ -15,6 +14,9 @@
     ...
   }: {
     devShells.default = pkgs.mkShell {
+      name = "yuki";
+      DIRENV_LOG_FORMAT = "";
+
       packages = with pkgs; [
         alejandra
         deadnix
@@ -22,8 +24,6 @@
         nil
       ];
 
-      name = "yuki";
-      DIRENV_LOG_FORMAT = "";
       shellHook = ''
         ${config.pre-commit.installationScript}
       '';

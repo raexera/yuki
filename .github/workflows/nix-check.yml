@@ -1,4 +1,4 @@
-name: Statix Check
+name: Nix Check
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  statix-check:
-    name: Nix Statix Check
+  nix-lints:
+    name: Nix Check (alejandra, deadnix, flake, statix)
     runs-on: ubuntu-latest
 
     steps:
@@ -22,5 +22,14 @@ jobs:
             auto-optimise-store = true
             experimental-features = nix-command flakes
 
-      - name: Run Nix Statix Check
-        run: nix run nixpkgs#statix -- check ./
+      - name: Run Alejandra Check
+        run: nix run nixpkgs#alejandra -- --check .
+
+      - name: Run Deadnix Check
+        run: nix run nixpkgs#deadnix -- --fail .
+
+      - name: Run Flake Check
+        run: nix flake check
+
+      - name: Run Statix Check
+        run: nix run nixpkgs#statix -- check .
