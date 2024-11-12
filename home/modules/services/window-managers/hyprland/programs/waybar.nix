@@ -4,12 +4,6 @@
   ...
 }: let
   inherit (themes.colorscheme) xcolors;
-
-  snowflake = builtins.fetchurl rec {
-    name = "Logo-${sha256}.svg";
-    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake-colours.svg";
-    sha256 = "1cifj774r4z4m856fva1mamnpnhsjl44kw3asklrc57824f5lyz3";
-  };
 in {
   programs.waybar = {
     enable = true;
@@ -46,7 +40,7 @@ in {
         ];
 
         "image" = {
-          path = snowflake;
+          path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           size = 24;
           tooltip = false;
         };
