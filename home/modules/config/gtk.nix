@@ -24,34 +24,12 @@
 
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-
-      extraConfig = ''
-        gtk-xft-antialias=1
-        gtk-xft-hinting=1
-        gtk-xft-hintstyle="hintfull"
-        gtk-xft-rgba="rgb"
-      '';
+      extraConfig = "gtk-application-prefer-dark-theme = true";
     };
 
-    gtk3 = {
-      bookmarks = [
-        "file://${config.home.homeDirectory}/Dev"
-        "file://${config.home.homeDirectory}/Documents"
-        "file://${config.home.homeDirectory}/Downloads"
-        "file://${config.home.homeDirectory}/Music"
-        "file://${config.home.homeDirectory}/Pictures"
-        "file://${config.home.homeDirectory}/Videos"
-      ];
-
-      extraConfig = {
-        gtk-xft-antialias = 1;
-        gtk-xft-hinting = 1;
-        gtk-xft-hintstyle = "hintfull";
-        gtk-xft-rgba = "rgb";
-      };
-    };
-
-    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
   };
+
+  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 }

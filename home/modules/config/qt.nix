@@ -11,15 +11,6 @@
     hash = "sha256-K/2FYOtX0RzwdcGyeurLXAh3j8ohxMrH2OWldqVoLwo=";
     sparseCheckout = ["src"];
   };
-
-  qtctConf = {
-    Appearance = {
-      custom_palette = false;
-      icon_theme = config.gtk.iconTheme.name;
-      standard_dialogs = "xdgdesktopportal";
-      style = "kvantum";
-    };
-  };
 in {
   qt = {
     enable = true;
@@ -44,10 +35,34 @@ in {
       General.theme = "KvLibadwaitaDark";
     };
 
-    "qt5ct/qt5ct.conf".text =
-      lib.generators.toINI {} qtctConf;
+    "qt5ct/qt5ct.conf".text = lib.generators.toINI {} {
+      Appearance = {
+        color_scheme_path = "${pkgs.libsForQt5.qt5ct}/share/qt5ct/colors/darker.conf";
+        custom_palette = true;
+        icon_theme = config.gtk.iconTheme.name;
+        standard_dialogs = "xdgdesktopportal";
+        style = "kvantum-dark";
+      };
 
-    "qt6ct/qt6ct.conf".text =
-      lib.generators.toINI {} qtctConf;
+      Fonts = {
+        fixed = ''"JetBrainsMono Nerd Font Propo,12,-1,5,50,0,0,0,0,0,Regular"'';
+        general = ''"Inter,12,-1,5,50,0,0,0,0,0"'';
+      };
+    };
+
+    "qt6ct/qt6ct.conf".text = lib.generators.toINI {} {
+      Appearance = {
+        color_scheme_path = "${pkgs.kdePackages.qt6ct}/share/qt6ct/colors/darker.conf";
+        custom_palette = true;
+        icon_theme = config.gtk.iconTheme.name;
+        standard_dialogs = "xdgdesktopportal";
+        style = "kvantum-dark";
+      };
+
+      Fonts = {
+        fixed = ''"JetBrainsMono Nerd Font Propo,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
+        general = ''"Inter,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
+      };
+    };
   };
 }
