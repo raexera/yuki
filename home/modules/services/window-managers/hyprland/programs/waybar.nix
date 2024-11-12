@@ -29,9 +29,21 @@ in {
         margin-bottom = 0;
         margin-left = 0;
         margin-right = 0;
-        modules-left = ["image" "hyprland/workspaces" "hyprland/window"];
-        modules-center = ["custom/weather" "clock"];
-        modules-right = ["tray" "group/network-wireplumber-backlight-battery" "group/powermenu"];
+        modules-left = [
+          "image"
+          "hyprland/workspaces"
+          "idle_inhibitor"
+          "hyprland/window"
+        ];
+        modules-right = [
+          "tray"
+          "group/network-modules"
+          "group/wireplumber-modules"
+          "group/backlight-modules"
+          "group/battery-modules"
+          "clock"
+          "group/powermenu"
+        ];
 
         "image" = {
           path = snowflake;
@@ -48,37 +60,19 @@ in {
           };
         };
 
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "󰅶";
+            deactivated = "󰾪";
+          };
+        };
+
         "hyprland/window" = {
           format = "{title}";
           icon = true;
+          icon-size = 24;
           separate-outputs = true;
-        };
-
-        "custom/weather" = {
-          format = "{}°";
-          tooltip = true;
-          interval = 3600;
-          exec = "${pkgs.wttrbar}/bin/wttrbar  --hide-conditions";
-          return-type = "json";
-        };
-
-        clock = {
-          format = "{:%b %d %H:%M}";
-          actions = {
-            on-scroll-down = "shift_down";
-            on-scroll-up = "shift_up";
-          };
-          tooltip-format = "{calendar}";
-          calendar = {
-            format = {
-              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
-              months = "<span color='${xcolors.white}'><b>{}</b></span>";
-              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
-              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
-            };
-            mode = "month";
-            on-scroll = 1;
-          };
         };
 
         tray = {
@@ -87,27 +81,39 @@ in {
           spacing = 8;
         };
 
-        "group/network-wireplumber-backlight-battery" = {
+        "group/network-modules" = {
           modules = [
-            "network"
-            "wireplumber"
-            "backlight"
-            "battery"
+            "network#icon"
+            "network#address"
           ];
           orientation = "inherit";
         };
-
-        network = {
-          format-wifi = "󰤨";
+        "network#icon" = {
+          format-disconnected = "󰤮";
           format-ethernet = "󰈀";
-          format-disconnected = "";
+          format-wifi = "󰤨";
           tooltip-format-wifi = "WiFi: {essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-ethernet = "Ethernet: {ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
           tooltip-format-disconnected = "Disconnected";
           on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
+        "network#address" = {
+          format-disconnected = "Disconnected";
+          format-ethernet = "{ipaddr}/{cidr}";
+          format-wifi = "{essid}";
+          tooltip-format-wifi = "WiFi: {essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
+          tooltip-format-ethernet = "Ethernet: {ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}";
+          tooltip-format-disconnected = "Disconnected";
+        };
 
-        wireplumber = {
+        "group/wireplumber-modules" = {
+          modules = [
+            "wireplumber#icon"
+            "wireplumber#volume"
+          ];
+          orientation = "inherit";
+        };
+        "wireplumber#icon" = {
           format = "{icon}";
           format-muted = "󰖁";
           format-icons = [
@@ -120,25 +126,92 @@ in {
           on-scroll-down = "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 1%- &> /dev/null";
           tooltip-format = "Volume: {volume}%";
         };
+        "wireplumber#volume" = {
+          format = "{volume}%";
+          tooltip-format = "Volume: {volume}%";
+        };
 
-        backlight = {
+        "group/backlight-modules" = {
+          modules = [
+            "backlight#icon"
+            "backlight#percent"
+          ];
+          orientation = "inherit";
+        };
+        "backlight#icon" = {
           format = "{icon}";
-          format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
+          format-icons = [
+            "󰝦"
+            "󰪞"
+            "󰪟"
+            "󰪠"
+            "󰪡"
+            "󰪢"
+            "󰪣"
+            "󰪤"
+            "󰪥"
+          ];
           on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%+ &> /dev/null";
           on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 1%- &> /dev/null";
           tooltip-format = "Backlight: {percent}%";
         };
+        "backlight#percent" = {
+          format = "{percent}%";
+          tooltip-format = "Backlight: {percent}%";
+        };
 
-        battery = {
+        "group/battery-modules" = {
+          modules = [
+            "battery#icon"
+            "battery#capacity"
+          ];
+          orientation = "inherit";
+        };
+        "battery#icon" = {
           format = "{icon}";
           format-charging = "󱐋";
-          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format-icons = [
+            "󰂎"
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
           format-plugged = "󰚥";
           states = {
             warning = 30;
-            critical = 20;
+            critical = 15;
           };
           tooltip-format = "{timeTo}, {capacity}%";
+        };
+        "battery#capacity" = {
+          format = "{capacity}%";
+          tooltip-format = "{timeTo}, {capacity}%";
+        };
+
+        clock = {
+          actions = {
+            on-scroll-down = "shift_down";
+            on-scroll-up = "shift_up";
+          };
+          calendar = {
+            format = {
+              days = "<span color='${xcolors.gray1}'><b>{}</b></span>";
+              months = "<span color='${xcolors.white}'><b>{}</b></span>";
+              today = "<span color='${xcolors.white}'><b><u>{}</u></b></span>";
+              weekdays = "<span color='${xcolors.blue}'><b>{}</b></span>";
+            };
+            mode = "month";
+            on-scroll = 1;
+          };
+          format = "{:%I:%M %p}";
+          tooltip-format = "{calendar}";
         };
 
         "group/powermenu" = {
@@ -257,9 +330,12 @@ in {
       /* Modules */
       #workspaces,
       #workspaces button,
-      #custom-weather,
+      #idle_inhibitor,
+      #network-modules,
+      #wireplumber-modules,
+      #backlight-modules,
+      #battery-modules,
       #clock,
-      #network-wireplumber-backlight-battery,
       #custom-exit,
       #custom-lock,
       #custom-hibernate,
@@ -269,31 +345,24 @@ in {
         background: ${xcolors.black3};
         border-radius: 8px;
         margin: 0.5rem 0.25rem;
-        padding: 0.25rem 0.5rem;
       }
 
       #image,
       #window,
-      #custom-weather,
-      #clock,
       #tray,
-      #network-wireplumber-backlight-battery {
+      #network.address,
+      #wireplumber.volume,
+      #backlight.percent,
+      #battery.capacity,
+      #clock {
         padding: 0.25rem 0.75rem;
       }
 
-      #network,
-      #wireplumber,
-      #backlight,
-      #battery {
-        background: transparent;
-        font-size: 13pt;
-        margin-right: 0.75rem;
-      }
-
-      #battery {
-        margin-right: 0;
-      }
-
+      #idle_inhibitor,
+      #network.icon,
+      #wireplumber.icon,
+      #backlight.icon,
+      #battery.icon,
       #custom-exit,
       #custom-lock,
       #custom-hibernate,
@@ -302,18 +371,16 @@ in {
       #custom-power {
         background: ${xcolors.blue};
         color: ${xcolors.black3};
+        border-radius: 8px;
         font-size: 13pt;
-        min-width: 1rem;
-      }
-
-      /* Hyprland Workspaces */
-      #workspaces {
-        padding: 0;
+        padding: 0.25rem;
+        min-width: 1.5rem;
       }
 
       #workspaces button {
         margin: 0;
-        min-width: 1rem;
+        padding: 0.25rem;
+        min-width: 1.5rem;
         transition: 300ms linear;
       }
 
@@ -365,6 +432,16 @@ in {
         color: lighter(${xcolors.black3});
       }
 
+      /* Idle Inhibitor */
+      #idle_inhibitor {
+        background: ${xcolors.black3};
+        color: ${xcolors.blue};
+      }
+
+      #idle_inhibitor.deactivated {
+        color: ${xcolors.gray0};
+      }
+
       /* Systray */
       #tray > .passive {
         -gtk-icon-effect: dim;
@@ -373,34 +450,6 @@ in {
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
         background: ${xcolors.red};
-      }
-
-      /* Network */
-      #network.disconnected {
-        color: ${xcolors.red};
-      }
-
-      /* Wireplumber */
-      #wireplumber.muted {
-        color: ${xcolors.red};
-      }
-
-      /* Battery */
-      #battery.charging,
-      #battery.plugged {
-        color: ${xcolors.green};
-      }
-
-      #battery.critical:not(.charging) {
-        color: ${xcolors.red};
-        animation: blink 0.5s steps(12) infinite alternate;
-      }
-
-      /* Keyframes */
-      @keyframes blink {
-        to {
-          color: ${xcolors.white};
-        }
       }
     '';
   };
