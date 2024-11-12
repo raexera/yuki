@@ -10,7 +10,7 @@
       addAll {
         serif = ["Noto Serif"];
         sansSerif = ["Inter"];
-        monospace = ["JetBrainsMono NFM"];
+        monospace = ["JetBrainsMono Nerd Font Propo"];
         emoji = [];
       };
 

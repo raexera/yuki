@@ -22,8 +22,7 @@
 
     "qt5ct/qt5ct.conf".text = lib.generators.toINI {} {
       Appearance = {
-        color_scheme_path = "${pkgs.libsForQt5.qt5ct}/share/qt5ct/colors/darker.conf";
-        custom_palette = true;
+        custom_palette = false;
         icon_theme = config.gtk.iconTheme.name;
         standard_dialogs = "xdgdesktopportal";
         style = "kvantum-dark";
@@ -37,8 +36,7 @@
 
     "qt6ct/qt6ct.conf".text = lib.generators.toINI {} {
       Appearance = {
-        color_scheme_path = "${pkgs.kdePackages.qt6ct}/share/qt6ct/colors/darker.conf";
-        custom_palette = true;
+        custom_palette = false;
         icon_theme = config.gtk.iconTheme.name;
         standard_dialogs = "xdgdesktopportal";
         style = "kvantum-dark";

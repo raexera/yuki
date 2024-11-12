@@ -15,7 +15,7 @@
     "editor.cursorBlinking" = "smooth";
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.folding" = true;
-    "editor.fontFamily" = "'JetBrainsMono NFP', 'Droid Sans Mono', 'monospace', monospace";
+    "editor.fontFamily" = "'JetBrainsMono Nerd Font Propo', 'Droid Sans Mono', 'monospace', monospace";
     "editor.fontLigatures" = true;
     "editor.fontSize" = 16;
     "editor.fontWeight" = "500";
@@ -78,7 +78,7 @@
   };
 
   terminal = {
-    "terminal.integrated.fontFamily" = "'JetBrainsMono NFP', 'Droid Sans Mono', 'monospace', monospace";
+    "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Propo', 'Droid Sans Mono', 'monospace', monospace";
     "terminal.integrated.fontSize" = 16;
     "terminal.integrated.gpuAcceleration" = "on";
     "terminal.integrated.minimumContrastRatio" = 1;
