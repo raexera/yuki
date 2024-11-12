@@ -3,15 +3,7 @@
   pkgs,
   config,
   ...
-}: let
-  KvLibadwaita = pkgs.fetchFromGitHub {
-    owner = "GabePoel";
-    repo = "KvLibadwaita";
-    rev = "87c1ef9f44ec48855fd09ddab041007277e30e37";
-    hash = "sha256-K/2FYOtX0RzwdcGyeurLXAh3j8ohxMrH2OWldqVoLwo=";
-    sparseCheckout = ["src"];
-  };
-in {
+}: {
   qt = {
     enable = true;
     platformTheme.name = "qtct";
@@ -20,12 +12,12 @@ in {
 
   xdg.configFile = {
     "Kvantum" = {
-      source = "${KvLibadwaita}/src";
+      source = "${pkgs.colloid-kde}/share/Kvantum";
       recursive = true;
     };
 
     "Kvantum/kvantum.kvconfig".text = lib.generators.toINI {} {
-      General.theme = "KvLibadwaitaDark";
+      General.theme = "ColloidDark";
     };
 
     "qt5ct/qt5ct.conf".text = lib.generators.toINI {} {
