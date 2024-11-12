@@ -27,7 +27,6 @@
         mikestead.dotenv
         mkhl.direnv
         ms-azuretools.vscode-docker
-        ms-kubernetes-tools.vscode-kubernetes-tools
         naumovs.color-highlight
         oderwat.indent-rainbow
         redhat.java
