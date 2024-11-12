@@ -135,15 +135,9 @@ in {
         "backlight#icon" = {
           format = "{icon}";
           format-icons = [
-            "󰝦"
-            "󰪞"
-            "󰪟"
-            "󰪠"
-            "󰪡"
-            "󰪢"
-            "󰪣"
-            "󰪤"
-            "󰪥"
+            "󰃞"
+            "󰃟"
+            "󰃠"
           ];
           on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%+ &> /dev/null";
           on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 1%- &> /dev/null";
@@ -369,8 +363,10 @@ in {
         font-size: 13pt;
         padding: 0.25rem;
         min-width: 1.5rem;
+        transition: 300ms linear;
       }
 
+      /* Workspaces */
       #workspaces button {
         margin: 0;
         padding: 0.25rem;
@@ -382,48 +378,21 @@ in {
         color: ${xcolors.white};
       }
 
-      #workspaces button:hover label {
-        color: lighter(${xcolors.white});
-      }
-
       #workspaces button.empty label {
         color: ${xcolors.gray0};
       }
 
-      #workspaces button.empty:hover label {
-        color: lighter(${xcolors.gray0});
-      }
-
-      #workspaces button.urgent label {
-        color: ${xcolors.red};
-      }
-
-      #workspaces button.urgent:hover label {
-        color: lighter(${xcolors.red});
-      }
-
-      #workspaces button.special label {
-        color: ${xcolors.mauve};
-      }
-
-      #workspaces button.special:hover label {
-        color: lighter(${xcolors.mauve});
-      }
-
-      #workspaces button.active {
-        background: ${xcolors.blue};
-      }
-
+      #workspaces button.urgent label,
       #workspaces button.active label {
         color: ${xcolors.black3};
       }
 
-      #workspaces button.active:hover {
-        background: lighter(${xcolors.blue});
+      #workspaces button.urgent {
+        background: ${xcolors.red};
       }
 
-      #workspaces button.active:hover label {
-        color: lighter(${xcolors.black3});
+      #workspaces button.active {
+        background: ${xcolors.blue};
       }
 
       /* Idle Inhibitor */
@@ -444,6 +413,59 @@ in {
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
         background: ${xcolors.red};
+      }
+
+      /* Hover effects */
+      #workspaces button:hover,
+      #idle_inhibitor:hover,
+      #idle_inhibitor.deactivated:hover {
+        background: lighter(${xcolors.black3});
+      }
+
+      #workspaces button.urgent:hover {
+        background: lighter(${xcolors.red});
+      }
+
+      #workspaces button.active:hover,
+      #network.icon:hover,
+      #wireplumber.icon:hover,
+      #custom-exit:hover,
+      #custom-lock:hover,
+      #custom-hibernate:hover,
+      #custom-suspend:hover,
+      #custom-reboot:hover,
+      #custom-power:hover {
+        background: lighter(${xcolors.blue});
+      }
+
+      /* Hover effects for label color */
+      #workspaces button.urgent:hover label,
+      #workspaces button.active:hover label,
+      #network.icon:hover label,
+      #wireplumber.icon:hover label,
+      #custom-exit:hover label,
+      #custom-lock:hover label,
+      #custom-hibernate:hover label,
+      #custom-suspend:hover label,
+      #custom-reboot:hover label,
+      #custom-power:hover label {
+        color: lighter(${xcolors.black3});
+      }
+
+      #workspaces button:hover label {
+        color: lighter(${xcolors.white});
+      }
+
+      #workspaces button.empty:hover label {
+        color: lighter(${xcolors.gray0});
+      }
+
+      #idle_inhibitor:hover {
+        color: lighter(${xcolors.blue});
+      }
+
+      #idle_inhibitor.deactivated:hover {
+        color: lighter(${xcolors.gray0});
       }
     '';
   };
