@@ -438,7 +438,6 @@ in {
         background: lighter(${xcolors.blue});
       }
 
-      /* Hover effects for label color */
       #workspaces button.urgent:hover label,
       #workspaces button.active:hover label,
       #network.icon:hover label,
