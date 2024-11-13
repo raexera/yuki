@@ -211,7 +211,6 @@ in {
             "custom/power"
             "custom/lock"
             "custom/suspend"
-            "custom/hibernate"
             "custom/exit"
             "custom/reboot"
           ];
@@ -230,11 +229,6 @@ in {
         "custom/suspend" = {
           format = "󰤄";
           on-click = "${pkgs.systemd}/bin/systemctl suspend";
-          tooltip = false;
-        };
-        "custom/hibernate" = {
-          format = "󰜗";
-          on-click = "${pkgs.systemd}/bin/systemctl hibernate";
           tooltip = false;
         };
         "custom/exit" = {
@@ -325,7 +319,6 @@ in {
       #clock,
       #custom-exit,
       #custom-lock,
-      #custom-hibernate,
       #custom-suspend,
       #custom-reboot,
       #custom-power {
@@ -352,7 +345,6 @@ in {
       #battery.icon,
       #custom-exit,
       #custom-lock,
-      #custom-hibernate,
       #custom-suspend,
       #custom-reboot,
       #custom-power {
@@ -430,7 +422,6 @@ in {
       #wireplumber.icon:hover,
       #custom-exit:hover,
       #custom-lock:hover,
-      #custom-hibernate:hover,
       #custom-suspend:hover,
       #custom-reboot:hover,
       #custom-power:hover {
@@ -443,7 +434,6 @@ in {
       #wireplumber.icon:hover label,
       #custom-exit:hover label,
       #custom-lock:hover label,
-      #custom-hibernate:hover label,
       #custom-suspend:hover label,
       #custom-reboot:hover label,
       #custom-power:hover label {

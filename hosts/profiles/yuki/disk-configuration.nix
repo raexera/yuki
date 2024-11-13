@@ -17,19 +17,11 @@
               };
             };
             root = {
-              end = "-8G";
+              size = "100%";
               content = {
                 type = "filesystem";
                 format = "xfs";
                 mountpoint = "/";
-              };
-            };
-            swap = {
-              size = "100%";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-                resumeDevice = true;
               };
             };
           };

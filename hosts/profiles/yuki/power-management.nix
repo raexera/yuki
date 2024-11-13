@@ -27,22 +27,16 @@
   };
 
   services = {
-    # Enables thermald service to automatically manage CPU temperature
-    thermald.enable = true;
-
-    # Enables throttled service to help mitigate Intel CPU throttling issues
-    throttled.enable = true;
-
-    # Enables acpid service to handle ACPI events like button presses or power events
+    # Enable acpid service to handle ACPI events like button presses or power events
     acpid.enable = true;
 
-    # Configures upower for battery and power event handling
-    upower = {
-      enable = true;
-      percentageLow = 20;
-      percentageCritical = 15;
-      percentageAction = 10;
-      criticalPowerAction = "Hibernate";
-    };
+    # Enable thermald service to automatically manage CPU temperature
+    thermald.enable = true;
+
+    # Enable throttled service to help mitigate Intel CPU throttling issues
+    throttled.enable = true;
+
+    # Enable upower for battery and power event handling
+    upower.enable = true;
   };
 }
