@@ -19,8 +19,6 @@
     ../../modules/virtualisation
   ];
 
-  disko.devices.disk.main.device = "/dev/nvme0n1";
-
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
