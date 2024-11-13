@@ -15,7 +15,7 @@
     "editor.cursorBlinking" = "smooth";
     "editor.cursorSmoothCaretAnimation" = "on";
     "editor.folding" = true;
-    "editor.fontFamily" = "'JetBrainsMono Nerd Font Propo', 'Droid Sans Mono', 'monospace', monospace";
+    "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
     "editor.fontLigatures" = true;
     "editor.fontSize" = 16;
     "editor.fontWeight" = "500";

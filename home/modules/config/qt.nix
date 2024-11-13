@@ -29,7 +29,7 @@
       };
 
       Fonts = {
-        fixed = ''"JetBrainsMono Nerd Font Propo,12,-1,5,50,0,0,0,0,0,Regular"'';
+        fixed = ''"JetBrainsMono Nerd Font,12,-1,5,50,0,0,0,0,0,Regular"'';
         general = ''"Inter,12,-1,5,50,0,0,0,0,0"'';
       };
     };
@@ -43,7 +43,7 @@
       };
 
       Fonts = {
-        fixed = ''"JetBrainsMono Nerd Font Propo,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
+        fixed = ''"JetBrainsMono Nerd Font,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
         general = ''"Inter,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
       };
     };
