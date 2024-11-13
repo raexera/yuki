@@ -29,18 +29,12 @@
         ms-azuretools.vscode-docker
         naumovs.color-highlight
         oderwat.indent-rainbow
-        redhat.java
         redhat.vscode-yaml
         renesaarsoo.sql-formatter-vsc
         rust-lang.rust-analyzer
         svelte.svelte-vscode
         tamasfe.even-better-toml
         usernamehw.errorlens
-        vscjava.vscode-java-debug
-        vscjava.vscode-java-dependency
-        vscjava.vscode-java-test
-        vscjava.vscode-maven
-        vscjava.vscode-spring-initializr
         yzhang.markdown-all-in-one
       ]
       ++ [

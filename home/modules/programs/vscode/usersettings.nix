@@ -139,7 +139,6 @@
     "[astro]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[css]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[html]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[java]"."editor.defaultFormatter" = "redhat.java";
     "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[json]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
     "[jsonc]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -204,17 +203,6 @@
     "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
     "javascript.preferGoToSourceDefinition" = true;
     "javascript.suggest.completeFunctionCalls" = true;
-
-    # java
-    "java.configuration.runtimes" = [
-      {
-        name = "JavaSE-17";
-        path = "${pkgs.jdk17}/lib/openjdk";
-        default = true;
-      }
-    ];
-    "java.format.settings.profile" = "GoogleStyle";
-    "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
 
     # nix
     "nix.enableLanguageServer" = true;

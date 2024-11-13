@@ -10,6 +10,7 @@
     gobang
     grex
     java-language-server
+    jetbrains.idea-community
     just
     lldb
     nodejs
