@@ -78,7 +78,7 @@
   };
 
   terminal = {
-    "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Propo', 'Droid Sans Mono', 'monospace', monospace";
+    "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace";
     "terminal.integrated.fontSize" = 16;
     "terminal.integrated.gpuAcceleration" = "on";
     "terminal.integrated.minimumContrastRatio" = 1;
