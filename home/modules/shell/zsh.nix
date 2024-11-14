@@ -33,11 +33,6 @@
       path = "${config.xdg.dataHome}/zsh/zsh_history";
     };
 
-    sessionVariables = {
-      DIRENV_LOG_FORMAT = "";
-      LC_ALL = "en_US.UTF-8";
-    };
-
     completionInit = ''
       # Load zsh modules
       zmodload zsh/complist

@@ -15,15 +15,13 @@
   }: {
     devShells.default = pkgs.mkShell {
       name = "yuki";
-      DIRENV_LOG_FORMAT = "";
-
       packages = with pkgs; [
         alejandra
         deadnix
         git
         nil
+        statix
       ];
-
       shellHook = ''
         ${config.pre-commit.installationScript}
       '';
