@@ -2,28 +2,28 @@
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
       "dimaround, class:^(gcr-prompter)$"
-      "dimaround, class:^(xdg-desktop-portal-gtk)$"
       "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
+      "dimaround, class:^(xdg-desktop-portal-gtk)$"
 
-      "float, class:^(blueman-manager)$"
-      "float, class:^(imv)$"
       "float, class:^(io.bassi.Amberol)$"
       "float, class:^(io.github.celluloid_player.Celluloid)$"
-      "float, class:^(nm-connection-editor)$"
+      "float, class:^(mpv|celluloid)$"
+      "float, class:^(nm-applet|nm-connection-editor|blueman-manager)$"
+      "float, class:^(org.gnome.Calculator)$"
       "float, class:^(org.gnome.Loupe)$"
-      "float, class:^(pavucontrol)$"
+      "float, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
       "float, class:^(thunar)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
+
       "float, title:^(Open Files?|All Files|Open Folder|Install from VSIX)$"
       "float, title:^(Media viewer)$"
+
       "float,title:(Authentication Required|Picture-in-Picture)"
       "pin,title:(Authentication Required|Picture-in-Picture)"
 
-      "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
-      "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
-      "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"
-      "idleinhibit fullscreen, class:^(firefox)$"
-      "idleinhibit fullscreen, class:^(zen)$"
+      "idleinhibit fullscreen, class:^(*)$"
+      "idleinhibit fullscreen, title:^(*)$"
+      "idleinhibit fullscreen, fullscreen:1"
 
       "bordersize 0, floating:0, onworkspace:w[t1]"
       "rounding 0, floating:0, onworkspace:w[t1]"
