@@ -2,7 +2,6 @@
   environment = {
     systemPackages = with pkgs; [
       # Communication
-      zoom-us
       discord
       tdesktop
 
