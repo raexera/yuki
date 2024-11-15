@@ -15,7 +15,7 @@
         "media.ffmpeg.vaapi.enabled" = true;
         "media.hardware-video-decoding.force-enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
-        "sidebar.animation.enabled" = true;
+        "sidebar.revamp" = true;
         "sidebar.verticalTabs" = true;
         "svg.context-properties.content.enabled" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
