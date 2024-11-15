@@ -1,16 +1,8 @@
-{
-  themes,
-  inputs,
-  pkgs,
-  ...
-}: let
+{themes, ...}: let
   inherit (themes.colorscheme) colors;
 in {
   programs.hyprlock = {
     enable = true;
-
-    package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
-
     settings = {
       general = {
         disable_loading_bar = true;

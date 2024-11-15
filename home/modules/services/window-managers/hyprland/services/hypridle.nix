@@ -2,14 +2,10 @@
   pkgs,
   lib,
   config,
-  inputs,
   ...
 }: {
   services.hypridle = {
     enable = true;
-
-    package = inputs.hypridle.packages.${pkgs.system}.hypridle;
-
     settings = {
       general = {
         lock_cmd = lib.getExe config.programs.hyprlock.package;

@@ -46,8 +46,10 @@
         "SUPER_SHIFT, J, movewindow, d"
 
         # Special workspaces
-        "SUPER_SHIFT, grave, movetoworkspace, special"
-        "SUPER, grave, togglespecialworkspace, eDP-1"
+        # "SUPER_SHIFT, grave, movetoworkspace, special"
+        # "SUPER, grave, togglespecialworkspace, eDP-1"
+        "SUPER, S, togglespecialworkspace, magic"
+        "SUPER_SHIFT, S, movetoworkspace, special:magic"
 
         # Cycle workspaces
         "SUPER, bracketleft, workspace, m-1"

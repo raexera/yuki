@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./config
     ./scripts
@@ -23,8 +19,7 @@
   ];
 
   home.packages = with pkgs; [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-
+    grimblast
     kooha
     libnotify
     slurp
@@ -37,9 +32,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-
-    package = inputs.hyprland.packages.${pkgs.system}.default;
-
     systemd = {
       enable = true;
       variables = ["--all"];
