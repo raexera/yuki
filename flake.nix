@@ -97,13 +97,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = {
-      url = "github:fufexan/zen-browser-flake";
+    catppuccin-vsc = {
+      url = "github:catppuccin/vscode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin-vsc = {
-      url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
+    zen-browser = {
+      url = "github:fufexan/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

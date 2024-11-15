@@ -82,16 +82,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1731106889,
-        "narHash": "sha256-acq5Rbg2swreKyZDswqd9c9X1NtTNexMkKZNws/l4s8=",
-        "rev": "39e26a0e1bd5a84899c2b786b9119d6e9174297f",
-        "revCount": 523,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/catppuccin/vscode/3.16.0/01931044-41cd-79d3-882f-dd68e6ebfa38/source.tar.gz?rev=39e26a0e1bd5a84899c2b786b9119d6e9174297f&revCount=523"
+        "lastModified": 1731107453,
+        "narHash": "sha256-U5+2/yP0NMFPHc8/HVz0pKApXvKHB+tNrnQcekGiauc=",
+        "owner": "catppuccin",
+        "repo": "vscode",
+        "rev": "bbb0b5a231a082790398613266e56268ae2e4de0",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/catppuccin/vscode/%2A.tar.gz"
+        "owner": "catppuccin",
+        "repo": "vscode",
+        "type": "github"
       }
     },
     "disko": {
