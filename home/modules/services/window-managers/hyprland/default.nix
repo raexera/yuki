@@ -39,7 +39,6 @@
     package = inputs.hyprland.packages.${pkgs.system}.default;
     plugins = [
       inputs.hyprspace.packages.${pkgs.system}.Hyprspace
-      inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
     ];
     systemd = {
       enable = true;
