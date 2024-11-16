@@ -125,6 +125,14 @@ in {
         timeout = 1000;
         limit = 1.0;
       };
+
+      overview = {
+        centerAligned = true;
+        reverseSwipe = true;
+        overrideGaps = true;
+        gapsIn = 10;
+        gapsOut = 20;
+      };
     };
   };
 }
