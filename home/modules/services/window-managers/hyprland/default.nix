@@ -36,7 +36,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
       inputs.hyprspace.packages.${pkgs.system}.Hyprspace
     ];
