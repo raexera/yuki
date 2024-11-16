@@ -16,15 +16,6 @@
         "SUPER, C, centerwindow"
         "SUPER_SHIFT, P, pin"
 
-        # Grouped (tabbed) windows
-        "SUPER, G, togglegroup"
-        "SUPER, Tab, changegroupactive, f"
-        "SUPER_SHIFT, Tab, changegroupactive, b"
-
-        # Cycle through windows
-        "ALT, Tab, cyclenext"
-        "ALT, Tab, bringactivetotop"
-
         # Move focus
         "SUPER, left, movefocus, l"
         "SUPER, H, movefocus, l"
@@ -44,6 +35,13 @@
         "SUPER_SHIFT, K, movewindow, u"
         "SUPER_SHIFT, down, movewindow, d"
         "SUPER_SHIFT, J, movewindow, d"
+
+        # Cycle through windows
+        "ALT, Tab, cyclenext"
+        "ALT, Tab, bringactivetotop"
+
+        # Workspace overview
+        "SUPER, Tab, overview:toggle"
 
         # Special workspaces
         "SUPER, grave, togglespecialworkspace, magic"

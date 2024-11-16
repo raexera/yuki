@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./config
     ./scripts
@@ -32,6 +36,11 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.default;
+    plugins = [
+      inputs.hyprspace.packages.${pkgs.system}.Hyprspace
+      inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+    ];
     systemd = {
       enable = true;
       variables = ["--all"];

@@ -103,13 +103,6 @@ in {
       workspace_swipe_forever = true;
     };
 
-    group = {
-      groupbar = {
-        font_size = 12;
-        gradients = false;
-      };
-    };
-
     misc = {
       animate_manual_resizes = true;
       animate_mouse_windowdragging = true;
@@ -123,6 +116,14 @@ in {
     xwayland = {
       enabled = true;
       force_zero_scaling = true;
+    };
+
+    plugin = {
+      dynamic-cursors = {
+        mode = "tilt";
+        timeout = 1000;
+        limit = 1.0;
+      };
     };
   };
 }
