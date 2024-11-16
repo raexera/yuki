@@ -9,8 +9,9 @@
   specialArgs = {inherit inputs self themes;};
 
   nixosModules = [
-    inputs.disko.nixosModules.default
     inputs.auto-cpufreq.nixosModules.default
+    inputs.disko.nixosModules.default
+    inputs.home-manager.nixosModules.default
   ];
 in {
   flake.nixosConfigurations = {
