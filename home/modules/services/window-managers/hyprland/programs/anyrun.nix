@@ -11,13 +11,6 @@
   programs.anyrun = {
     enable = true;
     config = {
-      plugins = with inputs.anyrun.packages.${pkgs.system}; [
-        applications
-        rink
-        shell
-        symbols
-      ];
-
       x.fraction = 0.5;
       y.fraction = 0.3;
       width.fraction = 0.5;
@@ -28,6 +21,12 @@
       closeOnClick = false;
       showResultsImmediately = false;
       maxEntries = 10;
+      plugins = with inputs.anyrun.packages.${pkgs.system}; [
+        applications
+        rink
+        shell
+        symbols
+      ];
     };
 
     extraConfigFiles = {
