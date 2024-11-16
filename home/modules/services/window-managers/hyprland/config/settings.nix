@@ -119,13 +119,6 @@ in {
     };
 
     plugin = {
-      dynamic-cursors = {
-        mode = "tilt";
-        shake.nearest = false;
-        timeout = 1000;
-        limit = 1.0;
-      };
-
       overview = {
         centerAligned = true;
         reverseSwipe = true;
