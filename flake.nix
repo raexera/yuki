@@ -22,13 +22,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
