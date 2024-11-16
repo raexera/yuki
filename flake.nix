@@ -45,6 +45,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    hypr-dynamic-cursors = {
+      url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     # miscellaneous
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";

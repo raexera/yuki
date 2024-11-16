@@ -117,5 +117,14 @@ in {
       enabled = true;
       force_zero_scaling = true;
     };
+
+    plugin = {
+      dynamic-cursors = {
+        mode = "tilt";
+        shake.nearest = false;
+        timeout = 1000;
+        limit = 1.0;
+      };
+    };
   };
 }
