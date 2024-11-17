@@ -29,16 +29,14 @@ in {
     environment.variables = {
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      NVD_BACKEND = "direct";
     };
 
     hardware.nvidia = {
       package = nvidiaPackage;
-
       open = false;
       modesetting.enable = true;
       powerManagement.enable = true;
-      nvidiaSettings = true;
-
       prime.offload = {
         enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
         enableOffloadCmd = mkIf pCfg.offload.enable true;

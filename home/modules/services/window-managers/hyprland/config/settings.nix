@@ -113,6 +113,10 @@ in {
       vrr = 1;
     };
 
+    binds = {
+      allow_workspace_cycles = true;
+    };
+
     xwayland = {
       enabled = true;
       force_zero_scaling = true;

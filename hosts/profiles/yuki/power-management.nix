@@ -20,8 +20,6 @@
         governor = "powersave";
         energy_performance_preference = "power";
         turbo = "auto";
-        enable_thresholds = true;
-        ideapad_laptop_conservation_mode = true;
       };
     };
   };
