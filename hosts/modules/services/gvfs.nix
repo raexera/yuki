@@ -1,0 +1,5 @@
+{
+  services.gvfs = {
+    enable = true;
+  };
+}

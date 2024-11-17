@@ -8,4 +8,6 @@
       thunar-volman
     ];
   };
+
+  services.tumbler.enable = true;
 }

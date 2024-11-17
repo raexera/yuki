@@ -3,6 +3,7 @@
     ./blueman.nix
     ./dbus.nix
     ./gnome-keyring.nix
+    ./gvfs.nix
     ./location.nix
     ./mariadb.nix
     ./networking.nix
