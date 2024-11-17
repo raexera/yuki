@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./scripts/preview.nix
+  ];
+
   home.packages = with pkgs; [
     atool
     brightnessctl

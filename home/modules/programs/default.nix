@@ -1,15 +1,24 @@
 {
   imports = [
     ./vscode
+    ./bat.nix
+    ./direnv.nix
+    ./eza.nix
     ./firefox.nix
+    ./fzf.nix
     ./gh.nix
     ./git.nix
     ./gpg.nix
     ./kitty.nix
+    ./lazygit.nix
     ./mpv.nix
     ./obs-studio.nix
     ./playerctld.nix
+    ./ssh.nix
+    ./starship.nix
     ./xdg.nix
     ./zen.nix
+    ./zoxide.nix
+    ./zsh.nix
   ];
 }

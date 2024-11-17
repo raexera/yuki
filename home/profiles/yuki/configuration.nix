@@ -2,10 +2,10 @@
   imports = [
     ../../modules/config
     ../../modules/dev
+    ../../modules/packages
     ../../modules/programs
     ../../modules/services
     ../../modules/services/window-managers/hyprland
-    ../../modules/shell
   ];
 
   wayland.windowManager.hyprland.settings = let
