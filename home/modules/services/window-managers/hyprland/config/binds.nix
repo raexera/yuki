@@ -41,7 +41,7 @@
         "ALT, Tab, bringactivetotop"
 
         # Workspace overview
-        "SUPER, Tab, overview:toggle"
+        "SUPER, Tab, hyprexpo:expo, toggle"
 
         # Special workspaces
         "SUPER, grave, togglespecialworkspace, magic"

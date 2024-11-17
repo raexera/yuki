@@ -123,12 +123,14 @@ in {
     };
 
     plugin = {
-      overview = {
-        centerAligned = true;
-        reverseSwipe = true;
-        overrideGaps = true;
-        gapsIn = 10;
-        gapsOut = 20;
+      hyprexpo = {
+        columns = 3;
+        gap_size = 4;
+        bg_col = "rgb(000000)";
+        enable_gesture = true;
+        gesture_fingers = 3;
+        gesture_distance = 300;
+        gesture_positive = false;
       };
     };
   };
