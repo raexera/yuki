@@ -47,10 +47,6 @@ in {
 
         "hyprland/workspaces" = {
           format = "{id}";
-          on-click = "activate";
-          persistent-workspaces = {
-            "*" = 5;
-          };
         };
 
         idle_inhibitor = {
