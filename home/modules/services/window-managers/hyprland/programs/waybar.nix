@@ -65,9 +65,9 @@ in {
         };
 
         tray = {
-          icon-size = 16;
+          icon-size = 24;
+          spacing = 10;
           show-passive-items = true;
-          spacing = 8;
         };
 
         "group/network-modules" = {
@@ -308,6 +308,7 @@ in {
       #workspaces,
       #workspaces button,
       #idle_inhibitor,
+      #tray,
       #network-modules,
       #wireplumber-modules,
       #backlight-modules,
