@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    act
     beekeeper-studio
     ccls
     clang
@@ -11,6 +12,8 @@
     grex
     java-language-server
     just
+    lazydocker
+    lefthook
     lldb
     nodejs
     pm2
