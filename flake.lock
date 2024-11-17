@@ -22,26 +22,6 @@
         "type": "github"
       }
     },
-    "auto-cpufreq": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1730737631,
-        "narHash": "sha256-YsAImsJDFpkW+z45/rj/vceZ8C48gv9RUpnakpc+q5c=",
-        "owner": "AdnanHodzic",
-        "repo": "auto-cpufreq",
-        "rev": "18a3a93f62f2572bc8ed8e953d09dca4a87da9bc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AdnanHodzic",
-        "repo": "auto-cpufreq",
-        "type": "github"
-      }
-    },
     "catppuccin-vsc": {
       "inputs": {
         "nixpkgs": [
@@ -410,11 +390,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731846914,
-        "narHash": "sha256-08jsTY5MC95CU/EftrT8SwGwEbkHQqksycCVEOLYTws=",
+        "lastModified": 1731868912,
+        "narHash": "sha256-YLK+80aRQnMUQ/QD9aPiGwGAwAUD0dr9vNvvz587+ew=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "12f62bef83b8c344a98f1f79a648f25970930b1f",
+        "rev": "0bc38c5b16f5326cc75af8b103f2af7ae4466d67",
         "type": "github"
       },
       "original": {
@@ -465,7 +445,6 @@
     "root": {
       "inputs": {
         "anyrun": "anyrun",
-        "auto-cpufreq": "auto-cpufreq",
         "catppuccin-vsc": "catppuccin-vsc",
         "disko": "disko",
         "flake-parts": "flake-parts_2",

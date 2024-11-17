@@ -9,7 +9,6 @@
   specialArgs = {inherit inputs self themes;};
 
   nixosModules = [
-    inputs.auto-cpufreq.nixosModules.default
     inputs.disko.nixosModules.default
     inputs.home-manager.nixosModules.default
   ];
