@@ -30,11 +30,11 @@ in {
           "hyprland/window"
         ];
         modules-right = [
-          "tray"
           "group/network-modules"
           "group/wireplumber-modules"
           "group/backlight-modules"
           "group/battery-modules"
+          "tray"
           "clock"
           "group/powermenu"
         ];
@@ -62,12 +62,6 @@ in {
           icon = true;
           icon-size = 24;
           separate-outputs = true;
-        };
-
-        tray = {
-          icon-size = 24;
-          spacing = 10;
-          show-passive-items = true;
         };
 
         "group/network-modules" = {
@@ -176,6 +170,12 @@ in {
         "battery#capacity" = {
           format = "{capacity}%";
           tooltip-format = "{timeTo}, {capacity}%";
+        };
+
+        tray = {
+          icon-size = 24;
+          spacing = 10;
+          show-passive-items = true;
         };
 
         clock = {
@@ -308,11 +308,11 @@ in {
       #workspaces,
       #workspaces button,
       #idle_inhibitor,
-      #tray,
       #network-modules,
       #wireplumber-modules,
       #backlight-modules,
       #battery-modules,
+      #tray,
       #clock,
       #custom-exit,
       #custom-lock,
@@ -326,11 +326,11 @@ in {
 
       #image,
       #window,
-      #tray,
       #network.address,
       #wireplumber.volume,
       #backlight.percent,
       #battery.capacity,
+      #tray,
       #clock {
         padding: 0.25rem 0.75rem;
       }
