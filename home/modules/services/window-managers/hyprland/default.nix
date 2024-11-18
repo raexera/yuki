@@ -1,33 +1,20 @@
 {pkgs, ...}: {
   imports = [
     ./config
-    ./scripts
 
     # launcher
-    ./programs/anyrun.nix
+    ../../../programs/anyrun.nix
 
-    # bar
-    ./programs/waybar.nix
+    # status bar
+    ../../../programs/waybar.nix
 
     # notifications daemon
-    ./services/dunst.nix
+    ../../../services/dunst.nix
 
     # hypr utils
-    ./services/hypridle.nix
-    ./services/hyprlock.nix
-    ./services/hyprpaper.nix
-  ];
-
-  home.packages = with pkgs; [
-    grimblast
-    kooha
-    libnotify
-    slurp
-    grim
-    swappy
-    wf-recorder
-    wl-clipboard
-    wlr-randr
+    ../../../services/hypridle.nix
+    ../../../services/hyprlock.nix
+    ../../../services/hyprpaper.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -40,4 +27,16 @@
       variables = ["--all"];
     };
   };
+
+  home.packages = with pkgs; [
+    grimblast
+    kooha
+    libnotify
+    slurp
+    grim
+    swappy
+    wf-recorder
+    wl-clipboard
+    wlr-randr
+  ];
 }

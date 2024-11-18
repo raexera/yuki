@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./scripts/preview.nix
+    ./scripts
   ];
 
   home.packages = with pkgs; [
