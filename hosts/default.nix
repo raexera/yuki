@@ -12,6 +12,13 @@
     inputs.disko.nixosModules.default
     inputs.home-manager.nixosModules.default
   ];
+
+  sharedModules = [
+    ./modules/config
+    ./modules/environment
+    ./modules/security
+    ./modules/system
+  ];
 in {
   flake.nixosConfigurations = {
     # Lenovo Yoga Slim 7 Pro X (14IAH7)
@@ -30,7 +37,8 @@ in {
             };
           }
         ]
-        ++ nixosModules;
+        ++ nixosModules
+        ++ sharedModules;
     };
   };
 }

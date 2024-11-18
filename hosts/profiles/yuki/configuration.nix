@@ -1,38 +1,86 @@
-{
+{pkgs, ...}: {
   imports = [
     ./disk-configuration.nix
     ./hardware-configuration.nix
     ./power-management.nix
-    ../../modules/config
-    ../../modules/environment
-    ../../modules/hardware/bluetooth.nix
-    ../../modules/hardware/intel.nix
-    ../../modules/hardware/nvidia.nix
-    ../../modules/hardware/ssd.nix
-    ../../modules/programs
+
+    ../../modules/config/fonts
+    ../../modules/config/xdg/portal.nix
+    ../../modules/hardware/gpu/intel.nix
+    ../../modules/hardware/gpu/nvidia.nix
+    ../../modules/programs/bash.nix
+    ../../modules/programs/dconf.nix
+    ../../modules/programs/gnupg.nix
+    ../../modules/programs/home-manager.nix
     ../../modules/programs/hyprland.nix
-    ../../modules/security
-    ../../modules/services
+    ../../modules/programs/neovim.nix
+    ../../modules/programs/nh.nix
+    ../../modules/programs/thunar.nix
+    ../../modules/programs/zsh.nix
+    ../../modules/services/blueman.nix
+    ../../modules/services/dbus.nix
+    ../../modules/services/gnome-keyring.nix
     ../../modules/services/greetd.nix
-    ../../modules/system
-    ../../modules/system/boot.nix
-    ../../modules/virtualisation
+    ../../modules/services/gvfs.nix
+    ../../modules/services/location.nix
+    ../../modules/services/mariadb.nix
+    ../../modules/services/networking.nix
+    ../../modules/services/openssh.nix
+    ../../modules/services/pipewire.nix
+    ../../modules/services/postgresql.nix
+    ../../modules/virtualisation/containers.nix
+    ../../modules/virtualisation/docker.nix
+    ../../modules/virtualisation/podman.nix
   ];
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  hardware.nvidia = {
-    prime = {
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
+  environment.systemPackages = with pkgs; [
+    # Communication
+    discord
+    tdesktop
+
+    # Media & Music
+    youtube-music
+    amberol
+    celluloid
+    imv
+    loupe
+    pavucontrol
+
+    # Office & Reading
+    onlyoffice-bin
+    foliate
+  ];
+
+  hardware = {
+    bluetooth = {
+      enable = true;
+      package = pkgs.bluez5-experimental;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+        };
+      };
+    };
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    nvidia = {
+      prime = {
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
     };
   };
 
   services = {
     btrfs.autoScrub.enable = true;
+    fstrim.enable = true;
     fwupd.enable = true;
     hardware.bolt.enable = true;
   };

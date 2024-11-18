@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   boot = {
     consoleLogLevel = 3;
 
@@ -7,7 +7,6 @@
       systemd.enable = true;
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "quiet"
       "splash"
