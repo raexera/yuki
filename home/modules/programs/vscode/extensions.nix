@@ -31,6 +31,7 @@
         oderwat.indent-rainbow
         redhat.vscode-yaml
         renesaarsoo.sql-formatter-vsc
+        rust-lang.rust-analyzer
         svelte.svelte-vscode
         tamasfe.even-better-toml
         usernamehw.errorlens

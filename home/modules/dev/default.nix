@@ -3,7 +3,8 @@
     ./bun.nix
     ./go.nix
     ./java.nix
-    ./python.nix
     ./packages.nix
+    ./python.nix
+    ./rust.nix
   ];
 }
