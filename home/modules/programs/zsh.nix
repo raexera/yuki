@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  themes,
   ...
 }: {
   programs.zsh = {
@@ -130,35 +129,6 @@
       zstyle ':completion:*:git-checkout:*' sort false
       zstyle ':completion:files' sort false
       zstyle ':completion:complete:*:options' sort false
-
-      # fzf-tab
-      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
-      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
-      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
-      zstyle ':fzf-tab:*' fzf-command fzf
-      zstyle ':fzf-tab:*' fzf-pad 4
-      zstyle ':fzf-tab:*' fzf-min-height 100
-      zstyle ':fzf-tab:*' switch-group ',' '.'
-    '';
-
-    envExtra = let
-      inherit (themes.colorscheme) xcolors;
-    in ''
-      # Set fzf options
-      export FZF_DEFAULT_OPTS=" \
-      --multi \
-      --cycle \
-      --reverse \
-      --bind='ctrl-space:toggle,pgup:preview-up,pgdn:preview-down' \
-      --ansi \
-      --color='fg:${xcolors.gray1},bg:${xcolors.black0},gutter:${xcolors.black3}' \
-      --color='fg+:${xcolors.white},bg+:${xcolors.black3},hl:${xcolors.red},hl+:${xcolors.blue}' \
-      --color='info:${xcolors.green},border:${xcolors.gray1},prompt:${xcolors.blue},pointer:${xcolors.mauve}' \
-      --color='marker:${xcolors.blue},spinner:${xcolors.mauve},header:${xcolors.green}' \
-      --prompt ' ' \
-      --pointer '' \
-      --marker ''
-      "
     '';
 
     shellAliases = {
@@ -200,11 +170,6 @@
         name = "zsh-forgit";
         src = zsh-forgit;
         file = "share/zsh/zsh-forgit/forgit.plugin.zsh";
-      }
-      {
-        name = "zsh-fzf-tab";
-        src = zsh-fzf-tab;
-        file = "share/fzf-tab/fzf-tab.plugin.zsh";
       }
       {
         name = "zsh-autopair";

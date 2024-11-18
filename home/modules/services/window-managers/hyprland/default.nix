@@ -1,20 +1,15 @@
 {pkgs, ...}: {
   imports = [
     ./config
-
-    # launcher
     ../../../programs/anyrun.nix
-
-    # status bar
     ../../../programs/waybar.nix
-
-    # notifications daemon
     ../../../services/dunst.nix
-
-    # hypr utils
     ../../../services/hypridle.nix
     ../../../services/hyprlock.nix
     ../../../services/hyprpaper.nix
+    # self.packages.${pkgs.system}.lightctl
+    # self.packages.${pkgs.system}.networkctl
+    # self.packages.${pkgs.system}.volumectl
   ];
 
   wayland.windowManager.hyprland = {
