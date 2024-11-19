@@ -1,4 +1,6 @@
 {
+  systems = ["x86_64-linux"];
+
   imports = [
     ../home
     ../hosts
@@ -6,8 +8,6 @@
     ../pkgs
     ./pre-commit-hooks.nix
   ];
-
-  systems = ["x86_64-linux"];
 
   perSystem = {
     config,

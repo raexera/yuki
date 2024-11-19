@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  self,
+  ...
+}: {
   imports = [
     ./config
     ../../../programs/anyrun.nix
@@ -7,9 +11,6 @@
     ../../../services/hypridle.nix
     ../../../services/hyprlock.nix
     ../../../services/hyprpaper.nix
-    # self.packages.${pkgs.system}.lightctl
-    # self.packages.${pkgs.system}.networkctl
-    # self.packages.${pkgs.system}.volumectl
   ];
 
   wayland.windowManager.hyprland = {
@@ -33,5 +34,8 @@
     wf-recorder
     wl-clipboard
     wlr-randr
+    self.packages.${pkgs.system}.lightctl
+    self.packages.${pkgs.system}.networkctl
+    self.packages.${pkgs.system}.volumectl
   ];
 }
