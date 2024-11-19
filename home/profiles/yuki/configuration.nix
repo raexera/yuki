@@ -4,6 +4,7 @@
     ../../modules/dev
     ../../modules/programs
     ../../modules/services
+    ../../modules/shell
     ../../modules/window-managers/hyprland
   ];
 
