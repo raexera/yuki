@@ -29,5 +29,5 @@ lib: {
     xcolors = lib.mapAttrsRecursive (_: color: "#${color}") colors;
   };
 
-  wallpaper = ./assets/nix-wallpaper.png;
+  wallpaper = ./assets/chifuri-wallpaper.jpg;
 }
