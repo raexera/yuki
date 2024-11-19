@@ -1,6 +1,6 @@
-{
+{config, ...}: {
   programs.fzf = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = config.programs.zsh.enable;
   };
 }

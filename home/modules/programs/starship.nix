@@ -3,7 +3,7 @@
 
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = config.programs.zsh.enable;
     settings = {
       scan_timeout = 10;
       add_newline = true;

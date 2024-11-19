@@ -262,7 +262,7 @@ in {
       menu menuitem {
         background: transparent;
         padding: 0.5rem;
-        transition: 200ms;
+        transition: 300ms linear;
       }
 
       menu menuitem:hover {
@@ -322,6 +322,7 @@ in {
         background: ${xcolors.black3};
         border-radius: 8px;
         margin: 0.5rem 0.25rem;
+        transition: 300ms linear;
       }
 
       #image,
@@ -359,7 +360,6 @@ in {
         margin: 0;
         padding: 0.25rem;
         min-width: 1.5rem;
-        transition: 300ms linear;
       }
 
       #workspaces button label {
@@ -406,7 +406,8 @@ in {
       /* Hover effects */
       #workspaces button:hover,
       #idle_inhibitor:hover,
-      #idle_inhibitor.deactivated:hover {
+      #idle_inhibitor.deactivated:hover,
+      #clock:hover {
         background: lighter(${xcolors.black3});
       }
 

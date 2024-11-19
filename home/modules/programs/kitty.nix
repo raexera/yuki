@@ -1,7 +1,11 @@
-{themes, ...}: {
+{
+  config,
+  themes,
+  ...
+}: {
   programs.kitty = {
     enable = true;
-    shellIntegration.enableZshIntegration = true;
+    shellIntegration.enableZshIntegration = config.programs.zsh.enable;
 
     settings = let
       inherit (themes.colorscheme) xcolors;

@@ -6,6 +6,7 @@
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
+    defaultKeymap = "viins";
 
     dirHashes = {
       dev = "$HOME/Dev";
@@ -132,11 +133,10 @@
     '';
 
     shellAliases = {
-      cat = "bat --color=always  --theme=base16";
+      cat = "bat --color=always --theme=base16 --style=plain --paging=never";
 
       la = "eza -lah --tree";
       ls = "eza -h --git --icons --color=auto --group-directories-first -s extension";
-      tree = "eza --tree --icons --tree";
 
       cp = "cp -iv";
       rm = "rm -iv";
@@ -160,9 +160,6 @@
       nr = "nix run";
       ns = "nix-shell";
       nu = "nix-update";
-
-      untar = "tar -xvf";
-      untargz = "tar -xzf";
     };
 
     plugins = with pkgs; [
@@ -180,6 +177,11 @@
         name = "zsh-you-should-use";
         src = zsh-you-should-use;
         file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
+      }
+      {
+        name = "zsh-nix-shell";
+        src = zsh-nix-shell;
+        file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
       }
       {
         name = "zsh-vi-mode";

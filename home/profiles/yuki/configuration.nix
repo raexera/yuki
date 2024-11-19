@@ -35,6 +35,7 @@
     ripgrep
     rsync
     trash-cli
+    tree
     unrar
     unzip
     util-linux

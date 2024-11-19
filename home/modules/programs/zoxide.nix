@@ -1,7 +1,7 @@
-{
+{config, ...}: {
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = config.programs.zsh.enable;
     options = [
       "--cmd cd"
     ];
