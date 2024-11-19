@@ -4,7 +4,7 @@
     ../../modules/dev
     ../../modules/programs
     ../../modules/services
-    ../../modules/services/window-managers/hyprland
+    ../../modules/window-managers/hyprland
   ];
 
   home.packages = with pkgs; [

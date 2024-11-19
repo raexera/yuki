@@ -5,12 +5,12 @@
 }: {
   imports = [
     ./config
-    ../../../programs/anyrun.nix
-    ../../../programs/waybar.nix
-    ../../../services/dunst.nix
-    ../../../services/hypridle.nix
-    ../../../services/hyprlock.nix
-    ../../../services/hyprpaper.nix
+    ./programs/anyrun.nix
+    ./programs/waybar.nix
+    ./services/dunst.nix
+    ./services/hypridle.nix
+    ./services/hyprlock.nix
+    ./services/hyprpaper.nix
   ];
 
   wayland.windowManager.hyprland = {
