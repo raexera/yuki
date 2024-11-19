@@ -135,9 +135,6 @@
     shellAliases = {
       cat = "bat --color=always --theme=base16 --style=plain --paging=never";
 
-      la = "eza -lah --tree";
-      ls = "eza -h --git --icons --color=auto --group-directories-first -s extension";
-
       cp = "cp -iv";
       rm = "rm -iv";
       mv = "mv -iv";
