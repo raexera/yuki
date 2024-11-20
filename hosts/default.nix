@@ -1,13 +1,20 @@
 {
   inputs,
+  lib,
   self,
   themes,
   ...
 }: {
   flake.nixosConfigurations = let
+    inherit (lib) concatLists flatten singleton;
+
     nixosModules = [
       inputs.disko.nixosModules.default
+    ];
+
+    hmModules = [
       inputs.home-manager.nixosModules.default
+      ../home
     ];
 
     sharedModules = [
@@ -15,26 +22,37 @@
       ./modules/environment
       ./modules/security
       ./modules/system
-      ../home
     ];
 
-    mkNixosSystem = name: system:
+    mkNixosSystem = {
+      hostname,
+      system,
+      extraModules ? [],
+      ...
+    } @ args:
       inputs.nixpkgs.lib.nixosSystem {
-        modules =
-          [
-            {
-              networking.hostName = name;
-              nixpkgs.hostPlatform = system;
-            }
-            ./${name}
-          ]
-          ++ nixosModules
-          ++ sharedModules;
-
         specialArgs = {inherit inputs self themes;};
+
+        modules = concatLists [
+          (singleton {
+            networking.hostName = args.hostname;
+            nixpkgs.hostPlatform = args.system;
+          })
+
+          (flatten (
+            concatLists [
+              (singleton ./${args.hostname})
+              args.extraModules
+            ]
+          ))
+        ];
       };
   in {
     # Lenovo Yoga Slim 7 Pro X (14IAH7)
-    yuki = mkNixosSystem "yuki" "x86_64-linux";
+    yuki = mkNixosSystem {
+      hostname = "yuki";
+      system = "x86_64-linux";
+      extraModules = [nixosModules hmModules sharedModules];
+    };
   };
 }
