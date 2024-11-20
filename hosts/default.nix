@@ -6,7 +6,7 @@
   ...
 }: {
   flake.nixosConfigurations = let
-    inherit (lib) concatLists flatten singleton;
+    inherit (lib.lists) concatLists flatten singleton;
 
     nixosModules = [
       inputs.disko.nixosModules.default
@@ -31,8 +31,6 @@
       ...
     } @ args:
       inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs self themes;};
-
         modules = concatLists [
           (singleton {
             networking.hostName = args.hostname;
@@ -46,6 +44,8 @@
             ]
           ))
         ];
+
+        specialArgs = {inherit inputs self themes;};
       };
   in {
     # Lenovo Yoga Slim 7 Pro X (14IAH7)
