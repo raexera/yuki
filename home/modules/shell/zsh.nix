@@ -58,31 +58,28 @@
       while read -r option; do
         setopt $option
       done <<-EOF
+      ALWAYS_TO_END
       AUTO_CD
       AUTO_LIST
       AUTO_MENU
       AUTO_PARAM_SLASH
       AUTO_PUSHD
-      ALWAYS_TO_END
       CDABLE_VARS
       COMPLETE_IN_WORD
-      CORRECT
-      EXTENDED_GLOB
+      HASH_LIST_ALL
       INTERACTIVE_COMMENTS
-      MENU_COMPLETE
-      NOBEEP
-      NO_NOMATCH
+      NO_BEEP
+      NOTIFY
+      PATH_DIRS
       PUSHD_IGNORE_DUPS
-      PUSHD_TO_HOME
       PUSHD_SILENT
       EOF
 
       while read -r option; do
         unsetopt $option
       done <<-EOF
-      CORRECT_ALL
-      MENU_COMPLETE
       FLOW_CONTROL
+      MENU_COMPLETE
       EOF
 
       # Ztyle pattern
