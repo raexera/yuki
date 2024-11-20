@@ -252,7 +252,7 @@ in {
       /* Menu */
       menu {
         background: ${xcolors.black0};
-        border-radius: 8px;
+        border-radius: 12px;
       }
 
       menu separator {
@@ -270,21 +270,21 @@ in {
       }
 
       menu menuitem:first-child {
-        border-radius: 8px 8px 0 0;
+        border-radius: 12px 12px 0 0;
       }
 
       menu menuitem:last-child {
-        border-radius: 0 0 8px 8px;
+        border-radius: 0 0 12px 12px;
       }
 
       menu menuitem:only-child {
-        border-radius: 8px;
+        border-radius: 12px;
       }
 
       /* Tooltip */
       tooltip {
         background: ${xcolors.black0};
-        border-radius: 16px;
+        border-radius: 12px;
       }
 
       tooltip label {

@@ -53,7 +53,7 @@ in {
     };
 
     decoration = {
-      rounding = 16;
+      rounding = 12;
 
       active_opacity = 1.0;
       inactive_opacity = 1.0;

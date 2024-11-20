@@ -63,7 +63,7 @@
       /* Entry */
       #entry {
         background: ${xcolors.black3};
-        border-radius: 100px;
+        border-radius: 12px;
         margin: 0.5rem;
         padding: 0.5rem;
       }
@@ -75,15 +75,15 @@
       }
 
       #match.activatable:first-child {
-        border-radius: 16px 16px 0 0;
+        border-radius: 12px 12px 0 0;
       }
 
       #match.activatable:last-child {
-        border-radius: 0 0 16px 16px;
+        border-radius: 0 0 12px 12px;
       }
 
       #match.activatable:only-child {
-        border-radius: 16px;
+        border-radius: 12px;
       }
 
       /* Hover and selected states */
@@ -96,13 +96,13 @@
       /* Main container */
       box#main {
         background: ${xcolors.black0};
-        border-radius: 16px;
+        border-radius: 12px;
         padding: 0.5rem;
       }
 
       /* Plugin within list */
       list > #plugin {
-        border-radius: 16px;
+        border-radius: 12px;
         margin: 0.5rem;
       }
     '';
