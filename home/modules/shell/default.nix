@@ -1,11 +1,12 @@
 {
   imports = [
     ./bat.nix
+    ./dircolors.nix
     ./direnv.nix
     ./eza.nix
     ./fzf.nix
-    ./lazygit.nix
     ./starship.nix
+    ./yazi.nix
     ./zoxide.nix
     ./zsh.nix
   ];
