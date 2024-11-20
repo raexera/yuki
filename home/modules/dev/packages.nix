@@ -27,7 +27,6 @@
     sea-orm-cli
     shellcheck
     shfmt
-    slack
     turso-cli
     typescript
     typst

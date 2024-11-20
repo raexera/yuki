@@ -39,6 +39,7 @@
     # Communication
     discord
     tdesktop
+    slack
 
     # Media & Music
     youtube-music
@@ -51,6 +52,9 @@
     # Office & Reading
     onlyoffice-bin
     foliate
+
+    # Productivity
+    obsidian
   ];
 
   hardware = {

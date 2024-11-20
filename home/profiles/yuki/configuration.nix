@@ -17,6 +17,7 @@
     duf
     editorconfig-core-c
     elinks
+    exiftool
     fd
     file
     findutils
