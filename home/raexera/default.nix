@@ -1,11 +1,12 @@
 {pkgs, ...}: {
   imports = [
-    ../../modules/config
-    ../../modules/dev
-    ../../modules/programs
-    ../../modules/services
-    ../../modules/shell
-    ../../modules/window-managers/hyprland
+    ./home.nix
+    ./config
+    ./dev
+    ./programs
+    ./services
+    ./shell
+    ./window-managers/hyprland
   ];
 
   home.packages = with pkgs; [

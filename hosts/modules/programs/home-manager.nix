@@ -1,13 +1,13 @@
 {
-  config,
-  lib,
+  inputs,
+  self,
+  themes,
   ...
 }: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules = [
-      {home.stateVersion = lib.mkForce config.system.stateVersion;}
-    ];
+    users.raexera = import "${self}/home/raexera";
+    extraSpecialArgs = {inherit inputs self themes;};
   };
 }
