@@ -20,12 +20,14 @@ in {
     extraSpecialArgs = specialArgs;
 
     # Per-user Home Manager configurations.
-    users.raexera = import ./raexera;
+    users = {
+      raexera = import ./raexera;
+    };
 
     # Extra modules added to all users.
     sharedModules = [
       {
-        # Allow HM to manage itself when in standalone mode.
+        # Let Home Manager install and manage itself.
         programs.home-manager.enable = true;
 
         # Avoid installing multiple variants of the home manager manual to save space.
