@@ -29,8 +29,23 @@
       highlighters = ["main" "brackets" "pattern" "cursor" "regexp" "root" "line"];
     };
 
+    historySubstringSearch = {
+      enable = true;
+      searchUpKey = ["^[[A"];
+      searchDownKey = ["^[[B"];
+    };
+
     history = {
       path = "${config.xdg.dataHome}/zsh/zsh_history";
+      size = 10000;
+      save = 10000;
+      append = true;
+      ignoreDups = true;
+      ignoreAllDups = true;
+      ignoreSpace = true;
+      expireDuplicatesFirst = true;
+      extended = true;
+      share = true;
     };
 
     completionInit = ''
@@ -48,23 +63,11 @@
       AUTO_MENU
       AUTO_PARAM_SLASH
       AUTO_PUSHD
-      APPEND_HISTORY
       ALWAYS_TO_END
       CDABLE_VARS
       COMPLETE_IN_WORD
       CORRECT
       EXTENDED_GLOB
-      EXTENDED_HISTORY
-      HIST_EXPIRE_DUPS_FIRST
-      HIST_FIND_NO_DUPS
-      HIST_FCNTL_LOCK
-      HIST_IGNORE_ALL_DUPS
-      HIST_IGNORE_DUPS
-      HIST_IGNORE_SPACE
-      HIST_REDUCE_BLANKS
-      HIST_SAVE_NO_DUPS
-      HIST_VERIFY
-      INC_APPEND_HISTORY
       INTERACTIVE_COMMENTS
       MENU_COMPLETE
       NOBEEP
@@ -72,7 +75,6 @@
       PUSHD_IGNORE_DUPS
       PUSHD_TO_HOME
       PUSHD_SILENT
-      SHARE_HISTORY
       EOF
 
       while read -r option; do
