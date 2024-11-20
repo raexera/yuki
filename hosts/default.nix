@@ -14,6 +14,7 @@
     ./modules/environment
     ./modules/security
     ./modules/system
+    ../home
   ];
 
   mkHost = name: system:
@@ -24,7 +25,7 @@
             networking.hostName = name;
             nixpkgs.hostPlatform = system;
           }
-          ./profiles/${name}/configuration.nix
+          ./${name}
         ]
         ++ nixosModules
         ++ sharedModules;
