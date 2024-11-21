@@ -52,30 +52,30 @@
 
     aliases = {
       a = "add";
-      af = "!git add $(git ls-files -m -o --exclude-standard | sk -m)";
-      b = "branch";
       br = "branch";
       c = "commit";
-      ca = "commit --amend";
-      cm = "commit -m";
+      cl = "clone";
       co = "checkout";
+      cp = "cherry-pick";
       d = "diff";
-      ds = "diff --staged";
-      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; hx `f`";
-      essa = "push --force";
-      fuck = "commit --amend -m";
-      graph = "log --all --decorate --graph --oneline";
-      hist = "log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all";
+      i = "init";
       l = "log";
-      llog = "log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative";
-      oops = "checkout --";
+      m = "merge";
       p = "push";
-      pf = "push --force-with-lease";
-      pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)";
-      ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)";
+      pl = "pull";
       r = "rebase";
-      s = "status --short";
-      ss = "status";
+      s = "status";
+      t = "tag";
+      st = "stash";
+
+      # Semantic commit message aliases
+      chore = "!f() { git commit -m \"chore: $1\"; }; f";
+      docs = "!f() { git commit -m \"docs: $1\"; }; f";
+      feat = "!f() { git commit -m \"feat: $1\"; }; f";
+      fix = "!f() { git commit -m \"fix: $1\"; }; f";
+      refactor = "!f() { git commit -m \"refactor: $1\"; }; f";
+      style = "!f() { git commit -m \"style: $1\"; }; f";
+      test = "!f() { git commit -m \"test: $1\"; }; f";
     };
 
     ignores = [

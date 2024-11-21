@@ -114,19 +114,6 @@
       rm = "rm -iv";
       mv = "mv -iv";
 
-      g = "git";
-      ga = "git add";
-      gaa = "git add --all";
-      gb = "git branch";
-      gc = "git commit -v";
-      gcm = "git commit --message";
-      gco = "git checkout";
-      gd = "git diff";
-      gi = "git init";
-      gl = "git pull";
-      gp = "git push";
-      gs = "git status";
-
       nb = "nix-build";
       nd = "nix develop";
       nr = "nix run";
