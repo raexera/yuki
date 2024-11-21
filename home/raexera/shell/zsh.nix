@@ -51,7 +51,7 @@
     completionInit = ''
       zmodload zsh/complist
       autoload -U compinit; compinit
-      _comp_options+=(globdots) # With hidden file-sort
+      _comp_options+=(globdots)
     '';
 
     initExtra = ''

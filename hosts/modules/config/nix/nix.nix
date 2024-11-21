@@ -27,6 +27,6 @@
     };
   };
 
-  # we need git for flakes
+  # We need git for flakes
   environment.systemPackages = [pkgs.git];
 }
