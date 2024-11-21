@@ -1,4 +1,5 @@
 {
+  # https://github.com/raexera/yuki
   description = "Yuki: NixOS and Home-Manager flake";
 
   outputs = inputs:
