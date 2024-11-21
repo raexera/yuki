@@ -1,11 +1,20 @@
 {
   description = "Yuki: NixOS and Home-Manager flake";
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./flake];};
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = import inputs.systems;
+
+      imports = [
+        ./flake
+        ./hosts
+      ];
+    };
 
   inputs = {
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
     disko = {
       url = "github:nix-community/disko";
@@ -26,6 +35,8 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
