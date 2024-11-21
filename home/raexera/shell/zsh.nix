@@ -1,6 +1,7 @@
 {
-  pkgs,
   config,
+  lib,
+  pkgs,
   ...
 }: {
   programs.zsh = {
@@ -107,8 +108,14 @@
       zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
     '';
 
-    shellAliases = {
-      cat = "bat --color=always --theme=base16 --style=plain --paging=never";
+    shellAliases = let
+      inherit (lib.meta) getExe;
+      inherit (pkgs) bat ripgrep dust procs;
+    in {
+      cat = "${getExe bat} --color=always --theme=base16 --style=plain --paging=never";
+      du = "${getExe dust}";
+      grep = "${getExe ripgrep}";
+      ps = "${getExe procs}";
 
       cp = "cp -iv";
       rm = "rm -iv";
@@ -119,6 +126,10 @@
       nr = "nix run";
       ns = "nix-shell";
       nu = "nix-update";
+
+      cleanup = "sudo nix-collect-garbage --delete-older-than 3d && nix-collect-garbage -d";
+      bloat = "nix path-info -Sh /run/current-system";
+      repair = "nix-store --verify --check-contents --repair";
     };
 
     plugins = with pkgs; [
