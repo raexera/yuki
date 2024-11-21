@@ -1,12 +1,12 @@
 {
   inputs,
-  lib,
   self,
   themes,
   ...
 }: {
   flake.nixosConfigurations = let
-    inherit (lib.lists) concatLists flatten singleton;
+    inherit (inputs.self) lib;
+    inherit (lib) concatLists flatten singleton;
 
     nixosModules = [
       inputs.disko.nixosModules.default

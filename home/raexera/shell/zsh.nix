@@ -109,7 +109,7 @@
     '';
 
     shellAliases = let
-      inherit (lib.meta) getExe;
+      inherit (lib) getExe;
       inherit (pkgs) bat ripgrep dust procs;
     in {
       cat = "${getExe bat} --color=always --theme=base16 --style=plain --paging=never";

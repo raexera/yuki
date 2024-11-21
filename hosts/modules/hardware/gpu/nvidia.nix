@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf versionOlder;
+  inherit (lib) mkIf mkDefault versionOlder;
 
   nvStable = config.boot.kernelPackages.nvidiaPackages.stable.version;
   nvBeta = config.boot.kernelPackages.nvidiaPackages.beta.version;
@@ -33,10 +33,10 @@ in {
     };
 
     hardware.nvidia = {
-      package = nvidiaPackage;
-      open = false;
-      modesetting.enable = true;
-      powerManagement.enable = true;
+      package = mkDefault nvidiaPackage;
+      open = mkDefault false;
+      modesetting.enable = mkDefault true;
+      powerManagement.enable = mkDefault true;
       prime.offload = {
         enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
         enableOffloadCmd = mkIf pCfg.offload.enable true;
