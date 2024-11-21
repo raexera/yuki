@@ -5,8 +5,9 @@
   ...
 }: {
   flake.nixosConfigurations = let
-    inherit (inputs.self) lib;
-    inherit (lib) concatLists flatten singleton;
+    inherit (inputs.nixpkgs) lib;
+    inherit (lib) nixosSystem;
+    inherit (lib.lists) concatLists flatten singleton;
 
     nixosModules = [
       inputs.disko.nixosModules.default
@@ -30,7 +31,7 @@
       extraModules ? [],
       ...
     } @ args:
-      inputs.nixpkgs.lib.nixosSystem {
+      nixosSystem {
         modules = concatLists [
           (singleton {
             networking.hostName = args.hostname;
