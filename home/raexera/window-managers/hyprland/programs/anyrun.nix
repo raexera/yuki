@@ -1,7 +1,7 @@
 {
-  pkgs,
+  config,
   inputs,
-  themes,
+  pkgs,
   ...
 }: {
   imports = [
@@ -40,7 +40,7 @@
     };
 
     extraCss = let
-      inherit (themes.colorscheme) xcolors;
+      inherit (config.theme.colorscheme) xcolors;
     in ''
       /* Global */
       * {

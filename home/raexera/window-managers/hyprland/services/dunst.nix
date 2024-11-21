@@ -1,6 +1,6 @@
 {
+  config,
   pkgs,
-  themes,
   ...
 }: {
   services.dunst = {
@@ -10,7 +10,7 @@
       package = pkgs.papirus-icon-theme;
     };
     settings = let
-      inherit (themes.colorscheme) xcolors;
+      inherit (config.theme.colorscheme) xcolors;
     in {
       global = {
         alignment = "left";

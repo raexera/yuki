@@ -1,5 +1,5 @@
-{themes, ...}: let
-  inherit (themes.colorscheme) colors;
+{config, ...}: let
+  inherit (config.theme.colorscheme) colors;
 in {
   programs.hyprlock = {
     enable = true;

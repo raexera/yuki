@@ -1,10 +1,9 @@
 {
   inputs,
   self,
-  themes,
   ...
 }: let
-  specialArgs = {inherit inputs self themes;};
+  specialArgs = {inherit inputs self;};
 in {
   home-manager = {
     # Extra `specialArgs` passed to Home Manager

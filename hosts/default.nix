@@ -1,7 +1,6 @@
 {
   inputs,
   self,
-  themes,
   ...
 }: {
   flake.nixosConfigurations = let
@@ -46,7 +45,7 @@
           ))
         ];
 
-        specialArgs = {inherit inputs self themes;};
+        specialArgs = {inherit inputs self;};
       };
   in {
     # Lenovo Yoga Slim 7 Pro X (14IAH7)

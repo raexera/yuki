@@ -9,7 +9,6 @@
       imports = [
         ./flake
         ./hosts
-        ./lib
       ];
     };
 

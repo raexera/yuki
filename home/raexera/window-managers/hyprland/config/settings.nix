@@ -1,10 +1,6 @@
-{
-  config,
-  themes,
-  ...
-}: let
+{config, ...}: let
   pointer = config.home.pointerCursor;
-  inherit (themes.colorscheme) colors;
+  inherit (config.theme.colorscheme) colors;
 in {
   wayland.windowManager.hyprland.settings = {
     env = [

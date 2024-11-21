@@ -1,9 +1,9 @@
 {
+  config,
   pkgs,
-  themes,
   ...
 }: let
-  inherit (themes.colorscheme) xcolors;
+  inherit (config.theme.colorscheme) xcolors;
 in {
   programs.waybar = {
     enable = true;

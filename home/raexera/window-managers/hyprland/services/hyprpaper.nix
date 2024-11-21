@@ -1,9 +1,9 @@
-{themes, ...}: {
+{config, ...}: {
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = ["${themes.wallpaper}"];
-      wallpaper = [", ${themes.wallpaper}"];
+      preload = ["${config.theme.wallpaper}"];
+      wallpaper = [", ${config.theme.wallpaper}"];
     };
   };
 }

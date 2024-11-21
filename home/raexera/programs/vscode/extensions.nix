@@ -1,6 +1,6 @@
 {
+  config,
   pkgs,
-  themes,
   ...
 }: {
   programs.vscode = {
@@ -48,7 +48,7 @@
           bracketMode = "rainbow";
           colorOverrides = {
             all = let
-              inherit (themes.colorscheme) xcolors;
+              inherit (config.theme.colorscheme) xcolors;
             in {
               rosewater = "${xcolors.rosewater}";
               flamingo = "${xcolors.flamingo}";
