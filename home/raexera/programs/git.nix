@@ -51,23 +51,6 @@
     };
 
     aliases = {
-      a = "add";
-      br = "branch";
-      c = "commit";
-      cl = "clone";
-      co = "checkout";
-      cp = "cherry-pick";
-      d = "diff";
-      i = "init";
-      l = "log";
-      m = "merge";
-      p = "push";
-      pl = "pull";
-      r = "rebase";
-      s = "status";
-      t = "tag";
-      st = "stash";
-
       # Semantic commit message aliases
       chore = "!f() { git commit -m \"chore: $1\"; }; f";
       docs = "!f() { git commit -m \"docs: $1\"; }; f";
