@@ -1,12 +1,13 @@
 {pkgs, ...}: {
   imports = [
-    ./home.nix
     ./config
     ./dev
     ./programs
     ./services
     ./shell
     ./window-managers/hyprland
+
+    ./home.nix
   ];
 
   home.packages = with pkgs; [

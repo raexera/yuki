@@ -11,6 +11,8 @@
         ${config.pre-commit.installationScript}
       '';
 
+      DIRENV_LOG_FORMAT = "";
+
       packages = with pkgs; [
         alejandra
         deadnix

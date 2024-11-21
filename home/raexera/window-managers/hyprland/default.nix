@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./config
+
     ./programs/anyrun.nix
     ./programs/waybar.nix
     ./services/dunst.nix

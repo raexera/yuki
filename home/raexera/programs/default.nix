@@ -1,6 +1,7 @@
 {
   imports = [
     ./vscode
+
     ./firefox.nix
     ./gh.nix
     ./git.nix

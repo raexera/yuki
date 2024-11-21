@@ -9,13 +9,13 @@
       imports = [
         ./flake
         ./hosts
+        ./lib
       ];
     };
 
   inputs = {
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
     disko = {
       url = "github:nix-community/disko";

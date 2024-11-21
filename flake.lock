@@ -364,22 +364,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-small": {
-      "locked": {
-        "lastModified": 1732179816,
-        "narHash": "sha256-9OMlALkKoqdtTCMGGbZZg3RIZV8DsHtQ5LBulm2dOII=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c0451e363899513045f9d63e85ab3d8d88708e33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable-small",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1730741070,
@@ -406,11 +390,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1732184550,
-        "narHash": "sha256-/SkYQzyYyhtmk34JMqcPzUYh+OfZa8K0JzrToSDobiw=",
+        "lastModified": 1732188582,
+        "narHash": "sha256-cjKJ+P+CoYDLUW4jWm9zLoEGDOLL4Wx0bZuJbJNZiQ8=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "1faaced7d8efa8e2fe6e6612aef7528e8139c679",
+        "rev": "f08f6c9f79c0501bad2075c173e156649c9b5c25",
         "type": "github"
       },
       "original": {
@@ -467,7 +451,6 @@
         "home-manager": "home-manager",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-small": "nixpkgs-small",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "pre-commit-hooks": "pre-commit-hooks",
         "rust-overlay": "rust-overlay",
