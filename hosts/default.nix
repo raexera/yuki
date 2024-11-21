@@ -54,5 +54,11 @@
       system = "x86_64-linux";
       extraModules = [nixosModules hmModules sharedModules];
     };
+
+    minimal = mkNixosSystem {
+      hostname = "minimal";
+      system = "x86_64-linux";
+      extraModules = [nixosModules sharedModules];
+    };
   };
 }
