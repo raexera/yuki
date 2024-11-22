@@ -88,9 +88,10 @@
 
       touchpad = {
         disable_while_typing = true;
-        scroll_factor = 0.5;
+        natural_scroll = true;
         tap-to-click = true;
         tap-and-drag = true;
+        scroll_factor = 0.5;
       };
     };
 
