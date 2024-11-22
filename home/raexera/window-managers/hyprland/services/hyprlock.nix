@@ -1,9 +1,9 @@
-{config, ...}: let
-  inherit (config.theme.colorscheme) colors;
-in {
+{config, ...}: {
   programs.hyprlock = {
     enable = true;
-    settings = {
+    settings = let
+      inherit (config.theme.colorscheme) colors;
+    in {
       general = {
         disable_loading_bar = true;
         hide_cursor = true;

@@ -1,8 +1,8 @@
-{config, ...}: let
-  pointer = config.home.pointerCursor;
-  inherit (config.theme.colorscheme) colors;
-in {
-  wayland.windowManager.hyprland.settings = {
+{config, ...}: {
+  wayland.windowManager.hyprland.settings = let
+    pointer = config.home.pointerCursor;
+    inherit (config.theme.colorscheme) colors;
+  in {
     env = [
       "CLUTTER_BACKEND,wayland"
       "GDK_BACKEND,wayland,x11,*"
