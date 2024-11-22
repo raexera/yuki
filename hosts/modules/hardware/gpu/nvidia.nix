@@ -5,7 +5,7 @@
 }: let
   inherit (lib) mkIf mkDefault versionOlder;
 
-  # use the latest possible nvidia package
+  # Use the latest possible nvidia package
   nvStable = config.boot.kernelPackages.nvidiaPackages.stable.version;
   nvBeta = config.boot.kernelPackages.nvidiaPackages.beta.version;
 

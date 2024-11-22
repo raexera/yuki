@@ -9,11 +9,13 @@
     inherit (lib.attrsets) recursiveUpdate;
     inherit (lib.lists) concatLists flatten singleton;
 
+    # Core modules from external inputs
     nixosModules = [
       inputs.disko.nixosModules.default
       inputs.home-manager.nixosModules.default
     ];
 
+    # Common configuration modules shared across all systems
     sharedModules = [
       ./modules/config
       ./modules/environment
@@ -21,8 +23,15 @@
       ./modules/system
     ];
 
-    hmModules = "${self}/home";
+    # Path to the home-manager module directory
+    homeModules = "${self}/home";
 
+    # Function to create a NixOS configuration for a specific hostname and system
+    # Arguments:
+    #  - hostname: The hostname of the system
+    #  - system: The system architecture
+    #  - modules (optional): Additional modules to include
+    #  - specialArgs (optional): Additional special arguments passed to the system
     mkNixosSystem = {
       hostname,
       system,
@@ -52,7 +61,7 @@
     yuki = mkNixosSystem {
       hostname = "yuki";
       system = "x86_64-linux";
-      modules = [nixosModules sharedModules hmModules];
+      modules = [nixosModules sharedModules homeModules];
     };
 
     minimal = mkNixosSystem {
