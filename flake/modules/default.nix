@@ -14,6 +14,9 @@ in {
     };
 
     homeManagerModules = {
+      config = mkFlakeModule /modules/home/config;
+      editors = mkFlakeModule /modules/home/editors;
+      shell = mkFlakeModule /modules/home/shell;
       theme = mkFlakeModule /modules/home/theme;
       windowManagers = mkFlakeModule /modules/home/windowManagers;
     };

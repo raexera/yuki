@@ -4,13 +4,14 @@
   ...
 }: {
   imports = [
-    ./config
     ./dev
     ./programs
     ./services
-    ./shell
 
     ./home.nix
+
+    self.homeManagerModules.editors.vscode
+    self.homeManagerModules.shell.zsh
     self.homeManagerModules.theme
     self.homeManagerModules.windowManagers.hyprland
   ];

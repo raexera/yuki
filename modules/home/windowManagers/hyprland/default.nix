@@ -12,6 +12,10 @@
     ./services/hypridle.nix
     ./services/hyprlock.nix
     ./services/hyprpaper.nix
+
+    self.homeManagerModules.config.cursor
+    self.homeManagerModules.config.gtk
+    self.homeManagerModules.config.qt
   ];
 
   wayland.windowManager.hyprland = {
