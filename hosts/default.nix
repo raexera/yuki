@@ -17,10 +17,9 @@
 
     # Common configuration modules shared across all systems
     sharedModules = [
-      ./modules/config
-      ./modules/environment
-      ./modules/security
-      ./modules/system
+      self.nixosModules.config.nix
+      self.nixosModules.security
+      self.nixosModules.system.base
     ];
 
     # Path to the home-manager module directory
@@ -62,12 +61,6 @@
       hostname = "yuki";
       system = "x86_64-linux";
       modules = [nixosModules sharedModules homeModules];
-    };
-
-    minimal = mkNixosSystem {
-      hostname = "minimal";
-      system = "x86_64-linux";
-      modules = [nixosModules sharedModules];
     };
   };
 }

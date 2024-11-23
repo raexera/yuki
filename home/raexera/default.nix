@@ -1,14 +1,18 @@
-{lib, ...}: {
+{
+  lib,
+  self,
+  ...
+}: {
   imports = [
     ./config
     ./dev
     ./programs
     ./services
     ./shell
-    ./window-managers/hyprland
 
     ./home.nix
-    ../modules/theme
+    self.homeManagerModules.theme
+    self.homeManagerModules.windowManagers.hyprland
   ];
 
   # Catppuccin v0.1.3

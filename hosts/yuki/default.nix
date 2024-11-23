@@ -1,35 +1,42 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  self,
+  ...
+}: {
   imports = [
     ./disk-configuration.nix
     ./hardware-configuration.nix
     ./power-management.nix
 
-    ../modules/config/fonts
-    ../modules/config/xdg/portal.nix
-    ../modules/hardware/gpu/intel.nix
-    ../modules/hardware/gpu/nvidia.nix
-    ../modules/programs/bash.nix
-    ../modules/programs/dconf.nix
-    ../modules/programs/gnupg.nix
-    ../modules/programs/hyprland.nix
-    ../modules/programs/neovim.nix
-    ../modules/programs/nh.nix
-    ../modules/programs/thunar.nix
-    ../modules/programs/zsh.nix
-    ../modules/services/blueman.nix
-    ../modules/services/dbus.nix
-    ../modules/services/gnome-keyring.nix
-    ../modules/services/greetd.nix
-    ../modules/services/gvfs.nix
-    ../modules/services/location.nix
-    ../modules/services/mariadb.nix
-    ../modules/services/networking.nix
-    ../modules/services/openssh.nix
-    ../modules/services/pipewire.nix
-    ../modules/services/postgresql.nix
-    ../modules/virtualisation/containers.nix
-    ../modules/virtualisation/docker.nix
-    ../modules/virtualisation/podman.nix
+    ./programs/bash.nix
+    ./programs/dconf.nix
+    ./programs/gnupg.nix
+    ./programs/neovim.nix
+    ./programs/nh.nix
+    ./programs/thunar.nix
+    ./programs/zsh.nix
+
+    ./services/blueman.nix
+    ./services/dbus.nix
+    ./services/gnome-keyring.nix
+    ./services/greetd.nix
+    ./services/gvfs.nix
+    ./services/location.nix
+    ./services/mariadb.nix
+    ./services/networking.nix
+    ./services/openssh.nix
+    ./services/pipewire.nix
+    ./services/postgresql.nix
+
+    ./virtualisation/containers.nix
+    ./virtualisation/docker.nix
+    ./virtualisation/podman.nix
+
+    self.nixosModules.config.fonts
+    self.nixosModules.hardware.gpu.intel
+    self.nixosModules.hardware.gpu.nvidia
+    self.nixosModules.users.raexera
+    self.nixosModules.windowManagers.hyprland
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
@@ -57,17 +64,6 @@
   ];
 
   hardware = {
-    bluetooth = {
-      enable = true;
-      package = pkgs.bluez5-experimental;
-      settings = {
-        General = {
-          Experimental = true;
-          FastConnectable = true;
-        };
-      };
-    };
-
     graphics = {
       enable = true;
       enable32Bit = true;

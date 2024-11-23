@@ -1,0 +1,3 @@
+{
+  raexera = import ./raexera.nix;
+}

@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  programs.hyprland = {
+    enable = true;
+  };
+
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
@@ -11,4 +15,6 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
+
+  environment.variables.NIXOS_OZONE_WL = "1";
 }

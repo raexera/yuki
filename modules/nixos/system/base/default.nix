@@ -1,10 +1,10 @@
 {
   imports = [
-    ./nix
-
+    ./boot.nix
     ./console.nix
+    ./environment.nix
     ./i18n.nix
     ./locale.nix
-    ./users.nix
+    ./release.nix
   ];
 }
