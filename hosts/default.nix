@@ -24,7 +24,7 @@
     ];
 
     # Path to the home-manager module directory
-    homeModules = "${self}/home";
+    homeModules = self + /home;
 
     # Function to create a NixOS configuration for a specific hostname and system
     # Arguments:
