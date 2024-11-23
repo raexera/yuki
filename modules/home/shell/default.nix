@@ -1,3 +1,3 @@
 {
-  zsh = import ./zsh;
+  zsh = import ./zsh.nix;
 }
