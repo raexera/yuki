@@ -7,7 +7,7 @@
   };
 
   environment = {
-    shells = pkgs.zsh;
+    shells = [pkgs.zsh];
     pathsToLink = ["/share/zsh"];
   };
 
