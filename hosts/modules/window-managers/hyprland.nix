@@ -1,4 +1,10 @@
 {pkgs, ...}: {
+  programs.hyprland = {
+    enable = true;
+  };
+
+  environment.variables.NIXOS_OZONE_WL = "1";
+
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;

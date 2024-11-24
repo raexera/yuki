@@ -3,10 +3,9 @@
     ./disk-configuration.nix
     ./hardware-configuration.nix
 
-    ../modules/programs/bash.nix
     ../modules/programs/neovim.nix
     ../modules/programs/nh.nix
-    ../modules/programs/zsh.nix
+    ../modules/shell/zsh.nix
     ../modules/services/networking.nix
     ../modules/services/openssh.nix
   ];

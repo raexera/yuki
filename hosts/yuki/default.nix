@@ -4,18 +4,14 @@
     ./hardware-configuration.nix
     ./power-management.nix
 
-    ../modules/config/fonts
-    ../modules/config/xdg/portal.nix
     ../modules/hardware/gpu/intel.nix
     ../modules/hardware/gpu/nvidia.nix
-    ../modules/programs/bash.nix
     ../modules/programs/dconf.nix
     ../modules/programs/gnupg.nix
-    ../modules/programs/hyprland.nix
     ../modules/programs/neovim.nix
     ../modules/programs/nh.nix
     ../modules/programs/thunar.nix
-    ../modules/programs/zsh.nix
+    ../modules/shell/zsh.nix
     ../modules/services/blueman.nix
     ../modules/services/dbus.nix
     ../modules/services/gnome-keyring.nix
@@ -30,6 +26,7 @@
     ../modules/virtualisation/containers.nix
     ../modules/virtualisation/docker.nix
     ../modules/virtualisation/podman.nix
+    ../modules/window-managers/hyprland.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
@@ -79,6 +76,8 @@
         nvidiaBusId = "PCI:1:0:0";
       };
     };
+
+    nvidia-container-toolkit.enable = true;
   };
 
   services = {
