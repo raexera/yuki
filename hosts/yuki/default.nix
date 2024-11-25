@@ -5,6 +5,7 @@
     ./power-management.nix
 
     ./programs/dconf.nix
+    ./programs/gnupg.nix
     ./programs/thunar.nix
     ./services/blueman.nix
     ./services/dbus.nix
