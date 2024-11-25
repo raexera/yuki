@@ -2,6 +2,8 @@
   imports = [
     ./config
     ./dev
+    ./editors/vscode
+    ./git
     ./programs
     ./services
     ./shell
