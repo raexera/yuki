@@ -62,7 +62,7 @@
     yuki = mkNixosSystem {
       hostname = "yuki";
       system = "x86_64-linux";
-      modules = [nixosModules sharedModules homeModules];
+      modules = [nixosModules homeModules sharedModules];
     };
 
     minimal = mkNixosSystem {

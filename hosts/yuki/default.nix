@@ -4,10 +4,6 @@
     ./hardware-configuration.nix
     ./power-management.nix
 
-    ../modules/hardware/gpu/intel.nix
-    ../modules/hardware/gpu/nvidia.nix
-    ../modules/window-managers/hyprland.nix
-
     ./programs/dconf.nix
     ./programs/gnupg.nix
     ./programs/neovim.nix
@@ -27,6 +23,11 @@
     ./virtualisation/containers.nix
     ./virtualisation/docker.nix
     ./virtualisation/podman.nix
+
+    ../modules/hardware/bluetooth.nix
+    ../modules/hardware/gpu/intel.nix
+    ../modules/hardware/gpu/nvidia.nix
+    ../modules/window-managers/hyprland.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
@@ -54,17 +55,6 @@
   ];
 
   hardware = {
-    bluetooth = {
-      enable = true;
-      package = pkgs.bluez5-experimental;
-      settings = {
-        General = {
-          Experimental = true;
-          FastConnectable = true;
-        };
-      };
-    };
-
     graphics = {
       enable = true;
       enable32Bit = true;
