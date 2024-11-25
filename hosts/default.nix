@@ -19,7 +19,9 @@
     sharedModules = [
       ./modules/config
       ./modules/environment
+      ./modules/programs
       ./modules/security
+      ./modules/services
       ./modules/shell
       ./modules/system
     ];

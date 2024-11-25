@@ -5,9 +5,6 @@
     ./power-management.nix
 
     ./programs/dconf.nix
-    ./programs/gnupg.nix
-    ./programs/neovim.nix
-    ./programs/nh.nix
     ./programs/thunar.nix
     ./services/blueman.nix
     ./services/dbus.nix
@@ -16,18 +13,16 @@
     ./services/gvfs.nix
     ./services/location.nix
     ./services/mariadb.nix
-    ./services/networking.nix
-    ./services/openssh.nix
     ./services/pipewire.nix
     ./services/postgresql.nix
     ./virtualisation/containers.nix
     ./virtualisation/docker.nix
     ./virtualisation/podman.nix
 
-    ../modules/hardware/bluetooth.nix
-    ../modules/hardware/gpu/intel.nix
-    ../modules/hardware/gpu/nvidia.nix
-    ../modules/window-managers/hyprland.nix
+    ../modules/hardware/bluetooth
+    ../modules/hardware/gpu/intel
+    ../modules/hardware/gpu/nvidia
+    ../modules/window-managers/hyprland
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
