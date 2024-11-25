@@ -1,16 +1,17 @@
 {lib, ...}: {
   imports = [
-    ./config
-    ./dev
-    ./editors/vscode
-    ./git
+    ./home.nix
+
+    ../modules/config
+    ../modules/dev
+    ../modules/editors/vscode
+    ../modules/git
+    ../modules/options/theme
+    ../modules/shell
+    ../modules/window-managers/hyprland
+
     ./programs
     ./services
-    ./shell
-    ./window-managers/hyprland
-
-    ./home.nix
-    ../modules/theme
   ];
 
   # Catppuccin v0.1.3

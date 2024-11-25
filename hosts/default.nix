@@ -20,6 +20,7 @@
       ./modules/config
       ./modules/environment
       ./modules/security
+      ./modules/shell
       ./modules/system
     ];
 

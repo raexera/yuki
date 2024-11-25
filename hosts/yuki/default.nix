@@ -6,27 +6,27 @@
 
     ../modules/hardware/gpu/intel.nix
     ../modules/hardware/gpu/nvidia.nix
-    ../modules/programs/dconf.nix
-    ../modules/programs/gnupg.nix
-    ../modules/programs/neovim.nix
-    ../modules/programs/nh.nix
-    ../modules/programs/thunar.nix
-    ../modules/shell/zsh.nix
-    ../modules/services/blueman.nix
-    ../modules/services/dbus.nix
-    ../modules/services/gnome-keyring.nix
-    ../modules/services/greetd.nix
-    ../modules/services/gvfs.nix
-    ../modules/services/location.nix
-    ../modules/services/mariadb.nix
-    ../modules/services/networking.nix
-    ../modules/services/openssh.nix
-    ../modules/services/pipewire.nix
-    ../modules/services/postgresql.nix
-    ../modules/virtualisation/containers.nix
-    ../modules/virtualisation/docker.nix
-    ../modules/virtualisation/podman.nix
     ../modules/window-managers/hyprland.nix
+
+    ./programs/dconf.nix
+    ./programs/gnupg.nix
+    ./programs/neovim.nix
+    ./programs/nh.nix
+    ./programs/thunar.nix
+    ./services/blueman.nix
+    ./services/dbus.nix
+    ./services/gnome-keyring.nix
+    ./services/greetd.nix
+    ./services/gvfs.nix
+    ./services/location.nix
+    ./services/mariadb.nix
+    ./services/networking.nix
+    ./services/openssh.nix
+    ./services/pipewire.nix
+    ./services/postgresql.nix
+    ./virtualisation/containers.nix
+    ./virtualisation/docker.nix
+    ./virtualisation/podman.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;

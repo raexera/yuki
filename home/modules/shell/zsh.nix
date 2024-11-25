@@ -4,6 +4,17 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./programs/bat.nix
+    ./programs/dircolors.nix
+    ./programs/direnv.nix
+    ./programs/eza.nix
+    ./programs/fzf.nix
+    ./programs/starship.nix
+    ./programs/yazi.nix
+    ./programs/zoxide.nix
+  ];
+
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
