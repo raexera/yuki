@@ -3,11 +3,10 @@
     ./disk-configuration.nix
     ./hardware-configuration.nix
 
-    ../modules/programs/neovim.nix
-    ../modules/programs/nh.nix
-    ../modules/shell/zsh.nix
-    ../modules/services/networking.nix
-    ../modules/services/openssh.nix
+    ./programs/neovim.nix
+    ./programs/nh.nix
+    ./services/networking.nix
+    ./services/openssh.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
