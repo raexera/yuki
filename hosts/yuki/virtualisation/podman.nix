@@ -1,5 +1,5 @@
 {config, ...}: {
-  virtualisation. podman = {
+  virtualisation.podman = {
     enable = true;
     defaultNetwork.settings.dns_enabled = true;
     dockerCompat = !config.virtualisation.docker.enable;
