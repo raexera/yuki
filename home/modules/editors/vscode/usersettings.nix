@@ -46,9 +46,7 @@
 
     files = {
       "files.autoSave" = "onWindowChange";
-      "files.eol" = "\n";
       "files.insertFinalNewline" = true;
-      "files.trimFinalNewlines" = true;
       "files.trimTrailingWhitespace" = true;
     };
 
