@@ -1,10 +1,7 @@
 {pkgs, ...}: {
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
-    Unit.Description = "polkit-gnome-authentication-agent-1";
-
-    Install = {
-      WantedBy = ["graphical-session.target"];
-      Wants = ["graphical-session.target"];
+    Unit = {
+      PartOf = ["graphical-session.target"];
       After = ["graphical-session.target"];
     };
 
@@ -14,6 +11,10 @@
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
+    };
+
+    Install = {
+      WantedBy = ["graphical-session.target"];
     };
   };
 }
