@@ -12,7 +12,6 @@
     ./services/gnome-keyring.nix
     ./services/greetd.nix
     ./services/gvfs.nix
-    ./services/location.nix
     ./services/mariadb.nix
     ./services/pipewire.nix
     ./services/postgresql.nix

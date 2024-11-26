@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   programs.vscode.userSettings = let
     general = {
-      "extensions.ignoreRecommendations" = true;
       "extensions.autoCheckUpdates" = false;
       "extensions.autoUpdate" = false;
       "update.mode" = "none";
@@ -15,7 +14,7 @@
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "editor.cursorBlinking" = "smooth";
       "editor.cursorSmoothCaretAnimation" = "on";
-      "editor.folding" = true;
+      "editor.codeActionsOnSave"."source.fixAll" = "always";
       "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 16;
@@ -23,8 +22,10 @@
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = true;
-      "editor.guides.bracketPairs" = true;
+      "editor.guides.bracketPairs" = "active";
+      "editor.guides.bracketPairsHorizontal" = "active";
       "editor.guides.indentation" = true;
+      "editor.inlayHints.enabled" = true;
       "editor.inlayHints.fontSize" = 12;
       "editor.inlayHints.padding" = true;
       "editor.inlineSuggest.enabled" = true;
@@ -46,36 +47,14 @@
       "editor.wrappingIndent" = "indent";
       "editor.quickSuggestionsDelay" = 300;
       "editor.quickSuggestions"."strings" = "on";
-      "editor.codeActionsOnSave" = {
-        "source.addMissingImports" = "always";
-        "source.fixAll" = "always";
-        "source.organizeImports" = "always";
-        "source.removeUnusedImports" = "always";
-        "source.sortImports" = "always";
-      };
-    };
-
-    breadcrumbs = {
-      "breadcrumbs.enabled" = false;
-      "breadcrumbs.symbolPath" = "off";
-      "breadcrumbs.filePath" = "on";
-    };
-
-    explorer = {
-      "explorer.confirmDelete" = false;
-      "explorer.confirmDragAndDrop" = false;
     };
 
     files = {
-      "files.eol" = "\n";
       "files.autoSave" = "onWindowChange";
-      "files.trimTrailingWhitespace" = true;
-      "files.trimFinalNewlines" = true;
+      "files.eol" = "\n";
       "files.insertFinalNewline" = true;
-      "files.exclude" = {
-        "**/.direnv" = true;
-        "**/result" = true;
-      };
+      "files.trimFinalNewlines" = true;
+      "files.trimTrailingWhitespace" = true;
     };
 
     terminal = {
@@ -86,19 +65,15 @@
     };
 
     window = {
-      "window.commandCenter" = false;
-      "window.dialogStyle" = "native";
-      "window.menuBarVisibility" = "toggle";
       "window.titleBarStyle" = "custom";
-      "window.zoomLevel" = 1;
+      "window.dialogStyle" = "custom";
     };
 
     workbench = {
       "workbench.activityBar.location" = "top";
       "workbench.colorTheme" = "Catppuccin Macchiato";
+      "workbench.editor.empty.hint" = "hidden";
       "workbench.iconTheme" = "catppuccin-macchiato";
-      "workbench.layoutControl.enabled" = false;
-      "workbench.panel.defaultLocation" = "bottom";
       "workbench.sideBar.location" = "right";
       "workbench.startupEditor" = "none";
       "workbench.tree.indent" = 16;
@@ -189,14 +164,6 @@
         ];
       };
 
-      # typescript
-      "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
-      "typescript.inlayHints.parameterNames.enabled" = "all";
-      "typescript.inlayHints.parameterTypes.enabled" = true;
-      "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
-      "typescript.preferGoToSourceDefinition" = true;
-      "typescript.suggest.completeFunctionCalls" = true;
-
       # javascript
       "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
       "javascript.inlayHints.parameterNames.enabled" = "all";
@@ -209,12 +176,18 @@
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nil}/bin/nil";
       "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
+
+      # typescript
+      "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
+      "typescript.inlayHints.parameterNames.enabled" = "all";
+      "typescript.inlayHints.parameterTypes.enabled" = true;
+      "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
+      "typescript.preferGoToSourceDefinition" = true;
+      "typescript.suggest.completeFunctionCalls" = true;
     };
   in
     general
     // editor
-    // breadcrumbs
-    // explorer
     // files
     // terminal
     // window
