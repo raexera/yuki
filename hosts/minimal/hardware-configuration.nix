@@ -18,13 +18,13 @@
     };
   };
 
-  # √(3072² + 1920²) px / 14.5 in ≃ 250 dpi
-  services.xserver.dpi = 250;
-
   hardware = {
     enableRedistributableFirmware = lib.mkDefault true;
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
+
+  # √(3072² + 1920²) px / 14.5 in ≃ 250 dpi
+  services.xserver.dpi = 250;
 
   zramSwap = {
     enable = true;
