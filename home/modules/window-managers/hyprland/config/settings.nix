@@ -32,11 +32,12 @@
       "col.active_border" = "rgb(${colors.blue})";
       "col.inactive_border" = "rgb(${colors.gray0})";
 
-      layout = "dwindle";
       resize_on_border = true;
 
       # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
       allow_tearing = false;
+
+      layout = "dwindle";
     };
 
     dwindle = {
@@ -123,7 +124,7 @@
       hyprexpo = {
         columns = 3;
         gap_size = 4;
-        bg_col = "rgb(000000)";
+        bg_col = "rgb(${colors.black0})";
         enable_gesture = true;
         gesture_fingers = 3;
         gesture_distance = 300;
