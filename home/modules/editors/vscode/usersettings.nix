@@ -15,7 +15,7 @@
       "editor.cursorBlinking" = "smooth";
       "editor.cursorSmoothCaretAnimation" = "on";
       "editor.codeActionsOnSave"."source.fixAll" = "always";
-      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace";
+      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 16;
       "editor.fontWeight" = "500";
@@ -25,16 +25,13 @@
       "editor.guides.bracketPairs" = "active";
       "editor.guides.bracketPairsHorizontal" = "active";
       "editor.guides.indentation" = true;
-      "editor.inlayHints.enabled" = true;
-      "editor.inlayHints.fontSize" = 12;
+      "editor.inlayHints.enabled" = "on";
       "editor.inlayHints.padding" = true;
       "editor.inlineSuggest.enabled" = true;
       "editor.linkedEditing" = true;
-      "editor.lineHeight" = 22;
       "editor.lineNumbers" = "on";
       "editor.minimap.enabled" = false;
       "editor.parameterHints.enabled" = true;
-      "editor.renderLineHighlight" = "all";
       "editor.scrollbar.horizontal" = "hidden";
       "editor.semanticHighlighting.enabled" = true;
       "editor.showUnused" = true;
@@ -45,8 +42,6 @@
       "editor.trimAutoWhitespace" = true;
       "editor.wordWrap" = "on";
       "editor.wrappingIndent" = "indent";
-      "editor.quickSuggestionsDelay" = 300;
-      "editor.quickSuggestions"."strings" = "on";
     };
 
     files = {
@@ -58,15 +53,15 @@
     };
 
     terminal = {
-      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace";
+      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Mono', 'monospace', monospace";
       "terminal.integrated.fontSize" = 16;
       "terminal.integrated.gpuAcceleration" = "on";
       "terminal.integrated.minimumContrastRatio" = 1;
     };
 
     window = {
-      "window.titleBarStyle" = "custom";
       "window.dialogStyle" = "custom";
+      "window.titleBarStyle" = "custom";
     };
 
     workbench = {
