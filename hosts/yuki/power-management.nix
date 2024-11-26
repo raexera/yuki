@@ -4,9 +4,9 @@
     extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   };
 
-  powerManagement = {
-    powertop.enable = true;
-  };
+  environment.systemPackages = with config.boot.kernelPackages; [cpupower];
+
+  powerManagement.powertop.enable = true;
 
   services = {
     acpid.enable = true;
