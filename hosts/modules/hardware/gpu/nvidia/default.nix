@@ -36,8 +36,11 @@ in {
   hardware.nvidia = {
     package = mkDefault nvidiaPackage;
     open = mkDefault false;
-    modesetting.enable = mkDefault true;
+
     powerManagement.enable = mkDefault true;
+    dynamicBoost.enable = mkDefault true;
+    modesetting.enable = mkDefault true;
+
     prime.offload = {
       enable = mkIf (pCfg.nvidiaBusId != "" && (pCfg.intelBusId != "" || pCfg.amdgpuBusId != "")) true;
       enableOffloadCmd = mkIf pCfg.offload.enable true;
