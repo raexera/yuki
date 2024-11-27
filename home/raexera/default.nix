@@ -3,7 +3,6 @@
     ./home.nix
 
     ./config
-    ./dev
     ./editors/vscode
     ./git
     ./packages

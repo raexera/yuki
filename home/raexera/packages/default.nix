@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./dev
+  ];
+
   home.packages = with pkgs; [
     atool
     brightnessctl
