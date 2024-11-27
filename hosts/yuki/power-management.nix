@@ -1,9 +1,4 @@
 {config, ...}: {
-  boot = {
-    kernelModules = ["acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
-  };
-
   environment.systemPackages = with config.boot.kernelPackages; [cpupower];
 
   powerManagement.powertop.enable = true;

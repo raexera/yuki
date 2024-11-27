@@ -1,8 +1,5 @@
 {pkgs, ...}: {
-  boot = {
-    initrd.kernelModules = ["i915"];
-    kernelParams = ["i915.enable_guc=3"];
-  };
+  boot.initrd.kernelModules = ["i915"];
 
   hardware.graphics = {
     extraPackages = with pkgs; [

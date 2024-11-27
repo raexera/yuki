@@ -19,9 +19,11 @@
     ./virtualisation/docker.nix
     ./virtualisation/podman.nix
 
+    ../modules/hardware/acpi_call
     ../modules/hardware/bluetooth
     ../modules/hardware/gpu/intel
     ../modules/hardware/gpu/nvidia
+    ../modules/hardware/ssd
     ../modules/window-managers/hyprland
   ];
 
@@ -67,13 +69,14 @@
 
   services = {
     btrfs.autoScrub.enable = true;
-    fstrim.enable = true;
+
     fwupd.enable = true;
+
     hardware.bolt.enable = true;
   };
 
   # Intel Core i7-12700H (Alder Lake)
-  boot.kernelParams = ["i915.force_probe=46a6"];
+  boot.kernelParams = ["i915.force_probe=46a6" "i915.enable_guc=3"];
 
   # NVIDIA GeForce RTX 3050 Mobile (Ampere)
   services.xserver.videoDrivers = ["nvidia"];
