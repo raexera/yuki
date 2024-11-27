@@ -10,6 +10,8 @@
     ./services
     ./shell
     ./window-managers/hyprland
+
+    ../modules/options/theme
   ];
 
   # Catppuccin v0.1.3
