@@ -3,15 +3,14 @@
     ./home.nix
 
     ./config
-    ./editors/vscode
-    ./git
     ./packages
     ./programs
     ./services
-    ./shell
-    ./window-managers/hyprland
 
+    ../modules/editors/vscode
     ../modules/options/theme
+    ../modules/shell/zsh
+    ../modules/window-managers/hyprland
   ];
 
   # Catppuccin v0.1.3
