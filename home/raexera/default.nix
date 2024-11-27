@@ -16,12 +16,8 @@
     ./services/network-manager-applet.nix
     ./services/udiskie.nix
 
-    ../modules/config
-    ../modules/dev
     ../modules/editors/vscode
-    ../modules/git
     ../modules/options/theme
-    ../modules/shell
     ../modules/window-managers/hyprland
   ];
 
