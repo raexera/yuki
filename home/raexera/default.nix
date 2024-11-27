@@ -2,23 +2,14 @@
   imports = [
     ./home.nix
 
-    ./programs/firefox.nix
-    ./programs/gpg.nix
-    ./programs/kitty.nix
-    ./programs/mpv.nix
-    ./programs/obs-studio.nix
-    ./programs/playerctld.nix
-    ./programs/ssh.nix
-    ./programs/xdg.nix
-    ./programs/zen.nix
-    ./services/blueman-applet.nix
-    ./services/gnome-keyring.nix
-    ./services/network-manager-applet.nix
-    ./services/udiskie.nix
-
-    ../modules/editors/vscode
-    ../modules/options/theme
-    ../modules/window-managers/hyprland
+    ./config
+    ./dev
+    ./editors/vscode
+    ./git
+    ./programs
+    ./services
+    ./shell
+    ./window-managers/hyprland
   ];
 
   # Catppuccin v0.1.3

@@ -4,13 +4,6 @@
   ...
 }: let
   specialArgs = {inherit inputs self;};
-
-  sharedModules = [
-    ./modules/config
-    ./modules/dev
-    ./modules/git
-    ./modules/shell
-  ];
 in {
   home-manager = {
     # Extra `specialArgs` passed to Home Manager
@@ -25,26 +18,22 @@ in {
     # Verbose output on activation
     verbose = true;
 
-    # Per-user Home Manager configurations
-    users = {
-      raexera = import ./raexera;
-    };
+    # Home Manager configurations
+    users.raexera = import ./raexera;
 
     # Extra modules added to all users
-    sharedModules =
-      [
-        {
-          # Let Home Manager install and manage itself
-          programs.home-manager.enable = true;
+    sharedModules = [
+      {
+        # Let Home Manager install and manage itself
+        programs.home-manager.enable = true;
 
-          # Avoid installing multiple variants of the home manager manual to save space
-          manual = {
-            html.enable = false;
-            json.enable = false;
-            manpages.enable = false;
-          };
-        }
-      ]
-      ++ sharedModules;
+        # Avoid installing multiple variants of the Home Manager manual to save space
+        manual = {
+          html.enable = false;
+          json.enable = false;
+          manpages.enable = false;
+        };
+      }
+    ];
   };
 }
