@@ -6,6 +6,7 @@
     ./dev
     ./editors/vscode
     ./git
+    ./packages
     ./programs
     ./services
     ./shell
