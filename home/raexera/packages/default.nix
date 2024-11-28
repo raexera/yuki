@@ -4,17 +4,16 @@
   ];
 
   home.packages = with pkgs; [
-    atool
-    brightnessctl
     coreutils
     curl
     du-dust
     duf
     editorconfig-core-c
-    elinks
-    exiftool
     fd
+    ffmpeg-full
+    ffmpegthumbnailer
     file
+    file-roller
     findutils
     gawk
     glow
@@ -27,7 +26,6 @@
     p7zip
     pre-commit
     procs
-    playerctl
     psmisc
     ripgrep
     rsync
@@ -40,11 +38,9 @@
     watchexec
     wget
     wrk
-    xarchiver
     xh
     yt-dlp
     yq
-    zathura
     zip
   ];
 }

@@ -1,5 +1,5 @@
 {
-  services.playerctld = {
+  programs.zathura = {
     enable = true;
   };
 }

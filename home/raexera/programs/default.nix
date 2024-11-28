@@ -8,9 +8,9 @@
     ./lazygit.nix
     ./mpv.nix
     ./obs-studio.nix
-    ./playerctld.nix
     ./ssh.nix
     ./xdg.nix
+    ./zathura.nix
     ./zen.nix
   ];
 }
