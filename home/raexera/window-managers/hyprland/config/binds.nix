@@ -40,9 +40,6 @@
         "ALT, Tab, cyclenext"
         "ALT, Tab, bringactivetotop"
 
-        # Workspace overview
-        "SUPER, Tab, hyprexpo:expo, toggle"
-
         # Special workspaces
         "SUPER, grave, togglespecialworkspace, magic"
         "SUPER_SHIFT, grave, movetoworkspace, special:magic"
