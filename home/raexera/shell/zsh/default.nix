@@ -21,12 +21,12 @@
     defaultKeymap = "viins";
 
     dirHashes = {
-      dev = "$HOME/Dev";
-      dl = "$HOME/Downloads";
-      docs = "$HOME/Documents";
-      dots = "$HOME/.yuki";
-      pics = "$HOME/Pictures";
-      vids = "$HOME/Videos";
+      dev = "${config.home.homeDirectory}/Dev";
+      dl = "${config.home.homeDirectory}/Downloads";
+      docs = "${config.home.homeDirectory}/Documents";
+      dots = "${config.home.homeDirectory}/.yuki";
+      pics = "${config.home.homeDirectory}/Pictures";
+      vids = "${config.home.homeDirectory}/Videos";
     };
 
     enableCompletion = true;
