@@ -21,6 +21,7 @@
 
     ../modules/hardware/acpi_call
     ../modules/hardware/bluetooth
+    ../modules/hardware/cpu/intel
     ../modules/hardware/gpu/intel
     ../modules/hardware/gpu/nvidia
     ../modules/hardware/ssd
