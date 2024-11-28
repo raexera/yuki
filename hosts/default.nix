@@ -15,7 +15,7 @@
       inputs.home-manager.nixosModules.default
     ];
 
-    # Path to the home-manager module directory
+    # Path to the Home Manager module directory
     homeModules = self + /home;
 
     # Common configuration modules shared across all systems
