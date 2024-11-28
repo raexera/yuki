@@ -57,6 +57,7 @@
     typescript
     typst
     uncrustify
+    unrar
     unzip
     util-linux
     vim
