@@ -4,6 +4,7 @@
   ];
 
   home.packages = with pkgs; [
+    bc
     coreutils
     curl
     du-dust
@@ -13,7 +14,6 @@
     ffmpeg-full
     ffmpegthumbnailer
     file
-    file-roller
     findutils
     gawk
     glow
