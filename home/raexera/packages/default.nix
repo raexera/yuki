@@ -4,9 +4,16 @@
   ];
 
   home.packages = with pkgs; [
+    act
     bc
+    beekeeper-studio
+    ccls
+    clang
+    clang-tools
+    cmake
     coreutils
     curl
+    dbmate
     du-dust
     duf
     editorconfig-core-c
@@ -18,19 +25,38 @@
     gawk
     glow
     gnumake
+    gobang
     gnused
+    grex
     imagemagick
     jaq
+    java-language-server
     jq
+    just
     killall
+    lazydocker
+    lefthook
+    lldb
+    nodejs
     p7zip
+    pocketbase
+    pm2
+    podman-compose
+    pnpm
+    postman
     pre-commit
+    prettierd
     procs
     psmisc
+    redis
     ripgrep
     rsync
+    shellcheck
+    shfmt
     tree
-    unrar
+    typescript
+    typst
+    uncrustify
     unzip
     util-linux
     vim
@@ -38,8 +64,8 @@
     wget
     wrk
     xh
-    yt-dlp
     yq
+    yt-dlp
     zip
   ];
 }

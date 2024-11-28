@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   xdg = {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";
@@ -67,6 +63,4 @@
       };
     };
   };
-
-  home.packages = [pkgs.xdg-utils];
 }
