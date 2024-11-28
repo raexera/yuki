@@ -15,6 +15,9 @@
       inputs.home-manager.nixosModules.default
     ];
 
+    # Path to the home-manager module directory
+    homeModules = self + /home;
+
     # Common configuration modules shared across all systems
     sharedModules = [
       ./modules/config
@@ -25,9 +28,6 @@
       ./modules/shell
       ./modules/system
     ];
-
-    # Path to the home-manager module directory
-    homeModules = self + /home;
 
     # Function to create a NixOS configuration for a specific hostname and system
     # Arguments:
@@ -41,19 +41,21 @@
       ...
     } @ args:
       nixosSystem {
-        modules = concatLists [
-          (singleton {
-            networking.hostName = args.hostname;
-            nixpkgs.hostPlatform = args.system;
-          })
+        modules =
+          concatLists [
+            (singleton {
+              networking.hostName = args.hostname;
+              nixpkgs.hostPlatform = args.system;
+            })
 
-          (flatten (
-            concatLists [
-              (singleton ./${args.hostname})
-              (args.modules or [])
-            ]
-          ))
-        ];
+            (flatten (
+              concatLists [
+                (singleton ./${args.hostname})
+                (args.modules or [])
+              ]
+            ))
+          ]
+          ++ sharedModules;
 
         specialArgs = recursiveUpdate {
           inherit inputs self;
@@ -64,13 +66,13 @@
     yuki = mkNixosSystem {
       hostname = "yuki";
       system = "x86_64-linux";
-      modules = [nixosModules sharedModules homeModules];
+      modules = [nixosModules homeModules];
     };
 
     minimal = mkNixosSystem {
       hostname = "minimal";
       system = "x86_64-linux";
-      modules = [nixosModules sharedModules];
+      modules = [nixosModules];
     };
   };
 }
