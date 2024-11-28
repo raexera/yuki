@@ -23,11 +23,8 @@
     postman
     prettierd
     redis
-    scc
-    sea-orm-cli
     shellcheck
     shfmt
-    turso-cli
     typescript
     typst
     uncrustify

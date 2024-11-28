@@ -29,7 +29,6 @@
     psmisc
     ripgrep
     rsync
-    trash-cli
     tree
     unrar
     unzip

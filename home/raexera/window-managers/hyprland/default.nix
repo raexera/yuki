@@ -28,11 +28,10 @@
   };
 
   home.packages = with pkgs; [
+    grim
     grimblast
-    kooha
     libnotify
     slurp
-    grim
     swappy
     wf-recorder
     wl-clipboard
