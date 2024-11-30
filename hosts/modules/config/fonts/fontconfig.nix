@@ -4,15 +4,12 @@
 
     antialias = true;
 
-    defaultFonts = let
-      addAll = builtins.mapAttrs (_: v: ["Symbols Nerd Font"] ++ v ++ ["Noto Color Emoji"]);
-    in
-      addAll {
-        serif = ["Noto Serif"];
-        sansSerif = ["Inter"];
-        monospace = ["JetBrainsMono Nerd Font"];
-        emoji = [];
-      };
+    defaultFonts = {
+      serif = ["Noto Serif"];
+      sansSerif = ["Geist"];
+      monospace = ["GeistMono Nerd Font"];
+      emoji = ["Noto Color Emoji"];
+    };
 
     hinting = {
       enable = true;

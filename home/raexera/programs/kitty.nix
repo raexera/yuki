@@ -5,7 +5,7 @@
       inherit (config.theme.colorscheme) xcolors;
     in {
       # Fonts
-      font_family = "JetBrainsMono Nerd Font Mono";
+      font_family = "GeistMono Nerd Font Mono";
       bold_font = "auto";
       italic_font = "auto";
       bold_italic_font = "auto";

@@ -244,7 +244,7 @@ in {
       /* Global */
       * {
         all: unset;
-        font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
+        font-family: "GeistMono Nerd Font Propo", sans-serif;
         font-size: 11pt;
         font-weight: 500;
       }

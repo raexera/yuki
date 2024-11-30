@@ -44,7 +44,7 @@
         {
           monitor = "";
           text = "cmd[update:3600000] date +'%A, %B %d'";
-          font_family = "JetBrainsMono Nerd Font Propo Bold";
+          font_family = "GeistMono Nerd Font Propo Bold";
           font_size = 36;
           color = "rgb(${colors.white})";
           position = "0, -150";
@@ -54,7 +54,7 @@
         {
           monitor = "";
           text = "$TIME";
-          font_family = "JetBrainsMono Nerd Font Propo Bold";
+          font_family = "GeistMono Nerd Font Propo Bold";
           font_size = 132;
           color = "rgb(${colors.white})";
           position = "0, -200";
@@ -64,7 +64,7 @@
         {
           monitor = "";
           text = "   $USER";
-          font_family = "JetBrainsMono Nerd Font Propo Bold";
+          font_family = "GeistMono Nerd Font Propo Bold";
           font_size = 24;
           color = "rgb(${colors.white})";
           position = "0, 200";

@@ -7,8 +7,8 @@
     enable = true;
 
     font = {
-      name = "Inter";
-      package = pkgs.google-fonts.override {fonts = ["Inter"];};
+      name = "Geist";
+      package = pkgs.geist-font;
       size = 12;
     };
 

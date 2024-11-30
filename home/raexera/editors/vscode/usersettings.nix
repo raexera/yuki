@@ -15,7 +15,7 @@
       "editor.cursorBlinking" = "smooth";
       "editor.cursorSmoothCaretAnimation" = "on";
       "editor.codeActionsOnSave"."source.fixAll" = "always";
-      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
+      "editor.fontFamily" = "'GeistMono Nerd Font', 'monospace', monospace";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 16;
       "editor.fontWeight" = "500";
@@ -51,7 +51,7 @@
     };
 
     terminal = {
-      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font Mono', 'monospace', monospace";
+      "terminal.integrated.fontFamily" = "'GeistMono Nerd Font Mono', 'monospace', monospace";
       "terminal.integrated.fontSize" = 16;
       "terminal.integrated.gpuAcceleration" = "on";
       "terminal.integrated.minimumContrastRatio" = 1;
