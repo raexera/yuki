@@ -30,7 +30,7 @@
 
       Fonts = {
         fixed = ''"GeistMono Nerd Font,12,-1,5,50,0,0,0,0,0,Regular"'';
-        general = ''"Inter,12,-1,5,50,0,0,0,0,0"'';
+        general = ''"Geist,12,-1,5,50,0,0,0,0,0"'';
       };
     };
 
@@ -44,7 +44,7 @@
 
       Fonts = {
         fixed = ''"GeistMono Nerd Font,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
-        general = ''"Inter,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
+        general = ''"Geist,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"'';
       };
     };
   };
