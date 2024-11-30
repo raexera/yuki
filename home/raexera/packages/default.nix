@@ -38,6 +38,7 @@
     lefthook
     lldb
     nodejs
+    openssl
     p7zip
     pocketbase
     pm2

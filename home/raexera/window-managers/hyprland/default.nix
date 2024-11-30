@@ -9,6 +9,7 @@
     ./config/settings.nix
     ./programs/anyrun.nix
     ./programs/waybar.nix
+    ./services/cliphist.nix
     ./services/dunst.nix
     ./services/hypridle.nix
     ./services/hyprlock.nix
@@ -35,7 +36,7 @@
     swappy
     wf-recorder
     wl-clipboard
-    wlr-randr
+
     self.packages.${pkgs.system}.lightctl
     self.packages.${pkgs.system}.networkctl
     self.packages.${pkgs.system}.volumectl
