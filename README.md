@@ -17,6 +17,10 @@
 
 <br>
 
+<picture>
+  <img alt="Desktop Preview" align="right" width="400px" src="https://github.com/user-attachments/assets/3c7471e7-2ea0-4e31-bb73-2965781ad4f2"/>
+</picture>
+
 > [!NOTE]
 >
 > **System Information:**

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./fastfetch.nix
     ./firefox.nix
     ./gh.nix
     ./git.nix
