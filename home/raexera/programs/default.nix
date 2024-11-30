@@ -9,8 +9,6 @@
     ./mpv.nix
     ./obs-studio.nix
     ./ssh.nix
-    ./xdg.nix
     ./zathura.nix
-    ./zen.nix
   ];
 }

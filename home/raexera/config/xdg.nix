@@ -2,12 +2,20 @@
   xdg = {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";
-
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      extraConfig = {
+        XDG_DEV_DIR = "${config.home.homeDirectory}/Dev";
+        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+        XDG_WALLPAPERS_DIR = "${config.xdg.userDirs.pictures}/Wallpapers";
+      };
+    };
     mimeApps = let
-      browser = ["zen"];
       imageViewer = ["org.gnome.Loupe"];
-      videoPlayer = ["io.github.celluloid_player.Celluloid"];
       audioPlayer = ["io.bassi.Amberol"];
+      videoPlayer = ["io.github.celluloid_player.Celluloid"];
+      webBrowser = ["firefox"];
 
       xdgAssociations = type: program: list:
         builtins.listToAttrs (map (e: {
@@ -17,20 +25,19 @@
           list);
 
       image = xdgAssociations "image" imageViewer ["png" "svg" "jpeg" "gif"];
-      video = xdgAssociations "video" videoPlayer ["mp4" "avi" "mkv"];
       audio = xdgAssociations "audio" audioPlayer ["mp3" "flac" "wav" "aac"];
-
-      browserTypes =
-        (xdgAssociations "application" browser [
-          "json"
+      video = xdgAssociations "video" videoPlayer ["mp4" "avi" "mkv"];
+      browser =
+        (xdgAssociations "application" webBrowser [
           "pdf"
+          "json"
           "x-extension-htm"
           "x-extension-html"
           "x-extension-shtml"
           "x-extension-xht"
           "x-extension-xhtml"
         ])
-        // (xdgAssociations "x-scheme-handler" browser [
+        // (xdgAssociations "x-scheme-handler" webBrowser [
           "about"
           "ftp"
           "http"
@@ -38,29 +45,19 @@
           "unknown"
         ]);
 
+      # XDG MIME types
       associations = builtins.mapAttrs (_: v: (map (e: "${e}.desktop") v)) ({
-          "text/html" = browser;
+          "text/html" = webBrowser;
           "text/plain" = ["codium"];
           "inode/directory" = ["thunar"];
         }
         // image
-        // video
         // audio
-        // browserTypes);
+        // video
+        // browser);
     in {
       enable = true;
       defaultApplications = associations;
-    };
-
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-
-      extraConfig = {
-        XDG_DEV_DIR = "${config.home.homeDirectory}/Dev";
-        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
-        XDG_WALLPAPERS_DIR = "${config.xdg.userDirs.pictures}/Wallpapers";
-      };
     };
   };
 }
