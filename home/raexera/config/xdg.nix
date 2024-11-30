@@ -15,7 +15,7 @@
       imageViewer = ["org.gnome.Loupe"];
       audioPlayer = ["io.bassi.Amberol"];
       videoPlayer = ["io.github.celluloid_player.Celluloid"];
-      webBrowser = ["firefox"];
+      webBrowser = ["brave-browser"];
 
       xdgAssociations = type: program: list:
         builtins.listToAttrs (map (e: {

@@ -50,6 +50,9 @@
 
     # Productivity
     obsidian
+
+    # Web Browser
+    brave
   ];
 
   hardware = {
