@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.vscode.userSettings = let
     general = {
       "extensions.autoCheckUpdates" = false;
@@ -7,6 +11,17 @@
       "update.showReleaseNotes" = false;
       "redhat.telemetry.enabled" = false;
       "telemetry.telemetryLevel" = "off";
+    };
+
+    window = {
+      "window.dialogStyle" = "custom";
+      "window.titleBarStyle" = "custom";
+    };
+
+    files = {
+      "files.autoSave" = "onWindowChange";
+      "files.insertFinalNewline" = true;
+      "files.trimTrailingWhitespace" = true;
     };
 
     editor = {
@@ -44,10 +59,12 @@
       "editor.wrappingIndent" = "indent";
     };
 
-    files = {
-      "files.autoSave" = "onWindowChange";
-      "files.insertFinalNewline" = true;
-      "files.trimTrailingWhitespace" = true;
+    workbench = {
+      "workbench.activityBar.location" = "top";
+      "workbench.editor.empty.hint" = "hidden";
+      "workbench.sideBar.location" = "right";
+      "workbench.startupEditor" = "none";
+      "workbench.tree.indent" = 16;
     };
 
     terminal = {
@@ -57,19 +74,45 @@
       "terminal.integrated.minimumContrastRatio" = 1;
     };
 
-    window = {
-      "window.dialogStyle" = "custom";
-      "window.titleBarStyle" = "custom";
-    };
-
-    workbench = {
-      "workbench.activityBar.location" = "top";
-      "workbench.colorTheme" = "Catppuccin Macchiato";
-      "workbench.editor.empty.hint" = "hidden";
-      "workbench.iconTheme" = "catppuccin-macchiato";
-      "workbench.sideBar.location" = "right";
-      "workbench.startupEditor" = "none";
-      "workbench.tree.indent" = 16;
+    theme = let
+      inherit (config.theme.colorscheme) xcolors;
+    in {
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.iconTheme" = "catppuccin-mocha";
+      "catppuccin.accentColor" = "blue";
+      "catppuccin.bracketMode" = "rainbow";
+      "catppuccin.workbenchMode" = "default";
+      "catppuccin.boldKeywords" = true;
+      "catppuccin.italicKeywords" = true;
+      "catppuccin.italicComments" = true;
+      "catppuccin.syncWithIconPack" = true;
+      "catppuccin.extraBordersEnabled" = false;
+      "catppuccin.colorOverrides" = {
+        "mocha" = {
+          "rosewater" = "${xcolors.rosewater}";
+          "flamingo" = "${xcolors.flamingo}";
+          "pink" = "${xcolors.pink}";
+          "mauve" = "${xcolors.mauve}";
+          "red" = "${xcolors.red}";
+          "maroon" = "${xcolors.maroon}";
+          "peach" = "${xcolors.peach}";
+          "yellow" = "${xcolors.yellow}";
+          "green" = "${xcolors.green}";
+          "teal" = "${xcolors.teal}";
+          "blue" = "${xcolors.blue}";
+          "sky" = "${xcolors.sky}";
+          "lavender" = "${xcolors.lavender}";
+          "crust" = "${xcolors.black0}";
+          "mantle" = "${xcolors.black1}";
+          "base" = "${xcolors.black2}";
+          "surface0" = "${xcolors.black3}";
+          "surface1" = "${xcolors.black4}";
+          "surface2" = "${xcolors.gray0}";
+          "overlay0" = "${xcolors.gray1}";
+          "overlay1" = "${xcolors.gray2}";
+          "text" = "${xcolors.white}";
+        };
+      };
     };
 
     # Extension settings
@@ -180,11 +223,12 @@
     };
   in
     general
-    // editor
-    // files
-    // terminal
     // window
+    // files
+    // editor
     // workbench
+    // terminal
+    // theme
     // extension
     // formatter
     // language;

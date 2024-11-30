@@ -44,11 +44,8 @@
     loupe
     pavucontrol
 
-    # Office & Reading
-    onlyoffice-bin
-    foliate
-
     # Productivity
+    foliate
     obsidian
 
     # Web Browser
