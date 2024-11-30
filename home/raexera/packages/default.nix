@@ -62,6 +62,7 @@
     unzip
     util-linux
     vim
+    vlc
     watchexec
     wget
     wrk

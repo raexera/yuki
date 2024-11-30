@@ -1,7 +1,7 @@
-{config, ...}: {
+{
   programs.starship = {
     enable = true;
-    enableZshIntegration = config.programs.zsh.enable;
+    enableZshIntegration = true;
     settings = {
       scan_timeout = 10;
       add_newline = true;

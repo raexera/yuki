@@ -2,10 +2,8 @@
   programs.mpv = {
     enable = true;
     config = {
-      border = false;
       gpu-context = "wayland";
       hwdec = "auto";
-      osc = false;
       profile = "gpu-hq";
       vo = "gpu";
     };

@@ -1,7 +1,7 @@
-{config, ...}: {
+{
   programs.eza = {
     enable = true;
-    enableZshIntegration = config.programs.zsh.enable;
+    enableZshIntegration = true;
     extraOptions = ["--group-directories-first" "--header"];
     colors = "always";
     icons = "always";
