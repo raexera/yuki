@@ -4,28 +4,22 @@
   ];
 
   home.packages = with pkgs; [
-    act
     bc
     beekeeper-studio
-    ccls
-    clang
-    clang-tools
-    cmake
+    cloudflared
     dbmate
     du-dust
     duf
-    editorconfig-core-c
     fd
     ffmpeg-full
     ffmpegthumbnailer
     file
-    glow
+    ghostscript
     gnumake
     gobang
     grex
     imagemagick
     jaq
-    java-language-server
     jq
     just
     killall
@@ -47,12 +41,11 @@
     redis
     ripgrep
     rsync
-    shellcheck
-    shfmt
+    scc
+    sd
+    trash-cli
     tree
-    typescript
     typst
-    uncrustify
     unrar
     unzip
     watchexec

@@ -6,6 +6,7 @@
       "dimaround, class:^(xdg-desktop-portal-gtk)$"
 
       "float, class:^(blueman-manager)$"
+      "float, class:^(com.saivert.pwvucontrol)$"
       "float, class:^(io.bassi.Amberol)$"
       "float, class:^(io.github.celluloid_player.Celluloid)$"
       "float, class:^(mpv)$"
@@ -13,7 +14,6 @@
       "float, class:^(nm-connection-editor)$"
       "float, class:^(org.gnome.Calculator)$"
       "float, class:^(org.gnome.Loupe)$"
-      "float, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pavucontrol)$"
       "float, class:^(thunar)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
 

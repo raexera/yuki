@@ -42,7 +42,7 @@
     celluloid
     imv
     loupe
-    pavucontrol
+    pwvucontrol
 
     # Productivity
     foliate
