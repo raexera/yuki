@@ -4,6 +4,7 @@
   ];
 
   home.packages = with pkgs; [
+    act
     bc
     beekeeper-studio
     cloudflared
@@ -14,10 +15,13 @@
     ffmpeg-full
     ffmpegthumbnailer
     file
+    gcc
+    genact
     ghostscript
     gnumake
     gobang
     grex
+    hoppscotch
     imagemagick
     jaq
     jq
@@ -28,7 +32,9 @@
     lldb
     nodejs
     openssl
+    ouch
     p7zip
+    pkg-config
     pocketbase
     pm2
     podman-compose
@@ -43,11 +49,14 @@
     rsync
     scc
     sd
+    speedtest-cli
+    syncthing
     trash-cli
     tree
     typst
     unrar
     unzip
+    upscayl
     watchexec
     wget
     wrk
