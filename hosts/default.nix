@@ -21,7 +21,6 @@
     # Common configuration modules shared across all systems
     sharedModules = [
       ./modules/config
-      ./modules/environment
       ./modules/programs
       ./modules/security
       ./modules/services
