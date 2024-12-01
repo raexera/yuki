@@ -15,7 +15,6 @@
       "float, class:^(org.gnome.Loupe)$"
       "float, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pavucontrol)$"
       "float, class:^(thunar)$"
-      "float, class:^(vlc)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
 
       "float, title:^(File Upload)(.*)$"

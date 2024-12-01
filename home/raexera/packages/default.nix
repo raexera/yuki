@@ -55,8 +55,6 @@
     uncrustify
     unrar
     unzip
-    vim
-    vlc
     watchexec
     wget
     wrk
