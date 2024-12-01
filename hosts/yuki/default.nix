@@ -30,28 +30,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
-  environment.systemPackages = with pkgs; [
-    # Communication
-    discord
-    tdesktop
-    slack
-
-    # Media & Music
-    youtube-music
-    amberol
-    celluloid
-    imv
-    loupe
-    pwvucontrol
-
-    # Productivity
-    foliate
-    obsidian
-
-    # Web Browser
-    brave
-  ];
-
   hardware = {
     graphics = {
       enable = true;

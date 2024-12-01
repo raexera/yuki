@@ -1,8 +1,4 @@
-{
-  pkgs,
-  self,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./config/binds.nix
     ./config/rules.nix
@@ -27,18 +23,4 @@
       variables = ["--all"];
     };
   };
-
-  home.packages = with pkgs; [
-    grim
-    grimblast
-    libnotify
-    slurp
-    swappy
-    wf-recorder
-    wl-clipboard
-
-    self.packages.${pkgs.system}.lightctl
-    self.packages.${pkgs.system}.networkctl
-    self.packages.${pkgs.system}.volumectl
-  ];
 }
