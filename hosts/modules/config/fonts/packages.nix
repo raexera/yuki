@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   fonts = {
-    enableDefaultPackages = false;
+    enableDefaultPackages = true;
 
     packages = with pkgs; [
       corefonts
@@ -8,7 +8,6 @@
       nerd-fonts.geist-mono
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
       vistafonts
     ];
   };

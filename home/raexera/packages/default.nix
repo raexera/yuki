@@ -11,8 +11,6 @@
     clang
     clang-tools
     cmake
-    coreutils
-    curl
     dbmate
     du-dust
     duf
@@ -21,12 +19,9 @@
     ffmpeg-full
     ffmpegthumbnailer
     file
-    findutils
-    gawk
     glow
     gnumake
     gobang
-    gnused
     grex
     imagemagick
     jaq
@@ -60,7 +55,6 @@
     uncrustify
     unrar
     unzip
-    util-linux
     vim
     vlc
     watchexec

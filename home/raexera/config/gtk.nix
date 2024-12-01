@@ -7,27 +7,38 @@
     enable = true;
 
     font = {
-      name = "Geist";
       package = pkgs.geist-font;
+      name = "Geist";
       size = 12;
     };
 
-    theme = {
-      name = "Colloid-Dark";
-      package = pkgs.colloid-gtk-theme;
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
     };
 
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+    theme = {
+      package = pkgs.colloid-gtk-theme;
+      name = "Colloid-Dark";
     };
 
     gtk2 = {
-      configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
       extraConfig = "gtk-application-prefer-dark-theme = true";
+      configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     };
 
-    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+    gtk3 = {
+      bookmarks = [
+        "file://${config.home.homeDirectory}/Dev"
+        "file://${config.home.homeDirectory}/Documents"
+        "file://${config.home.homeDirectory}/Downloads"
+        "file://${config.home.homeDirectory}/Music"
+        "file://${config.home.homeDirectory}/Pictures"
+        "file://${config.home.homeDirectory}/Videos"
+      ];
+      extraConfig.gtk-application-prefer-dark-theme = true;
+    };
+
     gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
   };
 

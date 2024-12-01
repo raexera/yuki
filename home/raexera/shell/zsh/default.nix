@@ -20,15 +20,6 @@
     dotDir = ".config/zsh";
     defaultKeymap = "viins";
 
-    dirHashes = {
-      dev = "${config.home.homeDirectory}/Dev";
-      dl = "${config.home.homeDirectory}/Downloads";
-      docs = "${config.home.homeDirectory}/Documents";
-      dots = "${config.home.homeDirectory}/.yuki";
-      pics = "${config.home.homeDirectory}/Pictures";
-      vids = "${config.home.homeDirectory}/Videos";
-    };
-
     enableCompletion = true;
 
     autosuggestion = {

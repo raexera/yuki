@@ -82,8 +82,6 @@
 
     input = {
       kb_layout = "us";
-      kb_options = "caps:backspace";
-
       follow_mouse = 1;
       accel_profile = "flat";
 
