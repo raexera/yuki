@@ -34,7 +34,6 @@
     openssl
     ouch
     p7zip
-    pkg-config
     pocketbase
     pm2
     podman-compose
