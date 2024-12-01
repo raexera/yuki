@@ -18,8 +18,8 @@
     # Path to the home-manager module directory
     homeModules = self + /home;
 
-    # Common configuration modules shared across all systems
-    sharedModules = [
+    # Common configuration shared across all systems
+    sharedConfig = [
       ./modules/config
       ./modules/programs
       ./modules/security
@@ -54,7 +54,7 @@
               ]
             ))
           ]
-          ++ sharedModules;
+          ++ sharedConfig;
 
         specialArgs = recursiveUpdate {
           inherit inputs self;

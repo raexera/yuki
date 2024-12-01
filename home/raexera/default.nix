@@ -2,7 +2,6 @@
   imports = [
     ./config
     ./editors/vscode
-    ./options/theme
     ./packages
     ./programs
     ./services

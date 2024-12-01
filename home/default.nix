@@ -4,6 +4,10 @@
   ...
 }: let
   specialArgs = {inherit inputs self;};
+
+  sharedModules = [
+    ./modules/theme
+  ];
 in {
   home-manager = {
     # Extra `specialArgs` passed to home-manager
@@ -24,18 +28,20 @@ in {
     };
 
     # Extra modules added to all users
-    sharedModules = [
-      {
-        # Let home-manager install and manage itself
-        programs.home-manager.enable = true;
+    sharedModules =
+      [
+        {
+          # Let home-manager install and manage itself
+          programs.home-manager.enable = true;
 
-        # Avoid installing multiple variants of the home-manager manual to save space
-        manual = {
-          html.enable = false;
-          json.enable = false;
-          manpages.enable = false;
-        };
-      }
-    ];
+          # Avoid installing multiple variants of the home-manager manual to save space
+          manual = {
+            html.enable = false;
+            json.enable = false;
+            manpages.enable = false;
+          };
+        }
+      ]
+      ++ sharedModules;
   };
 }
