@@ -46,7 +46,6 @@
     lazydocker
     lefthook
     libnotify
-    lldb
     loupe
     nodejs
     obsidian
