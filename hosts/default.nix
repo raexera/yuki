@@ -20,12 +20,12 @@
 
     # Common configuration shared across all systems
     sharedConfig = [
-      ./modules/config
-      ./modules/programs
-      ./modules/security
-      ./modules/services
-      ./modules/shell
-      ./modules/system
+      ./config/nix
+      ./config/programs
+      ./config/security
+      ./config/services
+      ./config/shell
+      ./config/system
     ];
 
     # Function to create a NixOS configuration for a specific hostname and system

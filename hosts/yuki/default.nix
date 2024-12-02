@@ -19,13 +19,14 @@
     ./virtualisation/docker.nix
     ./virtualisation/podman.nix
 
-    ../modules/hardware/acpi_call
-    ../modules/hardware/bluetooth
-    ../modules/hardware/cpu/intel
-    ../modules/hardware/gpu/intel
-    ../modules/hardware/gpu/nvidia
-    ../modules/hardware/ssd
-    ../modules/window-managers/hyprland
+    ../config/fonts
+    ../config/hardware/acpi_call
+    ../config/hardware/bluetooth
+    ../config/hardware/cpu/intel
+    ../config/hardware/gpu/intel
+    ../config/hardware/gpu/nvidia
+    ../config/hardware/ssd
+    ../config/window-managers/hyprland
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
